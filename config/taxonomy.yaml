@@ -1,0 +1,49 @@
+role:
+  core:
+    definition: Expected of all students and important to later course material or assessment.
+  exposure:
+    definition: Students should understand the motivation and main idea, but detailed derivation or implementation is not required.
+  extension:
+    definition: Optional, advanced, project-oriented, or primarily useful for further study.
+
+mastery:
+  recognize:
+    definition: Identify the concept or method and its purpose.
+  explain:
+    definition: Explain how and why it works at a conceptual level.
+  derive:
+    definition: Reproduce or reason through the central mathematical derivation.
+  implement:
+    definition: Implement or meaningfully modify the method.
+  analyze:
+    definition: Diagnose behavior, assumptions, tradeoffs, or failure modes.
+
+status:
+  foundational:
+    definition: Durable concept forming part of the conceptual foundations of RL.
+  classical:
+    definition: Established classical method or formulation still useful pedagogically.
+  historically-important:
+    definition: Important for understanding later developments but not necessarily current practice.
+  current-practice:
+    definition: Common contemporary baseline or practical method within a stated scope.
+  active-research:
+    definition: Area or method under substantial current research development.
+
+delivery:
+  live:
+  video:
+  required-reading:
+  optional-reading:
+  project-only:
+
+assessment:
+    none:
+    exam:
+    assignment:
+    project:
+  
+status_is_multivalued: true
+mastery_is_multivalued: true
+delivery_is_multivalued: true
+assessment_is_multivalued: true

@@ -1,0 +1,41 @@
+sources:
+  - id: silver_rl
+    instructor: David Silver
+    url: https://davidstarsilver.wordpress.com/teaching/
+    role: classical_reference
+
+  - id: berkeley_cs285
+    instructor: Sergey Levine
+    url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    role: deep_rl_reference
+
+  - id: stanford_cs234
+    instructor: Emma Brunskill
+    url: https://web.stanford.edu/class/cs234/
+    role: modern_intro_reference
+
+  - id: stanford_cs224r
+    instructor: Chelsea Finn
+    url: https://cs224r.stanford.edu/
+    role: modern_deep_rl_reference
+
+  - id: current_course
+    instructor: local
+    path: sources/current_course/
+    role: baseline
+    
+  - id: abbeel_older_foundations_of_drl
+    instructor: Pieter Abbeel
+    path: sources/foundations-deep-rl-abbeel/
+    role: shorter_deep_rl_reference
+
+  - id: sutton
+    instructor: Rich Sutton
+    path: sources/sutton/
+    role: book_relevance
+    
+books:
+  - id: rl_book
+    authors: Rich Sutton and Andrew Barto
+    path: sources/RLbook2020.pdf
+    role: Main reference book for the classical/foundational parts

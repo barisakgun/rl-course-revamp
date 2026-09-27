@@ -1,0 +1,59 @@
+course:
+  name: Reinforcement Learning
+  planned_weeks: 13
+  lectures_per_week: 2
+
+  nominal_semester_lectures: 28
+  holiday_conflicts: 1
+  instructor_absences: 3
+  makeup_lectures: 2
+
+  target_videos: 2
+
+  # Fill this in with your actual class duration.
+  lecture_minutes: 70
+
+design:
+  balance:
+    - fundamental_rl
+    - deep_rl
+    - modern_rl
+    - llm_post_training
+
+  planned_content_fraction: 0.90
+  # Leave ~10% of live teaching time for questions,
+  # examples, overruns and consolidation.
+
+  project_required: true
+  llm_assignment_required: false
+
+learning_outcomes:
+  - id: L01
+    text: distinguish RL from other learning and planning settings
+  - id: L02
+    text: explain and distinguish state, observation, action, reward, value, policy, model and partial observability
+  - id: L03
+    text: formulate sequential decision problems as MDPs
+  - id: L04
+    text: derive and implement representative RL methods
+  - id: L05
+    text: select methods based on data, interaction and model availability
+  - id: L06
+    text: diagnose important RL failure modes
+  - id: L07
+    text: design and evaluate RL experiments
+  - id: L08
+    text: connect modern RL methods to common RL foundations
+
+audience:
+  level: Senior Undergraduate, Graduate
+  assumed_background:
+    - probability
+    - linear_algebra
+    - basic_machine_learning
+    - python_programming
+    - basics of tree/graph search
+
+resource_constraints:
+  expected_student_compute: personal laptop, potential access to university hpc (for graduate students)
+  

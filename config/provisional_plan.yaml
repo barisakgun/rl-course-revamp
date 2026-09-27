@@ -1,0 +1,250 @@
+version: 0.2
+status: provisional
+
+weekly_plan:
+  - week: 1
+    title: RL formulation and MDPs
+    intent: Establish the sequential-decision-making formulation and core vocabulary.
+    topics:
+      - sequential decision making
+      - agent-environment interaction
+      - observations vs states
+      - state abstraction
+      - actions
+      - policies
+      - models
+      - rewards vs return/value
+      - partial observability
+      - Markov property
+      - MDP components
+    notes:
+      - Reserve part of the week for course administration.
+
+  - week: 2
+    title: Bellman equations and dynamic programming
+    intent: Develop the mathematical structure of planning in known MDPs.
+    topics:
+      - Bellman expectation equation
+      - Bellman optimality equation
+      - state-values and action-values
+      - backups and Bellman operators
+      - value iteration
+      - policy evaluation
+      - policy improvement
+      - policy iteration
+      - conceptual relation to generic planning
+    optional:
+      - asynchronous dynamic programming
+
+  - week: 3
+    title: RL taxonomy and model-free prediction
+    intent: Move from known models to learning from sampled experience.
+    topics:
+      - RL vs planning
+      - online vs offline RL
+      - on-policy vs off-policy learning
+      - model-based vs model-free RL
+      - Monte Carlo prediction
+      - TD(0)
+      - sampling and bootstrapping
+      - bias-variance tradeoff
+      - n-step returns
+      - lambda-return as a generalized-return concept
+
+  - week: 4
+    title: Model-free control and exploration basics
+    intent: Introduce policy improvement from experience and basic exploration.
+    topics:
+      - policy improvement theorem
+      - generalized policy iteration
+      - exploration-exploitation tradeoff
+      - epsilon-greedy exploration
+      - Monte Carlo control
+      - SARSA
+      - Q-learning
+      - behavior vs target policies
+      - importance-sampling concepts
+      - maximization bias
+      - Double Q-learning
+    exposure:
+      - Boltzmann action selection
+      - Expected SARSA
+
+  - week: 5
+    title: Function approximation and instability
+    intent: Generalize value learning beyond tabular representations and expose failure modes.
+    topics:
+      - feature-based representations
+      - representation and observability
+      - linear function approximation
+      - semi-gradient methods
+      - projection intuition
+      - off-policy divergence
+      - deadly triad
+      - empirical or analytical divergence example
+      - motivation for nonlinear approximation
+
+  - week: 6
+    title: Deep value-based RL
+    intent: Show how deep networks alter the stability and engineering of value learning.
+    topics:
+      - DQN
+      - experience replay
+      - target networks
+      - Double DQN
+      - practical instability
+    exposure:
+      - prioritized replay
+      - dueling networks
+      - distributional RL
+      - Rainbow
+
+  - week: 7
+    title: Policy search, policy gradients and actor-critic
+    intent: Shift from value-based control to direct policy optimization.
+    topics:
+      - continuous action spaces
+      - policy parameterization
+      - policy-gradient theorem
+      - REINFORCE
+      - baselines
+      - advantages
+      - actor-critic
+      - critic-induced bias
+    exposure:
+      - cross-entropy method
+      - finite-difference policy search
+
+  - week: 8
+    title: Modern policy optimization
+    intent: Develop modern policy-update and continuous-control methods.
+    topics:
+      - generalized advantage estimation
+      - natural-gradient intuition
+      - trust-region intuition
+      - PPO
+      - entropy regularization
+      - SAC
+    exposure:
+      - TRPO details
+      - DDPG
+      - TD3
+
+  - week: 9
+    title: Bandits and exploration
+    intent: Develop principled exploration before moving to tree search.
+    topics:
+      - multi-armed bandits
+      - contextual bandits
+      - regret
+      - optimism
+      - UCB
+      - Thompson sampling
+      - exploration in MDPs
+      - count-based and intrinsic exploration
+    exposure:
+      - random network distillation
+    transition:
+      - connect UCB to UCT
+
+  - week: 10
+    title: Search, planning and MCTS
+    intent: Connect exploration, search and learned policy/value guidance.
+    supporting_video: search_background
+    topics:
+      - UCT
+      - Monte Carlo Tree Search
+      - rollout evaluation
+      - policy and value guidance
+      - AlphaZero-style search
+
+  - week: 11
+    title: Model-based RL and world models
+    intent: Study planning and policy learning when the environment model must be learned.
+    topics:
+      - learned dynamics models
+      - Dyna-style methods
+      - model predictive control
+      - imagined trajectories
+      - latent-state models
+      - model error and uncertainty
+      - compounding error
+      - planning horizon
+      - Dreamer as a representative method
+      - MuZero as a representative method
+    optional:
+      - auxiliary prediction objectives
+
+  - week: 12
+    title: Offline RL and imitation learning
+    intent: Study learning when new environment interaction is limited or unavailable.
+    topics:
+      - behavior cloning
+      - distribution shift
+      - failure of naive off-policy RL on fixed data
+      - coverage and extrapolation error
+      - behavior regularization
+      - conservative and pessimistic value estimation
+      - CQL
+      - IQL
+    optional:
+      - offline-to-online fine-tuning
+      - preference-based learning
+
+  - week: 13
+    title: RL for LLM post-training
+    intent: Reinterpret LLM post-training using the course's RL concepts.
+    supporting_video: llm_background
+    topics:
+      - contextual-bandit vs sequential formulations
+      - token-level decision making
+      - PPO-style LLM training
+      - KL regularization to a reference policy
+      - REINFORCE-style estimators
+      - RLOO
+      - GRPO
+      - online sampling and policy drift
+      - outcome vs process rewards
+      - reward hacking and specification gaming
+
+videos:
+  - id: search_background
+    purpose: Supply prerequisite classical-search material for Week 10.
+    content:
+      - tree vs graph search
+      - BFS and DFS
+      - A-star and heuristics
+      - Expectimax Search
+      - basic rollout intuition
+
+  - id: llm_background
+    purpose: Supply LLM-specific prerequisites so live time can focus on RL.
+    content:
+      - pretraining
+      - supervised fine-tuning
+      - autoregressive generation
+      - preference data
+      - Bradley-Terry reward modeling
+      - RLHF pipeline
+      - DPO as a contrast to online RL
+
+assessment_hypotheses:
+  status: non-binding
+  assignments:
+    - content: tabular RL
+      text: VI, PI, MC/TD prediction, MC control, SARSA/Q-learning
+    - content: function approximation and DQN
+      text: Linear approximation, representation limitations, divergence/deadly-triad demonstration, DQN with replay/target network (representational sufficiency - linear works; representational insufficiency - linear does not work but a nonlinear approximator does; algorithmic instability - the representation is not the problem, but the learning dynamics diverge.)
+    - content: policy optimization
+      text: REINFORCE, baseline/advantage, actor–critic or PPO
+    - content: offline RL
+      text: BC, naive offline Q-learning, CQL or IQL, comparison under distribution shift
+  llm_assignment_required: false
+
+project_constraints:
+  presentation_week: 13
+  current_milestone_hypothesis:
+    proposal_week: 4
+    design_week: 7
+    progress_week: 10
+
