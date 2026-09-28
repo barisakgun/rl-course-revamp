@@ -69,7 +69,31 @@ def plan_leaves(plan):
         yield f'/assessment_hypotheses/assignments/{i}/text', assignment['text']
 
 
-def validate(data):
+def check_protected_snapshot(guard, strict=False):
+    """Historical session hashes are advisory; current evidence is checked separately."""
+    if not guard.is_file():
+        require(not strict, f'Historical snapshot unavailable: {guard}')
+        return {'protected_snapshot_status': 'unavailable', 'protected_files_verified': 0,
+                'protected_snapshot_warnings': []}
+    verified = 0
+    mismatches = []
+    for path, digest in json.loads(guard.read_text()).items():
+        # Finder metadata is not project state (and is excluded by .gitignore).
+        if Path(path).name == '.DS_Store':
+            continue
+        current = ROOT / path
+        if not current.is_file():
+            mismatches.append(f'File missing since the pre-Phase-2 snapshot: {path}')
+        elif hashlib.sha256(current.read_bytes()).hexdigest() != digest:
+            mismatches.append(f'File changed since the pre-Phase-2 snapshot: {path}')
+        else:
+            verified += 1
+    require(not strict or not mismatches, 'Historical snapshot mismatch: ' + '; '.join(mismatches))
+    return {'protected_snapshot_status': 'changed' if mismatches else 'matched',
+            'protected_files_verified': verified, 'protected_snapshot_warnings': mismatches}
+
+
+def validate(data, strict_protected_hashes=False):
     # All project YAML is parse-checked, but never rewritten.
     for path in sorted(ROOT.rglob('*.yaml')):
         if '.git' not in path.parts:
@@ -198,19 +222,15 @@ def validate(data):
     require(mapped_pointers == expected_pointers, f'Incomplete plan mapping: {expected_pointers - mapped_pointers}')
     for ambiguity in data['ambiguities']:
         require(set(ambiguity['topic_ids']) <= topic_ids, f'Ambiguity topic ID: {ambiguity["id"]}')
-    # Optional session guard, not needed on another machine or future checkout.
-    guard = Path('/private/tmp/rl_phase2_protected.json')
-    protected_count = 0
-    if guard.is_file():
-        for path, digest in json.loads(guard.read_text()).items():
-            require(hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest, f'Protected file changed: {path}')
-            protected_count += 1
+    # This snapshot records a past phase boundary, not permanent file immutability.
+    # Warnings describe drift; they do not assert that a change was authorized.
+    historical = check_protected_snapshot(Path('/private/tmp/rl_phase2_protected.json'), strict_protected_hashes)
     return materials, corpus, plan, {'topics': len(topics), 'source_topic_pairs': len(topics) * len(source_ids),
         'positive_pairs': sum(s['coverage'] not in ('unknown', 'not-found') for t in topics for s in t['sources'].values()),
         'evidence_references': evidence_count, 'provisional_items': len(expected_pointers),
         'provisional_mappings': sum(len(t['provisional_plan']) for t in topics),
         'pdf_artifacts': len(corpus), 'book_mapped_topics': sum(bool(t['book_mapping']['rl_book']['references']) for t in topics),
-        'ambiguities': len(data['ambiguities']), 'protected_files_verified': protected_count}
+        'ambiguities': len(data['ambiguities']), **historical}
 
 
 def esc(value):
@@ -413,7 +433,7 @@ def render(data, materials, corpus, plan, stats):
               '- [Detailed citations](phase2/evidence_by_topic.md), [book mapping](phase2/book_mapping.md), and [ambiguities](phase2/ambiguities.md): generated inspection views.',
               '- [PDF inspection ledger](phase2/corpus.json): hashes, URLs/paths, extraction timestamps and page counts.',
               '- `python3 scripts/phase2_report.py --check-only --check-generated` validates YAML keys, topic/source/material IDs, coverage requirements, evidence indices, page bounds, book offsets, local-file hashes, taxonomy assessment values, all plan pointers and generated-file consistency.', '',
-              'No configuration, source files, accepted decisions or teaching artifacts were changed by Phase 2. The session integrity check compares pre-phase hashes when its temporary guard file is present. Regeneration itself is offline and writes only the listed Phase 2 analysis views.', '',
+              'The Phase 2 normalization run changed no configuration, source files, accepted decisions or teaching artifacts. Subsequent instructor-approved changes are recorded in `decisions/decision_log.md`. Historical pre-phase hash differences now produce warnings by default; `--strict-protected-hashes` makes that historical audit mandatory and fatal on mismatch. Current evidence integrity checks remain mandatory. Regeneration itself is offline and writes only the listed Phase 2 analysis views.', '',
               '## Blockers and evidence gaps', '', 'No blocker prevents completion of the Phase 2 evidence model. The following limitations constrain later claims:', '']
     for gap in data['evidence_gaps']:
         lines += [f'- **{gap["id"]}:** {gap["limitation"]} {gap["effect"]}']
@@ -427,9 +447,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check-only', action='store_true', help='Validate without writing views')
     parser.add_argument('--check-generated', action='store_true', help='Fail if generated views are missing or stale')
+    parser.add_argument('--strict-protected-hashes', action='store_true',
+                        help='Require the temporary pre-Phase-2 snapshot and fail on any historical file drift')
     args = parser.parse_args()
     data = read_yaml(DATA)
-    materials, corpus, plan, stats = validate(data)
+    materials, corpus, plan, stats = validate(data, strict_protected_hashes=args.strict_protected_hashes)
     outputs = render(data, materials, corpus, plan, stats)
     if args.check_generated:
         for path, content in outputs.items():

@@ -70,7 +70,11 @@ python3 scripts/phase2_report.py
 
 The first command validates the model and verifies that its six Markdown views are current; the second validates and regenerates them. Both run without network access or the temporary PDF cache. Dependencies are Python 3 and PyYAML. Checks cover duplicate YAML keys, configured source and book IDs, complete source-topic records, material provenance, physical page bounds, evidence indices, inferred-depth labels, assessment taxonomy, book page offsets and local-file hashes. Every weekly topic/exposure/optional/transition item, video content item and assignment hypothesis must have an exact configuration-pointer mapping.
 
-The optional `/private/tmp/rl_phase2_protected.json` session record checks pre-phase hashes of normally read-only files. It is not a repository dependency. The Phase 1 validator intentionally has a pre-Phase-2 boundary assertion; use the Phase 2 validator now, not the Phase 1 validator. Rendering Phase 2 views does not rerun collection or alter source manifests.
+The optional `/private/tmp/rl_phase2_protected.json` session record contains historical pre-Phase-2 hashes. Differences or missing historical files appear in `protected_snapshot_warnings` in the JSON result and do not fail ordinary validation. These warnings report drift, not permission: review changes against the decision log and Git history. The script never updates the snapshot or asks to accept new hashes. Current evidence hashes, provenance, configuration pointers and generated-view checks still fail on inconsistencies.
+
+For a strict historical audit, add `--strict-protected-hashes`; it fails if the snapshot is absent or any recorded project file differs. Finder `.DS_Store` metadata is ignored in both modes. This is useful for checking the original phase boundary, not normal work after accepted changes. With no snapshot, ordinary validation reports `protected_snapshot_status: unavailable` and continues; the temporary record is not a repository dependency.
+
+The Phase 1 validator intentionally has a pre-Phase-2 boundary assertion; use the Phase 2 validator now, not the Phase 1 validator. Rendering Phase 2 views does not rerun collection or alter source manifests. Local source PDFs and the book must still be present to validate their recorded hashes, even when excluded from Git. A fresh session in this existing workspace can use them; a fresh clone needs those files restored separately.
 
 Generated views:
 

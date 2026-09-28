@@ -18,7 +18,7 @@ weekly_plan:
       - Markov property
       - MDP components
     notes:
-      - Reserve part of the week for course administration.
+      - Apply the syllabus-overview overhead defined in config/course.yaml.
 
   - week: 2
     title: Bellman equations and dynamic programming
@@ -241,9 +241,9 @@ assessment_hypotheses:
       text: BC, naive offline Q-learning, CQL or IQL, comparison under distribution shift
 
 project_constraints:
+  # Class-hour accounting is governed by config/course.yaml.
   presentation_week: 13
   current_milestone_hypothesis:
     proposal_week: 4
     design_week: 7
     progress_week: 10
-

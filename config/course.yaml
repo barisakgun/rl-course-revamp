@@ -10,7 +10,6 @@ course:
 
   target_videos: 2
 
-  # Fill this in with your actual class duration.
   lecture_minutes: 70
 
 design:
@@ -20,9 +19,17 @@ design:
     - modern_rl
     - llm_post_training
 
-  planned_content_fraction: 0.90
-  # Leave ~10% of live teaching time for questions,
+  planned_content_fraction: 0.85
+  # Leave 15% of scheduled live teaching time for questions,
   # examples, overruns and consolidation.
+  # Deduct the following overheads AFTER applying this fraction;
+  # they are additional to the reserved slack.
+  in_class_overheads:
+    - id: syllabus_overview
+      week: 1
+      minutes: 20
+
+  project_presentations_outside_class_hours: true
 
   project_required: true
   llm_assignment_required: false
@@ -56,4 +63,3 @@ audience:
 
 resource_constraints:
   expected_student_compute: personal laptop, potential access to university hpc (for graduate students)
-  

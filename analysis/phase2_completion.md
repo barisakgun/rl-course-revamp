@@ -29,7 +29,7 @@ The evidence model contains 146 stable topics, 1022 explicit source-topic record
 - [PDF inspection ledger](phase2/corpus.json): hashes, URLs/paths, extraction timestamps and page counts.
 - `python3 scripts/phase2_report.py --check-only --check-generated` validates YAML keys, topic/source/material IDs, coverage requirements, evidence indices, page bounds, book offsets, local-file hashes, taxonomy assessment values, all plan pointers and generated-file consistency.
 
-No configuration, source files, accepted decisions or teaching artifacts were changed by Phase 2. The session integrity check compares pre-phase hashes when its temporary guard file is present. Regeneration itself is offline and writes only the listed Phase 2 analysis views.
+The Phase 2 normalization run changed no configuration, source files, accepted decisions or teaching artifacts. Subsequent instructor-approved changes are recorded in `decisions/decision_log.md`. Historical pre-phase hash differences now produce warnings by default; `--strict-protected-hashes` makes that historical audit mandatory and fatal on mismatch. Current evidence integrity checks remain mandatory. Regeneration itself is offline and writes only the listed Phase 2 analysis views.
 
 ## Blockers and evidence gaps
 

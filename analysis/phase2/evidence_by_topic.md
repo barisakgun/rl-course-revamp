@@ -6,7 +6,7 @@ This is Phase 2 evidence organization. It assigns no redesigned-course role, mas
 
 Physical PDF page numbers are 1-based. Book references additionally show printed pages. Claims are paraphrased; page spans may contain several distinct concepts. Read the topic definition and any qualification before inferring equivalence.
 
-Per-topic citations link to source artifacts. Hashes, retrieval times and extraction status are in [corpus.json](corpus.json); offering and original provenance remain in the linked manifests. `direct_catalog_listing` supports a pointer or stated task, not full review of the lindirectked paper.
+Per-topic citations link to source artifacts. Hashes, retrieval times and extraction status are in [corpus.json](corpus.json); offering and original provenance remain in the linked manifests. `direct_catalog_listing` supports a pointer or stated task, not full review of the linked paper.
 
 <a id="rl_formulation"></a>
 

@@ -249,6 +249,23 @@ Use Git history for previous iterations rather than maintaining multiple version
 
 The audit should evaluate both arithmetic capacity and conceptual density.
 
+Time-accounting inputs are authoritative in `config/course.yaml`:
+
+- Planned contact minutes = planned weeks × lectures per week × lecture minutes.
+- Check that planned lectures fit the nominal lecture count after holidays,
+  instructor absences and makeups; do not subtract those losses a second time.
+- Content capacity = planned contact minutes × `design.planned_content_fraction`
+  minus the sum of `minutes` in `design.in_class_overheads`. Apply overheads to their specified weeks,
+  after the content fraction, so they do not consume the reserved slack.
+- Follow `design.project_presentations_outside_class_hours` when accounting for
+  presentations. Sessions outside class consume no live lecture budget but still
+  contribute to student workload in the later workload audit.
+- Allocate minutes to teaching blocks; overlapping topic IDs within a block
+  must not be counted as separate allocations.
+
+Compute totals from these inputs in the audit rather than maintaining another
+authoritative copy of the time allowances.
+
 ## Video decisions
 
 Video suitability should be considered during this phase because delivery affects the live-time budget and prerequisite sequence.

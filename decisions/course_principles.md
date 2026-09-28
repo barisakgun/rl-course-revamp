@@ -86,7 +86,7 @@ Students should identify a problem, formulate it as an RL problem, implement a s
 
 Project milestones should force early formulation and evaluation decisions rather than allowing the project to become an end-of-semester implementation exercise.
 
-The current milestone structure is proposal, formulation/design checkpoint, progress checkpoint, presentation, and final report. Exact timing and grading remain subject to project-design review.
+The current milestone structure is proposal, formulation/design checkpoint, progress checkpoint, presentation, and final report. Scheduling must respect the class-hour constraints in `config/course.yaml`; exact milestone dates and grading remain subject to project-design review.
 
 ## Use of external courses
 
