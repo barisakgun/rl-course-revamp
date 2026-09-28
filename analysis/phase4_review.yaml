@@ -1,0 +1,173 @@
+schema_version: 1
+date: '2026-09-28'
+state: freeze-accepted
+authority: Audit judgments only. Accepted curriculum classifications and sequence come from decisions; assessment
+  paths remain proposals.
+recommendation: Curriculum freeze retained with accepted bounded Double DQN/IQL implementation revisions. Phase
+  5 high-level design is complete; Phase 6 integrates schedule and syllabus. No weekly topic/time changes.
+confidence: Medium for bounded foundational progression; low for unobserved modern-unit pacing and total student
+  workload. Instructor considers the selected timing doable.
+outcomes:
+- id: L01
+  sessions:
+  - formulate
+  - bandits
+  - offline_failure
+  assessment: Explain RL versus prediction, planning and fixed-data policy fitting in a short comparison.
+- id: L02
+  sessions:
+  - formulate
+  - mdp_values
+  - models
+  assessment: Explain state/observation distinctions and diagnose an inadequate state representation.
+- id: L03
+  sessions:
+  - mdp_values
+  - control_practice
+  assessment: Formulate a finite MDP and justify state, reward and horizon choices; transfer to project proposal.
+- id: L04
+  sessions:
+  - bellman
+  - improvement
+  - mc_td
+  - control_targets
+  - linear
+  - reinforce
+  - baseline
+  - actor_gae
+  assessment: Derive selected backups/estimators and implement representative tabular, approximate and policy methods;
+    exact selection/workload in Phase 5.
+- id: L05
+  sessions:
+  - model_limits
+  - offline_failure
+  - offline_constraints
+  assessment: Choose a method for specified data support, interaction and model access; explain limitations.
+- id: L06
+  sessions:
+  - instability
+  - dqn_diagnosis
+  - offline_failure
+  - llm_failure
+  assessment: Analyze divergence, maximization bias, unsupported-action or reward/evaluation failures using a worked
+    case.
+- id: L07
+  sessions:
+  - returns
+  - control_practice
+  - dqn_diagnosis
+  - baseline
+  - ppo_contrast
+  - offline_constraints
+  - llm_failure
+  assessment: Compare learning curves and controlled baselines; justify seeds, evaluation protocol and claims in
+    project work.
+- id: L08
+  sessions:
+  - actor_gae
+  - ppo_contrast
+  - search_dyna
+  - offline_constraints
+  - llm_mapping
+  - llm_failure
+  assessment: Explain how modern targets/objectives reuse value estimation, policy optimization, support and reward
+    concepts; no mandatory LLM implementation.
+findings:
+- id: F1
+  result: accepted
+  topic: Freeze authority
+  detail: Instructor explicitly accepted curriculum freeze. Roles, status labels and the baseline lecture plan were
+    moved into decisions without changing scope or minutes. Assessment design and final syllabus freeze remain later
+    steps.
+- id: F2
+  result: pass-with-pacing-risk
+  topic: Core depth and representative mastery
+  detail: Preserve Bellman/improvement work, MC/TD shared trajectories, SARSA/Q target comparison, linear update/divergence,
+    REINFORCE/baseline reasoning and the forward-return/GAE bridge. Group-level derive/implement labels apply to
+    the bounded representative methods in the accepted scope, not every normalized ID. Model learning stays explain/analyze.
+    IQL now includes three scaffolded loss implementations; Double DQN includes the target patch. These use existing
+    examples rather than new lecture blocks. Timing is an estimate; the instructor has judged it doable.
+- id: F3
+  result: pass
+  topic: Prerequisite progression
+  detail: MDP/value definitions precede Bellman and sampled backups; approximation/instability precede DQN; critics,
+    n-step returns and forward mixtures precede GAE; policy ratios and entropy precede SAC. UCB precedes UCT, search
+    precedes Dyna/model-error discussion, and offline support reasoning precedes IQL/CQL. Expectiles and weighted
+    fitting are taught in Week 12, not assumed. Reparameterized sampling receives intuition inside SAC. LLM objectives
+    reuse policy/advantage/reward concepts.
+- id: F4
+  result: pass-with-delivery-checkpoints
+  topic: Required preparation
+  detail: Search video builds beyond assumed BFS/DFS; LLM video supplies transformer/autoregressive, pretraining
+    and SFT background. Playback and study time are counted separately from live time. Weeks 4, 8 and 11 checkpoints
+    can adjust scope. A third policy video is a contingency, not compulsory work. Full prerequisite remediation
+    would require reallocation. No optional reading is an unstated prerequisite.
+- id: F5
+  result: pass-for-curriculum-stage
+  topic: Assessment paths and milestone prerequisites
+  detail: 'All derive/implement/analyze groups have a proposed exam, assignment or project path. The Week 4 formulation,
+    Week 7 design and Week 10 progress checkpoints can rely on material already taught. Projects requiring later
+    offline/LLM content need separately bounded preparation or a narrower topic. Provisional assignment hypotheses
+    do not impose extra mastery: reconcile algorithm selection, laptop compute and workload in Phase 5. No mandatory
+    LLM assignment is added.'
+- id: F6
+  result: deferred-without-blocking
+  topic: Optional additions and total workload
+  detail: LSTD remains an optional five-minute substitution; the tentative IRL mention competes for the same local
+    margin. Neither is in the base allocation. Presentation preparation/attendance outside class and assignment/project/reading
+    workload are still to be estimated in Phase 5; this is a curriculum audit, not final syllabus workload approval.
+    Future topics do not become current requirements.
+- id: F7
+  result: pass
+  topic: Research/practice status
+  detail: Required groups have accepted status labels separate from role. Foundational/classical labels are supported
+    by normalized book/course evidence; mixed groups distinguish underlying concepts from representative algorithms.
+    Dated primary sources below support the bounded modern status inferences. Optional extensions are excluded from
+    required mastery and need individual status review if later included. No SOTA, universal deployment or prevalence
+    claim is made.
+status_evidence:
+- id: control_baselines_2025
+  title: Value Diffusion Reinforcement Learning
+  url: https://proceedings.neurips.cc/paper_files/paper/2025/file/694be3548697e9cc8999d45e8d16fe1e-Paper-Conference.pdf
+  period: NeurIPS 2025
+  retrieved: '2026-09-28'
+  locator: 'PDF pp. 7 and 17: comparison baselines and implementation details'
+  groups:
+  - policy_updates
+  - continuous_control_contrast
+  observation: PPO and SAC are used as comparison baselines in continuous-control experiments.
+  inference: Supports current-practice within contemporary continuous-control benchmarking; not deployment prevalence
+    or performance superiority.
+- id: world_models_2025
+  title: Mastering diverse control tasks through world models
+  url: https://www.nature.com/articles/s41586-025-08744-2
+  period: Published 2025-04-02
+  retrieved: '2026-09-28'
+  locator: Abstract and world-model control study
+  groups:
+  - world_model_overview
+  observation: Primary research studies a learned-world-model agent across control tasks.
+  inference: Supports active-research for world-model control in 2025, without requiring Dreamer implementation
+    or a ranking claim.
+- id: offline_online_2025
+  title: Efficient Online Reinforcement Learning Fine-Tuning Need Not Retain Offline Data
+  url: https://proceedings.iclr.cc/paper_files/paper/2025/file/504491292cb71e7681eedfe0e602b72f-Paper-Conference.pdf
+  period: ICLR 2025
+  retrieved: '2026-09-28'
+  locator: 'PDF pp. 2–3: CQL/IQL initializations and fine-tuning analysis'
+  groups:
+  - offline_iql
+  - offline_representative
+  observation: The study analyzes CQL- and IQL-initialized offline-to-online learning.
+  inference: Supports active-research in this scoped setting. Does not equate IQL support restrictions with CQL
+    conservative value regularization.
+- id: critic_free_llm_2025
+  title: 'REINFORCE++: Stabilizing Critic-Free Policy Optimization with Global Advantage Normalization'
+  url: https://arxiv.org/abs/2501.03262
+  period: First submitted 2025-01-04; title/abstract as retrieved
+  retrieved: '2026-09-28'
+  locator: 'Abstract: critic-free LLM policy optimization and RLOO/GRPO comparisons'
+  groups:
+  - llm_estimators
+  observation: The research considers RLOO and GRPO in critic-free LLM policy optimization.
+  inference: Supports active-research in LLM post-training, not universal best practice or an algorithm ranking.

@@ -1,3 +1,1190 @@
-schema_version: 1
-curriculum_state: pre-freeze
-topics: []
+schema_version: 2
+curriculum_state: frozen
+authority: Accepted curriculum scope, role, mastery, scoped status, delivery and baseline lecture sequence. Session
+  minutes/ranges are accepted planning estimates, not measured durations; assessment designs remain Phase 5 work.
+acceptance_source: Instructor response to Phase 3 iteration 1, R1-R6 and C1-C5, 2026-09-28
+constraints:
+  policy_live_lectures: 5
+  policy_history_live_minutes: 10
+  average_reward_live_minutes: 5
+  backward_trace_math: false
+  bandit_live_lectures: 1
+  psychology_neuroscience_separate_block: false
+  sac_live_minutes: 30
+scope_decisions:
+- id: formulation
+  topic_ids:
+  - rl_formulation
+  - mdp
+  - state_representation
+  - partial_observability
+  - reward_return
+  - value_functions
+  - policy_parameterization
+  - environment_models
+  scope: Formulate finite episodic/discounted MDPs; distinguish observed information from a Markov state. No POMDP
+    solver or abstraction theorem. Stochastic policy parameterization revisited in policy gradients.
+  delivery:
+  - live
+  mastery:
+  - explain
+  - analyze
+  role: core
+  status:
+  - foundational
+- id: planning
+  topic_ids:
+  - bellman_expectation
+  - bellman_optimality
+  - bellman_operators
+  - dynamic_programming
+  - policy_evaluation
+  - policy_improvement
+  - policy_iteration
+  - value_iteration
+  - generalized_policy_iteration
+  scope: Derive finite-MDP Bellman backups and improvement argument; implement one VI/PI solver, compare the other.
+    No full convergence-proof sequence. GPI reused in control.
+  delivery:
+  - live
+  mastery:
+  - derive
+  - implement
+  - analyze
+  role: core
+  status:
+  - foundational
+  - classical
+- id: prediction
+  topic_ids:
+  - on_off_policy_learning
+  - online_offline_learning
+  - monte_carlo_prediction
+  - sampling_bootstrapping
+  - temporal_difference_learning
+  - bias_variance
+  - n_step_returns
+  scope: MC and TD(0) updates on one shared trajectory; derive n-step target. Implement representative MC/TD prediction,
+    not all return variants. Data-access taxonomy is brief and revisited.
+  delivery:
+  - live
+  mastery:
+  - explain
+  - derive
+  - implement
+  - analyze
+  role: core
+  status:
+  - foundational
+  - classical
+- id: control
+  topic_ids:
+  - sarsa
+  - q_learning
+  - exploration_exploitation
+  - epsilon_greedy
+  scope: Contrast SARSA and Q-learning on a small exploratory-control example; implement a representative tabular
+    control loop with target changes.
+  delivery:
+  - live
+  mastery:
+  - derive
+  - implement
+  - analyze
+  role: core
+  status:
+  - foundational
+  - classical
+- id: mc_control_bridge
+  topic_ids:
+  - monte_carlo_control
+  scope: Short MC-to-TD-control bridge only; no separate implementation requirement.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - classical
+- id: approximation
+  topic_ids:
+  - linear_function_approximation
+  - feature_construction
+  - semi_gradient_methods
+  - approximation_instability
+  - nonlinear_function_approximation
+  scope: One linear semi-gradient update and one worked divergence demonstration; distinguish representation limitations
+    from unstable learning. Nonlinear approximation motivates DQN; no separate neural-network course.
+  delivery:
+  - live
+  mastery:
+  - derive
+  - implement
+  - analyze
+  role: core
+  status:
+  - foundational
+- id: projection
+  topic_ids:
+  - value_projection
+  scope: Geometric intuition only within approximation block; no projected-Bellman derivation.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - foundational
+- id: deep_value
+  topic_ids:
+  - dqn
+  - experience_replay
+  - target_networks
+  scope: One DQN loop and replay/target ablations using small environments or supplied traces.
+  delivery:
+  - live
+  mastery:
+  - explain
+  - implement
+  - analyze
+  role: core
+  status:
+  - classical
+- id: double_estimators
+  topic_ids:
+  - double_q_learning
+  scope: Explain tabular Double Q-learning as a contrast; no separate tabular Double Q implementation required.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - classical
+- id: policy_estimators
+  topic_ids:
+  - policy_gradient
+  - reinforce
+  - baselines_advantages
+  - actor_critic
+  - lambda_return
+  - generalized_advantage_estimation
+  scope: Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from
+    TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed.
+    Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics.
+  delivery:
+  - live
+  mastery:
+  - derive
+  - implement
+  - analyze
+  role: core
+  status:
+  - foundational
+  - classical
+- id: policy_updates
+  topic_ids:
+  - importance_sampling
+  - proximal_policy_optimization
+  - entropy_regularization
+  scope: Explain likelihood ratios, support/variance, clipped surrogate and entropy bonus. Analyze clipping on a
+    scalar example; distinguish recent-batch reuse from arbitrary replay. No PPO convergence guarantee or full implementation
+    requirement.
+  delivery:
+  - live
+  mastery:
+  - explain
+  - analyze
+  role: core
+  status:
+  - foundational
+  - current-practice
+  status_scope: Importance sampling and entropy are foundational concepts. PPO is a contemporary baseline in the
+    cited 2025 MuJoCo/control benchmarking scope; not a claim of universal deployment or superior performance. See
+    analysis/phase4_review.yaml status_evidence.
+- id: continuous_control_contrast
+  topic_ids:
+  - soft_actor_critic
+  scope: SAC receives thirty live minutes within the five-lecture policy-method unit; retain the ten-minute historical
+    overview and foundational estimator chain. Reviewed mastery is explain; no new implementation requirement.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - current-practice
+  status_scope: SAC is a baseline in the cited 2025 MuJoCo continuous-control experiments; full entropy treatment
+    remains supported by Abbeel, not the no-entropy CS224R tutorial. See analysis/phase4_review.yaml status_evidence.
+- id: bandit_concepts
+  topic_ids:
+  - multi_armed_bandits
+  - contextual_bandits
+  - optimism
+  - regret
+  - upper_confidence_bound
+  scope: Bandit as a one-step decision problem, regret as a criterion, one numerical UCB choice and contextual formulation.
+    No regret-bound proof or contextual-bandit algorithm implementation.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: core
+  status:
+  - foundational
+  - classical
+- id: bandit_contrast
+  topic_ids:
+  - thompson_sampling
+  scope: Brief posterior-sampling contrast to UCB; no Bayesian derivation.
+  delivery:
+  - live
+  mastery:
+  - recognize
+  - explain
+  role: exposure
+  status:
+  - classical
+- id: search
+  topic_ids:
+  - rollout_planning
+  - monte_carlo_tree_search
+  - uct
+  - alphazero
+  scope: Trace one tree iteration after UCB; explain value/policy-guided search and a self-play training diagram.
+    No AlphaZero implementation or UCT proof.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - classical
+- id: model_concepts
+  topic_ids:
+  - model_learning
+  - model_error
+  - planning_horizon
+  scope: Distinguish a supplied simulator from learned dynamics; diagnose compounding error, uncertainty and horizon
+    choice on a shared example.
+  delivery:
+  - live
+  mastery:
+  - explain
+  - analyze
+  role: core
+  status:
+  - foundational
+- id: model_methods
+  topic_ids:
+  - dyna
+  - model_predictive_control
+  scope: Dyna updates as synthetic experience; MPC replans after each real action. No Dyna implementation or optimal-control
+    derivation.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - classical
+- id: world_model_overview
+  topic_ids:
+  - world_models
+  scope: One conceptual latent-state/model-error overview. Named Dreamer/MuZero methods are deferred extensions.
+  delivery:
+  - live
+  mastery:
+  - recognize
+  - explain
+  role: exposure
+  status:
+  - active-research
+  status_scope: Active learned-world-model research for general control, evidenced by the 2025 Dreamer study; no
+    SOTA assertion or required Dreamer unit. See analysis/phase4_review.yaml status_evidence.
+- id: offline_concepts
+  topic_ids:
+  - distribution_shift
+  - offline_rl
+  - behavior_regularization
+  - conservative_value_estimation
+  scope: Fixed-data Q-learning failure, coverage, distribution shift and conceptual constraints/pessimism, using
+    IQL as the primary named method and BC as a high-level motivation rather than a separate algorithm-development
+    unit.
+  delivery:
+  - live
+  mastery:
+  - explain
+  - analyze
+  role: core
+  status:
+  - foundational
+- id: offline_representative
+  topic_ids:
+  - conservative_q_learning
+  scope: 'Conservative Q-Learning (CQL): explain the idea of penalizing unsupported values as a brief contrast to
+    IQL. Retain the existing five-minute Week 12.2 allocation; no derivation or implementation requirement.'
+  delivery:
+  - live
+  mastery:
+  - explain
+  display_name: Conservative Q-Learning (CQL)
+  role: exposure
+  status:
+  - active-research
+  status_scope: CQL/IQL remain studied baselines for offline-to-online fine-tuning in the cited ICLR 2025 study.
+    Active-research describes that scoped research context, not superiority. See analysis/phase4_review.yaml status_evidence.
+- id: llm_transfer
+  topic_ids:
+  - llm_post_training
+  - language_model_formulation
+  - kl_regularization
+  - reward_process_outcome
+  - reward_specification
+  scope: LLM RL is an exposure-oriented application unit, supported by prerequisite video, intended to prepare students
+    to begin reading contemporary papers. Retain formulation, PPO/KL, drift and reward/evaluation reasoning at that
+    bounded depth; this is not a comprehensive LLM post-training course or a mandatory training assignment.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - foundational
+- id: llm_estimators
+  topic_ids:
+  - rloo
+  - grpo
+  scope: One leave-one-out baseline calculation; GRPO as a short grouped-advantage/clipping comparison. Objectives
+    remain distinct. No implementation or normalization-variant catalog.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - active-research
+  status_scope: RLOO/GRPO are evaluated/extended in critic-free LLM policy-optimization research in 2025; no universal-practice
+    claim. See analysis/phase4_review.yaml status_evidence.
+- id: evaluation
+  topic_ids:
+  - experiment_design
+  scope: Choose a baseline, separate training/evaluation, compare seeds and uncertainty, distinguish interaction/compute
+    budgets, and interpret ablations; revisit reward validity late.
+  delivery:
+  - live
+  mastery:
+  - analyze
+  role: core
+  status:
+  - foundational
+- id: search_background
+  topic_ids:
+  - classical_search
+  scope: Follow the accepted search-background video decision in decisions/video_decisions.md; BFS/DFS are assumed
+    audience background.
+  delivery:
+  - video
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - classical
+- id: llm_background
+  topic_ids:
+  - language_model_pretraining
+  - supervised_fine_tuning
+  - autoregressive_generation
+  - preference_learning
+  - bradley_terry
+  - direct_preference_optimization
+  scope: Follow the accepted LLM-background video decision in decisions/video_decisions.md, including transformer,
+    autoregressive-model, pretraining and SFT prerequisites.
+  delivery:
+  - video
+  mastery:
+  - recognize
+  - explain
+  role: exposure
+  status:
+  - foundational
+- id: optional_extensions
+  topic_ids:
+  - asynchronous_dynamic_programming
+  - expected_sarsa
+  - softmax_exploration
+  - prioritized_replay
+  - dueling_networks
+  - distributional_rl
+  - rainbow
+  - natural_policy_gradient
+  - trust_region_policy_optimization
+  - ddpg
+  - td3
+  - random_network_distillation
+  - dreamer
+  - muzero
+  - auxiliary_prediction
+  - offline_to_online
+  scope: Not required or assessed. No scheduled teaching time or assigned reading in this iteration. Optional interest
+    pointers may be selected later; practice/research status remains to be reviewed individually if included.
+  delivery:
+  - optional-reading
+  - project-only
+  mastery:
+  - recognize
+  role: extension
+  status: []
+- id: backward_trace_mention
+  topic_ids:
+  - eligibility_traces
+  scope: Mention that a backward-view/eligibility-trace formulation also exists while discussing forward lambda
+    and GAE. No backward-lambda mathematics or algorithm coverage.
+  delivery:
+  - live
+  mastery:
+  - recognize
+  role: exposure
+  status:
+  - classical
+- id: policy_history
+  topic_ids:
+  - policy_search
+  - cross_entropy_method
+  - finite_difference_policy_gradient
+  scope: Ten-minute historical overview of gradient-free search and finite differences. No mathematics or algorithms.
+  delivery:
+  - live
+  mastery:
+  - recognize
+  role: exposure
+  status:
+  - historically-important
+- id: average_reward_context
+  topic_ids:
+  - average_reward
+  scope: Five-minute introduction to average reward as a continuing-task objective; no differential-value derivation
+    or algorithm.
+  delivery:
+  - live
+  mastery:
+  - recognize
+  - explain
+  role: exposure
+  status:
+  - classical
+- id: model_exploration
+  topic_ids:
+  - intrinsic_exploration
+  scope: 'Move selected exploration concepts from the single bandit lecture to learned models: model uncertainty,
+    exploration bonuses and the value of collecting corrective data. No separate intrinsic-exploration algorithm
+    catalog.'
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - foundational
+- id: psychology_connections
+  topic_ids:
+  - psychology_neuroscience
+  scope: Disperse brief psychology/neuroscience connections within existing examples, without a separate teaching
+    block or assessment requirement.
+  delivery:
+  - live
+  mastery:
+  - recognize
+  role: exposure
+  status:
+  - foundational
+- id: offline_iql
+  topic_ids:
+  - implicit_q_learning
+  scope: IQL remains the primary offline method. Explain/analyze expectile value fitting, Q regression and advantage-weighted
+    policy extraction; implement these three loss/update functions inside a supplied learner. Networks, optimizer,
+    target handling and baselines are scaffolded. No full from-scratch system or CQL implementation required.
+  delivery:
+  - live
+  mastery:
+  - explain
+  - analyze
+  - implement
+  role: core
+  status:
+  - active-research
+  status_scope: CQL/IQL remain studied baselines for offline-to-online fine-tuning in the cited ICLR 2025 study.
+    Active-research describes that scoped research context, not superiority. See analysis/phase4_review.yaml status_evidence.
+- id: bc_motivation
+  topic_ids:
+  - behavior_cloning
+  scope: High-level behavior cloning to motivate distribution shift and the supervised-policy connection; no BC
+    implementation requirement is accepted here. Diffusion policies and VLAs may be non-required reading pointers,
+    with no selected reading or workload commitment.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - foundational
+- id: maximization_bias_core
+  topic_ids:
+  - maximization_bias
+  display_name: Maximization bias
+  scope: Explain and diagnose maximization bias in Q targets; connect action selection/evaluation to Double DQN.
+    No extra lecture block.
+  delivery:
+  - live
+  mastery:
+  - explain
+  - analyze
+  role: core
+  status:
+  - foundational
+  - classical
+- id: double_dqn_core
+  topic_ids:
+  - double_dqn
+  display_name: Double DQN
+  scope: Explain and implement only the Double DQN target-selection patch inside the supplied DQN learner. Reuse
+    online/target networks and automated target/terminal checks; no separate benchmark study or performance-win
+    requirement.
+  delivery:
+  - live
+  mastery:
+  - explain
+  - implement
+  role: core
+  status:
+  - classical
+unresolved:
+- id: least_squares_td
+  state: optional_instructor_suggestion
+  minutes_if_used: 5
+  scope: Possible brief LSTD mention in the offline unit; instructor explicitly did not insist. Not a required allocation.
+    BC may suffice for the supervised-learning connection.
+delivery_policy:
+  buffer_use: Retain the configured 0.85 fraction for advance planning. The instructor may use the generic buffer
+    when needed during delivery, trading off questions, examples, consolidation or overruns minute-for-minute. Do
+    not count the same buffer twice.
+  questions: Longer questions may be handled at the end of a lecture, with a brief next-lecture recap when relevant
+    to the class. Required clarifications must remain available to all students; a recap also consumes time.
+  pacing_judgment: Instructor judges pacing doable and has accepted the reviewed masteries, with teaching-time adjustment
+    for pacing and student interest.
+mastery_review:
+  state: accepted
+  date: '2026-09-28'
+  source: Instructor reviewed masteries and found them in good shape; may fine-tune according to pacing and student
+    interest.
+  delivery_flexibility: Instructor may calibrate depth and examples during teaching. Material changes to the shared
+    curriculum or assessed expectations should be reflected in decisions when made; no new blanket assessment requirements
+    are inferred.
+phase4_authorization:
+  date: '2026-09-28'
+  source: Instructor confirmed Conservative Q-Learning and authorized starting Phase 4 if no Phase 3 blockers remain.
+  freeze_state: frozen
+  note: Instructor explicitly accepted curriculum freeze and authorized Phase 5 grading, project and reading work;
+    detailed assignment design is deferred.
+lecture_plan:
+- id: formulate
+  week: 1
+  slot: 1
+  title: RL formulation and information
+  teaching_minutes: 38
+  teaching_range:
+  - 35
+  - 45
+  administration_minutes: 0
+  group_ids:
+  - formulation
+  requires: []
+  worked_activity: Formulate one running problem; distinguish reward, return, observation and state.
+  feasibility_note: 20-minute configured syllabus overhead in this slot; defer abstraction theory.
+  confidence: medium
+- id: mdp_values
+  week: 1
+  slot: 2
+  title: MDPs, returns and values
+  teaching_minutes: 58
+  teaching_range:
+  - 50
+  - 65
+  administration_minutes: 0
+  group_ids:
+  - formulation
+  requires:
+  - formulate
+  worked_activity: Compute returns and define a policy/model/value on the running MDP.
+  feasibility_note: Representation and partial observability remain conceptual.
+  confidence: medium
+- id: bellman
+  week: 2
+  slot: 1
+  title: Bellman equations and evaluation
+  teaching_minutes: 58
+  teaching_range:
+  - 55
+  - 70
+  administration_minutes: 0
+  group_ids:
+  - planning
+  requires:
+  - mdp_values
+  worked_activity: Derive one expectation backup and perform policy-evaluation sweeps.
+  feasibility_note: High density; finite examples before operator formalism.
+  confidence: medium
+- id: improvement
+  week: 2
+  slot: 2
+  title: Improvement, VI and PI
+  teaching_minutes: 58
+  teaching_range:
+  - 55
+  - 70
+  administration_minutes: 0
+  group_ids:
+  - planning
+  requires:
+  - bellman
+  worked_activity: Reuse one grid/table to compare improvement, VI and PI.
+  feasibility_note: Protect the improvement argument; asynchronous DP optional.
+  confidence: medium
+- id: mc_td
+  week: 3
+  slot: 1
+  title: Sampling, MC/TD and continuing objectives
+  teaching_minutes: 59
+  teaching_range:
+  - 54
+  - 70
+  administration_minutes: 0
+  group_ids:
+  - prediction
+  - average_reward_context
+  - psychology_connections
+  requires:
+  - improvement
+  worked_activity: Shared MC/TD trajectory; five-minute average-reward objective contrast; psychology context within
+    the existing prediction-error example.
+  feasibility_note: Average reward uses four previously unallocated minutes and one minute from taxonomy recap.
+    It does not make average-reward algorithms a prerequisite.
+  confidence: medium
+  segments:
+  - label: MC/TD, data access and shared example (psychology connection embedded)
+    minutes: 54
+  - label: Average-reward objective
+    accepted_minutes_ref: average_reward_live_minutes
+- id: returns
+  week: 3
+  slot: 2
+  title: Bias, variance and n-step targets
+  teaching_minutes: 58
+  teaching_range:
+  - 50
+  - 65
+  administration_minutes: 0
+  group_ids:
+  - prediction
+  - evaluation
+  requires:
+  - mc_td
+  worked_activity: Trace n-step targets; inspect noisy learning curves and a baseline comparison.
+  feasibility_note: Includes 10 minutes of evaluation reasoning; lambda mixture moves to Week 8.
+  confidence: medium
+- id: control_targets
+  week: 4
+  slot: 1
+  title: Exploratory control and target policies
+  teaching_minutes: 58
+  teaching_range:
+  - 50
+  - 65
+  administration_minutes: 0
+  group_ids:
+  - control
+  - mc_control_bridge
+  - planning
+  requires:
+  - returns
+  - improvement
+  worked_activity: MC control bridge (about 8 minutes), then SARSA/Q-learning target comparison.
+  feasibility_note: No repeated policy-improvement proof; no IS derivation here.
+  confidence: medium
+- id: control_practice
+  week: 4
+  slot: 2
+  title: Control failure modes and project formulation
+  teaching_minutes: 53
+  teaching_range:
+  - 48
+  - 63
+  administration_minutes: 5
+  group_ids:
+  - control
+  - evaluation
+  - prediction
+  requires:
+  - control_targets
+  worked_activity: Explore a cliff-style target difference; choose a project baseline and evaluation metric (15
+    minutes).
+  feasibility_note: 5 administrative minutes for proposal expectations, within the session allocation.
+  confidence: medium
+- id: linear
+  week: 5
+  slot: 1
+  title: Linear approximation and semi-gradients
+  teaching_minutes: 58
+  teaching_range:
+  - 50
+  - 65
+  administration_minutes: 0
+  group_ids:
+  - approximation
+  - formulation
+  requires:
+  - control_practice
+  worked_activity: Compute a feature-based TD update and diagnose missing information.
+  feasibility_note: Feature menu compressed; preserve representational-vs-learning distinction.
+  confidence: medium
+- id: instability
+  week: 5
+  slot: 2
+  title: Approximation instability
+  teaching_minutes: 58
+  teaching_range:
+  - 50
+  - 70
+  administration_minutes: 0
+  group_ids:
+  - approximation
+  - projection
+  requires:
+  - linear
+  worked_activity: Work through a small divergent update example; vary one part of the deadly triad.
+  feasibility_note: Projection limited to about 8 minutes; full Baird analysis optional.
+  confidence: medium
+- id: dqn_loop
+  week: 6
+  slot: 1
+  title: DQN as approximate Q-learning
+  teaching_minutes: 55
+  teaching_range:
+  - 50
+  - 65
+  administration_minutes: 0
+  group_ids:
+  - deep_value
+  - approximation
+  requires:
+  - instability
+  - control_targets
+  worked_activity: Trace replay, target construction and parameter updates in one loop.
+  feasibility_note: Small-task or recorded example, not a live long training run.
+  confidence: medium
+- id: dqn_diagnosis
+  week: 6
+  slot: 2
+  title: Double estimators and experimental diagnosis
+  teaching_minutes: 55
+  teaching_range:
+  - 48
+  - 65
+  administration_minutes: 0
+  group_ids:
+  - double_estimators
+  - deep_value
+  - evaluation
+  - maximization_bias_core
+  - double_dqn_core
+  requires:
+  - dqn_loop
+  worked_activity: Bias/Double Q/Double DQN contrast (20 minutes), then replay/target ablation reasoning (15 minutes).
+    Within the same example, map online selection versus target evaluation to the Double DQN patch (estimated 3–5
+    minutes inside the existing double-estimator segment).
+  feasibility_note: Rainbow and extension catalog removed; protect the main DQN mechanism.
+  confidence: medium
+- id: reinforce
+  week: 7
+  slot: 1
+  title: Policy-search history and REINFORCE
+  teaching_minutes: 59
+  teaching_range:
+  - 55
+  - 68
+  administration_minutes: 0
+  group_ids:
+  - policy_history
+  - policy_estimators
+  - formulation
+  requires:
+  - returns
+  - linear
+  worked_activity: Historical overview then parameterized policy and score-function/reward-to-go derivation; finish
+    sampled example in next session.
+  feasibility_note: Ten-minute history is retained. Moving the sample calculation avoids silently reducing baseline/critic
+    depth.
+  confidence: medium
+  segments:
+  - label: Gradient-free and finite-difference historical overview
+    accepted_minutes_ref: policy_history_live_minutes
+  - label: Stochastic parameterization and continuous actions
+    minutes: 9
+  - label: Score-function and reward-to-go derivation
+    minutes: 40
+- id: baseline
+  week: 7
+  slot: 2
+  title: Sampled gradients, baselines and critic motivation
+  teaching_minutes: 54
+  teaching_range:
+  - 50
+  - 65
+  administration_minutes: 5
+  group_ids:
+  - policy_estimators
+  - evaluation
+  - psychology_connections
+  requires:
+  - reinforce
+  worked_activity: Finish gradient example, baseline identity and variance reasoning; advantage and critic motivation.
+  feasibility_note: Five administrative minutes remain separate. Brief psychology comments replace narration inside
+    examples.
+  confidence: medium
+  segments:
+  - label: Finish sampled REINFORCE example
+    minutes: 8
+  - label: Baseline identity and variance/evaluation example
+    minutes: 22
+  - label: Advantage interpretation
+    minutes: 12
+  - label: Motivate learned critic and its bias
+    minutes: 12
+- id: actor_gae
+  week: 8
+  slot: 1
+  title: Actor-critic, forward lambda and GAE
+  teaching_minutes: 59
+  teaching_range:
+  - 55
+  - 74
+  administration_minutes: 0
+  group_ids:
+  - policy_estimators
+  - prediction
+  - backward_trace_mention
+  requires:
+  - baseline
+  - returns
+  worked_activity: One-step actor-critic example; forward mixtures; existence-only backward-view mention; GAE as
+    a TD-residual sum.
+  feasibility_note: No backward equations or trace algorithm. Forward-mixture and GAE example share the same trajectory.
+  confidence: medium
+  segments:
+  - label: Actor-critic target and bias example
+    minutes: 20
+  - label: Forward lambda mixture from n-step returns
+    minutes: 18
+  - label: Backward-view existence mention; no math
+    minutes: 1
+  - label: GAE residual sum and worked target
+    minutes: 20
+- id: ratios
+  week: 8
+  slot: 2
+  title: Importance ratios, PPO and entropy
+  teaching_minutes: 59
+  teaching_range:
+  - 55
+  - 72
+  administration_minutes: 0
+  group_ids:
+  - policy_updates
+  - prediction
+  requires:
+  - actor_gae
+  worked_activity: Ratio support/variance example, surrogate/clipping signs, and entropy as an objective term.
+  feasibility_note: Small-update motivation stays conceptual; no natural-gradient/TRPO proof.
+  confidence: medium
+  segments:
+  - label: Likelihood ratios, support and variance
+    minutes: 15
+  - label: PPO surrogate and update drift
+    minutes: 24
+  - label: Clipping example for advantage signs
+    minutes: 10
+  - label: Entropy objective and interpretation
+    minutes: 10
+- id: ppo_contrast
+  week: 9
+  slot: 1
+  title: SAC mechanism and policy-method comparison
+  teaching_minutes: 49
+  teaching_range:
+  - 45
+  - 65
+  administration_minutes: 0
+  group_ids:
+  - policy_updates
+  - continuous_control_contrast
+  - evaluation
+  requires:
+  - ratios
+  - dqn_loop
+  worked_activity: Reuse replay/target/critic knowledge to explain SAC objective and soft target, stochastic actor
+    update, data flow and PPO comparison.
+  feasibility_note: Thirty minutes for the SAC mechanism including a brief sampling-intuition explanation, reusing
+    replay/targets/critics; ten minutes released for contingency. No full proof or coding workshop.
+  confidence: medium
+  segments:
+  - label: SAC objective, soft target, actor update and training loop
+    accepted_minutes_ref: sac_live_minutes
+  - label: PPO/SAC data use and objective comparison
+    minutes: 10
+  - label: Failure/evaluation example and consolidation
+    minutes: 9
+- id: bandits
+  week: 9
+  slot: 2
+  title: Bandits, UCB and contextual decisions
+  teaching_minutes: 55
+  teaching_range:
+  - 50
+  - 70
+  administration_minutes: 0
+  group_ids:
+  - bandit_concepts
+  - bandit_contrast
+  requires:
+  - control_targets
+  worked_activity: One numerical UCB choice and online optimism (20 minutes), bandit/regret formulation (15), contextual
+    decisions (12), and Thompson contrast (8).
+  feasibility_note: Generalize uncertainty and exploration beyond bandits in model_limits; no extra bandit lecture
+    or regret proof.
+  confidence: medium
+- id: mcts
+  week: 10
+  slot: 1
+  title: From UCB to tree search
+  teaching_minutes: 55
+  teaching_range:
+  - 50
+  - 65
+  administration_minutes: 0
+  group_ids:
+  - search
+  requires:
+  - bandits
+  - mdp_values
+  worked_activity: Trace selection, expansion, rollout and backup; distinguish planning visits from environment
+    interaction.
+  feasibility_note: Required search preparation before class, with BFS/DFS recap skippable; spend at most five live
+    minutes on retrieval before the tree example.
+  confidence: medium
+- id: search_dyna
+  week: 10
+  slot: 2
+  title: Guided search and Dyna
+  teaching_minutes: 50
+  teaching_range:
+  - 45
+  - 60
+  administration_minutes: 5
+  group_ids:
+  - search
+  - model_methods
+  - model_concepts
+  requires:
+  - mcts
+  - control_targets
+  worked_activity: Policy/value/self-play diagram (20 minutes); learned model and Dyna updates (30 minutes).
+  feasibility_note: 5 administrative minutes for progress checkpoint. Avoid a full AlphaZero systems lecture.
+  confidence: medium
+- id: models
+  week: 11
+  slot: 1
+  title: Model learning, MPC and horizon
+  teaching_minutes: 55
+  teaching_range:
+  - 50
+  - 65
+  administration_minutes: 0
+  group_ids:
+  - model_concepts
+  - model_methods
+  requires:
+  - search_dyna
+  worked_activity: Model prediction to replan-after-one-action loop; compare short/long horizons.
+  feasibility_note: Keep Dyna, action-time search and policy learning distinct.
+  confidence: medium
+- id: model_limits
+  week: 11
+  slot: 2
+  title: Uncertainty, exploration and model error
+  teaching_minutes: 55
+  teaching_range:
+  - 48
+  - 67
+  administration_minutes: 0
+  group_ids:
+  - model_concepts
+  - model_exploration
+  - world_model_overview
+  - formulation
+  - bandit_concepts
+  requires:
+  - models
+  worked_activity: Compounding-error/horizon example (25), optimistic data collection versus cautious model planning
+    (15), latent-state overview (7), method-choice discussion (8).
+  feasibility_note: Move exploration concepts here by reducing latent-model overview from 15 to 7 minutes and consolidating
+    eight minutes of method-choice discussion. Connect to later offline pessimism without implying every online
+    method is optimistic.
+  confidence: medium
+- id: offline_failure
+  week: 12
+  slot: 1
+  title: Offline data, optimism/pessimism and IQL motivation
+  teaching_minutes: 51
+  teaching_range:
+  - 46
+  - 65
+  administration_minutes: 0
+  group_ids:
+  - offline_concepts
+  - prediction
+  - bandit_concepts
+  - offline_iql
+  - bc_motivation
+  requires:
+  - dqn_loop
+  - model_limits
+  worked_activity: High-level BC/distribution-shift motivation (8), unsupported Q-value example (15), online optimism/offline
+    support contrast (18), and IQL/expectile motivation (10).
+  feasibility_note: BC compression releases seven minutes in this candidate; eight-minute BC allocation is an estimate.
+    Optional IRL or LSTD mention may use five minutes, but neither is silently included.
+  confidence: medium
+  segments:
+  - label: BC and supervised-policy baseline
+    minutes: 8
+  - label: Unsupported fixed-data Q-learning example
+    minutes: 15
+  - label: Online optimism versus offline support/pessimism
+    minutes: 18
+  - label: IQL motivation and asymmetric regression preview
+    minutes: 10
+- id: offline_constraints
+  week: 12
+  slot: 2
+  title: IQL value/policy fitting and CQL contrast
+  teaching_minutes: 59
+  teaching_range:
+  - 54
+  - 78
+  administration_minutes: 0
+  group_ids:
+  - offline_concepts
+  - offline_iql
+  - offline_representative
+  - evaluation
+  requires:
+  - offline_failure
+  worked_activity: Expectile example, in-dataset V/Q fitting and advantage-weighted policy extraction; brief CQL
+    contrast and evaluation. Use the existing IQL worked example to map equations to the three scaffolded loss interfaces
+    (estimated 5–8 minutes within that example, not an added block).
+  feasibility_note: IQL uses an upper in-support value estimate, not a generic lower-confidence bound. No full IQL
+    implementation is implied. LSTD is a five-minute optional substitution, not an addition.
+  confidence: low
+  segments:
+  - label: Expectile numerical example
+    minutes: 10
+  - label: IQL V/Q fitting without unseen-action maximization
+    minutes: 14
+  - label: Advantage-weighted policy extraction
+    minutes: 12
+  - label: CQL conservative-penalty contrast
+    minutes: 5
+  - label: Trace one IQL update through the shared dataset
+    minutes: 10
+  - label: Coverage and evaluation check
+    minutes: 8
+- id: llm_mapping
+  week: 13
+  slot: 1
+  title: LLM policy updates after video preparation
+  teaching_minutes: 59
+  teaching_range:
+  - 54
+  - 72
+  administration_minutes: 0
+  group_ids:
+  - llm_transfer
+  - policy_updates
+  - policy_estimators
+  - bandit_concepts
+  requires:
+  - ppo_contrast
+  - bandits
+  - offline_constraints
+  worked_activity: Video retrieval check; formulation, reward-model/online loop, PPO/KL example and policy drift.
+  feasibility_note: Transformer architecture, autoregressive modeling, pretraining and SFT are carried by video.
+    This plan credits only the reduced live recap, not the entire video length.
+  confidence: low
+  segments:
+  - label: Prerequisite retrieval check
+    minutes: 5
+  - label: Prompt-response bandit versus token MDP
+    minutes: 10
+  - label: Reward-model and online-RL loop
+    minutes: 8
+  - label: PPO/KL objective transfer
+    minutes: 16
+  - label: Trace one sampled update/log-ratio example
+    minutes: 12
+  - label: Sampling and policy drift
+    minutes: 8
+- id: llm_failure
+  week: 13
+  slot: 2
+  title: Grouped estimators, rewards and evaluation
+  teaching_minutes: 55
+  teaching_range:
+  - 50
+  - 72
+  administration_minutes: 4
+  group_ids:
+  - llm_transfer
+  - llm_estimators
+  - evaluation
+  requires:
+  - llm_mapping
+  worked_activity: Work a grouped-sample estimator comparison; outcome/process rewards and reward-hacking evaluation;
+    synthesis.
+  feasibility_note: Four presentation-administration minutes remain separate; no compulsory LLM training. More comparison
+    time uses local headroom and a shorter recap.
+  confidence: low
+  segments:
+  - label: RLOO calculation and GRPO comparison on one sample group
+    minutes: 28
+  - label: Outcome/process rewards and evaluation failure example
+    minutes: 19
+  - label: Course synthesis
+    minutes: 8
+freeze:
+  date: '2026-09-28'
+  source: 'Instructor: Let''s make it frozen and prepare to start phase 5.'
+  audit: output/audits/curriculum_consistency.md
+  sequence_source: lecture_plan in this file
+  change_rule: Record changes to curriculum structure or assessed mastery as explicit revisions. Pacing adjustments
+    within the accepted bounded scope remain permitted. Assessment scheduling must preserve the audited teaching
+    capacity or trigger a revision.
+accepted_revisions:
+- id: phase5_implementation_scope
+  date: '2026-09-28'
+  source: Instructor accepted first three assignment review choices; Double DQN and IQL implementation Core; clarified
+    maximization bias Core.
+  changes:
+  - Double DQN Core explain/implement within target patch
+  - IQL Core explain/analyze/implement within three scaffolded losses
+  - Maximization bias Core explain/analyze; tabular Double Q remains exposure
+  live_time_added: 0
+  weekly_schedule_changed: false

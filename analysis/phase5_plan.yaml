@@ -1,0 +1,206 @@
+schema_version: 1
+date: '2026-09-28'
+state: phase5-first-review
+authority: Recommendations, tentative instructor detail and workload estimates only; accepted policy is referenced
+  from decisions.
+project:
+  milestones:
+  - student_hours:
+    - 3
+    - 5
+    accepted_milestone_ref: proposal
+  - student_hours:
+    - 8
+    - 12
+    accepted_milestone_ref: formulation_design
+  - student_hours:
+    - 12
+    - 18
+    accepted_milestone_ref: progress_evaluation
+  - student_hours:
+    - 3
+    - 5
+    accepted_milestone_ref: presentation
+  - student_hours:
+    - 12
+    - 18
+    accepted_milestone_ref: final_report
+  weight_basis: Accepted course-grade weights are read from decisions/project_decisions.md.
+  timing_note: Accepted deadlines and the January/letter-grade final-report rule are read from project decisions;
+    no assumed Week 14 conversion. Exact presentation slots and the Week 13 midterm conflict remain deferred by
+    instructor direction.
+  llm_policy: Existing local final report asks for LLM disclosure/examples. Recommend retaining that for projects
+    with a contribution statement; the new assignment no-credit rule does not automatically apply to projects. Confirm
+    operational project policy separately.
+  workload_confidence: 'Low: active hours per student across non-overlapping intervals include implementation, experiments
+    and milestone writing. Presentation preparation is included; scheduled presentation attendance (including own
+    talk) is counted separately. Final-report estimate increased for the accepted 6–8 pages. Unattended compute,
+    assignments and exam preparation are excluded.'
+  displacement: Keep milestone count; reuse unchanged report sections. Evaluation-plan specification moves earlier
+    from the final report, without adding a separate deliverable or lecture time.
+  open_items:
+  - Finalize presentation slots after proposals and team freeze
+  - Resolve the Week 13 midterm/presentation conflict during the semester using external scheduling information
+  - Insert the exact final-report date from the official letter-grade deadline
+  - Operational project LLM disclosure policy remains a recommendation
+readings:
+  strategy_recommendation: Readings are outside current planning. Preserve the existing internal map for possible
+    reuse; do not expand it or add student reading tasks this semester.
+  exam_recommendation: Examine taught concepts and assignment understanding, not reading-exclusive facts. A reading-only
+    assessed concept would require an explicitly assigned excerpt and workload review.
+  required_student_minutes: 0
+  optional_effort: A chosen focused subsection may take 20–45 minutes; longer mathematical sections 45–90, low-confidence
+    estimates, not additive required weekly work. The map is a menu, not an instruction to read every reference.
+  weekly_sections:
+  - week: 1
+    sections:
+    - '1.1'
+    - '1.3'
+    - '3.1'
+    - '3.2'
+    - '3.3'
+    - '3.5'
+    - '17.3'
+    note: Chapters 1/3 for the main formulation; §17.3 only for state/observation context.
+  - week: 2
+    sections:
+    - '3.5'
+    - '3.6'
+    - '4.1'
+    - '4.2'
+    - '4.3'
+    - '4.4'
+    - '4.6'
+    note: Chapter 4 selected sections; no added asynchronous-DP requirement.
+  - week: 3
+    sections:
+    - '5.1'
+    - '6.1'
+    - '6.2'
+    - '7.1'
+    - '10.3'
+    note: Prediction and n-step targets; §10.3 only objective-level context for the five-minute average-reward exposure.
+  - week: 4
+    sections:
+    - '5.3'
+    - '5.4'
+    - '6.4'
+    - '6.5'
+    - '4.6'
+    note: SARSA/Q-learning are central; MC control stays exposure.
+  - week: 5
+    sections:
+    - '9.3'
+    - '9.4'
+    - '9.5'
+    - '11.2'
+    - '11.3'
+    - '11.4'
+    note: Semi-gradients, linear approximation and instability; geometry is intuition, not extra proof mastery.
+  - week: 6
+    sections:
+    - '9.7'
+    - '16.5'
+    - '6.7'
+    note: Neural approximation, DQN case study and double-learning background; full modern implementation details
+      need course material.
+  - week: 7
+    sections:
+    - '13.1'
+    - '13.2'
+    - '13.3'
+    - '13.4'
+    - '13.7'
+    note: Policy gradient, baseline and parameterization; match the frozen representative scope.
+  - week: 8
+    sections:
+    - '13.5'
+    - '12.1'
+    - '5.5'
+    note: Actor–critic, forward lambda and ratios are background. These are not direct coverage of GAE/PPO. Backward-trace
+      math remains excluded.
+  - week: 9
+    sections:
+    - '2.1'
+    - '2.2'
+    - '2.6'
+    - '2.7'
+    - '2.9'
+    note: Bandits after SAC; the book map supplies no direct SAC reading.
+  - week: 10
+    sections:
+    - '8.9'
+    - '8.10'
+    - '8.11'
+    - '8.2'
+    - 16.6.1
+    - 16.6.2
+    note: MCTS/Dyna and optional Go case-study context; no full AlphaZero implementation expectation.
+  - week: 11
+    sections:
+    - '8.1'
+    - '8.3'
+    - '8.8'
+    note: Models, model error and decision-time planning; partial background for MPC and modern world models.
+  - week: 12
+    sections: []
+    note: No direct book mapping for modern offline IQL/CQL. Optional LSTD §9.8 is deferred unless that optional
+      live mention is selected.
+  - week: 13
+    sections:
+    - '17.4'
+    note: Reward-design background only; no direct book coverage of LLM RL. Required LLM prerequisite video remains
+      separate.
+  supplement_candidates:
+  - topic_id: dqn
+    source: stanford_cs234
+    evidence_index: 0
+    kind: teaching excerpt
+    recommendation: Prefer replay/targets/pseudocode excerpt as an accessible companion. The normalized evidence
+      also lists the original Atari paper as an optional CS224R reference; not automatically assigned.
+  - topic_id: generalized_advantage_estimation
+    source: stanford_cs234
+    evidence_index: 0
+    kind: teaching excerpt
+    recommendation: A short course derivation is closer to the intended scope than requiring the full original paper.
+  - topic_id: proximal_policy_optimization
+    source: stanford_cs234
+    evidence_index: 0
+    kind: teaching excerpt
+    recommendation: Use the clipped-update explanation only; keep proof/implementation expectations bounded. Original
+      PPO paper already indexed as optional CS224R reference.
+  - topic_id: soft_actor_critic
+    source: foundations-deep-rl-abbeel
+    evidence_index: 0
+    kind: teaching excerpt
+    recommendation: Check entropy-aware SAC excerpt against the 30-minute scope. Do not use the entropy-omitting
+      CS224R tutorial as the complete SAC reading.
+  - topic_id: model_predictive_control
+    source: stanford_cs224r
+    evidence_index: 0
+    kind: teaching excerpt
+    recommendation: Replanning explanation as a concise companion to partial book background.
+  - topic_id: implicit_q_learning
+    source: stanford_cs224r
+    evidence_index: 0
+    kind: teaching excerpt
+    recommendation: IQL/value-fitting excerpt is a better entry point than a mandatory full paper. Original IQL
+      paper is already indexed as optional reference.
+  - topic_id: llm_post_training
+    source: stanford_cs234
+    evidence_index: 0
+    kind: teaching excerpt
+    recommendation: Brief RLHF mapping only. No broad recent-paper search; current variants and long papers deferred.
+  candidate_state: Internal candidates with provenance. No student reading assignment or claim that slides are easy
+    for every student. Ease estimates assume frozen prerequisites; verify selected excerpt before publication.
+grading_review:
+  exam_weights_proposal: 'Accepted: each midterm carries 15%, recorded in decisions/grading_decisions.md.'
+  drop_rule_risk: The accepted best-three-of-four policy permits a student to omit a distinct implementation area.
+    Record the evidence limitation; no all-four completion hurdle is added. Midterm 3 still covers common late conceptual
+    understanding.
+  llm_operational_recommendation: LLM-use report requirements are accepted in decisions/assignment_decisions.md.
+    Numerical rubrics, concrete examples and task-versus-assignment penalty details are deferred until concrete
+    assignment construction.
+  reading_risk: Optional reading can support exam preparation; reading-exclusive graded questions would turn it
+    into a hidden requirement.
+assignment_proposal_source: analysis/assignment_proposal.yaml

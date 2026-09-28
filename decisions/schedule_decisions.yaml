@@ -1,0 +1,50 @@
+schema_version: 1
+state: provisionally-frozen-until-post-week2-review
+accepted_lecture_count: 26
+semester_start_week_text: Week of October 5
+nominal_duration_weeks: 14
+expected_end_text: January 8
+year: Fall 2026 / January 2027
+holiday_text: October 29; December 31 treated as an additional unavailable slot for planning, without claiming official
+  holiday status
+instructor_unavailable:
+- November 3
+- January
+makeups:
+- month: October
+  count: 1
+  state: accepted-month-date-unbooked
+- month: November
+  count: 1
+  state: accepted-month-date-unbooked
+- month: December
+  count: 1
+  state: accepted-month-date-unbooked
+instructions: Retain 26 lectures, one makeup each in October/November/December, and the frozen week-level assessment
+  schedule. Do not infer booked dates or change teaching sequence.
+unresolved:
+- Lecture weekdays and exact makeup dates; confirm December 31 availability
+- Prerequisite-to-calendar mapping before assignment releases and exams
+- Exact deadline times; early Week 7 A1 must still allow 21 days after taught prerequisites
+- Official letter-grade deadline and Week 16 final-report compatibility
+- TA availability and January presentation/grading arrangements
+workload_review:
+  target_total_student_hours:
+  - 150
+  - 180
+  instructor_judgment: Workload acceptable; current estimated ranges may be somewhat high. Preserve uncertainty
+    and calibrate during concrete task preparation.
+syllabus_review: Current combined syllabus content looks acceptable to instructor; final document format and dated
+  calendar remain open.
+freeze:
+  scope: Week-level schedule, assessment sequence and presentation delivery; exact dates remain unbooked. Not final
+    syllabus/design freeze.
+  reopen_trigger: After the first two weeks of classes, when attendance and registration stabilize.
+  review_inputs:
+  - Student timetable and stable registration/attendance
+  - TA availability
+  - October/November/December makeup slots
+  - Exact assignment/exam dates and prerequisite coverage
+  - Presentation slots and grading arrangements
+  - Official letter-grade deadline and grading turnaround
+  instruction: Reopen calendar mapping at that checkpoint; preserve teaching scope unless explicitly revised.

@@ -1,3 +1,5 @@
+> Current Phase 6 status: the week-level schedule is provisionally frozen until the post-Week-2 review. Syllabus editing and the full audit are explicitly held. See [reset handoff](../analysis/phase6_handoff.md). To render only the current schedule, run `python3 scripts/schedule_report.py`; the older integrated generators need schedule updates before their next authorized run.
+
 # Phase 1 collection and inventory
 
 Run these commands from the repository root. They inventory source artifacts and generate factual summaries; they do not normalize topics or change curriculum decisions.
@@ -97,3 +99,53 @@ Inspection reads local PDFs and the temporary `rl-phase1-cache`; `--network` add
 Reinspection replaces the ledger. On a machine without cached remote PDFs, the offline inspection command records them as `not_cached`; use `--network` when reconstructing the corpus. Review changed hashes and page locators before reusing an existing normalized mapping against refreshed artifacts. The normal report/validation commands do not need reinspection and do not download anything.
 
 Physical PDF pages are 1-based. Book references additionally record printed pages; the configured book uses a verified +22 offset. The book remains a direct reference file without a manifest. Course coverage, course reading pointers and book correspondence are distinct. Unknown source-topic pairs are not evidence of absence; apparent depth is an inference. Phase 2 creates no redesigned-course decisions and does not start Phase 3.
+
+# Phase 3 time audits and Phase 4 consistency review
+
+```sh
+python3 scripts/phase3_audit.py
+python3 scripts/phase3_audit.py --check
+python3 scripts/phase4_audit.py
+python3 scripts/phase4_audit.py --check
+```
+
+Both run offline with Python 3 and PyYAML. Accepted scope/mastery/fixed durations come from `decisions/topic_decisions.yaml`; accepted video scope comes from the single YAML block in `decisions/video_decisions.md`. Frozen roles/status and baseline session blocks now live in `decisions/topic_decisions.yaml`; assessment-path and video-detail proposals remain in `analysis/phase3_proposal.yaml`. The Phase 4 audit judgments and outcome mappings live in `analysis/phase4_review.yaml`. Neither script accepts decisions, freezes the curriculum, edits evidence/configuration, or designs assessments.
+
+The Phase 3 script checks normalized IDs, unique group ownership, taxonomy, provisional-topic dispositions, prerequisites, segment sums, administration and local/semester capacity. It generates `analysis/phase3_plan.md`, `analysis/time_budget.md`, and `analysis/policy_time_budget.md`.
+
+The Phase 4 script reuses those checks and validates learning-outcome mappings, Core worked activities/assessment paths, and status-evidence references. It generates `analysis/phase3_completion.md`, `output/audits/curriculum_consistency.md`, `output/topic_details.md`, and `output/lecture_plan.md`. These are generated views, not independent curriculum state. Pedagogical adequacy remains an explicit judgment, not an inference from passing arithmetic checks. The instructor has accepted freeze; the generators now join accepted classifications and lecture blocks from decisions, and validate that required role/status acceptance is complete.
+
+`--check` validates inputs and checks that generated files match, without writing. Use the Phase 2 validator separately to verify preserved source evidence and its generated views.
+
+# Phase 5 grading, project and reading review
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/phase5_report.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/phase5_report.py --check
+```
+
+The report reads the authoritative YAML blocks in grading/project/assignment/reading decision files, the frozen curriculum, `analysis/phase5_plan.yaml` and existing normalized book/course evidence. It validates grading totals, the tentative project split, milestone prerequisites, exam coverage and book/evidence references. It generates `output/project.md`, `output/readings.md` (internal map, not assigned readings), and `output/audits/phase5_initial_review.md`. Project milestone lengths/weights/deadline rules and team policy are accepted; operational refinements remain deferred; equal 15% exam weights are accepted. Reading deferment is accepted. Separate exam slots are accepted; exact dates/durations and combined workload remain unresolved. No source collection is performed. Assignment design is now handled by the separate report below.
+
+## Assignment proposal and alignment audit
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/assignment_report.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/assignment_report.py --check
+```
+
+Accepted tasks, prerequisites, starter strategy, aggregation, LLM-report contents and scheduling rules live in `decisions/assignment_decisions.md`. `analysis/assignment_proposal.yaml` retains effort ranges, evidence and rationale. The report generates `output/assignments.md` and `output/audits/assignment_alignment.md`, checking prerequisite windows, Core assessment paths, accepted Double DQN/IQL scope revisions and evidence references. It records the implementation-evidence limitation under best-three grading without adding an all-four completion requirement.
+
+Project reports join accepted milestone fields from `decisions/project_decisions.md` with effort estimates from `analysis/phase5_plan.yaml`. Presentation attendance is one two-hour slot per student including their own talk. The report deadline remains relative to letter grades. The Week 13 conflict and assignment rubrics/examples remain deferred. No scaffold or autograder is claimed ready.
+
+# Phase 6 syllabus, schedules and workload audit
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/phase6_report.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/phase6_report.py --check
+```
+
+The generator joins accepted decisions with workload assumptions and a start-of-phase teaching baseline in `analysis/phase6_review.yaml`. Calendar constraints live in `decisions/schedule_decisions.yaml`; exact session dates remain unfilled. `scripts/design_data.py` derives assignment windows: release after prerequisites, allow 21 calendar days, retain original releases and permit one-week overlaps. Relative week.slot labels assume uninterrupted weeks and are not confirmed dates. Videos release seven days before first use.
+
+Generated artifacts: `output/syllabus.md`, `output/assessment_timeline.md`, `output/assessment_schedule.md`, `output/project_schedule.md`, `output/video_plan.md`, `output/audits/workload.md`, `output/audits/design_consistency.md`, and `analysis/phase5_completion.md`. The editable syllabus layout is `course/syllabus/template.md`; substantive facts remain in decisions. The audit verifies unchanged weekly teaching, grading totals, prerequisites, three-week assignment windows, and video lead time. It distinguishes low-confidence student-effort estimates from lecture minutes and highlights combined deadline pressure.
+
+Regenerate Phase 3/4 views, Phase 5 reports, assignment reports and then Phase 6 reports after an accepted change that affects them. Each supports `--check` for freshness without writes. Syllabus content and workload have instructor approval in principle; calendar mapping remains open before final dated syllabus/design freeze; this generator does not accept decisions or begin Phase 7.

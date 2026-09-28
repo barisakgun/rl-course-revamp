@@ -4,9 +4,9 @@ course:
   lectures_per_week: 2
 
   nominal_semester_lectures: 28
-  holiday_conflicts: 1
+  holiday_conflicts: 2  # Includes December 31 assumed unavailable for planning.
   instructor_absences: 3
-  makeup_lectures: 2
+  makeup_lectures: 3  # One each in October, November and December; dates unbooked.
 
   target_videos: 2
 

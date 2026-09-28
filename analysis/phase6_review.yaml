@@ -1,0 +1,189 @@
+schema_version: 1
+state: schedule-provisionally-frozen-syllabus-and-audit-deferred
+authority: Phase 6 audit assumptions and risks only; accepted facts remain in decisions.
+phase5_state: complete-high-level-design
+weekly_baseline:
+- id: formulate
+  week: 1
+  slot: 1
+  title: RL formulation and information
+  teaching_minutes: 38
+  administration_minutes: 0
+- id: mdp_values
+  week: 1
+  slot: 2
+  title: MDPs, returns and values
+  teaching_minutes: 58
+  administration_minutes: 0
+- id: bellman
+  week: 2
+  slot: 1
+  title: Bellman equations and evaluation
+  teaching_minutes: 58
+  administration_minutes: 0
+- id: improvement
+  week: 2
+  slot: 2
+  title: Improvement, VI and PI
+  teaching_minutes: 58
+  administration_minutes: 0
+- id: mc_td
+  week: 3
+  slot: 1
+  title: Sampling, MC/TD and continuing objectives
+  teaching_minutes: 59
+  administration_minutes: 0
+- id: returns
+  week: 3
+  slot: 2
+  title: Bias, variance and n-step targets
+  teaching_minutes: 58
+  administration_minutes: 0
+- id: control_targets
+  week: 4
+  slot: 1
+  title: Exploratory control and target policies
+  teaching_minutes: 58
+  administration_minutes: 0
+- id: control_practice
+  week: 4
+  slot: 2
+  title: Control failure modes and project formulation
+  teaching_minutes: 53
+  administration_minutes: 5
+- id: linear
+  week: 5
+  slot: 1
+  title: Linear approximation and semi-gradients
+  teaching_minutes: 58
+  administration_minutes: 0
+- id: instability
+  week: 5
+  slot: 2
+  title: Approximation instability
+  teaching_minutes: 58
+  administration_minutes: 0
+- id: dqn_loop
+  week: 6
+  slot: 1
+  title: DQN as approximate Q-learning
+  teaching_minutes: 55
+  administration_minutes: 0
+- id: dqn_diagnosis
+  week: 6
+  slot: 2
+  title: Double estimators and experimental diagnosis
+  teaching_minutes: 55
+  administration_minutes: 0
+- id: reinforce
+  week: 7
+  slot: 1
+  title: Policy-search history and REINFORCE
+  teaching_minutes: 59
+  administration_minutes: 0
+- id: baseline
+  week: 7
+  slot: 2
+  title: Sampled gradients, baselines and critic motivation
+  teaching_minutes: 54
+  administration_minutes: 5
+- id: actor_gae
+  week: 8
+  slot: 1
+  title: Actor-critic, forward lambda and GAE
+  teaching_minutes: 59
+  administration_minutes: 0
+- id: ratios
+  week: 8
+  slot: 2
+  title: Importance ratios, PPO and entropy
+  teaching_minutes: 59
+  administration_minutes: 0
+- id: ppo_contrast
+  week: 9
+  slot: 1
+  title: SAC mechanism and policy-method comparison
+  teaching_minutes: 49
+  administration_minutes: 0
+- id: bandits
+  week: 9
+  slot: 2
+  title: Bandits, UCB and contextual decisions
+  teaching_minutes: 55
+  administration_minutes: 0
+- id: mcts
+  week: 10
+  slot: 1
+  title: From UCB to tree search
+  teaching_minutes: 55
+  administration_minutes: 0
+- id: search_dyna
+  week: 10
+  slot: 2
+  title: Guided search and Dyna
+  teaching_minutes: 50
+  administration_minutes: 5
+- id: models
+  week: 11
+  slot: 1
+  title: Model learning, MPC and horizon
+  teaching_minutes: 55
+  administration_minutes: 0
+- id: model_limits
+  week: 11
+  slot: 2
+  title: Uncertainty, exploration and model error
+  teaching_minutes: 55
+  administration_minutes: 0
+- id: offline_failure
+  week: 12
+  slot: 1
+  title: Offline data, optimism/pessimism and IQL motivation
+  teaching_minutes: 51
+  administration_minutes: 0
+- id: offline_constraints
+  week: 12
+  slot: 2
+  title: IQL value/policy fitting and CQL contrast
+  teaching_minutes: 59
+  administration_minutes: 0
+- id: llm_mapping
+  week: 13
+  slot: 1
+  title: LLM policy updates after video preparation
+  teaching_minutes: 59
+  administration_minutes: 0
+- id: llm_failure
+  week: 13
+  slot: 2
+  title: Grouped estimators, rewards and evaluation
+  teaching_minutes: 55
+  administration_minutes: 4
+calendar:
+  session_dates: {}
+  letter_grades_due: null
+  note: Use decisions/schedule_decisions.yaml for current calendar constraints and the post-Week-2 reopening trigger.
+    Exact session dates remain unset.
+  accepted_constraints_source: decisions/schedule_decisions.yaml
+workload_assumptions:
+  routine_study_hours_per_teaching_week:
+  - 2
+  - 4
+  exam_preparation_hours_per_midterm:
+  - 6
+  - 10
+  exam_duration_hours_each:
+  - 1.5
+  - 2
+  confidence: Low; planning sensitivity ranges, not accepted durations or observed student effort. Routine study
+    excludes assignment/project work, videos and dedicated exam preparation to avoid double counting.
+deferred_to_semester:
+- Rubrics, penalty wording and example LLM-use report
+- TA-led Week 14 presentation slot allocation and TA/peer grading details
+- Pilot and calibrate concrete assignments before release
+remaining_finalization:
+- Reopen schedule after first two teaching weeks; confirm makeup dates, prerequisites, 21-day windows and exam dates/durations
+- Confirm TA-led online presentation operation and grading details
+- Confirm Week 16 final report against official letter-grade deadline
+- Revise supplied DOCX and run a full Phase 6 consistency/workload audit only when separately requested
+freeze_state: Schedule freeze accepted; final syllabus/design freeze not yet claimed

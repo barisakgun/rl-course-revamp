@@ -1,0 +1,377 @@
+schema_version: 2
+phase: 3
+iteration: 4
+state: frozen_curriculum_with_assessment_proposals
+date: '2026-09-28'
+authority: Historical Phase 3 analysis and remaining assessment-path/video-detail proposals. Accepted classifications
+  and baseline sessions are read from decisions; do not duplicate them here.
+evidence_source: analysis/normalized_topics.yaml
+review_document: analysis/curriculum_review.md
+assumptions:
+  timing: Instructor planning estimates, not observed delivery. Integrated teaching blocks are the unit of time;
+    topic IDs carry no additive minutes.
+  confidence: Medium for foundational block scope; low for new modern units and total student workload.
+  mastery: Reviewed mastery is accepted and stored only in decisions/topic_decisions.yaml. Implementation expectations
+    concern representative methods within the bounded scope, not every ID. Instructor may fine-tune teaching depth
+    with pacing and interest.
+  status: Accepted scoped status labels are stored in decisions; primary-source rationale remains in analysis/phase4_review.yaml.
+    No SOTA or deployment-prevalence claim.
+  presentations: Outside class as configured; presentation attendance/preparation remain separate workload.
+  extensions: Optional extensions have no compulsory workload. A backward-trace mention replaces the former optional
+    backward-math route; no backward math is included.
+groups:
+- id: formulation
+  assessment_expectation:
+  - exam
+  - project
+  accepted_scope_ref: formulation
+- id: planning
+  assessment_expectation:
+  - exam
+  - assignment
+  accepted_scope_ref: planning
+- id: prediction
+  assessment_expectation:
+  - exam
+  - assignment
+  accepted_scope_ref: prediction
+- id: control
+  assessment_expectation:
+  - exam
+  - assignment
+  accepted_scope_ref: control
+- id: mc_control_bridge
+  assessment_expectation:
+  - exam
+  accepted_scope_ref: mc_control_bridge
+- id: approximation
+  assessment_expectation:
+  - exam
+  - assignment
+  accepted_scope_ref: approximation
+- id: projection
+  assessment_expectation:
+  - none
+  accepted_scope_ref: projection
+- id: deep_value
+  assessment_expectation:
+  - assignment
+  - exam
+  accepted_scope_ref: deep_value
+- id: double_estimators
+  assessment_expectation:
+  - exam
+  accepted_scope_ref: double_estimators
+- id: policy_estimators
+  assessment_expectation:
+  - assignment
+  - exam
+  accepted_scope_ref: policy_estimators
+- id: policy_updates
+  assessment_expectation:
+  - exam
+  - assignment
+  accepted_scope_ref: policy_updates
+- id: continuous_control_contrast
+  assessment_expectation:
+  - none
+  accepted_scope_ref: continuous_control_contrast
+- id: bandit_concepts
+  assessment_expectation:
+  - exam
+  accepted_scope_ref: bandit_concepts
+- id: bandit_contrast
+  assessment_expectation:
+  - none
+  accepted_scope_ref: bandit_contrast
+- id: search
+  assessment_expectation:
+  - exam
+  accepted_scope_ref: search
+- id: model_concepts
+  assessment_expectation:
+  - exam
+  - project
+  accepted_scope_ref: model_concepts
+- id: model_methods
+  assessment_expectation:
+  - exam
+  accepted_scope_ref: model_methods
+- id: world_model_overview
+  assessment_expectation:
+  - none
+  accepted_scope_ref: world_model_overview
+- id: offline_concepts
+  assessment_expectation:
+  - exam
+  - assignment
+  accepted_scope_ref: offline_concepts
+- id: offline_representative
+  assessment_expectation:
+  - none
+  accepted_scope_ref: offline_representative
+- id: llm_transfer
+  assessment_expectation:
+  - none
+  accepted_scope_ref: llm_transfer
+- id: llm_estimators
+  assessment_expectation:
+  - none
+  accepted_scope_ref: llm_estimators
+- id: evaluation
+  assessment_expectation:
+  - assignment
+  - project
+  accepted_scope_ref: evaluation
+- id: search_background
+  assessment_expectation:
+  - none
+  accepted_scope_ref: search_background
+- id: llm_background
+  assessment_expectation:
+  - none
+  accepted_scope_ref: llm_background
+- id: optional_extensions
+  assessment_expectation:
+  - none
+  accepted_scope_ref: optional_extensions
+- id: backward_trace_mention
+  assessment_expectation:
+  - none
+  accepted_scope_ref: backward_trace_mention
+- id: policy_history
+  assessment_expectation:
+  - none
+  accepted_scope_ref: policy_history
+- id: average_reward_context
+  assessment_expectation:
+  - none
+  accepted_scope_ref: average_reward_context
+- id: model_exploration
+  assessment_expectation:
+  - none
+  accepted_scope_ref: model_exploration
+- id: psychology_connections
+  assessment_expectation:
+  - none
+  accepted_scope_ref: psychology_connections
+- id: offline_iql
+  assessment_expectation:
+  - exam
+  - assignment
+  accepted_scope_ref: offline_iql
+- id: bc_motivation
+  accepted_scope_ref: bc_motivation
+  assessment_expectation:
+  - none
+- id: maximization_bias_core
+  assessment_expectation:
+  - assignment
+  - exam
+  accepted_scope_ref: maximization_bias_core
+- id: double_dqn_core
+  assessment_expectation:
+  - assignment
+  - exam
+  accepted_scope_ref: double_dqn_core
+videos:
+- id: search_background
+  accepted_video_ref: search_background
+  playback_minutes:
+  - 30
+  - 40
+  student_effort_minutes:
+  - 40
+  - 60
+  fallback: Brief live retrieval check within mcts. Video covers the bridge beyond assumed BFS/DFS; a full search-course
+    remediation is not planned.
+  additional_scope_proposal:
+  - A-star/heuristic reminder
+  - Expectimax and rollout preparation
+  confidence: low
+- id: llm_background
+  accepted_video_ref: llm_background
+  playback_minutes:
+  - 50
+  - 65
+  student_effort_minutes:
+  - 70
+  - 100
+  fallback: Five-minute live retrieval check. Split recording into chapters and release before Week 13; retain live
+    RL objectives, estimator reasoning and reward/evaluation examples.
+  additional_scope_proposal:
+  - Preference-data/Bradley-Terry reward-model primer
+  - RLHF pipeline and DPO contrast without derivation
+  confidence: low
+provisional_demand:
+- week: 1
+  minutes:
+  - 90
+  - 115
+  confidence: low
+  scope_assumption: Vocabulary through one MDP; no POMDP solver.
+- week: 2
+  minutes:
+  - 115
+  - 145
+  confidence: low
+  scope_assumption: Bellman derivations plus VI/PI example.
+- week: 3
+  minutes:
+  - 125
+  - 155
+  confidence: low
+  scope_assumption: MC/TD plus n-step and lambda-return introduction.
+- week: 4
+  minutes:
+  - 160
+  - 200
+  confidence: low
+  scope_assumption: MC/SARSA/Q control, exploration, IS and double estimators.
+- week: 5
+  minutes:
+  - 110
+  - 140
+  confidence: low
+  scope_assumption: Semi-gradients and one divergence example; projection intuition.
+- week: 6
+  minutes:
+  - 120
+  - 150
+  confidence: low
+  scope_assumption: DQN mechanism and four named exposure variants.
+- week: 7
+  minutes:
+  - 155
+  - 195
+  confidence: low
+  scope_assumption: Policy gradient derivation, baselines and actor-critic; search contrasts.
+- week: 8
+  minutes:
+  - 180
+  - 230
+  confidence: low
+  scope_assumption: GAE, trust-region intuition, PPO and meaningful SAC treatment.
+- week: 9
+  minutes:
+  - 125
+  - 165
+  confidence: low
+  scope_assumption: Bandits/UCB/Thompson/context, then MDP exploration.
+- week: 10
+  minutes:
+  - 100
+  - 130
+  confidence: low
+  scope_assumption: MCTS trace and guided AlphaZero-style example.
+- week: 11
+  minutes:
+  - 155
+  - 205
+  confidence: low
+  scope_assumption: Dyna/MPC/error plus two named world-model methods.
+- week: 12
+  minutes:
+  - 150
+  - 190
+  confidence: low
+  scope_assumption: BC/shift, fixed-data failure and meaningful CQL/IQL comparisons.
+- week: 13
+  minutes:
+  - 145
+  - 190
+  confidence: low
+  scope_assumption: Formulation/PPO/KL plus RLOO/GRPO and reward failures.
+audit_notes:
+  verdict: Frozen curriculum updated only through accepted bounded Double DQN/IQL mastery revisions and maximization-bias
+    role clarification. Weekly sequence and live-time totals are unchanged. Phase 6 integrates the accepted assessment
+    and video scheduling rules.
+  protected_depth:
+  - Bellman derivation and improvement example
+  - MC/TD shared trajectory and SARSA/Q target comparison
+  - Linear update and worked divergence
+  - REINFORCE/baseline derivation and actor-critic/GAE bridge
+  - Experimental diagnosis, coverage and reward failure examples
+  pressure_response: Use the explicit local margins and, when needed, the instructor-authorized generic delivery
+    buffer. Spending buffer displaces questions/consolidation, rather than creating additional time. Preserve a
+    worked n-step target before GAE. A Week 1 MDP shift only relieves Week 2 if it also enables Bellman groundwork
+    earlier. Keep optional mentions bounded; record required video scope/workload changes at the agreed checkpoints.
+  workload: Live teaching time is not student workload. The two substantive prerequisite videos have separate playback
+    and study-time estimates; durations are proposals. Presentations outside class, assignments, projects and required
+    readings remain for later workload design. Supplementary policy video is only a contingency, not required work.
+accepted_topics_source: decisions/topic_decisions.yaml
+accepted_videos_source: decisions/video_decisions.md
+policy_audit:
+  session_ids:
+  - reinforce
+  - baseline
+  - actor_gae
+  - ratios
+  - ppo_contrast
+  confidence: low-to-medium
+  scope: Thirty-minute SAC mechanism treatment with reusable DQN machinery; foundational estimator derivations and
+    ten-minute history retained. Ten minutes released relative to the previous candidate; no full SAC/PPO implementation
+    workshop.
+  pace_stress_fraction: 0.15
+  contingencies:
+  - name: Recorded follow-up if the first three sessions run long
+    minutes_range:
+    - 15
+    - 25
+    state: unaccepted contingency
+    action: Review at the Week 8 video checkpoint whether a policy-search/SAC supplement is useful. The instructor
+      may first use generic delivery buffer; any required supplement must have scope, preparation timing and student
+      effort recorded before use.
+    workload: Would add approximately 20–35 student minutes; obtain a delivery decision and rerun the audit before
+      using.
+  - name: More depth than mechanism-level SAC
+    minutes_range:
+    - 20
+    - 35
+    state: unaccepted extension scenario
+    action: A full soft policy-iteration derivation or implementation walkthrough would need additional time; preserve
+      the five-session target by choosing video delivery or displacing other live content explicitly.
+    workload: Implementation practice and compute remain unestimated.
+optional_scenarios:
+- id: least_squares_td
+  accepted_suggestion_ref: least_squares_td
+  teaching_minutes: 5
+  session: offline_failure
+  state: not_in_base_allocation
+  replacement: May use five minutes of the BC compression margin in the first offline session instead of displacing
+    the IQL example. It competes with the tentative five-minute IRL mention; do not automatically schedule both.
+  recommendation: Explicit optional note only, excluded from base allocation. BC supplies the direct supervised-policy
+    connection; LSTD is a batch TD fixed-point method, not ordinary regression on observed value labels.
+  proposed_role: exposure
+  proposed_mastery:
+  - recognize
+  proposed_status:
+  - classical
+  proposed_delivery:
+  - live
+  proposed_assessment:
+  - none
+pacing_options:
+- id: early_mdp
+  state: instructor_contingency_not_reallocated
+  scope: Pull some MDP content into 1.1 if the first lecture permits; no assumed saving unless 1.2 then carries
+    some Bellman groundwork.
+- id: n_step_trim
+  state: instructor_contingency_not_reallocated
+  scope: Shorten repeated n-step target examples in 3.2 while retaining one worked target and the sampling/bootstrapping
+    contrast needed by GAE.
+- id: irl_mention
+  state: tentative_not_in_base
+  topic_id: inverse_rl
+  week: 12
+  minutes_if_used: 5
+  scope: Distinguish inferring rewards from demonstrations from BC/action imitation; no inverse-RL derivation. Competes
+    with optional LSTD for the same BC margin.
+future_topics_register: analysis/future_topics.md
+handoff:
+  phase3_state: complete
+  current_phase: 6
+  audit_source: analysis/phase4_review.yaml
+  note: Phase 5 high-level design accepted, with operational rubrics/examples deferred to the semester. Phase 6
+    authorized; weekly sequence and teaching totals unchanged.
+sessions_source: decisions/topic_decisions.yaml#/lecture_plan
