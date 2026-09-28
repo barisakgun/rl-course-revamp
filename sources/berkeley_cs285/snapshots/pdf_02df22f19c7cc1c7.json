@@ -1,0 +1,24 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf",
+  "checked_at": "2026-09-28T00:03:43+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:03:43+00:00"
+  },
+  "sha256": "39803ef09727180ab7cb20759a214de9a340a66a6231fb36351e2674957256f9",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.26\nCreationDate:    Sun Jan 25 19:29:29 2026 +03\nModDate:         Sun Jan 25 19:29:29 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           4\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       221036 bytes\nOptimized:       no\nPDF version:     1.5\n",
+  "first_page_excerpt": "Berkeley CS 185/285      Deep Reinforcement Learning, Decision Making, and Control                   Spring 2026\n\n\n                                 Assignment 1: Imitation Learning\n                                        Due February 11, 11:59 pm\n\n\n1     Introduction\nIn this assignment, you will train action chunking policies for the Push-T environment. You will first train a\nsimple MSE (mean-squared error) policy that predicts action chunks in a single forward pass. Then, you will\ntrain a more expressive flow matching policy, similar to diffusion policy (Chi et al., 2025).\n\n\n\n\nFigure 1: The Push-T environment. The observation is 5-dimensional state describing the position of the T\nand the agent. The action is a 2-dimensional vector representing the target position of the agent. The goal i",
+  "embedded_urls": [
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw1"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw1"
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "url": "https://web.stanford.edu/class/cs234/assignments.html",
+  "resolved_url": "https://web.stanford.edu/class/cs234/assignments.html",
+  "checked_at": "2026-09-28T00:01:44+00:00",
+  "http_status": 200,
+  "content_type": "text/html",
+  "status": "reachable",
+  "robots": {
+    "url": "https://web.stanford.edu/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T00:01:41+00:00"
+  },
+  "sha256_of_retrieved_html": "1c4805f42233a286f5c496f7ebeaf1b96c7ec1c1f8aa63374ed4149526cb7455",
+  "title": "CS234: Reinforcement Learning Winter 2026",
+  "headings": [
+    "CS234: Reinforcement Learning Winter 2026",
+    "Assignments (With Guidelines Inspired From CS 221)",
+    "Assignments and Due Dates",
+    "Assignment will generally have a written part and a programming part . The following explains what we \n\t  expect for each part and submission instructions.",
+    "Written Assignments",
+    "Programming Assignments",
+    "Collaboration Policy",
+    "Regrades",
+    "Submission Instructions",
+    "GradeScope",
+    "Written Assignments",
+    "Programming Assignments"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "",
+      "url": "http://ai.stanford.edu/",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "CS234: Reinforcement Learning Winter 2026",
+      "url": "https://web.stanford.edu/class/cs234/index.html",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 2,
+      "label": "Released",
+      "url": "https://web.stanford.edu/class/cs234/assignments/a1/CS234_A1_Questions.pdf",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 1 Released ( LaTeX ). Starter code can be downloaded here . Jan 16, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 3,
+      "label": "LaTeX",
+      "url": "https://web.stanford.edu/class/cs234/assignments/a1/assignment1_template.zip",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 1 Released ( LaTeX ). Starter code can be downloaded here . Jan 16, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 4,
+      "label": "here",
+      "url": "https://web.stanford.edu/class/cs234/assignments/a1/code.zip",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 1 Released ( LaTeX ). Starter code can be downloaded here . Jan 16, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 5,
+      "label": "Late Day Policy",
+      "url": "https://web.stanford.edu/class/cs234/index.html#lateday",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 1 Released ( LaTeX ). Starter code can be downloaded here . Jan 16, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 6,
+      "label": "Released",
+      "url": "https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 2 Released ( LaTeX ). Starter code can be downloaded here . Feb 1, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 7,
+      "label": "LaTeX",
+      "url": "https://web.stanford.edu/class/cs234/assignments/a2/assignment2_template.zip",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 2 Released ( LaTeX ). Starter code can be downloaded here . Feb 1, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 8,
+      "label": "here",
+      "url": "https://web.stanford.edu/class/cs234/assignments/a2/assignment2_starter_code.zip",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 2 Released ( LaTeX ). Starter code can be downloaded here . Feb 1, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 9,
+      "label": "Late Day Policy",
+      "url": "https://web.stanford.edu/class/cs234/index.html#lateday",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 2 Released ( LaTeX ). Starter code can be downloaded here . Feb 1, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 10,
+      "label": "Released",
+      "url": "https://web.stanford.edu/class/cs234/assignments/a3/hw3_questions.pdf",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 3 Released ( LaTeX ). Starter code can be downloaded here . Feb 20, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 11,
+      "label": "LaTeX",
+      "url": "https://web.stanford.edu/class/cs234/assignments/a3/hw3_template.zip",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 3 Released ( LaTeX ). Starter code can be downloaded here . Feb 20, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 12,
+      "label": "here",
+      "url": "https://drive.google.com/file/d/18HwwLiMIN9XSdK7QXqQjGyhyb_86Iz_Y/view?usp=drive_link",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 3 Released ( LaTeX ). Starter code can be downloaded here . Feb 20, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 13,
+      "label": "Late Day Policy",
+      "url": "https://web.stanford.edu/class/cs234/index.html#lateday",
+      "heading": "Assignments and Due Dates",
+      "context": "Assignment 3 Released ( LaTeX ). Starter code can be downloaded here . Feb 20, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 14,
+      "label": "Python >= 3.8",
+      "url": "https://www.python.org/downloads/",
+      "heading": "Programming Assignments",
+      "context": ""
+    },
+    {
+      "index": 15,
+      "label": "here",
+      "url": "https://web.stanford.edu/class/cs234/index.html#conduct",
+      "heading": "Collaboration Policy",
+      "context": ""
+    },
+    {
+      "index": 16,
+      "label": "https://gradescope.com/",
+      "url": "https://gradescope.com/",
+      "heading": "GradeScope",
+      "context": "Go to https://gradescope.com/ ."
+    },
+    {
+      "index": 17,
+      "label": "Gradescope",
+      "url": "https://gradescope.com/",
+      "heading": "Written Assignments",
+      "context": ""
+    }
+  ],
+  "tables": [
+    [
+      "Event Status Due Date / Time Late Day Policy",
+      "Assignment 1 Released ( LaTeX ). Starter code can be downloaded here . Jan 16, 6 pm Up to 2 late days allowed. See Late Day Policy .",
+      "Assignment 2 Released ( LaTeX ). Starter code can be downloaded here . Feb 1, 6 pm Up to 2 late days allowed. See Late Day Policy .",
+      "Assignment 3 Released ( LaTeX ). Starter code can be downloaded here . Feb 20, 6 pm Up to 2 late days allowed. See Late Day Policy ."
+    ]
+  ]
+}

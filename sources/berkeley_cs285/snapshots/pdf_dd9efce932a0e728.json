@@ -1,0 +1,32 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf",
+  "checked_at": "2026-09-28T00:03:48+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:03:43+00:00"
+  },
+  "sha256": "4fb02ff477a5680196525a3f86b9db58e22c939b1597f9025c4fbf256f0102c2",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.25\nCreationDate:    Sat Mar 14 07:53:05 2026 +03\nModDate:         Sat Mar 14 07:53:05 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           15\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       273366 bytes\nOptimized:       no\nPDF version:     1.5\n",
+  "first_page_excerpt": "Berkeley CS 185/285     Deep Reinforcement Learning, Decision Making, and Control             Spring 2026\n\n\n\n                 Assignment 4: LLM Reinforcement Learning\n                                     Due April 1, 11:59 PM\n\n1 Introduction\n\nThe goal of this assignment is to learn how modern LLM reinforcement-learning post-training\nworks in practice. You will implement the key algorithmic pieces needed to fine-tune a base\nlanguage model with outcome rewards, and then run a small set of controlled experiments comparing\nGR-REINFORCE and GRPO.\nThe starter code for the assignment is in:\n\n     https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw4\n\nAll experiments in this assignment are configured to run on Modal using an H100 GPU. Your\nModal class credits should comfortably",
+  "embedded_urls": [
+    "https://arxiv.org/abs/2402.03300",
+    "https://arxiv.org/abs/2503.14476",
+    "https://arxiv.org/abs/2503.20783",
+    "https://arxiv.org/abs/2507.18071",
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw4"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://arxiv.org/abs/2402.03300",
+    "https://arxiv.org/abs/2503.14476",
+    "https://arxiv.org/abs/2503.20783",
+    "https://arxiv.org/abs/2507.18071",
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw4"
+  ]
+}

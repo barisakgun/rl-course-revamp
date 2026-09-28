@@ -1,0 +1,198 @@
+[
+  {
+    "url": "https://davidstarsilver.wordpress.com/teaching/",
+    "resolved_url": "https://davidstarsilver.wordpress.com/teaching/",
+    "checked_at": "2026-09-28T01:01:32+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/easy21-assignment.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/easy21-assignment.pdf",
+    "checked_at": "2026-09-28T01:01:32+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/intro_rl.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/intro_rl.pdf",
+    "checked_at": "2026-09-28T01:01:33+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-10-case-study-rl-in-classic-games.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-10-case-study-rl-in-classic-games.pdf",
+    "checked_at": "2026-09-28T01:01:34+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-2-mdp.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-2-mdp.pdf",
+    "checked_at": "2026-09-28T01:01:34+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-3-planning-by-dynamic-programming-.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-3-planning-by-dynamic-programming-.pdf",
+    "checked_at": "2026-09-28T01:01:35+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-4-model-free-prediction-.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-4-model-free-prediction-.pdf",
+    "checked_at": "2026-09-28T01:01:36+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-5-model-free-control-.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-5-model-free-control-.pdf",
+    "checked_at": "2026-09-28T01:01:37+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-6-value-function-approximation-.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-6-value-function-approximation-.pdf",
+    "checked_at": "2026-09-28T01:01:37+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-7-policy-gradient-methods.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-7-policy-gradient-methods.pdf",
+    "checked_at": "2026-09-28T01:01:37+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-8-integrating-learning-and-planning.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-8-integrating-learning-and-planning.pdf",
+    "checked_at": "2026-09-28T01:01:38+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-9-exploration-and-exploitation.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-9-exploration-and-exploitation.pdf",
+    "checked_at": "2026-09-28T01:01:38+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-answers.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-answers.pdf",
+    "checked_at": "2026-09-28T01:01:39+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf",
+    "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf",
+    "checked_at": "2026-09-28T01:01:39+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://davidstarsilver.wordpress.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:32+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  }
+]

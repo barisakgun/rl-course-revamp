@@ -1,0 +1,27 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf",
+  "checked_at": "2026-09-28T00:03:46+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:03:43+00:00"
+  },
+  "sha256": "c903d58ae711eb1cf0dade45cf485174737e99f1066f31bd49df68ad9f3f8048",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.27\nCreationDate:    Fri Feb 20 23:28:36 2026 +03\nModDate:         Fri Feb 20 23:28:36 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           9\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       231090 bytes\nOptimized:       yes\nPDF version:     1.5\n",
+  "first_page_excerpt": "Berkeley CS 185/285    Deep Reinforcement Learning, Decision Making, and Control                 Spring 2026\n\n\n               Assignment 3: Q-Learning and Actor-Critic Algorithms\n                                        Due March 11, 11:59 pm\n\n\n1     Introduction\nThe goal of this assignment is to experiment with value-based deep reinforcement learning algorithms. You\nwill implement Deep Q-Networks (DQN) for discrete action spaces and Soft Actor-Critic (SAC) for continuous\naction spaces.\nThe starter code for this assignment can be found at\n           https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw3\n\nThis assignment will be faster to run on a GPU, though it is possible to complete on a CPU as well. Most\nexperiments (CartPole, LunarLander, InvertedPendulum, Hopper) are",
+  "embedded_urls": [
+    "https://arxiv.org/abs/1812.05905,",
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw3"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://arxiv.org/abs/1801.01290",
+    "https://arxiv.org/abs/1812.05905",
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw3"
+  ]
+}

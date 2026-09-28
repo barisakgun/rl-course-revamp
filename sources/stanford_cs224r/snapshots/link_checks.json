@@ -1,0 +1,478 @@
+[
+  {
+    "url": "https://cs224r.stanford.edu/",
+    "resolved_url": "https://cs224r.stanford.edu/",
+    "checked_at": "2026-09-28T01:02:07+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/CS224R_Custom_Project_Guidelines.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/material/CS224R_Custom_Project_Guidelines.pdf",
+    "checked_at": "2026-09-28T01:02:08+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/CS224R_Default_Project_Guidelines.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/material/CS224R_Default_Project_Guidelines.pdf",
+    "checked_at": "2026-09-28T01:02:08+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/CS224R_Exam_Review_Session_Riya.pptx",
+    "resolved_url": "https://cs224r.stanford.edu/material/CS224R_Exam_Review_Session_Riya.pptx",
+    "checked_at": "2026-09-28T01:02:10+00:00",
+    "http_status": 200,
+    "content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/CS224R_Tutotial_Max.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/material/CS224R_Tutotial_Max.pdf",
+    "checked_at": "2026-09-28T01:02:10+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/CS224R_compute_guide.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/material/CS224R_compute_guide.pdf",
+    "checked_at": "2026-09-28T01:02:11+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/default_proj.zip",
+    "resolved_url": "https://cs224r.stanford.edu/material/default_proj.zip",
+    "checked_at": "2026-09-28T01:02:11+00:00",
+    "http_status": 200,
+    "content_type": "application/x-zip-compressed",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.pdf",
+    "checked_at": "2026-09-28T01:02:12+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.tex",
+    "resolved_url": "https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.tex",
+    "checked_at": "2026-09-28T01:02:12+00:00",
+    "http_status": 200,
+    "content_type": "application/x-tex",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/hw1/hw1_starter_code.zip",
+    "resolved_url": "https://cs224r.stanford.edu/material/hw1/hw1_starter_code.zip",
+    "checked_at": "2026-09-28T01:02:13+00:00",
+    "http_status": 200,
+    "content_type": "application/x-zip-compressed",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.pdf",
+    "checked_at": "2026-09-28T01:02:13+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.tex",
+    "resolved_url": "https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.tex",
+    "checked_at": "2026-09-28T01:02:13+00:00",
+    "http_status": 200,
+    "content_type": "application/x-tex",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/hw2/hw2_starter_code.zip",
+    "resolved_url": "https://cs224r.stanford.edu/material/hw2/hw2_starter_code.zip",
+    "checked_at": "2026-09-28T01:02:14+00:00",
+    "http_status": 200,
+    "content_type": "application/x-zip-compressed",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.pdf",
+    "checked_at": "2026-09-28T01:02:14+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.tex",
+    "resolved_url": "https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.tex",
+    "checked_at": "2026-09-28T01:02:15+00:00",
+    "http_status": 200,
+    "content_type": "application/x-tex",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/material/hw3/hw3_starter_code.zip",
+    "resolved_url": "https://cs224r.stanford.edu/material/hw3/hw3_starter_code.zip",
+    "checked_at": "2026-09-28T01:02:15+00:00",
+    "http_status": 200,
+    "content_type": "application/x-zip-compressed",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/projects/cs224r_final_projects.html",
+    "resolved_url": "https://cs224r.stanford.edu/projects/cs224r_final_projects.html",
+    "checked_at": "2026-09-28T01:02:16+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/01_cs224r_intro_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/01_cs224r_intro_2026.pdf",
+    "checked_at": "2026-09-28T01:02:17+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/02_cs224r_imitation_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/02_cs224r_imitation_2026.pdf",
+    "checked_at": "2026-09-28T01:02:17+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/03_cs224r_policy_gradients_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/03_cs224r_policy_gradients_2026.pdf",
+    "checked_at": "2026-09-28T01:02:18+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/04_cs224r_actor_critic_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/04_cs224r_actor_critic_2026.pdf",
+    "checked_at": "2026-09-28T01:02:18+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/05_cs224r_offpolicy_actor_critic_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/05_cs224r_offpolicy_actor_critic_2026.pdf",
+    "checked_at": "2026-09-28T01:02:19+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/06_cs224r_qlearning_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/06_cs224r_qlearning_2026.pdf",
+    "checked_at": "2026-09-28T01:02:20+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf",
+    "checked_at": "2026-09-28T01:02:20+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/08_cs224r_reward_learning_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/08_cs224r_reward_learning_2026.pdf",
+    "checked_at": "2026-09-28T01:02:21+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/09_cs224r_rlhf_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/09_cs224r_rlhf_2026.pdf",
+    "checked_at": "2026-09-28T01:02:21+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf",
+    "checked_at": "2026-09-28T01:02:22+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/11_cs224r_mbrl_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/11_cs224r_mbrl_2026.pdf",
+    "checked_at": "2026-09-28T01:02:22+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/12_cs224r_mtrl_gcrl_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/12_cs224r_mtrl_gcrl_2026.pdf",
+    "checked_at": "2026-09-28T01:02:23+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/13_cs224r_metarl_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/13_cs224r_metarl_2026.pdf",
+    "checked_at": "2026-09-28T01:02:24+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/15_cs224r_hierarchy_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/15_cs224r_hierarchy_2026.pdf",
+    "checked_at": "2026-09-28T01:02:24+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/16_cs224r_sim2real_robot_learning_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/16_cs224r_sim2real_robot_learning_2026.pdf",
+    "checked_at": "2026-09-28T01:02:25+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/17_cs224r_rl_vlas_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/17_cs224r_rl_vlas_2026.pdf",
+    "checked_at": "2026-09-28T01:02:26+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://cs224r.stanford.edu/slides/18_cs224r_frontiers_how_to_research_2026.pdf",
+    "resolved_url": "https://cs224r.stanford.edu/slides/18_cs224r_frontiers_how_to_research_2026.pdf",
+    "checked_at": "2026-09-28T01:02:26+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://cs224r.stanford.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:02:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  }
+]

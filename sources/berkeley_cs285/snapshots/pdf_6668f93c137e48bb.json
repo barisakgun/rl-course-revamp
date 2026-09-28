@@ -1,0 +1,22 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/final_project_outline.pdf",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/final_project_outline.pdf",
+  "checked_at": "2026-09-28T00:03:51+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:03:43+00:00"
+  },
+  "sha256": "2abc35f7ebbd632be2ce534dda238436df40a869a1d57e4caeed927c2246a5f4",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.27\nCreationDate:    Thu Feb  5 21:04:56 2026 +03\nModDate:         Thu Feb  5 21:04:56 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           4\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       143867 bytes\nOptimized:       yes\nPDF version:     1.5\n",
+  "first_page_excerpt": "Berkeley CS 185/285      Deep Reinforcement Learning, Decision Making, and Control                   Spring 2026\n\n\n                                         Final Project Outline\n                              [CS185] Default project released March 6th\n                                [CS285] Project proposal due March 6th\n\n\n1     Introduction\nIn this final project, you will delve deeper into the concepts we’ve covered in class and beyond. The goal of this\nproject is to implement, evaluate, and analyze a research idea, documenting it in a workshop submission-style\npaper. The final project will be run slightly differently for CS185 (undergraduate) vs. CS285 (graduate)\nstudents, as described below. The deliverables for the project will consist of an initial project proposal (for\n285 section stu",
+  "embedded_urls": [],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://neurips.cc/Conferences/2025/CallForPapers"
+  ]
+}

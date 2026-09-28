@@ -72,14 +72,9 @@ Topics students are expected to derive, implement, or analyze should normally ha
 
 Exposure and extension topics should not create disproportionate examination or assignment burden.
 
-The provisional assignment progression is:
+Assignments should help students achieve the relevant course learning outcomes through practice and feedback, and provide evidence of the expected mastery. Their scope and workload should serve those outcomes.
 
-1. tabular RL;
-2. function approximation and deep value learning;
-3. policy optimization;
-4. offline RL.
-
-This structure remains subject to revision after curriculum freeze.
+Detailed provisional assignment hypotheses belong in `config/provisional_plan.yaml`. Accepted assignment designs belong in `decisions/assignment_decisions.md` after the assignment-design phase.
 
 A mandatory LLM assignment is not required. LLM-based RL should remain available as a project direction for interested students.
 

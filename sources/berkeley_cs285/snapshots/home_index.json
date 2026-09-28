@@ -1,0 +1,1128 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/",
+  "checked_at": "2026-09-28T00:01:37+00:00",
+  "http_status": 200,
+  "content_type": "text/html",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:01:37+00:00"
+  },
+  "sha256_of_retrieved_html": "2552b8477a675d8485dea7fa45369e9a7ca3da923607c8cfb0cb2d2d9886cafd",
+  "title": "CS 185/285",
+  "headings": [
+    "CS 185/285",
+    "Calendar",
+    "Resources",
+    "Syllabus",
+    "Meta",
+    "Deep Reinforcement Learning",
+    "Instructor Sergey Levine",
+    "Head GSI Seohong Park",
+    "GSI Vivek Myers",
+    "GSI Kevin Black",
+    "GSI Pranav Atreya",
+    "GSI Mitsuhiko Nakamoto",
+    "GSI Catherine Glossop",
+    "Week 1\n                Overview",
+    "Course Intro & Imitation Learning",
+    "Week 2\n                Overview",
+    "Imitation Learning & RL Basics",
+    "Week 3\n                Overview",
+    "Policy Gradients & Actor Critic",
+    "Week 4\n                Overview",
+    "Value-Based RL",
+    "Week 5\n                Overview",
+    "Advanced Policy Gradients",
+    "Week 6\n                Overview",
+    "Variational Inference",
+    "Week 7\n                Overview",
+    "Finishing VI & LLM RL",
+    "Week 8\n                Overview",
+    "Model-Based RL",
+    "Week 9\n                Overview",
+    "Offline Reinforcement Learning",
+    "Week 10\n                Overview",
+    "Exploration & RL Theory",
+    "Week 11\n                Overview",
+    "Midterm Review",
+    "Week 12\n                Overview",
+    "Exploration & Multi-task RL",
+    "Week 13\n                Overview",
+    "Open Problems & Guest Lecture",
+    "Week 14\n                Overview",
+    "Final Guest Lecture",
+    "Final Project Information",
+    "Default Project Options",
+    "Project Outline",
+    "Homeworks",
+    "Lecture Slides",
+    "Discussion Section Slides",
+    "Calendar",
+    "Resources",
+    "Syllabus",
+    "Meta"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "CS 185/285",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/",
+      "heading": "CS 185/285",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "CS 185/285",
+      "context": "Calendar"
+    },
+    {
+      "index": 2,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "CS 185/285",
+      "context": "Resources"
+    },
+    {
+      "index": 3,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus",
+      "heading": "CS 185/285",
+      "context": "Syllabus"
+    },
+    {
+      "index": 4,
+      "label": "Staff",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/staff",
+      "heading": "CS 185/285",
+      "context": "Staff"
+    },
+    {
+      "index": 5,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "CS 185/285",
+      "context": "Calendar"
+    },
+    {
+      "index": 6,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "CS 185/285",
+      "context": "Resources"
+    },
+    {
+      "index": 7,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "CS 185/285",
+      "context": "Resources"
+    },
+    {
+      "index": 8,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "Calendar",
+      "context": ""
+    },
+    {
+      "index": 9,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "Resources",
+      "context": ""
+    },
+    {
+      "index": 10,
+      "label": "Previous Offerings",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#prevoffs",
+      "heading": "Resources",
+      "context": "Previous Offerings"
+    },
+    {
+      "index": 11,
+      "label": "Courses",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#courses",
+      "heading": "Resources",
+      "context": "Courses"
+    },
+    {
+      "index": 12,
+      "label": "Relevant Textbooks",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#textbooks",
+      "heading": "Resources",
+      "context": "Relevant Textbooks"
+    },
+    {
+      "index": 13,
+      "label": "Misc Links",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#misclinks",
+      "heading": "Resources",
+      "context": "Misc Links"
+    },
+    {
+      "index": 14,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus",
+      "heading": "Syllabus",
+      "context": ""
+    },
+    {
+      "index": 15,
+      "label": "Prerequisites",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#prereqs",
+      "heading": "Syllabus",
+      "context": "Prerequisites"
+    },
+    {
+      "index": 16,
+      "label": "Technology",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#technology",
+      "heading": "Syllabus",
+      "context": "Technology"
+    },
+    {
+      "index": 17,
+      "label": "Materials",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#materials",
+      "heading": "Syllabus",
+      "context": "Materials"
+    },
+    {
+      "index": 18,
+      "label": "Collaboration",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#collaboration",
+      "heading": "Syllabus",
+      "context": "Collaboration"
+    },
+    {
+      "index": 19,
+      "label": "Late Policy",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#late",
+      "heading": "Syllabus",
+      "context": "Late Policy"
+    },
+    {
+      "index": 20,
+      "label": "Grading",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#grading",
+      "heading": "Syllabus",
+      "context": "Grading"
+    },
+    {
+      "index": 21,
+      "label": "Staff",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/staff",
+      "heading": "Meta",
+      "context": "Staff"
+    },
+    {
+      "index": 22,
+      "label": "Hearst Annex A1",
+      "url": "https://rtl.berkeley.edu/classroom-database/hearst-annex-a1",
+      "heading": "Deep Reinforcement Learning",
+      "context": "Lectures: 9 - 10 am on Wednesdays and 8 - 10 am on Fridays, both in Hearst Annex A1"
+    },
+    {
+      "index": 23,
+      "label": "Offline-to-Online RL Default Final Project",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf",
+      "heading": "Deep Reinforcement Learning",
+      "context": "Announcement : The default final project options are now available: Offline-to-Online RL Default Final Project and LLM RL Default Final Project ."
+    },
+    {
+      "index": 24,
+      "label": "LLM RL Default Final Project",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/llm_rl_default_final_project.pdf",
+      "heading": "Deep Reinforcement Learning",
+      "context": "Announcement : The default final project options are now available: Offline-to-Online RL Default Final Project and LLM RL Default Final Project ."
+    },
+    {
+      "index": 25,
+      "label": "final project outline",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/final_project_outline.pdf",
+      "heading": "Deep Reinforcement Learning",
+      "context": "Announcement : The final project outline has been released."
+    },
+    {
+      "index": 26,
+      "label": "here",
+      "url": "https://www.youtube.com/playlist?list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps",
+      "heading": "Deep Reinforcement Learning",
+      "context": "Announcement : The default final project options are now available: Offline-to-Online RL Default Final Project and LLM RL Default Final Project . Announcement : The final project outline has been released. Looking for deep RL course materials from past years? Recordings of lectures from Fall 2023 are here , and materials from previous offerings are here . Email all staff (preferred): cs285-staff-sp2026@lists.eecs.berkeley.edu"
+    },
+    {
+      "index": 27,
+      "label": "here",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#prev-off",
+      "heading": "Deep Reinforcement Learning",
+      "context": "Announcement : The default final project options are now available: Offline-to-Online RL Default Final Project and LLM RL Default Final Project . Announcement : The final project outline has been released. Looking for deep RL course materials from past years? Recordings of lectures from Fall 2023 are here , and materials from previous offerings are here . Email all staff (preferred): cs285-staff-sp2026@lists.eecs.berkeley.edu"
+    },
+    {
+      "index": 28,
+      "label": "Sergey Levine",
+      "url": "https://people.eecs.berkeley.edu/~svlevine/",
+      "heading": "Instructor Sergey Levine",
+      "context": "Instructor Sergey Levine svlevine@eecs.berkeley.edu Office Hours: Wednesdays 8 - 9 AM in Hearst Annex A1"
+    },
+    {
+      "index": 29,
+      "label": "Seohong Park",
+      "url": "https://seohong.me/",
+      "heading": "Head GSI Seohong Park",
+      "context": "Head GSI Seohong Park seohong@berkeley.edu Office Hours: Fri 1:15p-2:15p in Berkeley Way West 1204"
+    },
+    {
+      "index": 30,
+      "label": "Vivek Myers",
+      "url": "https://people.eecs.berkeley.edu/~vmyers/",
+      "heading": "GSI Vivek Myers",
+      "context": "GSI Vivek Myers vmyers@berkeley.edu Office Hours: Tue 4p-5p in Berkeley Way West 1204"
+    },
+    {
+      "index": 31,
+      "label": "Kevin Black",
+      "url": "https://kevin.black/",
+      "heading": "GSI Kevin Black",
+      "context": "GSI Kevin Black kvablack@berkeley.edu Office Hours: Tue 9a-10a in Berkeley Way West 1212"
+    },
+    {
+      "index": 32,
+      "label": "Pranav Atreya",
+      "url": "https://pranavatreya.github.io/",
+      "heading": "GSI Pranav Atreya",
+      "context": "GSI Pranav Atreya pranavatreya@berkeley.edu Office Hours: Mon 5p-6p in Berkeley Way West 1216"
+    },
+    {
+      "index": 33,
+      "label": "Mitsuhiko Nakamoto",
+      "url": "https://nakamotoo.github.io/",
+      "heading": "GSI Mitsuhiko Nakamoto",
+      "context": "GSI Mitsuhiko Nakamoto nakamoto@eecs.berkeley.edu Office Hours: Thursday 4p-5p Berkeley Way West 1204"
+    },
+    {
+      "index": 34,
+      "label": "Catherine Glossop",
+      "url": "https://catglossop.github.io/",
+      "heading": "GSI Catherine Glossop",
+      "context": "GSI Catherine Glossop catherine_glossop@berkeley.edu Office Hours: Thu 10a-11a in Berkeley Way West 1211"
+    },
+    {
+      "index": 35,
+      "label": "Homework 1: Imitation Learning",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf",
+      "heading": "Course Intro & Imitation Learning",
+      "context": "Homework 1: Imitation Learning"
+    },
+    {
+      "index": 36,
+      "label": "Lecture 1: Introduction",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-1.pdf",
+      "heading": "Course Intro & Imitation Learning",
+      "context": "Lecture 1: Introduction"
+    },
+    {
+      "index": 37,
+      "label": "Lecture 2: Behavioral Cloning",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-2.pdf",
+      "heading": "Course Intro & Imitation Learning",
+      "context": "Lecture 2: Behavioral Cloning"
+    },
+    {
+      "index": 38,
+      "label": "Homework 1: Imitation Learning",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf",
+      "heading": "Imitation Learning & RL Basics",
+      "context": "Homework 1: Imitation Learning"
+    },
+    {
+      "index": 39,
+      "label": "Section 1: PyTorch Tutorial",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-1.pdf",
+      "heading": "Imitation Learning & RL Basics",
+      "context": "Section 1: PyTorch Tutorial"
+    },
+    {
+      "index": 40,
+      "label": "Lecture 3: Behavioral Cloning Part 2",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-3.pdf",
+      "heading": "Imitation Learning & RL Basics",
+      "context": "Lecture 3: Behavioral Cloning Part 2"
+    },
+    {
+      "index": 41,
+      "label": "Lecture 4: RL Basics",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-4.pdf",
+      "heading": "Imitation Learning & RL Basics",
+      "context": "Lecture 4: RL Basics"
+    },
+    {
+      "index": 42,
+      "label": "Homework 1: Imitation Learning",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf",
+      "heading": "Policy Gradients & Actor Critic",
+      "context": "Homework 1: Imitation Learning"
+    },
+    {
+      "index": 43,
+      "label": "Homework 2: Policy Gradients",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf",
+      "heading": "Policy Gradients & Actor Critic",
+      "context": "Homework 2: Policy Gradients"
+    },
+    {
+      "index": 44,
+      "label": "Section 2 Part 1: Probability Review",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-1.pdf",
+      "heading": "Policy Gradients & Actor Critic",
+      "context": "Section 2 Part 1: Probability Review"
+    },
+    {
+      "index": 45,
+      "label": "Section 2 Part 2: BC Distributional Shift",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-2.pdf",
+      "heading": "Policy Gradients & Actor Critic",
+      "context": "Section 2 Part 2: BC Distributional Shift"
+    },
+    {
+      "index": 46,
+      "label": "Lecture 5: Policy Gradients",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-5.pdf",
+      "heading": "Policy Gradients & Actor Critic",
+      "context": "Lecture 5: Policy Gradients"
+    },
+    {
+      "index": 47,
+      "label": "Lecture 6: Actor Critic",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-6.pdf",
+      "heading": "Policy Gradients & Actor Critic",
+      "context": "Lecture 6: Actor Critic"
+    },
+    {
+      "index": 48,
+      "label": "Homework 1: Imitation Learning",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf",
+      "heading": "Value-Based RL",
+      "context": "Homework 1: Imitation Learning"
+    },
+    {
+      "index": 49,
+      "label": "Homework 2: Policy Gradients",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf",
+      "heading": "Value-Based RL",
+      "context": "Homework 2: Policy Gradients"
+    },
+    {
+      "index": 50,
+      "label": "Section 3: Policy Gradients and Actor Critic",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-3.pdf",
+      "heading": "Value-Based RL",
+      "context": "Section 3: Policy Gradients and Actor Critic"
+    },
+    {
+      "index": 51,
+      "label": "Lecture 7: Value-Based RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-7.pdf",
+      "heading": "Value-Based RL",
+      "context": "Lecture 7: Value-Based RL"
+    },
+    {
+      "index": 52,
+      "label": "Lecture 8: Q-learning in Practice",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-8.pdf",
+      "heading": "Value-Based RL",
+      "context": "Lecture 8: Q-learning in Practice"
+    },
+    {
+      "index": 53,
+      "label": "Homework 2: Policy Gradients",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf",
+      "heading": "Advanced Policy Gradients",
+      "context": "Homework 2: Policy Gradients"
+    },
+    {
+      "index": 54,
+      "label": "Homework 3: Q-Learning and Actor Critic",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf",
+      "heading": "Advanced Policy Gradients",
+      "context": "Homework 3: Q-Learning and Actor Critic"
+    },
+    {
+      "index": 55,
+      "label": "Section 4: DQN and SAC",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-4.pdf",
+      "heading": "Advanced Policy Gradients",
+      "context": "Section 4: DQN and SAC"
+    },
+    {
+      "index": 56,
+      "label": "Lecture 9: Advanced Policy Gradients Part 1",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-9.pdf",
+      "heading": "Advanced Policy Gradients",
+      "context": "Lecture 9: Advanced Policy Gradients Part 1"
+    },
+    {
+      "index": 57,
+      "label": "Lecture 10: Advanced Policy Gradients Part 2",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-10.pdf",
+      "heading": "Advanced Policy Gradients",
+      "context": "Lecture 10: Advanced Policy Gradients Part 2"
+    },
+    {
+      "index": 58,
+      "label": "Homework 2: Policy Gradients",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf",
+      "heading": "Variational Inference",
+      "context": "Homework 2: Policy Gradients"
+    },
+    {
+      "index": 59,
+      "label": "Homework 3: Q-Learning and Actor Critic",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf",
+      "heading": "Variational Inference",
+      "context": "Homework 3: Q-Learning and Actor Critic"
+    },
+    {
+      "index": 60,
+      "label": "Section 5: Advanced Policy Gradients",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-5.pdf",
+      "heading": "Variational Inference",
+      "context": "Section 5: Advanced Policy Gradients"
+    },
+    {
+      "index": 61,
+      "label": "Lecture 11: Variational Inference",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-11.pdf",
+      "heading": "Variational Inference",
+      "context": "Lecture 11: Variational Inference"
+    },
+    {
+      "index": 62,
+      "label": "Lecture 12: VI in RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-12.pdf",
+      "heading": "Variational Inference",
+      "context": "Lecture 12: VI in RL"
+    },
+    {
+      "index": 63,
+      "label": "Homework 3: Q-Learning and Actor Critic",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf",
+      "heading": "Finishing VI & LLM RL",
+      "context": "Homework 3: Q-Learning and Actor Critic"
+    },
+    {
+      "index": 64,
+      "label": "Homework 4: LLM RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf",
+      "heading": "Finishing VI & LLM RL",
+      "context": "Homework 4: LLM RL"
+    },
+    {
+      "index": 65,
+      "label": "Section 6: Variational Inference",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-6.pdf",
+      "heading": "Finishing VI & LLM RL",
+      "context": "Section 6: Variational Inference"
+    },
+    {
+      "index": 66,
+      "label": "Lecture 13: Control as Inference",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-13.pdf",
+      "heading": "Finishing VI & LLM RL",
+      "context": "Lecture 13: Control as Inference"
+    },
+    {
+      "index": 67,
+      "label": "Lecture 14: LLM RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-14.pdf",
+      "heading": "Finishing VI & LLM RL",
+      "context": "Lecture 14: LLM RL"
+    },
+    {
+      "index": 68,
+      "label": "Homework 3: Q-Learning and Actor Critic",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf",
+      "heading": "Model-Based RL",
+      "context": "Homework 3: Q-Learning and Actor Critic"
+    },
+    {
+      "index": 69,
+      "label": "Homework 4: LLM RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf",
+      "heading": "Model-Based RL",
+      "context": "Homework 4: LLM RL"
+    },
+    {
+      "index": 70,
+      "label": "Section 7: IRL and LLM RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-7.pdf",
+      "heading": "Model-Based RL",
+      "context": "Section 7: IRL and LLM RL"
+    },
+    {
+      "index": 71,
+      "label": "Lecture 15: Model-Based RL Part 1",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-15.pdf",
+      "heading": "Model-Based RL",
+      "context": "Lecture 15: Model-Based RL Part 1"
+    },
+    {
+      "index": 72,
+      "label": "Lecture 16: Model-Based RL Part 2",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-16.pdf",
+      "heading": "Model-Based RL",
+      "context": "Lecture 16: Model-Based RL Part 2"
+    },
+    {
+      "index": 73,
+      "label": "Homework 4: LLM RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf",
+      "heading": "Offline Reinforcement Learning",
+      "context": "Homework 4: LLM RL"
+    },
+    {
+      "index": 74,
+      "label": "Homework 5: Offline RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf",
+      "heading": "Offline Reinforcement Learning",
+      "context": "Homework 5: Offline RL"
+    },
+    {
+      "index": 75,
+      "label": "Section 8: Model-Based RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-8.pdf",
+      "heading": "Offline Reinforcement Learning",
+      "context": "Section 8: Model-Based RL"
+    },
+    {
+      "index": 76,
+      "label": "Lecture 17: Offline RL Part 1",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-17.pdf",
+      "heading": "Offline Reinforcement Learning",
+      "context": "Lecture 17: Offline RL Part 1"
+    },
+    {
+      "index": 77,
+      "label": "Lecture 18: Offline RL Part 2",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-18.pdf",
+      "heading": "Offline Reinforcement Learning",
+      "context": "Lecture 18: Offline RL Part 2"
+    },
+    {
+      "index": 78,
+      "label": "Homework 4: LLM RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf",
+      "heading": "Exploration & RL Theory",
+      "context": "Homework 4: LLM RL"
+    },
+    {
+      "index": 79,
+      "label": "Homework 5: Offline RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf",
+      "heading": "Exploration & RL Theory",
+      "context": "Homework 5: Offline RL"
+    },
+    {
+      "index": 80,
+      "label": "Section 9: Offline RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-9.pdf",
+      "heading": "Exploration & RL Theory",
+      "context": "Section 9: Offline RL"
+    },
+    {
+      "index": 81,
+      "label": "Lecture 19: Exploration",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-19.pdf",
+      "heading": "Exploration & RL Theory",
+      "context": "Lecture 19: Exploration"
+    },
+    {
+      "index": 82,
+      "label": "Lecture 20: RL Theory",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-20.pdf",
+      "heading": "Exploration & RL Theory",
+      "context": "Lecture 20: RL Theory"
+    },
+    {
+      "index": 83,
+      "label": "Homework 5: Offline RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf",
+      "heading": "Midterm Review",
+      "context": "Homework 5: Offline RL"
+    },
+    {
+      "index": 84,
+      "label": "Lecture 21: Midterm Review Part 1",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-21.pdf",
+      "heading": "Midterm Review",
+      "context": "Lecture 21: Midterm Review Part 1"
+    },
+    {
+      "index": 85,
+      "label": "Lecture 22: Midterm Review Part 2",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-22.pdf",
+      "heading": "Midterm Review",
+      "context": "Lecture 22: Midterm Review Part 2"
+    },
+    {
+      "index": 86,
+      "label": "Homework 5: Offline RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf",
+      "heading": "Exploration & Multi-task RL",
+      "context": "Homework 5: Offline RL"
+    },
+    {
+      "index": 87,
+      "label": "Lecture 23: Advanced Exploration",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-23.pdf",
+      "heading": "Exploration & Multi-task RL",
+      "context": "Lecture 23: Advanced Exploration"
+    },
+    {
+      "index": 88,
+      "label": "Lecture 24: Multi-task RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-24.pdf",
+      "heading": "Exploration & Multi-task RL",
+      "context": "Lecture 24: Multi-task RL"
+    },
+    {
+      "index": 89,
+      "label": "Lecture 25: Challenges and Open Problems",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-25.pdf",
+      "heading": "Open Problems & Guest Lecture",
+      "context": "Lecture 25: Challenges and Open Problems"
+    },
+    {
+      "index": 90,
+      "label": "Offline-to-Online RL Default Final Project",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf",
+      "heading": "Default Project Options",
+      "context": "Offline-to-Online RL Default Final Project"
+    },
+    {
+      "index": 91,
+      "label": "LLM RL Default Final Project",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/llm_rl_default_final_project.pdf",
+      "heading": "Default Project Options",
+      "context": "LLM RL Default Final Project"
+    },
+    {
+      "index": 92,
+      "label": "Final Project Outline",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/final_project_outline.pdf",
+      "heading": "Project Outline",
+      "context": "Final Project Outline"
+    },
+    {
+      "index": 93,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#materials",
+      "heading": "Homeworks",
+      "context": "See Syllabus for more information."
+    },
+    {
+      "index": 94,
+      "label": "Modal",
+      "url": "https://modal.com",
+      "heading": "Homeworks",
+      "context": "We are grateful for generous compute support from Modal for students enrolled in the course."
+    },
+    {
+      "index": 95,
+      "label": "Homework 1: Imitation Learning",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf",
+      "heading": "Homeworks",
+      "context": "Homework 1: Imitation Learning"
+    },
+    {
+      "index": 96,
+      "label": "Homework 2: Policy Gradients",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf",
+      "heading": "Homeworks",
+      "context": "Homework 2: Policy Gradients"
+    },
+    {
+      "index": 97,
+      "label": "Homework 3: Q-Learning and Actor Critic",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf",
+      "heading": "Homeworks",
+      "context": "Homework 3: Q-Learning and Actor Critic"
+    },
+    {
+      "index": 98,
+      "label": "Homework 4: LLM RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf",
+      "heading": "Homeworks",
+      "context": "Homework 4: LLM RL"
+    },
+    {
+      "index": 99,
+      "label": "Homework 5: Offline RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf",
+      "heading": "Homeworks",
+      "context": "Homework 5: Offline RL"
+    },
+    {
+      "index": 100,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#materials",
+      "heading": "Lecture Slides",
+      "context": "See Syllabus for more information."
+    },
+    {
+      "index": 101,
+      "label": "Lecture 1: Introduction",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-1.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 1: Introduction"
+    },
+    {
+      "index": 102,
+      "label": "Lecture 2: Behavioral Cloning",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-2.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 2: Behavioral Cloning"
+    },
+    {
+      "index": 103,
+      "label": "Lecture 3: Behavioral Cloning Part 2",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-3.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 3: Behavioral Cloning Part 2"
+    },
+    {
+      "index": 104,
+      "label": "Lecture 4: RL Basics",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-4.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 4: RL Basics"
+    },
+    {
+      "index": 105,
+      "label": "Lecture 5: Policy Gradients",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-5.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 5: Policy Gradients"
+    },
+    {
+      "index": 106,
+      "label": "Lecture 6: Actor Critic",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-6.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 6: Actor Critic"
+    },
+    {
+      "index": 107,
+      "label": "Lecture 7: Value-Based RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-7.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 7: Value-Based RL"
+    },
+    {
+      "index": 108,
+      "label": "Lecture 8: Q-learning in Practice",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-8.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 8: Q-learning in Practice"
+    },
+    {
+      "index": 109,
+      "label": "Lecture 9: Advanced Policy Gradients Part 1",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-9.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 9: Advanced Policy Gradients Part 1"
+    },
+    {
+      "index": 110,
+      "label": "Lecture 10: Advanced Policy Gradients Part 2",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-10.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 10: Advanced Policy Gradients Part 2"
+    },
+    {
+      "index": 111,
+      "label": "Lecture 11: Variational Inference",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-11.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 11: Variational Inference"
+    },
+    {
+      "index": 112,
+      "label": "Lecture 12: VI in RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-12.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 12: VI in RL"
+    },
+    {
+      "index": 113,
+      "label": "Lecture 13: Control as Inference",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-13.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 13: Control as Inference"
+    },
+    {
+      "index": 114,
+      "label": "Lecture 14: LLM RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-14.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 14: LLM RL"
+    },
+    {
+      "index": 115,
+      "label": "Lecture 15: Model-Based RL Part 1",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-15.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 15: Model-Based RL Part 1"
+    },
+    {
+      "index": 116,
+      "label": "Lecture 16: Model-Based RL Part 2",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-16.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 16: Model-Based RL Part 2"
+    },
+    {
+      "index": 117,
+      "label": "Lecture 17: Offline RL Part 1",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-17.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 17: Offline RL Part 1"
+    },
+    {
+      "index": 118,
+      "label": "Lecture 18: Offline RL Part 2",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-18.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 18: Offline RL Part 2"
+    },
+    {
+      "index": 119,
+      "label": "Lecture 19: Exploration",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-19.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 19: Exploration"
+    },
+    {
+      "index": 120,
+      "label": "Lecture 20: RL Theory",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-20.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 20: RL Theory"
+    },
+    {
+      "index": 121,
+      "label": "Lecture 21: Midterm Review Part 1",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-21.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 21: Midterm Review Part 1"
+    },
+    {
+      "index": 122,
+      "label": "Lecture 22: Midterm Review Part 2",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-22.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 22: Midterm Review Part 2"
+    },
+    {
+      "index": 123,
+      "label": "Lecture 23: Advanced Exploration",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-23.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 23: Advanced Exploration"
+    },
+    {
+      "index": 124,
+      "label": "Lecture 24: Multi-task RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-24.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 24: Multi-task RL"
+    },
+    {
+      "index": 125,
+      "label": "Lecture 25: Challenges and Open Problems",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-25.pdf",
+      "heading": "Lecture Slides",
+      "context": "Lecture 25: Challenges and Open Problems"
+    },
+    {
+      "index": 126,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#materials",
+      "heading": "Discussion Section Slides",
+      "context": "See Syllabus for more information."
+    },
+    {
+      "index": 127,
+      "label": "Section 1: PyTorch Tutorial",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-1.pdf",
+      "heading": "Discussion Section Slides",
+      "context": "Section 1: PyTorch Tutorial"
+    },
+    {
+      "index": 128,
+      "label": "Section 2 Part 1: Probability Review",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-1.pdf",
+      "heading": "Discussion Section Slides",
+      "context": "Section 2 Part 1: Probability Review"
+    },
+    {
+      "index": 129,
+      "label": "Section 2 Part 2: BC Distributional Shift",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-2.pdf",
+      "heading": "Discussion Section Slides",
+      "context": "Section 2 Part 2: BC Distributional Shift"
+    },
+    {
+      "index": 130,
+      "label": "Section 3: Policy Gradients and Actor Critic",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-3.pdf",
+      "heading": "Discussion Section Slides",
+      "context": "Section 3: Policy Gradients and Actor Critic"
+    },
+    {
+      "index": 131,
+      "label": "Section 4: DQN and SAC",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-4.pdf",
+      "heading": "Discussion Section Slides",
+      "context": "Section 4: DQN and SAC"
+    },
+    {
+      "index": 132,
+      "label": "Section 5: Advanced Policy Gradients",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-5.pdf",
+      "heading": "Discussion Section Slides",
+      "context": "Section 5: Advanced Policy Gradients"
+    },
+    {
+      "index": 133,
+      "label": "Section 6: Variational Inference",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-6.pdf",
+      "heading": "Discussion Section Slides",
+      "context": "Section 6: Variational Inference"
+    },
+    {
+      "index": 134,
+      "label": "Section 7: IRL and LLM RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-7.pdf",
+      "heading": "Discussion Section Slides",
+      "context": "Section 7: IRL and LLM RL"
+    },
+    {
+      "index": 135,
+      "label": "Section 8: Model-Based RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-8.pdf",
+      "heading": "Discussion Section Slides",
+      "context": "Section 8: Model-Based RL"
+    },
+    {
+      "index": 136,
+      "label": "Section 9: Offline RL",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-9.pdf",
+      "heading": "Discussion Section Slides",
+      "context": "Section 9: Offline RL"
+    },
+    {
+      "index": 137,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "Calendar",
+      "context": ""
+    },
+    {
+      "index": 138,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "Resources",
+      "context": ""
+    },
+    {
+      "index": 139,
+      "label": "Previous Offerings",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#prevoffs",
+      "heading": "Resources",
+      "context": "Previous Offerings"
+    },
+    {
+      "index": 140,
+      "label": "Courses",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#courses",
+      "heading": "Resources",
+      "context": "Courses"
+    },
+    {
+      "index": 141,
+      "label": "Relevant Textbooks",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#textbooks",
+      "heading": "Resources",
+      "context": "Relevant Textbooks"
+    },
+    {
+      "index": 142,
+      "label": "Misc Links",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#misclinks",
+      "heading": "Resources",
+      "context": "Misc Links"
+    },
+    {
+      "index": 143,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus",
+      "heading": "Syllabus",
+      "context": ""
+    },
+    {
+      "index": 144,
+      "label": "Prerequisites",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#prereqs",
+      "heading": "Syllabus",
+      "context": "Prerequisites"
+    },
+    {
+      "index": 145,
+      "label": "Technology",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#technology",
+      "heading": "Syllabus",
+      "context": "Technology"
+    },
+    {
+      "index": 146,
+      "label": "Materials",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#materials",
+      "heading": "Syllabus",
+      "context": "Materials"
+    },
+    {
+      "index": 147,
+      "label": "Collaboration",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#collaboration",
+      "heading": "Syllabus",
+      "context": "Collaboration"
+    },
+    {
+      "index": 148,
+      "label": "Late Policy",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#late",
+      "heading": "Syllabus",
+      "context": "Late Policy"
+    },
+    {
+      "index": 149,
+      "label": "Grading",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#grading",
+      "heading": "Syllabus",
+      "context": "Grading"
+    },
+    {
+      "index": 150,
+      "label": "Staff",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/staff",
+      "heading": "Meta",
+      "context": "Staff"
+    }
+  ],
+  "tables": []
+}

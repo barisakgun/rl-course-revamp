@@ -1,0 +1,1985 @@
+{
+  "url": "https://cs224r.stanford.edu/projects/cs224r_final_projects.html",
+  "resolved_url": "https://cs224r.stanford.edu/projects/cs224r_final_projects.html",
+  "checked_at": "2026-09-28T00:01:47+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "status": "reachable",
+  "robots": {
+    "url": "https://cs224r.stanford.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:01:46+00:00"
+  },
+  "sha256_of_retrieved_html": "ae1b8bae643ff1535a200c99bdb4f653f8afb368da69df8b2e44752a50bb4cae",
+  "title": "CS 224R Final Projects",
+  "headings": [
+    "CS 224R Final Projects",
+    "Spring 2026 · 244 student projects"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "← Back to CS 224R Home",
+      "url": "https://cs224r.stanford.edu/index.html",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "A Semi-Decentralized Approach to Scalable Multiagent Control",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Avi%20Singh%20Mahdi%20Al-Husseini%20submission_416283010/merged_ea_paper_cs224rl.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Outstanding Project A Semi-Decentralized Approach to Scalable Multiagent Control Avi Singh, Mahdi Al-Husseini Rahul Chand"
+    },
+    {
+      "index": 2,
+      "label": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kuo-Han%20Hung%20submission_415391100/224_final_project__3_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Outstanding Project EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action Models Kuo-Han Hung Perry Dong"
+    },
+    {
+      "index": 3,
+      "label": "Hybrid Reinforcement Learning for Chip Macro Placement",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Moritz%20Schreyoegg%20Jack%20Herrmann%20Daniel%20Hagenlocker%20submission_416285738/CS224R_Final_Report__2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Outstanding Project Hybrid Reinforcement Learning for Chip Macro Placement Moritz Schreyoegg, Jack Herrmann, Daniel Hagenlocker Anushree Aggarwal"
+    },
+    {
+      "index": 4,
+      "label": "SFT Augmentation and Replay-Based RL for Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Aizada%20Nurdinova%20Ellie%20Sampson%20Adhi%20Daiv%20submission_416275011/CS224R_Final_report__2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Outstanding Project SFT Augmentation and Replay-Based RL for Countdown Reasoning Aizada Nurdinova, Ellie Sampson, Adhi Daiv Anikait Singh"
+    },
+    {
+      "index": 5,
+      "label": "Beyond Test Scores: Reward Design for Offline RL in Personal Finance Tutoring",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Stella%20Wu%20Daniel%20Mark%20Argento%20submission_416139495/Argento_and_Wu_RL_Reward_Design_in_Personal_Finance.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Honorable Mention Beyond Test Scores: Reward Design for Offline RL in Personal Finance Tutoring Stella Wu, Daniel Mark Argento Alex Nam"
+    },
+    {
+      "index": 6,
+      "label": "CARVE: Concept Avoidance via Reward-shaped Visual Erasure",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Febie%20Jane%20Lin%20Fabio%20Ibanez%20Chris%20Stanulet%20submission_416241402/CS224R___CARVE_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Honorable Mention CARVE: Concept Avoidance via Reward-shaped Visual Erasure Febie Jane Lin, Fabio Ibanez, Chris Stanulet Rahul Chand"
+    },
+    {
+      "index": 7,
+      "label": "π-Drive: Reinforcement Post-Training Turns a Manipulation VLA into a Real-Time Driving Policy",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Felipe%20Laufer%20Barbosa%20Mark%20Music%20Alex%20Jihun%20Kim%20submission_416181642/PiDrive_Paper.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Honorable Mention π-Drive: Reinforcement Post-Training Turns a Manipulation VLA into a Real-Time Driving Policy Felipe Laufer Barbosa, Mark Music, Alex Jihun Kim Tian Gao"
+    },
+    {
+      "index": 8,
+      "label": "Frontier Curriculum and Adaptive Test-Time Compute for Efficient RLOO",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Andy%20Sung%20Jae%20Kim%20Marco%20Antonio%20Vizcarra%20Tovar%20submission_416284152/cs224r_final_project.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Honorable Mention Frontier Curriculum and Adaptive Test-Time Compute for Efficient RLOO Andy Sung Jae Kim, Marco Antonio Vizcarra Tovar Anikait Singh"
+    },
+    {
+      "index": 9,
+      "label": "MARC: Multi-Agent Role Coordination",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Olufeolu%20Oluwapelumi%20Kolawole%20Karn%20Kaura%20Nihar%20Mudigonda%20submission_416286897/main.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Honorable Mention MARC: Multi-Agent Role Coordination Olufeolu Oluwapelumi Kolawole, Karn Kaura, Nihar Mudigonda Marcel Torne"
+    },
+    {
+      "index": 10,
+      "label": "Point and Pick: Bounding-Box Conditioned Diffusion Policies and Offline RL for Target-Specific Robot Manipulation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Raul%20Garreta%20Tompson%20Joshua%20Alexander%20Bowden%20Swaroop%20Pal%20submission_416215691/cs224r_2026_final_report_point_and_pick.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Honorable Mention Point and Pick: Bounding-Box Conditioned Diffusion Policies and Offline RL for Target-Specific Robot Manipulation Raul Garreta Tompson, Joshua Alexander Bowden, Swaroop Pal Marcel Torne"
+    },
+    {
+      "index": 11,
+      "label": "Reading vs. Writing a Near-Oracle Internal Verifier: How RL Design Determines Whether a Correctness Probe Is Safe",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Abraham%20Yeung%20Anagha%20Ramaswamy%20submission_416276999/report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Honorable Mention Reading vs. Writing a Near-Oracle Internal Verifier: How RL Design Determines Whether a Correctness Probe Is Safe Abraham Yeung, Anagha Ramaswamy Anubha Mahajan"
+    },
+    {
+      "index": 12,
+      "label": "REFINE: Reinforcement-based EHR Feature Induction and Editing",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ayeeshi%20Lakshmi%20Poosarla%20Ryan%20Arya%20Nayebi%20submission_416149282/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Honorable Mention REFINE: Reinforcement-based EHR Feature Induction and Editing Ayeeshi Lakshmi Poosarla, Ryan Arya Nayebi Anushree Aggarwal"
+    },
+    {
+      "index": 13,
+      "label": "SciencePRM: Process-Reward RL (GRPO) for the Scientific Validity of Intermediate Reasoning Steps",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Zijian%20%28Carl%29%20Ma%20submission_416288476/cs224r_final_report_2026.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Honorable Mention SciencePRM: Process-Reward RL (GRPO) for the Scientific Validity of Intermediate Reasoning Steps Zijian (Carl) Ma Joy He-Yueya"
+    },
+    {
+      "index": 14,
+      "label": "A Contextual Bandit for Cheap-vs-Expensive Code Generation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Mauricio%20Berlanga%20Carrillo%20submission_416263800/final.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom A Contextual Bandit for Cheap-vs-Expensive Code Generation Mauricio Berlanga Carrillo Rahul Chand"
+    },
+    {
+      "index": 15,
+      "label": "A Self-Play Algorithm for Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Nikhil%20Raman%20Nadim%20Isaac%20submission_416084231/CS224R_Final_Project_v2.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default A Self-Play Algorithm for Countdown Nikhil Raman, Nadim Isaac Max Du"
+    },
+    {
+      "index": 16,
+      "label": "Action-Token Pruning for Sample-Efficient RL Fine-Tuning of Robot Policies",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Elvin%20Fu%20Cole%20Donald%20Van%20Hersett%20submission_416288553/cs224r_final_report_2025.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Action-Token Pruning for Sample-Efficient RL Fine-Tuning of Robot Policies Elvin Fu, Cole Donald Van Hersett Tyler Lum"
+    },
+    {
+      "index": 17,
+      "label": "Active RLOO: Online Filtering with Adaptive K",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Zhengmao%20Liu%20submission_416149136/cs224r_final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Active RLOO: Online Filtering with Adaptive K Zhengmao Liu Max Du"
+    },
+    {
+      "index": 18,
+      "label": "Adaptive Competence-Boundary Curricula for Countdown with RLOO",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Daniel%20Steven%20Schreck%20Sheng-Yong%20Niu%20Karishma%20Aggarwal%20submission_416269754/Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adaptive Competence-Boundary Curricula for Countdown with RLOO Daniel Steven Schreck, Sheng-Yong Niu, Karishma Aggarwal Max Du"
+    },
+    {
+      "index": 19,
+      "label": "Adaptive Curriculum Learning for Reinforcement-Trained Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Agam%20Iheanyi-Igwe%20Olatayo%20Anthony%20Sobomehin%20submission_416288534/FinalCS224R_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adaptive Curriculum Learning for Reinforcement-Trained Reasoning Agam Iheanyi-Igwe, Olatayo Anthony Sobomehin Riya Karumanchi"
+    },
+    {
+      "index": 20,
+      "label": "Adaptive Curriculum Learning for RL-Based Arithmetic Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Yu%20Chi%20Hsu%20Ryan%20He%20submission_416242137/CS224R_Final_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adaptive Curriculum Learning for RL-Based Arithmetic Reasoning Yu Chi Hsu, Ryan He Shengqu Cai"
+    },
+    {
+      "index": 21,
+      "label": "Adaptive Curriculum Learning for RLOO on Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jerry%20Jiayu%20Li%20submission_415585255/cs224r_final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adaptive Curriculum Learning for RLOO on Countdown Jerry Jiayu Li Yash Kankariya"
+    },
+    {
+      "index": 22,
+      "label": "Adaptive Curriculum Learning with Difficulty-Conditioned Entropy Regularization for RL Fine-Tuning of Large Language Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Mahmoud%20Elgenedy%20submission_416287412/Final_project_MahmoudElgenedy_v3.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adaptive Curriculum Learning with Difficulty-Conditioned Entropy Regularization for RL Fine-Tuning of Large Language Models Mahmoud Elgenedy Shengqu Cai"
+    },
+    {
+      "index": 23,
+      "label": "Adaptive Curriculum RL via LLM-Guided Complexity Scoring",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Louis%20Weisdorf%20Laszlo%20Bollyky%20submission_416271112/CS_224R___Final_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adaptive Curriculum RL via LLM-Guided Complexity Scoring Louis Weisdorf, Laszlo Bollyky Riya Karumanchi"
+    },
+    {
+      "index": 24,
+      "label": "Adaptive Curriculum RLOO for Verifiable Arithmetic Reasoning in Language Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kelechi%20Onuoha%20submission_416243674/CS_224R_Project_Report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adaptive Curriculum RLOO for Verifiable Arithmetic Reasoning in Language Models Kelechi Onuoha Abhijnya Bhat"
+    },
+    {
+      "index": 25,
+      "label": "Adaptive Difficulty Scheduling: A Competency-Gated Curriculum for Small-LLM Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Donna%20Choi%20submission_416460376/CS224R_Project_Final.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adaptive Difficulty Scheduling: A Competency-Gated Curriculum for Small-LLM Reasoning Donna Choi Ke Wang"
+    },
+    {
+      "index": 26,
+      "label": "Adaptive Difficulty-Aware Curriculum Learning for RLOO",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Darren%20Chan%20Jayna%20Grace%20Huang%20Sophie%20Zhang%20submission_416260291/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adaptive Difficulty-Aware Curriculum Learning for RLOO Darren Chan, Jayna Grace Huang, Sophie Zhang Anikait Singh"
+    },
+    {
+      "index": 27,
+      "label": "Adaptive Multi-Turn Red-Teaming for Mental Health Adjacent Language Model Safety",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Anya%20Han%20Zhang%20submission_416411079/final_project_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Adaptive Multi-Turn Red-Teaming for Mental Health Adjacent Language Model Safety Anya Han Zhang Anushree Aggarwal"
+    },
+    {
+      "index": 28,
+      "label": "Adaptive Test-Time Sampling for RL-Fine-Tuned Reasoning Policies",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Andrea%20Ji%20Woo%20Nam%20Song%20submission_416288321/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adaptive Test-Time Sampling for RL-Fine-Tuned Reasoning Policies Andrea Ji Woo Nam Song Anikait Singh"
+    },
+    {
+      "index": 29,
+      "label": "Advantage-Driven Synthetic Curriculum for Reinforcement Learning based Fine-Tuning of Large Language Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Nate%20Demchak%20Pravin%20Ravishanker%20Haosheng%20Li%20submission_416253945/CS224R_Final_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Advantage-Driven Synthetic Curriculum for Reinforcement Learning based Fine-Tuning of Large Language Models Nate Demchak, Pravin Ravishanker, Haosheng Li Anikait Singh"
+    },
+    {
+      "index": 30,
+      "label": "Adversarial Co-evolution of a Difficulty Judge and an LLM Generator with an RLOO Policy for Cold-Start Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Viveak%20Ravichandiran%20submission_416282898/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Adversarial Co-evolution of a Difficulty Judge and an LLM Generator with an RLOO Policy for Cold-Start Countdown Reasoning Viveak Ravichandiran Riya Karumanchi"
+    },
+    {
+      "index": 31,
+      "label": "Algorithm Sequencing and Curriculum Learning in Deep Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ryan%20D%27Cunha%20Ethan%20Hersch%20Abhinav%20Chinta%20submission_416264098/CS224R__Final_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Algorithm Sequencing and Curriculum Learning in Deep Reinforcement Learning Ryan D'Cunha, Ethan Hersch, Abhinav Chinta Ifdita Hasan Orney"
+    },
+    {
+      "index": 32,
+      "label": "Alpha-Informed Optimal Trading Execution: Reinforcement Learning with Domain Informed Priors",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ryan%20Nathan%20Padnis%20submission_415383266/CS_224R_Final_Paper_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Alpha-Informed Optimal Trading Execution: Reinforcement Learning with Domain Informed Priors Ryan Nathan Padnis Ethan Hsu"
+    },
+    {
+      "index": 33,
+      "label": "An Actor-Critic Neural Reachability Solver for High-Dimensional Zero-Sum Games",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Zeyuan%20Feng%20submission_416287718/CS224R_final_project_report_zf.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom An Actor-Critic Neural Reachability Solver for High-Dimensional Zero-Sum Games Zeyuan Feng Rahul Chand"
+    },
+    {
+      "index": 34,
+      "label": "An RL Framework for Persistent Memory Attacks on LLM Agents",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Mihir%20S%20Menon%20Zihan%20Wang%20Aarav%20Arora%20submission_416237841/CS_224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom An RL Framework for Persistent Memory Attacks on LLM Agents Mihir S Menon, Zihan Wang, Aarav Arora Joonwon Kang"
+    },
+    {
+      "index": 35,
+      "label": "Architecture-Dependent Effects of Data Curation in Robot Manipulation Imitation Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kailana%20Baker-Matsuoka%20submission_416167810/Your_Project_Title__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Architecture-Dependent Effects of Data Curation in Robot Manipulation Imitation Learning Kailana Baker-Matsuoka Jonathan Yang"
+    },
+    {
+      "index": 36,
+      "label": "Augmenting Cybersecurity Capabilities with Adversarial RL and Autoregressive Action Parameterization in Small LLMs",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Anna%20Wu%20Ethan%20Jun-shen%20Ho%20submission_416287520/cs224r_paper__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Augmenting Cybersecurity Capabilities with Adversarial RL and Autoregressive Action Parameterization in Small LLMs Anna Wu, Ethan Jun-shen Ho Ethan Hsu"
+    },
+    {
+      "index": 37,
+      "label": "Automated Red Teaming using Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Nubia%20Elena%20Correa%20Abi%20Lopez%20Annie%20Gisselle%20Villalta%20submission_416149412/Final_Report_CS_224R_All_access.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Automated Red Teaming using Reinforcement Learning Nubia Elena Correa, Abi Lopez, Annie Gisselle Villalta Joonwon Kang"
+    },
+    {
+      "index": 38,
+      "label": "Bandits for Cold-Start: Exploration vs. Exploitation in Recommendation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ela%20Naz%20Sigin%20Anastasiya%20Masalava%20Eva%20Casto%20submission_416288591/CS224R_Final_Paper.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Bandits for Cold-Start: Exploration vs. Exploitation in Recommendation Ela Naz Sigin, Anastasiya Masalava, Eva Casto Anushree Aggarwal"
+    },
+    {
+      "index": 39,
+      "label": "Begging for DEI: Increasing LLM Math Performance by Increasing Diversity",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Tyler%20Kinh%20Ho%20submission_416286558/CS224r_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Begging for DEI: Increasing LLM Math Performance by Increasing Diversity Tyler Kinh Ho Joy He-Yueya"
+    },
+    {
+      "index": 40,
+      "label": "BLIND: Bipedal Locomotion with Intermittent Navigation Data for Environmental Hazards",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Iris%20Zixiao%20Xu%20Jamin%20Jia-Ming%20Xie%20Eric%20Liang%20submission_416288445/CS_224R_Final_Report__BLIND__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom BLIND: Bipedal Locomotion with Intermittent Navigation Data for Environmental Hazards Iris Zixiao Xu, Jamin Jia-Ming Xie, Eric Liang Tian Gao"
+    },
+    {
+      "index": 41,
+      "label": "Body Schema Pretraining for Sample-Efficient Reinforcement Learning in Robotic Control",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Rishabh%20Malviya%20submission_416289307/BSP_-_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Body Schema Pretraining for Sample-Efficient Reinforcement Learning in Robotic Control Rishabh Malviya Tian Gao"
+    },
+    {
+      "index": 42,
+      "label": "Bounded Proximity Rewards: Accelerating Post-Training Reinforcement Learning for Arithmetic Reasoning without Policy Divergence",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ian%20Yue-Ran%20Chen%20submission_416149635/CS224R_DFP_Final_Report_-_Ian_Chen.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Bounded Proximity Rewards: Accelerating Post-Training Reinforcement Learning for Arithmetic Reasoning without Policy Divergence Ian Yue-Ran Chen Yash Kankariya"
+    },
+    {
+      "index": 43,
+      "label": "Bridging the Gap: Optimal Transport-Guided Curriculum Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Cole%20A%20Citrenbaum%20Noah%20Cowan%20Aymen%20Echarghaoui%20submission_416280760/Final_Project_CS224R_OT_based_Curriculum_Learning__Copy_-3.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Bridging the Gap: Optimal Transport-Guided Curriculum Learning Cole A Citrenbaum, Noah Cowan, Aymen Echarghaoui Yash Kankariya"
+    },
+    {
+      "index": 44,
+      "label": "Budget-Conditioned Tool Use for Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Luca%20De%20Donno%20submission_416332358/final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Budget-Conditioned Tool Use for Countdown Reasoning Luca De Donno Yash Kankariya"
+    },
+    {
+      "index": 45,
+      "label": "Calibrated Reinforcement Learning for LLM-Guided Perturbation Screen Design",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Anton%20Thieme%20submission_416027663/cs224r_project_final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Calibrated Reinforcement Learning for LLM-Guided Perturbation Screen Design Anton Thieme Megha Srivastava"
+    },
+    {
+      "index": 46,
+      "label": "Can Teacher-Generated Curriculum Strategies Improve LLM Reasoning?",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Amrita%20Malhotra%20Giselle%20Rivera%20Zofia%20Dudek%20submission_416287379/CS224R_Final_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Can Teacher-Generated Curriculum Strategies Improve LLM Reasoning? Amrita Malhotra, Giselle Rivera, Zofia Dudek Anikait Singh"
+    },
+    {
+      "index": 47,
+      "label": "City Builder: Does Induced Demand Make Transit Network Design a Reinforcement Learning Problem?",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Daniel%20Marcelo%20Mottesi%20submission_416288153/City_Builder__2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom City Builder: Does Induced Demand Make Transit Network Design a Reinforcement Learning Problem? Daniel Marcelo Mottesi Joy He-Yueya"
+    },
+    {
+      "index": 48,
+      "label": "CKR: A Novel Baselining Improvement for T2I-Model Reinforcement Learning Using Noisy Rewards",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ethan%20Zhang%20Tatiana%20Zhang%20Jenny%20Wei%20submission_416287485/CS224R_Project_Writeup.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom CKR: A Novel Baselining Improvement for T2I-Model Reinforcement Learning Using Noisy Rewards Ethan Zhang, Tatiana Zhang, Jenny Wei Tyler Lum"
+    },
+    {
+      "index": 49,
+      "label": "Compressed Memory via LoRA Fine-Tuning for Vision-Language-Action Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Nathaniel%20D%20Laurent%20Matthew%20Michael%20Musson%20submission_416288593/224_Final_Poster__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Compressed Memory via LoRA Fine-Tuning for Vision-Language-Action Models Nathaniel D Laurent, Matthew Michael Musson Tian Gao"
+    },
+    {
+      "index": 50,
+      "label": "Controlling a Fusion Reactor with Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Deniz%20Zeren%20Yilmaz%20Sameer%20Agrawal%20Siddharth%20M.%20Bhatia%20submission_416288255/CS224R_Report__3_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Controlling a Fusion Reactor with Reinforcement Learning Deniz Zeren Yilmaz, Sameer Agrawal, Siddharth M. Bhatia Marcel Torne"
+    },
+    {
+      "index": 51,
+      "label": "Cooperative Fine-Tuning of Pretrained Vision-Language-Action Policies: Centralization, Communication, and Inference Recipes on TwoArmTransport",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kyler%20Shu%20Purushotham%20Mani%20John%20Tucker%20submission_416334219/CS224R_FinalReport.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Cooperative Fine-Tuning of Pretrained Vision-Language-Action Policies: Centralization, Communication, and Inference Recipes on TwoArmTransport Kyler Shu, Purushotham Mani, John Tucker Joonwon Kang"
+    },
+    {
+      "index": 52,
+      "label": "Cost-Aware Tool-Integrated Reasoning for Countdown Arithmetic",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Patrick%20Wang%20submission_416202865/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Cost-Aware Tool-Integrated Reasoning for Countdown Arithmetic Patrick Wang Abhijnya Bhat"
+    },
+    {
+      "index": 53,
+      "label": "Countdown as an Agentic Optimization Problem",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Tao%20Sun%20submission_416288778/Archive__4_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Countdown as an Agentic Optimization Problem Tao Sun Yash Kankariya"
+    },
+    {
+      "index": 54,
+      "label": "Critic-Targeted Exploration: Learned Per-Rollout Targeting of Entropy Bonuses in GRPO",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Hlumelo%20Notshe%20submission_416288795/CS224R_Final_Report_Notshe.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Critic-Targeted Exploration: Learned Per-Rollout Targeting of Entropy Bonuses in GRPO Hlumelo Notshe Joy He-Yueya"
+    },
+    {
+      "index": 55,
+      "label": "Curiosity-Driven Memory-Augmented Reinforcement Learning for Adaptive Robot Tasks",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jevon%20Mao%20Yifan%20Geng%20Alexia%20Huang%20submission_416288379/CS224R_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Curiosity-Driven Memory-Augmented Reinforcement Learning for Adaptive Robot Tasks Jevon Mao, Yifan Geng, Alexia Huang Marcel Torne"
+    },
+    {
+      "index": 56,
+      "label": "Curriculum Learning for Countdown Reasoning in RL Fine-Tuning: Static Schedules Help, Adaptive Frontiers Forget",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Fengzhou%20Li%20submission_415833590/CS224R_final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Curriculum Learning for Countdown Reasoning in RL Fine-Tuning: Static Schedules Help, Adaptive Frontiers Forget Fengzhou Li Yash Kankariya"
+    },
+    {
+      "index": 57,
+      "label": "Curriculum Learning with Success-Rate-Driven Adaptive Gaussian Scheduler",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Andrew%20Tin-Lok%20Lee%20submission_416121494/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Curriculum Learning with Success-Rate-Driven Adaptive Gaussian Scheduler Andrew Tin-Lok Lee Anubha Mahajan"
+    },
+    {
+      "index": 58,
+      "label": "Curriculum Sampling for RLOO Fine-Tuning on Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Catherine%20M%20Zhang%20Nora%20Menon%20submission_416286073/cs_224r_final_report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Curriculum Sampling for RLOO Fine-Tuning on Countdown Catherine M Zhang, Nora Menon Anubha Mahajan"
+    },
+    {
+      "index": 59,
+      "label": "Curriculum Strategies for Bimanual Dexterous Piano Playing in RoboPianist",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Gabrielle%20Marie%20Walrath%20Irene%20Ai%20Lin%20Ethan%20Tamer%20Farah%20submission_416285761/CS224R_Project_Proposal_Template__8_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Curriculum Strategies for Bimanual Dexterous Piano Playing in RoboPianist Gabrielle Marie Walrath, Irene Ai Lin, Ethan Tamer Farah Megha Srivastava"
+    },
+    {
+      "index": 60,
+      "label": "Decentralized Q-Learning of the Social Optimum in Strategic Experimentation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Farzad%20Pourbabaee%20submission_416170334/main.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Decentralized Q-Learning of the Social Optimum in Strategic Experimentation Farzad Pourbabaee Joy He-Yueya"
+    },
+    {
+      "index": 61,
+      "label": "Deep Reinforcement Learning for Campus-Scale Vehicle-to-Grid Fleet Scheduling",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Lisa%20Li%20Yaqi%20Fan%20submission_416234583/CS224R_final_project_report__2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Deep Reinforcement Learning for Campus-Scale Vehicle-to-Grid Fleet Scheduling Lisa Li, Yaqi Fan Joy He-Yueya"
+    },
+    {
+      "index": 62,
+      "label": "Deep Reinforcement Learning for User Welfare Optimization on Recommendation Systems with Competing Content Creators",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Julia%20T%20Isaac%20Tanush%20Talati%20submission_416286517/cs_224_final_report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Deep Reinforcement Learning for User Welfare Optimization on Recommendation Systems with Competing Content Creators Julia T Isaac, Tanush Talati Alex Nam"
+    },
+    {
+      "index": 63,
+      "label": "Dense Language Rewards For Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Diya%20Janvi%20Kejriwal%20Andrew%20Su%20Gurmeher%20Kaur%20submission_416287372/CS224R_Final_Report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Dense Language Rewards For Reasoning Diya Janvi Kejriwal, Andrew Su, Gurmeher Kaur Marcel Torne"
+    },
+    {
+      "index": 64,
+      "label": "Dense Rewards for RLVR on Countdown via ASTs",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ahmed%20Sherif%20Ahmed%20Elbakry%20Mohamed%20submission_416130057/CS224R_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Dense Rewards for RLVR on Countdown via ASTs Ahmed Sherif Ahmed Elbakry Mohamed Ke Wang"
+    },
+    {
+      "index": 65,
+      "label": "Dense Step-Level Rewards via Process Reward Models for Mathematical Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Dhruv%20Arcot%20submission_416233949/CS224r_Final_Project.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Dense Step-Level Rewards via Process Reward Models for Mathematical Reasoning Dhruv Arcot Joy He-Yueya"
+    },
+    {
+      "index": 66,
+      "label": "Deployment-Time Risk Scoring for a Safe RL Agent under Distribution Shift",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Luis%20Marc%20Botin-Sanz%20de%20Sautuola%20submission_415931110/Deployment_Time_Risk_Scoring_for_a_Safe_RL_Agent_under_Distribution_Shift.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Deployment-Time Risk Scoring for a Safe RL Agent under Distribution Shift Luis Marc Botin-Sanz de Sautuola Anushree Aggarwal"
+    },
+    {
+      "index": 67,
+      "label": "DiSCo: Distilled Steering via Consolidation for Robot Diffusion Policies",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/William%20Z%20Liu%20Sakthivel%20Sivaraman%20Jerry%20Gu%20submission_416331397/CS_224R_Final_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom DiSCo: Distilled Steering via Consolidation for Robot Diffusion Policies William Z Liu, Sakthivel Sivaraman, Jerry Gu Max Du"
+    },
+    {
+      "index": 68,
+      "label": "Diversity-Aware RLOO for Pass@k Reasoning in Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jane%20Yang%20Will%20Nathaniel%20Hansen%20submission_416276770/224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Diversity-Aware RLOO for Pass@k Reasoning in Countdown Jane Yang, Will Nathaniel Hansen Anubha Mahajan"
+    },
+    {
+      "index": 69,
+      "label": "Diversity-Preserving On-Policy Distillation and Test-Time Verification for Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Juntao%20Cheng%20Qi%20Wu%20Zhuoang%20Tao%20submission_416288270/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Diversity-Preserving On-Policy Distillation and Test-Time Verification for Countdown Reasoning Juntao Cheng, Qi Wu, Zhuoang Tao Riya Karumanchi"
+    },
+    {
+      "index": 70,
+      "label": "Do generated futures help robot policies through representation alignment or explicit conditioning?",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Minyeong%20Kim%20submission_416288775/cs224r_final_report_2025.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Do generated futures help robot policies through representation alignment or explicit conditioning? Minyeong Kim Jonathan Yang"
+    },
+    {
+      "index": 71,
+      "label": "Do Persona Vectors Track Sycophancy Under RL Fine-Tuning?",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Artur%20Barbosa%20Carneiro%20submission_416073818/CS_224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Do Persona Vectors Track Sycophancy Under RL Fine-Tuning? Artur Barbosa Carneiro Abhijnya Bhat"
+    },
+    {
+      "index": 72,
+      "label": "Does LoRA Rank Requirement Scale with Reward Density? An Empirical Study of Policy-Gradient Post-Training",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Mark%20William%20Gernitis%20submission_416285813/Final_Report_3.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Does LoRA Rank Requirement Scale with Reward Density? An Empirical Study of Policy-Gradient Post-Training Mark William Gernitis Tyler Lum"
+    },
+    {
+      "index": 73,
+      "label": "Effect of Stigmergic Potential Fields on Drone Swarm Coordination",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kevin%20Michael%20Porter%20submission_416252459/CS224R_Project.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Effect of Stigmergic Potential Fields on Drone Swarm Coordination Kevin Michael Porter Tyler Lum"
+    },
+    {
+      "index": 74,
+      "label": "Emergent Cooperation in Multi-Agent Pandemic Resource Allocation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Riya%20Karthik%20Narain%20Brooke%20Hunter%20Ballhaus%20submission_416254456/CS_224R_Final_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Emergent Cooperation in Multi-Agent Pandemic Resource Allocation Riya Karthik Narain, Brooke Hunter Ballhaus Alex Nam"
+    },
+    {
+      "index": 75,
+      "label": "Encouraging Taxonomy-Based Diversity within RL Automated Multi-Turn Red-Teaming",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Melvin%20Liam%20Poon%20Keat%20Kenna%20Zeng%20submission_416218785/CS224r_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Encouraging Taxonomy-Based Diversity within RL Automated Multi-Turn Red-Teaming Melvin Liam Poon Keat, Kenna Zeng Alex Nam"
+    },
+    {
+      "index": 76,
+      "label": "Enhancing RLOO with Dense Symbolic Rewards and Bandit-Driven Curricula",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Irawadee%20Thawornbut%20Rinnara%20Sangpisit%20submission_416288336/CS224R_Final_Report_Rinnara_Irawadee.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Enhancing RLOO with Dense Symbolic Rewards and Bandit-Driven Curricula Irawadee Thawornbut, Rinnara Sangpisit Abhijnya Bhat"
+    },
+    {
+      "index": 77,
+      "label": "Enhancing SINGER: Onboard Visual Drone Navigation through Iterative Imitation Learning and Reinforcement Fine-Tuning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Erwin%20Giovanbattista%20Marcel%20R.%20Poussi%20submission_416175488/SINGER_report_citations_added.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Enhancing SINGER: Onboard Visual Drone Navigation through Iterative Imitation Learning and Reinforcement Fine-Tuning Erwin Giovanbattista Marcel R. Poussi Rahul Chand"
+    },
+    {
+      "index": 78,
+      "label": "Evaluating RL efficiency improvement methods including Synthetic Data Augmentation and Any-Generation Reward Optimization for Mathematical Reasoning on Countdown Tasks",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Lin%20Yuan%20Chloe%20Yuri%20Jeon%20Kelvin%20Kahiu%20Waititu%20submission_416288449/CS224R___Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Evaluating RL efficiency improvement methods including Synthetic Data Augmentation and Any-Generation Reward Optimization for Mathematical Reasoning on Countdown Tasks Lin Yuan, Chloe Yuri Jeon, Kelvin Kahiu Waititu Anubha Mahajan"
+    },
+    {
+      "index": 79,
+      "label": "Exploratory Coding with Poly-EPO",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Eli%20Thomas%20Wandless%20submission_416209154/224r_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Exploratory Coding with Poly-EPO Eli Thomas Wandless Ifdita Hasan Orney"
+    },
+    {
+      "index": 80,
+      "label": "Failing to Grasp the Point: Hierarchical Reinforcement Learning for Grasping Tasks",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ashwin%20Mahendran%20Anjali%20Sreenivas%20Arianna%20Liang%20Cao%20submission_416286063/CS_224R_Project_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Failing to Grasp the Point: Hierarchical Reinforcement Learning for Grasping Tasks Ashwin Mahendran, Anjali Sreenivas, Arianna Liang Cao Tian Gao"
+    },
+    {
+      "index": 81,
+      "label": "Fault-Adaptive Locomotion via Implicit Damage Detection in MuJoCo Ant",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Sidhanth%20Mishra%20submission_416270412/CS224R___Final_Project_Paper_Sidhanth_M-2.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Fault-Adaptive Locomotion via Implicit Damage Detection in MuJoCo Ant Sidhanth Mishra Tian Gao"
+    },
+    {
+      "index": 82,
+      "label": "Feature-Space Curriculum Learning for Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Vishaal%20Samir%20Saraiya%20submission_416286908/CS_224R_-_Final_Report_-_Vishaal_Samir_Saraiya.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Feature-Space Curriculum Learning for Countdown Reasoning Vishaal Samir Saraiya Yash Kankariya"
+    },
+    {
+      "index": 83,
+      "label": "FlowMPC: Improving Flow Matching policies with World Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Chandon%20Robert%20Hamel%20submission_416154851/cs224r_final_report_2026.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom FlowMPC: Improving Flow Matching policies with World Models Chandon Robert Hamel Joonwon Kang"
+    },
+    {
+      "index": 84,
+      "label": "Forced Grounding: Diagnosing and Repairing Language Neglect in Imitation-Learned Robot Policies via RL",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Elana%20N%20Chen%20Hayden%20Kwan%20William%20Charles%20Rose%20submission_416286846/CS224R_Final_Report__2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Forced Grounding: Diagnosing and Repairing Language Neglect in Imitation-Learned Robot Policies via RL Elana N Chen, Hayden Kwan, William Charles Rose Tyler Lum"
+    },
+    {
+      "index": 85,
+      "label": "Foveated Vision via Prediction Error–Augmented Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Brion%20Qi%20Ye%20submission_416285160/cs224r_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Foveated Vision via Prediction Error–Augmented Reinforcement Learning Brion Qi Ye Joonwon Kang"
+    },
+    {
+      "index": 86,
+      "label": "Fragment Assembly as Goal-Reaching: An RL Approach to Targeted Molecular Design",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Asmani%20Yamin%20Megan%20Santhumayor%20Katie%20Liu%20submission_416286923/cs224r_final_report__Copy_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Fragment Assembly as Goal-Reaching: An RL Approach to Targeted Molecular Design Asmani Yamin, Megan Santhumayor, Katie Liu Perry Dong"
+    },
+    {
+      "index": 87,
+      "label": "Frequency Reparameterization and Anchored Residuals for Flow Matching Robot Policies",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Alan%20Zhao%20Juhyun%20Jung%20submission_416278468/final_project_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Frequency Reparameterization and Anchored Residuals for Flow Matching Robot Policies Alan Zhao, Juhyun Jung Joonwon Kang"
+    },
+    {
+      "index": 88,
+      "label": "From Contact to Return: Curriculum and Predictive Shaping for Humanoid Table Tennis",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kyle%20Ian%20Schmoyer%20Hannah%20Gabriella%20Clay%20Shane%20Robinson%20Mion%20submission_416279703/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom From Contact to Return: Curriculum and Predictive Shaping for Humanoid Table Tennis Kyle Ian Schmoyer, Hannah Gabriella Clay, Shane Robinson Mion Jonathan Yang"
+    },
+    {
+      "index": 89,
+      "label": "From Structured Backtracking to Targeted Failure Correction for Robust Mathematical Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Christine%20Li%20Eric%20Xia%20submission_416282476/CS224r_Final_Report_Final_Version.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default From Structured Backtracking to Targeted Failure Correction for Robust Mathematical Reasoning Christine Li, Eric Xia Riya Karumanchi"
+    },
+    {
+      "index": 90,
+      "label": "From Text to Torque: Improving RL Tracking of Text-Generated Humanoid Motions",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kuzey%20Kantarcioglu%20Benji%20Warburton%20submission_415727507/Benji_Kuzey_Final_Paper_224R.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom From Text to Torque: Improving RL Tracking of Text-Generated Humanoid Motions Kuzey Kantarcioglu, Benji Warburton Tyler Lum"
+    },
+    {
+      "index": 91,
+      "label": "Frontier-Weighted SEC: A Case Study in Curriculum Learning for RL Fine-Tuning of Language Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Garrett%20Alarcon%20submission_416154037/CS224_Final_Report_gaa.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Frontier-Weighted SEC: A Case Study in Curriculum Learning for RL Fine-Tuning of Language Models Garrett Alarcon Riya Karumanchi"
+    },
+    {
+      "index": 92,
+      "label": "Generative and Hierarchical Imitation Learning for Marine Trajectory Control in Stochastic Ocean Currents",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Omar%20Eduardo%20Jimenez%20Lopez%20submission_416370746/ejimenel_report_v2.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Generative and Hierarchical Imitation Learning for Marine Trajectory Control in Stochastic Ocean Currents Omar Eduardo Jimenez Lopez Jonathan Yang"
+    },
+    {
+      "index": 93,
+      "label": "Goal Conditioned Behavior Cloning for Robot Social Navigation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Mete%20Gumusayak%20submission_416288594/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Goal Conditioned Behavior Cloning for Robot Social Navigation Mete Gumusayak Tyler Lum"
+    },
+    {
+      "index": 94,
+      "label": "GoodLiars: A Multi-Turn Extension of Reinforcement Learning-Based Belief Disruption",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Emma%20Marie%20Beharry%20Abel%20Philip%20John%20Elizabeth%20Michelle%20Gallagher%20submission_416269695/224R_Final_Report-2.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom GoodLiars: A Multi-Turn Extension of Reinforcement Learning-Based Belief Disruption Emma Marie Beharry, Abel Philip John, Elizabeth Michelle Gallagher Alex Nam"
+    },
+    {
+      "index": 95,
+      "label": "Granularity-Aware Off-Policy Fine-Tuning of LLMs via Expert Demonstrations",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kevin%20Song%20Sukeerth%20Ramkumar%20submission_416286534/cs224r_finalreport__3_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Granularity-Aware Off-Policy Fine-Tuning of LLMs via Expert Demonstrations Kevin Song, Sukeerth Ramkumar, Yina Jian Shengqu Cai"
+    },
+    {
+      "index": 96,
+      "label": "Graphs and Meta Reinforcement Learning for Portfolio Management",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Dhruv%20Manani%20Churan%20He%20submission_416281316/cs224r_final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Graphs and Meta Reinforcement Learning for Portfolio Management Dhruv Manani, Churan He Joy He-Yueya"
+    },
+    {
+      "index": 97,
+      "label": "GRPO Didn’t Pass the Bar (But the Harness Did): Harness-Guided Post-Training for Legal Agents",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Leon%20Reilly%20Duy%20Nguyen%20submission_416241040/CS224R_Final_Writeup.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom GRPO Didn’t Pass the Bar (But the Harness Did): Harness-Guided Post-Training for Legal Agents Leon Reilly, Duy Nguyen Joy He-Yueya"
+    },
+    {
+      "index": 98,
+      "label": "Hierarchical RL for Cost Aware Protein Engineering Campaigns in Cloud Labs",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Emi%20Maria%20Mathew%20submission_416075553/CS224R_Paper__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Hierarchical RL for Cost Aware Protein Engineering Campaigns in Cloud Labs Emi Maria Mathew Rahul Chand"
+    },
+    {
+      "index": 99,
+      "label": "How Does Scaffolding Affect Cross-Environment Generalization in LLM RL Fine-Tuning?",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Alfred%20Sven%20Bertil%20Sjoeqivst%20Hana%20Mengyao%20Liu%20submission_416271147/CS224R_Final_Report_Hana_Liu_Alfred_Sjoqvist.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom How Does Scaffolding Affect Cross-Environment Generalization in LLM RL Fine-Tuning? Alfred Sven Bertil Sjoeqivst, Hana Mengyao Liu Alex Nam"
+    },
+    {
+      "index": 100,
+      "label": "How Much Stale Rollout Reuse Can Verifier-Based RLOO Tolerate? A Semi-Off-Policy Replay Study on Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Amulya%20Parthasarathy%20submission_416142385/CS224R_RLOO_replay_Final_Project_report_12.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default How Much Stale Rollout Reuse Can Verifier-Based RLOO Tolerate? A Semi-Off-Policy Replay Study on Countdown Reasoning Amulya Parthasarathy Max Du"
+    },
+    {
+      "index": 101,
+      "label": "Hybrid Advantage Shaping with Goal-Aware Attention for Per-Turn Credit Assignment in LLM-Agent Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Max%20Luis%20Rodriguez%20Samantha%20Malowane%20Leventis%20Joseph%20Li%20submission_416020371/final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Hybrid Advantage Shaping with Goal-Aware Attention for Per-Turn Credit Assignment in LLM-Agent Reinforcement Learning Max Luis Rodriguez, Samantha Malowane Leventis, Joseph Li Perry Dong"
+    },
+    {
+      "index": 102,
+      "label": "Improving Fine-Grained Manipulation by World Action Models via Online World Model-Based Feedback Planning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Albert%20Kui%20Lin%20submission_416236706/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Improving Fine-Grained Manipulation by World Action Models via Online World Model-Based Feedback Planning Albert Kui Lin Tyler Lum"
+    },
+    {
+      "index": 103,
+      "label": "Improving Lean Premise Retrieval via RL and Distillation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Alex%20Lopez%20Kevin%20Rizk%20Fred%20Rajasekaran%20submission_416288218/CS224R_Final_Project.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Improving Lean Premise Retrieval via RL and Distillation Alex Lopez, Kevin Rizk, Fred Rajasekaran Tyler Lum"
+    },
+    {
+      "index": 104,
+      "label": "Improving Mathematical Reasoning in Small Language Models via Curriculum Learning and Iterative Execution Feedback",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Xinyi%20Ai%20Jiayu%20Sui%20submission_416288358/CS_224R_Project_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Improving Mathematical Reasoning in Small Language Models via Curriculum Learning and Iterative Execution Feedback Xinyi Ai, Jiayu Sui Yash Kankariya"
+    },
+    {
+      "index": 105,
+      "label": "Improving Tool Internalization for Small Models: Annealed Tool Access for RLOO on Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Maty%20Bohacek%20Jason%20Boxi%20Zhang%20submission_416271801/Jason___Maty_CS224R_Final_Paper__2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Improving Tool Internalization for Small Models: Annealed Tool Access for RLOO on Countdown Maty Bohacek, Jason Boxi Zhang Ke Wang"
+    },
+    {
+      "index": 106,
+      "label": "Intelligence per Joule as a First-Class Post-Training Objective",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Cynthia%20Wang%20Ravenor%20Carroll%20Davion%20submission_416288259/Intelligence_per_Joule_as_a_First_Class_Post_Training_Objective__5_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Intelligence per Joule as a First-Class Post-Training Objective Cynthia Wang, Ravenor Carroll Davion Rahul Chand"
+    },
+    {
+      "index": 107,
+      "label": "Interoception: Teaching LLMs to Reason on a Wallclock Budget",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Harshvardhan%20Singh%20submission_416284215/main.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Interoception: Teaching LLMs to Reason on a Wallclock Budget Harshvardhan Singh Joy He-Yueya"
+    },
+    {
+      "index": 108,
+      "label": "IPO + RLOO Alignment Report",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Donnie%20Brooks%20Raymond%20submission_416288102/CS224R_Final_Project.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default IPO + RLOO Alignment Report Donnie Brooks Raymond, Matthew Darshan Torre Anubha Mahajan"
+    },
+    {
+      "index": 109,
+      "label": "Is Exploration Helpful? Evaluating Transfer of Open-Ended Traces to Assignment-Based Code Edits",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Karthik%20Vinay%20Seetharaman%20Tushar%20Dalmia%20Aaryan%20Shah%20submission_416284876/224R_Report__3_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Is Exploration Helpful? Evaluating Transfer of Open-Ended Traces to Assignment-Based Code Edits Karthik Vinay Seetharaman, Tushar Dalmia, Aaryan Shah Megha Srivastava"
+    },
+    {
+      "index": 110,
+      "label": "Joint Optimization of Task Difficulty and Diversity for Fine-Tuning LLMs under Sparse Rewards",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jiaming%20Shen%20Jiaxin%20Fang%20Jenny%20Jin%20submission_416281900/CS224R_final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Joint Optimization of Task Difficulty and Diversity for Fine-Tuning LLMs under Sparse Rewards Jiaming Shen, Jiaxin Fang, Jenny Jin Abhijnya Bhat"
+    },
+    {
+      "index": 111,
+      "label": "Learnable Curricula via Self-Play for Verifiable Reasoning Tasks",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kai%20Wen%20submission_416185414/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Learnable Curricula via Self-Play for Verifiable Reasoning Tasks Kai Wen Abhijnya Bhat"
+    },
+    {
+      "index": 112,
+      "label": "Learned Forgetting: Task-Conditioned Visual Memory Selection via Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Han%20Shaun%20Lee%20submission_416288317/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learned Forgetting: Task-Conditioned Visual Memory Selection via Reinforcement Learning Han Shaun Lee Marcel Torne"
+    },
+    {
+      "index": 113,
+      "label": "Learning Adaptive Tutor Policies for Conversational Language Learning via Offline Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Aditya%20Bora%20submission_416257309/Aditya_Bora_CS224R_Final_Paper.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learning Adaptive Tutor Policies for Conversational Language Learning via Offline Reinforcement Learning Aditya Bora Anubha Mahajan"
+    },
+    {
+      "index": 114,
+      "label": "Learning from Failure: Natural Language Feedback for Reusing Failed GRPO Trajectories",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Chenyue%20Li%20submission_416194974/Your_Project_Title.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learning from Failure: Natural Language Feedback for Reusing Failed GRPO Trajectories Chenyue Li Ethan Hsu"
+    },
+    {
+      "index": 115,
+      "label": "Learning from Heterogeneous Data",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Sydney%20Yan%20Tracy%20Y%20Wei%20Evy%20Zhu%20Shen%20submission_416285569/CS224R_Final_Project_Report-2.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learning from Heterogeneous Data Sydney Yan, Tracy Y Wei, Evy Zhu Shen Tyler Lum"
+    },
+    {
+      "index": 116,
+      "label": "Learning Interpretable Code Explanations of LLM Behavior",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Joseph%20Tey%20Nick%20Jiang%20submission_416142007/icml2018_style_2.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learning Interpretable Code Explanations of LLM Behavior Joseph Tey, Nick Jiang Abhijnya Bhat"
+    },
+    {
+      "index": 117,
+      "label": "Learning Latent Action World Models for Robot Control from Unlabeled Video",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Seraph%20Kai%20Yang%20submission_416249312/CS224R_Final_Project__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learning Latent Action World Models for Robot Control from Unlabeled Video Seraph Kai Yang Anubha Mahajan"
+    },
+    {
+      "index": 118,
+      "label": "Learning Priority Functions for Graph-Based Exploration in ARC-AGI-3",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kyle%20Avery%20Feinstein%20Steve%20Roy%20Mendeleev%20Ryan%20Bookman%20submission_416280185/CS_224R_Project_Paper-3.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learning Priority Functions for Graph-Based Exploration in ARC-AGI-3 Kyle Avery Feinstein, Steve Roy Mendeleev, Ryan Bookman Ethan Hsu"
+    },
+    {
+      "index": 119,
+      "label": "Learning Structured Trust Policies from Uncertainty, Advisor Signals, and Agreement",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jaden%20Chen%20Gia%20Grace%20Ancone%20submission_416230070/CS_224R_Final_report__3_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learning Structured Trust Policies from Uncertainty, Advisor Signals, and Agreement Jaden Chen, Gia Grace Ancone Ifdita Hasan Orney"
+    },
+    {
+      "index": 120,
+      "label": "Learning to Explore Through Information-Directed Bayesian Optimal Experimental Design",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Lucia%20Zheng%20submission_416288226/cs224r_final_report_2026.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learning to Explore Through Information-Directed Bayesian Optimal Experimental Design Lucia Zheng Ethan Hsu"
+    },
+    {
+      "index": 121,
+      "label": "Learning to Teach for Test-Time Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Selim%20Emir%20Can%20Mete%20Erdogan%20submission_415927787/Deep_RL_Project-report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Learning to Teach for Test-Time Reasoning Selim Emir Can, Mete Erdogan Ke Wang"
+    },
+    {
+      "index": 122,
+      "label": "Learning to Teach, Teaching to Learn",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Isaac%20Wooman%20Park%20Sam%20Lustgarten%20submission_416160689/Learning_to_Teach__Teaching_to_Learn_Final.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Learning to Teach, Teaching to Learn Isaac Wooman Park, Sam Lustgarten Anikait Singh"
+    },
+    {
+      "index": 123,
+      "label": "Learning to Use Tools: Reinforcement Learning for Tool-Integrated Mathematical Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Zi%20Wang%20Minghui%20Xu%20submission_416282185/CS224R_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Learning to Use Tools: Reinforcement Learning for Tool-Integrated Mathematical Reasoning Zi Wang, Minghui Xu Ke Wang"
+    },
+    {
+      "index": 124,
+      "label": "Learning Transfer in Multitask Agents",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Malti%20Mohan%20John%20submission_416243998/CS224R_Final_Report-4.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learning Transfer in Multitask Agents Malti Mohan John Joonwon Kang"
+    },
+    {
+      "index": 125,
+      "label": "Learning When to Use Tools: Cost-Aware RL for Agentic Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Vikram%20Garrett%20Srinivasan%20submission_416281263/cs-224r-report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Learning When to Use Tools: Cost-Aware RL for Agentic Reasoning Vikram Garrett Srinivasan Anushree Aggarwal"
+    },
+    {
+      "index": 126,
+      "label": "Learning with a Curriculum: Enhancing LLM Math Reasoning via Hint-Based RL Fine-Tuning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Luan%20Lam%20submission_416274427/cs224r_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Learning with a Curriculum: Enhancing LLM Math Reasoning via Hint-Based RL Fine-Tuning Luan Lam Anubha Mahajan"
+    },
+    {
+      "index": 127,
+      "label": "Librarian Models: Anticipatory Filesystem Construction via Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Teresa%20Zhang%20submission_415107586/_EMNLP_26__Librarian_Agents__CS224R_Project_Report___2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Librarian Models: Anticipatory Filesystem Construction via Reinforcement Learning Teresa Zhang Ifdita Hasan Orney"
+    },
+    {
+      "index": 128,
+      "label": "Making RLOO Learn From Better Signals Curriculum Scheduling and Verification Commit Contrast for Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Zayn%20Malhotra%20Ziyi%20Ding%20submission_416287508/CS224R_REPORT_V3.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Making RLOO Learn From Better Signals Curriculum Scheduling and Verification Commit Contrast for Countdown Reasoning Zayn Malhotra, Ziyi Ding Anikait Singh"
+    },
+    {
+      "index": 129,
+      "label": "MaxRL with Imperfect Reward Signals on Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Petru%20Cristian%20Budianu%20Nicolas%20Bejar%20Arambula%20submission_416215724/CS224R___Final_Project_Report__2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default MaxRL with Imperfect Reward Signals on Countdown Petru Cristian Budianu, Nicolas Bejar Arambula Abhijnya Bhat"
+    },
+    {
+      "index": 130,
+      "label": "Meaningless Trivia, Meaningful Compression: Near-Free Token Efficiency in RL for Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Chung%20Fat%20Wong%20Anna%20Grebenchtchikova%20submission_416285765/Meaningless_Trivia__Meaningful_Compression__Near_Free_Token_Efficiency_in_RL_for_Reasoning.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Meaningless Trivia, Meaningful Compression: Near-Free Token Efficiency in RL for Reasoning Chung Fat Wong, Anna Grebenchtchikova Joonwon Kang"
+    },
+    {
+      "index": 131,
+      "label": "Memory as an Action Space: Adaptive Retrieval in Small Language Models for Medical Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Renn%20Su%20Summer%20Olivia%20Royal%20submission_416288403/CS224R_Final_Project_Report__3_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Memory as an Action Space: Adaptive Retrieval in Small Language Models for Medical Reasoning Renn Su, Summer Olivia Royal Riya Karumanchi"
+    },
+    {
+      "index": 132,
+      "label": "Memory Pretraining for Vision-Language-Action Model",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Pengyu%20Mo%20Haowen%20Wang%20Zhen%20Jia%20submission_416271921/Memory_Pretraining_for_Vision_Language_Action_Model.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Memory Pretraining for Vision-Language-Action Model Pengyu Mo, Haowen Wang, Zhen Jia Marcel Torne"
+    },
+    {
+      "index": 133,
+      "label": "Memory-Augmented VLM Planners for Long-Horizon VLA Control via RL",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Krish%20Sharma%20Lucas%20Burgett%20submission_416287359/CS224R_Final_Report__9_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Memory-Augmented VLM Planners for Long-Horizon VLA Control via RL Krish Sharma, Lucas Burgett Marcel Torne"
+    },
+    {
+      "index": 134,
+      "label": "MiniHedgemony: Asymmetric Reward Structures in Self-Play Wargames",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Alex%20Lin%20Wang%20Dario%20Gaitzi%20Soatto%20submission_416333815/MiniHedgemony__Asymmetric_Reward_Structures_in_Self_Play_Wargames.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom MiniHedgemony: Asymmetric Reward Structures in Self-Play Wargames Alex Lin Wang, Dario Gaitzi Soatto Tian Gao"
+    },
+    {
+      "index": 135,
+      "label": "MIRAGE: Model Imagined Reachability for Augmented Graph Expansion",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Abhinav%20Sattiraju%20Samrat%20Sahoo%20submission_416116219/CS_224R___Final_Report-2.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom MIRAGE: Model Imagined Reachability for Augmented Graph Expansion Abhinav Sattiraju, Samrat Sahoo Ifdita Hasan Orney"
+    },
+    {
+      "index": 136,
+      "label": "Model-Based Reinforcement Learning for Particle Accelerator Control",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ryan%20Wu%20submission_416175581/CS224R_Final_Project.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Model-Based Reinforcement Learning for Particle Accelerator Control Ryan Wu Anushree Aggarwal"
+    },
+    {
+      "index": 137,
+      "label": "Multi-Move Refinement Reinforcement Learning with D4 Spatial Equivariance for 3D Chip Placement",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Yize%20Liu%20submission_416224107/cs224r_final_report_2026.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Multi-Move Refinement Reinforcement Learning with D4 Spatial Equivariance for 3D Chip Placement Yize Liu Perry Dong"
+    },
+    {
+      "index": 138,
+      "label": "Multi-Stage Curriculum GRPO for Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Timothy%20Yu%20Yash%20Ranjith%20submission_416252642/CS224R_Final_Paper.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Multi-Stage Curriculum GRPO for Countdown Timothy Yu, Yash Ranjith Ke Wang"
+    },
+    {
+      "index": 139,
+      "label": "Multi-Timescale Language Memory for a Frozen VLA Controller",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Po-Yun%20Cheng%20Wayne%20Chu%20submission_416284543/CS224R_Final_Project_Report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Multi-Timescale Language Memory for a Frozen VLA Controller Po-Yun Cheng, Wayne Chu Marcel Torne"
+    },
+    {
+      "index": 140,
+      "label": "Multimodal LLM Self-Play",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Deepika%20Dandeboyina%20submission_416242735/Final_project_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Multimodal LLM Self-Play Deepika Dandeboyina Shengqu Cai"
+    },
+    {
+      "index": 141,
+      "label": "Multimodal RLPD for Industrial Robotic Cable Insertion",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jehan%20Shah%20submission_416159879/CS224R_project_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Multimodal RLPD for Industrial Robotic Cable Insertion Jehan Shah Rahul Chand"
+    },
+    {
+      "index": 142,
+      "label": "Off Policy or On Policy? Multi-Agent Reinforcement Learning for Drone Swarm Coordination",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jett%20Crist%20Carruth%20Alex%20Tadken%20Shaffer%20submission_416252239/CS_224R_Final_Paper__3_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Off Policy or On Policy? Multi-Agent Reinforcement Learning for Drone Swarm Coordination Jett Crist Carruth, Alex Tadken Shaffer Anushree Aggarwal"
+    },
+    {
+      "index": 143,
+      "label": "Off-Policy Sampling for RLOO: When Does Reusing Rollouts Help?",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Kennaissa%20Kebeto%20Nabi%20Henok%20Mikael%20Tewolde%20submission_416276833/Off_Policy_Sampling_for_RLOO_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Off-Policy Sampling for RLOO: When Does Reusing Rollouts Help? Kennaissa Kebeto Nabi, Henok Mikael Tewolde Ke Wang"
+    },
+    {
+      "index": 144,
+      "label": "Offline Model-Based Reinforcement Learning for Energy-Efficient GPU Data-Center Cooling",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Naomie%20Sandra%20Chien%20submission_416189630/CS224R__Project_Final_Report_Template.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Offline Model-Based Reinforcement Learning for Energy-Efficient GPU Data-Center Cooling Naomie Sandra Chien Perry Dong"
+    },
+    {
+      "index": 145,
+      "label": "Offline RL for Adaptive Vocabulary Selection in Conversational Language Tutoring",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Onyinyechi%20Nichole%20Okoye%20submission_416282924/Offline_RL_for_Adaptive_Vocabulary_Selection_in_Conversational_Language_Tutoring.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Offline RL for Adaptive Vocabulary Selection in Conversational Language Tutoring Onyinyechi Nichole Okoye Ifdita Hasan Orney"
+    },
+    {
+      "index": 146,
+      "label": "Parallel Deep-RL Agents for Roblox Obstacle-Course Navigation: From Single-Course Memorization to Generalizing Across Procedurally-Composed Courses",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Alex%20Li%20Cheney%20Sang%20Aidan%20Whitedeer%20submission_416286475/CS224RPaper_updated__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Parallel Deep-RL Agents for Roblox Obstacle-Course Navigation: From Single-Course Memorization to Generalizing Across Procedurally-Composed Courses Alex Li, Cheney Sang, Aidan Whitedeer Joonwon Kang"
+    },
+    {
+      "index": 147,
+      "label": "Personalizing Slide Layouts: A Case Study in RL Reward and Context Bottlenecks",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Elijah%20Song%20Ryan%20Minh-Tri%20Le%20submission_416283659/CS_224R_Final_Project_Report-2.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Personalizing Slide Layouts: A Case Study in RL Reward and Context Bottlenecks Elijah Song, Ryan Minh-Tri Le Anushree Aggarwal"
+    },
+    {
+      "index": 148,
+      "label": "PFP: A Perception-Factored Policy for Robust and Efficient SO-101 Manipulation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Shobhit%20Agarwal%20Amirreza%20Zeinali%20submission_416263784/final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom PFP: A Perception-Factored Policy for Robust and Efficient SO-101 Manipulation Shobhit Agarwal, Amirreza Zeinali Rahul Chand"
+    },
+    {
+      "index": 149,
+      "label": "Physics-Blind Reward Hacking: Exposing and Mitigating Safety Failures in LLM-Generated Reward Functions for Robotic Manipulation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Zichen%20Yuan%20Sophia%20Huang%20submission_416281563/cs224r_final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Physics-Blind Reward Hacking: Exposing and Mitigating Safety Failures in LLM-Generated Reward Functions for Robotic Manipulation Zichen Yuan, Sophia Huang Tian Gao"
+    },
+    {
+      "index": 150,
+      "label": "PipelineRL: Limits of Asynchronous Reinforcement Learning for Long-Horizon Trajectories",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Henry%20Bosch%20Shurui%20Liu%20submission_416282587/cs224r_proposal__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom PipelineRL: Limits of Asynchronous Reinforcement Learning for Long-Horizon Trajectories Henry Bosch, Shurui Liu Jonathan Yang"
+    },
+    {
+      "index": 151,
+      "label": "PlayGrader: Coaching the Coaches with Deep RL",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/JP%20Paul%20McAnally%20submission_416260391/224R.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom PlayGrader: Coaching the Coaches with Deep RL JP Paul McAnally Jonathan Yang"
+    },
+    {
+      "index": 152,
+      "label": "Pluralistic Alignment via Self-Distillation from Synthetic User Feedback",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Minsik%20Oh%20submission_416288501/CS224R_Project_Report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Pluralistic Alignment via Self-Distillation from Synthetic User Feedback Minsik Oh Rahul Chand"
+    },
+    {
+      "index": 153,
+      "label": "Pose Under Pressure: Robustness of Pose-Derived Dense Rewards in Demonstration-Guided Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Joseph%20Dehoney%20submission_416247106/jdehoney_224r_final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Pose Under Pressure: Robustness of Pose-Derived Dense Rewards in Demonstration-Guided Reinforcement Learning Joseph Dehoney Ethan Hsu"
+    },
+    {
+      "index": 154,
+      "label": "Preclinical HIV Drug Candidate Discovery with Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Arda%20Dastan%20Kevin%20Chen%20Elijah%20Alexander%20Schacter%20submission_416266246/CS224R_writeup.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Preclinical HIV Drug Candidate Discovery with Reinforcement Learning Arda Dastan, Kevin Chen, Elijah Alexander Schacter Jonathan Yang"
+    },
+    {
+      "index": 155,
+      "label": "Preference Optimization and Curriculum RLOO for Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Akshar%20Sarvesh%20submission_416342530/cs224r_final_report_2025a.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Preference Optimization and Curriculum RLOO for Countdown Reasoning Akshar Sarvesh Yash Kankariya"
+    },
+    {
+      "index": 156,
+      "label": "Prisoner’s Lemma: Exploitability-Aware Reinforcement Learning for Online Strategic Adaptation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Maanit%20Goel%20submission_415957090/Prisoner_s_Lemma__Exploitability_Aware_Reinforcement_Learning_for_Online_Strategic_Adaptation___Maanit__5_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Prisoner’s Lemma: Exploitability-Aware Reinforcement Learning for Online Strategic Adaptation Maanit Goel Marcel Torne"
+    },
+    {
+      "index": 157,
+      "label": "Process Rewards and Tool Use: Two Extensions to RLOO Fine-Tuning for Math Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Michael%20Yang%20Du%20Li%20submission_416286065/Process_Rewards_and_Tool_Use_Two_Extensions_to_RLOO_Fine_Tuning_for_Math_Reasoning.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Process Rewards and Tool Use: Two Extensions to RLOO Fine-Tuning for Math Reasoning Michael Yang, Du Li Max Du"
+    },
+    {
+      "index": 158,
+      "label": "Process-Level Alignment and Value-Guided Stepwise Planning in Countdown Math Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Dongyu%20Jia%20submission_416159521/cs224r_final_report_2025.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Process-Level Alignment and Value-Guided Stepwise Planning in Countdown Math Reasoning Dongyu Jia Ke Wang"
+    },
+    {
+      "index": 159,
+      "label": "Programmatic Reasoning for Countdown: Learning to Generate Executable Python-Style Verifications",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Henry%20Jingsong%20Zhou%20Oleh%20Ivankiv%20submission_415708497/CS224R_Final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Programmatic Reasoning for Countdown: Learning to Generate Executable Python-Style Verifications Henry Jingsong Zhou, Oleh Ivankiv Anubha Mahajan"
+    },
+    {
+      "index": 160,
+      "label": "Progress-Aware Prompt Sampling for Verifier-Based RL Fine-Tuning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jason%20Yan%20submission_416190006/cs224r_final_report_2025.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Progress-Aware Prompt Sampling for Verifier-Based RL Fine-Tuning Jason Yan Yash Kankariya"
+    },
+    {
+      "index": 161,
+      "label": "Progressive Rationality: Enhancing LLM Mathematical Reasoning via Numerical-Target-Curriculum-SFT in the Countdown Task",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Meng-Chin%20Wang%20submission_416117632/CS224R_-_Progressive_Rationality_-_Enhancing_LLM_Mathematical_Reasoning_via_Numerical_Target_Curriculum_SFT_in_the_Countdown_Task.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Progressive Rationality: Enhancing LLM Mathematical Reasoning via Numerical-Target-Curriculum-SFT in the Countdown Task Meng-Chin Wang Anubha Mahajan"
+    },
+    {
+      "index": 162,
+      "label": "Prompt Distribution Design for RLOO Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Yikai%20Cao%20Zhibo%20Dai%20submission_416216886/CS224R_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Prompt Distribution Design for RLOO Countdown Reasoning Yikai Cao, Zhibo Dai Anubha Mahajan"
+    },
+    {
+      "index": 163,
+      "label": "RadOncReason: Reinforcement Learning with Verifiable Guideline Rewards for Clinical Reasoning in Radiation Oncology",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Hailemariam%20Teshome%20submission_416288554/report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom RadOncReason: Reinforcement Learning with Verifiable Guideline Rewards for Clinical Reasoning in Radiation Oncology Hailemariam Teshome Jonathan Yang"
+    },
+    {
+      "index": 164,
+      "label": "RECAP-Ψ: Advantage-Conditioned Fine-Tuning for Open-Source Humanoid VLAs",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Aaditya%20Shah%20Karthik%20Pythireddi%20Jonathan%20Manfu%20Lu%20submission_416284827/CS_224R_Final_Report__2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom RECAP-Ψ: Advantage-Conditioned Fine-Tuning for Open-Source Humanoid VLAs Aaditya Shah, Karthik Pythireddi, Jonathan Manfu Lu Joonwon Kang"
+    },
+    {
+      "index": 165,
+      "label": "Reducing Citation Hallucinations in Large Language Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Rushank%20Goyal%20submission_416288481/CS224R_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reducing Citation Hallucinations in Large Language Models Rushank Goyal Ifdita Hasan Orney"
+    },
+    {
+      "index": 166,
+      "label": "Reducing Scalar Rewards to Binary Success: General Off-Policy Learning with Success Functions",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Armaan%20Alan%20Abraham%20submission_416253123/cs224r_final_report_2026.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reducing Scalar Rewards to Binary Success: General Off-Policy Learning with Success Functions Armaan Alan Abraham Jonathan Yang"
+    },
+    {
+      "index": 167,
+      "label": "Refine and Compose: Mahalanobis Action Barriers over Demo-free Contrastive RL Primitives",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Dylan%20Zhou%20Anuva%20Banwasi%20Jiaye%20Zou%20submission_416285166/Refine_and_Compose__Mahalanobis_Action_Barriers_over_Demo_free_Contrastive_RL_Primitives.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Refine and Compose: Mahalanobis Action Barriers over Demo-free Contrastive RL Primitives Dylan Zhou, Anuva Banwasi, Jiaye Zou Tyler Lum"
+    },
+    {
+      "index": 168,
+      "label": "Reinforcement Learning for Clinical Site-of-Care Triage in a Sepsis Simulator",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Yun%20Dong%20Saimai%20Lau%20Liane%20Ozoemelam%20submission_416283567/CS224R_Final_project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reinforcement Learning for Clinical Site-of-Care Triage in a Sepsis Simulator Yun Dong, Saimai Lau, Liane Ozoemelam Anushree Aggarwal"
+    },
+    {
+      "index": 169,
+      "label": "Reinforcement Learning for Compiled-CNOT-Efficient VQE Circuits",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/John%20William%20Carlson%20Josh%20Joseph%20submission_416281809/Reinforcement_Learning_for_Compiled_CNOT_Efficient_Variational_Quantum_Eigensolver_Circuits__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reinforcement Learning for Compiled-CNOT-Efficient VQE Circuits John William Carlson, Josh Joseph Joonwon Kang"
+    },
+    {
+      "index": 170,
+      "label": "Reinforcement Learning for Dynamic Beam Steering in Plasma Metamaterials",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Susan%20Zhang%20submission_416331144/CS224R_Final_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reinforcement Learning for Dynamic Beam Steering in Plasma Metamaterials Susan Zhang Megha Srivastava"
+    },
+    {
+      "index": 171,
+      "label": "Reinforcement Learning for Figgie: Learning Negotiation as a First-Class Skill",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Daniel%20Li%20Yang%20submission_416100137/CS224R_Project_Report-5.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reinforcement Learning for Figgie: Learning Negotiation as a First-Class Skill Daniel Li Yang Ethan Hsu"
+    },
+    {
+      "index": 172,
+      "label": "Reinforcement Learning for Fog of War Chess with Action Space Pruning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Sandeep%20Sethuraman%20Kuba%20Hashemian%20Leon%20Junliang%20Liu%20submission_416267121/CS224R_Final.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reinforcement Learning for Fog of War Chess with Action Space Pruning Sandeep Sethuraman, Kuba Hashemian, Leon Junliang Liu Anushree Aggarwal"
+    },
+    {
+      "index": 173,
+      "label": "Reinforcement Learning for Geothermal Drilling Optimization",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Devan%20Shaan%20Agrawal%20submission_416288077/_Final__CS_224R_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reinforcement Learning for Geothermal Drilling Optimization Devan Shaan Agrawal Perry Dong"
+    },
+    {
+      "index": 174,
+      "label": "Reinforcement Learning for Mental Health Interventions Using Unlabeled Smartphone Data",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Elisabeth%20A%20Holm%20Juan%20Pablo%20Gonzalez%20Pacheco%20Alfred%20Yu%20submission_416282815/CS_224R_Final_Paper.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reinforcement Learning for Mental Health Interventions Using Unlabeled Smartphone Data Elisabeth A Holm, Juan Pablo Gonzalez Pacheco, Alfred Yu Alex Nam"
+    },
+    {
+      "index": 175,
+      "label": "Reinforcement Learning for Noise-Aware Quantum Circuit Compilation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Vinav%20Shah%20Abhishek%20A%20Shah%20submission_416288555/Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reinforcement Learning for Noise-Aware Quantum Circuit Compilation Vinav Shah, Abhishek A Shah Rahul Chand"
+    },
+    {
+      "index": 176,
+      "label": "Reinforcement Learning for Self-Guided Context Compression in Mathematical Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jerry%20Wang%20Ryan%20Wang%20submission_416268483/CS224R.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Reinforcement Learning for Self-Guided Context Compression in Mathematical Reasoning Jerry Wang, Ryan Wang Ke Wang"
+    },
+    {
+      "index": 177,
+      "label": "Reinforcement Learning for Terminal-Area Air Traffic Control",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jerry%20Yin%20submission_416287340/224R_Final_Project.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reinforcement Learning for Terminal-Area Air Traffic Control Jerry Yin Anushree Aggarwal"
+    },
+    {
+      "index": 178,
+      "label": "Replay-Augmented RLOO: Restoring Within-Group Reward Variance in Sparse-Reward Policy Gradients",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Hao%20Xu%20submission_416131335/cs224r_final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Replay-Augmented RLOO: Restoring Within-Group Reward Variance in Sparse-Reward Policy Gradients Hao Xu Shengqu Cai"
+    },
+    {
+      "index": 179,
+      "label": "Replay-Aware Curriculum Learning for RoboPianist",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Shekhar%20Sharma%20submission_416271145/cs224r_final_report_2026.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Replay-Aware Curriculum Learning for RoboPianist Shekhar Sharma Megha Srivastava"
+    },
+    {
+      "index": 180,
+      "label": "Reproducible Top-K PPO for S&P 500 Portfolio Selection: Risk-Adjusted Gains, Seed Variance, and the Limits of Return-Maximizing RL",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Andres%20Felipe%20Restrepo%20submission_416172045/CS224R_Project_Final_Report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reproducible Top-K PPO for S&P 500 Portfolio Selection: Risk-Adjusted Gains, Seed Variance, and the Limits of Return-Maximizing RL Andres Felipe Restrepo Rahul Chand"
+    },
+    {
+      "index": 181,
+      "label": "Residual Reinforcement Learning for Robotic Manipulation of Wire-like Objects",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Bautista%20Guerra%20Andrew%20Yuxuan%20Liang%20Alexander%20Tarvo%20submission_416268133/CS224R_Project_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Residual Reinforcement Learning for Robotic Manipulation of Wire-like Objects Bautista Guerra, Andrew Yuxuan Liang, Alexander Tarvo Joonwon Kang"
+    },
+    {
+      "index": 182,
+      "label": "Reversing Emergent Misalignment Using Simple Self-Distillation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Justin%20Yizhou%20Huang%20Adam%20Joseph%20Banks%20submission_416261454/CS_224R_Final_Report__6_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reversing Emergent Misalignment Using Simple Self-Distillation Justin Yizhou Huang, Adam Joseph Banks Rahul Chand"
+    },
+    {
+      "index": 183,
+      "label": "Reward Density and Process-Reward Hacking in a Code-Repair MDP: A Controlled Study of PPO Meta-Control over a Frozen Code LLM",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jack%20Frederick%20Lofwall%20Luca%20Thomas%20Wheeler%20submission_416282441/224R-Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reward Density and Process-Reward Hacking in a Code-Repair MDP: A Controlled Study of PPO Meta-Control over a Frozen Code LLM Jack Frederick Lofwall, Luca Thomas Wheeler Yash Kankariya"
+    },
+    {
+      "index": 184,
+      "label": "Reward Design for Reinforcement-Learning Fine-Tuning of Navigation Policies",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Yunshan%20Wang%20submission_416289237/cs224r_final_report-4.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reward Design for Reinforcement-Learning Fine-Tuning of Navigation Policies Yunshan Wang Ethan Hsu"
+    },
+    {
+      "index": 185,
+      "label": "Reward-Model-Calibrated Reinforcement Learning from Verifiable Rewards for Machine Learning Engineering",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Siddharth%20Sachdeva%20submission_416288366/main__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Reward-Model-Calibrated Reinforcement Learning from Verifiable Rewards for Machine Learning Engineering Siddharth Sachdeva Joy He-Yueya"
+    },
+    {
+      "index": 186,
+      "label": "RL & Domain Randomization for Volt-VAR Control in Electricity Distribution Grids",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Anish%20Chaudhuri%20Aniket%20Mahajan%20submission_416288572/CS224r_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom RL & Domain Randomization for Volt-VAR Control in Electricity Distribution Grids Anish Chaudhuri, Aniket Mahajan Alex Nam"
+    },
+    {
+      "index": 187,
+      "label": "RL Fine-Tuning for Countdown Reasoning with Test-Time Verification and Curriculum Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Howard%20Xiao%20Weiwei%20Wu%20submission_416281412/CS_224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default RL Fine-Tuning for Countdown Reasoning with Test-Time Verification and Curriculum Learning Howard Xiao, Weiwei Wu Abhijnya Bhat"
+    },
+    {
+      "index": 188,
+      "label": "RL for Adaptive Tutoring: When Should a Tutor Intervene?",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Hoang%20D%20Nguyen%20Peter%20Martin%20Alisky%20Zhenghui%20Chen%20submission_416223910/CS_224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom RL for Adaptive Tutoring: When Should a Tutor Intervene? Hoang D Nguyen, Peter Martin Alisky, Zhenghui Chen Anushree Aggarwal"
+    },
+    {
+      "index": 189,
+      "label": "RL-Powered Hint Generation for Adaptive Math Tutoring: A Simulated Student Evaluation of RLOO and DPO Policies",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Prabu%20Ganesh%20Ravindren%20submission_415987469/CS224r_Project.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom RL-Powered Hint Generation for Adaptive Math Tutoring: A Simulated Student Evaluation of RLOO and DPO Policies Prabu Ganesh Ravindren Rahul Chand"
+    },
+    {
+      "index": 190,
+      "label": "Sample Wide, Pick Smart: For a Fixed 0.5B Countdown Reasoner, Test-Time Selection Beats More Training",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Manat%20Kaur%20Felipe%20Leite%20Teixeira%20submission_416286890/CS224RReport2.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Sample Wide, Pick Smart: For a Fixed 0.5B Countdown Reasoner, Test-Time Selection Beats More Training Manat Kaur, Felipe Leite Teixeira Riya Karumanchi"
+    },
+    {
+      "index": 191,
+      "label": "Sample-Efficient Atari RL with Self-Supervised Pretrained Visual Encoders",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Mark%20Mutugi%20Athiri%20submission_416279705/atari_ssl_writeup.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Sample-Efficient Atari RL with Self-Supervised Pretrained Visual Encoders Mark Mutugi Athiri Joonwon Kang"
+    },
+    {
+      "index": 192,
+      "label": "Sample-Efficient RLOO via Off-Policy Rollout Reuse",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Zhaoyang%20Li%20submission_416286590/cs224r_final_report_2025.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Sample-Efficient RLOO via Off-Policy Rollout Reuse Zhaoyang Li Abhijnya Bhat"
+    },
+    {
+      "index": 193,
+      "label": "Scale-Based Curriculum Pretraining for Robotic Piano Performance",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Anna%20Luna%20Fisher%20Lopez%20Justin%20Choo%20Eric%20Martz%20submission_416281869/CS_224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Scale-Based Curriculum Pretraining for Robotic Piano Performance Anna Luna Fisher Lopez, Justin Choo, Eric Martz Megha Srivastava"
+    },
+    {
+      "index": 194,
+      "label": "Scaling Test-Time Computation for Countdown Reasoning through Verifier-Guided Resampling",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jiaxuan%20Sun%20Angel%20Zhang%20submission_415717543/Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Scaling Test-Time Computation for Countdown Reasoning through Verifier-Guided Resampling Jiaxuan Sun, Angel Zhang Ke Wang"
+    },
+    {
+      "index": 195,
+      "label": "Scaling Test-Time Compute via Generative Verification in Constrained Parameter Regimes",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Mohammad%20Rehan%20Ghori%20submission_416275844/cs224r_Final_Project__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Scaling Test-Time Compute via Generative Verification in Constrained Parameter Regimes Mohammad Rehan Ghori Anubha Mahajan"
+    },
+    {
+      "index": 196,
+      "label": "SEACTS: Sequential Evidence Acquisition for Cancer Target Selection",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Nathan%20Zhou%20Ria%20Garg%20submission_416280457/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom SEACTS: Sequential Evidence Acquisition for Cancer Target Selection Nathan Zhou, Ria Garg Megha Srivastava"
+    },
+    {
+      "index": 197,
+      "label": "Seeking Disagreement: Online Credit Assignment with Delayed and Pseudo-Aggregated Rewards",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Haozhan%20Gao%20submission_416279196/CS224R_final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Seeking Disagreement: Online Credit Assignment with Delayed and Pseudo-Aggregated Rewards Haozhan Gao Perry Dong"
+    },
+    {
+      "index": 198,
+      "label": "Selective Entropy Shaping For RLOO: When Importance Weight Gating Hurts Exploration",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Syed%20Ashal%20Ali%20submission_416245483/CS_224R_Final_Project_Report__2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Selective Entropy Shaping For RLOO: When Importance Weight Gating Hurts Exploration Syed Ashal Ali Shengqu Cai"
+    },
+    {
+      "index": 199,
+      "label": "Self-improving Vision-Language Models: Reinforcement Learning over Visual Abstractions",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Khai%20Loong%20Aw%20Zhang%20Bai-han%20submission_416050879/2111_-_CS224R_Project_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Self-improving Vision-Language Models: Reinforcement Learning over Visual Abstractions Khai Loong Aw, Zhang Bai-han Tyler Lum"
+    },
+    {
+      "index": 200,
+      "label": "Self-Supervised Data Quality Scoring for Offline RL in Driving",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Roman%20Gasiorowski%20submission_416246023/final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Self-Supervised Data Quality Scoring for Offline RL in Driving Roman Gasiorowski Ke Wang"
+    },
+    {
+      "index": 201,
+      "label": "Sequential Injection Control for Optimal Stimulated Geologic Hydrogen Production through Deep Reinforcement Learning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Spencer%20Zhang%20submission_416278341/cs224r_report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Sequential Injection Control for Optimal Stimulated Geologic Hydrogen Production through Deep Reinforcement Learning Spencer Zhang Riya Karumanchi"
+    },
+    {
+      "index": 202,
+      "label": "Sequential Outfit Curation with Multi-Dimensional Aesthetic Rewards",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Nicole%20Cortes%20Esidore%20Fajardo%20Eneinyang%20Chloe%20Di%20Murdoch%20submission_415793799/CS224R_Report__7_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Sequential Outfit Curation with Multi-Dimensional Aesthetic Rewards Nicole Cortes, Esidore Fajardo Eneinyang, Chloe Di Murdoch Anushree Aggarwal"
+    },
+    {
+      "index": 203,
+      "label": "SFT-Estimated Curriculum Learning for Rule-Based RLOO Fine-Tuning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Vanessa%20Felix%20submission_416277016/cs224r_final_report_2025.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default SFT-Estimated Curriculum Learning for Rule-Based RLOO Fine-Tuning Vanessa Felix Anikait Singh"
+    },
+    {
+      "index": 204,
+      "label": "SHIELD: Failure-Aware Policy Shielding for Frozen Vision-Language-Action Policies",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Tianhui%20Huang%20Jacob%20Lokheen%20Lee%20Daniel%20Contreras-Esquivel%20submission_416191313/main.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom SHIELD: Failure-Aware Policy Shielding for Frozen Vision-Language-Action Policies Tianhui Huang, Jacob Lokheen Lee, Daniel Contreras-Esquivel Ke Wang"
+    },
+    {
+      "index": 205,
+      "label": "SimToolReal-RGB: Visuomotor Diffusion Policies for Dexterous Manipulation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Cayden%20Gu%20Karen%20Vo%20Christine%20Zhang%20submission_416276229/CS224R_Project__3_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom SimToolReal-RGB: Visuomotor Diffusion Policies for Dexterous Manipulation Cayden Gu, Karen Vo, Christine Zhang Tyler Lum"
+    },
+    {
+      "index": 206,
+      "label": "SketchRL: Finetuning Generative Sketch Models with Visual Rewards",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Mallika%20Parulekar%20Tia%20S%20Geri%20Hannah%20Rachel%20Levin%20submission_416341046/CS224R_Final_Report__1__Hannah.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom SketchRL: Finetuning Generative Sketch Models with Visual Rewards Mallika Parulekar, Tia S Geri, Hannah Rachel Levin Ifdita Hasan Orney"
+    },
+    {
+      "index": 207,
+      "label": "Small Generative Verifiers for Inference-Time Scaling Across RL Training Frameworks",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Joshua%20Delgadillo%20Jui%20Khankari%20submission_416276148/CS_224R_Project_Report__2_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Small Generative Verifiers for Inference-Time Scaling Across RL Training Frameworks Joshua Delgadillo, Jui Khankari Abhijnya Bhat"
+    },
+    {
+      "index": 208,
+      "label": "SODA: Supervised Option Discovery for Dynamic Action Chunking",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Umar%20Padela%20Neetish%20Sharma%20submission_416360541/SODA__Supervised_Option_Discovery_for_Dynamic_Action_Chunking__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom SODA: Supervised Option Discovery for Dynamic Action Chunking Umar Padela, Neetish Sharma Tyler Lum"
+    },
+    {
+      "index": 209,
+      "label": "SpecGen: RL-Driven Compiler Verification",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Monami%20Dutta%20Gupta%20submission_416208168/CS224R_Project_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom SpecGen: RL-Driven Compiler Verification Monami Dutta Gupta Jonathan Yang"
+    },
+    {
+      "index": 210,
+      "label": "Static vs. Adaptive Curriculum Learning for RLOO Fine-Tuning of Language Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Norah%20Asemota%20submission_416288794/CS224r_Final_Report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Static vs. Adaptive Curriculum Learning for RLOO Fine-Tuning of Language Models Norah Asemota Ke Wang"
+    },
+    {
+      "index": 211,
+      "label": "Stay In Your Lane! Hierarchical RL for a Modified Asteroids Game",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Samantha%20Estrada%20submission_416286941/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Stay In Your Lane! Hierarchical RL for a Modified Asteroids Game Samantha Estrada Rahul Chand"
+    },
+    {
+      "index": 212,
+      "label": "Strategy-Diverse Synthetic Warm-Starts for RL Fine-Tuning on Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Shreyas%20C%20S%20Anushka%20Rawat%20submission_416233239/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Strategy-Diverse Synthetic Warm-Starts for RL Fine-Tuning on Countdown Shreyas C S, Anushka Rawat Max Du"
+    },
+    {
+      "index": 213,
+      "label": "Strong Sub-Agents in a Monitored “Private” Channel Under a Weak RL Supervisor",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Andrew%20Samuel%20Park%20submission_416280297/CS224R_Final_Project_Paper.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Strong Sub-Agents in a Monitored “Private” Channel Under a Weak RL Supervisor Andrew Samuel Park Perry Dong"
+    },
+    {
+      "index": 214,
+      "label": "Structural Diversity Rewards for Verifiable Graph-Structured Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Rutanshu%20Jhaveri%20submission_416288083/CS_224R_Final_Report__4_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Structural Diversity Rewards for Verifiable Graph-Structured Reasoning Rutanshu Jhaveri Ifdita Hasan Orney"
+    },
+    {
+      "index": 215,
+      "label": "Structured Action-Effect Observables for Residual RL under Hidden Actuator Drift",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Sarvesh%20R.%20Babu%20submission_416283856/CS_224R.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "— Structured Action-Effect Observables for Residual RL under Hidden Actuator Drift Sarvesh R. Babu Abhijnya Bhat"
+    },
+    {
+      "index": 216,
+      "label": "Structured Q&A Reasoning for Language Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Anuj%20Jamwal%20Srinidhi%20Bhat%20submission_416284828/CS224r_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Structured Q&A Reasoning for Language Models Anuj Jamwal, Srinidhi Bhat Ke Wang"
+    },
+    {
+      "index": 217,
+      "label": "Structured Search Traces for Process-Aware Countdown Training",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Parth%20Sheth%20Yucheng%20Huang%20submission_416155725/Parth__Yucheng___CS224R_Final_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Structured Search Traces for Process-Aware Countdown Training Parth Sheth, Yucheng Huang Max Du"
+    },
+    {
+      "index": 218,
+      "label": "SUBTITLE-DPO: Verifiable-Reward Preference Optimization to Suppress Spurious Burned-in Subtitles in Audio-Visual Video Diffusion",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Yubo%20Ruan%20submission_416011159/cs224r_final_report_2025.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom SUBTITLE-DPO: Verifiable-Reward Preference Optimization to Suppress Spurious Burned-in Subtitles in Audio-Visual Video Diffusion Yubo Ruan Perry Dong"
+    },
+    {
+      "index": 219,
+      "label": "Survival Instinct: One-Staged RL for Quadruped Parkour Self-Play",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Edward%20Neo%20Lee%20Shatong%20Zhu%20Haoyue%20Xiao%20submission_416288448/CS_224R_Final_Project_Report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Survival Instinct: One-Staged RL for Quadruped Parkour Self-Play Edward Neo Lee, Shatong Zhu, Haoyue Xiao Tian Gao"
+    },
+    {
+      "index": 220,
+      "label": "System-Aware Reward Shaping for the Pythia RL Prefetcher",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Esmee%20Cowing%20Milly%20Wong%20Tesvara%20Suliani%20Jiang%20submission_416289332/cs224r_report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom System-Aware Reward Shaping for the Pythia RL Prefetcher Esmee Cowing, Milly Wong, Tesvara Suliani Jiang Perry Dong"
+    },
+    {
+      "index": 221,
+      "label": "Systems-Aware Off-Policy RLOO: Amortizing Sampling Cost via K-Reuse",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Abhishek%20Bharani%20submission_416136219/cs224r_final.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Systems-Aware Off-Policy RLOO: Amortizing Sampling Cost via K-Reuse Abhishek Bharani Abhijnya Bhat"
+    },
+    {
+      "index": 222,
+      "label": "Targeted Counterfactual Branching for Tool-Invocation Decisions in RL Fine-Tuning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Andres%20Ernesto%20Garcia%20Prakash%20Koukuntla%20Joshua%20Hsieh%20submission_416266868/Targeted_Counterfactual_Branching_for_Tool_Invocation_Decisions_in_RL_Fine_Tuning__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Targeted Counterfactual Branching for Tool-Invocation Decisions in RL Fine-Tuning Andres Ernesto Garcia, Prakash Koukuntla, Joshua Hsieh Riya Karumanchi"
+    },
+    {
+      "index": 223,
+      "label": "Teacher-Contrastive On-Policy Distillation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Juntong%20Shi%20submission_416022738/CS224R_Teacher_Contrastive_OPD.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Teacher-Contrastive On-Policy Distillation Juntong Shi Perry Dong"
+    },
+    {
+      "index": 224,
+      "label": "Teaching Small Models to Teach",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Rosemary%20Mingrui%20Jiang%20submission_416266797/CS_224R_Final_Project_Report__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Teaching Small Models to Teach Rosemary Mingrui Jiang Ke Wang"
+    },
+    {
+      "index": 225,
+      "label": "Test-Time Best-of-K Selection with Generative Verification for Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jingshu%20Liu%20submission_416288258/cs224r_final_project__11_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Test-Time Best-of-K Selection with Generative Verification for Countdown Reasoning Jingshu Liu Ke Wang"
+    },
+    {
+      "index": 226,
+      "label": "Test-Time Inference Scaling for RL Fine-Tuned Language Models",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ava%20Kouhana%20Julian%20Rodriguez%20Cardenas%20Leah%20Balakrishnan%20submission_416238953/CS224R_-_Final_Project_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Test-Time Inference Scaling for RL Fine-Tuned Language Models Ava Kouhana, Julian Rodriguez Cardenas, Leah Balakrishnan Anubha Mahajan"
+    },
+    {
+      "index": 227,
+      "label": "Test-Time Selection and Curriculum Learning for RL Fine-Tuned Language Models on Countdown Reasoning",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Rydham%20Goyal%20Rakshit%20Kaushik%20submission_416169225/Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Test-Time Selection and Curriculum Learning for RL Fine-Tuned Language Models on Countdown Reasoning Rydham Goyal, Rakshit Kaushik Anikait Singh"
+    },
+    {
+      "index": 228,
+      "label": "The Affect of Opponent Pool Size on the Policy Stability of Compute Constrained Self-play Tasks",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Jonathan%20Andrew%20Lutch%20submission_416288603/CS224RFinalReport__1_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom The Affect of Opponent Pool Size on the Policy Stability of Compute Constrained Self-play Tasks Jonathan Andrew Lutch Tian Gao"
+    },
+    {
+      "index": 229,
+      "label": "The Long Game: A Long-Horizon RL Study of Fairness in Financial Lending",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Brydie%20Sigg%20Naomi%20Y%20Boneh%20Christelle%20Chantal%20Millos-Lopez%20submission_416287519/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom The Long Game: A Long-Horizon RL Study of Fairness in Financial Lending Brydie Sigg, Naomi Y Boneh, Christelle Chantal Millos-Lopez Riya Karumanchi"
+    },
+    {
+      "index": 230,
+      "label": "Tool-Integrated Reasoning for Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Mahmood%20Ishaq%20Alhusseini%20Frank%20D%27Agostino%20Sebastian%20Beckett%20Fisher%20submission_416288352/CS_224R_project_poster-3.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Tool-Integrated Reasoning for Countdown Mahmood Ishaq Alhusseini, Frank D'Agostino, Sebastian Beckett Fisher Anikait Singh"
+    },
+    {
+      "index": 231,
+      "label": "Tool-Integrated RLOO and Pass@K: Testing the Invisible Leash",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Isaiah%20Flores%20Mia%20Xiao%20Katherine%20Wang%20Xu%20submission_416165870/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Tool-Integrated RLOO and Pass@K: Testing the Invisible Leash Isaiah Flores, Mia Xiao, Katherine Wang Xu Anubha Mahajan"
+    },
+    {
+      "index": 232,
+      "label": "Topology-Aware Reinforcement Learning for Text-to-CAD Code Generation",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Gaurav%20Tyagi%20submission_416087944/CS224r_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Topology-Aware Reinforcement Learning for Text-to-CAD Code Generation Gaurav Tyagi Ke Wang"
+    },
+    {
+      "index": 233,
+      "label": "Towards Advantage Shaping for Multi-tool Reasoning: A Preliminary Empirical Study",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ricardo%20Alberto%20Carrillo%20Romero%20submission_416274651/cs224r_final_report_Ricardo_Carrillo.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Towards Advantage Shaping for Multi-tool Reasoning: A Preliminary Empirical Study Ricardo Alberto Carrillo Romero Anubha Mahajan"
+    },
+    {
+      "index": 234,
+      "label": "Training Robot Policies with a Foundation Model Teacher",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Steven%20Feng%20April%20Yang%20Daniel%20Zou%20submission_416285789/CS224R_Template.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom Training Robot Policies with a Foundation Model Teacher Steven Feng, April Yang, Daniel Zou Tyler Lum"
+    },
+    {
+      "index": 235,
+      "label": "Using, Learning, and Removing Tools: A Study of Tool-Integrated Reasoning for Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Diego%20Sierra%20Brianna%20Xie%20submission_415464895/CS224R_Final_Project_Diego_Brianna.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Using, Learning, and Removing Tools: A Study of Tool-Integrated Reasoning for Countdown Diego Sierra, Brianna Xie Max Du"
+    },
+    {
+      "index": 236,
+      "label": "Verifier-Based Reinforcement Learning for Countdown with Curriculum Training",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Yuyan%20Wu%20submission_416267242/CS224R_Final_Report_yuyan.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Verifier-Based Reinforcement Learning for Countdown with Curriculum Training Yuyan Wu Riya Karumanchi"
+    },
+    {
+      "index": 237,
+      "label": "Verifier-Guided Recombination Search for Token-Efficient Test-Time Compute in Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Shyam%20Sai%20Bethina%20Sahil%20Koita%20Ananya%20Ganapathi%20submission_416285627/main.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Verifier-Guided Recombination Search for Token-Efficient Test-Time Compute in Countdown Shyam Sai Bethina, Sahil Koita, Ananya Ganapathi Anubha Mahajan"
+    },
+    {
+      "index": 238,
+      "label": "When Can a Model Write Its Own Curriculum? A Diagnostic Study of Joint Conjecturer/Prover RLOO for Countdown",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Finn%20Staeblein%20submission_416286016/CS244r_final_report-2.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default When Can a Model Write Its Own Curriculum? A Diagnostic Study of Joint Conjecturer/Prover RLOO for Countdown Finn Staeblein, Nicholas Simon Allen Riya Karumanchi"
+    },
+    {
+      "index": 239,
+      "label": "When Does Curriculum Learning Help? A Knowledge-Aware Learning-Progress Curriculum for RLVR",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Louis%20de%20Germay%20de%20Cirfontaine%20Arthur%20Gontier%20submission_416269959/CS224R_Final_Report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default When Does Curriculum Learning Help? A Knowledge-Aware Learning-Progress Curriculum for RLVR Louis de Germay de Cirfontaine, Arthur Gontier Riya Karumanchi"
+    },
+    {
+      "index": 240,
+      "label": "When Does Execution Feedback Transfer? Minimal-Sufficient Feedback for Internalized RLVR",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Yucheng%20Yao%20submission_416115882/msf_rlvr_final_report_final.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom When Does Execution Feedback Transfer? Minimal-Sufficient Feedback for Internalized RLVR Yucheng Yao Alex Nam"
+    },
+    {
+      "index": 241,
+      "label": "When Does Privileged Self-Distillation Help GUI Grounding? A Teacher-Gap Analysis of Visual SDPO",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Ethan%20Charles%20Morgan%20submission_416282579/CS224R_FinalProject__7_.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom When Does Privileged Self-Distillation Help GUI Grounding? A Teacher-Gap Analysis of Visual SDPO Ethan Charles Morgan Ethan Hsu"
+    },
+    {
+      "index": 242,
+      "label": "When Does Specialist RL Help a Small-Model Multi-Agent Pipeline? A Cross-Benchmark Study on Long-Document QA",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Mert%20Karabiyik%20submission_416243179/final_report.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Custom When Does Specialist RL Help a Small-Model Multi-Agent Pipeline? A Cross-Benchmark Study on Long-Document QA Mert Karabiyik Alex Nam"
+    },
+    {
+      "index": 243,
+      "label": "Where RLOO Stops on Countdown: A Capability Ceiling at the Additive ↔ Multiplicative Boundary",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Aarohi%20Gupta%20submission_416235005/cs224R_final_paper.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Where RLOO Stops on Countdown: A Capability Ceiling at the Additive ↔ Multiplicative Boundary Aarohi Gupta Abhijnya Bhat"
+    },
+    {
+      "index": 244,
+      "label": "Zero Sum Game Framework for Group Advantage Simplification",
+      "url": "https://cs224r.stanford.edu/projects/pdfs/Joshua%20A%20Slagle%20submission_416229403/cs224r_final_report_2025.pdf",
+      "heading": "Spring 2026 · 244 student projects",
+      "context": "Default Zero Sum Game Framework for Group Advantage Simplification Joshua A Slagle Yash Kankariya"
+    }
+  ],
+  "tables": [
+    [
+      "Type Title Authors Mentor TA",
+      "Custom Outstanding Project A Semi-Decentralized Approach to Scalable Multiagent Control Avi Singh, Mahdi Al-Husseini Rahul Chand",
+      "Custom Outstanding Project EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action Models Kuo-Han Hung Perry Dong",
+      "Custom Outstanding Project Hybrid Reinforcement Learning for Chip Macro Placement Moritz Schreyoegg, Jack Herrmann, Daniel Hagenlocker Anushree Aggarwal",
+      "Default Outstanding Project SFT Augmentation and Replay-Based RL for Countdown Reasoning Aizada Nurdinova, Ellie Sampson, Adhi Daiv Anikait Singh",
+      "Custom Honorable Mention Beyond Test Scores: Reward Design for Offline RL in Personal Finance Tutoring Stella Wu, Daniel Mark Argento Alex Nam",
+      "Custom Honorable Mention CARVE: Concept Avoidance via Reward-shaped Visual Erasure Febie Jane Lin, Fabio Ibanez, Chris Stanulet Rahul Chand",
+      "Custom Honorable Mention π-Drive: Reinforcement Post-Training Turns a Manipulation VLA into a Real-Time Driving Policy Felipe Laufer Barbosa, Mark Music, Alex Jihun Kim Tian Gao",
+      "Default Honorable Mention Frontier Curriculum and Adaptive Test-Time Compute for Efficient RLOO Andy Sung Jae Kim, Marco Antonio Vizcarra Tovar Anikait Singh",
+      "Custom Honorable Mention MARC: Multi-Agent Role Coordination Olufeolu Oluwapelumi Kolawole, Karn Kaura, Nihar Mudigonda Marcel Torne",
+      "Custom Honorable Mention Point and Pick: Bounding-Box Conditioned Diffusion Policies and Offline RL for Target-Specific Robot Manipulation Raul Garreta Tompson, Joshua Alexander Bowden, Swaroop Pal Marcel Torne",
+      "Default Honorable Mention Reading vs. Writing a Near-Oracle Internal Verifier: How RL Design Determines Whether a Correctness Probe Is Safe Abraham Yeung, Anagha Ramaswamy Anubha Mahajan",
+      "Custom Honorable Mention REFINE: Reinforcement-based EHR Feature Induction and Editing Ayeeshi Lakshmi Poosarla, Ryan Arya Nayebi Anushree Aggarwal",
+      "Custom Honorable Mention SciencePRM: Process-Reward RL (GRPO) for the Scientific Validity of Intermediate Reasoning Steps Zijian (Carl) Ma Joy He-Yueya",
+      "Custom A Contextual Bandit for Cheap-vs-Expensive Code Generation Mauricio Berlanga Carrillo Rahul Chand",
+      "Default A Self-Play Algorithm for Countdown Nikhil Raman, Nadim Isaac Max Du",
+      "Custom Action-Token Pruning for Sample-Efficient RL Fine-Tuning of Robot Policies Elvin Fu, Cole Donald Van Hersett Tyler Lum",
+      "Default Active RLOO: Online Filtering with Adaptive K Zhengmao Liu Max Du",
+      "Default Adaptive Competence-Boundary Curricula for Countdown with RLOO Daniel Steven Schreck, Sheng-Yong Niu, Karishma Aggarwal Max Du",
+      "Default Adaptive Curriculum Learning for Reinforcement-Trained Reasoning Agam Iheanyi-Igwe, Olatayo Anthony Sobomehin Riya Karumanchi",
+      "Default Adaptive Curriculum Learning for RL-Based Arithmetic Reasoning Yu Chi Hsu, Ryan He Shengqu Cai",
+      "Default Adaptive Curriculum Learning for RLOO on Countdown Jerry Jiayu Li Yash Kankariya",
+      "Default Adaptive Curriculum Learning with Difficulty-Conditioned Entropy Regularization for RL Fine-Tuning of Large Language Models Mahmoud Elgenedy Shengqu Cai",
+      "Default Adaptive Curriculum RL via LLM-Guided Complexity Scoring Louis Weisdorf, Laszlo Bollyky Riya Karumanchi",
+      "Default Adaptive Curriculum RLOO for Verifiable Arithmetic Reasoning in Language Models Kelechi Onuoha Abhijnya Bhat",
+      "Default Adaptive Difficulty Scheduling: A Competency-Gated Curriculum for Small-LLM Reasoning Donna Choi Ke Wang",
+      "Default Adaptive Difficulty-Aware Curriculum Learning for RLOO Darren Chan, Jayna Grace Huang, Sophie Zhang Anikait Singh",
+      "Custom Adaptive Multi-Turn Red-Teaming for Mental Health Adjacent Language Model Safety Anya Han Zhang Anushree Aggarwal",
+      "Default Adaptive Test-Time Sampling for RL-Fine-Tuned Reasoning Policies Andrea Ji Woo Nam Song Anikait Singh",
+      "Default Advantage-Driven Synthetic Curriculum for Reinforcement Learning based Fine-Tuning of Large Language Models Nate Demchak, Pravin Ravishanker, Haosheng Li Anikait Singh",
+      "Default Adversarial Co-evolution of a Difficulty Judge and an LLM Generator with an RLOO Policy for Cold-Start Countdown Reasoning Viveak Ravichandiran Riya Karumanchi",
+      "Custom Algorithm Sequencing and Curriculum Learning in Deep Reinforcement Learning Ryan D'Cunha, Ethan Hersch, Abhinav Chinta Ifdita Hasan Orney",
+      "Custom Alpha-Informed Optimal Trading Execution: Reinforcement Learning with Domain Informed Priors Ryan Nathan Padnis Ethan Hsu",
+      "Custom An Actor-Critic Neural Reachability Solver for High-Dimensional Zero-Sum Games Zeyuan Feng Rahul Chand",
+      "Custom An RL Framework for Persistent Memory Attacks on LLM Agents Mihir S Menon, Zihan Wang, Aarav Arora Joonwon Kang",
+      "Custom Architecture-Dependent Effects of Data Curation in Robot Manipulation Imitation Learning Kailana Baker-Matsuoka Jonathan Yang",
+      "Custom Augmenting Cybersecurity Capabilities with Adversarial RL and Autoregressive Action Parameterization in Small LLMs Anna Wu, Ethan Jun-shen Ho Ethan Hsu",
+      "Custom Automated Red Teaming using Reinforcement Learning Nubia Elena Correa, Abi Lopez, Annie Gisselle Villalta Joonwon Kang",
+      "Custom Bandits for Cold-Start: Exploration vs. Exploitation in Recommendation Ela Naz Sigin, Anastasiya Masalava, Eva Casto Anushree Aggarwal",
+      "Custom Begging for DEI: Increasing LLM Math Performance by Increasing Diversity Tyler Kinh Ho Joy He-Yueya",
+      "Custom BLIND: Bipedal Locomotion with Intermittent Navigation Data for Environmental Hazards Iris Zixiao Xu, Jamin Jia-Ming Xie, Eric Liang Tian Gao",
+      "Custom Body Schema Pretraining for Sample-Efficient Reinforcement Learning in Robotic Control Rishabh Malviya Tian Gao",
+      "Default Bounded Proximity Rewards: Accelerating Post-Training Reinforcement Learning for Arithmetic Reasoning without Policy Divergence Ian Yue-Ran Chen Yash Kankariya",
+      "Default Bridging the Gap: Optimal Transport-Guided Curriculum Learning Cole A Citrenbaum, Noah Cowan, Aymen Echarghaoui Yash Kankariya",
+      "Default Budget-Conditioned Tool Use for Countdown Reasoning Luca De Donno Yash Kankariya",
+      "Custom Calibrated Reinforcement Learning for LLM-Guided Perturbation Screen Design Anton Thieme Megha Srivastava",
+      "Default Can Teacher-Generated Curriculum Strategies Improve LLM Reasoning? Amrita Malhotra, Giselle Rivera, Zofia Dudek Anikait Singh",
+      "Custom City Builder: Does Induced Demand Make Transit Network Design a Reinforcement Learning Problem? Daniel Marcelo Mottesi Joy He-Yueya",
+      "Custom CKR: A Novel Baselining Improvement for T2I-Model Reinforcement Learning Using Noisy Rewards Ethan Zhang, Tatiana Zhang, Jenny Wei Tyler Lum",
+      "Custom Compressed Memory via LoRA Fine-Tuning for Vision-Language-Action Models Nathaniel D Laurent, Matthew Michael Musson Tian Gao",
+      "Custom Controlling a Fusion Reactor with Reinforcement Learning Deniz Zeren Yilmaz, Sameer Agrawal, Siddharth M. Bhatia Marcel Torne",
+      "Custom Cooperative Fine-Tuning of Pretrained Vision-Language-Action Policies: Centralization, Communication, and Inference Recipes on TwoArmTransport Kyler Shu, Purushotham Mani, John Tucker Joonwon Kang",
+      "Default Cost-Aware Tool-Integrated Reasoning for Countdown Arithmetic Patrick Wang Abhijnya Bhat",
+      "Default Countdown as an Agentic Optimization Problem Tao Sun Yash Kankariya",
+      "Custom Critic-Targeted Exploration: Learned Per-Rollout Targeting of Entropy Bonuses in GRPO Hlumelo Notshe Joy He-Yueya",
+      "Custom Curiosity-Driven Memory-Augmented Reinforcement Learning for Adaptive Robot Tasks Jevon Mao, Yifan Geng, Alexia Huang Marcel Torne",
+      "Default Curriculum Learning for Countdown Reasoning in RL Fine-Tuning: Static Schedules Help, Adaptive Frontiers Forget Fengzhou Li Yash Kankariya",
+      "Default Curriculum Learning with Success-Rate-Driven Adaptive Gaussian Scheduler Andrew Tin-Lok Lee Anubha Mahajan",
+      "Default Curriculum Sampling for RLOO Fine-Tuning on Countdown Catherine M Zhang, Nora Menon Anubha Mahajan",
+      "Custom Curriculum Strategies for Bimanual Dexterous Piano Playing in RoboPianist Gabrielle Marie Walrath, Irene Ai Lin, Ethan Tamer Farah Megha Srivastava",
+      "Custom Decentralized Q-Learning of the Social Optimum in Strategic Experimentation Farzad Pourbabaee Joy He-Yueya",
+      "Custom Deep Reinforcement Learning for Campus-Scale Vehicle-to-Grid Fleet Scheduling Lisa Li, Yaqi Fan Joy He-Yueya",
+      "Custom Deep Reinforcement Learning for User Welfare Optimization on Recommendation Systems with Competing Content Creators Julia T Isaac, Tanush Talati Alex Nam",
+      "Custom Dense Language Rewards For Reasoning Diya Janvi Kejriwal, Andrew Su, Gurmeher Kaur Marcel Torne",
+      "Default Dense Rewards for RLVR on Countdown via ASTs Ahmed Sherif Ahmed Elbakry Mohamed Ke Wang",
+      "Custom Dense Step-Level Rewards via Process Reward Models for Mathematical Reasoning Dhruv Arcot Joy He-Yueya",
+      "Custom Deployment-Time Risk Scoring for a Safe RL Agent under Distribution Shift Luis Marc Botin-Sanz de Sautuola Anushree Aggarwal",
+      "Custom DiSCo: Distilled Steering via Consolidation for Robot Diffusion Policies William Z Liu, Sakthivel Sivaraman, Jerry Gu Max Du",
+      "Default Diversity-Aware RLOO for Pass@k Reasoning in Countdown Jane Yang, Will Nathaniel Hansen Anubha Mahajan",
+      "Default Diversity-Preserving On-Policy Distillation and Test-Time Verification for Countdown Reasoning Juntao Cheng, Qi Wu, Zhuoang Tao Riya Karumanchi",
+      "Custom Do generated futures help robot policies through representation alignment or explicit conditioning? Minyeong Kim Jonathan Yang",
+      "Custom Do Persona Vectors Track Sycophancy Under RL Fine-Tuning? Artur Barbosa Carneiro Abhijnya Bhat",
+      "Custom Does LoRA Rank Requirement Scale with Reward Density? An Empirical Study of Policy-Gradient Post-Training Mark William Gernitis Tyler Lum",
+      "Custom Effect of Stigmergic Potential Fields on Drone Swarm Coordination Kevin Michael Porter Tyler Lum",
+      "Custom Emergent Cooperation in Multi-Agent Pandemic Resource Allocation Riya Karthik Narain, Brooke Hunter Ballhaus Alex Nam",
+      "Custom Encouraging Taxonomy-Based Diversity within RL Automated Multi-Turn Red-Teaming Melvin Liam Poon Keat, Kenna Zeng Alex Nam",
+      "Default Enhancing RLOO with Dense Symbolic Rewards and Bandit-Driven Curricula Irawadee Thawornbut, Rinnara Sangpisit Abhijnya Bhat",
+      "Custom Enhancing SINGER: Onboard Visual Drone Navigation through Iterative Imitation Learning and Reinforcement Fine-Tuning Erwin Giovanbattista Marcel R. Poussi Rahul Chand",
+      "Default Evaluating RL efficiency improvement methods including Synthetic Data Augmentation and Any-Generation Reward Optimization for Mathematical Reasoning on Countdown Tasks Lin Yuan, Chloe Yuri Jeon, Kelvin Kahiu Waititu Anubha Mahajan",
+      "Custom Exploratory Coding with Poly-EPO Eli Thomas Wandless Ifdita Hasan Orney",
+      "Custom Failing to Grasp the Point: Hierarchical Reinforcement Learning for Grasping Tasks Ashwin Mahendran, Anjali Sreenivas, Arianna Liang Cao Tian Gao",
+      "Custom Fault-Adaptive Locomotion via Implicit Damage Detection in MuJoCo Ant Sidhanth Mishra Tian Gao",
+      "Default Feature-Space Curriculum Learning for Countdown Reasoning Vishaal Samir Saraiya Yash Kankariya",
+      "Custom FlowMPC: Improving Flow Matching policies with World Models Chandon Robert Hamel Joonwon Kang",
+      "Custom Forced Grounding: Diagnosing and Repairing Language Neglect in Imitation-Learned Robot Policies via RL Elana N Chen, Hayden Kwan, William Charles Rose Tyler Lum",
+      "Custom Foveated Vision via Prediction Error–Augmented Reinforcement Learning Brion Qi Ye Joonwon Kang",
+      "Custom Fragment Assembly as Goal-Reaching: An RL Approach to Targeted Molecular Design Asmani Yamin, Megan Santhumayor, Katie Liu Perry Dong",
+      "Custom Frequency Reparameterization and Anchored Residuals for Flow Matching Robot Policies Alan Zhao, Juhyun Jung Joonwon Kang",
+      "Custom From Contact to Return: Curriculum and Predictive Shaping for Humanoid Table Tennis Kyle Ian Schmoyer, Hannah Gabriella Clay, Shane Robinson Mion Jonathan Yang",
+      "Default From Structured Backtracking to Targeted Failure Correction for Robust Mathematical Reasoning Christine Li, Eric Xia Riya Karumanchi",
+      "Custom From Text to Torque: Improving RL Tracking of Text-Generated Humanoid Motions Kuzey Kantarcioglu, Benji Warburton Tyler Lum",
+      "Default Frontier-Weighted SEC: A Case Study in Curriculum Learning for RL Fine-Tuning of Language Models Garrett Alarcon Riya Karumanchi",
+      "Custom Generative and Hierarchical Imitation Learning for Marine Trajectory Control in Stochastic Ocean Currents Omar Eduardo Jimenez Lopez Jonathan Yang",
+      "Custom Goal Conditioned Behavior Cloning for Robot Social Navigation Mete Gumusayak Tyler Lum",
+      "Custom GoodLiars: A Multi-Turn Extension of Reinforcement Learning-Based Belief Disruption Emma Marie Beharry, Abel Philip John, Elizabeth Michelle Gallagher Alex Nam",
+      "Default Granularity-Aware Off-Policy Fine-Tuning of LLMs via Expert Demonstrations Kevin Song, Sukeerth Ramkumar, Yina Jian Shengqu Cai",
+      "Custom Graphs and Meta Reinforcement Learning for Portfolio Management Dhruv Manani, Churan He Joy He-Yueya",
+      "Custom GRPO Didn’t Pass the Bar (But the Harness Did): Harness-Guided Post-Training for Legal Agents Leon Reilly, Duy Nguyen Joy He-Yueya",
+      "Custom Hierarchical RL for Cost Aware Protein Engineering Campaigns in Cloud Labs Emi Maria Mathew Rahul Chand",
+      "Custom How Does Scaffolding Affect Cross-Environment Generalization in LLM RL Fine-Tuning? Alfred Sven Bertil Sjoeqivst, Hana Mengyao Liu Alex Nam",
+      "Default How Much Stale Rollout Reuse Can Verifier-Based RLOO Tolerate? A Semi-Off-Policy Replay Study on Countdown Reasoning Amulya Parthasarathy Max Du",
+      "Custom Hybrid Advantage Shaping with Goal-Aware Attention for Per-Turn Credit Assignment in LLM-Agent Reinforcement Learning Max Luis Rodriguez, Samantha Malowane Leventis, Joseph Li Perry Dong",
+      "Custom Improving Fine-Grained Manipulation by World Action Models via Online World Model-Based Feedback Planning Albert Kui Lin Tyler Lum",
+      "Custom Improving Lean Premise Retrieval via RL and Distillation Alex Lopez, Kevin Rizk, Fred Rajasekaran Tyler Lum",
+      "Default Improving Mathematical Reasoning in Small Language Models via Curriculum Learning and Iterative Execution Feedback Xinyi Ai, Jiayu Sui Yash Kankariya",
+      "Default Improving Tool Internalization for Small Models: Annealed Tool Access for RLOO on Countdown Maty Bohacek, Jason Boxi Zhang Ke Wang",
+      "Custom Intelligence per Joule as a First-Class Post-Training Objective Cynthia Wang, Ravenor Carroll Davion Rahul Chand",
+      "Custom Interoception: Teaching LLMs to Reason on a Wallclock Budget Harshvardhan Singh Joy He-Yueya",
+      "Default IPO + RLOO Alignment Report Donnie Brooks Raymond, Matthew Darshan Torre Anubha Mahajan",
+      "Custom Is Exploration Helpful? Evaluating Transfer of Open-Ended Traces to Assignment-Based Code Edits Karthik Vinay Seetharaman, Tushar Dalmia, Aaryan Shah Megha Srivastava",
+      "Default Joint Optimization of Task Difficulty and Diversity for Fine-Tuning LLMs under Sparse Rewards Jiaming Shen, Jiaxin Fang, Jenny Jin Abhijnya Bhat",
+      "Default Learnable Curricula via Self-Play for Verifiable Reasoning Tasks Kai Wen Abhijnya Bhat",
+      "Custom Learned Forgetting: Task-Conditioned Visual Memory Selection via Reinforcement Learning Han Shaun Lee Marcel Torne",
+      "Custom Learning Adaptive Tutor Policies for Conversational Language Learning via Offline Reinforcement Learning Aditya Bora Anubha Mahajan",
+      "Custom Learning from Failure: Natural Language Feedback for Reusing Failed GRPO Trajectories Chenyue Li Ethan Hsu",
+      "Custom Learning from Heterogeneous Data Sydney Yan, Tracy Y Wei, Evy Zhu Shen Tyler Lum",
+      "Custom Learning Interpretable Code Explanations of LLM Behavior Joseph Tey, Nick Jiang Abhijnya Bhat",
+      "Custom Learning Latent Action World Models for Robot Control from Unlabeled Video Seraph Kai Yang Anubha Mahajan",
+      "Custom Learning Priority Functions for Graph-Based Exploration in ARC-AGI-3 Kyle Avery Feinstein, Steve Roy Mendeleev, Ryan Bookman Ethan Hsu",
+      "Custom Learning Structured Trust Policies from Uncertainty, Advisor Signals, and Agreement Jaden Chen, Gia Grace Ancone Ifdita Hasan Orney",
+      "Custom Learning to Explore Through Information-Directed Bayesian Optimal Experimental Design Lucia Zheng Ethan Hsu",
+      "Default Learning to Teach for Test-Time Reasoning Selim Emir Can, Mete Erdogan Ke Wang",
+      "Default Learning to Teach, Teaching to Learn Isaac Wooman Park, Sam Lustgarten Anikait Singh",
+      "Default Learning to Use Tools: Reinforcement Learning for Tool-Integrated Mathematical Reasoning Zi Wang, Minghui Xu Ke Wang",
+      "Custom Learning Transfer in Multitask Agents Malti Mohan John Joonwon Kang",
+      "Custom Learning When to Use Tools: Cost-Aware RL for Agentic Reasoning Vikram Garrett Srinivasan Anushree Aggarwal",
+      "Default Learning with a Curriculum: Enhancing LLM Math Reasoning via Hint-Based RL Fine-Tuning Luan Lam Anubha Mahajan",
+      "Custom Librarian Models: Anticipatory Filesystem Construction via Reinforcement Learning Teresa Zhang Ifdita Hasan Orney",
+      "Default Making RLOO Learn From Better Signals Curriculum Scheduling and Verification Commit Contrast for Countdown Reasoning Zayn Malhotra, Ziyi Ding Anikait Singh",
+      "Default MaxRL with Imperfect Reward Signals on Countdown Petru Cristian Budianu, Nicolas Bejar Arambula Abhijnya Bhat",
+      "Custom Meaningless Trivia, Meaningful Compression: Near-Free Token Efficiency in RL for Reasoning Chung Fat Wong, Anna Grebenchtchikova Joonwon Kang",
+      "Default Memory as an Action Space: Adaptive Retrieval in Small Language Models for Medical Reasoning Renn Su, Summer Olivia Royal Riya Karumanchi",
+      "Custom Memory Pretraining for Vision-Language-Action Model Pengyu Mo, Haowen Wang, Zhen Jia Marcel Torne",
+      "Custom Memory-Augmented VLM Planners for Long-Horizon VLA Control via RL Krish Sharma, Lucas Burgett Marcel Torne",
+      "Custom MiniHedgemony: Asymmetric Reward Structures in Self-Play Wargames Alex Lin Wang, Dario Gaitzi Soatto Tian Gao",
+      "Custom MIRAGE: Model Imagined Reachability for Augmented Graph Expansion Abhinav Sattiraju, Samrat Sahoo Ifdita Hasan Orney",
+      "Custom Model-Based Reinforcement Learning for Particle Accelerator Control Ryan Wu Anushree Aggarwal",
+      "Custom Multi-Move Refinement Reinforcement Learning with D4 Spatial Equivariance for 3D Chip Placement Yize Liu Perry Dong",
+      "Default Multi-Stage Curriculum GRPO for Countdown Timothy Yu, Yash Ranjith Ke Wang",
+      "Custom Multi-Timescale Language Memory for a Frozen VLA Controller Po-Yun Cheng, Wayne Chu Marcel Torne",
+      "Default Multimodal LLM Self-Play Deepika Dandeboyina Shengqu Cai",
+      "Custom Multimodal RLPD for Industrial Robotic Cable Insertion Jehan Shah Rahul Chand",
+      "Custom Off Policy or On Policy? Multi-Agent Reinforcement Learning for Drone Swarm Coordination Jett Crist Carruth, Alex Tadken Shaffer Anushree Aggarwal",
+      "Default Off-Policy Sampling for RLOO: When Does Reusing Rollouts Help? Kennaissa Kebeto Nabi, Henok Mikael Tewolde Ke Wang",
+      "Custom Offline Model-Based Reinforcement Learning for Energy-Efficient GPU Data-Center Cooling Naomie Sandra Chien Perry Dong",
+      "Custom Offline RL for Adaptive Vocabulary Selection in Conversational Language Tutoring Onyinyechi Nichole Okoye Ifdita Hasan Orney",
+      "Custom Parallel Deep-RL Agents for Roblox Obstacle-Course Navigation: From Single-Course Memorization to Generalizing Across Procedurally-Composed Courses Alex Li, Cheney Sang, Aidan Whitedeer Joonwon Kang",
+      "Custom Personalizing Slide Layouts: A Case Study in RL Reward and Context Bottlenecks Elijah Song, Ryan Minh-Tri Le Anushree Aggarwal",
+      "Custom PFP: A Perception-Factored Policy for Robust and Efficient SO-101 Manipulation Shobhit Agarwal, Amirreza Zeinali Rahul Chand",
+      "Custom Physics-Blind Reward Hacking: Exposing and Mitigating Safety Failures in LLM-Generated Reward Functions for Robotic Manipulation Zichen Yuan, Sophia Huang Tian Gao",
+      "Custom PipelineRL: Limits of Asynchronous Reinforcement Learning for Long-Horizon Trajectories Henry Bosch, Shurui Liu Jonathan Yang",
+      "Custom PlayGrader: Coaching the Coaches with Deep RL JP Paul McAnally Jonathan Yang",
+      "Custom Pluralistic Alignment via Self-Distillation from Synthetic User Feedback Minsik Oh Rahul Chand",
+      "Custom Pose Under Pressure: Robustness of Pose-Derived Dense Rewards in Demonstration-Guided Reinforcement Learning Joseph Dehoney Ethan Hsu",
+      "Custom Preclinical HIV Drug Candidate Discovery with Reinforcement Learning Arda Dastan, Kevin Chen, Elijah Alexander Schacter Jonathan Yang",
+      "Default Preference Optimization and Curriculum RLOO for Countdown Reasoning Akshar Sarvesh Yash Kankariya",
+      "Custom Prisoner’s Lemma: Exploitability-Aware Reinforcement Learning for Online Strategic Adaptation Maanit Goel Marcel Torne",
+      "Default Process Rewards and Tool Use: Two Extensions to RLOO Fine-Tuning for Math Reasoning Michael Yang, Du Li Max Du",
+      "Default Process-Level Alignment and Value-Guided Stepwise Planning in Countdown Math Reasoning Dongyu Jia Ke Wang",
+      "Default Programmatic Reasoning for Countdown: Learning to Generate Executable Python-Style Verifications Henry Jingsong Zhou, Oleh Ivankiv Anubha Mahajan",
+      "Default Progress-Aware Prompt Sampling for Verifier-Based RL Fine-Tuning Jason Yan Yash Kankariya",
+      "Default Progressive Rationality: Enhancing LLM Mathematical Reasoning via Numerical-Target-Curriculum-SFT in the Countdown Task Meng-Chin Wang Anubha Mahajan",
+      "Default Prompt Distribution Design for RLOO Countdown Reasoning Yikai Cao, Zhibo Dai Anubha Mahajan",
+      "Custom RadOncReason: Reinforcement Learning with Verifiable Guideline Rewards for Clinical Reasoning in Radiation Oncology Hailemariam Teshome Jonathan Yang",
+      "Custom RECAP-Ψ: Advantage-Conditioned Fine-Tuning for Open-Source Humanoid VLAs Aaditya Shah, Karthik Pythireddi, Jonathan Manfu Lu Joonwon Kang",
+      "Custom Reducing Citation Hallucinations in Large Language Models Rushank Goyal Ifdita Hasan Orney",
+      "Custom Reducing Scalar Rewards to Binary Success: General Off-Policy Learning with Success Functions Armaan Alan Abraham Jonathan Yang",
+      "Custom Refine and Compose: Mahalanobis Action Barriers over Demo-free Contrastive RL Primitives Dylan Zhou, Anuva Banwasi, Jiaye Zou Tyler Lum",
+      "Custom Reinforcement Learning for Clinical Site-of-Care Triage in a Sepsis Simulator Yun Dong, Saimai Lau, Liane Ozoemelam Anushree Aggarwal",
+      "Custom Reinforcement Learning for Compiled-CNOT-Efficient VQE Circuits John William Carlson, Josh Joseph Joonwon Kang",
+      "Custom Reinforcement Learning for Dynamic Beam Steering in Plasma Metamaterials Susan Zhang Megha Srivastava",
+      "Custom Reinforcement Learning for Figgie: Learning Negotiation as a First-Class Skill Daniel Li Yang Ethan Hsu",
+      "Custom Reinforcement Learning for Fog of War Chess with Action Space Pruning Sandeep Sethuraman, Kuba Hashemian, Leon Junliang Liu Anushree Aggarwal",
+      "Custom Reinforcement Learning for Geothermal Drilling Optimization Devan Shaan Agrawal Perry Dong",
+      "Custom Reinforcement Learning for Mental Health Interventions Using Unlabeled Smartphone Data Elisabeth A Holm, Juan Pablo Gonzalez Pacheco, Alfred Yu Alex Nam",
+      "Custom Reinforcement Learning for Noise-Aware Quantum Circuit Compilation Vinav Shah, Abhishek A Shah Rahul Chand",
+      "Default Reinforcement Learning for Self-Guided Context Compression in Mathematical Reasoning Jerry Wang, Ryan Wang Ke Wang",
+      "Custom Reinforcement Learning for Terminal-Area Air Traffic Control Jerry Yin Anushree Aggarwal",
+      "Default Replay-Augmented RLOO: Restoring Within-Group Reward Variance in Sparse-Reward Policy Gradients Hao Xu Shengqu Cai",
+      "Custom Replay-Aware Curriculum Learning for RoboPianist Shekhar Sharma Megha Srivastava",
+      "Custom Reproducible Top-K PPO for S&P 500 Portfolio Selection: Risk-Adjusted Gains, Seed Variance, and the Limits of Return-Maximizing RL Andres Felipe Restrepo Rahul Chand",
+      "Custom Residual Reinforcement Learning for Robotic Manipulation of Wire-like Objects Bautista Guerra, Andrew Yuxuan Liang, Alexander Tarvo Joonwon Kang",
+      "Custom Reversing Emergent Misalignment Using Simple Self-Distillation Justin Yizhou Huang, Adam Joseph Banks Rahul Chand",
+      "Custom Reward Density and Process-Reward Hacking in a Code-Repair MDP: A Controlled Study of PPO Meta-Control over a Frozen Code LLM Jack Frederick Lofwall, Luca Thomas Wheeler Yash Kankariya",
+      "Custom Reward Design for Reinforcement-Learning Fine-Tuning of Navigation Policies Yunshan Wang Ethan Hsu",
+      "Custom Reward-Model-Calibrated Reinforcement Learning from Verifiable Rewards for Machine Learning Engineering Siddharth Sachdeva Joy He-Yueya",
+      "Custom RL & Domain Randomization for Volt-VAR Control in Electricity Distribution Grids Anish Chaudhuri, Aniket Mahajan Alex Nam",
+      "Default RL Fine-Tuning for Countdown Reasoning with Test-Time Verification and Curriculum Learning Howard Xiao, Weiwei Wu Abhijnya Bhat",
+      "Custom RL for Adaptive Tutoring: When Should a Tutor Intervene? Hoang D Nguyen, Peter Martin Alisky, Zhenghui Chen Anushree Aggarwal",
+      "Custom RL-Powered Hint Generation for Adaptive Math Tutoring: A Simulated Student Evaluation of RLOO and DPO Policies Prabu Ganesh Ravindren Rahul Chand",
+      "Default Sample Wide, Pick Smart: For a Fixed 0.5B Countdown Reasoner, Test-Time Selection Beats More Training Manat Kaur, Felipe Leite Teixeira Riya Karumanchi",
+      "Custom Sample-Efficient Atari RL with Self-Supervised Pretrained Visual Encoders Mark Mutugi Athiri Joonwon Kang",
+      "Default Sample-Efficient RLOO via Off-Policy Rollout Reuse Zhaoyang Li Abhijnya Bhat",
+      "Custom Scale-Based Curriculum Pretraining for Robotic Piano Performance Anna Luna Fisher Lopez, Justin Choo, Eric Martz Megha Srivastava",
+      "Default Scaling Test-Time Computation for Countdown Reasoning through Verifier-Guided Resampling Jiaxuan Sun, Angel Zhang Ke Wang",
+      "Default Scaling Test-Time Compute via Generative Verification in Constrained Parameter Regimes Mohammad Rehan Ghori Anubha Mahajan",
+      "Custom SEACTS: Sequential Evidence Acquisition for Cancer Target Selection Nathan Zhou, Ria Garg Megha Srivastava",
+      "Custom Seeking Disagreement: Online Credit Assignment with Delayed and Pseudo-Aggregated Rewards Haozhan Gao Perry Dong",
+      "Default Selective Entropy Shaping For RLOO: When Importance Weight Gating Hurts Exploration Syed Ashal Ali Shengqu Cai",
+      "Custom Self-improving Vision-Language Models: Reinforcement Learning over Visual Abstractions Khai Loong Aw, Zhang Bai-han Tyler Lum",
+      "Custom Self-Supervised Data Quality Scoring for Offline RL in Driving Roman Gasiorowski Ke Wang",
+      "Custom Sequential Injection Control for Optimal Stimulated Geologic Hydrogen Production through Deep Reinforcement Learning Spencer Zhang Riya Karumanchi",
+      "Custom Sequential Outfit Curation with Multi-Dimensional Aesthetic Rewards Nicole Cortes, Esidore Fajardo Eneinyang, Chloe Di Murdoch Anushree Aggarwal",
+      "Default SFT-Estimated Curriculum Learning for Rule-Based RLOO Fine-Tuning Vanessa Felix Anikait Singh",
+      "Custom SHIELD: Failure-Aware Policy Shielding for Frozen Vision-Language-Action Policies Tianhui Huang, Jacob Lokheen Lee, Daniel Contreras-Esquivel Ke Wang",
+      "Custom SimToolReal-RGB: Visuomotor Diffusion Policies for Dexterous Manipulation Cayden Gu, Karen Vo, Christine Zhang Tyler Lum",
+      "Custom SketchRL: Finetuning Generative Sketch Models with Visual Rewards Mallika Parulekar, Tia S Geri, Hannah Rachel Levin Ifdita Hasan Orney",
+      "Default Small Generative Verifiers for Inference-Time Scaling Across RL Training Frameworks Joshua Delgadillo, Jui Khankari Abhijnya Bhat",
+      "Custom SODA: Supervised Option Discovery for Dynamic Action Chunking Umar Padela, Neetish Sharma Tyler Lum",
+      "Custom SpecGen: RL-Driven Compiler Verification Monami Dutta Gupta Jonathan Yang",
+      "Default Static vs. Adaptive Curriculum Learning for RLOO Fine-Tuning of Language Models Norah Asemota Ke Wang",
+      "Custom Stay In Your Lane! Hierarchical RL for a Modified Asteroids Game Samantha Estrada Rahul Chand",
+      "Default Strategy-Diverse Synthetic Warm-Starts for RL Fine-Tuning on Countdown Shreyas C S, Anushka Rawat Max Du",
+      "Custom Strong Sub-Agents in a Monitored “Private” Channel Under a Weak RL Supervisor Andrew Samuel Park Perry Dong",
+      "Custom Structural Diversity Rewards for Verifiable Graph-Structured Reasoning Rutanshu Jhaveri Ifdita Hasan Orney",
+      "— Structured Action-Effect Observables for Residual RL under Hidden Actuator Drift Sarvesh R. Babu Abhijnya Bhat",
+      "Default Structured Q&A Reasoning for Language Models Anuj Jamwal, Srinidhi Bhat Ke Wang",
+      "Default Structured Search Traces for Process-Aware Countdown Training Parth Sheth, Yucheng Huang Max Du",
+      "Custom SUBTITLE-DPO: Verifiable-Reward Preference Optimization to Suppress Spurious Burned-in Subtitles in Audio-Visual Video Diffusion Yubo Ruan Perry Dong",
+      "Custom Survival Instinct: One-Staged RL for Quadruped Parkour Self-Play Edward Neo Lee, Shatong Zhu, Haoyue Xiao Tian Gao",
+      "Custom System-Aware Reward Shaping for the Pythia RL Prefetcher Esmee Cowing, Milly Wong, Tesvara Suliani Jiang Perry Dong",
+      "Default Systems-Aware Off-Policy RLOO: Amortizing Sampling Cost via K-Reuse Abhishek Bharani Abhijnya Bhat",
+      "Default Targeted Counterfactual Branching for Tool-Invocation Decisions in RL Fine-Tuning Andres Ernesto Garcia, Prakash Koukuntla, Joshua Hsieh Riya Karumanchi",
+      "Custom Teacher-Contrastive On-Policy Distillation Juntong Shi Perry Dong",
+      "Default Teaching Small Models to Teach Rosemary Mingrui Jiang Ke Wang",
+      "Default Test-Time Best-of-K Selection with Generative Verification for Countdown Reasoning Jingshu Liu Ke Wang",
+      "Default Test-Time Inference Scaling for RL Fine-Tuned Language Models Ava Kouhana, Julian Rodriguez Cardenas, Leah Balakrishnan Anubha Mahajan",
+      "Default Test-Time Selection and Curriculum Learning for RL Fine-Tuned Language Models on Countdown Reasoning Rydham Goyal, Rakshit Kaushik Anikait Singh",
+      "Custom The Affect of Opponent Pool Size on the Policy Stability of Compute Constrained Self-play Tasks Jonathan Andrew Lutch Tian Gao",
+      "Custom The Long Game: A Long-Horizon RL Study of Fairness in Financial Lending Brydie Sigg, Naomi Y Boneh, Christelle Chantal Millos-Lopez Riya Karumanchi",
+      "Default Tool-Integrated Reasoning for Countdown Mahmood Ishaq Alhusseini, Frank D'Agostino, Sebastian Beckett Fisher Anikait Singh",
+      "Default Tool-Integrated RLOO and Pass@K: Testing the Invisible Leash Isaiah Flores, Mia Xiao, Katherine Wang Xu Anubha Mahajan",
+      "Custom Topology-Aware Reinforcement Learning for Text-to-CAD Code Generation Gaurav Tyagi Ke Wang",
+      "Default Towards Advantage Shaping for Multi-tool Reasoning: A Preliminary Empirical Study Ricardo Alberto Carrillo Romero Anubha Mahajan",
+      "Custom Training Robot Policies with a Foundation Model Teacher Steven Feng, April Yang, Daniel Zou Tyler Lum",
+      "Default Using, Learning, and Removing Tools: A Study of Tool-Integrated Reasoning for Countdown Diego Sierra, Brianna Xie Max Du",
+      "Default Verifier-Based Reinforcement Learning for Countdown with Curriculum Training Yuyan Wu Riya Karumanchi",
+      "Default Verifier-Guided Recombination Search for Token-Efficient Test-Time Compute in Countdown Shyam Sai Bethina, Sahil Koita, Ananya Ganapathi Anubha Mahajan",
+      "Default When Can a Model Write Its Own Curriculum? A Diagnostic Study of Joint Conjecturer/Prover RLOO for Countdown Finn Staeblein, Nicholas Simon Allen Riya Karumanchi",
+      "Default When Does Curriculum Learning Help? A Knowledge-Aware Learning-Progress Curriculum for RLVR Louis de Germay de Cirfontaine, Arthur Gontier Riya Karumanchi",
+      "Custom When Does Execution Feedback Transfer? Minimal-Sufficient Feedback for Internalized RLVR Yucheng Yao Alex Nam",
+      "Custom When Does Privileged Self-Distillation Help GUI Grounding? A Teacher-Gap Analysis of Visual SDPO Ethan Charles Morgan Ethan Hsu",
+      "Custom When Does Specialist RL Help a Small-Model Multi-Agent Pipeline? A Cross-Benchmark Study on Long-Document QA Mert Karabiyik Alex Nam",
+      "Default Where RLOO Stops on Countdown: A Capability Ceiling at the Additive ↔ Multiplicative Boundary Aarohi Gupta Abhijnya Bhat",
+      "Default Zero Sum Game Framework for Group Advantage Simplification Joshua A Slagle Yash Kankariya"
+    ]
+  ]
+}

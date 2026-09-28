@@ -4,6 +4,8 @@ This document defines the project phases, expected outputs, permitted repository
 
 Phase-specific prompts may add detail, but should remain consistent with this workflow, `AGENTS.md`, and `docs/repository_contract.md`.
 
+The Phase 2 generated views (`analysis/topic_matrix.md` and `analysis/sequencing.md`) and the Phase 3 working audit (`analysis/time_budget.md`) are explicit exceptions to the usual `output/` location for generated views and reports. Their locations and permissions are specified below.
+
 ---
 
 # Phase 1 — Source Collection and Inventory
@@ -30,12 +32,14 @@ Do not recommend curriculum changes.
 
 ## Primary outputs
 
-For each external/local source:
+For each external/local course source:
 
 - `sources/<source_id>/manifest.yaml`
 - `sources/<source_id>/README.md` if useful
 - relevant downloaded or snapshotted source material where appropriate
 - `analysis/source_summaries/<source_id>.md`
+
+Books registered under `books` in `config/sources.yaml` are direct reference files and require no manifest or separate course-source inventory. Course-to-book topic mapping belongs to Phase 2. Apply the single-baseline convention in `docs/repository_contract.md` to the local course.
 
 ## May modify
 
@@ -82,6 +86,8 @@ Create stable normalized topic IDs.
 Map source-specific terminology to normalized topics.
 
 Record ambiguity where mappings are uncertain.
+
+Map course topics to relevant chapters, sections, and pages in the configured book. Store these references under the book's configured ID alongside the normalized topic evidence in `analysis/normalized_topics.yaml`, keeping book coverage separate from course coverage or assigned-reading evidence.
 
 For every source/topic combination, capture evidence such as:
 
@@ -205,6 +211,8 @@ Compare the provisional course against:
 - CS285;
 - CS224R;
 - any subsequently approved reference courses.
+
+Use the course-to-book mappings to answer requested book-grounded gap questions, such as whether important book material is missing. Cite the relevant book sections and distinguish factual coverage from recommendations; presence in the book does not itself require inclusion in the redesigned course.
 
 For each proposed curriculum change, specify:
 

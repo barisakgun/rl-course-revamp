@@ -1,0 +1,7 @@
+sources/RLbook2020.pdf
+sources/current_course/*.pdf
+sources/current_course/exams
+sources/sutton/*.pdf
+sources/foundations-deep-rl-abbeel/*.pdf
+.DS_Store
+__MACOSX

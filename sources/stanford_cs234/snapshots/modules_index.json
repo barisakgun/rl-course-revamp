@@ -1,0 +1,308 @@
+{
+  "url": "https://web.stanford.edu/class/cs234/modules.html",
+  "resolved_url": "https://web.stanford.edu/class/cs234/modules.html",
+  "checked_at": "2026-09-28T00:01:43+00:00",
+  "http_status": 200,
+  "content_type": "text/html",
+  "status": "reachable",
+  "robots": {
+    "url": "https://web.stanford.edu/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T00:01:41+00:00"
+  },
+  "sha256_of_retrieved_html": "19bf9c9013d99d4d4cd46e9aad74aebc754cb5944a5c542c651ae9a6875eed15",
+  "title": "CS234: Reinforcement Learning Winter 2026",
+  "headings": [
+    "CS234: Reinforcement Learning Winter 2026",
+    "Lecture Materials",
+    "Lecture Materials"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "",
+      "url": "http://ai.stanford.edu/",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "CS234: Reinforcement Learning Winter 2026",
+      "url": "https://web.stanford.edu/class/cs234/index.html",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 2,
+      "label": "Lecture 1 Draft Slides",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture1pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 1 Draft Slides [Post class version]"
+    },
+    {
+      "index": 3,
+      "label": "[Post class version]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture1post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 1 Draft Slides [Post class version]"
+    },
+    {
+      "index": 4,
+      "label": "Linear Algebra Review",
+      "url": "http://cs229.stanford.edu/section/cs229-linalg.pdf",
+      "heading": "Lecture Materials",
+      "context": "Linear Algebra Review"
+    },
+    {
+      "index": 5,
+      "label": "Probability Review",
+      "url": "http://cs229.stanford.edu/section/cs229-prob.pdf",
+      "heading": "Lecture Materials",
+      "context": "Probability Review"
+    },
+    {
+      "index": 6,
+      "label": "Python Tutorial",
+      "url": "http://cs231n.github.io/python-numpy-tutorial/",
+      "heading": "Lecture Materials",
+      "context": "Python Tutorial"
+    },
+    {
+      "index": 7,
+      "label": "Lecture 2 Slides (pre-class)",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture2pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 2 Slides (pre-class) [Post class, annotated]"
+    },
+    {
+      "index": 8,
+      "label": "[Post class, annotated]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture2post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 2 Slides (pre-class) [Post class, annotated]"
+    },
+    {
+      "index": 9,
+      "label": "Lecture 3 Slides (pre-class)",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture3pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 3 Slides (pre-class) [Post class, with annotations]"
+    },
+    {
+      "index": 10,
+      "label": "[Post class, with annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture3post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 3 Slides (pre-class) [Post class, with annotations]"
+    },
+    {
+      "index": 11,
+      "label": "Lecture 4 Slides (preclass)",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture4pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 4 Slides (preclass) (post class with annotations)"
+    },
+    {
+      "index": 12,
+      "label": "(post class with annotations)",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture4post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 4 Slides (preclass) (post class with annotations)"
+    },
+    {
+      "index": 13,
+      "label": "Lecture 5 Slides",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture5pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 5 Slides [Post lecture with annotations]"
+    },
+    {
+      "index": 14,
+      "label": "[Post lecture with annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture5post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 5 Slides [Post lecture with annotations]"
+    },
+    {
+      "index": 15,
+      "label": "Lecture 6 Slides",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture6pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 6 Slides [Post class annotations]"
+    },
+    {
+      "index": 16,
+      "label": "[Post class annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture6post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 6 Slides [Post class annotations]"
+    },
+    {
+      "index": 17,
+      "label": "Lecture 7 Slides",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture7pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 7 Slides [Post class annotations]"
+    },
+    {
+      "index": 18,
+      "label": "[Post class annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture7post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 7 Slides [Post class annotations]"
+    },
+    {
+      "index": 19,
+      "label": "Lecture 7 Slides",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture7pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 7 Slides [Post class annotations]"
+    },
+    {
+      "index": 20,
+      "label": "[Post class annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture7post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 7 Slides [Post class annotations]"
+    },
+    {
+      "index": 21,
+      "label": "Lecture 8 Slides (preclass)",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture8pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 8 Slides (preclass) [Post class with annotations]"
+    },
+    {
+      "index": 22,
+      "label": "[Post class with annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture8post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 8 Slides (preclass) [Post class with annotations]"
+    },
+    {
+      "index": 23,
+      "label": "Lecture 9 Slides",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture9pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 9 Slides [Post class annotations]"
+    },
+    {
+      "index": 24,
+      "label": "[Post class annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture9post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 9 Slides [Post class annotations]"
+    },
+    {
+      "index": 25,
+      "label": "Lecture 10 Slides (no preclass)",
+      "url": "https://web.stanford.edu/class/cs234/modules.html",
+      "heading": "Lecture Materials",
+      "context": "Lecture 10 Slides (no preclass) [Post class annotations]"
+    },
+    {
+      "index": 26,
+      "label": "[Post class annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture10post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 10 Slides (no preclass) [Post class annotations]"
+    },
+    {
+      "index": 27,
+      "label": "Lecture 11 Slides",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture11pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 11 Slides [Post class annotations]"
+    },
+    {
+      "index": 28,
+      "label": "[Post class annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture11post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 11 Slides [Post class annotations]"
+    },
+    {
+      "index": 29,
+      "label": "Lecture 12 Slides",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture12pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 12 Slides [Post class annotations]"
+    },
+    {
+      "index": 30,
+      "label": "[Post class annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture12post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 12 Slides [Post class annotations]"
+    },
+    {
+      "index": 31,
+      "label": "Bandit Algorithms Book Section 7.1",
+      "url": "https://tor-lattimore.com/downloads/book/book.pdf",
+      "heading": "Lecture Materials",
+      "context": "Bandit Algorithms Book Section 7.1"
+    },
+    {
+      "index": 32,
+      "label": "Lecture 10 Part Guest Slides (see latter half of slides)",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture10post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 10 Part Guest Slides (see latter half of slides) Lecture 14 Guest Slides Part 2"
+    },
+    {
+      "index": 33,
+      "label": "Lecture 14 Guest Slides Part 2",
+      "url": "https://web.stanford.edu/class/cs234/slides/ethics_society_234_2.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 14 Guest Slides Part 2"
+    },
+    {
+      "index": 34,
+      "label": "Lecture 13 Draft slides",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture13pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 13 Draft slides [Post class with annotations] Lecture 14 Draft slides [Post class with annotations]"
+    },
+    {
+      "index": 35,
+      "label": "[Post class with annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture13post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 13 Draft slides [Post class with annotations] Lecture 14 Draft slides [Post class with annotations]"
+    },
+    {
+      "index": 36,
+      "label": "Lecture 14 Draft slides",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture14pre.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 14 Draft slides [Post class with annotations]"
+    },
+    {
+      "index": 37,
+      "label": "[Post class with annotations]",
+      "url": "https://web.stanford.edu/class/cs234/slides/lecture14post.pdf",
+      "heading": "Lecture Materials",
+      "context": "Lecture 14 Draft slides [Post class with annotations]"
+    },
+    {
+      "index": 38,
+      "label": "Shane Gu: World of World Modeling",
+      "url": "https://web.stanford.edu/class/cs234/slides/ShaneGuCS234_2026.pdf",
+      "heading": "Lecture Materials",
+      "context": "Shane Gu: World of World Modeling"
+    }
+  ],
+  "tables": [
+    [
+      "Topic Course Materials",
+      "Introduction to Reinforcement Learning Lecture 1 Draft Slides [Post class version] Additional Materials: High level introduction: SB (Sutton and Barto) Chp 1 Linear Algebra Review Probability Review Python Tutorial",
+      "Tabular MDP planning Lecture 2 Slides (pre-class) [Post class, annotated] Additional Materials: SB (Sutton and Barto) Chp 3, 4.1-4.4",
+      "Tabular RL policy evaluation Lecture 3 Slides (pre-class) [Post class, with annotations] Additional Materials: SB (Sutton and Barto) Chp 5.1, 5.5, 6.1-6.3",
+      "Q-learning Lecture 4 Slides (preclass) (post class with annotations) Additional Materials: SB (Sutton and Barto) Chp 5.2, 5.4, 6.4-6.5, 6.7",
+      "Policy Gradient Lecture 5 Slides [Post lecture with annotations] Lecture 6 Slides [Post class annotations] Lecture 7 Slides [Post class annotations] Additional Materials: SB (Sutton and Barto) Chp 13",
+      "Imitation Learning and Learning from Human Input and Batch RL Lecture 7 Slides [Post class annotations] Lecture 8 Slides (preclass) [Post class with annotations]",
+      "Ethics and Society Guest Lecture Lecture 10 Part Guest Slides (see latter half of slides) Lecture 14 Guest Slides Part 2",
+      ""
+    ]
+  ]
+}

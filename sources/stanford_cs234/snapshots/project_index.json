@@ -1,0 +1,221 @@
+{
+  "url": "https://web.stanford.edu/class/cs234/project.html",
+  "resolved_url": "https://web.stanford.edu/class/cs234/project.html",
+  "checked_at": "2026-09-28T00:01:45+00:00",
+  "http_status": 200,
+  "content_type": "text/html",
+  "status": "reachable",
+  "robots": {
+    "url": "https://web.stanford.edu/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T00:01:41+00:00"
+  },
+  "sha256_of_retrieved_html": "5b0708c6d340e59b732c0bae46796841724d38c6ff35264f7b791bdb2fa70231",
+  "title": "CS234: Reinforcement Learning Winter 2026",
+  "headings": [
+    "CS234: Reinforcement Learning Winter 2026",
+    "Course Project",
+    "Overview",
+    "Project Ideas (To be added)",
+    "Important Dates and Times",
+    "Project Proposal",
+    "Project Milestone",
+    "Final Report Submission",
+    "Additional Submission Requirements",
+    "Collaboration Policy and Honor Code",
+    "Grading Policy"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "",
+      "url": "http://ai.stanford.edu/",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "CS234: Reinforcement Learning Winter 2026",
+      "url": "https://web.stanford.edu/class/cs234/index.html",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 2,
+      "label": "RLDM",
+      "url": "http://rldm.org/",
+      "heading": "Project Ideas (To be added)",
+      "context": "RLDM : Multi-disciplinary Conference on Reinforcement Learning and Decision Making"
+    },
+    {
+      "index": 3,
+      "label": "AAMAS",
+      "url": "http://www.aamas-conference.org/",
+      "heading": "Project Ideas (To be added)",
+      "context": "AAMAS : International Conference on Autonomous Agents and MultiAgent Systems"
+    },
+    {
+      "index": 4,
+      "label": "NIPS",
+      "url": "http://nips.cc/",
+      "heading": "Project Ideas (To be added)",
+      "context": "NIPS : Neural Information Processing Systems"
+    },
+    {
+      "index": 5,
+      "label": "ICML",
+      "url": "http://icml.cc/",
+      "heading": "Project Ideas (To be added)",
+      "context": "ICML : International Conference on Machine Learning"
+    },
+    {
+      "index": 6,
+      "label": "ICLR",
+      "url": "http://iclr.cc/",
+      "heading": "Project Ideas (To be added)",
+      "context": "ICLR : International Conference on Representations"
+    },
+    {
+      "index": 7,
+      "label": "arXiv",
+      "url": "https://arxiv.org/list/cs.CL/recent",
+      "heading": "Project Ideas (To be added)",
+      "context": "arXiv : e-prints archive"
+    },
+    {
+      "index": 8,
+      "label": "Stanford AI Group",
+      "url": "http://ai.stanford.edu/",
+      "heading": "Project Ideas (To be added)",
+      "context": "Stanford AI Group : New and relevant papers from local faculty"
+    },
+    {
+      "index": 9,
+      "label": "Kaggle",
+      "url": "http://www.kaggle.com/",
+      "heading": "Project Ideas (To be added)",
+      "context": "Kaggle : An online machine learning competition website"
+    },
+    {
+      "index": 10,
+      "label": "ICLR Challenge",
+      "url": "http://www.cs.mcgill.ca/~jpineau/ICLR2018-ReproducibilityChallenge.html",
+      "heading": "Project Ideas (To be added)",
+      "context": "ICLR Challenge"
+    },
+    {
+      "index": 11,
+      "label": "ICLR Submissions",
+      "url": "https://openreview.net/group?id=ICLR.cc/2018/Conference",
+      "heading": "Project Ideas (To be added)",
+      "context": "ICLR Submissions"
+    },
+    {
+      "index": 12,
+      "label": "Late Day Policy",
+      "url": "https://web.stanford.edu/class/cs234/index.html#lateday",
+      "heading": "Important Dates and Times",
+      "context": "Feb 8 6 PM Initial project proposal 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 13,
+      "label": "Late Day Policy",
+      "url": "https://web.stanford.edu/class/cs234/index.html#lateday",
+      "heading": "Important Dates and Times",
+      "context": "Feb 25 6 PM Project milestone 2 late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 14,
+      "label": "Late Day Policy",
+      "url": "https://web.stanford.edu/class/cs234/index.html#lateday",
+      "heading": "Important Dates and Times",
+      "context": "Mar 11 (last day of class) 3-5:30 PM, location TBD Poster Session No late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 15,
+      "label": "Late Day Policy",
+      "url": "https://web.stanford.edu/class/cs234/index.html#lateday",
+      "heading": "Important Dates and Times",
+      "context": "Mar 17 (Tuesday) 6 PM Final report No late days allowed. See Late Day Policy ."
+    },
+    {
+      "index": 16,
+      "label": "Submission Instructions",
+      "url": "https://web.stanford.edu/class/cs234/assignments.html#submission",
+      "heading": "Project Proposal",
+      "context": "Submit your project proposal by following the Submission Instructions . \n\t  For the late day policy please see here ."
+    },
+    {
+      "index": 17,
+      "label": "here",
+      "url": "https://web.stanford.edu/class/cs234/index.html#lateday",
+      "heading": "Project Proposal",
+      "context": "Submit your project proposal by following the Submission Instructions . \n\t  For the late day policy please see here ."
+    },
+    {
+      "index": 18,
+      "label": "ICML template",
+      "url": "https://media.nips.cc/Conferences/ICML2018/Styles/icml2018_style.tar.gz",
+      "heading": "Project Milestone",
+      "context": "Your project milestone should be between 2 - 3 pages using the ICML template . \n\tThe following is a suggested structure for your report:"
+    },
+    {
+      "index": 19,
+      "label": "Submission Instructions",
+      "url": "https://web.stanford.edu/class/cs234/assignments.html#submission",
+      "heading": "Project Milestone",
+      "context": "Submit your project milestone by following the Submission Instructions . \n\tFor the late day policy please see here . Final Report Submission Your final report should be between 6 - 8 pages using the ICML template . After the class, \n\twe will post all the final reports online so that you can read about each others work. If you do not want \n\tyour final report to be posted online, then please let us know when you submit your writeup. You should include a brief statement on the contributions of different members of the team in the report. \n\tTeam members will normally g et the same grade, but we reserve the right to differentiate in egregious cases. Submit your final report by following the Submission Instructions . \n  For the late day policy please see here . Report . The following is a suggested structure for the report: Title, Author(s). Abstract : It should not be more than 300 words. Introduction : This section introduces your problem, and the overall plan for approaching your problem. Background/Related Work : This section discusses relevant literature for your project. Approach : Algorithms used or developed. Theoretical results (if relevant) : Include assumptions, proof sketches. Experiment results (if relevant) : Details on experiments done. The goal is to describe in enough detail that the results are reproducible. Conclusion : What have you learned ? Suggest future ideas. References : This is absolutely necessary. Supplementary Material is not counted towards your 6-8 page limit. Examples of things to put in your supplementary material: Full proof details (if doing a project with theoretical results). Cool videos, interactive visualizations, demos, etc. (optional) Examples of things to not put in your supplementary material: All used submodules (Theano, Caffe, CoreNLP) source code. Any code that is larger than 1MB. Model checkpoints. A computer virus. Additional Submission Requirements Please also include the following when you submit your project report to Gradescope List in your report PDF all the authors that contributed to your work, at a co-author level. This will often include people not enrolled in CS234, such as research collaborators (other graduate students, undergraduates, postdocs, research fellows or faculty advisors that helped develop your algorithm, contributed code to the project, engaged in significant idea development or feedback). All authors and their institutional/organizational affiliation and email should be listed directly un"
+    },
+    {
+      "index": 20,
+      "label": "here",
+      "url": "https://web.stanford.edu/class/cs234/index.html#lateday",
+      "heading": "Project Milestone",
+      "context": "Submit your project milestone by following the Submission Instructions . \n\tFor the late day policy please see here . Final Report Submission Your final report should be between 6 - 8 pages using the ICML template . After the class, \n\twe will post all the final reports online so that you can read about each others work. If you do not want \n\tyour final report to be posted online, then please let us know when you submit your writeup. You should include a brief statement on the contributions of different members of the team in the report. \n\tTeam members will normally g et the same grade, but we reserve the right to differentiate in egregious cases. Submit your final report by following the Submission Instructions . \n  For the late day policy please see here . Report . The following is a suggested structure for the report: Title, Author(s). Abstract : It should not be more than 300 words. Introduction : This section introduces your problem, and the overall plan for approaching your problem. Background/Related Work : This section discusses relevant literature for your project. Approach : Algorithms used or developed. Theoretical results (if relevant) : Include assumptions, proof sketches. Experiment results (if relevant) : Details on experiments done. The goal is to describe in enough detail that the results are reproducible. Conclusion : What have you learned ? Suggest future ideas. References : This is absolutely necessary. Supplementary Material is not counted towards your 6-8 page limit. Examples of things to put in your supplementary material: Full proof details (if doing a project with theoretical results). Cool videos, interactive visualizations, demos, etc. (optional) Examples of things to not put in your supplementary material: All used submodules (Theano, Caffe, CoreNLP) source code. Any code that is larger than 1MB. Model checkpoints. A computer virus. Additional Submission Requirements Please also include the following when you submit your project report to Gradescope List in your report PDF all the authors that contributed to your work, at a co-author level. This will often include people not enrolled in CS234, such as research collaborators (other graduate students, undergraduates, postdocs, research fellows or faculty advisors that helped develop your algorithm, contributed code to the project, engaged in significant idea development or feedback). All authors and their institutional/organizational affiliation and email should be listed directly un"
+    },
+    {
+      "index": 21,
+      "label": "ICML template",
+      "url": "https://media.nips.cc/Conferences/ICML2018/Styles/icml2018_style.tar.gz",
+      "heading": "Final Report Submission",
+      "context": "Your final report should be between 6 - 8 pages using the ICML template . After the class, \n\twe will post all the final reports online so that you can read about each others work. If you do not want \n\tyour final report to be posted online, then please let us know when you submit your writeup. You should include a brief statement on the contributions of different members of the team in the report. \n\tTeam members will normally g et the same grade, but we reserve the right to differentiate in egregious cases."
+    },
+    {
+      "index": 22,
+      "label": "Submission Instructions",
+      "url": "https://web.stanford.edu/class/cs234/assignments.html#submission",
+      "heading": "Final Report Submission",
+      "context": "Final Report Submission Your final report should be between 6 - 8 pages using the ICML template . After the class, \n\twe will post all the final reports online so that you can read about each others work. If you do not want \n\tyour final report to be posted online, then please let us know when you submit your writeup. You should include a brief statement on the contributions of different members of the team in the report. \n\tTeam members will normally g et the same grade, but we reserve the right to differentiate in egregious cases. Submit your final report by following the Submission Instructions . \n  For the late day policy please see here . Report . The following is a suggested structure for the report: Title, Author(s). Abstract : It should not be more than 300 words. Introduction : This section introduces your problem, and the overall plan for approaching your problem. Background/Related Work : This section discusses relevant literature for your project. Approach : Algorithms used or developed. Theoretical results (if relevant) : Include assumptions, proof sketches. Experiment results (if relevant) : Details on experiments done. The goal is to describe in enough detail that the results are reproducible. Conclusion : What have you learned ? Suggest future ideas. References : This is absolutely necessary. Supplementary Material is not counted towards your 6-8 page limit. Examples of things to put in your supplementary material: Full proof details (if doing a project with theoretical results). Cool videos, interactive visualizations, demos, etc. (optional) Examples of things to not put in your supplementary material: All used submodules (Theano, Caffe, CoreNLP) source code. Any code that is larger than 1MB. Model checkpoints. A computer virus. Additional Submission Requirements Please also include the following when you submit your project report to Gradescope List in your report PDF all the authors that contributed to your work, at a co-author level. This will often include people not enrolled in CS234, such as research collaborators (other graduate students, undergraduates, postdocs, research fellows or faculty advisors that helped develop your algorithm, contributed code to the project, engaged in significant idea development or feedback). All authors and their institutional/organizational affiliation and email should be listed directly under the title in your PDF, and please include a footnote to specify which authors were or were not enrolled in CS234."
+    },
+    {
+      "index": 23,
+      "label": "here",
+      "url": "https://web.stanford.edu/class/cs234/index.html#lateday",
+      "heading": "Final Report Submission",
+      "context": "Final Report Submission Your final report should be between 6 - 8 pages using the ICML template . After the class, \n\twe will post all the final reports online so that you can read about each others work. If you do not want \n\tyour final report to be posted online, then please let us know when you submit your writeup. You should include a brief statement on the contributions of different members of the team in the report. \n\tTeam members will normally g et the same grade, but we reserve the right to differentiate in egregious cases. Submit your final report by following the Submission Instructions . \n  For the late day policy please see here . Report . The following is a suggested structure for the report: Title, Author(s). Abstract : It should not be more than 300 words. Introduction : This section introduces your problem, and the overall plan for approaching your problem. Background/Related Work : This section discusses relevant literature for your project. Approach : Algorithms used or developed. Theoretical results (if relevant) : Include assumptions, proof sketches. Experiment results (if relevant) : Details on experiments done. The goal is to describe in enough detail that the results are reproducible. Conclusion : What have you learned ? Suggest future ideas. References : This is absolutely necessary. Supplementary Material is not counted towards your 6-8 page limit. Examples of things to put in your supplementary material: Full proof details (if doing a project with theoretical results). Cool videos, interactive visualizations, demos, etc. (optional) Examples of things to not put in your supplementary material: All used submodules (Theano, Caffe, CoreNLP) source code. Any code that is larger than 1MB. Model checkpoints. A computer virus. Additional Submission Requirements Please also include the following when you submit your project report to Gradescope List in your report PDF all the authors that contributed to your work, at a co-author level. This will often include people not enrolled in CS234, such as research collaborators (other graduate students, undergraduates, postdocs, research fellows or faculty advisors that helped develop your algorithm, contributed code to the project, engaged in significant idea development or feedback). All authors and their institutional/organizational affiliation and email should be listed directly under the title in your PDF, and please include a footnote to specify which authors were or were not enrolled in CS234."
+    },
+    {
+      "index": 24,
+      "label": "Academic Collaboration and Misconduct",
+      "url": "https://web.stanford.edu/class/cs234/index.html#conduct",
+      "heading": "Collaboration Policy and Honor Code",
+      "context": "Also read the section on Academic Collaboration and Misconduct for\n\tan overview of the collaboration policy and academic integrity standards expected in general."
+    },
+    {
+      "index": 25,
+      "label": "Grade Breakdown",
+      "url": "https://web.stanford.edu/class/cs234/index.html#grading",
+      "heading": "Grading Policy",
+      "context": ""
+    }
+  ],
+  "tables": [
+    [
+      "Date Time Event Late Day Policy",
+      "Feb 8 6 PM Initial project proposal 2 late days allowed. See Late Day Policy .",
+      "Feb 25 6 PM Project milestone 2 late days allowed. See Late Day Policy .",
+      "Mar 11 (last day of class) 3-5:30 PM, location TBD Poster Session No late days allowed. See Late Day Policy .",
+      "Mar 17 (Tuesday) 6 PM Final report No late days allowed. See Late Day Policy ."
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/llm_rl_default_final_project.pdf",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/llm_rl_default_final_project.pdf",
+  "checked_at": "2026-09-28T00:03:53+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:03:43+00:00"
+  },
+  "sha256": "e5d618a55b58941e33a0d77a524f33c43d0ba1f5269cb036eb7a98a0a2022e3d",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.25\nCreationDate:    Mon May  4 08:43:13 2026 +03\nModDate:         Mon May  4 08:43:13 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           25\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       298147 bytes\nOptimized:       no\nPDF version:     1.5\n",
+  "first_page_excerpt": "Berkeley CS 185/285     Deep Reinforcement Learning, Decision Making, and Control              Spring 2026\n\n\n\n      Final Project: RLHF for Open-Ended Instruction Following\n                        Milestone Report Due April 13, 11:59 PM\n                          Final Report Due May 13, 11:59 PM\n\nAI Policy\n\nYou may not use AI assistants (chatbots, coding agents, etc.) to directly generate any material that\nwill be graded. This includes both code and report text. You may use AI tools the same way you\nwould use a human collaborator for limited help with debugging, explaining a concept, or pointing\nout a possible mistake, but you may not ask them to write your project for you or give them control\nof your terminal.\nThis is the same policy used elsewhere in the course: use AI as a limited aid, ",
+  "embedded_urls": [
+    "https://github.com/berkeleydeeprlcourse/homework_spr"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://arxiv.org/abs/2203.02155",
+    "https://arxiv.org/abs/2305.18290",
+    "https://arxiv.org/abs/2310.12036",
+    "https://arxiv.org/abs/2402.03300",
+    "https://arxiv.org/abs/2406.05882",
+    "https://arxiv.org/abs/2503.20783",
+    "https://arxiv.org/abs/2507.18071",
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_llm_rl",
+    "https://platform.openai.com/docs/pricing"
+  ]
+}

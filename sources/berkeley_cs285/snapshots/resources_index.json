@@ -1,0 +1,482 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources/",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources/",
+  "checked_at": "2026-09-28T00:01:39+00:00",
+  "http_status": 200,
+  "content_type": "text/html",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:01:37+00:00"
+  },
+  "sha256_of_retrieved_html": "7807a2061c4b8470bdea1276b93b37ec401b5c22cd2f1fbcd7a00800101019d5",
+  "title": "CS 185/285 Resources",
+  "headings": [
+    "CS 185/285",
+    "Calendar",
+    "Resources",
+    "Syllabus",
+    "Meta",
+    "Resources",
+    "Previous Offerings",
+    "Courses",
+    "Relevant Textbooks",
+    "Misc Links",
+    "Calendar",
+    "Resources",
+    "Syllabus",
+    "Meta"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "CS 185/285",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/",
+      "heading": "CS 185/285",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "CS 185/285",
+      "context": "Calendar"
+    },
+    {
+      "index": 2,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "CS 185/285",
+      "context": "Resources"
+    },
+    {
+      "index": 3,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus",
+      "heading": "CS 185/285",
+      "context": "Syllabus"
+    },
+    {
+      "index": 4,
+      "label": "Staff",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/staff",
+      "heading": "CS 185/285",
+      "context": "Staff"
+    },
+    {
+      "index": 5,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "CS 185/285",
+      "context": "Calendar"
+    },
+    {
+      "index": 6,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "CS 185/285",
+      "context": "Resources"
+    },
+    {
+      "index": 7,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "CS 185/285",
+      "context": "Resources"
+    },
+    {
+      "index": 8,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "Calendar",
+      "context": ""
+    },
+    {
+      "index": 9,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "Resources",
+      "context": ""
+    },
+    {
+      "index": 10,
+      "label": "Previous Offerings",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#prevoffs",
+      "heading": "Resources",
+      "context": "Previous Offerings"
+    },
+    {
+      "index": 11,
+      "label": "Courses",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#courses",
+      "heading": "Resources",
+      "context": "Courses"
+    },
+    {
+      "index": 12,
+      "label": "Relevant Textbooks",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#textbooks",
+      "heading": "Resources",
+      "context": "Relevant Textbooks"
+    },
+    {
+      "index": 13,
+      "label": "Misc Links",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#misclinks",
+      "heading": "Resources",
+      "context": "Misc Links"
+    },
+    {
+      "index": 14,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus",
+      "heading": "Syllabus",
+      "context": ""
+    },
+    {
+      "index": 15,
+      "label": "Prerequisites",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#prereqs",
+      "heading": "Syllabus",
+      "context": "Prerequisites"
+    },
+    {
+      "index": 16,
+      "label": "Technology",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#technology",
+      "heading": "Syllabus",
+      "context": "Technology"
+    },
+    {
+      "index": 17,
+      "label": "Materials",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#materials",
+      "heading": "Syllabus",
+      "context": "Materials"
+    },
+    {
+      "index": 18,
+      "label": "Collaboration",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#collaboration",
+      "heading": "Syllabus",
+      "context": "Collaboration"
+    },
+    {
+      "index": 19,
+      "label": "Late Policy",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#late",
+      "heading": "Syllabus",
+      "context": "Late Policy"
+    },
+    {
+      "index": 20,
+      "label": "Grading",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#grading",
+      "heading": "Syllabus",
+      "context": "Grading"
+    },
+    {
+      "index": 21,
+      "label": "Staff",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/staff",
+      "heading": "Meta",
+      "context": "Staff"
+    },
+    {
+      "index": 22,
+      "label": "the front page",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/",
+      "heading": "Resources",
+      "context": "The primary resources for this course are the lecture slides and homework assignments on the front page ."
+    },
+    {
+      "index": 23,
+      "label": "Fall 2023",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse-fa23/",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 24,
+      "label": "Fall 2022",
+      "url": "http://rail.eecs.berkeley.edu/deeprlcourse-fa22/",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 25,
+      "label": "Fall 2021",
+      "url": "http://rail.eecs.berkeley.edu/deeprlcourse-fa21/",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 26,
+      "label": "Fall 2020",
+      "url": "http://rail.eecs.berkeley.edu/deeprlcourse-fa20/",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 27,
+      "label": "Fall 2019",
+      "url": "http://rail.eecs.berkeley.edu/deeprlcourse-fa19/",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 28,
+      "label": "Fall 2018",
+      "url": "http://rail.eecs.berkeley.edu/deeprlcourse-fa18/",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 29,
+      "label": "Fall 2017",
+      "url": "http://rail.eecs.berkeley.edu/deeprlcourse-fa17/index.html",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 30,
+      "label": "Spring 2017",
+      "url": "http://rail.eecs.berkeley.edu/deeprlcoursesp17/index.html",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 31,
+      "label": "here",
+      "url": "https://www.youtube.com/playlist?list=PL_iWQOsE6TfXxKgI1GgyV1B_Xa0DxE5eH",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 32,
+      "label": "here",
+      "url": "https://www.youtube.com/playlist?list=PL_iWQOsE6TfURIIhCrlt-wj9ByIVpbfGc",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 33,
+      "label": "here",
+      "url": "https://www.youtube.com/playlist?list=PLkFD6_40KJIwhWJpGazJ9VSj9CFMkb79A",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 34,
+      "label": "here",
+      "url": "https://www.youtube.com/playlist?list=PLkFD6_40KJIxJMR-j5A1mkxK26gh_qg37",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 35,
+      "label": "here",
+      "url": "https://www.youtube.com/playlist?list=PLkFD6_40KJIznC9CDbVTjAF2oyt8_VAe3",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 36,
+      "label": "here",
+      "url": "https://www.youtube.com/playlist?list=PLkFD6_40KJIwTmSbCv9OVJB3YaO4sFwkX",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 37,
+      "label": "Fall 2015",
+      "url": "http://rail.eecs.berkeley.edu/deeprlcourse-fa15/index.html",
+      "heading": "Previous Offerings",
+      "context": "A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 , Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was offered in Fall 2015 ."
+    },
+    {
+      "index": 38,
+      "label": "Geoff Hinton on Coursera",
+      "url": "https://www.coursera.org/course/neuralnets",
+      "heading": "Courses",
+      "context": "Geoff Hinton on Coursera"
+    },
+    {
+      "index": 39,
+      "label": "Andrew Ng on Coursera",
+      "url": "https://www.coursera.org/learn/machine-learning/",
+      "heading": "Courses",
+      "context": "Andrew Ng on Coursera"
+    },
+    {
+      "index": 40,
+      "label": "David Silver's course on reinforcement learning",
+      "url": "http://www0.cs.ucl.ac.uk/staff/D.Silver/web/Teaching.html",
+      "heading": "Courses",
+      "context": "David Silver's course on reinforcement learning"
+    },
+    {
+      "index": 41,
+      "label": "Nando de Freitas' course on machine learning",
+      "url": "https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/",
+      "heading": "Courses",
+      "context": "Nando de Freitas' course on machine learning"
+    },
+    {
+      "index": 42,
+      "label": "Andrej Karpathy's course on neural networks",
+      "url": "http://cs231n.github.io/",
+      "heading": "Courses",
+      "context": "Andrej Karpathy's course on neural networks"
+    },
+    {
+      "index": 43,
+      "label": "Deep Learning",
+      "url": "http://www.deeplearningbook.org/",
+      "heading": "Relevant Textbooks",
+      "context": "Deep Learning"
+    },
+    {
+      "index": 44,
+      "label": "Sutton & Barto, Reinforcement Learning: An Introduction",
+      "url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "heading": "Relevant Textbooks",
+      "context": "Sutton & Barto, Reinforcement Learning: An Introduction"
+    },
+    {
+      "index": 45,
+      "label": "Szepesvari, Algorithms for Reinforcement Learning",
+      "url": "http://www.ualberta.ca/~szepesva/RLBook.html",
+      "heading": "Relevant Textbooks",
+      "context": "Szepesvari, Algorithms for Reinforcement Learning"
+    },
+    {
+      "index": 46,
+      "label": "Bertsekas, Dynamic Programming and Optimal Control, Vols I and II",
+      "url": "http://www.athenasc.com/dpbook.html",
+      "heading": "Relevant Textbooks",
+      "context": "Bertsekas, Dynamic Programming and Optimal Control, Vols I and II"
+    },
+    {
+      "index": 47,
+      "label": "Puterman, Markov Decision Processes: Discrete Stochastic Dynamic Programming",
+      "url": "http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471727822.html",
+      "heading": "Relevant Textbooks",
+      "context": "Puterman, Markov Decision Processes: Discrete Stochastic Dynamic Programming"
+    },
+    {
+      "index": 48,
+      "label": "Powell, Approximate Dynamic Programming",
+      "url": "http://adp.princeton.edu/",
+      "heading": "Relevant Textbooks",
+      "context": "Powell, Approximate Dynamic Programming"
+    },
+    {
+      "index": 49,
+      "label": "Data visualization handout",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/viz.pdf",
+      "heading": "Misc Links",
+      "context": "Data visualization handout"
+    },
+    {
+      "index": 50,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "Calendar",
+      "context": ""
+    },
+    {
+      "index": 51,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "Resources",
+      "context": ""
+    },
+    {
+      "index": 52,
+      "label": "Previous Offerings",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#prevoffs",
+      "heading": "Resources",
+      "context": "Previous Offerings"
+    },
+    {
+      "index": 53,
+      "label": "Courses",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#courses",
+      "heading": "Resources",
+      "context": "Courses"
+    },
+    {
+      "index": 54,
+      "label": "Relevant Textbooks",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#textbooks",
+      "heading": "Resources",
+      "context": "Relevant Textbooks"
+    },
+    {
+      "index": 55,
+      "label": "Misc Links",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#misclinks",
+      "heading": "Resources",
+      "context": "Misc Links"
+    },
+    {
+      "index": 56,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus",
+      "heading": "Syllabus",
+      "context": ""
+    },
+    {
+      "index": 57,
+      "label": "Prerequisites",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#prereqs",
+      "heading": "Syllabus",
+      "context": "Prerequisites"
+    },
+    {
+      "index": 58,
+      "label": "Technology",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#technology",
+      "heading": "Syllabus",
+      "context": "Technology"
+    },
+    {
+      "index": 59,
+      "label": "Materials",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#materials",
+      "heading": "Syllabus",
+      "context": "Materials"
+    },
+    {
+      "index": 60,
+      "label": "Collaboration",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#collaboration",
+      "heading": "Syllabus",
+      "context": "Collaboration"
+    },
+    {
+      "index": 61,
+      "label": "Late Policy",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#late",
+      "heading": "Syllabus",
+      "context": "Late Policy"
+    },
+    {
+      "index": 62,
+      "label": "Grading",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#grading",
+      "heading": "Syllabus",
+      "context": "Grading"
+    },
+    {
+      "index": 63,
+      "label": "Staff",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/staff",
+      "heading": "Meta",
+      "context": "Staff"
+    }
+  ],
+  "tables": []
+}

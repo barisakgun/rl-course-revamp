@@ -1,0 +1,1145 @@
+schema_version: 1
+phase: 1
+source_id: stanford_cs234
+configured_source:
+  id: stanford_cs234
+  instructor: Emma Brunskill
+  url: https://web.stanford.edu/class/cs234/
+  role: modern_intro_reference
+offering:
+  label: Winter 2026
+  evidence:
+  - source_url: https://web.stanford.edu/class/cs234/
+    locator: course heading; Berkeley also assignment PDF headers
+inventory_status: inventoried_with_documented_gaps
+scope: Material inventory only; no normalized topics, cross-course comparison, or curriculum recommendations.
+materials:
+- id: m_28240ee982ad
+  title: 'CS234: Reinforcement Learning Winter 2026'
+  material_type: course_index
+  instructional_use: catalog
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/
+  storage: linked
+  observed_at: '2026-09-28T00:01:42+00:00'
+  provenance:
+  - index_path: sources/stanford_cs234/snapshots/home_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/
+    checked_at: '2026-09-28T01:09:08+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+- id: m_a7958bc10445
+  title: 'CS234: Reinforcement Learning Winter 2026'
+  material_type: course_index
+  instructional_use: catalog
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/modules.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - index_path: sources/stanford_cs234/snapshots/modules_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/modules.html
+    checked_at: '2026-09-28T01:09:18+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+- id: m_d197c44b73ac
+  title: 'CS234: Reinforcement Learning Winter 2026'
+  material_type: course_index
+  instructional_use: catalog
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/assignments.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:44+00:00'
+  provenance:
+  - index_path: sources/stanford_cs234/snapshots/assignments_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/assignments.html
+    checked_at: '2026-09-28T01:09:09+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+- id: m_1475ed0a2d42
+  title: 'CS234: Reinforcement Learning Winter 2026'
+  material_type: project_guidelines
+  instructional_use: assessment
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/project.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:45+00:00'
+  provenance:
+  - index_path: sources/stanford_cs234/snapshots/project_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/project.html
+    checked_at: '2026-09-28T01:09:19+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+- id: m_984377593db0
+  title: 'CS234: Reinforcement Learning Winter 2026'
+  material_type: course_index
+  instructional_use: catalog
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/scpd.html
+  storage: linked
+  observed_at: '2026-09-28T01:03:30+00:00'
+  provenance:
+  - index_path: sources/stanford_cs234/snapshots/scpd_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/scpd.html
+    checked_at: '2026-09-28T01:09:20+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+- id: m_9c825cf36638
+  title: faq
+  material_type: course_index
+  instructional_use: catalog
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/faq.html
+  storage: linked
+  observed_at: '2026-09-28T01:03:42+00:00'
+  provenance:
+  - index_path: sources/stanford_cs234/snapshots/faq_index.json
+  accessibility:
+    status: http_error
+    http_status: 404
+    resolved_url: https://web.stanford.edu/class/cs234/faq.html
+    checked_at: '2026-09-28T01:09:17+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+- id: m_ce595816b2d4
+  title: Lecture 1 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture1pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 2
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture1pre.pdf
+    checked_at: '2026-09-28T01:09:32+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 1
+  catalog_context: Lecture 1 Draft Slides [Post class version]
+- id: m_508a121705c2
+  title: Lecture 1 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture1post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 3
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture1post.pdf
+    checked_at: '2026-09-28T01:09:31+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 1
+  catalog_context: Lecture 1 Draft Slides [Post class version]
+- id: m_d035d01cb8f8
+  title: Linear Algebra Review
+  material_type: reading
+  instructional_use: additional_material_requirement_unspecified
+  offering: Winter 2026
+  url: http://cs229.stanford.edu/section/cs229-linalg.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 4
+    heading: Lecture Materials
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Linear Algebra Review
+- id: m_35f603c0b6d7
+  title: Probability Review
+  material_type: reading
+  instructional_use: additional_material_requirement_unspecified
+  offering: Winter 2026
+  url: http://cs229.stanford.edu/section/cs229-prob.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 5
+    heading: Lecture Materials
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Probability Review
+- id: m_b895a8eebb49
+  title: Python Tutorial
+  material_type: reading
+  instructional_use: additional_material_requirement_unspecified
+  offering: Winter 2026
+  url: http://cs231n.github.io/python-numpy-tutorial/
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 6
+    heading: Lecture Materials
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Python Tutorial
+- id: m_aa210d6851fc
+  title: Lecture 2 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture2pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 7
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture2pre.pdf
+    checked_at: '2026-09-28T01:09:33+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 2
+  catalog_context: Lecture 2 Slides (pre-class) [Post class, annotated]
+- id: m_5558715d0d90
+  title: Lecture 2 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture2post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 8
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture2post.pdf
+    checked_at: '2026-09-28T01:09:33+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 2
+  catalog_context: Lecture 2 Slides (pre-class) [Post class, annotated]
+- id: m_16469ad91d3b
+  title: Lecture 3 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture3pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 9
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture3pre.pdf
+    checked_at: '2026-09-28T01:09:35+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 3
+  catalog_context: Lecture 3 Slides (pre-class) [Post class, with annotations]
+- id: m_f3308ace3373
+  title: Lecture 3 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture3post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 10
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture3post.pdf
+    checked_at: '2026-09-28T01:09:34+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 3
+  catalog_context: Lecture 3 Slides (pre-class) [Post class, with annotations]
+- id: m_650f07cda8bd
+  title: Lecture 4 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture4pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 11
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture4pre.pdf
+    checked_at: '2026-09-28T01:09:37+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 4
+  catalog_context: Lecture 4 Slides (preclass) (post class with annotations)
+- id: m_f565458a768b
+  title: Lecture 4 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture4post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 12
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture4post.pdf
+    checked_at: '2026-09-28T01:09:36+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 4
+  catalog_context: Lecture 4 Slides (preclass) (post class with annotations)
+- id: m_041fab0a9097
+  title: Lecture 5 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture5pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 13
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture5pre.pdf
+    checked_at: '2026-09-28T01:09:39+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 5
+  catalog_context: Lecture 5 Slides [Post lecture with annotations]
+- id: m_7dff8435dbd5
+  title: Lecture 5 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture5post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 14
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture5post.pdf
+    checked_at: '2026-09-28T01:09:38+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 5
+  catalog_context: Lecture 5 Slides [Post lecture with annotations]
+- id: m_0af9f4f5ce0a
+  title: Lecture 6 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture6pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 15
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture6pre.pdf
+    checked_at: '2026-09-28T01:09:41+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 6
+  catalog_context: Lecture 6 Slides [Post class annotations]
+- id: m_396e2c07e6a1
+  title: Lecture 6 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture6post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 16
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture6post.pdf
+    checked_at: '2026-09-28T01:09:40+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 6
+  catalog_context: Lecture 6 Slides [Post class annotations]
+- id: m_95539be9c9e0
+  title: Lecture 7 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture7pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 17
+    heading: Lecture Materials
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 19
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture7pre.pdf
+    checked_at: '2026-09-28T01:09:42+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 7
+  catalog_context: Lecture 7 Slides [Post class annotations]
+- id: m_348648af996c
+  title: Lecture 7 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture7post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 18
+    heading: Lecture Materials
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 20
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture7post.pdf
+    checked_at: '2026-09-28T01:09:42+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 7
+  catalog_context: Lecture 7 Slides [Post class annotations]
+- id: m_29ff9a2bf96e
+  title: Lecture 8 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture8pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 21
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture8pre.pdf
+    checked_at: '2026-09-28T01:09:44+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 8
+  catalog_context: Lecture 8 Slides (preclass) [Post class with annotations]
+- id: m_915639f50df6
+  title: Lecture 8 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture8post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 22
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture8post.pdf
+    checked_at: '2026-09-28T01:09:43+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 8
+  catalog_context: Lecture 8 Slides (preclass) [Post class with annotations]
+- id: m_74567d5e72b1
+  title: Lecture 9 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture9pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 23
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture9pre.pdf
+    checked_at: '2026-09-28T01:09:46+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 9
+  catalog_context: Lecture 9 Slides [Post class annotations]
+- id: m_65025a037ba9
+  title: Lecture 9 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture9post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 24
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture9post.pdf
+    checked_at: '2026-09-28T01:09:45+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 9
+  catalog_context: Lecture 9 Slides [Post class annotations]
+- id: m_f42f8cf950dd
+  title: Lecture 10 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture10post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 26
+    heading: Lecture Materials
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 32
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture10post.pdf
+    checked_at: '2026-09-28T01:09:23+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 10
+  catalog_context: Lecture 10 Slides (no preclass) [Post class annotations]
+- id: m_f59e53646357
+  title: Lecture 11 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture11pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 27
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture11pre.pdf
+    checked_at: '2026-09-28T01:09:24+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 11
+  catalog_context: Lecture 11 Slides [Post class annotations]
+- id: m_39a6dfe69493
+  title: Lecture 11 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture11post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 28
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture11post.pdf
+    checked_at: '2026-09-28T01:09:24+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 11
+  catalog_context: Lecture 11 Slides [Post class annotations]
+- id: m_133f262845ad
+  title: Lecture 12 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture12pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 29
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture12pre.pdf
+    checked_at: '2026-09-28T01:09:26+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 12
+  catalog_context: Lecture 12 Slides [Post class annotations]
+- id: m_e0bb5fa704e4
+  title: Lecture 12 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture12post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 30
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture12post.pdf
+    checked_at: '2026-09-28T01:09:25+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 12
+  catalog_context: Lecture 12 Slides [Post class annotations]
+- id: m_41f7a3304341
+  title: Bandit Algorithms Book Section 7.1
+  material_type: reading
+  instructional_use: additional_material_requirement_unspecified
+  offering: Winter 2026
+  url: https://tor-lattimore.com/downloads/book/book.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 31
+    heading: Lecture Materials
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Bandit Algorithms Book Section 7.1
+- id: m_a45cb6a65b64
+  title: Lecture 14 Guest Slides Part 2
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/ethics_society_234_2.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 33
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/ethics_society_234_2.pdf
+    checked_at: '2026-09-28T01:09:22+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  catalog_context: Lecture 14 Guest Slides Part 2
+- id: m_22ee7f7f55e7
+  title: Lecture 13 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture13pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 34
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture13pre.pdf
+    checked_at: '2026-09-28T01:09:28+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 13
+  catalog_context: Lecture 13 Draft slides [Post class with annotations] Lecture 14 Draft slides [Post class with
+    annotations]
+- id: m_9506799593d5
+  title: Lecture 13 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture13post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 35
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture13post.pdf
+    checked_at: '2026-09-28T01:09:27+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 13
+  catalog_context: Lecture 13 Draft slides [Post class with annotations] Lecture 14 Draft slides [Post class with
+    annotations]
+- id: m_a8cf21ba329a
+  title: Lecture 14 — pre-class
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture14pre.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 36
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture14pre.pdf
+    checked_at: '2026-09-28T01:09:30+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 14
+  catalog_context: Lecture 14 Draft slides [Post class with annotations]
+- id: m_c7bed5ea5877
+  title: Lecture 14 — post-class annotated
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/lecture14post.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 37
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/lecture14post.pdf
+    checked_at: '2026-09-28T01:09:29+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  sequence: 14
+  catalog_context: Lecture 14 Draft slides [Post class with annotations]
+- id: m_96a5a94612b5
+  title: 'Shane Gu: World of World Modeling'
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/slides/ShaneGuCS234_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    link_index: 38
+    heading: Lecture Materials
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/slides/ShaneGuCS234_2026.pdf
+    checked_at: '2026-09-28T01:09:21+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  catalog_context: 'Shane Gu: World of World Modeling'
+- id: m_746c12858b82
+  title: SB Chp 1
+  material_type: reading
+  instructional_use: additional_material_requirement_unspecified
+  offering: Winter 2026
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    locator: Additional Materials
+  accessibility:
+    status: described_in_parent
+  note: Source-course reading citation only; not a Phase 2 book-topic mapping.
+- id: m_7a40987cd3d8
+  title: SB Chp 3, 4.1–4.4
+  material_type: reading
+  instructional_use: additional_material_requirement_unspecified
+  offering: Winter 2026
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    locator: Additional Materials
+  accessibility:
+    status: described_in_parent
+  note: Source-course reading citation only; not a Phase 2 book-topic mapping.
+- id: m_2f43b8dd855c
+  title: SB Chp 5.1, 5.5, 6.1–6.3
+  material_type: reading
+  instructional_use: additional_material_requirement_unspecified
+  offering: Winter 2026
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    locator: Additional Materials
+  accessibility:
+    status: described_in_parent
+  note: Source-course reading citation only; not a Phase 2 book-topic mapping.
+- id: m_3c05aa8d3163
+  title: SB Chp 5.2, 5.4, 6.4–6.5, 6.7
+  material_type: reading
+  instructional_use: additional_material_requirement_unspecified
+  offering: Winter 2026
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    locator: Additional Materials
+  accessibility:
+    status: described_in_parent
+  note: Source-course reading citation only; not a Phase 2 book-topic mapping.
+- id: m_1fe216c92a71
+  title: SB Chp 13
+  material_type: reading
+  instructional_use: additional_material_requirement_unspecified
+  offering: Winter 2026
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:01:43+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/modules.html
+    index_path: sources/stanford_cs234/snapshots/modules_index.json
+    locator: Additional Materials
+  accessibility:
+    status: described_in_parent
+  note: Source-course reading citation only; not a Phase 2 book-topic mapping.
+- id: m_2625c8e98fd2
+  title: Assignment 1 — assignment
+  material_type: assignment
+  instructional_use: assessment
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/assignments/a1/CS234_A1_Questions.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:44+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/assignments.html
+    index_path: sources/stanford_cs234/snapshots/assignments_index.json
+    link_index: 2
+    heading: Assignments and Due Dates
+  - inspection_path: sources/stanford_cs234/snapshots/pdf_2625c8e98fd2b54d.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:57+00:00'
+    evidence_path: sources/stanford_cs234/snapshots/pdf_2625c8e98fd2b54d.json
+  catalog_context: Assignment 1 Released ( LaTeX ). Starter code can be downloaded here . Jan 16, 6 pm Up to 2 late
+    days allowed. See Late Day Policy .
+  remote_sha256: 4deb03f4401fe29d52c18299fcaff3702d3f760c8738ad7113506f7272999bb7
+  remote_pdf_pages: 7
+- id: m_a5a07d58b0f9
+  title: Assignment 1 — submission template
+  material_type: submission_template
+  instructional_use: assessment
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/assignments/a1/assignment1_template.zip
+  storage: linked
+  observed_at: '2026-09-28T00:01:44+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/assignments.html
+    index_path: sources/stanford_cs234/snapshots/assignments_index.json
+    link_index: 3
+    heading: Assignments and Due Dates
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/assignments/a1/assignment1_template.zip
+    checked_at: '2026-09-28T01:09:11+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  catalog_context: Assignment 1 Released ( LaTeX ). Starter code can be downloaded here . Jan 16, 6 pm Up to 2 late
+    days allowed. See Late Day Policy .
+- id: m_85f605a92897
+  title: Assignment 1 — starter code
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/assignments/a1/code.zip
+  storage: linked
+  observed_at: '2026-09-28T00:01:44+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/assignments.html
+    index_path: sources/stanford_cs234/snapshots/assignments_index.json
+    link_index: 4
+    heading: Assignments and Due Dates
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/assignments/a1/code.zip
+    checked_at: '2026-09-28T01:09:12+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  catalog_context: Assignment 1 Released ( LaTeX ). Starter code can be downloaded here . Jan 16, 6 pm Up to 2 late
+    days allowed. See Late Day Policy .
+- id: m_fa2fcfc316ec
+  title: Assignment 2 — assignment
+  material_type: assignment
+  instructional_use: assessment
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:44+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/assignments.html
+    index_path: sources/stanford_cs234/snapshots/assignments_index.json
+    link_index: 6
+    heading: Assignments and Due Dates
+  - inspection_path: sources/stanford_cs234/snapshots/pdf_fa2fcfc316ec5bd5.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:59+00:00'
+    evidence_path: sources/stanford_cs234/snapshots/pdf_fa2fcfc316ec5bd5.json
+  catalog_context: Assignment 2 Released ( LaTeX ). Starter code can be downloaded here . Feb 1, 6 pm Up to 2 late
+    days allowed. See Late Day Policy .
+  remote_sha256: 8b761494d0f5e0c15fc2a1612787997569d64f2adf0d0068cbd44f4a0b46542c
+  remote_pdf_pages: 11
+- id: m_707c9ca1d66a
+  title: Assignment 2 — submission template
+  material_type: submission_template
+  instructional_use: assessment
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/assignments/a2/assignment2_template.zip
+  storage: linked
+  observed_at: '2026-09-28T00:01:44+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/assignments.html
+    index_path: sources/stanford_cs234/snapshots/assignments_index.json
+    link_index: 7
+    heading: Assignments and Due Dates
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/assignments/a2/assignment2_template.zip
+    checked_at: '2026-09-28T01:09:15+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  catalog_context: Assignment 2 Released ( LaTeX ). Starter code can be downloaded here . Feb 1, 6 pm Up to 2 late
+    days allowed. See Late Day Policy .
+- id: m_4c6d0b26a780
+  title: Assignment 2 — starter code
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/assignments/a2/assignment2_starter_code.zip
+  storage: linked
+  observed_at: '2026-09-28T00:01:44+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/assignments.html
+    index_path: sources/stanford_cs234/snapshots/assignments_index.json
+    link_index: 8
+    heading: Assignments and Due Dates
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/assignments/a2/assignment2_starter_code.zip
+    checked_at: '2026-09-28T01:09:14+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  catalog_context: Assignment 2 Released ( LaTeX ). Starter code can be downloaded here . Feb 1, 6 pm Up to 2 late
+    days allowed. See Late Day Policy .
+- id: m_8b121bf3f322
+  title: Assignment 3 — assignment
+  material_type: assignment
+  instructional_use: assessment
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/assignments/a3/hw3_questions.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:44+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/assignments.html
+    index_path: sources/stanford_cs234/snapshots/assignments_index.json
+    link_index: 10
+    heading: Assignments and Due Dates
+  - inspection_path: sources/stanford_cs234/snapshots/pdf_8b121bf3f3229f43.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:04:02+00:00'
+    evidence_path: sources/stanford_cs234/snapshots/pdf_8b121bf3f3229f43.json
+  catalog_context: Assignment 3 Released ( LaTeX ). Starter code can be downloaded here . Feb 20, 6 pm Up to 2 late
+    days allowed. See Late Day Policy .
+  remote_sha256: 0c4c270a4eb4265f00d61276bcec34437818203c6e4e5ea4b4bbffc119e1d2df
+  remote_pdf_pages: 8
+- id: m_4f70788e4d9d
+  title: Assignment 3 — submission template
+  material_type: submission_template
+  instructional_use: assessment
+  offering: Winter 2026
+  url: https://web.stanford.edu/class/cs234/assignments/a3/hw3_template.zip
+  storage: linked
+  observed_at: '2026-09-28T00:01:44+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/assignments.html
+    index_path: sources/stanford_cs234/snapshots/assignments_index.json
+    link_index: 11
+    heading: Assignments and Due Dates
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://web.stanford.edu/class/cs234/assignments/a3/hw3_template.zip
+    checked_at: '2026-09-28T01:09:16+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs234/snapshots/link_checks.json
+  catalog_context: Assignment 3 Released ( LaTeX ). Starter code can be downloaded here . Feb 20, 6 pm Up to 2 late
+    days allowed. See Late Day Policy .
+- id: m_d1800446b51d
+  title: Assignment 3 starter code (Google Drive)
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Winter 2026
+  url: https://drive.google.com/file/d/18HwwLiMIN9XSdK7QXqQjGyhyb_86Iz_Y/view?usp=drive_link
+  storage: linked
+  observed_at: '2026-09-28T00:01:44+00:00'
+  provenance:
+  - source_url: https://web.stanford.edu/class/cs234/assignments.html
+    index_path: sources/stanford_cs234/snapshots/assignments_index.json
+    link_index: 12
+    heading: Assignments and Due Dates
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Assignment 3 Released ( LaTeX ). Starter code can be downloaded here . Feb 20, 6 pm Up to 2 late
+    days allowed. See Late Day Policy .
+observations:
+- statement: The materials page lists pre-class and annotated post-class slide variants. Duplicate Lecture 7 links
+    occur under two course headings; these are one file per variant, with both catalog references retained. Lecture
+    10 explicitly has no pre-class file.
+  basis: direct_source_evidence
+  evidence:
+  - modules_index.json
+- statement: The project page provides proposal, milestone, poster, and final-report requirements; the homepage
+    supplies component weights. The project-ideas heading is a placeholder without linked student reports.
+  basis: direct_source_evidence
+  evidence:
+  - project_index.json
+  - home_index.json
+evidence_gaps:
+- category: page_access
+  description: 'faq: http_error, HTTP 404'
+  evidence:
+  - sources/stanford_cs234/snapshots/faq_index.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: artifact_year_conflict
+  description: Assignment 3 is linked by the Winter 2026 course but its first page gives February 20, 2025. Its
+    hosting offering and internal date are preserved separately; it is not relabeled as verified 2026 content.
+  evidence:
+  - assignments_index.json
+  - hw3_questions.pdf p.1
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: restricted_or_unverified
+  description: No public current recording links, tutorial sheets, or exam/quiz question files were found on the
+    inspected pages. Assignment 3 Drive code is linked but its download and executability were not verified.
+  evidence:
+  - home_index.json
+  - modules_index.json
+  - assignments_index.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: reading_status
+  description: Readings are labeled Additional Materials; mandatory versus optional status is not consistently specified.
+    The homepage calls its schedule a draft.
+  evidence:
+  - modules_index.json
+  - home_index.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+inspected_at: '2026-09-28T01:03:42+00:00'

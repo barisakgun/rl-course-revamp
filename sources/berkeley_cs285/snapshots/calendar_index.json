@@ -1,0 +1,282 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar/",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar/",
+  "checked_at": "2026-09-28T00:01:40+00:00",
+  "http_status": 200,
+  "content_type": "text/html",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:01:37+00:00"
+  },
+  "sha256_of_retrieved_html": "834fdaf65357619cfa35df881e34534adbe76bd41b82dedbd348e2ddcfb9d56b",
+  "title": "CS 185/285 Calendar",
+  "headings": [
+    "CS 185/285",
+    "Calendar",
+    "Resources",
+    "Syllabus",
+    "Meta",
+    "Calendar",
+    "Calendar",
+    "Resources",
+    "Syllabus",
+    "Meta"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "CS 185/285",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/",
+      "heading": "CS 185/285",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "CS 185/285",
+      "context": "Calendar"
+    },
+    {
+      "index": 2,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "CS 185/285",
+      "context": "Resources"
+    },
+    {
+      "index": 3,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus",
+      "heading": "CS 185/285",
+      "context": "Syllabus"
+    },
+    {
+      "index": 4,
+      "label": "Staff",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/staff",
+      "heading": "CS 185/285",
+      "context": "Staff"
+    },
+    {
+      "index": 5,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "CS 185/285",
+      "context": "Calendar"
+    },
+    {
+      "index": 6,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "CS 185/285",
+      "context": "Resources"
+    },
+    {
+      "index": 7,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "CS 185/285",
+      "context": "Resources"
+    },
+    {
+      "index": 8,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "Calendar",
+      "context": ""
+    },
+    {
+      "index": 9,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "Resources",
+      "context": ""
+    },
+    {
+      "index": 10,
+      "label": "Previous Offerings",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#prevoffs",
+      "heading": "Resources",
+      "context": "Previous Offerings"
+    },
+    {
+      "index": 11,
+      "label": "Courses",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#courses",
+      "heading": "Resources",
+      "context": "Courses"
+    },
+    {
+      "index": 12,
+      "label": "Relevant Textbooks",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#textbooks",
+      "heading": "Resources",
+      "context": "Relevant Textbooks"
+    },
+    {
+      "index": 13,
+      "label": "Misc Links",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#misclinks",
+      "heading": "Resources",
+      "context": "Misc Links"
+    },
+    {
+      "index": 14,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus",
+      "heading": "Syllabus",
+      "context": ""
+    },
+    {
+      "index": 15,
+      "label": "Prerequisites",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#prereqs",
+      "heading": "Syllabus",
+      "context": "Prerequisites"
+    },
+    {
+      "index": 16,
+      "label": "Technology",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#technology",
+      "heading": "Syllabus",
+      "context": "Technology"
+    },
+    {
+      "index": 17,
+      "label": "Materials",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#materials",
+      "heading": "Syllabus",
+      "context": "Materials"
+    },
+    {
+      "index": 18,
+      "label": "Collaboration",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#collaboration",
+      "heading": "Syllabus",
+      "context": "Collaboration"
+    },
+    {
+      "index": 19,
+      "label": "Late Policy",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#late",
+      "heading": "Syllabus",
+      "context": "Late Policy"
+    },
+    {
+      "index": 20,
+      "label": "Grading",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#grading",
+      "heading": "Syllabus",
+      "context": "Grading"
+    },
+    {
+      "index": 21,
+      "label": "Staff",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/staff",
+      "heading": "Meta",
+      "context": "Staff"
+    },
+    {
+      "index": 22,
+      "label": "Calendar",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar",
+      "heading": "Calendar",
+      "context": ""
+    },
+    {
+      "index": 23,
+      "label": "Resources",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources",
+      "heading": "Resources",
+      "context": ""
+    },
+    {
+      "index": 24,
+      "label": "Previous Offerings",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#prevoffs",
+      "heading": "Resources",
+      "context": "Previous Offerings"
+    },
+    {
+      "index": 25,
+      "label": "Courses",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#courses",
+      "heading": "Resources",
+      "context": "Courses"
+    },
+    {
+      "index": 26,
+      "label": "Relevant Textbooks",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#textbooks",
+      "heading": "Resources",
+      "context": "Relevant Textbooks"
+    },
+    {
+      "index": 27,
+      "label": "Misc Links",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources#misclinks",
+      "heading": "Resources",
+      "context": "Misc Links"
+    },
+    {
+      "index": 28,
+      "label": "Syllabus",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus",
+      "heading": "Syllabus",
+      "context": ""
+    },
+    {
+      "index": 29,
+      "label": "Prerequisites",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#prereqs",
+      "heading": "Syllabus",
+      "context": "Prerequisites"
+    },
+    {
+      "index": 30,
+      "label": "Technology",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#technology",
+      "heading": "Syllabus",
+      "context": "Technology"
+    },
+    {
+      "index": 31,
+      "label": "Materials",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#materials",
+      "heading": "Syllabus",
+      "context": "Materials"
+    },
+    {
+      "index": 32,
+      "label": "Collaboration",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#collaboration",
+      "heading": "Syllabus",
+      "context": "Collaboration"
+    },
+    {
+      "index": 33,
+      "label": "Late Policy",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#late",
+      "heading": "Syllabus",
+      "context": "Late Policy"
+    },
+    {
+      "index": 34,
+      "label": "Grading",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus#grading",
+      "heading": "Syllabus",
+      "context": "Grading"
+    },
+    {
+      "index": 35,
+      "label": "Staff",
+      "url": "https://rail.eecs.berkeley.edu/deeprlcourse/staff",
+      "heading": "Meta",
+      "context": "Staff"
+    }
+  ],
+  "tables": []
+}

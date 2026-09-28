@@ -239,7 +239,6 @@ assessment_hypotheses:
       text: REINFORCE, baseline/advantage, actor–critic or PPO
     - content: offline RL
       text: BC, naive offline Q-learning, CQL or IQL, comparison under distribution shift
-  llm_assignment_required: false
 
 project_constraints:
   presentation_week: 13

@@ -29,6 +29,24 @@ sources/<source_id>
 └── snapshots/
 sources/RLbook2020.pdf
 
+Course entries under `sources` in `config/sources.yaml` use the source-directory
+structure above. Book entries under `books` refer directly to their configured
+files and do not require a manifest or a separate source directory.
+
+The book supports mapping course topics to relevant chapters, sections, and
+pages, answering book-grounded questions, and examining possible curriculum
+gaps when requested. Store course-to-book topic mappings with the normalized
+evidence in `analysis/normalized_topics.yaml` during Phase 2, using the configured
+book ID and precise references. Keep book coverage distinct from evidence that
+a course taught or assigned that material. Book-grounded answers should cite the
+relevant passages; curriculum recommendations remain analysis until accepted.
+
+Treat all material under `sources/current_course/` as one baseline course for
+inventory and comparison. Mixed years, course codes, and filename/title
+discrepancies do not require splitting it into separate offerings or correcting
+the original files. Use the content to identify each artifact's purpose and
+retain its file reference as provenance.
+
 Analysis / recommendations
 --------------------------
 analysis/

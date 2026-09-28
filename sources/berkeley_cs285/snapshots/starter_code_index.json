@@ -1,0 +1,923 @@
+{
+  "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+  "resolved_url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+  "checked_at": "2026-09-28T00:05:44+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "status": "reachable",
+  "robots": {
+    "url": "https://github.com/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T00:05:43+00:00"
+  },
+  "sha256_of_retrieved_html": "2df325b5654d91cc5a2f216c03257bb0da65802f7f876621b95f9bb21b8f9ae9",
+  "title": "GitHub - berkeleydeeprlcourse/homework_spring2026 · GitHub",
+  "headings": [
+    "Navigation Menu",
+    "Latest commit",
+    "History",
+    "Folders and files",
+    "Repository files navigation",
+    "About",
+    "Stars",
+    "Watchers",
+    "Forks",
+    "Releases",
+    "Packages",
+    "Contributors",
+    "Languages",
+    "Footer",
+    "Footer navigation"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "Skip to content",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026#start-of-content",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "",
+      "url": "https://github.com/",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 2,
+      "label": "Sign in",
+      "url": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fberkeleydeeprlcourse%2Fhomework_spring2026",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 3,
+      "label": "GitHub Copilot Write better code with AI",
+      "url": "https://github.com/features/copilot",
+      "heading": "Navigation Menu",
+      "context": "GitHub Copilot Write better code with AI"
+    },
+    {
+      "index": 4,
+      "label": "GitHub Copilot app Direct agents from issue to merge",
+      "url": "https://github.com/features/ai/github-app",
+      "heading": "Navigation Menu",
+      "context": "GitHub Copilot app Direct agents from issue to merge"
+    },
+    {
+      "index": 5,
+      "label": "MCP Registry Integrate external tools",
+      "url": "https://github.com/mcp",
+      "heading": "Navigation Menu",
+      "context": "MCP Registry Integrate external tools"
+    },
+    {
+      "index": 6,
+      "label": "Actions Automate any workflow",
+      "url": "https://github.com/features/actions",
+      "heading": "Navigation Menu",
+      "context": "Actions Automate any workflow"
+    },
+    {
+      "index": 7,
+      "label": "Codespaces Instant dev environments",
+      "url": "https://github.com/features/codespaces",
+      "heading": "Navigation Menu",
+      "context": "Codespaces Instant dev environments"
+    },
+    {
+      "index": 8,
+      "label": "Issues Plan and track work",
+      "url": "https://github.com/features/issues",
+      "heading": "Navigation Menu",
+      "context": "Issues Plan and track work"
+    },
+    {
+      "index": 9,
+      "label": "Code Review Manage code changes",
+      "url": "https://github.com/features/code-review",
+      "heading": "Navigation Menu",
+      "context": "Code Review Manage code changes"
+    },
+    {
+      "index": 10,
+      "label": "Code Quality Enforce quality at merge",
+      "url": "https://github.com/features/code-quality",
+      "heading": "Navigation Menu",
+      "context": "Code Quality Enforce quality at merge"
+    },
+    {
+      "index": 11,
+      "label": "GitHub Advanced Security Find and fix vulnerabilities",
+      "url": "https://github.com/security/advanced-security",
+      "heading": "Navigation Menu",
+      "context": "GitHub Advanced Security Find and fix vulnerabilities"
+    },
+    {
+      "index": 12,
+      "label": "Code security Secure your code as you build",
+      "url": "https://github.com/security/advanced-security/code-security",
+      "heading": "Navigation Menu",
+      "context": "Code security Secure your code as you build"
+    },
+    {
+      "index": 13,
+      "label": "Secret protection Stop leaks before they start",
+      "url": "https://github.com/security/advanced-security/secret-protection",
+      "heading": "Navigation Menu",
+      "context": "Secret protection Stop leaks before they start"
+    },
+    {
+      "index": 14,
+      "label": "Why GitHub",
+      "url": "https://github.com/why-github",
+      "heading": "Navigation Menu",
+      "context": "Why GitHub"
+    },
+    {
+      "index": 15,
+      "label": "Documentation",
+      "url": "https://docs.github.com",
+      "heading": "Navigation Menu",
+      "context": "Documentation"
+    },
+    {
+      "index": 16,
+      "label": "Blog",
+      "url": "https://github.blog",
+      "heading": "Navigation Menu",
+      "context": "Blog"
+    },
+    {
+      "index": 17,
+      "label": "Changelog",
+      "url": "https://github.blog/changelog",
+      "heading": "Navigation Menu",
+      "context": "Changelog"
+    },
+    {
+      "index": 18,
+      "label": "Marketplace",
+      "url": "https://github.com/marketplace",
+      "heading": "Navigation Menu",
+      "context": "Marketplace"
+    },
+    {
+      "index": 19,
+      "label": "View all features",
+      "url": "https://github.com/features",
+      "heading": "Navigation Menu",
+      "context": "Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Copilot app Direct agents from issue to merge MCP Registry Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes Code Quality Enforce quality at merge APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features"
+    },
+    {
+      "index": 20,
+      "label": "Enterprises",
+      "url": "https://github.com/enterprise",
+      "heading": "Navigation Menu",
+      "context": "Enterprises"
+    },
+    {
+      "index": 21,
+      "label": "Small and medium teams",
+      "url": "https://github.com/team",
+      "heading": "Navigation Menu",
+      "context": "Small and medium teams"
+    },
+    {
+      "index": 22,
+      "label": "Startups",
+      "url": "https://github.com/enterprise/startups",
+      "heading": "Navigation Menu",
+      "context": "Startups"
+    },
+    {
+      "index": 23,
+      "label": "Nonprofits",
+      "url": "https://github.com/solutions/industry/nonprofits",
+      "heading": "Navigation Menu",
+      "context": "Nonprofits"
+    },
+    {
+      "index": 24,
+      "label": "App Modernization",
+      "url": "https://github.com/solutions/use-case/app-modernization",
+      "heading": "Navigation Menu",
+      "context": "App Modernization"
+    },
+    {
+      "index": 25,
+      "label": "DevSecOps",
+      "url": "https://github.com/solutions/use-case/devsecops",
+      "heading": "Navigation Menu",
+      "context": "DevSecOps"
+    },
+    {
+      "index": 26,
+      "label": "DevOps",
+      "url": "https://github.com/solutions/use-case/devops",
+      "heading": "Navigation Menu",
+      "context": "DevOps"
+    },
+    {
+      "index": 27,
+      "label": "CI/CD",
+      "url": "https://github.com/solutions/use-case/ci-cd",
+      "heading": "Navigation Menu",
+      "context": "CI/CD"
+    },
+    {
+      "index": 28,
+      "label": "View all use cases",
+      "url": "https://github.com/solutions/use-case",
+      "heading": "Navigation Menu",
+      "context": "View all use cases"
+    },
+    {
+      "index": 29,
+      "label": "Healthcare",
+      "url": "https://github.com/solutions/industry/healthcare",
+      "heading": "Navigation Menu",
+      "context": "Healthcare"
+    },
+    {
+      "index": 30,
+      "label": "Financial services",
+      "url": "https://github.com/solutions/industry/financial-services",
+      "heading": "Navigation Menu",
+      "context": "Financial services"
+    },
+    {
+      "index": 31,
+      "label": "Manufacturing",
+      "url": "https://github.com/solutions/industry/manufacturing",
+      "heading": "Navigation Menu",
+      "context": "Manufacturing"
+    },
+    {
+      "index": 32,
+      "label": "Government",
+      "url": "https://github.com/solutions/industry/government",
+      "heading": "Navigation Menu",
+      "context": "Government"
+    },
+    {
+      "index": 33,
+      "label": "View all industries",
+      "url": "https://github.com/solutions/industry",
+      "heading": "Navigation Menu",
+      "context": "View all industries"
+    },
+    {
+      "index": 34,
+      "label": "View all solutions",
+      "url": "https://github.com/solutions",
+      "heading": "Navigation Menu",
+      "context": "Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions"
+    },
+    {
+      "index": 35,
+      "label": "AI",
+      "url": "https://github.com/resources/articles?topic=ai",
+      "heading": "Navigation Menu",
+      "context": "AI"
+    },
+    {
+      "index": 36,
+      "label": "Software Development",
+      "url": "https://github.com/resources/articles?topic=software-development",
+      "heading": "Navigation Menu",
+      "context": "Software Development"
+    },
+    {
+      "index": 37,
+      "label": "DevOps",
+      "url": "https://github.com/resources/articles?topic=devops",
+      "heading": "Navigation Menu",
+      "context": "DevOps"
+    },
+    {
+      "index": 38,
+      "label": "Security",
+      "url": "https://github.com/resources/articles?topic=security",
+      "heading": "Navigation Menu",
+      "context": "Security"
+    },
+    {
+      "index": 39,
+      "label": "View all topics",
+      "url": "https://github.com/resources/articles",
+      "heading": "Navigation Menu",
+      "context": "View all topics"
+    },
+    {
+      "index": 40,
+      "label": "Customer stories",
+      "url": "https://github.com/customer-stories",
+      "heading": "Navigation Menu",
+      "context": "Customer stories"
+    },
+    {
+      "index": 41,
+      "label": "Events & webinars",
+      "url": "https://github.com/resources/events",
+      "heading": "Navigation Menu",
+      "context": "Events & webinars"
+    },
+    {
+      "index": 42,
+      "label": "Ebooks & reports",
+      "url": "https://github.com/resources/whitepapers",
+      "heading": "Navigation Menu",
+      "context": "Ebooks & reports"
+    },
+    {
+      "index": 43,
+      "label": "Business insights",
+      "url": "https://github.com/solutions/executive-insights",
+      "heading": "Navigation Menu",
+      "context": "Business insights"
+    },
+    {
+      "index": 44,
+      "label": "GitHub Skills",
+      "url": "https://skills.github.com",
+      "heading": "Navigation Menu",
+      "context": "GitHub Skills"
+    },
+    {
+      "index": 45,
+      "label": "Documentation",
+      "url": "https://docs.github.com",
+      "heading": "Navigation Menu",
+      "context": "Documentation"
+    },
+    {
+      "index": 46,
+      "label": "Customer support",
+      "url": "https://support.github.com",
+      "heading": "Navigation Menu",
+      "context": "Customer support"
+    },
+    {
+      "index": 47,
+      "label": "Community forum",
+      "url": "https://github.com/orgs/community/discussions",
+      "heading": "Navigation Menu",
+      "context": "Community forum"
+    },
+    {
+      "index": 48,
+      "label": "Trust center",
+      "url": "https://github.com/trust-center",
+      "heading": "Navigation Menu",
+      "context": "Trust center"
+    },
+    {
+      "index": 49,
+      "label": "Partners",
+      "url": "https://github.com/partners",
+      "heading": "Navigation Menu",
+      "context": "Partners"
+    },
+    {
+      "index": 50,
+      "label": "View all resources",
+      "url": "https://github.com/resources",
+      "heading": "Navigation Menu",
+      "context": "Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners View all resources"
+    },
+    {
+      "index": 51,
+      "label": "GitHub Sponsors Fund open source developers",
+      "url": "https://github.com/open-source/sponsors",
+      "heading": "Navigation Menu",
+      "context": "GitHub Sponsors Fund open source developers"
+    },
+    {
+      "index": 52,
+      "label": "Security Lab",
+      "url": "https://securitylab.github.com",
+      "heading": "Navigation Menu",
+      "context": "Security Lab"
+    },
+    {
+      "index": 53,
+      "label": "Maintainer Community",
+      "url": "https://maintainers.github.com",
+      "heading": "Navigation Menu",
+      "context": "Maintainer Community"
+    },
+    {
+      "index": 54,
+      "label": "GitHub Stars",
+      "url": "https://stars.github.com",
+      "heading": "Navigation Menu",
+      "context": "GitHub Stars"
+    },
+    {
+      "index": 55,
+      "label": "Archive Program",
+      "url": "https://archiveprogram.github.com",
+      "heading": "Navigation Menu",
+      "context": "Archive Program"
+    },
+    {
+      "index": 56,
+      "label": "Topics",
+      "url": "https://github.com/topics",
+      "heading": "Navigation Menu",
+      "context": "Topics"
+    },
+    {
+      "index": 57,
+      "label": "Trending",
+      "url": "https://github.com/trending",
+      "heading": "Navigation Menu",
+      "context": "Trending"
+    },
+    {
+      "index": 58,
+      "label": "Collections",
+      "url": "https://github.com/collections",
+      "heading": "Navigation Menu",
+      "context": "Collections"
+    },
+    {
+      "index": 59,
+      "label": "Enterprise platform AI-powered developer platform",
+      "url": "https://github.com/enterprise",
+      "heading": "Navigation Menu",
+      "context": "Enterprise platform AI-powered developer platform"
+    },
+    {
+      "index": 60,
+      "label": "GitHub Advanced Security Enterprise-grade security features",
+      "url": "https://github.com/security/advanced-security",
+      "heading": "Navigation Menu",
+      "context": "GitHub Advanced Security Enterprise-grade security features"
+    },
+    {
+      "index": 61,
+      "label": "Copilot for Business Enterprise-grade AI features",
+      "url": "https://github.com/features/copilot/copilot-business",
+      "heading": "Navigation Menu",
+      "context": "Copilot for Business Enterprise-grade AI features"
+    },
+    {
+      "index": 62,
+      "label": "Premium Support Enterprise-grade 24/7 support",
+      "url": "https://github.com/enterprise/premium-support",
+      "heading": "Navigation Menu",
+      "context": "Premium Support Enterprise-grade 24/7 support"
+    },
+    {
+      "index": 63,
+      "label": "Pricing",
+      "url": "https://github.com/pricing",
+      "heading": "Navigation Menu",
+      "context": "Pricing"
+    },
+    {
+      "index": 64,
+      "label": "Sign in",
+      "url": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fberkeleydeeprlcourse%2Fhomework_spring2026",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 65,
+      "label": "Sign up",
+      "url": "https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=berkeleydeeprlcourse%2Fhomework_spring2026",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 66,
+      "label": "Reload",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 67,
+      "label": "Reload",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 68,
+      "label": "Reload",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 69,
+      "label": "berkeleydeeprlcourse",
+      "url": "https://github.com/berkeleydeeprlcourse",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 70,
+      "label": "homework_spring2026",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 71,
+      "label": "Notifications",
+      "url": "https://github.com/login?return_to=%2Fberkeleydeeprlcourse%2Fhomework_spring2026",
+      "heading": "Navigation Menu",
+      "context": "Notifications You must be signed in to change notification settings"
+    },
+    {
+      "index": 72,
+      "label": "Fork 204",
+      "url": "https://github.com/login?return_to=%2Fberkeleydeeprlcourse%2Fhomework_spring2026",
+      "heading": "Navigation Menu",
+      "context": "Fork 204"
+    },
+    {
+      "index": 73,
+      "label": "Star 143",
+      "url": "https://github.com/login?return_to=%2Fberkeleydeeprlcourse%2Fhomework_spring2026",
+      "heading": "Navigation Menu",
+      "context": "Star 143"
+    },
+    {
+      "index": 74,
+      "label": "Code",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+      "heading": "Navigation Menu",
+      "context": "Code"
+    },
+    {
+      "index": 75,
+      "label": "Issues 0",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/issues",
+      "heading": "Navigation Menu",
+      "context": "Issues 0"
+    },
+    {
+      "index": 76,
+      "label": "Pull requests 1",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/pulls",
+      "heading": "Navigation Menu",
+      "context": "Pull requests 1"
+    },
+    {
+      "index": 77,
+      "label": "Actions",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/actions",
+      "heading": "Navigation Menu",
+      "context": "Actions"
+    },
+    {
+      "index": 78,
+      "label": "Projects",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/projects",
+      "heading": "Navigation Menu",
+      "context": "Projects"
+    },
+    {
+      "index": 79,
+      "label": "Security and quality 0",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/security",
+      "heading": "Navigation Menu",
+      "context": "Security and quality 0"
+    },
+    {
+      "index": 80,
+      "label": "Insights",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/pulse",
+      "heading": "Navigation Menu",
+      "context": "Insights"
+    },
+    {
+      "index": 81,
+      "label": "Code",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+      "heading": "Navigation Menu",
+      "context": "Code"
+    },
+    {
+      "index": 82,
+      "label": "Issues",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/issues",
+      "heading": "Navigation Menu",
+      "context": "Issues"
+    },
+    {
+      "index": 83,
+      "label": "Pull requests",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/pulls",
+      "heading": "Navigation Menu",
+      "context": "Pull requests"
+    },
+    {
+      "index": 84,
+      "label": "Actions",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/actions",
+      "heading": "Navigation Menu",
+      "context": "Actions"
+    },
+    {
+      "index": 85,
+      "label": "Projects",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/projects",
+      "heading": "Navigation Menu",
+      "context": "Projects"
+    },
+    {
+      "index": 86,
+      "label": "Security and quality",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/security",
+      "heading": "Navigation Menu",
+      "context": "Security and quality"
+    },
+    {
+      "index": 87,
+      "label": "Insights",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/pulse",
+      "heading": "Navigation Menu",
+      "context": "Insights"
+    },
+    {
+      "index": 88,
+      "label": "",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 89,
+      "label": "Branches",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/branches",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 90,
+      "label": "Tags",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tags",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 91,
+      "label": "",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/branches",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 92,
+      "label": "",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tags",
+      "heading": "Navigation Menu",
+      "context": ""
+    },
+    {
+      "index": 93,
+      "label": "18 Commits",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/commits/main/",
+      "heading": "History",
+      "context": ""
+    },
+    {
+      "index": 94,
+      "label": "",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/commits/main/",
+      "heading": "History",
+      "context": ""
+    },
+    {
+      "index": 95,
+      "label": "final_project_llm_rl",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_llm_rl",
+      "heading": "Folders and files",
+      "context": "final_project_llm_rl final_project_llm_rl"
+    },
+    {
+      "index": 96,
+      "label": "final_project_llm_rl",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_llm_rl",
+      "heading": "Folders and files",
+      "context": "final_project_llm_rl final_project_llm_rl"
+    },
+    {
+      "index": 97,
+      "label": "final_project_offline_online/ problem",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_offline_online/problem",
+      "heading": "Folders and files",
+      "context": "final_project_offline_online/ problem final_project_offline_online/ problem"
+    },
+    {
+      "index": 98,
+      "label": "final_project_offline_online/ problem",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_offline_online/problem",
+      "heading": "Folders and files",
+      "context": "final_project_offline_online/ problem final_project_offline_online/ problem"
+    },
+    {
+      "index": 99,
+      "label": "hw1",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw1",
+      "heading": "Folders and files",
+      "context": "hw1 hw1"
+    },
+    {
+      "index": 100,
+      "label": "hw1",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw1",
+      "heading": "Folders and files",
+      "context": "hw1 hw1"
+    },
+    {
+      "index": 101,
+      "label": "hw2",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw2",
+      "heading": "Folders and files",
+      "context": "hw2 hw2"
+    },
+    {
+      "index": 102,
+      "label": "hw2",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw2",
+      "heading": "Folders and files",
+      "context": "hw2 hw2"
+    },
+    {
+      "index": 103,
+      "label": "hw3",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw3",
+      "heading": "Folders and files",
+      "context": "hw3 hw3"
+    },
+    {
+      "index": 104,
+      "label": "hw3",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw3",
+      "heading": "Folders and files",
+      "context": "hw3 hw3"
+    },
+    {
+      "index": 105,
+      "label": "hw4",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw4",
+      "heading": "Folders and files",
+      "context": "hw4 hw4"
+    },
+    {
+      "index": 106,
+      "label": "hw4",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw4",
+      "heading": "Folders and files",
+      "context": "hw4 hw4"
+    },
+    {
+      "index": 107,
+      "label": "hw5",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw5",
+      "heading": "Folders and files",
+      "context": "hw5 hw5"
+    },
+    {
+      "index": 108,
+      "label": "hw5",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw5",
+      "heading": "Folders and files",
+      "context": "hw5 hw5"
+    },
+    {
+      "index": 109,
+      "label": "LICENSE",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/blob/main/LICENSE",
+      "heading": "Folders and files",
+      "context": "LICENSE LICENSE"
+    },
+    {
+      "index": 110,
+      "label": "LICENSE",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/blob/main/LICENSE",
+      "heading": "Folders and files",
+      "context": "LICENSE LICENSE"
+    },
+    {
+      "index": 111,
+      "label": "MIT license",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+      "heading": "Repository files navigation",
+      "context": "MIT license"
+    },
+    {
+      "index": 112,
+      "label": "MIT license",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026#MIT-1-ov-file",
+      "heading": "About",
+      "context": ""
+    },
+    {
+      "index": 113,
+      "label": "Activity",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/activity",
+      "heading": "About",
+      "context": ""
+    },
+    {
+      "index": 114,
+      "label": "Custom properties",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/custom-properties",
+      "heading": "About",
+      "context": ""
+    },
+    {
+      "index": 115,
+      "label": "204 forks",
+      "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/forks",
+      "heading": "Forks",
+      "context": ""
+    },
+    {
+      "index": 116,
+      "label": "Report repository",
+      "url": "https://github.com/contact/report-content?content_url=https%3A%2F%2Fgithub.com%2Fberkeleydeeprlcourse%2Fhomework_spring2026&report=berkeleydeeprlcourse+%28user%29",
+      "heading": "Forks",
+      "context": ""
+    },
+    {
+      "index": 117,
+      "label": "",
+      "url": "https://github.com",
+      "heading": "Footer",
+      "context": ""
+    },
+    {
+      "index": 118,
+      "label": "Terms",
+      "url": "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+      "heading": "Footer navigation",
+      "context": "Terms"
+    },
+    {
+      "index": 119,
+      "label": "Privacy",
+      "url": "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+      "heading": "Footer navigation",
+      "context": "Privacy"
+    },
+    {
+      "index": 120,
+      "label": "Security",
+      "url": "https://github.com/security",
+      "heading": "Footer navigation",
+      "context": "Security"
+    },
+    {
+      "index": 121,
+      "label": "Status",
+      "url": "https://www.githubstatus.com/",
+      "heading": "Footer navigation",
+      "context": "Status"
+    },
+    {
+      "index": 122,
+      "label": "Community",
+      "url": "https://github.community/",
+      "heading": "Footer navigation",
+      "context": "Community"
+    },
+    {
+      "index": 123,
+      "label": "Docs",
+      "url": "https://docs.github.com/",
+      "heading": "Footer navigation",
+      "context": "Docs"
+    },
+    {
+      "index": 124,
+      "label": "Contact",
+      "url": "https://support.github.com?tags=dotcom-footer",
+      "heading": "Footer navigation",
+      "context": "Contact"
+    }
+  ],
+  "tables": [
+    [
+      "Name Name Last commit message Last commit date",
+      "final_project_llm_rl final_project_llm_rl",
+      "final_project_offline_online/ problem final_project_offline_online/ problem",
+      "hw1 hw1",
+      "hw2 hw2",
+      "hw3 hw3",
+      "hw4 hw4",
+      "hw5 hw5",
+      "LICENSE LICENSE",
+      "View all files"
+    ]
+  ]
+}

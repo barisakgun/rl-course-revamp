@@ -1,0 +1,643 @@
+{
+  "url": "https://cs224r.stanford.edu/",
+  "resolved_url": "https://cs224r.stanford.edu/",
+  "checked_at": "2026-09-28T00:01:47+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "status": "reachable",
+  "robots": {
+    "url": "https://cs224r.stanford.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:01:46+00:00"
+  },
+  "sha256_of_retrieved_html": "1483a54e569a2f6c4282d8399c0dfcb8938e4545a7836fb2873948560d0156b1",
+  "title": "CS 224R Deep Reinforcement Learning",
+  "headings": [
+    "CS 224R Deep Reinforcement Learning Spring 2026, Class: Wed, Fri 09:30am-11:00am @ NVIDIA Auditorium We plan to offer CS224R again in Fall 2027 instead of Spring 2027. Description: Humans, animals, and robots faced with the world must make decisions and take actions in the\n                            world. Moreover, the decisions they choose affect the world they exist in and those outcomes\n                            must\n                            be taken into account. This course is about algorithms for deep reinforcement learning –\n                            methods for\n                            learning behavior from experience, with a focus on practical algorithms that use deep neural\n                            networks\n                            to learn behavior from high-dimensional observations. Topics will include methods for\n                            learning from\n                            demonstrations, both model-based and model-free deep RL methods, methods for learning from\n                            offline\n                            datasets, and more advanced techniques for learning multiple tasks such as goal-conditioned\n                            RL, meta-RL,\n                            and unsupervised skill discovery. These methods will be instantiated with examples from\n                            domains with\n                            high-dimensional state and action spaces, such as robotics, visual navigation, and control.\n                            This course\n                            is complementary to CS234, which neither being a pre-requisite for the other. In comparison\n                            to CS234,\n                            this course will have a more applied and deep learning focus and an emphasis on use-cases in\n                            robotics\n                            and language modeling. Format: The course will consist of twice weekly lectures, three homework assignments, an in-class\n                            midterm exam, and a final project.\n                            The lectures will cover fundamental topics in deep reinforcement learning, with a focus on\n                            methods\n                            that are applicable to domains such as robotics and language modeling The assignments will\n                            focus on\n                            conceptual\n                            questions and coding problems that emphasize these fundamentals. Finally, students will\n                            present their\n                            projects at a poster session and through a final report at the end of the quarter. Prerequisites: Machine learning : CS229 or equivalent is a prerequisite. We will be assuming knowledge\n                            of concepts including, but not limited to (stochastic) gradient descent and\n                            cross-validation,\n                            and pre-requisites such as probability theory, multivariable calculus, and basic linear\n                            algebra. Some familiarity with deep learning : The course will build on deep learning concepts\n                            such as\n                            backpropagation, convolutional networks, and sequence models such as transformers. The\n                            assignments will\n                            involve programming in PyTorch. The first week will include a short PyTorch review tutorial. Some familiarity with reinforcement learning : We will assume some familiarity with the\n                            basics\n                            of reinforcement learning. For introductory material on RL and Markov decision processes\n                            (MDPs),\n                            see CS221's lectures on\n                            MDPs and\n                            RL, or see Chapters 3 and 4 of Sutton & Barto . Previous Offerings Spring 2023 Spring 2025 ( lecture\n                                videos ) Final Project Reports Spring 2025 Spring 2026",
+    "Spring 2026, Class: Wed, Fri 09:30am-11:00am @ NVIDIA Auditorium",
+    "We plan to offer CS224R again in Fall 2027 instead of Spring 2027.",
+    "Description:",
+    "Format:",
+    "Prerequisites:",
+    "Previous Offerings",
+    "Final Project Reports",
+    "Staff",
+    "Prof. Chelsea Finn",
+    "Instructor",
+    "OH: Wed 11 – 12 pm",
+    "Location: Huang Basement",
+    "Marcel Torne",
+    "Head Teaching Assistant",
+    "OH: Wed 12 – 2 pm",
+    "Location: Huang Basement",
+    "Amelie Byun",
+    "Course Manager",
+    "Anushree Aggarwal",
+    "Teaching Assistant",
+    "OH: Tue 2 – 4 pm",
+    "Location: Huang Basement",
+    "Abhijnya Bhat",
+    "Teaching Assistant",
+    "OH: Tue 6 – 8 pm",
+    "Location: Huang Basement",
+    "Shengqu Cai",
+    "Teaching Assistant",
+    "OH: Sun 5 – 7 pm",
+    "Location: Virtual",
+    "Rahul Chand",
+    "Teaching Assistant",
+    "OH: Sat 1 – 3 pm",
+    "Location: Virtual",
+    "Perry Dong",
+    "Teaching Assistant",
+    "OH: Mon 11 am – 1 pm",
+    "Location: Virtual",
+    "Max Du",
+    "Teaching Assistant",
+    "OH: Thu 3 – 5 pm",
+    "Location: Huang Basement",
+    "Tian Gao",
+    "Teaching Assistant",
+    "OH: Fri 5 – 7 pm",
+    "Location: Huang Basement",
+    "Joy He-Yueya",
+    "Teaching Assistant",
+    "OH: Fri 1 – 3 pm",
+    "Location: Huang Basement",
+    "Ethan Hsu",
+    "Teaching Assistant",
+    "OH: Thu 10:30 am – 12:30 pm",
+    "Location: Virtual",
+    "Joonwon Kang",
+    "Teaching Assistant",
+    "OH: Thu 7 – 9 pm",
+    "Location: Virtual",
+    "Yash Kankariya",
+    "Teaching Assistant",
+    "OH: Thu 5 – 7 pm",
+    "Location: Huang Basement",
+    "Riya Karumanchi",
+    "Teaching Assistant",
+    "OH: Tue 12 – 2 pm",
+    "Location: Virtual",
+    "Tyler Lum",
+    "Teaching Assistant",
+    "OH: Fri 3 – 5 pm",
+    "Location: Huang Basement",
+    "Anubha Mahajan",
+    "Teaching Assistant",
+    "OH: Tue 10 – 12 pm",
+    "Location: Huang Basement",
+    "Alex Nam",
+    "Teaching Assistant",
+    "OH: Fri 11 am – 1 pm",
+    "Location: Virtual",
+    "Ifdita Orney",
+    "Teaching Assistant",
+    "OH: Thu 1 – 3 pm",
+    "Location: Huang Basement",
+    "Anikait Singh",
+    "Teaching Assistant",
+    "OH: Tue 4 – 6 pm",
+    "Location: Virtual",
+    "Megha Srivastava",
+    "Teaching Assistant",
+    "OH: Sun 2 – 4 pm",
+    "Location: Virtual",
+    "Ke Wang",
+    "Teaching Assistant",
+    "OH: Sat 3 – 5 pm",
+    "Location: Virtual",
+    "Jonathan Yang",
+    "Teaching Assistant",
+    "OH: Wed 5 – 7 pm",
+    "Location: Virtual",
+    "Timeline",
+    "Course Calendar",
+    "Grading and Course Policies",
+    "Academic Accommodations",
+    "Additional Information",
+    "Note on Financial Aid"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "lectures",
+      "url": "https://stanford-cs221.github.io/autumn2022/modules/",
+      "heading": "Prerequisites:",
+      "context": "Some familiarity with reinforcement learning : We will assume some familiarity with the\n                            basics\n                            of reinforcement learning. For introductory material on RL and Markov decision processes\n                            (MDPs),\n                            see CS221's lectures on\n                            MDPs and\n                            RL, or see Chapters 3 and 4 of Sutton & Barto ."
+    },
+    {
+      "index": 1,
+      "label": "Sutton & Barto",
+      "url": "http://incompleteideas.net/book/RLbook2020.pdf",
+      "heading": "Prerequisites:",
+      "context": "Some familiarity with reinforcement learning : We will assume some familiarity with the\n                            basics\n                            of reinforcement learning. For introductory material on RL and Markov decision processes\n                            (MDPs),\n                            see CS221's lectures on\n                            MDPs and\n                            RL, or see Chapters 3 and 4 of Sutton & Barto ."
+    },
+    {
+      "index": 2,
+      "label": "Spring 2023",
+      "url": "https://cs224r.stanford.edu/spring_2023/index.html",
+      "heading": "Previous Offerings",
+      "context": "Spring 2023 Spring 2025 ( lecture\n                                videos )"
+    },
+    {
+      "index": 3,
+      "label": "Spring 2025",
+      "url": "https://cs224r.stanford.edu/spring_2025/",
+      "heading": "Previous Offerings",
+      "context": "Spring 2023 Spring 2025 ( lecture\n                                videos )"
+    },
+    {
+      "index": 4,
+      "label": "lecture\n                                videos",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL",
+      "heading": "Previous Offerings",
+      "context": "Spring 2023 Spring 2025 ( lecture\n                                videos )"
+    },
+    {
+      "index": 5,
+      "label": "Spring 2025",
+      "url": "https://cs224r.stanford.edu/spring_2025/projects/cs224r_final_projects.html",
+      "heading": "Final Project Reports",
+      "context": "Spring 2025 Spring 2026"
+    },
+    {
+      "index": 6,
+      "label": "Spring 2026",
+      "url": "https://cs224r.stanford.edu/projects/cs224r_final_projects.html",
+      "heading": "Final Project Reports",
+      "context": "Spring 2025 Spring 2026"
+    },
+    {
+      "index": 7,
+      "label": "Prof. Chelsea Finn",
+      "url": "https://ai.stanford.edu/~cbfinn/",
+      "heading": "Prof. Chelsea Finn",
+      "context": ""
+    },
+    {
+      "index": 8,
+      "label": "Course Intro + Start of MDPs & Imitation",
+      "url": "https://cs224r.stanford.edu/slides/01_cs224r_intro_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 1 Wed, April 1 Lecture Course Intro + Start of MDPs & Imitation"
+    },
+    {
+      "index": 9,
+      "label": "Imitation Learning",
+      "url": "https://cs224r.stanford.edu/slides/02_cs224r_imitation_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 1 Fri, April 3 Lecture Imitation Learning Out Homework 1 [ PDF , code , template ] Diffusion Policy: Visuomotor Policy\n                                        Learning via Action Diffusion. Chi et al. (2024) Learning Fine-Grained Bimanual\n                                        Manipulation with Low-Cost Hardware. Zhao et al. (2023)"
+    },
+    {
+      "index": 10,
+      "label": "PDF",
+      "url": "https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.pdf",
+      "heading": "Timeline",
+      "context": "Week 1 Fri, April 3 Lecture Imitation Learning Out Homework 1 [ PDF , code , template ] Diffusion Policy: Visuomotor Policy\n                                        Learning via Action Diffusion. Chi et al. (2024) Learning Fine-Grained Bimanual\n                                        Manipulation with Low-Cost Hardware. Zhao et al. (2023)"
+    },
+    {
+      "index": 11,
+      "label": "code",
+      "url": "https://cs224r.stanford.edu/material/hw1/hw1_starter_code.zip",
+      "heading": "Timeline",
+      "context": "Week 1 Fri, April 3 Lecture Imitation Learning Out Homework 1 [ PDF , code , template ] Diffusion Policy: Visuomotor Policy\n                                        Learning via Action Diffusion. Chi et al. (2024) Learning Fine-Grained Bimanual\n                                        Manipulation with Low-Cost Hardware. Zhao et al. (2023)"
+    },
+    {
+      "index": 12,
+      "label": "template",
+      "url": "https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.tex",
+      "heading": "Timeline",
+      "context": "Week 1 Fri, April 3 Lecture Imitation Learning Out Homework 1 [ PDF , code , template ] Diffusion Policy: Visuomotor Policy\n                                        Learning via Action Diffusion. Chi et al. (2024) Learning Fine-Grained Bimanual\n                                        Manipulation with Low-Cost Hardware. Zhao et al. (2023)"
+    },
+    {
+      "index": 13,
+      "label": "Diffusion Policy: Visuomotor Policy\n                                        Learning via Action Diffusion.",
+      "url": "https://arxiv.org/abs/2303.04137v5",
+      "heading": "Timeline",
+      "context": "Diffusion Policy: Visuomotor Policy\n                                        Learning via Action Diffusion. Chi et al. (2024)"
+    },
+    {
+      "index": 14,
+      "label": "Learning Fine-Grained Bimanual\n                                        Manipulation with Low-Cost Hardware.",
+      "url": "https://arxiv.org/abs/2304.13705",
+      "heading": "Timeline",
+      "context": "Learning Fine-Grained Bimanual\n                                        Manipulation with Low-Cost Hardware. Zhao et al. (2023)"
+    },
+    {
+      "index": 15,
+      "label": "Policy Gradients",
+      "url": "https://cs224r.stanford.edu/slides/03_cs224r_policy_gradients_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 2 Wed, April 8 Lecture Policy Gradients Simple statistical\n                                        gradient-following algorithms for connectionist reinforcement learning. Williams (1992)"
+    },
+    {
+      "index": 16,
+      "label": "Simple statistical\n                                        gradient-following algorithms for connectionist reinforcement learning.",
+      "url": "https://link.springer.com/article/10.1007/BF00992696",
+      "heading": "Timeline",
+      "context": "Simple statistical\n                                        gradient-following algorithms for connectionist reinforcement learning. Williams (1992)"
+    },
+    {
+      "index": 17,
+      "label": "Actor-Critic Methods",
+      "url": "https://cs224r.stanford.edu/slides/04_cs224r_actor_critic_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code , template , compute guide ] Policy\n                                        Gradient Methods for Reinforcement Learning with Function Approximation. Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)"
+    },
+    {
+      "index": 18,
+      "label": "PDF",
+      "url": "https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.pdf",
+      "heading": "Timeline",
+      "context": "Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code , template , compute guide ] Policy\n                                        Gradient Methods for Reinforcement Learning with Function Approximation. Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)"
+    },
+    {
+      "index": 19,
+      "label": "code",
+      "url": "https://cs224r.stanford.edu/material/hw2/hw2_starter_code.zip",
+      "heading": "Timeline",
+      "context": "Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code , template , compute guide ] Policy\n                                        Gradient Methods for Reinforcement Learning with Function Approximation. Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)"
+    },
+    {
+      "index": 20,
+      "label": "template",
+      "url": "https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.tex",
+      "heading": "Timeline",
+      "context": "Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code , template , compute guide ] Policy\n                                        Gradient Methods for Reinforcement Learning with Function Approximation. Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)"
+    },
+    {
+      "index": 21,
+      "label": "compute guide",
+      "url": "https://cs224r.stanford.edu/material/CS224R_compute_guide.pdf",
+      "heading": "Timeline",
+      "context": "Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code , template , compute guide ] Policy\n                                        Gradient Methods for Reinforcement Learning with Function Approximation. Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)"
+    },
+    {
+      "index": 22,
+      "label": "Policy\n                                        Gradient Methods for Reinforcement Learning with Function Approximation.",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/1999/file/464d828b85b0bed98e80ade0a5c43b0f-Paper.pdf",
+      "heading": "Timeline",
+      "context": "Policy\n                                        Gradient Methods for Reinforcement Learning with Function Approximation. Sutton et al. (1999)"
+    },
+    {
+      "index": 23,
+      "label": "Proximal Policy Optimization.",
+      "url": "https://arxiv.org/pdf/1707.06347",
+      "heading": "Timeline",
+      "context": "Proximal Policy Optimization. Schulman et al. (2017)"
+    },
+    {
+      "index": 24,
+      "label": "Off-Policy Actor Critic Methods",
+      "url": "https://cs224r.stanford.edu/slides/05_cs224r_offpolicy_actor_critic_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 3 Wed, April 15 Lecture Off-Policy Actor Critic Methods Playing Atari with Deep Reinforcement\n                                        Learning. Mnih et al. (2013)"
+    },
+    {
+      "index": 25,
+      "label": "Playing Atari with Deep Reinforcement\n                                        Learning.",
+      "url": "https://arxiv.org/abs/1312.5602",
+      "heading": "Timeline",
+      "context": "Playing Atari with Deep Reinforcement\n                                        Learning. Mnih et al. (2013)"
+    },
+    {
+      "index": 26,
+      "label": "Q-learning",
+      "url": "https://cs224r.stanford.edu/slides/06_cs224r_qlearning_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 3 Fri, April 17 Lecture Q-learning Deep Reinforcement Learning with\n                                        Double Q-learning. Hasselt et al. (2015) A Distributional Perspective on\n                                        Reinforcement Learning. Bellemare et al. (2017)"
+    },
+    {
+      "index": 27,
+      "label": "Deep Reinforcement Learning with\n                                        Double Q-learning.",
+      "url": "https://arxiv.org/abs/1509.06461",
+      "heading": "Timeline",
+      "context": "Deep Reinforcement Learning with\n                                        Double Q-learning. Hasselt et al. (2015)"
+    },
+    {
+      "index": 28,
+      "label": "A Distributional Perspective on\n                                        Reinforcement Learning.",
+      "url": "https://arxiv.org/abs/1707.06887",
+      "heading": "Timeline",
+      "context": "A Distributional Perspective on\n                                        Reinforcement Learning. Bellemare et al. (2017)"
+    },
+    {
+      "index": 29,
+      "label": "Extra section on Q-learning",
+      "url": "https://cs224r.stanford.edu/material/CS224R_Tutotial_Max.pdf",
+      "heading": "Timeline",
+      "context": "Week 3 Fri, April 17 TA Session Extra section on Q-learning 4:45 – 5:35 pm, Thornton 102"
+    },
+    {
+      "index": 30,
+      "label": "Offline RL",
+      "url": "https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 4 Wed, April 22 Lecture Offline RL Due Project Survey Offline Reinforcement Learning with\n                                        Implicit Q-Learning. Kostrikov et al. (2021)"
+    },
+    {
+      "index": 31,
+      "label": "Offline Reinforcement Learning with\n                                        Implicit Q-Learning.",
+      "url": "https://arxiv.org/abs/2110.06169",
+      "heading": "Timeline",
+      "context": "Offline Reinforcement Learning with\n                                        Implicit Q-Learning. Kostrikov et al. (2021)"
+    },
+    {
+      "index": 32,
+      "label": "Reward Learning",
+      "url": "https://cs224r.stanford.edu/slides/08_cs224r_reward_learning_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 4 Fri, April 24 Lecture Reward Learning Due Homework 2 Out Homework 3 [ PDF , code , template ] Deep reinforcement learning from human\n                                        preferences. Christiano et al. (2017)"
+    },
+    {
+      "index": 33,
+      "label": "PDF",
+      "url": "https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.pdf",
+      "heading": "Timeline",
+      "context": "Week 4 Fri, April 24 Lecture Reward Learning Due Homework 2 Out Homework 3 [ PDF , code , template ] Deep reinforcement learning from human\n                                        preferences. Christiano et al. (2017)"
+    },
+    {
+      "index": 34,
+      "label": "code",
+      "url": "https://cs224r.stanford.edu/material/hw3/hw3_starter_code.zip",
+      "heading": "Timeline",
+      "context": "Week 4 Fri, April 24 Lecture Reward Learning Due Homework 2 Out Homework 3 [ PDF , code , template ] Deep reinforcement learning from human\n                                        preferences. Christiano et al. (2017)"
+    },
+    {
+      "index": 35,
+      "label": "template",
+      "url": "https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.tex",
+      "heading": "Timeline",
+      "context": "Week 4 Fri, April 24 Lecture Reward Learning Due Homework 2 Out Homework 3 [ PDF , code , template ] Deep reinforcement learning from human\n                                        preferences. Christiano et al. (2017)"
+    },
+    {
+      "index": 36,
+      "label": "Deep reinforcement learning from human\n                                        preferences.",
+      "url": "https://arxiv.org/abs/1706.03741",
+      "heading": "Timeline",
+      "context": "Deep reinforcement learning from human\n                                        preferences. Christiano et al. (2017)"
+    },
+    {
+      "index": 37,
+      "label": "RL for LLMs: Preference Optimization (Guest Lecture: Archit Sharma)",
+      "url": "https://cs224r.stanford.edu/slides/09_cs224r_rlhf_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 5 Wed, April 29 Lecture RL for LLMs: Preference Optimization (Guest Lecture: Archit Sharma) Direct Preference Optimization: Your\n                                        Language Model is Secretly a Reward Model. Rafailov et al. (2023) IPO: Your Language Model is Secretly a\n                                        Preference Classifier. Garg et al. (2025)"
+    },
+    {
+      "index": 38,
+      "label": "Direct Preference Optimization: Your\n                                        Language Model is Secretly a Reward Model.",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "heading": "Timeline",
+      "context": "Direct Preference Optimization: Your\n                                        Language Model is Secretly a Reward Model. Rafailov et al. (2023)"
+    },
+    {
+      "index": 39,
+      "label": "IPO: Your Language Model is Secretly a\n                                        Preference Classifier.",
+      "url": "https://arxiv.org/abs/2502.16182",
+      "heading": "Timeline",
+      "context": "IPO: Your Language Model is Secretly a\n                                        Preference Classifier. Garg et al. (2025)"
+    },
+    {
+      "index": 40,
+      "label": "RL for LLMs: Reasoning (Guest Lecture: Noam Brown)",
+      "url": "https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 5 Fri, May 1 Lecture RL for LLMs: Reasoning (Guest Lecture: Noam Brown) Due Project Proposal (incl. SFT milestone for default project)"
+    },
+    {
+      "index": 41,
+      "label": "Model-Based RL",
+      "url": "https://cs224r.stanford.edu/slides/11_cs224r_mbrl_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 6 Wed, May 6 Lecture Model-Based RL When to Trust Your Model: Model-Based\n                                        Policy Optimization. Janner et al. (2019)"
+    },
+    {
+      "index": 42,
+      "label": "When to Trust Your Model: Model-Based\n                                        Policy Optimization.",
+      "url": "https://arxiv.org/abs/1906.08253",
+      "heading": "Timeline",
+      "context": "When to Trust Your Model: Model-Based\n                                        Policy Optimization. Janner et al. (2019)"
+    },
+    {
+      "index": 43,
+      "label": "Multi-Task and Goal-Conditioned RL",
+      "url": "https://cs224r.stanford.edu/slides/12_cs224r_mtrl_gcrl_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 6 Fri, May 8 Lecture Multi-Task and Goal-Conditioned RL Due Homework 3 Hindsight Experience Replay. Andrychowicz et al. (2018)"
+    },
+    {
+      "index": 44,
+      "label": "Hindsight Experience Replay.",
+      "url": "https://arxiv.org/abs/1707.01495",
+      "heading": "Timeline",
+      "context": "Hindsight Experience Replay. Andrychowicz et al. (2018)"
+    },
+    {
+      "index": 45,
+      "label": "Exam Review Session",
+      "url": "https://cs224r.stanford.edu/material/CS224R_Exam_Review_Session_Riya.pptx",
+      "heading": "Timeline",
+      "context": "Week 7 Mon, May 11 Review Session Exam Review Session 4:30 – 5:20 pm, Skilling Aud"
+    },
+    {
+      "index": 46,
+      "label": "Meta-RL",
+      "url": "https://cs224r.stanford.edu/slides/13_cs224r_metarl_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 7 Wed, May 13 Lecture Meta-RL RL 2 : Fast Reinforcement\n                                        Learning via\n                                        Slow Reinforcement Learning. Duan et al. (2016)"
+    },
+    {
+      "index": 47,
+      "label": "RL 2 : Fast Reinforcement\n                                        Learning via\n                                        Slow Reinforcement Learning.",
+      "url": "https://arxiv.org/abs/1611.02779",
+      "heading": "Timeline",
+      "context": "RL 2 : Fast Reinforcement\n                                        Learning via\n                                        Slow Reinforcement Learning. Duan et al. (2016)"
+    },
+    {
+      "index": 48,
+      "label": "Decoupling Exploration and\n                                        Exploitation for Meta-Reinforcement Learning without Sacrifices.",
+      "url": "https://arxiv.org/abs/2008.02790",
+      "heading": "Timeline",
+      "context": "Decoupling Exploration and\n                                        Exploitation for Meta-Reinforcement Learning without Sacrifices. Liu et al.\n                                    (2021)"
+    },
+    {
+      "index": 49,
+      "label": "Hierarchical RL and IL",
+      "url": "https://cs224r.stanford.edu/slides/15_cs224r_hierarchy_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 8 Wed, May 20 Lecture Hierarchical RL and IL Do As I Can, Not As I Say: Grounding\n                                        Language in Robotic Affordances. Ahn et al. (2022)"
+    },
+    {
+      "index": 50,
+      "label": "Do As I Can, Not As I Say: Grounding\n                                        Language in Robotic Affordances.",
+      "url": "https://arxiv.org/abs/2204.01691",
+      "heading": "Timeline",
+      "context": "Do As I Can, Not As I Say: Grounding\n                                        Language in Robotic Affordances. Ahn et al. (2022)"
+    },
+    {
+      "index": 51,
+      "label": "RL for Robots: Sim-to-Real Transfer (Guest Lecture: Guanya Shi)",
+      "url": "https://cs224r.stanford.edu/slides/16_cs224r_sim2real_robot_learning_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 8 Fri, May 22 Lecture RL for Robots: Sim-to-Real Transfer (Guest Lecture: Guanya Shi) Due Project Milestone Sim-to-Real: Learning Agile\n                                        Locomotion For Quadruped Robots. Tan et al. (2018)"
+    },
+    {
+      "index": 52,
+      "label": "Sim-to-Real: Learning Agile\n                                        Locomotion For Quadruped Robots.",
+      "url": "https://arxiv.org/abs/1804.10332",
+      "heading": "Timeline",
+      "context": "Sim-to-Real: Learning Agile\n                                        Locomotion For Quadruped Robots. Tan et al. (2018)"
+    },
+    {
+      "index": 53,
+      "label": "RL for Robots: RL for VLAs",
+      "url": "https://cs224r.stanford.edu/slides/17_cs224r_rl_vlas_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 9 Wed, May 27 Lecture RL for Robots: RL for VLAs"
+    },
+    {
+      "index": 54,
+      "label": "Frontiers",
+      "url": "https://cs224r.stanford.edu/slides/18_cs224r_frontiers_how_to_research_2026.pdf",
+      "heading": "Timeline",
+      "context": "Week 9 Fri, May 29 Lecture Frontiers"
+    },
+    {
+      "index": 55,
+      "label": "Google Calendar",
+      "url": "https://calendar.google.com/calendar/u/0?cid=OTkzMTg0Y2U5ZDdmMTYyZThkNWVkNGYwYzY2NzUxMjIwMzEzZDc2YTA2MDQ5NTAwZDg2NzUyOTc0OTZhNzVhOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
+      "heading": "Course Calendar",
+      "context": "Google Calendar"
+    },
+    {
+      "index": 56,
+      "label": "iCalendar file",
+      "url": "https://calendar.google.com/calendar/ical/993184ce9d7f162e8d5ed4f0c66751220313d76a06049500d8675297496a75a9%40group.calendar.google.com/public/basic.ics",
+      "heading": "Course Calendar",
+      "context": "iCalendar file"
+    },
+    {
+      "index": 57,
+      "label": "raw view",
+      "url": "https://calendar.google.com/calendar/embed?src=993184ce9d7f162e8d5ed4f0c66751220313d76a06049500d8675297496a75a9%40group.calendar.google.com&ctz=America%2FLos_Angeles",
+      "heading": "Course Calendar",
+      "context": "raw view"
+    },
+    {
+      "index": 58,
+      "label": "here",
+      "url": "https://cs224r.stanford.edu/spring_2025/projects/cs224r_final_projects.html",
+      "heading": "Grading and Course Policies",
+      "context": "Project (35%): The course project allows you to apply some of what you have learned to an\n                application or research question of your choosing. The project may be done in groups of 1-3 students.\n                You may choose between a custom final project (where students define a project pertaining to the course\n                topics) and a default project (where students start by implementing a basic LLM RL set-up and try to\n                improve it). Examples of both projects are available here , though the default project has been adjusted\n                since Spring 2025."
+    },
+    {
+      "index": 59,
+      "label": "Default Project Guidelines",
+      "url": "https://cs224r.stanford.edu/material/CS224R_Default_Project_Guidelines.pdf",
+      "heading": "Grading and Course Policies",
+      "context": "Default Project Guidelines ( starter code )"
+    },
+    {
+      "index": 60,
+      "label": "starter code",
+      "url": "https://cs224r.stanford.edu/material/default_proj.zip",
+      "heading": "Grading and Course Policies",
+      "context": "Default Project Guidelines ( starter code )"
+    },
+    {
+      "index": 61,
+      "label": "Custom Project Guidelines",
+      "url": "https://cs224r.stanford.edu/material/CS224R_Custom_Project_Guidelines.pdf",
+      "heading": "Grading and Course Policies",
+      "context": "Custom Project Guidelines"
+    },
+    {
+      "index": 62,
+      "label": "Modal",
+      "url": "https://modal.com",
+      "heading": "Grading and Course Policies",
+      "context": "We are grateful for generous compute support from Modal , including credits used for homework assignments and course projects."
+    },
+    {
+      "index": 64,
+      "label": "this link",
+      "url": "https://online.stanford.edu/graduate-education/exams-homework-faqs",
+      "heading": "Grading and Course Policies",
+      "context": "CGOE students. Due to the size of this class, we cannot accommodate in-person exams (even\n                    if you live near campus) to help with room capacity and staffing for the on-campus students. CGOE\n                    students will need to nominate exam monitors for both exams and coordinate the exam process with\n                    the CGOE exams team . Please refer to this link for\n                    more information on the process. For any additional questions, please reach out to the CGOE exams team ."
+    },
+    {
+      "index": 66,
+      "label": "The Stanford\n                    Honor\n                    Code",
+      "url": "https://communitystandards.stanford.edu/policies-and-guidance/honor-code",
+      "heading": "Grading and Course Policies",
+      "context": "Honor Code and Using AI Tools : Collaboration with other students and AI tools is allowed as part\n                of the problem-solving process. However, unless noted otherwise, we expect students to write down\n                solutions and code independently. Assistance from AI tools is treated analogously to assistance from\n                another person. It is an honor code violation to copy, refer to, or look at written or code solutions\n                from other students, from AI tools, and from previous course offerings, including the use of code\n                autocomplete systems. Furthermore, it is an honor code violation to post your assignment solutions\n                online, such as on a public git repo. For more information, see The Stanford\n                    Honor\n                    Code , The\n                    Stanford Honor Code Pertaining to CS Courses , and the Generative AI Policy\n                    Guidance ."
+    },
+    {
+      "index": 67,
+      "label": "The\n                    Stanford Honor Code Pertaining to CS Courses",
+      "url": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1164/handouts/honor-code.pdf",
+      "heading": "Grading and Course Policies",
+      "context": "Honor Code and Using AI Tools : Collaboration with other students and AI tools is allowed as part\n                of the problem-solving process. However, unless noted otherwise, we expect students to write down\n                solutions and code independently. Assistance from AI tools is treated analogously to assistance from\n                another person. It is an honor code violation to copy, refer to, or look at written or code solutions\n                from other students, from AI tools, and from previous course offerings, including the use of code\n                autocomplete systems. Furthermore, it is an honor code violation to post your assignment solutions\n                online, such as on a public git repo. For more information, see The Stanford\n                    Honor\n                    Code , The\n                    Stanford Honor Code Pertaining to CS Courses , and the Generative AI Policy\n                    Guidance ."
+    },
+    {
+      "index": 68,
+      "label": "Generative AI Policy\n                    Guidance",
+      "url": "https://communitystandards.stanford.edu/policies-guidance%23policies-guidance-links/bca-guidance-recommendations#generative-ai-policy-guidance",
+      "heading": "Grading and Course Policies",
+      "context": "Honor Code and Using AI Tools : Collaboration with other students and AI tools is allowed as part\n                of the problem-solving process. However, unless noted otherwise, we expect students to write down\n                solutions and code independently. Assistance from AI tools is treated analogously to assistance from\n                another person. It is an honor code violation to copy, refer to, or look at written or code solutions\n                from other students, from AI tools, and from previous course offerings, including the use of code\n                autocomplete systems. Furthermore, it is an honor code violation to post your assignment solutions\n                online, such as on a public git repo. For more information, see The Stanford\n                    Honor\n                    Code , The\n                    Stanford Honor Code Pertaining to CS Courses , and the Generative AI Policy\n                    Guidance ."
+    },
+    {
+      "index": 71,
+      "label": "more details",
+      "url": "https://drive.google.com/file/d/1XUZPSm1QdRSBiZU35waNLxiXZOcU47z3/view",
+      "heading": "Additional Information",
+      "context": "AIWG : This course is participating in the proctoring pilot overseen by the Academic Integrity\n                Working Group (AIWG). The purpose of this pilot is to determine the efficacy of proctoring and develop\n                effective practices for proctoring in-person exams at Stanford. To find more details on\n                the pilot or the working group, please visit the AIWG's webpage ."
+    },
+    {
+      "index": 72,
+      "label": "AIWG's webpage",
+      "url": "https://studentaffairs.stanford.edu/AIWG",
+      "heading": "Additional Information",
+      "context": "AIWG : This course is participating in the proctoring pilot overseen by the Academic Integrity\n                Working Group (AIWG). The purpose of this pilot is to determine the efficacy of proctoring and develop\n                effective practices for proctoring in-person exams at Stanford. To find more details on\n                the pilot or the working group, please visit the AIWG's webpage ."
+    },
+    {
+      "index": 73,
+      "label": "Student\n                    Budget website",
+      "url": "https://financialaid.stanford.edu/undergrad/budget/index.html",
+      "heading": "Note on Financial Aid",
+      "context": "All students should retain receipts for books and other course-related expenses, as these may be\n                qualified educational expenses for tax purposes. If you are an undergraduate receiving financial\n                aid, you may be eligible for additional financial aid for required books and course materials if\n                these expenses exceed the aid amount in your award letter. For more information, review your award\n                letter or visit the Student\n                    Budget website ."
+    }
+  ],
+  "tables": [
+    [
+      "Date Lecture Deadlines Notes & Optional Reading",
+      "Week 1 Wed, April 1 Lecture Course Intro + Start of MDPs & Imitation",
+      "Week 1 Fri, April 3 TA Session PyTorch Tutorial 3:30 – 4:20 pm, Skilling Aud",
+      "Week 1 Fri, April 3 Lecture Imitation Learning Out Homework 1 [ PDF , code , template ] Diffusion Policy: Visuomotor Policy\n                                        Learning via Action Diffusion. Chi et al. (2024) Learning Fine-Grained Bimanual\n                                        Manipulation with Low-Cost Hardware. Zhao et al. (2023)",
+      "Week 2 Wed, April 8 Lecture Policy Gradients Simple statistical\n                                        gradient-following algorithms for connectionist reinforcement learning. Williams (1992)",
+      "Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code , template , compute guide ] Policy\n                                        Gradient Methods for Reinforcement Learning with Function Approximation. Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)",
+      "Week 3 Wed, April 15 Lecture Off-Policy Actor Critic Methods Playing Atari with Deep Reinforcement\n                                        Learning. Mnih et al. (2013)",
+      "Week 3 Fri, April 17 Lecture Q-learning Deep Reinforcement Learning with\n                                        Double Q-learning. Hasselt et al. (2015) A Distributional Perspective on\n                                        Reinforcement Learning. Bellemare et al. (2017)",
+      "Week 3 Fri, April 17 TA Session Extra section on Q-learning 4:45 – 5:35 pm, Thornton 102",
+      "Week 4 Wed, April 22 Lecture Offline RL Due Project Survey Offline Reinforcement Learning with\n                                        Implicit Q-Learning. Kostrikov et al. (2021)",
+      "Week 4 Fri, April 24 Lecture Reward Learning Due Homework 2 Out Homework 3 [ PDF , code , template ] Deep reinforcement learning from human\n                                        preferences. Christiano et al. (2017)",
+      "Week 5 Wed, April 29 Lecture RL for LLMs: Preference Optimization (Guest Lecture: Archit Sharma) Direct Preference Optimization: Your\n                                        Language Model is Secretly a Reward Model. Rafailov et al. (2023) IPO: Your Language Model is Secretly a\n                                        Preference Classifier. Garg et al. (2025)",
+      "Week 5 Fri, May 1 Lecture RL for LLMs: Reasoning (Guest Lecture: Noam Brown) Due Project Proposal (incl. SFT milestone for default project)",
+      "Week 6 Wed, May 6 Lecture Model-Based RL When to Trust Your Model: Model-Based\n                                        Policy Optimization. Janner et al. (2019)",
+      "Week 6 Fri, May 8 Lecture Multi-Task and Goal-Conditioned RL Due Homework 3 Hindsight Experience Replay. Andrychowicz et al. (2018)",
+      "Week 7 Mon, May 11 Review Session Exam Review Session 4:30 – 5:20 pm, Skilling Aud",
+      "Week 7 Wed, May 13 Lecture Meta-RL RL 2 : Fast Reinforcement\n                                        Learning via\n                                        Slow Reinforcement Learning. Duan et al. (2016)",
+      "Week 7 Fri, May 15 Exam In-Class Exam Decoupling Exploration and\n                                        Exploitation for Meta-Reinforcement Learning without Sacrifices. Liu et al.\n                                    (2021)",
+      "Week 8 Wed, May 20 Lecture Hierarchical RL and IL Do As I Can, Not As I Say: Grounding\n                                        Language in Robotic Affordances. Ahn et al. (2022)",
+      "Week 8 Fri, May 22 Lecture RL for Robots: Sim-to-Real Transfer (Guest Lecture: Guanya Shi) Due Project Milestone Sim-to-Real: Learning Agile\n                                        Locomotion For Quadruped Robots. Tan et al. (2018)",
+      "Week 9 Wed, May 27 Lecture RL for Robots: RL for VLAs",
+      "Week 9 Fri, May 29 Lecture Frontiers",
+      "Week 10 Wed, June 3 Presentations No Lecture (Poster Session) Due Project Poster No late days or OAE extensions are allowed for the project poster.",
+      "Week 10 Fri, June 5",
+      "Week 11 Mon, June 8 Due Project Report No late days or OAE extensions are allowed for the final project report\n                                    submission."
+    ]
+  ]
+}

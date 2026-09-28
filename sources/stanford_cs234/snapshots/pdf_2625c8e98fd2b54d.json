@@ -1,0 +1,26 @@
+{
+  "url": "https://web.stanford.edu/class/cs234/assignments/a1/CS234_A1_Questions.pdf",
+  "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a1/CS234_A1_Questions.pdf",
+  "checked_at": "2026-09-28T00:03:57+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://web.stanford.edu/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T00:03:56+00:00"
+  },
+  "sha256": "4deb03f4401fe29d52c18299fcaff3702d3f760c8738ad7113506f7272999bb7",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.27\nCreationDate:    Fri Jan  9 04:46:37 2026 +03\nModDate:         Fri Jan  9 04:46:37 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           7\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       494855 bytes\nOptimized:       yes\nPDF version:     1.5\n",
+  "first_page_excerpt": "                             CS 234 Winter 2026\n                                Assignment 1\n                   Due: January 16th 2026 at 6:00 pm (PST)\n\n\n\nSubmission Instructions (Please follow these exactly)\n   Please typeset the written part of your homework using the template that we have provided in\nLatex. You will need to submit the homework in three separate parts:\n\n    • Assignment 1 Written (PDF file): Submit a PDF version of your LATEX file.\n\n    • Assignment 1 Written (Tex file): Submit the raw .tex file.\n\n    • Assignment 1 Coding (.zip file): Submit your coding solutions here. There is a Makefile\n      provided that will help you submit the assignment. Please run make clean followed by make\n      submit in the terminal and submit the resulting zip file on Gradescope.\n\n\n1    Eff",
+  "embedded_urls": [
+    "https://openreview.net/pdf?id=JYtwGwIL7ye"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://openreview.net/pdf?id=JYtwGwIL7ye",
+    "https://proceedings.neurips.cc/paper/2013/hash/6a5889bb0190d0211a991f47bb19a777-Abstract.html",
+    "https://www.sciencedirect.com/science/article/pii/S0022000008000767"
+  ]
+}

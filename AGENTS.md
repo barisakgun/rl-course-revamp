@@ -45,7 +45,7 @@ Use the repository layers consistently:
 
 Editable teaching artifacts belong in `course/`.
 
-Generated planning views, reports, audits, and rendered/exported artifacts belong in `output/`.
+Most of the generated planning views, reports, audits, and rendered/exported artifacts belong in `output/`. However, certain generated files will be put into `analysis/`
 
 ## Avoid duplicated state
 

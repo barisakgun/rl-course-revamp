@@ -1,0 +1,176 @@
+schema_version: 1
+phase: 1
+source_id: foundations-deep-rl-abbeel
+configured_source:
+  id: foundations-deep-rl-abbeel
+  instructor: Pieter Abbeel
+  path: sources/foundations-deep-rl-abbeel/
+  role: shorter_deep_rl_reference
+offering:
+  label: Foundations of Deep RL in 6 Lectures; publication metadata points to 2021
+  evidence:
+  - path: sources/foundations-deep-rl-abbeel/l1-mdps-exact-methods.pdf
+    pages:
+    - 1
+    - 2
+  - source_url: https://www.youtube.com/watch?v=2o1yrkbpcUk
+    locator: Pieter Abbeel channel metadata, published 2021-08-24; not original-download provenance
+inventory_status: inventoried_with_documented_gaps
+scope: Material inventory only; no normalized topics, cross-course comparison, or curriculum recommendations.
+materials:
+- id: m_62d684dc80b3
+  title: l1-mdps-exact-methods
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Foundations of Deep RL in 6 Lectures; publication metadata points to 2021
+  path: sources/foundations-deep-rl-abbeel/l1-mdps-exact-methods.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/foundations-deep-rl-abbeel/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 9706eb61af514c07013137489fdcfe544d7b6eebcca71b44a1d40b2b66ed0381
+  size_bytes: 6360611
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 69
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: l1
+- id: m_fa21866cdd31
+  title: l2-deep-q-learning
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Foundations of Deep RL in 6 Lectures; publication metadata points to 2021
+  path: sources/foundations-deep-rl-abbeel/l2-deep-q-learning.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/foundations-deep-rl-abbeel/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: d4e2c2d02e8bb2bc275da15aeeb7fd5a2fcc695721f4e87631d9314d8d1b865e
+  size_bytes: 6364464
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 40
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: l2
+- id: m_09fda4f75231
+  title: l3-policy-gradient-and-advantage-estimation
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Foundations of Deep RL in 6 Lectures; publication metadata points to 2021
+  path: sources/foundations-deep-rl-abbeel/l3-policy-gradient-and-advantage-estimation.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/foundations-deep-rl-abbeel/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 1bb649671cbeabf908512bbd9ae83679329f505e93298ca34c91908ba5b59377
+  size_bytes: 5507016
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 52
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: l3
+- id: m_cc6e8aae6e28
+  title: l4-TRPO-PPO
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Foundations of Deep RL in 6 Lectures; publication metadata points to 2021
+  path: sources/foundations-deep-rl-abbeel/l4-TRPO-PPO.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/foundations-deep-rl-abbeel/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 619421374a86f9bff52d5f3ce4c00530d2eb0df4e74a2b82f8572b23200de583
+  size_bytes: 2948143
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 37
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: l4
+- id: m_dc5900313e7f
+  title: l5-DDPG-SAC
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Foundations of Deep RL in 6 Lectures; publication metadata points to 2021
+  path: sources/foundations-deep-rl-abbeel/l5-DDPG-SAC.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/foundations-deep-rl-abbeel/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 1f0b9f48e70e27988376c55e66a09721630625d607680281152f519259827859
+  size_bytes: 1210212
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 18
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: l5
+- id: m_e523685a58a2
+  title: l6-model-based-rl
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Foundations of Deep RL in 6 Lectures; publication metadata points to 2021
+  path: sources/foundations-deep-rl-abbeel/l6-model-based-rl.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/foundations-deep-rl-abbeel/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: f95531499e581cb5464a682c836172b158521118a3008a744f18a99f1d19c8c1
+  size_bytes: 1895566
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 25
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: l6
+- id: m_132e76c203fc
+  title: 'Pieter Abbeel: L6 Model-based RL (Foundations of Deep RL Series)'
+  material_type: recording
+  instructional_use: series_recording
+  offering: Foundations of Deep RL in 6 Lectures; publication metadata points to 2021
+  url: https://www.youtube.com/watch?v=2o1yrkbpcUk
+  storage: linked
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - source_url: https://www.youtube.com/watch?v=2o1yrkbpcUk
+    locator: Author-channel search metadata; published 2021-08-24
+  accessibility:
+    status: metadata_found_playback_not_verified
+  check_url: false
+observations:
+- statement: All six lectures advertised on Lecture 1 p.2 are present. Titles identify Pieter Abbeel and the six-lecture
+    series. PDF creation metadata alone is not treated as proof of a course offering date.
+  basis: direct_source_evidence
+  evidence:
+  - l1-mdps-exact-methods.pdf pp.1–2
+  - snapshots/local_inventory.json
+evidence_gaps:
+- category: collection_scope
+  description: No separate assignment, starter code, project, exam, or assigned-reading schedule is supplied with
+    the six decks. Papers cited within slides are references, not established required readings.
+  evidence:
+  - snapshots/local_inventory.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: local_provenance
+  description: Original slide download URLs/dates are unknown. The 2021 video metadata identifies the series but
+    does not establish exact provenance of each local PDF. Full recording-series completeness was not verified.
+  evidence:
+  - snapshots/local_inventory.json
+  - https://www.youtube.com/watch?v=2o1yrkbpcUk
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+inspected_at: '2026-09-27T23:59:35+00:00'

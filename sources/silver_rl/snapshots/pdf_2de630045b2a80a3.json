@@ -1,0 +1,20 @@
+{
+  "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/easy21-assignment.pdf",
+  "resolved_url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/easy21-assignment.pdf",
+  "checked_at": "2026-09-28T00:03:42+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://davidstarsilver.wordpress.com/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T00:03:41+00:00"
+  },
+  "sha256": "df35acd311f496792e2897474bf26b1f3baf660c0b93c56bb299e4f66b0db754",
+  "pdfinfo": "Creator:         TeX\nProducer:        pdfTeX-1.40.14\nCreationDate:    Fri Feb 20 16:05:51 2015 EET\nModDate:         Fri Feb 20 16:05:51 2015 EET\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           4\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       231599 bytes\nOptimized:       no\nPDF version:     1.5\n",
+  "first_page_excerpt": "   Reinforcement Learning Assignment: Easy21\n\n\n                             February 20, 2015\n\n\n   The goal of this assignment is to apply reinforcement learning methods to a\nsimple card game that we call Easy21. This exercise is similar to the Blackjack\nexample in Sutton and Barto 5.3 – please note, however, that the rules of the\ncard game are different and non-standard.\n\n   • The game is played with an infinite deck of cards (i.e. cards are sampled\n     with replacement)\n   • Each draw from the deck results in a value between 1 and 10 (uniformly\n     distributed) with a colour of red (probability 1/3) or black (probability\n     2/3).\n   • There are no aces or picture (face) cards in this game\n   • At the start of the game both the player and the dealer draw one black\n     card (fully obs",
+  "embedded_urls": [],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": []
+}

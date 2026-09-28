@@ -1,0 +1,20 @@
+{
+  "url": "https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.pdf",
+  "resolved_url": "https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.pdf",
+  "checked_at": "2026-09-28T00:04:05+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://cs224r.stanford.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:04:03+00:00"
+  },
+  "sha256": "832bc80e95c90e09d28cb169d78e359a8c220ab94b57a1ac7bb6b449030ff496",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.24\nCreationDate:    Fri Apr  3 07:47:04 2026 +03\nModDate:         Fri Apr  3 07:47:04 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           7\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       289119 bytes\nOptimized:       yes\nPDF version:     1.5\n",
+  "first_page_excerpt": "                    CS224R Spring 2026 Homework 1\n                          Imitation Learning\n                                Due 4/10/2026 9pm PT\n                         SUNet ID:\n                            Name:\n                     Collaborators:\n\nBy turning in this assignment, I agree by the Stanford honor code and declare that all of\nthis is my own work.\n\n\nOverview\nGoals: In this assignment you will experiment with imitation learning on a custom Flappy\nBird environment using action chunking. You will train behavior cloning (BC) policies\nwith different losses regression and flow matching, and improve it with DAgger.\n\n  1. Implement and train an imitation learning agent using regression.\n  2. Implement and train an imitation learning agent via flow matching to learn a gener-\n     ati",
+  "embedded_urls": [],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": []
+}

@@ -1,0 +1,33 @@
+{
+  "url": "https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.pdf",
+  "resolved_url": "https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.pdf",
+  "checked_at": "2026-09-28T00:04:06+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://cs224r.stanford.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:04:03+00:00"
+  },
+  "sha256": "3b37586512f49269dc541dbe899a84fbf1c43a39904048043b1075af35c5474d",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.24\nCreationDate:    Mon Apr 20 20:15:33 2026 +03\nModDate:         Mon Apr 20 20:15:33 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           12\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       498591 bytes\nOptimized:       yes\nPDF version:     1.5\n",
+  "first_page_excerpt": "                   CS224R Spring 2026 Homework 2\n                   Online Reinforcement Learning\n                                     Due 4/24/2026\n                        SUNet ID:\n                           Name:\n                    Collaborators:\n\nBy turning in this assignment, I agree by the Stanford honor code and declare that all of\nthis is my own work.\n\n\nOverview\nGoals: In this assignment, you will implement Q-learning on a gridworld and implement\nRL algorithms to solve a realistic robot task, in which the agent needs to pick up a tool\nand use it to hammer a nail. The agent controls a 4 degree-of-freedom Sawyer robot with\na continuous action space and receives environment states. Providing dense rewards for\nreal world problems is difficult, so in this environment the agent receives",
+  "embedded_urls": [
+    "https://wandb.ai/",
+    "https://wandb.ai/authorize.",
+    "https://wandb.ai/home",
+    "https://wandb.ai/site"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://arxiv.org/abs/1506.02438",
+    "https://arxiv.org/abs/1707.06347",
+    "https://cs224r.stanford.edu/material/CS224R_compute_guide.pdf",
+    "https://wandb.ai/authorize",
+    "https://wandb.ai/home",
+    "https://wandb.ai/site",
+    "https://wandb.ai/site/"
+  ]
+}

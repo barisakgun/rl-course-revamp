@@ -1,0 +1,38 @@
+{
+  "url": "https://web.stanford.edu/class/cs234/scpd.html",
+  "resolved_url": "https://web.stanford.edu/class/cs234/scpd.html",
+  "checked_at": "2026-09-28T01:03:30+00:00",
+  "http_status": 200,
+  "content_type": "text/html",
+  "status": "reachable",
+  "robots": {
+    "url": "https://web.stanford.edu/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T01:03:29+00:00"
+  },
+  "sha256_of_retrieved_html": "5ca4264b73a4a30b08ef1126464e8623e1645ba00ad68bceec084cdb57a35b01",
+  "title": "CS234: Reinforcement Learning Winter 2026",
+  "headings": [
+    "CS234: Reinforcement Learning Winter 2026",
+    "SCPD Students",
+    "Exams (TBD)",
+    "Coding and Project Collaboration"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "",
+      "url": "http://ai.stanford.edu/",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "CS234: Reinforcement Learning Winter 2026",
+      "url": "https://web.stanford.edu/class/cs234/index.html",
+      "heading": "",
+      "context": ""
+    }
+  ],
+  "tables": []
+}

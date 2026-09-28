@@ -1,0 +1,604 @@
+[
+  {
+    "url": "https://web.stanford.edu/class/cs234/",
+    "resolved_url": "https://web.stanford.edu/class/cs234/",
+    "checked_at": "2026-09-28T01:09:08+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/assignments.html",
+    "resolved_url": "https://web.stanford.edu/class/cs234/assignments.html",
+    "checked_at": "2026-09-28T01:09:09+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/assignments/a1/CS234_A1_Questions.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a1/CS234_A1_Questions.pdf",
+    "checked_at": "2026-09-28T01:09:10+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/assignments/a1/assignment1_template.zip",
+    "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a1/assignment1_template.zip",
+    "checked_at": "2026-09-28T01:09:11+00:00",
+    "http_status": 200,
+    "content_type": "application/zip",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/assignments/a1/code.zip",
+    "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a1/code.zip",
+    "checked_at": "2026-09-28T01:09:12+00:00",
+    "http_status": 200,
+    "content_type": "application/zip",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf",
+    "checked_at": "2026-09-28T01:09:13+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/assignments/a2/assignment2_starter_code.zip",
+    "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a2/assignment2_starter_code.zip",
+    "checked_at": "2026-09-28T01:09:14+00:00",
+    "http_status": 200,
+    "content_type": "application/zip",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/assignments/a2/assignment2_template.zip",
+    "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a2/assignment2_template.zip",
+    "checked_at": "2026-09-28T01:09:15+00:00",
+    "http_status": 200,
+    "content_type": "application/zip",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/assignments/a3/hw3_questions.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a3/hw3_questions.pdf",
+    "checked_at": "2026-09-28T01:09:16+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/assignments/a3/hw3_template.zip",
+    "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a3/hw3_template.zip",
+    "checked_at": "2026-09-28T01:09:16+00:00",
+    "http_status": 200,
+    "content_type": "application/zip",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/faq.html",
+    "resolved_url": "https://web.stanford.edu/class/cs234/faq.html",
+    "checked_at": "2026-09-28T01:09:17+00:00",
+    "http_status": 404,
+    "content_type": "text/html; charset=iso-8859-1",
+    "status": "http_error",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/modules.html",
+    "resolved_url": "https://web.stanford.edu/class/cs234/modules.html",
+    "checked_at": "2026-09-28T01:09:18+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/project.html",
+    "resolved_url": "https://web.stanford.edu/class/cs234/project.html",
+    "checked_at": "2026-09-28T01:09:19+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/scpd.html",
+    "resolved_url": "https://web.stanford.edu/class/cs234/scpd.html",
+    "checked_at": "2026-09-28T01:09:20+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/ShaneGuCS234_2026.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/ShaneGuCS234_2026.pdf",
+    "checked_at": "2026-09-28T01:09:21+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/ethics_society_234_2.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/ethics_society_234_2.pdf",
+    "checked_at": "2026-09-28T01:09:22+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture10post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture10post.pdf",
+    "checked_at": "2026-09-28T01:09:23+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture11post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture11post.pdf",
+    "checked_at": "2026-09-28T01:09:24+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture11pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture11pre.pdf",
+    "checked_at": "2026-09-28T01:09:24+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture12post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture12post.pdf",
+    "checked_at": "2026-09-28T01:09:25+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture12pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture12pre.pdf",
+    "checked_at": "2026-09-28T01:09:26+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture13post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture13post.pdf",
+    "checked_at": "2026-09-28T01:09:27+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture13pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture13pre.pdf",
+    "checked_at": "2026-09-28T01:09:28+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture14post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture14post.pdf",
+    "checked_at": "2026-09-28T01:09:29+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture14pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture14pre.pdf",
+    "checked_at": "2026-09-28T01:09:30+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture1post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture1post.pdf",
+    "checked_at": "2026-09-28T01:09:31+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture1pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture1pre.pdf",
+    "checked_at": "2026-09-28T01:09:32+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture2post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture2post.pdf",
+    "checked_at": "2026-09-28T01:09:33+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture2pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture2pre.pdf",
+    "checked_at": "2026-09-28T01:09:33+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture3post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture3post.pdf",
+    "checked_at": "2026-09-28T01:09:34+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture3pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture3pre.pdf",
+    "checked_at": "2026-09-28T01:09:35+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture4post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture4post.pdf",
+    "checked_at": "2026-09-28T01:09:36+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture4pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture4pre.pdf",
+    "checked_at": "2026-09-28T01:09:37+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture5post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture5post.pdf",
+    "checked_at": "2026-09-28T01:09:38+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture5pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture5pre.pdf",
+    "checked_at": "2026-09-28T01:09:39+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture6post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture6post.pdf",
+    "checked_at": "2026-09-28T01:09:40+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture6pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture6pre.pdf",
+    "checked_at": "2026-09-28T01:09:41+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture7post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture7post.pdf",
+    "checked_at": "2026-09-28T01:09:42+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture7pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture7pre.pdf",
+    "checked_at": "2026-09-28T01:09:42+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture8post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture8post.pdf",
+    "checked_at": "2026-09-28T01:09:43+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture8pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture8pre.pdf",
+    "checked_at": "2026-09-28T01:09:44+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture9post.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture9post.pdf",
+    "checked_at": "2026-09-28T01:09:45+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://web.stanford.edu/class/cs234/slides/lecture9pre.pdf",
+    "resolved_url": "https://web.stanford.edu/class/cs234/slides/lecture9pre.pdf",
+    "checked_at": "2026-09-28T01:09:46+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://web.stanford.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:07+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  }
+]

@@ -1,0 +1,1979 @@
+schema_version: 1
+phase: 1
+source_id: berkeley_cs285
+configured_source:
+  id: berkeley_cs285
+  instructor: Sergey Levine
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/
+  role: deep_rl_reference
+offering:
+  label: Spring 2026 (CS185/285)
+  evidence:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    locator: course heading; Berkeley also assignment PDF headers
+inventory_status: inventoried_with_documented_gaps
+scope: Material inventory only; no normalized topics, cross-course comparison, or curriculum recommendations.
+materials:
+- id: m_e44a54995c66
+  title: CS 185/285
+  material_type: course_index
+  instructional_use: catalog
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - index_path: sources/berkeley_cs285/snapshots/home_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    checked_at: '2026-09-28T01:01:57+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+- id: m_7f3eb0d412cd
+  title: CS 185/285 Syllabus
+  material_type: course_index
+  instructional_use: catalog
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/
+  storage: linked
+  observed_at: '2026-09-28T00:01:38+00:00'
+  provenance:
+  - index_path: sources/berkeley_cs285/snapshots/syllabus_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/
+    checked_at: '2026-09-28T01:02:32+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+- id: m_68077bc8b29a
+  title: CS 185/285 Resources
+  material_type: course_index
+  instructional_use: catalog
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - index_path: sources/berkeley_cs285/snapshots/resources_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    checked_at: '2026-09-28T01:01:58+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+- id: m_506e6444308f
+  title: CS 185/285 Calendar
+  material_type: course_index
+  instructional_use: catalog
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/calendar/
+  storage: linked
+  observed_at: '2026-09-28T00:01:40+00:00'
+  provenance:
+  - index_path: sources/berkeley_cs285/snapshots/calendar_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/calendar/
+    checked_at: '2026-09-28T01:01:57+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+- id: m_e6c435c644ad
+  title: GitHub - berkeleydeeprlcourse/homework_spring2026 · GitHub
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://github.com/berkeleydeeprlcourse/homework_spring2026
+  storage: linked
+  observed_at: '2026-09-28T00:05:44+00:00'
+  provenance:
+  - index_path: sources/berkeley_cs285/snapshots/starter_code_index.json
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/
+    index_path: sources/berkeley_cs285/snapshots/syllabus_index.json
+    link_index: 35
+    heading: Homeworks
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://github.com/berkeleydeeprlcourse/homework_spring2026
+    checked_at: '2026-09-28T01:01:49+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: There will be five homeworks. For each homework, we will post a PDF on the front page and starter
+    code on Github . Please see the front page homeworks section for assignment deadlines.
+- id: m_55719f3a6ef0
+  title: Offline-to-Online RL Default Final Project
+  material_type: project_guidelines
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 23
+    heading: Deep Reinforcement Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 90
+    heading: Default Project Options
+  - inspection_path: sources/berkeley_cs285/snapshots/pdf_55719f3a6ef0eab6.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:54+00:00'
+    evidence_path: sources/berkeley_cs285/snapshots/pdf_55719f3a6ef0eab6.json
+  catalog_context: 'Announcement : The default final project options are now available: Offline-to-Online RL Default
+    Final Project and LLM RL Default Final Project .'
+  remote_sha256: c6ee65113f7e947594e05b0fa26fb203cdeeb08a9279b7338967637db9006a19
+  remote_pdf_pages: 21
+- id: m_3bf3b97d6242
+  title: LLM RL Default Final Project
+  material_type: project_guidelines
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/llm_rl_default_final_project.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 24
+    heading: Deep Reinforcement Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 91
+    heading: Default Project Options
+  - inspection_path: sources/berkeley_cs285/snapshots/pdf_3bf3b97d62421502.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:53+00:00'
+    evidence_path: sources/berkeley_cs285/snapshots/pdf_3bf3b97d62421502.json
+  catalog_context: 'Announcement : The default final project options are now available: Offline-to-Online RL Default
+    Final Project and LLM RL Default Final Project .'
+  remote_sha256: e5d618a55b58941e33a0d77a524f33c43d0ba1f5269cb036eb7a98a0a2022e3d
+  remote_pdf_pages: 25
+- id: m_6668f93c137e
+  title: final project outline
+  material_type: project_guidelines
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/final_project_outline.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 25
+    heading: Deep Reinforcement Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 92
+    heading: Project Outline
+  - inspection_path: sources/berkeley_cs285/snapshots/pdf_6668f93c137e48bb.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:51+00:00'
+    evidence_path: sources/berkeley_cs285/snapshots/pdf_6668f93c137e48bb.json
+  catalog_context: 'Announcement : The final project outline has been released.'
+  remote_sha256: 2abc35f7ebbd632be2ce534dda238436df40a869a1d57e4caeed927c2246a5f4
+  remote_pdf_pages: 4
+- id: m_a9bcd4ae0ee9
+  title: Fall 2023 recordings
+  material_type: recording_collection
+  instructional_use: supplemental_past_offering
+  offering: Fall 2023
+  url: https://www.youtube.com/playlist?list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 26
+    heading: Deep Reinforcement Learning
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'Announcement : The default final project options are now available: Offline-to-Online RL Default
+    Final Project and LLM RL Default Final Project . Announcement : The final project outline has been released.
+    Looking for deep RL course materials from past years? Recordings of lectures from Fall 2023 are here , and materials
+    from previous offerings are here . Email all staff (preferred): cs285-staff-sp2026@lists.eecs.berkeley.edu'
+- id: m_02df22f19c7c
+  title: 'Homework 1: Imitation Learning'
+  material_type: assignment
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 35
+    heading: Course Intro & Imitation Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 38
+    heading: Imitation Learning & RL Basics
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 42
+    heading: Policy Gradients & Actor Critic
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 48
+    heading: Value-Based RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 95
+    heading: Homeworks
+  - inspection_path: sources/berkeley_cs285/snapshots/pdf_02df22f19c7cc1c7.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:43+00:00'
+    evidence_path: sources/berkeley_cs285/snapshots/pdf_02df22f19c7cc1c7.json
+  catalog_context: 'Homework 1: Imitation Learning'
+  remote_sha256: 39803ef09727180ab7cb20759a214de9a340a66a6231fb36351e2674957256f9
+  remote_pdf_pages: 4
+- id: m_f740ae937056
+  title: 'Lecture 1: Introduction'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-1.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 36
+    heading: Course Intro & Imitation Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 101
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-1.pdf
+    checked_at: '2026-09-28T01:02:13+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 1
+  catalog_context: 'Lecture 1: Introduction'
+- id: m_2234473e3fce
+  title: 'Lecture 2: Behavioral Cloning'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-2.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 37
+    heading: Course Intro & Imitation Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 102
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-2.pdf
+    checked_at: '2026-09-28T01:02:22+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 2
+  catalog_context: 'Lecture 2: Behavioral Cloning'
+- id: m_cb8727f1b63b
+  title: 'Section 1: PyTorch Tutorial'
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-1.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 39
+    heading: Imitation Learning & RL Basics
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 127
+    heading: Discussion Section Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-1.pdf
+    checked_at: '2026-09-28T01:02:06+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: 'Section 1: PyTorch Tutorial'
+- id: m_e3ede23408d1
+  title: 'Lecture 3: Behavioral Cloning Part 2'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-3.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 40
+    heading: Imitation Learning & RL Basics
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 103
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-3.pdf
+    checked_at: '2026-09-28T01:02:27+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 3
+  catalog_context: 'Lecture 3: Behavioral Cloning Part 2'
+- id: m_dfb2504fb74b
+  title: 'Lecture 4: RL Basics'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-4.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 41
+    heading: Imitation Learning & RL Basics
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 104
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-4.pdf
+    checked_at: '2026-09-28T01:02:28+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 4
+  catalog_context: 'Lecture 4: RL Basics'
+- id: m_03c948b2b931
+  title: 'Homework 2: Policy Gradients'
+  material_type: assignment
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 43
+    heading: Policy Gradients & Actor Critic
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 49
+    heading: Value-Based RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 53
+    heading: Advanced Policy Gradients
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 58
+    heading: Variational Inference
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 96
+    heading: Homeworks
+  - inspection_path: sources/berkeley_cs285/snapshots/pdf_03c948b2b931c025.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:45+00:00'
+    evidence_path: sources/berkeley_cs285/snapshots/pdf_03c948b2b931c025.json
+  catalog_context: 'Homework 2: Policy Gradients'
+  remote_sha256: 4b6277cf826b2842941092efe322083fead059f64f886ad2bde682e9560b11f3
+  remote_pdf_pages: 10
+- id: m_385d0cb06d51
+  title: 'Section 2 Part 1: Probability Review'
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-1.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 44
+    heading: Policy Gradients & Actor Critic
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 128
+    heading: Discussion Section Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-1.pdf
+    checked_at: '2026-09-28T01:02:07+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: 'Section 2 Part 1: Probability Review'
+- id: m_074c4f21da71
+  title: 'Section 2 Part 2: BC Distributional Shift'
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-2.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 45
+    heading: Policy Gradients & Actor Critic
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 129
+    heading: Discussion Section Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-2.pdf
+    checked_at: '2026-09-28T01:02:07+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: 'Section 2 Part 2: BC Distributional Shift'
+- id: m_db3fa6286a8a
+  title: 'Lecture 5: Policy Gradients'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-5.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 46
+    heading: Policy Gradients & Actor Critic
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 105
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-5.pdf
+    checked_at: '2026-09-28T01:02:29+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 5
+  catalog_context: 'Lecture 5: Policy Gradients'
+- id: m_2dcd8c45427c
+  title: 'Lecture 6: Actor Critic'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-6.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 47
+    heading: Policy Gradients & Actor Critic
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 106
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-6.pdf
+    checked_at: '2026-09-28T01:02:29+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 6
+  catalog_context: 'Lecture 6: Actor Critic'
+- id: m_1f04c09f3e0e
+  title: 'Section 3: Policy Gradients and Actor Critic'
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-3.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 50
+    heading: Value-Based RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 130
+    heading: Discussion Section Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-3.pdf
+    checked_at: '2026-09-28T01:02:08+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: 'Section 3: Policy Gradients and Actor Critic'
+- id: m_a03e67ea99f8
+  title: 'Lecture 7: Value-Based RL'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-7.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 51
+    heading: Value-Based RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 107
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-7.pdf
+    checked_at: '2026-09-28T01:02:30+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 7
+  catalog_context: 'Lecture 7: Value-Based RL'
+- id: m_4c24148acc84
+  title: 'Lecture 8: Q-learning in Practice'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-8.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 52
+    heading: Value-Based RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 108
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-8.pdf
+    checked_at: '2026-09-28T01:02:31+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 8
+  catalog_context: 'Lecture 8: Q-learning in Practice'
+- id: m_982e1351c217
+  title: 'Homework 3: Q-Learning and Actor Critic'
+  material_type: assignment
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 54
+    heading: Advanced Policy Gradients
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 59
+    heading: Variational Inference
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 63
+    heading: Finishing VI & LLM RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 68
+    heading: Model-Based RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 97
+    heading: Homeworks
+  - inspection_path: sources/berkeley_cs285/snapshots/pdf_982e1351c217b561.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:46+00:00'
+    evidence_path: sources/berkeley_cs285/snapshots/pdf_982e1351c217b561.json
+  catalog_context: 'Homework 3: Q-Learning and Actor Critic'
+  remote_sha256: c903d58ae711eb1cf0dade45cf485174737e99f1066f31bd49df68ad9f3f8048
+  remote_pdf_pages: 9
+- id: m_ac8aa64cd39e
+  title: 'Section 4: DQN and SAC'
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-4.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 55
+    heading: Advanced Policy Gradients
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 131
+    heading: Discussion Section Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-4.pdf
+    checked_at: '2026-09-28T01:02:09+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: 'Section 4: DQN and SAC'
+- id: m_4a9d62dc7734
+  title: 'Lecture 9: Advanced Policy Gradients Part 1'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-9.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 56
+    heading: Advanced Policy Gradients
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 109
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-9.pdf
+    checked_at: '2026-09-28T01:02:32+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 9
+  catalog_context: 'Lecture 9: Advanced Policy Gradients Part 1'
+- id: m_2753e513a1ba
+  title: 'Lecture 10: Advanced Policy Gradients Part 2'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-10.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 57
+    heading: Advanced Policy Gradients
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 110
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-10.pdf
+    checked_at: '2026-09-28T01:02:14+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 10
+  catalog_context: 'Lecture 10: Advanced Policy Gradients Part 2'
+- id: m_59ab614e3242
+  title: 'Section 5: Advanced Policy Gradients'
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-5.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 60
+    heading: Variational Inference
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 132
+    heading: Discussion Section Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-5.pdf
+    checked_at: '2026-09-28T01:02:10+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: 'Section 5: Advanced Policy Gradients'
+- id: m_edf2044cabf9
+  title: 'Lecture 11: Variational Inference'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-11.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 61
+    heading: Variational Inference
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 111
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-11.pdf
+    checked_at: '2026-09-28T01:02:15+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 11
+  catalog_context: 'Lecture 11: Variational Inference'
+- id: m_0b9a6b6f1747
+  title: 'Lecture 12: VI in RL'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-12.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 62
+    heading: Variational Inference
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 112
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-12.pdf
+    checked_at: '2026-09-28T01:02:16+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 12
+  catalog_context: 'Lecture 12: VI in RL'
+- id: m_dd9efce932a0
+  title: 'Homework 4: LLM RL'
+  material_type: assignment
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 64
+    heading: Finishing VI & LLM RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 69
+    heading: Model-Based RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 73
+    heading: Offline Reinforcement Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 78
+    heading: Exploration & RL Theory
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 98
+    heading: Homeworks
+  - inspection_path: sources/berkeley_cs285/snapshots/pdf_dd9efce932a0e728.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:48+00:00'
+    evidence_path: sources/berkeley_cs285/snapshots/pdf_dd9efce932a0e728.json
+  catalog_context: 'Homework 4: LLM RL'
+  remote_sha256: 4fb02ff477a5680196525a3f86b9db58e22c939b1597f9025c4fbf256f0102c2
+  remote_pdf_pages: 15
+- id: m_7d911d5aa7b3
+  title: 'Section 6: Variational Inference'
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-6.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 65
+    heading: Finishing VI & LLM RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 133
+    heading: Discussion Section Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-6.pdf
+    checked_at: '2026-09-28T01:02:10+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: 'Section 6: Variational Inference'
+- id: m_04f05030b277
+  title: 'Lecture 13: Control as Inference'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-13.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 66
+    heading: Finishing VI & LLM RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 113
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-13.pdf
+    checked_at: '2026-09-28T01:02:17+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 13
+  catalog_context: 'Lecture 13: Control as Inference'
+- id: m_af89c5f250b1
+  title: 'Lecture 14: LLM RL'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-14.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 67
+    heading: Finishing VI & LLM RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 114
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-14.pdf
+    checked_at: '2026-09-28T01:02:17+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 14
+  catalog_context: 'Lecture 14: LLM RL'
+- id: m_c86919e7b663
+  title: 'Section 7: IRL and LLM RL'
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-7.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 70
+    heading: Model-Based RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 134
+    heading: Discussion Section Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-7.pdf
+    checked_at: '2026-09-28T01:02:11+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: 'Section 7: IRL and LLM RL'
+- id: m_a97aa79ee0eb
+  title: 'Lecture 15: Model-Based RL Part 1'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-15.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 71
+    heading: Model-Based RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 115
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-15.pdf
+    checked_at: '2026-09-28T01:02:18+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 15
+  catalog_context: 'Lecture 15: Model-Based RL Part 1'
+- id: m_29aaade07eea
+  title: 'Lecture 16: Model-Based RL Part 2'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-16.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 72
+    heading: Model-Based RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 116
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-16.pdf
+    checked_at: '2026-09-28T01:02:19+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 16
+  catalog_context: 'Lecture 16: Model-Based RL Part 2'
+- id: m_873e46af8be3
+  title: 'Homework 5: Offline RL'
+  material_type: assignment
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 74
+    heading: Offline Reinforcement Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 79
+    heading: Exploration & RL Theory
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 83
+    heading: Midterm Review
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 86
+    heading: Exploration & Multi-task RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 99
+    heading: Homeworks
+  - inspection_path: sources/berkeley_cs285/snapshots/pdf_873e46af8be3f598.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:50+00:00'
+    evidence_path: sources/berkeley_cs285/snapshots/pdf_873e46af8be3f598.json
+  catalog_context: 'Homework 5: Offline RL'
+  remote_sha256: 40ea526093d87695792fd80d814b5909456398ab3a21799b230951b7c80f444c
+  remote_pdf_pages: 11
+- id: m_185df73ac3f5
+  title: 'Section 8: Model-Based RL'
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-8.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 75
+    heading: Offline Reinforcement Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 135
+    heading: Discussion Section Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-8.pdf
+    checked_at: '2026-09-28T01:02:12+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: 'Section 8: Model-Based RL'
+- id: m_dd807b6c94dc
+  title: 'Lecture 17: Offline RL Part 1'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-17.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 76
+    heading: Offline Reinforcement Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 117
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-17.pdf
+    checked_at: '2026-09-28T01:02:20+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 17
+  catalog_context: 'Lecture 17: Offline RL Part 1'
+- id: m_ca58f47516c8
+  title: 'Lecture 18: Offline RL Part 2'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-18.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 77
+    heading: Offline Reinforcement Learning
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 118
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-18.pdf
+    checked_at: '2026-09-28T01:02:20+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 18
+  catalog_context: 'Lecture 18: Offline RL Part 2'
+- id: m_47c04c58e689
+  title: 'Section 9: Offline RL'
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-9.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 80
+    heading: Exploration & RL Theory
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 136
+    heading: Discussion Section Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-9.pdf
+    checked_at: '2026-09-28T01:02:13+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: 'Section 9: Offline RL'
+- id: m_534393a1c9bf
+  title: 'Lecture 19: Exploration'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-19.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 81
+    heading: Exploration & RL Theory
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 119
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-19.pdf
+    checked_at: '2026-09-28T01:02:21+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 19
+  catalog_context: 'Lecture 19: Exploration'
+- id: m_e7327285e40c
+  title: 'Lecture 20: RL Theory'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-20.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 82
+    heading: Exploration & RL Theory
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 120
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-20.pdf
+    checked_at: '2026-09-28T01:02:23+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 20
+  catalog_context: 'Lecture 20: RL Theory'
+- id: m_c8940ef43821
+  title: 'Lecture 21: Midterm Review Part 1'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-21.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 84
+    heading: Midterm Review
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 121
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-21.pdf
+    checked_at: '2026-09-28T01:02:23+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 21
+  catalog_context: 'Lecture 21: Midterm Review Part 1'
+- id: m_cb2545736b0e
+  title: 'Lecture 22: Midterm Review Part 2'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-22.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 85
+    heading: Midterm Review
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 122
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-22.pdf
+    checked_at: '2026-09-28T01:02:24+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 22
+  catalog_context: 'Lecture 22: Midterm Review Part 2'
+- id: m_cc367c16ce12
+  title: 'Lecture 23: Advanced Exploration'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-23.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 87
+    heading: Exploration & Multi-task RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 123
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-23.pdf
+    checked_at: '2026-09-28T01:02:25+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 23
+  catalog_context: 'Lecture 23: Advanced Exploration'
+- id: m_74166ec4ad15
+  title: 'Lecture 24: Multi-task RL'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-24.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 88
+    heading: Exploration & Multi-task RL
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 124
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-24.pdf
+    checked_at: '2026-09-28T01:02:26+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 24
+  catalog_context: 'Lecture 24: Multi-task RL'
+- id: m_3d4c118de437
+  title: 'Lecture 25: Challenges and Open Problems'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-25.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:37+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 89
+    heading: Open Problems & Guest Lecture
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/
+    index_path: sources/berkeley_cs285/snapshots/home_index.json
+    link_index: 125
+    heading: Lecture Slides
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-25.pdf
+    checked_at: '2026-09-28T01:02:26+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  sequence: 25
+  catalog_context: 'Lecture 25: Challenges and Open Problems'
+- id: m_34958ad49291
+  title: Fall 2023
+  material_type: archive_index
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: https://rail.eecs.berkeley.edu/deeprlcourse-fa23/
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 23
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_fbe11c56e9d8
+  title: Fall 2022
+  material_type: archive_index
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: http://rail.eecs.berkeley.edu/deeprlcourse-fa22/
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 24
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_6ac21eeea171
+  title: Fall 2021
+  material_type: archive_index
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: http://rail.eecs.berkeley.edu/deeprlcourse-fa21/
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 25
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_eaa64255ac93
+  title: Fall 2020
+  material_type: archive_index
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: http://rail.eecs.berkeley.edu/deeprlcourse-fa20/
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 26
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_493c3e035dd9
+  title: Fall 2019
+  material_type: archive_index
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: http://rail.eecs.berkeley.edu/deeprlcourse-fa19/
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 27
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_012cdd80978e
+  title: Fall 2018
+  material_type: archive_index
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: http://rail.eecs.berkeley.edu/deeprlcourse-fa18/
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 28
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_0fd064601a71
+  title: Fall 2017
+  material_type: archive_index
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: http://rail.eecs.berkeley.edu/deeprlcourse-fa17/index.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 29
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_45715c8322ef
+  title: Spring 2017
+  material_type: archive_index
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: http://rail.eecs.berkeley.edu/deeprlcoursesp17/index.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 30
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_3912febf4f4d
+  title: here
+  material_type: recording_collection
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: https://www.youtube.com/playlist?list=PL_iWQOsE6TfXxKgI1GgyV1B_Xa0DxE5eH
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 31
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_006b63c320c2
+  title: here
+  material_type: recording_collection
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: https://www.youtube.com/playlist?list=PL_iWQOsE6TfURIIhCrlt-wj9ByIVpbfGc
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 32
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_a6c2d5976b9b
+  title: here
+  material_type: recording_collection
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: https://www.youtube.com/playlist?list=PLkFD6_40KJIwhWJpGazJ9VSj9CFMkb79A
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 33
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_6739adcc5b99
+  title: here
+  material_type: recording_collection
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: https://www.youtube.com/playlist?list=PLkFD6_40KJIxJMR-j5A1mkxK26gh_qg37
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 34
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_2672c5c3c0e2
+  title: here
+  material_type: recording_collection
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: https://www.youtube.com/playlist?list=PLkFD6_40KJIznC9CDbVTjAF2oyt8_VAe3
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 35
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_0d15991466cb
+  title: here
+  material_type: recording_collection
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: https://www.youtube.com/playlist?list=PLkFD6_40KJIwTmSbCv9OVJB3YaO4sFwkX
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 36
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_5af635e0003b
+  title: Fall 2015
+  material_type: archive_index
+  instructional_use: supplemental_past_offering
+  offering: Previous offering; see catalog context
+  url: http://rail.eecs.berkeley.edu/deeprlcourse-fa15/index.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 37
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A full version of this course was offered in Fall 2023 , Fall 2022 , Fall 2021 , Fall 2020 ,
+    Fall 2019 , Fall 2018 , Fall 2017 and Spring 2017 . Lecture videos from Fall 2021 are available here ; those
+    from Fall 2020 are available here ; those from Fall 2019 are available here ; those from Fall 2018 are available
+    here ; those from Fall 2017, here ; those from Spring 2017, here . An abbreviated version of this course was
+    offered in Fall 2015 .
+- id: m_bd849558919f
+  title: Deep Learning
+  material_type: reading
+  instructional_use: recommended_reference
+  offering: Spring 2026 (CS185/285)
+  url: http://www.deeplearningbook.org/
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 43
+    heading: Relevant Textbooks
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Deep Learning
+- id: m_22a4b156923e
+  title: 'Sutton & Barto, Reinforcement Learning: An Introduction'
+  material_type: reading
+  instructional_use: recommended_reference
+  offering: Spring 2026 (CS185/285)
+  url: http://incompleteideas.net/book/the-book-2nd.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 44
+    heading: Relevant Textbooks
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'Sutton & Barto, Reinforcement Learning: An Introduction'
+- id: m_299cf195ec33
+  title: Szepesvari, Algorithms for Reinforcement Learning
+  material_type: reading
+  instructional_use: recommended_reference
+  offering: Spring 2026 (CS185/285)
+  url: http://www.ualberta.ca/~szepesva/RLBook.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 45
+    heading: Relevant Textbooks
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Szepesvari, Algorithms for Reinforcement Learning
+- id: m_c058032c0d67
+  title: Bertsekas, Dynamic Programming and Optimal Control, Vols I and II
+  material_type: reading
+  instructional_use: recommended_reference
+  offering: Spring 2026 (CS185/285)
+  url: http://www.athenasc.com/dpbook.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 46
+    heading: Relevant Textbooks
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Bertsekas, Dynamic Programming and Optimal Control, Vols I and II
+- id: m_07f73e9cca40
+  title: 'Puterman, Markov Decision Processes: Discrete Stochastic Dynamic Programming'
+  material_type: reading
+  instructional_use: recommended_reference
+  offering: Spring 2026 (CS185/285)
+  url: http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471727822.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 47
+    heading: Relevant Textbooks
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'Puterman, Markov Decision Processes: Discrete Stochastic Dynamic Programming'
+- id: m_527d4715ffef
+  title: Powell, Approximate Dynamic Programming
+  material_type: reading
+  instructional_use: recommended_reference
+  offering: Spring 2026 (CS185/285)
+  url: http://adp.princeton.edu/
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 48
+    heading: Relevant Textbooks
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Powell, Approximate Dynamic Programming
+- id: m_c498d4953a6d
+  title: Data visualization handout
+  material_type: supplemental_notes
+  instructional_use: optional_reference
+  offering: Spring 2026 (CS185/285)
+  url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/viz.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:39+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/resources/
+    index_path: sources/berkeley_cs285/snapshots/resources_index.json
+    link_index: 49
+    heading: Misc Links
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/viz.pdf
+    checked_at: '2026-09-28T01:02:05+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+  catalog_context: Data visualization handout
+- id: m_03ab48189a04
+  title: 'Starter code: hw1'
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw1
+  storage: linked
+  observed_at: '2026-09-28T00:03:43+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf
+    inspection_path: sources/berkeley_cs285/snapshots/pdf_02df22f19c7cc1c7.json
+    locator: PDF hyperlink annotation
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw1
+    checked_at: '2026-09-28T01:01:51+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+- id: m_2cd355df1567
+  title: 'Starter code: hw2'
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw2
+  storage: linked
+  observed_at: '2026-09-28T00:03:45+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf
+    inspection_path: sources/berkeley_cs285/snapshots/pdf_03c948b2b931c025.json
+    locator: PDF hyperlink annotation
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw2
+    checked_at: '2026-09-28T01:01:52+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+- id: m_ddd6a1c3a45c
+  title: 'Starter code: final_project_llm_rl'
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_llm_rl
+  storage: linked
+  observed_at: '2026-09-28T00:03:53+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/llm_rl_default_final_project.pdf
+    inspection_path: sources/berkeley_cs285/snapshots/pdf_3bf3b97d62421502.json
+    locator: PDF hyperlink annotation
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_llm_rl
+    checked_at: '2026-09-28T01:01:50+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+- id: m_d5929e6c0439
+  title: 'Starter code: final_project_offline_online'
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_offline_online
+  storage: linked
+  observed_at: '2026-09-28T00:03:54+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf
+    inspection_path: sources/berkeley_cs285/snapshots/pdf_55719f3a6ef0eab6.json
+    locator: PDF hyperlink annotation
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_offline_online
+    checked_at: '2026-09-28T01:01:50+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+- id: m_9af35aeba031
+  title: RLPD — Ball et al. (2023)
+  material_type: reading
+  instructional_use: optional_project_reference
+  offering: Spring 2026 (CS185/285)
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:03:54+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf
+    locator: 'section 8: Reading list'
+  accessibility:
+    status: described_in_parent
+- id: m_89bc3d54fa05
+  title: CQL — Kumar et al. (2020)
+  material_type: reading
+  instructional_use: optional_project_reference
+  offering: Spring 2026 (CS185/285)
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:03:54+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf
+    locator: 'section 8: Reading list'
+  accessibility:
+    status: described_in_parent
+- id: m_22a7bc841f15
+  title: Q-chunking — Li et al. (2025)
+  material_type: reading
+  instructional_use: optional_project_reference
+  offering: Spring 2026 (CS185/285)
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:03:54+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf
+    locator: 'section 8: Reading list'
+  accessibility:
+    status: described_in_parent
+- id: m_3ac5cc1a79fb
+  title: QAM — Li and Levine (2026)
+  material_type: reading
+  instructional_use: optional_project_reference
+  offering: Spring 2026 (CS185/285)
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:03:54+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf
+    locator: 'section 8: Reading list'
+  accessibility:
+    status: described_in_parent
+- id: m_040cebbc80e3
+  title: AWAC — Nair et al. (2021)
+  material_type: reading
+  instructional_use: optional_project_reference
+  offering: Spring 2026 (CS185/285)
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:03:54+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf
+    locator: 'section 8: Reading list'
+  accessibility:
+    status: described_in_parent
+- id: m_59144735747a
+  title: Balancing offline and online data — Lee et al. (2021)
+  material_type: reading
+  instructional_use: optional_project_reference
+  offering: Spring 2026 (CS185/285)
+  storage: embedded_reference
+  observed_at: '2026-09-28T00:03:54+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf
+    locator: 'section 8: Reading list'
+  accessibility:
+    status: described_in_parent
+- id: m_875e95a486ac
+  title: 'Starter code: hw5'
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw5
+  storage: linked
+  observed_at: '2026-09-28T00:03:50+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf
+    inspection_path: sources/berkeley_cs285/snapshots/pdf_873e46af8be3f598.json
+    locator: PDF hyperlink annotation
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw5
+    checked_at: '2026-09-28T01:01:55+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+- id: m_55cea106a590
+  title: 'Starter code: hw3'
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw3
+  storage: linked
+  observed_at: '2026-09-28T00:03:46+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf
+    inspection_path: sources/berkeley_cs285/snapshots/pdf_982e1351c217b561.json
+    locator: PDF hyperlink annotation
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw3
+    checked_at: '2026-09-28T01:01:53+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+- id: m_2811650a09e0
+  title: 'Starter code: hw4'
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026 (CS185/285)
+  url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw4
+  storage: linked
+  observed_at: '2026-09-28T00:03:48+00:00'
+  provenance:
+  - source_url: https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf
+    inspection_path: sources/berkeley_cs285/snapshots/pdf_dd9efce932a0e728.json
+    locator: PDF hyperlink annotation
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw4
+    checked_at: '2026-09-28T01:01:54+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/berkeley_cs285/snapshots/link_checks.json
+observations:
+- statement: The syllabus specifies five homeworks, a final project, a midterm, and lecture mini-quizzes. Current
+    recordings are on bCourses; public Fall 2023 recordings are labeled separately.
+  basis: direct_source_evidence
+  evidence:
+  - 'syllabus_index.json: Materials, Course Logistics, Grading'
+  - 'home_index.json: recording announcement'
+- statement: The project outline distinguishes the CS185 default-project route from CS285 custom proposals and supplies
+    component requirements and a rubric. Both default-project briefs and their starter-code links are indexed.
+  basis: direct_source_evidence
+  evidence:
+  - final_project_outline.pdf, sections 2–5
+  - default project PDFs
+evidence_gaps:
+- category: date_conflict
+  description: The project outline gives an April 6 milestone; both default-project briefs give April 13. No attempt
+    was made to choose the governing date.
+  evidence:
+  - final_project_outline.pdf p.1
+  - llm_rl_default_final_project.pdf p.1
+  - offline_to_online_rl_default_final_project.pdf p.1
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: restricted_material
+  description: bCourses recordings and Gradescope mini-quiz/exam contents were not accessed. Listed late-term guest-lecture
+    slots do not all have named slide links.
+  evidence:
+  - syllabus_index.json
+  - home_index.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: readings_and_examples
+  description: General recommended books and the default offline-to-online project reading list are indexed. No
+    separate current lecture-by-lecture assigned-reading schedule or current student-project report catalog was
+    found on the inspected course pages.
+  evidence:
+  - resources_index.json
+  - home_index.json
+  - offline_to_online_rl_default_final_project.pdf section 8
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+inspected_at: '2026-09-28T00:05:44+00:00'

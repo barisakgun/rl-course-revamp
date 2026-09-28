@@ -1,0 +1,786 @@
+[
+  {
+    "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+    "resolved_url": "https://github.com/berkeleydeeprlcourse/homework_spring2026",
+    "checked_at": "2026-09-28T01:01:49+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://github.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:48+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_llm_rl",
+    "resolved_url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_llm_rl",
+    "checked_at": "2026-09-28T01:01:50+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://github.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:48+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_offline_online",
+    "resolved_url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_offline_online",
+    "checked_at": "2026-09-28T01:01:50+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://github.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:48+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw1",
+    "resolved_url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw1",
+    "checked_at": "2026-09-28T01:01:51+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://github.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:48+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw2",
+    "resolved_url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw2",
+    "checked_at": "2026-09-28T01:01:52+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://github.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:48+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw3",
+    "resolved_url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw3",
+    "checked_at": "2026-09-28T01:01:53+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://github.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:48+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw4",
+    "resolved_url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw4",
+    "checked_at": "2026-09-28T01:01:54+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://github.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:48+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw5",
+    "resolved_url": "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw5",
+    "checked_at": "2026-09-28T01:01:55+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://github.com/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:01:48+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/",
+    "checked_at": "2026-09-28T01:01:57+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar/",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/calendar/",
+    "checked_at": "2026-09-28T01:01:57+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources/",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/resources/",
+    "checked_at": "2026-09-28T01:01:58+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw1.pdf",
+    "checked_at": "2026-09-28T01:01:59+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf",
+    "checked_at": "2026-09-28T01:02:00+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw3.pdf",
+    "checked_at": "2026-09-28T01:02:00+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw4.pdf",
+    "checked_at": "2026-09-28T01:02:01+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf",
+    "checked_at": "2026-09-28T01:02:02+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/final_project_outline.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/final_project_outline.pdf",
+    "checked_at": "2026-09-28T01:02:03+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/llm_rl_default_final_project.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/llm_rl_default_final_project.pdf",
+    "checked_at": "2026-09-28T01:02:03+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf",
+    "checked_at": "2026-09-28T01:02:04+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/viz.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/viz.pdf",
+    "checked_at": "2026-09-28T01:02:05+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-1.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-1.pdf",
+    "checked_at": "2026-09-28T01:02:06+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-1.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-1.pdf",
+    "checked_at": "2026-09-28T01:02:07+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-2.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-2-2.pdf",
+    "checked_at": "2026-09-28T01:02:07+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-3.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-3.pdf",
+    "checked_at": "2026-09-28T01:02:08+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-4.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-4.pdf",
+    "checked_at": "2026-09-28T01:02:09+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-5.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-5.pdf",
+    "checked_at": "2026-09-28T01:02:10+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-6.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-6.pdf",
+    "checked_at": "2026-09-28T01:02:10+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-7.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-7.pdf",
+    "checked_at": "2026-09-28T01:02:11+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-8.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-8.pdf",
+    "checked_at": "2026-09-28T01:02:12+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-9.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/sections/section-9.pdf",
+    "checked_at": "2026-09-28T01:02:13+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-1.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-1.pdf",
+    "checked_at": "2026-09-28T01:02:13+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-10.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-10.pdf",
+    "checked_at": "2026-09-28T01:02:14+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-11.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-11.pdf",
+    "checked_at": "2026-09-28T01:02:15+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-12.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-12.pdf",
+    "checked_at": "2026-09-28T01:02:16+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-13.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-13.pdf",
+    "checked_at": "2026-09-28T01:02:17+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-14.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-14.pdf",
+    "checked_at": "2026-09-28T01:02:17+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-15.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-15.pdf",
+    "checked_at": "2026-09-28T01:02:18+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-16.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-16.pdf",
+    "checked_at": "2026-09-28T01:02:19+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-17.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-17.pdf",
+    "checked_at": "2026-09-28T01:02:20+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-18.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-18.pdf",
+    "checked_at": "2026-09-28T01:02:20+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-19.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-19.pdf",
+    "checked_at": "2026-09-28T01:02:21+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-2.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-2.pdf",
+    "checked_at": "2026-09-28T01:02:22+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-20.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-20.pdf",
+    "checked_at": "2026-09-28T01:02:23+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-21.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-21.pdf",
+    "checked_at": "2026-09-28T01:02:23+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-22.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-22.pdf",
+    "checked_at": "2026-09-28T01:02:24+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-23.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-23.pdf",
+    "checked_at": "2026-09-28T01:02:25+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-24.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-24.pdf",
+    "checked_at": "2026-09-28T01:02:26+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-25.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-25.pdf",
+    "checked_at": "2026-09-28T01:02:26+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-3.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-3.pdf",
+    "checked_at": "2026-09-28T01:02:27+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-4.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-4.pdf",
+    "checked_at": "2026-09-28T01:02:28+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-5.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-5.pdf",
+    "checked_at": "2026-09-28T01:02:29+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-6.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-6.pdf",
+    "checked_at": "2026-09-28T01:02:29+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-7.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-7.pdf",
+    "checked_at": "2026-09-28T01:02:30+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-8.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-8.pdf",
+    "checked_at": "2026-09-28T01:02:31+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-9.pdf",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-9.pdf",
+    "checked_at": "2026-09-28T01:02:32+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/",
+    "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/",
+    "checked_at": "2026-09-28T01:02:32+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "status": "reachable",
+    "robots": {
+      "url": "https://rail.eecs.berkeley.edu/robots.txt",
+      "status": "not_present_404",
+      "checked_at": "2026-09-28T01:01:56+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  }
+]

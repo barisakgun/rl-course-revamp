@@ -1,0 +1,28 @@
+{
+  "url": "https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf",
+  "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf",
+  "checked_at": "2026-09-28T00:03:59+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://web.stanford.edu/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T00:03:56+00:00"
+  },
+  "sha256": "8b761494d0f5e0c15fc2a1612787997569d64f2adf0d0068cbd44f4a0b46542c",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.27\nCreationDate:    Sat Jan 17 06:10:00 2026 +03\nModDate:         Sat Jan 17 06:10:00 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           11\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       314692 bytes\nOptimized:       yes\nPDF version:     1.5\n",
+  "first_page_excerpt": "                                 CS 234: Assignment #2\n\n    Due date: Sunday Feb 1, 2026 at 6:00 PM (18:00) PST\n\n    These questions require thought but do not require long answers. Please be as concise as possible.\n\n    We encourage students to discuss in groups for assignments. However, each student must finish\n    the problem set and programming assignment individually, and must turn in her/his\n    assignment. We ask that you abide by the university Honor Code and that of the Computer Science\n    department, and make sure that all of your submitted work is done by yourself. If you have discussed\n    the problems with others, please include a statement saying who you discussed problems with. Failure\n    to follow these instructions will be reported to the Office of Community Standards. W",
+  "embedded_urls": [
+    "http://web.stanford.edu/class/cs234/assignments.html."
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "http://web.stanford.edu/class/cs234/assignments.html",
+    "https://en.wikipedia.org/wiki/Law_of_total_expectation",
+    "https://researchcompliance.stanford.edu/panels/hs/forms/for-researchers#need",
+    "https://www.fda.gov/about-fda/center-drug-evaluation-and-research-cder/institutional-review-boards-irbs-and-protection-human-subjects-clinical-trials",
+    "https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html#xethical"
+  ]
+}

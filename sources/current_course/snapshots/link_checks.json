@@ -1,0 +1,44 @@
+[
+  {
+    "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/assets/projects/reinforcement.zip",
+    "resolved_url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/assets/projects/reinforcement.zip",
+    "checked_at": "2026-09-28T01:09:07+00:00",
+    "http_status": 200,
+    "content_type": "application/zip",
+    "status": "reachable",
+    "robots": {
+      "url": "https://inst.eecs.berkeley.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:06+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/assets/projects/reinforcement_pytorch.zip",
+    "resolved_url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/assets/projects/reinforcement_pytorch.zip",
+    "checked_at": "2026-09-28T01:09:09+00:00",
+    "http_status": 200,
+    "content_type": "application/zip",
+    "status": "reachable",
+    "robots": {
+      "url": "https://inst.eecs.berkeley.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:06+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  },
+  {
+    "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj6/",
+    "resolved_url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/",
+    "checked_at": "2026-09-28T01:09:10+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "status": "reachable",
+    "robots": {
+      "url": "https://inst.eecs.berkeley.edu/robots.txt",
+      "status": "parsed",
+      "checked_at": "2026-09-28T01:09:06+00:00"
+    },
+    "verification_level": "http_metadata_only_not_content_review"
+  }
+]

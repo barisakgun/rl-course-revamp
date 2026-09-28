@@ -1,0 +1,26 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw2.pdf",
+  "checked_at": "2026-09-28T00:03:45+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:03:43+00:00"
+  },
+  "sha256": "4b6277cf826b2842941092efe322083fead059f64f886ad2bde682e9560b11f3",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.24\nCreationDate:    Sat Feb 14 06:18:33 2026 +03\nModDate:         Sat Feb 14 06:18:33 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           10\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       251120 bytes\nOptimized:       no\nPDF version:     1.5\n",
+  "first_page_excerpt": "Berkeley CS 185/285     Deep Reinforcement Learning, Decision Making, and Control                              Spring 2026\n\n\n                                  Assignment 2: Policy Gradients\n                                          Due February 25, 11:59 pm\n\n\n1     Introduction\nThe goal of this assignment is to experiment with policy gradient and its variants, including variance reduction\ntricks such as implementing reward-to-go and neural network baselines.\nThe starter code for this assignment can be found at\n           https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw2\n\nEach individual training run in this assignment may take from a few seconds to a few (up to ten) minutes\non a modern laptop CPU. We generally recommend using laptop CPUs rather than cloud GPUs for t",
+  "embedded_urls": [
+    "https://arxiv.org/pdf/",
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw2"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://arxiv.org/pdf/1506.02438.pdf",
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw2"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "url": "https://web.stanford.edu/class/cs234/assignments/a3/hw3_questions.pdf",
+  "resolved_url": "https://web.stanford.edu/class/cs234/assignments/a3/hw3_questions.pdf",
+  "checked_at": "2026-09-28T00:04:02+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://web.stanford.edu/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T00:03:56+00:00"
+  },
+  "sha256": "0c4c270a4eb4265f00d61276bcec34437818203c6e4e5ea4b4bbffc119e1d2df",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        MiKTeX pdfTeX-1.40.28\nCreationDate:    Sat Feb  7 04:08:06 2026 +03\nModDate:         Sat Feb  7 04:08:06 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           8\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       287842 bytes\nOptimized:       no\nPDF version:     1.5\n",
+  "first_page_excerpt": "                              CS 234: Assignment #3\n\n  Due date: Feb 20, 2025 at 6:00 PM (18:00) PST\n\n  These questions require thought but do not require long answers. Please be as concise as possible.\n\n  We encourage students to discuss in groups for assignments. However, each student must finish\n  the problem set and programming assignment individually, and must turn in her/his\n  assignment. We ask that you abide by the class Honor Code (see the course website), university Honor\n  Code and the Computer Science department Honor Code, and make sure that all of your submitted\n  work is done by yourself. If you have discussed the problems with others, please include a statement\n  saying who you discussed problems with. Failure to follow these instructions will be reported to the\n  Office of",
+  "embedded_urls": [
+    "http://web.stanford.edu/class/cs234/assignments.html.",
+    "https://proceedings.neurips.cc/paper_files/paper/2017/file/d5e2c0adad503c91f91df240d0cd"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "http://web.stanford.edu/class/cs234/assignments.html",
+    "https://colab.research.google.com/drive/1sw8FJIR5865laTJiI0fqHG3KcGVT23ED",
+    "https://gymnasium.farama.org/environments/mujoco/hopper/",
+    "https://openreview.net/forum?id=euZXhbTmQ7",
+    "https://proceedings.neurips.cc/paper_files/paper/2017/file/d5e2c0adad503c91f91df240d0cd4e49-Paper.pdf",
+    "https://pytorch.org/docs/stable/distributions.html#independent"
+  ]
+}

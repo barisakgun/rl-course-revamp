@@ -1,0 +1,492 @@
+{
+  "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj6/",
+  "resolved_url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/",
+  "checked_at": "2026-09-28T01:03:01+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "reachable",
+  "robots": {
+    "url": "https://inst.eecs.berkeley.edu/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T01:02:59+00:00"
+  },
+  "sha256_of_retrieved_html": "6cd93b639c5d1c8f4e5c585244b984f17e5fdfb1ff8d26144d128a974e755223",
+  "title": "Project 6 | CS 188 Spring 2024",
+  "headings": [
+    "Project 6: Reinforcement Learning",
+    "Table of contents",
+    "Introduction",
+    "Spring 2024 Change",
+    "MDPs",
+    "Question 1 (5 points): Value Iteration",
+    "Question 2 (5 points): Policies",
+    "Question 3 (5 points): Q-Learning",
+    "Question 4 (2 points): Epsilon Greedy",
+    "Question 5 (1 point): Q-Learning and Pacman",
+    "Question 6 (3 points): Approximate Q-Learning",
+    "Question 7 (4 points): Deep Q-Learning",
+    "Submission"
+  ],
+  "links": [
+    {
+      "index": 1,
+      "label": "Skip to main content",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#main-content",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 2,
+      "label": "CS 188 Spring 2024",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 3,
+      "label": "Exam Logistics",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/exam/",
+      "heading": "",
+      "context": "Exam Logistics"
+    },
+    {
+      "index": 4,
+      "label": "Calendar",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/calendar/",
+      "heading": "",
+      "context": "Calendar"
+    },
+    {
+      "index": 5,
+      "label": "Policies",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/policies/",
+      "heading": "",
+      "context": "Policies"
+    },
+    {
+      "index": 6,
+      "label": "Resources",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/resources/",
+      "heading": "",
+      "context": "Resources"
+    },
+    {
+      "index": 7,
+      "label": "Staff",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/staff/",
+      "heading": "",
+      "context": "Staff"
+    },
+    {
+      "index": 8,
+      "label": "Projects",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/",
+      "heading": "",
+      "context": "Projects Project 0 Project 1 Project 2 Project 3 Project 4 Project 5 Project 6 Introduction Spring 2024 Change MDPs Question 1 (5 points): Value Iteration Question 2 (5 points): Policies Question 3 (5 points): Q-Learning Question 4 (2 points): Epsilon Greedy Question 5 (1 point): Q-Learning and Pacman Question 6 (3 points): Approximate Q-Learning Question 7 (4 points): Deep Q-Learning Submission"
+    },
+    {
+      "index": 9,
+      "label": "Project 0",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj0/",
+      "heading": "",
+      "context": "Project 0"
+    },
+    {
+      "index": 10,
+      "label": "Project 1",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj1/",
+      "heading": "",
+      "context": "Project 1"
+    },
+    {
+      "index": 11,
+      "label": "Project 2",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj2/",
+      "heading": "",
+      "context": "Project 2"
+    },
+    {
+      "index": 12,
+      "label": "Project 3",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj3/",
+      "heading": "",
+      "context": "Project 3"
+    },
+    {
+      "index": 13,
+      "label": "Project 4",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj4/",
+      "heading": "",
+      "context": "Project 4"
+    },
+    {
+      "index": 14,
+      "label": "Project 5",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj5/",
+      "heading": "",
+      "context": "Project 5"
+    },
+    {
+      "index": 15,
+      "label": "Project 6",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj6/",
+      "heading": "",
+      "context": "Project 6 Introduction Spring 2024 Change MDPs Question 1 (5 points): Value Iteration Question 2 (5 points): Policies Question 3 (5 points): Q-Learning Question 4 (2 points): Epsilon Greedy Question 5 (1 point): Q-Learning and Pacman Question 6 (3 points): Approximate Q-Learning Question 7 (4 points): Deep Q-Learning Submission"
+    },
+    {
+      "index": 16,
+      "label": "Introduction",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#introduction",
+      "heading": "",
+      "context": "Introduction"
+    },
+    {
+      "index": 17,
+      "label": "Spring 2024 Change",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#spring-2024-change",
+      "heading": "",
+      "context": "Spring 2024 Change"
+    },
+    {
+      "index": 18,
+      "label": "MDPs",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#mdps",
+      "heading": "",
+      "context": "MDPs"
+    },
+    {
+      "index": 19,
+      "label": "Question 1 (5 points): Value Iteration",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-1-5-points-value-iteration",
+      "heading": "",
+      "context": "Question 1 (5 points): Value Iteration"
+    },
+    {
+      "index": 20,
+      "label": "Question 2 (5 points): Policies",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-2-5-points-policies",
+      "heading": "",
+      "context": "Question 2 (5 points): Policies"
+    },
+    {
+      "index": 21,
+      "label": "Question 3 (5 points): Q-Learning",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-3-5-points-q-learning",
+      "heading": "",
+      "context": "Question 3 (5 points): Q-Learning"
+    },
+    {
+      "index": 22,
+      "label": "Question 4 (2 points): Epsilon Greedy",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-4-2-points-epsilon-greedy",
+      "heading": "",
+      "context": "Question 4 (2 points): Epsilon Greedy"
+    },
+    {
+      "index": 23,
+      "label": "Question 5 (1 point): Q-Learning and Pacman",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-5-1-point-q-learning-and-pacman",
+      "heading": "",
+      "context": "Question 5 (1 point): Q-Learning and Pacman"
+    },
+    {
+      "index": 24,
+      "label": "Question 6 (3 points): Approximate Q-Learning",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-6-3-points-approximate-q-learning",
+      "heading": "",
+      "context": "Question 6 (3 points): Approximate Q-Learning"
+    },
+    {
+      "index": 25,
+      "label": "Question 7 (4 points): Deep Q-Learning",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-7-4-points-deep-q-learning",
+      "heading": "",
+      "context": "Question 7 (4 points): Deep Q-Learning"
+    },
+    {
+      "index": 26,
+      "label": "Submission",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#submission",
+      "heading": "",
+      "context": "Submission"
+    },
+    {
+      "index": 27,
+      "label": "Just the Docs",
+      "url": "https://github.com/just-the-docs/just-the-docs",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 28,
+      "label": "Dark Mode",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/",
+      "heading": "",
+      "context": "Dark Mode"
+    },
+    {
+      "index": 29,
+      "label": "Ed",
+      "url": "https://edstem.org/us/courses/53090",
+      "heading": "",
+      "context": "Ed"
+    },
+    {
+      "index": 30,
+      "label": "OH Queue",
+      "url": "https://cs188-oh.apps.cs61a.org/",
+      "heading": "",
+      "context": "OH Queue"
+    },
+    {
+      "index": 31,
+      "label": "Extensions Form",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSdIVsw-XMblea5a1mbamHeFLql20eTVE8HmNJzKXU_JzHtl2g/viewform",
+      "heading": "",
+      "context": "Extensions Form"
+    },
+    {
+      "index": 32,
+      "label": "Attendance Form",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeTblOdJkV-8iQaM7-V5B9mBKElbn5zmb2Ovdpp5r7Y9I3IFQ/viewform",
+      "heading": "",
+      "context": "Attendance Form"
+    },
+    {
+      "index": 33,
+      "label": "Discussion Attendance Form",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSfaKOOcAjG3KXTalojLnT-7n9rg7rHTqP8K_7DvrKN5O73PTQ/viewform",
+      "heading": "",
+      "context": "Discussion Attendance Form"
+    },
+    {
+      "index": 34,
+      "label": "Feedback Form",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSdHvjOKF9NnH8qKjkdQzLdedPC6nDXXpsQHe5ByccvcYraweA/viewform",
+      "heading": "",
+      "context": "Feedback Form"
+    },
+    {
+      "index": 35,
+      "label": "Projects",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/projects/",
+      "heading": "",
+      "context": "Projects"
+    },
+    {
+      "index": 36,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#project-6-reinforcement-learning",
+      "heading": "Project 6: Reinforcement Learning",
+      "context": ""
+    },
+    {
+      "index": 37,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#table-of-contents",
+      "heading": "Table of contents",
+      "context": ""
+    },
+    {
+      "index": 38,
+      "label": "Introduction",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#introduction",
+      "heading": "Table of contents",
+      "context": "Introduction"
+    },
+    {
+      "index": 39,
+      "label": "Spring 2024 Change",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#spring-2024-change",
+      "heading": "Table of contents",
+      "context": "Spring 2024 Change"
+    },
+    {
+      "index": 40,
+      "label": "MDPs",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#mdps",
+      "heading": "Table of contents",
+      "context": "MDPs"
+    },
+    {
+      "index": 41,
+      "label": "Question 1 (5 points): Value Iteration",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-1-5-points-value-iteration",
+      "heading": "Table of contents",
+      "context": "Question 1 (5 points): Value Iteration"
+    },
+    {
+      "index": 42,
+      "label": "Question 2 (5 points): Policies",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-2-5-points-policies",
+      "heading": "Table of contents",
+      "context": "Question 2 (5 points): Policies"
+    },
+    {
+      "index": 43,
+      "label": "Question 3 (5 points): Q-Learning",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-3-5-points-q-learning",
+      "heading": "Table of contents",
+      "context": "Question 3 (5 points): Q-Learning"
+    },
+    {
+      "index": 44,
+      "label": "Question 4 (2 points): Epsilon Greedy",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-4-2-points-epsilon-greedy",
+      "heading": "Table of contents",
+      "context": "Question 4 (2 points): Epsilon Greedy"
+    },
+    {
+      "index": 45,
+      "label": "Question 5 (1 point): Q-Learning and Pacman",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-5-1-point-q-learning-and-pacman",
+      "heading": "Table of contents",
+      "context": "Question 5 (1 point): Q-Learning and Pacman"
+    },
+    {
+      "index": 46,
+      "label": "Question 6 (3 points): Approximate Q-Learning",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-6-3-points-approximate-q-learning",
+      "heading": "Table of contents",
+      "context": "Question 6 (3 points): Approximate Q-Learning"
+    },
+    {
+      "index": 47,
+      "label": "Question 7 (4 points): Deep Q-Learning",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-7-4-points-deep-q-learning",
+      "heading": "Table of contents",
+      "context": "Question 7 (4 points): Deep Q-Learning"
+    },
+    {
+      "index": 48,
+      "label": "Submission",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#submission",
+      "heading": "Table of contents",
+      "context": "Submission"
+    },
+    {
+      "index": 49,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#introduction",
+      "heading": "Introduction",
+      "context": ""
+    },
+    {
+      "index": 50,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#spring-2024-change",
+      "heading": "Spring 2024 Change",
+      "context": ""
+    },
+    {
+      "index": 51,
+      "label": "zip archive",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/assets/projects/reinforcement.zip",
+      "heading": "Spring 2024 Change",
+      "context": "This semester, just like the previous project, we will be having two versions available. They will be identical except for the final question, which is to train a deep q learning model. You will have the option of doing this question in Pytorch, or the custom neural network library that was used in the original version of the ML project. Both solutions will be very similar, so it will most likely be easier for you to continue with the version that you used for the previous project.\nThe code for this project contains the following files, available as a zip archive , and the pytorch version can be found here ."
+    },
+    {
+      "index": 52,
+      "label": "here",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/sp24/assets/projects/reinforcement_pytorch.zip",
+      "heading": "Spring 2024 Change",
+      "context": "This semester, just like the previous project, we will be having two versions available. They will be identical except for the final question, which is to train a deep q learning model. You will have the option of doing this question in Pytorch, or the custom neural network library that was used in the original version of the ML project. Both solutions will be very similar, so it will most likely be easier for you to continue with the version that you used for the previous project.\nThe code for this project contains the following files, available as a zip archive , and the pytorch version can be found here ."
+    },
+    {
+      "index": 53,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#mdps",
+      "heading": "MDPs",
+      "context": ""
+    },
+    {
+      "index": 54,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-1-5-points-value-iteration",
+      "heading": "Question 1 (5 points): Value Iteration",
+      "context": ""
+    },
+    {
+      "index": 55,
+      "label": "Sutton & Barto",
+      "url": "https://web.archive.org/web/20230417150626/https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf",
+      "heading": "Question 1 (5 points): Value Iteration",
+      "context": "Important: Use the “batch” version of value iteration where each vector \\(V_k\\) is computed from a fixed vector \\(V_{k−1}\\) (like in lecture), not the “online” version where one single weight vector is updated in place. This means that when a state’s value is updated in iteration \\(k\\) based on the values of its successor states, the successor state values used in the value update computation should be those from iteration \\(k−1\\) (even if some of the successor states had already been updated in iteration \n\\(k\\)). The difference is discussed in Sutton & Barto in Chapter 4.1 on page 91."
+    },
+    {
+      "index": 56,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-2-5-points-policies",
+      "heading": "Question 2 (5 points): Policies",
+      "context": ""
+    },
+    {
+      "index": 57,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-3-5-points-q-learning",
+      "heading": "Question 3 (5 points): Q-Learning",
+      "context": ""
+    },
+    {
+      "index": 58,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-4-2-points-epsilon-greedy",
+      "heading": "Question 4 (2 points): Epsilon Greedy",
+      "context": ""
+    },
+    {
+      "index": 59,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-5-1-point-q-learning-and-pacman",
+      "heading": "Question 5 (1 point): Q-Learning and Pacman",
+      "context": ""
+    },
+    {
+      "index": 60,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-6-3-points-approximate-q-learning",
+      "heading": "Question 6 (3 points): Approximate Q-Learning",
+      "context": ""
+    },
+    {
+      "index": 61,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#question-7-4-points-deep-q-learning",
+      "heading": "Question 7 (4 points): Deep Q-Learning",
+      "context": ""
+    },
+    {
+      "index": 62,
+      "label": "",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/#submission",
+      "heading": "Submission",
+      "context": ""
+    }
+  ],
+  "tables": [
+    [
+      "Files you'll edit:",
+      "valueIterationAgents.py A value iteration agent for solving known MDPs.",
+      "qlearningAgents.py Q-learning agents for Gridworld, Crawler and Pacman.",
+      "analysis.py A file to put your answers to questions given in the project.",
+      "Files you might want to look at:",
+      "mdp.py Defines methods on general MDPs.",
+      "learningAgents.py Defines the base classes ValueEstimationAgent and QLearningAgent , which your agents will extend.",
+      "util.py Utilities, including util.Counter , which is particularly useful for Q-learners.",
+      "gridworld.py The Gridworld implementation.",
+      "featureExtractors.py Classes for extracting features on (state, action) pairs. Used for the approximate Q-learning agent (in qlearningAgents.py ).",
+      "Supporting files you can ignore:",
+      "environment.py Abstract class for general reinforcement learning environments. Used by gridworld.py .",
+      "graphicsGridworldDisplay.py Gridworld graphical display.",
+      "graphicsUtils.py Graphics utilities.",
+      "textGridworldDisplay.py Plug-in for the Gridworld text interface.",
+      "crawler.py The crawler code and test harness. You will run this but not edit it.",
+      "graphicsCrawlerDisplay.py GUI for the crawler robot.",
+      "autograder.py Project autograder",
+      "testParser.py Parses autograder test and solution files",
+      "testClasses.py General autograding test classes",
+      "test_cases/ Directory containing the test cases for each question",
+      "reinforcementTestClasses.py Project 3 specific autograding test classes"
+    ]
+  ]
+}

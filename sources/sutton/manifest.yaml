@@ -1,0 +1,441 @@
+schema_version: 1
+phase: 1
+source_id: sutton
+configured_source:
+  id: sutton
+  instructor: Rich Sutton
+  path: sources/sutton/
+  role: book_relevance
+offering:
+  label: Fall 2017 CMPUT 366/609
+  evidence:
+  - path: sources/sutton/1-admin-and-intro.pdf
+    pages:
+    - 1
+    - 31
+  - path: sources/sutton/25-MCTS.pdf
+    pages:
+    - 1
+inventory_status: inventoried_with_documented_gaps
+scope: Material inventory only; no normalized topics, cross-course comparison, or curriculum recommendations.
+materials:
+- id: m_ade33d4b458d
+  title: 1-admin-and-intro
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/1-admin-and-intro.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: df2c2edf90bbebe04ea86dd1ab54814b62c8f985165dc5686bda4105e6d95cb6
+  size_bytes: 3227549
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 46
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '1'
+- id: m_c4485e054b76
+  title: 11-12-TD
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/11-12-TD.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 79ed2c7c93836ad0830975df4c9f79a104917643e485a9b86f4513261af3b681
+  size_bytes: 10243716
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 49
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '11'
+- id: m_a38439628b7e
+  title: 13-multistep
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/13-multistep.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: b3700596074ab79383654da37912ffba59ab1642412e6b60d7eb4f1e2c2f4f2b
+  size_bytes: 10604686
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 18
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '13'
+- id: m_812552be4202
+  title: 16-17-planning-and-learning
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/16-17-planning-and-learning.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:36+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 4ee4c8b106be695d3af745372accf499b460a7b21a8b7c794e2aedea9f824364
+  size_bytes: 5873887
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 39
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '16'
+- id: m_ae6cab396ca4
+  title: 18-19-onpolicy-prediction
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/18-19-onpolicy-prediction.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:36+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 63c3d490c85fdbe7c12a7720b3f72090083915f0ea982bba83a8d8236b7267d8
+  size_bytes: 14189171
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 29
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '18'
+- id: m_1be2b1c5fbbe
+  title: 2-3-bandits
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/2-3-bandits.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:36+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: eee4203b0d9cdb9e874b8367e2ca3622ca0bd21e6de05949e169f100dc2ca766
+  size_bytes: 5730033
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 32
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '2'
+- id: m_debfd90c107d
+  title: 20-onpolicy-control
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/20-onpolicy-control.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:36+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 0f3f1825fb73d06d7ffa86d14ad45b8480c4615ce06dd5fa3a1837f0614c26ea
+  size_bytes: 9723419
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 19
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '20'
+- id: m_9002f3f0376a
+  title: 21-temporal-abstraction
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/21-temporal-abstraction.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:36+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: e399774199389dc235739884eabce367950de7b60111514d1075cab054d53cf2
+  size_bytes: 2650669
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 31
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '21'
+- id: m_021c78cc47fa
+  title: 22-eligibility-traces
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/22-eligibility-traces.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:36+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 58fce2c7b03abb69ce03495c92256d99038c31ab4bfe58303093c7bb0faa6f9f
+  size_bytes: 41522670
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 55
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '22'
+- id: m_0792abb85197
+  title: 23-biopsych
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/23-biopsych.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:37+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 4672a7329c90a52f0a362851ac72fc5516c212f1b3558255ddce6b309326a410
+  size_bytes: 4021935
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 35
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '23'
+  attribution: Acknowledges Elliot Ludvig (title page)
+- id: m_e5d9ad4e4d38
+  title: 24-PG+hidden
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/24-PG+hidden.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:37+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 2164ad935fb636492bdced6d4d9894c5988eafe7e34b7d07fcc838e1861ba079
+  size_bytes: 24680177
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 39
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '24'
+- id: m_c944fa22ada7
+  title: 25-MCTS
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/25-MCTS.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:38+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: d670547483045f6b6919d0467d1dc3c4a6cffc5ee282be384d0fda5dcd094628
+  size_bytes: 2947209
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 66
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '25'
+  attribution: Martin Müller, guest lecturer (title page)
+- id: m_90d6099e25c0
+  title: 26-offpolicy
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/26-offpolicy.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:38+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: e93154fb3890d989d88e69245325fff4c5ecb4f43ebffd946e5f79d194d7cfbd
+  size_bytes: 27942204
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 34
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '26'
+- id: m_ed2280873597
+  title: 4-mdp-examples
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/4-mdp-examples.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:38+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 1dacc8a7dc4eb40a0a5d369c6d2b981b5a5f2b797464524c48a1e90ae5b0e52d
+  size_bytes: 3828829
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 36
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '4'
+- id: m_911bfc62907a
+  title: 5-6-MDPs
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/5-6-MDPs.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:38+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 7a35d38e57b345ed7cfd10f39cfa6ba1542e4c2f165cd40e1f10f2648a1dfacf
+  size_bytes: 5859825
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 46
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '5'
+- id: m_c597c22590c4
+  title: 7-8-DP
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/7-8-DP.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:38+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 26dd5ac6193ee13dfe49e2a8d840e6e83aaa115f5ca944ac744e1bd164d89cab
+  size_bytes: 5791894
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 27
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '7'
+- id: m_99c87af6e5d4
+  title: 9-10-MC
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: Fall 2017 CMPUT 366/609
+  path: sources/sutton/9-10-MC.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:39+00:00'
+  provenance:
+  - inventory_path: sources/sutton/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: fb44c60f8c45d6b905a66c34028a2c86bc259d829b9bd0442fdf2f02406ebb7f
+  size_bytes: 11171073
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 28
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '9'
+- id: m_cac440bc962b
+  title: Early-term reading schedule (source-authored chapter references)
+  material_type: reading
+  instructional_use: assigned_reading
+  offering: Fall 2017 CMPUT 366/609
+  storage: embedded_reference
+  observed_at: '2026-09-27T23:59:39+00:00'
+  provenance:
+  - path: sources/sutton/1-admin-and-intro.pdf
+    pages:
+    - 31
+  accessibility:
+    status: described_in_parent
+  note: Reference to the historical edition/schedule; not a mapping to the configured 2020 book.
+- id: m_f97da135e3c6
+  title: Sutton and Barto, in-progress second edition (book366.pdf/book609.pdf)
+  material_type: reading
+  instructional_use: assigned_reading
+  offering: Fall 2017 CMPUT 366/609
+  storage: embedded_reference
+  observed_at: '2026-09-27T23:59:39+00:00'
+  provenance:
+  - path: sources/sutton/1-admin-and-intro.pdf
+    pages:
+    - 33
+  accessibility:
+    status: described_in_parent
+  note: Reference to the historical edition/schedule; not a mapping to the configured 2020 book.
+- id: m_48e8ed3b1661
+  title: Nils Nilsson, The Quest for AI (2010)
+  material_type: reading
+  instructional_use: assigned_reading
+  offering: Fall 2017 CMPUT 366/609
+  storage: embedded_reference
+  observed_at: '2026-09-27T23:59:39+00:00'
+  provenance:
+  - path: sources/sutton/1-admin-and-intro.pdf
+    pages:
+    - 33
+  accessibility:
+    status: described_in_parent
+  note: Reference to the historical edition/schedule; not a mapping to the configured 2020 book.
+observations:
+- statement: The introductory deck names Rich Sutton and Adam White. Page 31 dates the schedule to September–October
+    2017; the MCTS guest deck explicitly says Fall 2017.
+  basis: direct_source_evidence
+  evidence:
+  - 1-admin-and-intro.pdf pp.1,31
+  - 25-MCTS.pdf p.1
+- statement: The administration deck contains an early-term class/reading schedule (p.31), Moodle/Drive resource
+    directions (p.32), textbook information (p.33), and assessment weights (p.34). Its syllabus includes assignments,
+    reading-writing exercises, and exams even though those artifacts are not supplied.
+  basis: direct_source_evidence
+  evidence:
+  - 1-admin-and-intro.pdf pp.31–34
+evidence_gaps:
+- category: unavailable_artifacts
+  description: No separate assignment, starter-code, exam, project, or recording files are supplied. The deck directs
+    students to Moodle/Google Drive but gives no usable direct folder URL in extracted text. Assessment presence
+    is known; detailed assessment contents remain unknown.
+  evidence:
+  - 1-admin-and-intro.pdf pp.31–34
+  - snapshots/local_inventory.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: collection_scope
+  description: The supplied schedule covers only the early term. Filenames do not include decks 14–15; the schedule
+    labels those sessions review and midterm, so this is not evidence of missing topic teaching.
+  evidence:
+  - 1-admin-and-intro.pdf p.31
+  - snapshots/local_inventory.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: local_provenance
+  description: Original download URLs/dates for supplied slides are unknown; local hashes and inspection dates are
+    preserved.
+  evidence:
+  - snapshots/local_inventory.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+inspected_at: '2026-09-27T23:59:39+00:00'

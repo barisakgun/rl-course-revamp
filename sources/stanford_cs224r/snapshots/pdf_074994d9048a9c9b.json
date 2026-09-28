@@ -1,0 +1,28 @@
+{
+  "url": "https://cs224r.stanford.edu/material/CS224R_Custom_Project_Guidelines.pdf",
+  "resolved_url": "https://cs224r.stanford.edu/material/CS224R_Custom_Project_Guidelines.pdf",
+  "checked_at": "2026-09-28T00:04:03+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://cs224r.stanford.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:04:03+00:00"
+  },
+  "sha256": "8da20d7e0149fd2e74dcbd68217a983fc87d05fc2c5f101c9fe80989ada729cd",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.24\nCreationDate:    Sun Apr 19 04:12:20 2026 +03\nModDate:         Sun Apr 19 04:12:20 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           11\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       226973 bytes\nOptimized:       yes\nPDF version:     1.5\n",
+  "first_page_excerpt": "          CS224R Spring 2026 Deep Reinforcement Learning\n                    Custom Project Guidelines\n\nContents\n\n1   Requirements and Expected Outcome                                                                 2\n\n\n2   Important Information                                                                            2\n\n    2.1    Timeline and Grading . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         2\n\n    2.2    Project Mentors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      3\n\n    2.3    Project Groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     5\n\n    2.4    Past Projects . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    5\n\n    2.5    Contributions . . . . . . . . . . . . . . . .",
+  "embedded_urls": [],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://cs224r.stanford.edu/spring_2025/projects/cs224r_final_projects.html",
+    "https://docs.google.com/forms/d/e/1FAIpQLSfsqy5CBbBXaE5GTD-OVFj7EHYKtg03TRkKhuqnY8jTuD5RwA/viewform",
+    "https://drive.google.com/file/d/1C0hQM6O_eyDTwK7gQTJ0o-7WjUjQgRx_/view?usp=sharing",
+    "https://drive.google.com/file/d/1XZ-kjuxs2KZXfNAqRIk8YSMOSeOQFo5z/view?usp=sharing",
+    "https://drive.google.com/file/d/1zIWOwS6iCnkEdVx6TuJAS4zbdgZTTKnC/view?usp=sharing",
+    "https://github.com/RylanSchaeffer/Stanford-LaTeX-Poster-Template",
+    "https://www.gradescope.com/courses/1285850"
+  ]
+}

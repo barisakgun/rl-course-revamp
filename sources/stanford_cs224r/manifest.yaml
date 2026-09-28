@@ -1,0 +1,1177 @@
+schema_version: 1
+phase: 1
+source_id: stanford_cs224r
+configured_source:
+  id: stanford_cs224r
+  instructor: Chelsea Finn
+  url: https://cs224r.stanford.edu/
+  role: modern_deep_rl_reference
+offering:
+  label: Spring 2026
+  evidence:
+  - source_url: https://cs224r.stanford.edu/
+    locator: course heading; Berkeley also assignment PDF headers
+inventory_status: inventoried_with_documented_gaps
+scope: Material inventory only; no normalized topics, cross-course comparison, or curriculum recommendations.
+materials:
+- id: m_b2ee99021e4b
+  title: CS 224R Deep Reinforcement Learning
+  material_type: course_index
+  instructional_use: catalog
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - index_path: sources/stanford_cs224r/snapshots/home_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/
+    checked_at: '2026-09-28T01:02:07+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+- id: m_9ef8d4fa11a1
+  title: CS 224R Final Projects
+  material_type: project_examples_index
+  instructional_use: reference
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/projects/cs224r_final_projects.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - index_path: sources/stanford_cs224r/snapshots/projects_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/projects/cs224r_final_projects.html
+    checked_at: '2026-09-28T01:02:16+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+- id: m_7e42c887d39d
+  title: lectures
+  material_type: reading
+  instructional_use: prerequisite_reference
+  offering: Spring 2026
+  url: https://stanford-cs221.github.io/autumn2022/modules/
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 0
+    heading: 'Prerequisites:'
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'Some familiarity with reinforcement learning : We will assume some familiarity with the basics
+    of reinforcement learning. For introductory material on RL and Markov decision processes (MDPs), see CS221''s
+    lectures on MDPs and RL, or see Chapters 3 and 4 of Sutton & Barto .'
+- id: m_cad5b62f430f
+  title: Sutton & Barto
+  material_type: reading
+  instructional_use: prerequisite_reference
+  offering: Spring 2026
+  url: http://incompleteideas.net/book/RLbook2020.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 1
+    heading: 'Prerequisites:'
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'Some familiarity with reinforcement learning : We will assume some familiarity with the basics
+    of reinforcement learning. For introductory material on RL and Markov decision processes (MDPs), see CS221''s
+    lectures on MDPs and RL, or see Chapters 3 and 4 of Sutton & Barto .'
+- id: m_621ce77a40e7
+  title: Spring 2025 lecture videos
+  material_type: recording_collection
+  instructional_use: supplemental_past_offering
+  offering: Spring 2025
+  url: https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 4
+    heading: Previous Offerings
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Spring 2023 Spring 2025 ( lecture videos )
+- id: m_9174eb95d059
+  title: Spring 2025 project reports
+  material_type: project_examples_index
+  instructional_use: supplemental_past_offering
+  offering: Spring 2025
+  url: https://cs224r.stanford.edu/spring_2025/projects/cs224r_final_projects.html
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 5
+    heading: Final Project Reports
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 58
+    heading: Grading and Course Policies
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Spring 2025 Spring 2026
+- id: m_a79b33f661d4
+  title: Course Intro + Start of MDPs & Imitation
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/01_cs224r_intro_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 8
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/01_cs224r_intro_2026.pdf
+    checked_at: '2026-09-28T01:02:17+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 1 Wed, April 1 Lecture Course Intro + Start of MDPs & Imitation
+- id: m_f453d80ef9b2
+  title: Imitation Learning
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/02_cs224r_imitation_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 9
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/02_cs224r_imitation_2026.pdf
+    checked_at: '2026-09-28T01:02:17+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: 'Week 1 Fri, April 3 Lecture Imitation Learning Out Homework 1 [ PDF , code , template ] Diffusion
+    Policy: Visuomotor Policy Learning via Action Diffusion. Chi et al. (2024) Learning Fine-Grained Bimanual Manipulation
+    with Low-Cost Hardware. Zhao et al. (2023)'
+- id: m_ad0fabfb3f9d
+  title: Homework 1 — assignment
+  material_type: assignment
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 10
+    heading: Timeline
+  - inspection_path: sources/stanford_cs224r/snapshots/pdf_ad0fabfb3f9d3c06.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:04:05+00:00'
+    evidence_path: sources/stanford_cs224r/snapshots/pdf_ad0fabfb3f9d3c06.json
+  catalog_context: 'Week 1 Fri, April 3 Lecture Imitation Learning Out Homework 1 [ PDF , code , template ] Diffusion
+    Policy: Visuomotor Policy Learning via Action Diffusion. Chi et al. (2024) Learning Fine-Grained Bimanual Manipulation
+    with Low-Cost Hardware. Zhao et al. (2023)'
+  remote_sha256: 832bc80e95c90e09d28cb169d78e359a8c220ab94b57a1ac7bb6b449030ff496
+  remote_pdf_pages: 7
+- id: m_5a5349b853aa
+  title: Homework 1 — starter code
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/hw1/hw1_starter_code.zip
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 11
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/material/hw1/hw1_starter_code.zip
+    checked_at: '2026-09-28T01:02:13+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: 'Week 1 Fri, April 3 Lecture Imitation Learning Out Homework 1 [ PDF , code , template ] Diffusion
+    Policy: Visuomotor Policy Learning via Action Diffusion. Chi et al. (2024) Learning Fine-Grained Bimanual Manipulation
+    with Low-Cost Hardware. Zhao et al. (2023)'
+- id: m_5f52f13fa704
+  title: Homework 1 — submission template
+  material_type: submission_template
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.tex
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 12
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.tex
+    checked_at: '2026-09-28T01:02:12+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: 'Week 1 Fri, April 3 Lecture Imitation Learning Out Homework 1 [ PDF , code , template ] Diffusion
+    Policy: Visuomotor Policy Learning via Action Diffusion. Chi et al. (2024) Learning Fine-Grained Bimanual Manipulation
+    with Low-Cost Hardware. Zhao et al. (2023)'
+- id: m_6cd1499cecd0
+  title: 'Diffusion Policy: Visuomotor Policy Learning via Action Diffusion.'
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/2303.04137v5
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 13
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'Diffusion Policy: Visuomotor Policy Learning via Action Diffusion. Chi et al. (2024)'
+- id: m_d419303d4fbe
+  title: Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/2304.13705
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 14
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware. Zhao et al. (2023)
+- id: m_82b83a5de821
+  title: Policy Gradients
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/03_cs224r_policy_gradients_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 15
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/03_cs224r_policy_gradients_2026.pdf
+    checked_at: '2026-09-28T01:02:18+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 2 Wed, April 8 Lecture Policy Gradients Simple statistical gradient-following algorithms
+    for connectionist reinforcement learning. Williams (1992)
+- id: m_1548c30e6c56
+  title: Simple statistical gradient-following algorithms for connectionist reinforcement learning.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://link.springer.com/article/10.1007/BF00992696
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 16
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Simple statistical gradient-following algorithms for connectionist reinforcement learning. Williams
+    (1992)
+- id: m_56570d7e8391
+  title: Actor-Critic Methods
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/04_cs224r_actor_critic_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 17
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/04_cs224r_actor_critic_2026.pdf
+    checked_at: '2026-09-28T01:02:18+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code
+    , template , compute guide ] Policy Gradient Methods for Reinforcement Learning with Function Approximation.
+    Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)
+- id: m_883bca8cab47
+  title: Homework 2 — assignment
+  material_type: assignment
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 18
+    heading: Timeline
+  - inspection_path: sources/stanford_cs224r/snapshots/pdf_883bca8cab47a14e.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:04:06+00:00'
+    evidence_path: sources/stanford_cs224r/snapshots/pdf_883bca8cab47a14e.json
+  catalog_context: Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code
+    , template , compute guide ] Policy Gradient Methods for Reinforcement Learning with Function Approximation.
+    Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)
+  remote_sha256: 3b37586512f49269dc541dbe899a84fbf1c43a39904048043b1075af35c5474d
+  remote_pdf_pages: 12
+- id: m_bcfc64230d9a
+  title: Homework 2 — starter code
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/hw2/hw2_starter_code.zip
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 19
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/material/hw2/hw2_starter_code.zip
+    checked_at: '2026-09-28T01:02:14+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code
+    , template , compute guide ] Policy Gradient Methods for Reinforcement Learning with Function Approximation.
+    Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)
+- id: m_1ff954c263bd
+  title: Homework 2 — submission template
+  material_type: submission_template
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.tex
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 20
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.tex
+    checked_at: '2026-09-28T01:02:13+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code
+    , template , compute guide ] Policy Gradient Methods for Reinforcement Learning with Function Approximation.
+    Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)
+- id: m_ccb277d5f2fe
+  title: compute guide
+  material_type: compute_guide
+  instructional_use: assessment_support
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/CS224R_compute_guide.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 21
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/material/CS224R_compute_guide.pdf
+    checked_at: '2026-09-28T01:02:11+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 2 Fri, April 10 Lecture Actor-Critic Methods Due Homework 1 Out Homework 2 [ PDF , code
+    , template , compute guide ] Policy Gradient Methods for Reinforcement Learning with Function Approximation.
+    Sutton et al. (1999) Proximal Policy Optimization. Schulman et al. (2017)
+- id: m_e58a7046d06d
+  title: Policy Gradient Methods for Reinforcement Learning with Function Approximation.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://proceedings.neurips.cc/paper_files/paper/1999/file/464d828b85b0bed98e80ade0a5c43b0f-Paper.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 22
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Policy Gradient Methods for Reinforcement Learning with Function Approximation. Sutton et al.
+    (1999)
+- id: m_5c73fa759d96
+  title: Proximal Policy Optimization.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/pdf/1707.06347
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 23
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Proximal Policy Optimization. Schulman et al. (2017)
+- id: m_cac38ba90152
+  title: Off-Policy Actor Critic Methods
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/05_cs224r_offpolicy_actor_critic_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 24
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/05_cs224r_offpolicy_actor_critic_2026.pdf
+    checked_at: '2026-09-28T01:02:19+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 3 Wed, April 15 Lecture Off-Policy Actor Critic Methods Playing Atari with Deep Reinforcement
+    Learning. Mnih et al. (2013)
+- id: m_0e861a158623
+  title: Playing Atari with Deep Reinforcement Learning.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/1312.5602
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 25
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Playing Atari with Deep Reinforcement Learning. Mnih et al. (2013)
+- id: m_b20773438b27
+  title: Q-learning
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/06_cs224r_qlearning_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 26
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/06_cs224r_qlearning_2026.pdf
+    checked_at: '2026-09-28T01:02:20+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 3 Fri, April 17 Lecture Q-learning Deep Reinforcement Learning with Double Q-learning. Hasselt
+    et al. (2015) A Distributional Perspective on Reinforcement Learning. Bellemare et al. (2017)
+- id: m_f88375f30613
+  title: Deep Reinforcement Learning with Double Q-learning.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/1509.06461
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 27
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Deep Reinforcement Learning with Double Q-learning. Hasselt et al. (2015)
+- id: m_db701cd89e51
+  title: A Distributional Perspective on Reinforcement Learning.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/1707.06887
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 28
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: A Distributional Perspective on Reinforcement Learning. Bellemare et al. (2017)
+- id: m_2bfd23351bc5
+  title: Extra section on Q-learning
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/CS224R_Tutotial_Max.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 29
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/material/CS224R_Tutotial_Max.pdf
+    checked_at: '2026-09-28T01:02:10+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 3 Fri, April 17 TA Session Extra section on Q-learning 4:45 – 5:35 pm, Thornton 102
+- id: m_66f71c6ac60c
+  title: Offline RL
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 30
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf
+    checked_at: '2026-09-28T01:02:20+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 4 Wed, April 22 Lecture Offline RL Due Project Survey Offline Reinforcement Learning with
+    Implicit Q-Learning. Kostrikov et al. (2021)
+- id: m_3f63ae4c16a8
+  title: Offline Reinforcement Learning with Implicit Q-Learning.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/2110.06169
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 31
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Offline Reinforcement Learning with Implicit Q-Learning. Kostrikov et al. (2021)
+- id: m_bce5fd0889db
+  title: Reward Learning
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/08_cs224r_reward_learning_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 32
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/08_cs224r_reward_learning_2026.pdf
+    checked_at: '2026-09-28T01:02:21+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 4 Fri, April 24 Lecture Reward Learning Due Homework 2 Out Homework 3 [ PDF , code , template
+    ] Deep reinforcement learning from human preferences. Christiano et al. (2017)
+- id: m_f1eb900cb2f4
+  title: Homework 3 — assignment
+  material_type: assignment
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 33
+    heading: Timeline
+  - inspection_path: sources/stanford_cs224r/snapshots/pdf_f1eb900cb2f4f521.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:04:07+00:00'
+    evidence_path: sources/stanford_cs224r/snapshots/pdf_f1eb900cb2f4f521.json
+  catalog_context: Week 4 Fri, April 24 Lecture Reward Learning Due Homework 2 Out Homework 3 [ PDF , code , template
+    ] Deep reinforcement learning from human preferences. Christiano et al. (2017)
+  remote_sha256: d4835fc44a1160d8023744ee8af8727284db51f1e6a045497c18f0026cc96a30
+  remote_pdf_pages: 15
+- id: m_5115fb966692
+  title: Homework 3 — starter code
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/hw3/hw3_starter_code.zip
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 34
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/material/hw3/hw3_starter_code.zip
+    checked_at: '2026-09-28T01:02:15+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 4 Fri, April 24 Lecture Reward Learning Due Homework 2 Out Homework 3 [ PDF , code , template
+    ] Deep reinforcement learning from human preferences. Christiano et al. (2017)
+- id: m_ffcec5d67385
+  title: Homework 3 — submission template
+  material_type: submission_template
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.tex
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 35
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.tex
+    checked_at: '2026-09-28T01:02:15+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 4 Fri, April 24 Lecture Reward Learning Due Homework 2 Out Homework 3 [ PDF , code , template
+    ] Deep reinforcement learning from human preferences. Christiano et al. (2017)
+- id: m_14df73723b4d
+  title: Deep reinforcement learning from human preferences.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/1706.03741
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 36
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Deep reinforcement learning from human preferences. Christiano et al. (2017)
+- id: m_63e8bdf0edd8
+  title: 'RL for LLMs: Preference Optimization (Guest Lecture: Archit Sharma)'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/09_cs224r_rlhf_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 37
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/09_cs224r_rlhf_2026.pdf
+    checked_at: '2026-09-28T01:02:21+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: 'Week 5 Wed, April 29 Lecture RL for LLMs: Preference Optimization (Guest Lecture: Archit Sharma)
+    Direct Preference Optimization: Your Language Model is Secretly a Reward Model. Rafailov et al. (2023) IPO:
+    Your Language Model is Secretly a Preference Classifier. Garg et al. (2025)'
+- id: m_d5a5216fcde8
+  title: 'Direct Preference Optimization: Your Language Model is Secretly a Reward Model.'
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/2305.18290
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 38
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'Direct Preference Optimization: Your Language Model is Secretly a Reward Model. Rafailov et
+    al. (2023)'
+- id: m_446a24dd645f
+  title: 'IPO: Your Language Model is Secretly a Preference Classifier.'
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/2502.16182
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 39
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'IPO: Your Language Model is Secretly a Preference Classifier. Garg et al. (2025)'
+- id: m_3912a6548a67
+  title: 'RL for LLMs: Reasoning (Guest Lecture: Noam Brown)'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 40
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf
+    checked_at: '2026-09-28T01:02:22+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: 'Week 5 Fri, May 1 Lecture RL for LLMs: Reasoning (Guest Lecture: Noam Brown) Due Project Proposal
+    (incl. SFT milestone for default project)'
+- id: m_951d310a1d8b
+  title: Model-Based RL
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/11_cs224r_mbrl_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 41
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/11_cs224r_mbrl_2026.pdf
+    checked_at: '2026-09-28T01:02:22+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: 'Week 6 Wed, May 6 Lecture Model-Based RL When to Trust Your Model: Model-Based Policy Optimization.
+    Janner et al. (2019)'
+- id: m_e97b8be1cc13
+  title: 'When to Trust Your Model: Model-Based Policy Optimization.'
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/1906.08253
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 42
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'When to Trust Your Model: Model-Based Policy Optimization. Janner et al. (2019)'
+- id: m_fae21f60e93c
+  title: Multi-Task and Goal-Conditioned RL
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/12_cs224r_mtrl_gcrl_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 43
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/12_cs224r_mtrl_gcrl_2026.pdf
+    checked_at: '2026-09-28T01:02:23+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 6 Fri, May 8 Lecture Multi-Task and Goal-Conditioned RL Due Homework 3 Hindsight Experience
+    Replay. Andrychowicz et al. (2018)
+- id: m_649635805b7c
+  title: Hindsight Experience Replay.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/1707.01495
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 44
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Hindsight Experience Replay. Andrychowicz et al. (2018)
+- id: m_f331460bf078
+  title: Exam Review Session
+  material_type: discussion_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/CS224R_Exam_Review_Session_Riya.pptx
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 45
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/material/CS224R_Exam_Review_Session_Riya.pptx
+    checked_at: '2026-09-28T01:02:10+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 7 Mon, May 11 Review Session Exam Review Session 4:30 – 5:20 pm, Skilling Aud
+- id: m_3bdcb4211007
+  title: Meta-RL
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/13_cs224r_metarl_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 46
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/13_cs224r_metarl_2026.pdf
+    checked_at: '2026-09-28T01:02:24+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: 'Week 7 Wed, May 13 Lecture Meta-RL RL 2 : Fast Reinforcement Learning via Slow Reinforcement
+    Learning. Duan et al. (2016)'
+- id: m_6d00798f5638
+  title: 'RL 2 : Fast Reinforcement Learning via Slow Reinforcement Learning.'
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/1611.02779
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 47
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'RL 2 : Fast Reinforcement Learning via Slow Reinforcement Learning. Duan et al. (2016)'
+- id: m_eeb9896e64b5
+  title: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices.
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/2008.02790
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 48
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices. Liu
+    et al. (2021)
+- id: m_90d5b0d6d8e1
+  title: Hierarchical RL and IL
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/15_cs224r_hierarchy_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 49
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/15_cs224r_hierarchy_2026.pdf
+    checked_at: '2026-09-28T01:02:24+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: 'Week 8 Wed, May 20 Lecture Hierarchical RL and IL Do As I Can, Not As I Say: Grounding Language
+    in Robotic Affordances. Ahn et al. (2022)'
+- id: m_38ad622810c5
+  title: 'Do As I Can, Not As I Say: Grounding Language in Robotic Affordances.'
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/2204.01691
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 50
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'Do As I Can, Not As I Say: Grounding Language in Robotic Affordances. Ahn et al. (2022)'
+- id: m_8e5783fc0c27
+  title: 'RL for Robots: Sim-to-Real Transfer (Guest Lecture: Guanya Shi)'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/16_cs224r_sim2real_robot_learning_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 51
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/16_cs224r_sim2real_robot_learning_2026.pdf
+    checked_at: '2026-09-28T01:02:25+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: 'Week 8 Fri, May 22 Lecture RL for Robots: Sim-to-Real Transfer (Guest Lecture: Guanya Shi) Due
+    Project Milestone Sim-to-Real: Learning Agile Locomotion For Quadruped Robots. Tan et al. (2018)'
+- id: m_3b2afc5c4fb9
+  title: 'Sim-to-Real: Learning Agile Locomotion For Quadruped Robots.'
+  material_type: reading
+  instructional_use: optional_reference
+  offering: Spring 2026
+  url: https://arxiv.org/abs/1804.10332
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 52
+    heading: Timeline
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: 'Sim-to-Real: Learning Agile Locomotion For Quadruped Robots. Tan et al. (2018)'
+- id: m_b169ab616e59
+  title: 'RL for Robots: RL for VLAs'
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/17_cs224r_rl_vlas_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 53
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/17_cs224r_rl_vlas_2026.pdf
+    checked_at: '2026-09-28T01:02:26+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: 'Week 9 Wed, May 27 Lecture RL for Robots: RL for VLAs'
+- id: m_8c9991899722
+  title: Frontiers
+  material_type: lecture_slides
+  instructional_use: scheduled_teaching
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/slides/18_cs224r_frontiers_how_to_research_2026.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 54
+    heading: Timeline
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/slides/18_cs224r_frontiers_how_to_research_2026.pdf
+    checked_at: '2026-09-28T01:02:26+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Week 9 Fri, May 29 Lecture Frontiers
+- id: m_55c35fac39f2
+  title: Default Project Guidelines
+  material_type: project_guidelines
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/CS224R_Default_Project_Guidelines.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 59
+    heading: Grading and Course Policies
+  - inspection_path: sources/stanford_cs224r/snapshots/pdf_55c35fac39f21d5a.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:04:04+00:00'
+    evidence_path: sources/stanford_cs224r/snapshots/pdf_55c35fac39f21d5a.json
+  catalog_context: Default Project Guidelines ( starter code )
+  remote_sha256: 2cbb66b56d7dc5bd73e39fa9977df279a305b9fafdb24798930c711091844471
+  remote_pdf_pages: 23
+- id: m_827bdb46136f
+  title: Default project starter code
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/default_proj.zip
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 60
+    heading: Grading and Course Policies
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://cs224r.stanford.edu/material/default_proj.zip
+    checked_at: '2026-09-28T01:02:11+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/stanford_cs224r/snapshots/link_checks.json
+  catalog_context: Default Project Guidelines ( starter code )
+- id: m_074994d9048a
+  title: Custom Project Guidelines
+  material_type: project_guidelines
+  instructional_use: assessment
+  offering: Spring 2026
+  url: https://cs224r.stanford.edu/material/CS224R_Custom_Project_Guidelines.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:47+00:00'
+  provenance:
+  - source_url: https://cs224r.stanford.edu/
+    index_path: sources/stanford_cs224r/snapshots/home_index.json
+    link_index: 61
+    heading: Grading and Course Policies
+  - inspection_path: sources/stanford_cs224r/snapshots/pdf_074994d9048a9c9b.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:04:03+00:00'
+    evidence_path: sources/stanford_cs224r/snapshots/pdf_074994d9048a9c9b.json
+  catalog_context: Custom Project Guidelines
+  remote_sha256: 8da20d7e0149fd2e74dcbd68217a983fc87d05fc2c5f101c9fe80989ada729cd
+  remote_pdf_pages: 11
+observations:
+- statement: The Spring 2026 project gallery indexes 244 report links. Their titles and URLs are retained in the
+    gallery index; individual student reports were not downloaded or evaluated.
+  basis: direct_source_evidence
+  evidence:
+  - sources/stanford_cs224r/snapshots/projects_index.json
+- statement: The timeline explicitly labels its reading column Notes & Optional Reading. Three homework briefs and
+    separate code/templates are public. The custom and default project routes have guidelines, milestones, and grading
+    criteria.
+  basis: direct_source_evidence
+  evidence:
+  - home_index.json
+  - CS224R_Custom_Project_Guidelines.pdf
+  - CS224R_Default_Project_Guidelines.pdf
+evidence_gaps:
+- category: restricted_material
+  description: Current recordings are described as available through Canvas/Panopto. Public Spring 2025 recordings
+    are a separate offering; no current exam question paper was linked.
+  evidence:
+  - 'home_index.json: Additional Information and Grading'
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: document_date_conflict
+  description: The default-project brief has a Poster Presentation (6/3) heading but its location/time paragraph
+    says 6/4/25. The Spring 2026 homepage and custom-project brief specify June 3, 2026. Preserve the discrepancy.
+  evidence:
+  - CS224R_Default_Project_Guidelines.pdf section 4.4
+  - CS224R_Custom_Project_Guidelines.pdf section 6
+  - home_index.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+inspected_at: '2026-09-28T00:01:47+00:00'

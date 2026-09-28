@@ -1,0 +1,49 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/offline_to_online_rl_default_final_project.pdf",
+  "checked_at": "2026-09-28T00:03:54+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:03:43+00:00"
+  },
+  "sha256": "c6ee65113f7e947594e05b0fa26fb203cdeeb08a9279b7338967637db9006a19",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.27\nCreationDate:    Fri May  8 23:59:57 2026 +03\nModDate:         Fri May  8 23:59:57 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           21\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       381675 bytes\nOptimized:       yes\nPDF version:     1.5\n",
+  "first_page_excerpt": "Berkeley CS 185/285      Deep Reinforcement Learning, Decision Making, and Control                      Spring 2026\n\n\n               Final Project: Offline-to-Online Reinforcement Learning\n                                      Milestone report due April 13th\n                                       Final Report due May 13th\nFor the full final project outline, please refer to the Final Project Outline listed on the course\n                                              website\nAI Policy\n      You may not use AI assistants (chatbots, coding agents, etc.) to directly generate\n      any material that will be graded. This includes both the code and PDF reports for\n      both the homework assignments and the final project.\n      We are following the Stanford Generative AI Policy, which is that you m",
+  "embedded_urls": [
+    "https://arxiv.",
+    "https://arxiv.org/abs/",
+    "https://arxiv.org/abs/1910.00177.",
+    "https://arxiv.org/abs/2006.04779.",
+    "https://arxiv.org/abs/2006.09359.",
+    "https://arxiv.org/abs/2107.00591.",
+    "https://arxiv.org/abs/2302.02948.",
+    "https://arxiv.org/abs/2312.11752.",
+    "https://arxiv.org/abs/2412.07762.",
+    "https://arxiv.org/abs/2507.07969.",
+    "https://arxiv.org/abs/2601.",
+    "https://github.com/berkeleydeeprlcourse/homework"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://arxiv.org/abs/1910.00177",
+    "https://arxiv.org/abs/2006.04779",
+    "https://arxiv.org/abs/2006.09359",
+    "https://arxiv.org/abs/2102.09672",
+    "https://arxiv.org/abs/2107.00591",
+    "https://arxiv.org/abs/2302.02948",
+    "https://arxiv.org/abs/2304.10573",
+    "https://arxiv.org/abs/2312.11752",
+    "https://arxiv.org/abs/2407.01800",
+    "https://arxiv.org/abs/2412.07762",
+    "https://arxiv.org/abs/2507.07969",
+    "https://arxiv.org/abs/2601.14234",
+    "https://communitystandards.stanford.edu/generative-ai-policy-guidance",
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/final_project_offline_online",
+    "https://rail.eecs.berkeley.edu/deeprlcourse/static/misc/final_project_outline.pdf"
+  ]
+}

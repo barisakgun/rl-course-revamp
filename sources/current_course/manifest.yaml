@@ -1,0 +1,1495 @@
+schema_version: 1
+phase: 1
+source_id: current_course
+configured_source:
+  id: current_course
+  instructor: local
+  path: sources/current_course/
+  role: baseline
+offering:
+  label: Single composite baseline; dates retained only as artifact provenance
+  evidence:
+  - path: docs/repository_contract.md
+    locator: single-baseline convention
+  - path: sources/current_course/syllabusSpring2025.pdf
+    locator: title
+inventory_status: inventoried_with_documented_gaps
+scope: Material inventory only; no normalized topics, cross-course comparison, or curriculum recommendations.
+materials:
+- id: m_b8543708a506
+  title: 0 - NutsAndBolts
+  material_type: course_administration
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/0 - NutsAndBolts.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: f1f427c413ff5237073df4e66ec551c1c2d1e7d6d43522a10791b41a7acad66b
+  size_bytes: 414771
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 12
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_1ab7b165842e
+  title: 1 - Introduction
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/1 - Introduction.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 6edb1bd6c76813bc216985777ca14d7167fbfe311fd1cae60d881765d70724df
+  size_bytes: 1917660
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 40
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '1'
+- id: m_f44f68d95527
+  title: 10 - Model Based RL
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/10 - Model Based RL.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 6fe3421a3eb9a5b95bce618592ebeef91e2cc8717e8871b704d1c6100cf73eb0
+  size_bytes: 1308732
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 31
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '10'
+- id: m_f42893d1430e
+  title: 11 - Bandits
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/11 - Bandits.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 06d06f6801e8ec5c4ed0d85a294a0f8d675f1aaca09f0e99cca7410dd03b871e
+  size_bytes: 1501856
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 43
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '11'
+- id: m_a2b134d5098c
+  title: 2 - Markov Decision Processes
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/2 - Markov Decision Processes.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 32af8946203c5cd5f7b2f22ca199835a767b175197537da5ffc0b0ed1694e291
+  size_bytes: 2260601
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 61
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '2'
+- id: m_6545c153abe1
+  title: 3 - Dynamic Programming
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/3 - Dynamic Programming.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: eddf3d1782def7592f27ad36e073b0773ece25a172609f77608127003b4861da
+  size_bytes: 1010236
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 42
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '3'
+- id: m_193f8a3b0694
+  title: 4 - Model Free Prediction
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/4 - Model Free Prediction.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: f5a8778961182c0fc7642cc8e022620933d12266be57d82c588cba018cd6a59f
+  size_bytes: 1810017
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 54
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '4'
+- id: m_494572ac5305
+  title: 5 - Model Free Control
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/5 - Model Free Control.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 2b191c63547b18eb5617fc6a3cbe3b8e6f82e8afe91e1ff573f7c854bbed6330
+  size_bytes: 1979686
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 57
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '5'
+- id: m_7c5f974e1f9d
+  title: 6 - Value Function Approximation
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/6 - Value Function Approximation.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: efbd239defe522716bdeb1af8840564c95a9163b4ec55141af1ccd85755466f1
+  size_bytes: 2009257
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 63
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '6'
+- id: m_2cdd7aa5923d
+  title: 7 - Policy Space Methods
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/7 - Policy Space Methods.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 8cf43c98988245e7c2dafbbfd8f824eacbff4c2a54ead1600a487c5a4b4daf33
+  size_bytes: 1964610
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 61
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '7'
+- id: m_83238309503a
+  title: 8 - Deep QL
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/8 - Deep QL.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: a958cdb275a9d36498bc49d3be540319f1e5f217befec6ab6e3507cd26d43924
+  size_bytes: 1066864
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 23
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '8'
+- id: m_38d49aca1897
+  title: 9 - Deep PG
+  material_type: lecture_slides
+  instructional_use: baseline_teaching_material
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/9 - Deep PG.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:33+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: ca2fcb2eae897325455cff269dabd8463ecfe37c8ab651b88596e16dec447253
+  size_bytes: 1799777
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 41
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+  sequence_label: '9'
+- id: m_248dd44686be
+  title: Comp438Spring2025Hw1a
+  material_type: assignment
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/Comp438Spring2025Hw1a.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 02b8adfe797fbb48facbed4a6fad284ca9519f25943d13bb62f758f8d7fb10ed
+  size_bytes: 349657
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 9
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_ca6dc1088166
+  title: Comp438Spring2025Hw1b
+  material_type: assignment
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/Comp438Spring2025Hw1b.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 287c10ad487c71cccb054fcc53c355295c6ec410000475a32d99ff3cb6c945c7
+  size_bytes: 151018
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 3
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_57587b3b96db
+  title: FinalSpring25
+  material_type: project_guidelines
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/FinalSpring25.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 4f76e56c521caa9323cdecf1ceb10b0cf494a3f9c20c51fa986754392c9652e5
+  size_bytes: 35661
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 2
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_6ef73fd32433
+  title: NOTES_FOR_NEXT_YEAR
+  material_type: instructor_notes
+  instructional_use: planning_notes_not_taught_evidence
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/NOTES_FOR_NEXT_YEAR.txt
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 6033755f1f65847564bf9d8520190bee082c2026fa2dc3f2813eb3fc2e21dfb9
+  size_bytes: 644
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_4fa123565237
+  title: ProgressAndPlanSpring2021
+  material_type: project_guidelines
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/ProgressAndPlanSpring2021.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 4fe3c3f95b07051a7676ff9fe2044ae72435dd15006f26280d22066c5161116c
+  size_bytes: 22829
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 2
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_6f5675b2418f
+  title: Project
+  material_type: project_guidelines
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/Project.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: f6041b8fc927e67d1b030e8991ef7228fe4890f3fc5f23a4456dc7e6ba3d98d9
+  size_bytes: 193214
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 12
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_30883ae595e6
+  title: Project proposal instructions
+  material_type: project_guidelines
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/ProposalSpring21.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 72fee443a9cba8cc16cf646bb978aea3ff50ad2d76a58cfe203730bca8eda740
+  size_bytes: 30402
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 1
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_ee466c0a764c
+  title: document
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/AmnestyFall22/document.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 90e09bb81380210ace5074d125614bcf289b0ab8323ac7224d2df42282ab953e
+  size_bytes: 329281
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 15
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_efb633f10316
+  title: document
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/AmnestyFall22/document.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 169fe68784ae285155cef79674b18193ffd2cd249eac1dd90e40045353f5811a
+  size_bytes: 32879
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_b31a1678a576
+  title: invPend
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/AmnestyFall22/figures/invPend.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 17196455155ffbd412d5e3e0ed1a2b16a83a6084b94c8264d8739eb234b7f379
+  size_bytes: 51702
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_145f7df8a732
+  title: mdp
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/AmnestyFall22/figures/mdp.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: b5ba70939a0d9d158ba01325d0c318f87f282867f31436f2bcd2b15bdca4d1cc
+  size_bytes: 59287
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_0b74030b9132
+  title: robotGrid
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/AmnestyFall22/figures/robotGrid.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: c0751b7f1c9e2078c9daf13c37ac3e58a8b7553862b9c20be6e6d084a87ac11f
+  size_bytes: 49206
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_9a1fe3e738cd
+  title: IntroToRLFall19MT1_Solutions
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt1/IntroToRLFall19MT1_Solutions.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 1adfd5eeca3a6e6751dbb1660e5fba8737060b4aec0f3e047b27ee3c9858d247
+  size_bytes: 213663
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 7
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_29e89d186065
+  title: document
+  material_type: exam
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt1/document.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 055c22602aeeae1930288c4791f107348a9f3d94e33f415f61fdc9b51b2cc567
+  size_bytes: 202350
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 7
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_799d001d76a5
+  title: document
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt1/document.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 66c5d6ed3fb443a630e273bb4eb214d7b1a60348bf3c6424b02f1ee6d1808382
+  size_bytes: 17067
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_c707afe488b1
+  title: mdp
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt1/figures/mdp.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: b5ba70939a0d9d158ba01325d0c318f87f282867f31436f2bcd2b15bdca4d1cc
+  size_bytes: 59287
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_2bbd05bf1527
+  title: IntroToRL_MT2_Solutions
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt2/IntroToRL_MT2_Solutions.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: be43c4791787baf834cd42ae8f0a0a1ff187112d0275a8d7448b28397d60513a
+  size_bytes: 174613
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 6
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_6f8344fd6b4e
+  title: document
+  material_type: exam
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt2/document.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: e237716a9a744d698161e39d65bcbc87bf6662155338188a3b49000b462348c7
+  size_bytes: 144443
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 6
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_f018d0251d1f
+  title: document
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt2/document.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: c966d06cdd4adc8fbfad698326cf236b94a188a92534fee39c0122054b418914
+  size_bytes: 14535
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_062c139f466f
+  title: robotGrid
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt2/figures/robotGrid.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: c0751b7f1c9e2078c9daf13c37ac3e58a8b7553862b9c20be6e6d084a87ac11f
+  size_bytes: 49206
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_1befe4728841
+  title: IntroToRL_Mt3_Solutions
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt3/IntroToRL_Mt3_Solutions.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: d2c9dabaed7b68718eca3cc2e7faaf2c3d88bc86c2bc0c171131e2525ee41381
+  size_bytes: 203306
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 7
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_023e8a24829f
+  title: document
+  material_type: exam
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt3/document.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 0282fbf1548894fe520a811da389475a22c0e79876bcce84f475e05299e40eb8
+  size_bytes: 162923
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 7
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_a4de89c7587f
+  title: robotGrid
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt3/figures/robotGrid.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: c0751b7f1c9e2078c9daf13c37ac3e58a8b7553862b9c20be6e6d084a87ac11f
+  size_bytes: 49206
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_0da66028be38
+  title: IntroToRLFall19_MT4
+  material_type: exam
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt4/IntroToRLFall19_MT4.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: f896fb501a41696d6b33cdc85fea1f1c285614af58e23a98ebed17b03dbbacbd
+  size_bytes: 76435
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 3
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_753ac9496719
+  title: document
+  material_type: exam
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt4/document.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: f896fb501a41696d6b33cdc85fea1f1c285614af58e23a98ebed17b03dbbacbd
+  size_bytes: 76435
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 3
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_8f3cd389ce8b
+  title: document
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/fall19/mt4/document.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 0ba8f87d7c86e014b47464a6044e665b1f9d3c9e129b8a8c467864b10d126f7a
+  size_bytes: 7595
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_11c1270aeba2
+  title: IntroToRLSpring21MT1
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt1/IntroToRLSpring21MT1.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 7db408f1376c510d44d6ebb307a8f55a1a4dd42249b5ece1d3883b0b48306828
+  size_bytes: 288489
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 10
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_4ad9beb83354
+  title: IntroToRLSpring21MT1
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt1/IntroToRLSpring21MT1.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 67a034afb579e630a5ce62c955ad203c069f1561806873733f7dfab7259696fe
+  size_bytes: 27831
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_e80d2cafce26
+  title: mdp
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt1/figures/mdp.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 61766abaae09d08146a7a03dac6066924b8f198873239f464409f2b0926e340a
+  size_bytes: 39776
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_9b2a8ecd75f6
+  title: poleval1
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt1/figures/poleval1.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 0d05db545c5c1e988e67ef238c72aff621f4bae3780be7863c055178fde0ed24
+  size_bytes: 7339
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_270ac01c6109
+  title: poleval1sol
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt1/figures/poleval1sol.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 70b831f20d7e99bd26b5ebfcb3ae87d76006088c5058f1c8cbfefa2186d32545
+  size_bytes: 10320
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_f2751d9502ce
+  title: polextract
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt1/figures/polextract.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: e59b9d2bb1dcde08ab1e0c3dae979ea72b545dee9e835ce16f447b7912912761
+  size_bytes: 7384
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_85e37d1ddb73
+  title: polextractsol
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt1/figures/polextractsol.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 6ebb5ee598f226f7f5e5a48cbb41e3b4e4cca8ad9b29667c513637b6b0059459
+  size_bytes: 9515
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_b649b4aedd9a
+  title: valeval
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt1/figures/valeval.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 8d34cf8371b955e7c205ae21f68e15b52ae02283717f242a3e9dcab1fd9ab469
+  size_bytes: 7188
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_08c8d9816c06
+  title: valevalsol
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt1/figures/valevalsol.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: a7760403eb051390d4d23bd3bd82f5a1dbedf2d88c53954f44f5da94214ab036
+  size_bytes: 10375
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_a930295d6b66
+  title: IntroToRLSpring21MT2
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt2/IntroToRLSpring21MT2.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 8fba8522c8a188d8f67e1fd4a9a96923ddb6e9b4102fede7fb8d04d051f3013e
+  size_bytes: 298758
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 11
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_96a5cd902dc3
+  title: IntroToRLSpring21MT2
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt2/IntroToRLSpring21MT2.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 0a9e3ac26fe007c4d238b42d006fc502fc445c02b7d85d35bff8609c3c60e436
+  size_bytes: 25985
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_37ca58ea2ec7
+  title: invPend
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt2/figures/invPend.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 17196455155ffbd412d5e3e0ed1a2b16a83a6084b94c8264d8739eb234b7f379
+  size_bytes: 51702
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_311669add3f4
+  title: robotGrid
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt2/figures/robotGrid.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 34f9a536c58c1adaf0fa297d943cd403a476a89f704053c2cc5b6e53f178e4bf
+  size_bytes: 52804
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_511484cb6753
+  title: IntroToRLSpring21MT3
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt3/IntroToRLSpring21MT3.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: ba69bc049633889abca2c7a7138c270d85588486eb8f12d02a528f4a48c264de
+  size_bytes: 150630
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 7
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_2b7bbd11b47a
+  title: IntroToRLSpring21MT3
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring21/mt3/IntroToRLSpring21MT3.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 9c4409b371ffc7a5fd8a8b172db7115c17f725353d88370ee471d44d48d03229
+  size_bytes: 22240
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_91319090bc79
+  title: IntroToRLSpring23MT1
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring23/mt1/IntroToRLSpring23MT1.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 6d537d1c5dba182e73b7e2abb5646c20856b8d63c16011caabb43f7506917b29
+  size_bytes: 381606
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 13
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_e62f543544b8
+  title: IntroToRLSpring23MT1
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring23/mt1/IntroToRLSpring23MT1.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: bfc4585e7dd99034ad68762af2125a5786927fcbe7e603b40db7cdaf9181d14a
+  size_bytes: 30867
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_dc86cca914ae
+  title: mdp
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring23/mt1/figures/mdp.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 55282dc3aba394bf224b275b5b0593bf0b4c8f093ef18ceb0939949917c066d8
+  size_bytes: 149721
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_64b7b12c4527
+  title: robotGrid
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring23/mt1/figures/robotGrid.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 34f9a536c58c1adaf0fa297d943cd403a476a89f704053c2cc5b6e53f178e4bf
+  size_bytes: 52804
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_f1942751b5ab
+  title: IntroToRLSpring23MT2
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring23/mt2/IntroToRLSpring23MT2.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 9e7ecf2805f88abf2586541870fc28e97c5812ba4400d98bdb22dbe4fb5238d3
+  size_bytes: 111295
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 4
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_8bb787ab133e
+  title: IntroToRLSpring23MT2
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring23/mt2/IntroToRLSpring23MT2.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: f60a0c13650a558ee2d485f4eede9070b128436f0aabab594321b825788397aa
+  size_bytes: 15346
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_4a82d683c3a6
+  title: cheesy_puff
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring23/mt2/figures/cheesy_puff.jpg
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: a4813b84f116f7d3cdf54ca0f6022ef194180a27163306f44e03a64abec814a1
+  size_bytes: 26772
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_260666b88359
+  title: mdp
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring23/mt2/figures/mdp.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 55282dc3aba394bf224b275b5b0593bf0b4c8f093ef18ceb0939949917c066d8
+  size_bytes: 149721
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_30989bfd314d
+  title: robotGrid
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring23/mt2/figures/robotGrid.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 34f9a536c58c1adaf0fa297d943cd403a476a89f704053c2cc5b6e53f178e4bf
+  size_bytes: 52804
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_d8fcf2f9efb7
+  title: IntroToRLSpring25MT1
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring25/mt1/IntroToRLSpring25MT1.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 324eef5b58d58a1752d0d5ef6c4a7500d1ff0fc4929f63c3ff4e9711902fef96
+  size_bytes: 278676
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 14
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_3c531b87f747
+  title: IntroToRLSpring25MT1Solutions
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring25/mt1/IntroToRLSpring25MT1Solutions.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 8c1750abf173c4878db21179d49f3a084fb4c7249eb3f1184869f8325f6a9356
+  size_bytes: 278671
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 14
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_9f3fb11df035
+  title: robotGrid
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring25/mt1/figures/robotGrid.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: c0751b7f1c9e2078c9daf13c37ac3e58a8b7553862b9c20be6e6d084a87ac11f
+  size_bytes: 49206
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_34eec2ee2075
+  title: IntroToRLSpring25MT2
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring25/mt2/IntroToRLSpring25MT2.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 8123334ded23130da596ceff1ade240b260aa733451bc9c9233b0145c775b5a5
+  size_bytes: 229636
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 9
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_f24d91ea787e
+  title: IntroToRLSpring25MT2
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring25/mt2/IntroToRLSpring25MT2.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: f4a6fbc984803fefaf25ab4270dd2eee7710082e5e8fd5d4d75d9e5be3c81058
+  size_bytes: 21795
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_75e7912d10cc
+  title: IntroToRLSpring25MU
+  material_type: exam_solutions
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring25/mu/IntroToRLSpring25MU.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:34+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: c93825d4f2565565dffb3348e2a02cee6bac4f3c9b5cbbe97bb853314a51bdc1
+  size_bytes: 731877
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 15
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_6f1e452aa110
+  title: IntroToRLSpring25MU
+  material_type: exam_source
+  instructional_use: assessment_support
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring25/mu/IntroToRLSpring25MU.tex
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: d0ef31d5b384715444046a577e8caa63a2f26a59a921e7c02b4d50dc4e54472c
+  size_bytes: 29198
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_227e63979543
+  title: grid
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring25/mu/figures/grid.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 68663bf76bc39428b361d041cceb8aea3fce596bcd803f15ef0ff7897bba14d2
+  size_bytes: 176412
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_10ace09fa3ea
+  title: grid2
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring25/mu/figures/grid2.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 1ffbd03f1cf102e33dcc0f5833ab160a2c1cfcde1bbd4b6789c5240ed438b12c
+  size_bytes: 207297
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_70f65d2be062
+  title: mdp
+  material_type: support_asset
+  instructional_use: supporting_source_file
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/exams/spring25/mu/figures/mdp.png
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_readable
+  sha256: 658f46f68f4e59f2752438b4565585518bdf346e5fecb02228906ae07252b6a7
+  size_bytes: 390090
+  original_source_url: null
+  original_retrieved_at: null
+- id: m_959ef5297af8
+  title: syllabusSpring2025
+  material_type: syllabus
+  instructional_use: course_administration
+  offering: Single composite baseline; dates retained only as artifact provenance
+  path: sources/current_course/syllabusSpring2025.pdf
+  storage: existing_local
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - inventory_path: sources/current_course/snapshots/local_inventory.json
+    locator: file hash and PDF metadata/title where applicable
+  accessibility:
+    status: local_pdf_text_extracted
+  sha256: 1667fae37b9a4da3e4dbe27766767553067723840e56d23333a72bb7d73cd06e
+  size_bytes: 98578
+  original_source_url: null
+  original_retrieved_at: null
+  page_count: 3
+  verification_level: PDF metadata and title inspected; text extracted; no topic-level coverage coding
+- id: m_7f3198ad399d
+  title: Berkeley CS188 Spring 2024 Project 6 (referenced by baseline HW1B)
+  material_type: assignment_dependency
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  url: https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj6/
+  storage: linked
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - path: sources/current_course/Comp438Spring2025Hw1b.pdf
+    pages:
+    - 1
+  - index_path: sources/current_course/snapshots/hw1b_dependency_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://inst.eecs.berkeley.edu/~cs188/archive/sp24/projects/proj6/
+    checked_at: '2026-09-28T01:09:10+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/current_course/snapshots/link_checks.json
+  note: External dependency only; not added to the configured course comparison set.
+- id: m_f0f7e2261c18
+  title: 'HW1B external dependency code: reinforcement.zip'
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  url: https://inst.eecs.berkeley.edu/~cs188/sp24/assets/projects/reinforcement.zip
+  storage: linked
+  observed_at: '2026-09-28T01:03:01+00:00'
+  provenance:
+  - source_url: https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj6/
+    index_path: sources/current_course/snapshots/hw1b_dependency_index.json
+    link_index: 51
+    heading: Spring 2024 Change
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://inst.eecs.berkeley.edu/~cs188/archive/sp24/assets/projects/reinforcement.zip
+    checked_at: '2026-09-28T01:09:07+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/current_course/snapshots/link_checks.json
+  catalog_context: This semester, just like the previous project, we will be having two versions available. They
+    will be identical except for the final question, which is to train a deep q learning model. You will have the
+    option of doing this question in Pytorch, or the custom neural network library that was used in the original
+    version of the ML project. Both solutions will be very similar, so it will most likely be easier for you to
+    continue with the version that you used for the previous project. The code for this project contains the following
+    files, available as a zip archive , and the pytorch version can be found here .
+- id: m_5194fb4187ee
+  title: 'HW1B external dependency code: reinforcement_pytorch.zip'
+  material_type: starter_code
+  instructional_use: assessment
+  offering: Single composite baseline; dates retained only as artifact provenance
+  url: https://inst.eecs.berkeley.edu/~cs188/sp24/assets/projects/reinforcement_pytorch.zip
+  storage: linked
+  observed_at: '2026-09-28T01:03:01+00:00'
+  provenance:
+  - source_url: https://inst.eecs.berkeley.edu/~cs188/sp24/projects/proj6/
+    index_path: sources/current_course/snapshots/hw1b_dependency_index.json
+    link_index: 52
+    heading: Spring 2024 Change
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://inst.eecs.berkeley.edu/~cs188/archive/sp24/assets/projects/reinforcement_pytorch.zip
+    checked_at: '2026-09-28T01:09:09+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/current_course/snapshots/link_checks.json
+  catalog_context: This semester, just like the previous project, we will be having two versions available. They
+    will be identical except for the final question, which is to train a deep q learning model. You will have the
+    option of doing this question in Pytorch, or the custom neural network library that was used in the original
+    version of the ML project. Both solutions will be very similar, so it will most likely be easier for you to
+    continue with the version that you used for the previous project. The code for this project contains the following
+    files, available as a zip archive , and the pytorch version can be found here .
+- id: m_92078bb7d8dd
+  title: 'Sutton and Barto, Reinforcement Learning: An Introduction, 2nd edition'
+  material_type: reading
+  instructional_use: required_reading
+  offering: Single composite baseline; dates retained only as artifact provenance
+  storage: embedded_reference
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - path: sources/current_course/syllabusSpring2025.pdf
+    pages:
+    - 2
+  accessibility:
+    status: described_in_parent
+- id: m_ca4a0f52a8c9
+  title: Szepesvari, Algorithms for Reinforcement Learning
+  material_type: reading
+  instructional_use: recommended_reference
+  offering: Single composite baseline; dates retained only as artifact provenance
+  storage: embedded_reference
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - path: sources/current_course/syllabusSpring2025.pdf
+    pages:
+    - 2
+  accessibility:
+    status: described_in_parent
+- id: m_3c9f27bebbd7
+  title: Goodfellow, Bengio and Courville, Deep Learning
+  material_type: reading
+  instructional_use: recommended_reference
+  offering: Single composite baseline; dates retained only as artifact provenance
+  storage: embedded_reference
+  observed_at: '2026-09-27T23:59:35+00:00'
+  provenance:
+  - path: sources/current_course/syllabusSpring2025.pdf
+    pages:
+    - 2
+  accessibility:
+    status: described_in_parent
+observations:
+- statement: All supplied materials form one baseline. The 12 numbered decks include one administration deck and
+    11 content decks. The collection also contains two assignment briefs, project guidance, exams/solutions, exam
+    source files and figures.
+  basis: direct_source_evidence
+  evidence:
+  - sources/current_course/
+  - docs/repository_contract.md
+- statement: The syllabus describes homework, midterms, and a project; Project.pdf gives proposal, formulation/progress,
+    presentation, final-report, and code-submission guidance. Separate proposal, progress/plan, and final-report
+    briefs are available.
+  basis: direct_source_evidence
+  evidence:
+  - syllabusSpring2025.pdf pp.2–3
+  - Project.pdf pp.8–12
+  - ProposalSpring21.pdf
+  - ProgressAndPlanSpring2021.pdf
+  - FinalSpring25.pdf
+- statement: Assignment 1A describes supplied gridworld code; Assignment 1B points to Berkeley CS188 Spring 2024
+    project 6. Code was not supplied locally.
+  basis: direct_source_evidence
+  evidence:
+  - Comp438Spring2025Hw1a.pdf pp.1–2
+  - Comp438Spring2025Hw1b.pdf p.1
+evidence_gaps:
+- category: available_materials
+  description: Only Assignment 1A and 1B briefs are supplied; other assignment briefs, starter code, lecture recordings,
+    a dated taught schedule, and student project reports are not in the local collection. These are availability
+    limits, not baseline identity defects.
+  evidence:
+  - sources/current_course/snapshots/local_inventory.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: local_provenance
+  description: Original collection/download dates are unknown. Current inspection timestamps and file hashes are
+    recorded instead; the local files remain in place.
+  evidence:
+  - sources/current_course/snapshots/local_inventory.json
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+inspected_at: '2026-09-28T01:03:01+00:00'

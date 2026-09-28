@@ -1,0 +1,224 @@
+{
+  "url": "https://davidstarsilver.wordpress.com/teaching/",
+  "resolved_url": "https://davidstarsilver.wordpress.com/teaching/",
+  "checked_at": "2026-09-28T00:01:35+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "status": "reachable",
+  "robots": {
+    "url": "https://davidstarsilver.wordpress.com/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T00:01:35+00:00"
+  },
+  "sha256_of_retrieved_html": "53355da09fc986ff3edae84a04b8b69818f15cca1a70c69ea791d146f9b2a5d4",
+  "title": "Teaching – David Silver",
+  "headings": [
+    "Teaching"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "Skip to content",
+      "url": "https://davidstarsilver.wordpress.com/teaching/#wp--skip-link--target",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "David Silver",
+      "url": "https://davidstarsilver.wordpress.com",
+      "heading": "",
+      "context": "David Silver"
+    },
+    {
+      "index": 2,
+      "label": "Home",
+      "url": "https://davidstarsilver.wordpress.com/",
+      "heading": "",
+      "context": "Home"
+    },
+    {
+      "index": 3,
+      "label": "Applications",
+      "url": "https://davidstarsilver.wordpress.com/research/",
+      "heading": "",
+      "context": "Applications"
+    },
+    {
+      "index": 4,
+      "label": "Publications",
+      "url": "https://davidstarsilver.wordpress.com/publications/",
+      "heading": "",
+      "context": "Publications"
+    },
+    {
+      "index": 5,
+      "label": "Teaching",
+      "url": "https://davidstarsilver.wordpress.com/teaching/",
+      "heading": "",
+      "context": "Teaching"
+    },
+    {
+      "index": 6,
+      "label": "Perspectives",
+      "url": "https://davidstarsilver.wordpress.com/perspectives/",
+      "heading": "",
+      "context": "Perspectives"
+    },
+    {
+      "index": 7,
+      "label": "here",
+      "url": "https://www.youtube.com/watch?v=2pWv7GOvuf0",
+      "heading": "Teaching",
+      "context": "Video-lectures available here"
+    },
+    {
+      "index": 8,
+      "label": "Introduction to Reinforcement Learning",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/intro_rl.pdf",
+      "heading": "Teaching",
+      "context": "Lecture 1: Introduction to Reinforcement Learning"
+    },
+    {
+      "index": 9,
+      "label": "Markov Decision Processes",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-2-mdp.pdf",
+      "heading": "Teaching",
+      "context": "Lecture 2: Markov Decision Processes"
+    },
+    {
+      "index": 10,
+      "label": "Planning by Dynamic Programming",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-3-planning-by-dynamic-programming-.pdf",
+      "heading": "Teaching",
+      "context": "Lecture 3: Planning by Dynamic Programming"
+    },
+    {
+      "index": 11,
+      "label": "Model-Free Prediction",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-4-model-free-prediction-.pdf",
+      "heading": "Teaching",
+      "context": "Lecture 4: Model-Free Prediction"
+    },
+    {
+      "index": 12,
+      "label": "Model-Free Control",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-5-model-free-control-.pdf",
+      "heading": "Teaching",
+      "context": "Lecture 5: Model-Free Control"
+    },
+    {
+      "index": 13,
+      "label": "Value Function Approximation",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-6-value-function-approximation-.pdf",
+      "heading": "Teaching",
+      "context": "Lecture 6: Value Function Approximation"
+    },
+    {
+      "index": 14,
+      "label": "Policy Gradient Methods",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-7-policy-gradient-methods.pdf",
+      "heading": "Teaching",
+      "context": "Lecture 7: Policy Gradient Methods"
+    },
+    {
+      "index": 15,
+      "label": "Integrating Learning and Planning",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-8-integrating-learning-and-planning.pdf",
+      "heading": "Teaching",
+      "context": "Lecture 8: Integrating Learning and Planning"
+    },
+    {
+      "index": 16,
+      "label": "Exploration and Exploitation",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-9-exploration-and-exploitation.pdf",
+      "heading": "Teaching",
+      "context": "Lecture 9: Exploration and Exploitation"
+    },
+    {
+      "index": 17,
+      "label": "Case Study: RL in Classic Games",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-10-case-study-rl-in-classic-games.pdf",
+      "heading": "Teaching",
+      "context": "Lecture 10: Case Study: RL in Classic Games"
+    },
+    {
+      "index": 18,
+      "label": "Easy21",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/easy21-assignment.pdf",
+      "heading": "Teaching",
+      "context": "Easy21 assignment"
+    },
+    {
+      "index": 19,
+      "label": "http://groups.google.com/group/csml-advanced-topics",
+      "url": "http://groups.google.com/group/csml-advanced-topics",
+      "heading": "Teaching",
+      "context": "Discussion and announcements: http://groups.google.com/group/csml-advanced-topics"
+    },
+    {
+      "index": 20,
+      "label": "questions",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf",
+      "heading": "Teaching",
+      "context": "Previous RL exam questions and answers"
+    },
+    {
+      "index": 21,
+      "label": "answers",
+      "url": "https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-answers.pdf",
+      "heading": "Teaching",
+      "context": "Previous RL exam questions and answers"
+    },
+    {
+      "index": 22,
+      "label": "CC-BY-NC 4.0",
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "heading": "Teaching",
+      "context": "All of the above material is made available under CC-BY-NC 4.0 . Some content comes from third parties and is not included in the license."
+    },
+    {
+      "index": 23,
+      "label": "David Silver",
+      "url": "https://davidstarsilver.wordpress.com",
+      "heading": "Teaching",
+      "context": "David Silver Copy shortlink Manage subscriptions Sign up Log in Report this content"
+    },
+    {
+      "index": 24,
+      "label": "Copy shortlink",
+      "url": "https://wp.me/PgtpDr-c",
+      "heading": "Teaching",
+      "context": "David Silver Copy shortlink Manage subscriptions Sign up Log in Report this content"
+    },
+    {
+      "index": 25,
+      "label": "Manage subscriptions",
+      "url": "https://subscribe.wordpress.com/",
+      "heading": "Teaching",
+      "context": "David Silver Copy shortlink Manage subscriptions Sign up Log in Report this content"
+    },
+    {
+      "index": 26,
+      "label": "Sign up",
+      "url": "https://wordpress.com/start/",
+      "heading": "Teaching",
+      "context": "David Silver Copy shortlink Manage subscriptions Sign up Log in Report this content"
+    },
+    {
+      "index": 27,
+      "label": "Log in",
+      "url": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fdavidstarsilver.wordpress.com%2Fteaching%2F&signup_flow=account",
+      "heading": "Teaching",
+      "context": "David Silver Copy shortlink Manage subscriptions Sign up Log in Report this content"
+    },
+    {
+      "index": 28,
+      "label": "Report this content",
+      "url": "https://wordpress.com/abuse/?report_url=https://davidstarsilver.wordpress.com/teaching/",
+      "heading": "Teaching",
+      "context": "David Silver Copy shortlink Manage subscriptions Sign up Log in Report this content"
+    }
+  ],
+  "tables": []
+}

@@ -1,0 +1,24 @@
+{
+  "url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf",
+  "resolved_url": "https://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5.pdf",
+  "checked_at": "2026-09-28T00:03:50+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://rail.eecs.berkeley.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:03:43+00:00"
+  },
+  "sha256": "40ea526093d87695792fd80d814b5909456398ab3a21799b230951b7c80f444c",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.24\nCreationDate:    Fri Apr  3 06:30:22 2026 +03\nModDate:         Fri Apr  3 06:30:22 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           11\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       713640 bytes\nOptimized:       no\nPDF version:     1.5\n",
+  "first_page_excerpt": "Berkeley CS 185/285      Deep Reinforcement Learning, Decision Making, and Control                    Spring 2026\n\n\n                                      Assignment 5: Offline RL\n                                           Due April 19, 11:59 pm\n\n\n1     Introduction\nIn this assignment, you will implement three offline reinforcement learning (RL) algorithms and evaluate them\non continuous control tasks. In part 1 and part 2, you will implement two offline RL algorithms that train\nGaussian policies: SAC+BC (Haarnoja et al., 2018a; Fujimoto and Gu, 2021) and IQL (Kostrikov et al.,\n2022). In part 3, you will implement an offline RL algorithm that trains expressive flow policies: FQL (Park\net al., 2025b). You will tune and evaluate these algorithms on simulated robotic tasks from the OGBench\ntas",
+  "embedded_urls": [
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw5"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw5"
+  ]
+}

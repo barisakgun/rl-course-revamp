@@ -1,0 +1,360 @@
+schema_version: 1
+phase: 1
+source_id: silver_rl
+configured_source:
+  id: silver_rl
+  instructor: David Silver
+  url: https://davidstarsilver.wordpress.com/teaching/
+  role: classical_reference
+offering:
+  label: 2015 (COMPM050/COMPGI13)
+  evidence:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    locator: course heading; Berkeley also assignment PDF headers
+inventory_status: inventoried_with_documented_gaps
+scope: Material inventory only; no normalized topics, cross-course comparison, or curriculum recommendations.
+materials:
+- id: m_7172c0723b43
+  title: Teaching – David Silver
+  material_type: course_index
+  instructional_use: catalog
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/teaching/
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - index_path: sources/silver_rl/snapshots/teaching_index.json
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/teaching/
+    checked_at: '2026-09-28T01:01:32+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+- id: m_20990a331a83
+  title: Video entry point linked from teaching page
+  material_type: recording
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://www.youtube.com/watch?v=2pWv7GOvuf0
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 7
+    heading: Teaching
+  accessibility:
+    status: listed_not_fetched
+  check_url: false
+  catalog_context: Video-lectures available here
+- id: m_3cdbf43b7cd5
+  title: Introduction to Reinforcement Learning
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/intro_rl.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 8
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/intro_rl.pdf
+    checked_at: '2026-09-28T01:01:33+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  sequence: 1
+  catalog_context: 'Lecture 1: Introduction to Reinforcement Learning'
+- id: m_91d4a58d86b8
+  title: Markov Decision Processes
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-2-mdp.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 9
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-2-mdp.pdf
+    checked_at: '2026-09-28T01:01:34+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  sequence: 2
+  catalog_context: 'Lecture 2: Markov Decision Processes'
+- id: m_cad8fbeed4f5
+  title: Planning by Dynamic Programming
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-3-planning-by-dynamic-programming-.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 10
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-3-planning-by-dynamic-programming-.pdf
+    checked_at: '2026-09-28T01:01:35+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  sequence: 3
+  catalog_context: 'Lecture 3: Planning by Dynamic Programming'
+- id: m_9220818e432f
+  title: Model-Free Prediction
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-4-model-free-prediction-.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 11
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-4-model-free-prediction-.pdf
+    checked_at: '2026-09-28T01:01:36+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  sequence: 4
+  catalog_context: 'Lecture 4: Model-Free Prediction'
+- id: m_04007923e814
+  title: Model-Free Control
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-5-model-free-control-.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 12
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-5-model-free-control-.pdf
+    checked_at: '2026-09-28T01:01:37+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  sequence: 5
+  catalog_context: 'Lecture 5: Model-Free Control'
+- id: m_24e9e0473901
+  title: Value Function Approximation
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-6-value-function-approximation-.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 13
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-6-value-function-approximation-.pdf
+    checked_at: '2026-09-28T01:01:37+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  sequence: 6
+  catalog_context: 'Lecture 6: Value Function Approximation'
+- id: m_d14ce85a8414
+  title: Policy Gradient Methods
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-7-policy-gradient-methods.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 14
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-7-policy-gradient-methods.pdf
+    checked_at: '2026-09-28T01:01:37+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  sequence: 7
+  catalog_context: 'Lecture 7: Policy Gradient Methods'
+- id: m_8670313c9bca
+  title: Integrating Learning and Planning
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-8-integrating-learning-and-planning.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 15
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-8-integrating-learning-and-planning.pdf
+    checked_at: '2026-09-28T01:01:38+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  sequence: 8
+  catalog_context: 'Lecture 8: Integrating Learning and Planning'
+- id: m_84bd187e803a
+  title: Exploration and Exploitation
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-9-exploration-and-exploitation.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 16
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-9-exploration-and-exploitation.pdf
+    checked_at: '2026-09-28T01:01:38+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  sequence: 9
+  catalog_context: 'Lecture 9: Exploration and Exploitation'
+- id: m_d7939c9f9f83
+  title: 'Case Study: RL in Classic Games'
+  material_type: lecture_slides
+  instructional_use: listed_teaching
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-10-case-study-rl-in-classic-games.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 17
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-10-case-study-rl-in-classic-games.pdf
+    checked_at: '2026-09-28T01:01:34+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  sequence: 10
+  catalog_context: 'Lecture 10: Case Study: RL in Classic Games'
+- id: m_2de630045b2a
+  title: Easy21 assignment
+  material_type: assignment
+  instructional_use: assessment
+  offering: 2015 (COMPM050/COMPGI13)
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/easy21-assignment.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 18
+    heading: Teaching
+  - inspection_path: sources/silver_rl/snapshots/pdf_2de630045b2a80a3.json
+    locator: PDF title and task/project sections
+  accessibility:
+    status: pdf_text_inspected
+    checked_at: '2026-09-28T00:03:42+00:00'
+    evidence_path: sources/silver_rl/snapshots/pdf_2de630045b2a80a3.json
+  catalog_context: Easy21 assignment
+  remote_sha256: df35acd311f496792e2897474bf26b1f3baf660c0b93c56bb299e4f66b0db754
+  remote_pdf_pages: 4
+- id: m_e26614cd379f
+  title: Previous RL exam questions
+  material_type: exam
+  instructional_use: past_assessment
+  offering: Previous exam; year not stated
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 20
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf
+    checked_at: '2026-09-28T01:01:39+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  catalog_context: Previous RL exam questions and answers
+- id: m_436db1f49ab0
+  title: Previous RL exam answers
+  material_type: exam_solutions
+  instructional_use: past_assessment
+  offering: Previous exam; year not stated
+  url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-answers.pdf
+  storage: linked
+  observed_at: '2026-09-28T00:01:35+00:00'
+  provenance:
+  - source_url: https://davidstarsilver.wordpress.com/teaching/
+    index_path: sources/silver_rl/snapshots/teaching_index.json
+    link_index: 21
+    heading: Teaching
+  accessibility:
+    status: reachable
+    http_status: 200
+    resolved_url: https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-answers.pdf
+    checked_at: '2026-09-28T01:01:39+00:00'
+    verification_level: http_metadata_only_not_content_review
+    evidence_path: sources/silver_rl/snapshots/link_checks.json
+  catalog_context: Previous RL exam questions and answers
+observations:
+- statement: The landing page identifies the course as Advanced Topics 2015. PDF upload paths containing 2025 are
+    hosting paths, not evidence of a 2025 course offering.
+  basis: direct_source_evidence
+  evidence:
+  - https://davidstarsilver.wordpress.com/teaching/
+- statement: Easy21 is a six-section exercise brief covering environment implementation, Monte Carlo control, TD
+    learning, linear approximation, discussion, and submission.
+  basis: direct_source_evidence
+  evidence:
+  - Easy21 assignment PDF, sections 1–6
+evidence_gaps:
+- category: not_found
+  description: No separate project guidelines, starter-code package, or assigned-reading schedule was found on the
+    configured teaching page or in the Easy21 brief. Slide bibliographies are not an assigned-reading list.
+  evidence:
+  - https://davidstarsilver.wordpress.com/teaching/
+  - Easy21 assignment PDF
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+- category: recordings
+  description: The teaching page exposes one YouTube video entry point. Playlist completeness and playback were
+    not verified.
+  evidence:
+  - https://davidstarsilver.wordpress.com/teaching/
+  interpretation: A limit of available evidence, not proof that material was not taught or used.
+inspected_at: '2026-09-28T00:01:35+00:00'

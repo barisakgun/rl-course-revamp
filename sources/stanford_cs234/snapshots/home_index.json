@@ -1,0 +1,309 @@
+{
+  "url": "https://web.stanford.edu/class/cs234/",
+  "resolved_url": "https://web.stanford.edu/class/cs234/",
+  "checked_at": "2026-09-28T00:01:42+00:00",
+  "http_status": 200,
+  "content_type": "text/html",
+  "status": "reachable",
+  "robots": {
+    "url": "https://web.stanford.edu/robots.txt",
+    "status": "parsed",
+    "checked_at": "2026-09-28T00:01:41+00:00"
+  },
+  "sha256_of_retrieved_html": "f6610b566be02fb1cc4525e9ebc42140d4644d463abf4d0eeae551a5ae5fb271",
+  "title": "CS234: Reinforcement Learning Winter 2026",
+  "headings": [
+    "CS234: Reinforcement Learning Winter 2026",
+    "Course Description & Logistics",
+    "Course Instructor",
+    "Course Assistants",
+    "Prerequisites for This Class",
+    "Learning Outcomes",
+    "Course Lecture Materials  (Videos and Slides)",
+    "Draft Course Schedule",
+    "Textbooks",
+    "Grade Breakdown (Will be Updated First Week of Class)",
+    "Late Day Policy",
+    "Exams",
+    "Assignments and Submission Process",
+    "Communication",
+    "Regrading Requests",
+    "Academic Collaboration, AI Tools Usage and Misconduct",
+    "Academic Accommodation",
+    "Credit/No Credit Enrollment"
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "",
+      "url": "http://ai.stanford.edu/",
+      "heading": "",
+      "context": ""
+    },
+    {
+      "index": 1,
+      "label": "Course Schedule",
+      "url": "https://web.stanford.edu/class/cs234/#course_schedule",
+      "heading": "CS234: Reinforcement Learning Winter 2026",
+      "context": ""
+    },
+    {
+      "index": 2,
+      "label": "Lecture Materials",
+      "url": "https://web.stanford.edu/class/cs234/modules.html",
+      "heading": "CS234: Reinforcement Learning Winter 2026",
+      "context": ""
+    },
+    {
+      "index": 3,
+      "label": "Assignments",
+      "url": "https://web.stanford.edu/class/cs234/assignments.html",
+      "heading": "CS234: Reinforcement Learning Winter 2026",
+      "context": ""
+    },
+    {
+      "index": 4,
+      "label": "Course Project",
+      "url": "https://web.stanford.edu/class/cs234/project.html",
+      "heading": "CS234: Reinforcement Learning Winter 2026",
+      "context": ""
+    },
+    {
+      "index": 5,
+      "label": "Calendar",
+      "url": "https://canvas.stanford.edu/calendar",
+      "heading": "CS234: Reinforcement Learning Winter 2026",
+      "context": ""
+    },
+    {
+      "index": 6,
+      "label": "Forum",
+      "url": "https://web.stanford.edu/class/cs234/",
+      "heading": "CS234: Reinforcement Learning Winter 2026",
+      "context": ""
+    },
+    {
+      "index": 7,
+      "label": "SCPD",
+      "url": "https://web.stanford.edu/class/cs234/scpd.html",
+      "heading": "CS234: Reinforcement Learning Winter 2026",
+      "context": ""
+    },
+    {
+      "index": 8,
+      "label": "FAQ",
+      "url": "https://web.stanford.edu/class/cs234/faq.html",
+      "heading": "CS234: Reinforcement Learning Winter 2026",
+      "context": ""
+    },
+    {
+      "index": 10,
+      "label": "Emma Brunskill",
+      "url": "http://cs.stanford.edu/people/ebrun/",
+      "heading": "Course Instructor",
+      "context": ""
+    },
+    {
+      "index": 11,
+      "label": "David Chen",
+      "url": "https://davidjgchen.github.io/",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 12,
+      "label": "James Cheng",
+      "url": "https://jameszcheng.github.io/",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 13,
+      "label": "Matthew Jörke",
+      "url": "https://matthewjoerke.com",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 14,
+      "label": "Ishani Karmarkar",
+      "url": "https://ishanikarmarkar.github.io/",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 15,
+      "label": "Mallika Parulekar",
+      "url": "https://mallikaparulekar.github.io/",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 16,
+      "label": "Shiny Weng",
+      "url": "https://www.linkedin.com/in/shinyweng/",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 17,
+      "label": "Rahul Chand",
+      "url": "https://rahulschand.github.io/",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 18,
+      "label": "Jingyun Yang",
+      "url": "https://yjy0625.github.io/",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 19,
+      "label": "Rohan Garg",
+      "url": "https://www.linkedin.com/in/rohan-garg-26467318b/",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 20,
+      "label": "Arthur Deng",
+      "url": "http://www.linkedin.com/in/arthur-deng-709a91156/",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 21,
+      "label": "Daniel Shin",
+      "url": "https://danielshin1.github.io/",
+      "heading": "Course Assistants",
+      "context": ""
+    },
+    {
+      "index": 22,
+      "label": "here",
+      "url": "http://cs231n.github.io/python-numpy-tutorial/",
+      "heading": "Prerequisites for This Class",
+      "context": "Proficiency in Python All class assignments will be in Python.\n\t\t\t\t\t\tThere is a tutorial here for\n\t\t\t\t\t\tthose who aren't as familiar with Python. If you have a lot of programming experience but\n\t\t\t\t\t\tin a different language (e.g. C/ C++/ Matlab/ Javascript) you will probably be fine."
+    },
+    {
+      "index": 23,
+      "label": "Lecture Materials",
+      "url": "https://web.stanford.edu/class/cs234/modules.html",
+      "heading": "Course Lecture Materials  (Videos and Slides)",
+      "context": ""
+    },
+    {
+      "index": 24,
+      "label": "here",
+      "url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "heading": "Textbooks",
+      "context": "Reinforcement Learning: An Introduction, Sutton and Barto, 2nd Edition. This is available for\n\t\t\t\t\tfree here and references will\n\t\t\t\t\trefer to the final pdf version available here ."
+    },
+    {
+      "index": 25,
+      "label": "here",
+      "url": "http://incompleteideas.net/book/RLbook2018.pdf",
+      "heading": "Textbooks",
+      "context": "Reinforcement Learning: An Introduction, Sutton and Barto, 2nd Edition. This is available for\n\t\t\t\t\tfree here and references will\n\t\t\t\t\trefer to the final pdf version available here ."
+    },
+    {
+      "index": 26,
+      "label": "link",
+      "url": "https://link.springer.com/book/10.1007%2F978-3-642-27645-3",
+      "heading": "Textbooks",
+      "context": "Reinforcement Learning: State-of-the-Art, Marco Wiering and Martijn van Otterlo, Eds.\n\t\t\t\t\t[ link ]"
+    },
+    {
+      "index": 27,
+      "label": "link",
+      "url": "http://aima.cs.berkeley.edu/",
+      "heading": "Textbooks",
+      "context": "Artificial Intelligence: A Modern Approach, Stuart J. Russell and Peter Norvig.[ link ]"
+    },
+    {
+      "index": 28,
+      "label": "link",
+      "url": "http://www.deeplearningbook.org/",
+      "heading": "Textbooks",
+      "context": "Deep Learning, Ian Goodfellow, Yoshua Bengio, and Aaron Courville. [ link ]"
+    },
+    {
+      "index": 29,
+      "label": "link",
+      "url": "http://www0.cs.ucl.ac.uk/staff/D.Silver/web/Teaching.html",
+      "heading": "Textbooks",
+      "context": "David Silver's course on Reinforcement Learning [ link ]"
+    },
+    {
+      "index": 30,
+      "label": "schedule",
+      "url": "https://web.stanford.edu/class/cs234/#course_schedule",
+      "heading": "Exams",
+      "context": "There will be one midterm and one quiz. See the schedule for the dates."
+    },
+    {
+      "index": 32,
+      "label": "Assignments page",
+      "url": "https://web.stanford.edu/class/cs234/assignments.html",
+      "heading": "Assignments and Submission Process",
+      "context": "Assignments : See Assignments page where all the assignments will be posted."
+    },
+    {
+      "index": 33,
+      "label": "Assignments page",
+      "url": "https://web.stanford.edu/class/cs234/assignments.html",
+      "heading": "Assignments and Submission Process",
+      "context": "Submission Process : The submission instructions for the assignments\n\t\t\t\t\tcan also be found on the Assignments page ."
+    },
+    {
+      "index": 34,
+      "label": "Ed",
+      "url": "https://edstem.org/us/courses/71452/admin/general",
+      "heading": "Communication",
+      "context": ""
+    },
+    {
+      "index": 38,
+      "label": "Honor Code",
+      "url": "https://ed.stanford.edu/academics/masters-handbook/honor-code",
+      "heading": "Academic Collaboration, AI Tools Usage and Misconduct",
+      "context": ""
+    },
+    {
+      "index": 40,
+      "label": "http://studentaffairs.stanford.edu/oae",
+      "url": "http://studentaffairs.stanford.edu/oae",
+      "heading": "Academic Accommodation",
+      "context": ""
+    }
+  ],
+  "tables": [
+    [
+      "Monday Tuesday Wednesday Thursday Friday Saturday Sunday",
+      "Week 1 Jan 5 Jan 6 Jan 7 Jan 8 Jan 9 Jan 10 Jan 11",
+      "Lecture Materials Introduction to RL Tabular MDP Planning [Assignment 1 Released]",
+      "Week 2 Jan 12 Jan 13 Jan 14 Jan 15 Jan 16 Jan 17 Jan 18",
+      "Lecture Materials Policy Evaluation Q-learning and function approximation Assignment 1 Due at 6pm [Assignment 2 Released]",
+      "Week 3 Jan 19 Jan 20 Jan 21 Jan 22 Jan 23 Jan 24 Jan 25",
+      "Lecture Materials Holiday Policy Search",
+      "Week 4 Jan 26 Jan 27 Jan 28 Jan 29 Jan 30 Jan 31 Feb 1",
+      "Lecture Materials Policy Search Offline RL, Imitation Learning Assignment 2 Due at 6pm",
+      "Week 5 Feb 2 Feb 3 Feb 4 Feb 5 Feb 6 Feb 7 Feb 8",
+      "Lecture Materials Offline RL, RLHF Midterm (in class) [Assignment 3 Released] Project Proposal Due",
+      "Week 6 Feb 9 Feb 10 Feb 11 Feb 12 Feb 13 Feb 14 Feb 15",
+      "Lecture Materials Offline RL / Bandits Strategic data gathering / Exploration",
+      "Week 7 Feb 16 Feb 17 Feb 18 Feb 19 Feb 20 Feb 21 Feb 22",
+      "Lecture Materials Holiday Exploration Assignment 3 Due at 6pm",
+      "Week 8 Feb 23 Feb 24 Feb 25 Feb 26 Feb 27 Feb 28 Mar 1",
+      "Lecture Materials Exploration RL and MCTS Project Milestone Due",
+      "Week 9 Mar 2 Mar 3 Mar 4 Mar 5 Mar 6 Mar 7 Mar 8",
+      "Lecture Materials Guest Lecture In Class Quiz",
+      "Week 10 Mar 9 Mar 10 Mar 11 Mar 12 Mar 13 Mar 14 Mar 15",
+      "Lecture Materials Alignment, Impacts Poster Session",
+      "Week 11 Mar 16 Mar 17 Mar 18 Mar 19 Mar 20 Mar 21 Mar 22",
+      "Lecture Materials Final Project Writeup Due at 6pm"
+    ]
+  ]
+}

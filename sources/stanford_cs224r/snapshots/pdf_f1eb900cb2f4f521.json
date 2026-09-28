@@ -1,0 +1,34 @@
+{
+  "url": "https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.pdf",
+  "resolved_url": "https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.pdf",
+  "checked_at": "2026-09-28T00:04:07+00:00",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "status": "reachable",
+  "robots": {
+    "url": "https://cs224r.stanford.edu/robots.txt",
+    "status": "not_present_404",
+    "checked_at": "2026-09-28T00:04:03+00:00"
+  },
+  "sha256": "d4835fc44a1160d8023744ee8af8727284db51f1e6a045497c18f0026cc96a30",
+  "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.24\nCreationDate:    Wed Apr 29 00:25:49 2026 +03\nModDate:         Wed Apr 29 00:25:49 2026 +03\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           15\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       1196784 bytes\nOptimized:       yes\nPDF version:     1.5\n",
+  "first_page_excerpt": "                    CS224R Spring 2026 Homework 3\n                              Offline RL\n                                     Due 5/8/2026\n                        SUNet ID:\n                           Name:\n                    Collaborators:\nBy turning in this assignment, I agree by the Stanford honor code and declare that all of\nthis is my own work.\n\n\n\n\nOverview\nGoals: In this assignment, you will implement two offline reinforcement learning algo-\nrithms: Advantage-Weighted Actor-Critic (AWAC) and Implicit Q-Learning (IQL). You\nwill compare their performance across offline datasets on tasks of different difficulty lev-\nels in Antmaze which is a domain from D4RL. You will also study the stitching behavior\nof offline RL using IQL in the PointMass environment.\nYour objectives are as follows",
+  "embedded_urls": [
+    "https://wandb.ai/authorize.",
+    "https://wandb.ai/home",
+    "https://wandb.ai/site"
+  ],
+  "verification_level": "pdf_text_inspected",
+  "text_extraction_exit_code": 0,
+  "annotation_urls": [
+    "https://arxiv.org/abs/2004.07219",
+    "https://arxiv.org/abs/2006.09359",
+    "https://arxiv.org/abs/2110.06169",
+    "https://cs224r.stanford.edu/material/CS224R_compute_guide.pdf",
+    "https://modal.com/credits",
+    "https://wandb.ai/authorize",
+    "https://wandb.ai/home",
+    "https://wandb.ai/site",
+    "https://wandb.ai/site/"
+  ]
+}
