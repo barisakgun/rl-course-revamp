@@ -1,5 +1,38 @@
 # Decision Log
 
+## 2026-09-29 — Instructor freezes syllabus; Phase 6 closed
+
+- Authority: instructor confirms incorporating the editorial suggestions, completing the PDF conversion for upload, and explicitly directs marking the syllabus frozen. Phase 6 is closed by instructor acceptance; Phase 7 will be addressed later and has not started.
+- Frozen student-facing artifacts: `course/syllabus/syllabusFall26.docx` and its instructor-produced `course/syllabus/syllabusFall26.pdf`. These supersede the earlier draft as the syllabus for this offering. Upload is not claimed completed.
+- Preserve the instructor's concise syllabus and deliberate flexibility on timing and requirements. Do not repopulate it from the older detailed draft or internal planning views.
+- Scope of freeze: the instructor-approved syllabus. Actual-date calendar mapping and operational scheduling remain deferred until after Phase 7, retaining the post-Week-2 checkpoint. Existing workload uncertainty, task pilots, rubric/example preparation, staffing and grading-turnaround follow-ups remain tracked; they are not newly resolved by this freeze.
+- Prior Phase 6 workload/design audits and the subsequent editorial review were completed. The instructor performed the final edits and PDF conversion. No new agent render, final-PDF verification, syllabus modification or report regeneration was requested or performed in this closeout.
+- Repository follow-up before reusing generators in Phase 7: reconcile final syllabus wording with structured policy records, update the old draft-path/export assumptions, and distinguish historical draft verification from final-artifact verification. Do not infer that every suggested alternative was adopted or reverse instructor edits to satisfy stale checks.
+- Frozen artifact fingerprints (SHA-256):
+  - `course/syllabus/syllabusFall26.docx`: `71a332e99ca52eb41da303f0dbec0e07d310224f2339114d06c109ebeb337fb1`
+  - `course/syllabus/syllabusFall26.pdf`: `687b7f5e0196d059a3d43f67894067bf04d7ca4c10187cc5bd6b1556111e6598`
+
+## 2026-09-29 — Phase 6 provisional integration prepared for review
+
+- Completed the authorized generator repairs, provisional-design/workload audit and supplied-syllabus revision. No teaching scope, mastery, assessment weight or week target was changed.
+- Preserved the supplied catalog/prerequisite text verbatim and retained administrative policies. Reconciled syllabus assessment/delivery text with existing decisions; changed the obsolete phrase “early final” to “early exam” because no final exam is required.
+- Read class hours and room from the supplied DOCX rather than requesting them again. Actual-date mapping remains deferred after Phase 7; this discovery does not book makeup or assessment dates.
+- Reviewed all five rendered syllabus pages and recorded file-hash-bound verification in analysis. Workload ranges remain unpiloted; the retained final-report late-day policy creates a grading-turnaround follow-up, not a new policy decision.
+- The provisional integration package is ready for instructor review. Final syllabus/design freeze is not declared and Phase 7 has not started. The possible later workflow phases remain a note for future discussion.
+
+## 2026-09-28 — Phase 6 integration resumed
+
+- Instructor explicitly authorizes the Phase 6 plan, lifting the syllabus/audit hold: repair generators, audit the provisional design, inspect the supplied DOCX, review findings, revise the syllabus and verify consistency after editing.
+- Calendar finalization and operational follow-up remain deferred until after Phase 7, retaining the post-Week-2 checkpoint. Unknown dates must be reported as limitations rather than passed checks.
+- No curriculum, grading or assessment-scope change is authorized by this integration step. Final syllabus/design freeze remains a separate instructor decision; Phase 7 is not started.
+
+## 2026-09-28 — Calendar finalization deferred until after Phase 7
+
+- Instructor directs that completion of actual-date calendar mapping and its operational follow-up be left until after Phase 7. Retain the existing post-Week-2 registration/attendance checkpoint; this work is no longer an immediate Phase 6 step. Accepted week-level targets, prerequisites and full 21-day assignment windows remain binding.
+- Note for later workflow review: consider additional phases for work after lectures start, including calendar/staffing finalization and affected audit reruns. No new phases are defined or adopted now.
+- Instructor suggests the Phase 6 order of generator fixes, audit, DOCX inspection, review of artifacts/issues, then syllabus revision, leaving final sequencing to the assistant. This is a planning note, not an instruction to execute those steps now; the syllabus/audit hold remains in effect.
+- Phase 6 can assess the provisional design with explicit calendar limitations. Final syllabus consistency must still be verified after editing; a pre-edit review does not establish final syllabus/design freeze.
+
 ## 2026-09-28 — Schedule provisionally frozen; syllabus and audit held
 
 - Instructor freezes the reviewed week-level schedule until it is reopened after the first two weeks of classes, once attendance and registration stabilize. Exact dates remain unbooked; this is not final syllabus/design freeze.

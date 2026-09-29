@@ -7,16 +7,16 @@ Retain the five existing milestone types. Overall project weight comes from [gra
 | Milestone | Accepted deadline | Course weight | Length | Purpose / evidence |
 | --- | --- | --- | --- | --- |
 | Proposal | Week 4 | 5% | 2 pages | Problem motivation; tentative MDP/state-action-reward/horizon; one question, candidate baseline, evaluation metric and access/compute feasibility. A small related-work pointer, not an exhaustive survey. Problem and metric are well defined; no deep-RL implementation expected. |
-| Formulation/design | Week 7 | 5% | 2–3 pages | Refine formulation, establish a runnable environment/data pipeline and simple baseline, identify one planned comparison and evaluation protocol, record compute budget and fallback. Advanced policy method can remain a plan. Defensible formulation and feasible design; no PPO/GAE completion required before their teaching. |
-| Progress and evaluation plan | Week 10 | 7.5% | 3–4 pages | Show a working baseline and preliminary learning/evaluation result; specify held-out evaluation/seeds/budget, one ablation or controlled comparison, failure diagnosis and remaining work. Reuse unchanged formulation text. End-to-end execution and interpretable preliminary evidence, not a final benchmark win. |
-| Presentation | Week 13 | 7.5% | 10 minutes + 3 minutes discussion per team | Problem, method/baseline, key evidence, limitations and contributions. Outside lecture hours; give each member a short explanation opportunity. Clear reasoning and ownership; project-specific advanced concepts prepared earlier if needed. |
-| Final report and reproducibility package | One week before letter grades are due | 10% | 6–8 pages + references | Consolidate prior reports into formulation, related work, baseline/method, implementation, evaluation, uncertainty/limitations and conclusions. Submit runnable code/configuration, seeds, environment versions, representative logs and contribution statement. Reproducible, justified conclusions and honest negative findings; no novelty or benchmark-superiority requirement. |
+| Formulation/design | Week 7 (later in the week) | 5% | 2–3 pages | Refine formulation, establish a runnable environment/data pipeline and simple baseline, identify one planned comparison and evaluation protocol, record compute budget and fallback. Advanced policy method can remain a plan. Defensible formulation and feasible design; no PPO/GAE completion required before their teaching. |
+| Progress and evaluation plan | Week 11 (early in the week) | 7.5% | 3–4 pages | Show a working baseline and preliminary learning/evaluation result; specify held-out evaluation/seeds/budget, one ablation or controlled comparison, failure diagnosis and remaining work. Reuse unchanged formulation text. End-to-end execution and interpretable preliminary evidence, not a final benchmark win. |
+| Presentation | Week 14 | 7.5% | 10 minutes + 3 minutes discussion per team | Problem, method/baseline, key evidence, limitations and contributions. Outside lecture hours; give each member a short explanation opportunity. Clear reasoning and ownership; project-specific advanced concepts prepared earlier if needed. |
+| Final report and reproducibility package | Week 16; One week before letter grades are due | 10% | 6–8 pages + references | Consolidate prior reports into formulation, related work, baseline/method, implementation, evaluation, uncertainty/limitations and conclusions. Submit runnable code/configuration, seeds, environment versions, representative logs and contribution statement. Reproducible, justified conclusions and honest negative findings; no novelty or benchmark-superiority requirement. |
 
-Accepted deadlines and the January/letter-grade final-report rule are read from project decisions; no assumed Week 14 conversion. Exact presentation slots and the Week 13 midterm conflict remain deferred by instructor direction. Third week of January; exact date/year from official calendar, not inferred
+Accepted deadlines and the January/letter-grade final-report rule are read from project decisions; no assumed Week 14 conversion. Actual dates and staffing remain deferred until after Phase 7; accepted presentation delivery and week come from decisions. Week 16 (January 18–24, 2027); exact deadline must also satisfy the letter-grade rule
 
 ## Prerequisite and workload check
 
-| Milestone | Already-taught supporting sessions | Estimated active hours per student |
+| Milestone | Supporting logical sessions; date mapping pending | Estimated active hours per student |
 | --- | --- | --- |
 | Proposal | 1.1, 1.2, 2.1, 2.2 | 3–5 |
 | Formulation/design | 4.1, 5.1, 6.1, 6.2 | 8–12 |
@@ -26,9 +26,9 @@ Accepted deadlines and the January/letter-grade final-report rule are read from 
 
 Total estimated project active work: **38–58 hours per student**. Low: active hours per student across non-overlapping intervals include implementation, experiments and milestone writing. Presentation preparation is included; scheduled presentation attendance (including own talk) is counted separately. Final-report estimate increased for the accepted 6–8 pages. Unattended compute, assignments and exam preparation are excluded.
 
-Presentation attendance: 120 minutes per student including their own presentation. The instructor plans 3 slots for up to 24 teams; 104 minutes used per slot leaves 16 for transitions. After proposals are received and teams are frozen. Keep Week 13 presentations and midterm 3 as planned. Instructor will resolve the conflict during the semester once external information is available; no automatic rescheduling. Peer grading: Deferred; instructor may decide later. No current grading weight or required peer assessment.
+Presentation attendance: 120 minutes per student including their own presentation. The instructor plans 3 slots for up to 24 teams; 104 minutes used per slot leaves 16 for transitions. Review TA/student availability after Week 2; allocate final team slots after proposals/team freeze. Presentations in Week 14 are separated from Week 13 midterm 3. Exact slots and TA availability require confirmation. Peer grading: TA and attending groups grade presentations; weight split, rubric, aggregation and moderation to be finalized.
 
-Project design remains in Week 7 and progress in Week 10. Midterm windows remain Weeks 6/7 and 10/11; the instructor chose extending assignment deadlines instead of moving exams. Exact exam dates remain unbooked; see the combined timeline.
+Calendar-week targets come from current decisions; see the combined timeline. Logical prerequisite positions are not actual dates. Date mapping and preparation intervals remain unverified until the post-Phase-7 follow-up.
 
 ## Scope and evaluation
 
@@ -36,13 +36,13 @@ Teams of 2–3 are encouraged. Individual work and four-person teams are decided
 
 Suitable bounded project types: Controlled reproduction plus one ablation; Small RL application with justified formulation and baseline; Focused modification of a familiar method; Data-support/model-error/evaluation study with a working RL baseline.
 
-Offline or LLM RL projects need early self-study, a runnable simple baseline and a compute-feasible fallback by Week 7. Do not require all teams to use late topics; advanced extensions cannot postpone the Week 10 progress evidence. Prefer small models, fixed datasets or supplied traces where appropriate, not costly model pretraining.
+Offline or LLM RL projects need early self-study, a runnable simple baseline and a compute-feasible fallback by Week 7. Do not require all teams to use late topics; advanced extensions cannot postpone the Week 11 progress evidence. Prefer small models, fixed datasets or supplied traces where appropriate, not costly model pretraining.
 
 One meaningful baseline and one controlled comparison; keep data/interaction/compute budgets explicit. Pilot on a laptop; use a planning target of three independent seeds when feasible and report limitations if fewer. Separate tuning from final evaluation and include a failure case.
 
 Grade formulation, correctness, experimental reasoning and communication. Negative results can succeed if well supported; extra compute and polished prose do not substitute for understanding.
 
-Existing local final report asks for LLM disclosure/examples. Recommend retaining that for projects with a contribution statement; the new assignment no-credit rule does not automatically apply to projects. Confirm operational project policy separately.
+The supplied syllabus retains a general LLM disclosure/usage-report obligation for coding and reports. The assignment-specific no-credit rule is not extended to projects. Concrete project report instructions remain to be finalized before release.
 
 **Displacement:** Keep milestone count; reuse unchanged report sections. Evaluation-plan specification moves earlier from the final report, without adding a separate deliverable or lecture time.
 
@@ -57,6 +57,6 @@ Existing local final report asks for LLM disclosure/examples. Recommend retainin
 ## Decisions still needed
 
 - Finalize presentation slots after proposals and team freeze
-- Resolve the Week 13 midterm/presentation conflict during the semester using external scheduling information
+- Confirm TA availability and online presentation logistics after Phase 7; use accepted week targets
 - Insert the exact final-report date from the official letter-grade deadline
-- Operational project LLM disclosure policy remains a recommendation
+- Concrete project LLM-report instructions remain open; the supplied syllabus already requires disclosure

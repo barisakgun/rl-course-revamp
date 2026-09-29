@@ -6,12 +6,12 @@ Accepted design: four individual assignments with best-three grading, integrated
 
 **Accepted grading:** assignment category score = 20 × mean(highest three normalized scores); omitted submissions count as zero. No separate requirement to complete all four is adopted. Each counted score can contribute 6.67 course percentage points (exactly 20/3).
 
-| Assignment | Initial release after | Accepted timing window | Active student hours |
+| Assignment | Last logical prerequisite | Accepted timing window | Active student hours |
 | --- | --- | --- | --- |
-| A1 — Planning and learning from sampled transitions | 4.2 | 4.2 → 7.2 | 9–13 |
-| A2 — Representation, instability and a small DQN | 6.2 | 6.2 → 9.2 | 10–14 |
-| A3 — Policy-gradient estimators and update diagnosis | 8.2 | 8.2 → 11.2 | 10–14 |
-| A4 — Scaffolded IQL and offline data support | 12.2 | 12.2 → 15.2 | 9–13 |
+| A1 — Planning and learning from sampled transitions | 4.2 | Week 4 → Week 7 (early) | 9–13 |
+| A2 — Representation, instability and a small DQN | 6.2 | Week 6 → Week 9 | 10–14 |
+| A3 — Policy-gradient estimators and update diagnosis | 8.2 | Week 8 → Week 11 (later) | 10–14 |
+| A4 — Scaffolded IQL and offline data support | 12.2 | Week 12 → Week 15 | 9–13 |
 
 Attempting all four: **38–54 active hours**. Attempting exactly three: approximately 28–41, depending on selection. Best-three grading can still lead students to attempt all four; do not budget every student as doing only three. Low-confidence active student-hour estimates, including setup familiarization, coding, bounded runs, interpretation, writeup and LLM-use documentation. Assume supplied working scaffolds, Python/basic ML background and small CPU tasks. No measured pilot yet; unattended compute is separate. These are not source-course duration estimates.
 

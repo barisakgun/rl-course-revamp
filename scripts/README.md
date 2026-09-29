@@ -1,4 +1,4 @@
-> Current Phase 6 status: the week-level schedule is provisionally frozen until the post-Week-2 review. Syllabus editing and the full audit are explicitly held. See [reset handoff](../analysis/phase6_handoff.md). To render only the current schedule, run `python3 scripts/schedule_report.py`; the older integrated generators need schedule updates before their next authorized run.
+> Syllabus frozen by instructor decision; Phase 6 closed. Phase 7 has not started. The final artifacts are `course/syllabus/syllabusFall26.docx` and `.pdf`. Existing syllabus generators/checks and Markdown views still target the older detailed draft: reconcile them before reuse, preserving the final syllabus’s deliberate flexibility. Calendar finalization remains after Phase 7. See [handoff](../analysis/phase6_handoff.md).
 
 # Phase 1 collection and inventory
 
@@ -135,17 +135,29 @@ PYTHONDONTWRITEBYTECODE=1 python3 scripts/assignment_report.py --check
 
 Accepted tasks, prerequisites, starter strategy, aggregation, LLM-report contents and scheduling rules live in `decisions/assignment_decisions.md`. `analysis/assignment_proposal.yaml` retains effort ranges, evidence and rationale. The report generates `output/assignments.md` and `output/audits/assignment_alignment.md`, checking prerequisite windows, Core assessment paths, accepted Double DQN/IQL scope revisions and evidence references. It records the implementation-evidence limitation under best-three grading without adding an all-four completion requirement.
 
-Project reports join accepted milestone fields from `decisions/project_decisions.md` with effort estimates from `analysis/phase5_plan.yaml`. Presentation attendance is one two-hour slot per student including their own talk. The report deadline remains relative to letter grades. The Week 13 conflict and assignment rubrics/examples remain deferred. No scaffold or autograder is claimed ready.
+Project reports join accepted milestone fields from `decisions/project_decisions.md` with effort estimates from `analysis/phase5_plan.yaml`. Presentation attendance is one two-hour slot per student including their own talk. The report deadline remains relative to letter grades. Presentations are now Week 14 after Week 13 MT3; staffing, exact slots and assignment rubrics/examples remain deferred. No scaffold or autograder is claimed ready.
 
 # Phase 6 syllabus, schedules and workload audit
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/phase6_report.py
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/phase6_report.py --check
+python3 scripts/schedule_report.py
 ```
 
-The generator joins accepted decisions with workload assumptions and a start-of-phase teaching baseline in `analysis/phase6_review.yaml`. Calendar constraints live in `decisions/schedule_decisions.yaml`; exact session dates remain unfilled. `scripts/design_data.py` derives assignment windows: release after prerequisites, allow 21 calendar days, retain original releases and permit one-week overlaps. Relative week.slot labels assume uninterrupted weeks and are not confirmed dates. Videos release seven days before first use.
+The integrated generator joins accepted decisions with workload assumptions and the unchanged teaching baseline in `analysis/phase6_review.yaml`. It renders assessment/project/video schedules, the workload/design/syllabus-verification audits, and current lecture/curriculum views. It never writes the DOCX or Markdown syllabus. The standalone schedule command invokes the same timeline renderer without running audits.
 
-Generated artifacts: `output/syllabus.md`, `output/assessment_timeline.md`, `output/assessment_schedule.md`, `output/project_schedule.md`, `output/video_plan.md`, `output/audits/workload.md`, `output/audits/design_consistency.md`, and `analysis/phase5_completion.md`. The editable syllabus layout is `course/syllabus/template.md`; substantive facts remain in decisions. The audit verifies unchanged weekly teaching, grading totals, prerequisites, three-week assignment windows, and video lead time. It distinguishes low-confidence student-effort estimates from lecture minutes and highlights combined deadline pressure.
+`scripts/design_data.py` reads accepted assignment calendar-week targets. Logical prerequisite positions remain separate. The 21-day rule and seven-day video lead are requirements, not verified elapsed intervals. Exact-date validation is deferred after Phase 7 and is not inferred from week arithmetic. A future populated session calendar requires a dedicated date audit; the provisional generator deliberately stops rather than silently certifying it.
 
-Regenerate Phase 3/4 views, Phase 5 reports, assignment reports and then Phase 6 reports after an accepted change that affects them. Each supports `--check` for freshness without writes. Syllabus content and workload have instructor approval in principle; calendar mapping remains open before final dated syllabus/design freeze; this generator does not accept decisions or begin Phase 7.
+The editable student document is `course/syllabus/syllabusFall26_draft.docx`; accepted curriculum/assessment facts remain in decisions. Export its text/tables using `scripts/syllabus_report.py` and the documents runtime Python:
+
+```sh
+/Users/barisakgun/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/syllabus_report.py
+/Users/barisakgun/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/syllabus_report.py --check
+```
+
+The exporter uses only the standard library. `course/syllabus/template.md` is its minimal Markdown wrapper, not a second editable curriculum. `output/syllabus.md` is a view of the actual DOCX. The integrated audit checks syllabus tables/text against accepted facts, verifies preservation hashes and requires the exported view to match.
+
+After any DOCX edit, use the documents skill and its packaged `render_docx.py` with the bundled runtime Python and LibreOffice; inspect every rendered page. Record the new visual review in `analysis/syllabus_verification.json` only after inspection. The recorded DOCX hash deliberately fails if the file changes afterward. PNGs/PDFs are QA intermediates, not additional deliverables.
+
+`--check` verifies freshness without writes. After an accepted design change, regenerate the affected Phase 5/assignment views, export the reviewed syllabus if changed, then run Phase 6. Do not rerun source collection or normalization for this integration. Historical phase-completion views do not supersede the current handoff.

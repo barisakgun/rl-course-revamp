@@ -4,7 +4,7 @@ import argparse
 from itertools import combinations
 from phase3_audit import ROOT, read, table, number, build as time_audit
 from phase5_report import decision
-from design_data import assignments, assignment_schedule, when
+from design_data import assignments, assignment_schedule
 
 
 def build():
@@ -23,13 +23,10 @@ def build():
         assert 'due_window' not in a, 'Accepted schedule duplicated in analysis'
         plan=scheduled[a['id']]
         a['release_after']=plan['last_session']
-        a['earliest_due_week']=max(sessions[k]['week'] for k in a['prerequisites'])+policy['schedule_policy']['duration_days']/7
-        a['due_window']=when(plan['start'])+' → '+when(plan['end'])
+        a['due_window']=plan['release']+' → '+plan['deadline']
         a['release_stages']=['Full assignment released after all assessed prerequisites; 21 calendar days with original releases retained and one-week overlaps allowed.']
         assert set(a['group_ids'])<=groups.keys() and set(a['outcomes'])<=outcomes
         assert set(a['prerequisites'])<=sessions.keys() and a['release_after'] in sessions
-        assert max(sessions[k]['week'] for k in a['prerequisites'])<=a['earliest_due_week']
-        assert sessions[a['release_after']]['week']<=a['earliest_due_week']
         assert len(a['hours'])==2 and 0<a['hours'][0]<=a['hours'][1]
         for e in a['evidence_refs']:
             obs=topics[e['topic_id']]['sources'][e['source']]['evidence'][e['index']]
@@ -68,7 +65,7 @@ def build():
            '**Individual work and best-three-of-four grading are accepted. Three-week windows, original release points, PPO-use direction and LLM report are accepted; exact January dates remain provisional. Assignment scope and bounded Core implementation revisions are accepted. Workloads remain estimates; rubrics are deferred.**')
     out=['# Accepted assignment design','',intro,'',p['recommendation'],'',
          '**Accepted grading:** '+agg['formula']+'. '+agg['completion_rule']+' Each counted score can contribute '+f"{grading['categories_percent']['assignments']/agg['counted_count']:.2f}"+' course percentage points (exactly 20/3).','',
-         table(['Assignment','Initial release after','Accepted timing window','Active student hours'],[[a['id']+' — '+a['title'],session_label(a['release_after']),a['due_window'],f'{a["hours"][0]}–{a["hours"][1]}'] for a in tasks]),'',
+         table(['Assignment','Last logical prerequisite','Accepted timing window','Active student hours'],[[a['id']+' — '+a['title'],session_label(a['release_after']),a['due_window'],f'{a["hours"][0]}–{a["hours"][1]}'] for a in tasks]),'',
          f'Attempting all four: **{hours[0]}–{hours[1]} active hours**. Attempting exactly three: approximately {selected[0]}–{selected[1]}, depending on selection. '
          'Best-three grading can still lead students to attempt all four; do not budget every student as doing only three. '+p['workload_assumptions'],'']
     for a in tasks:
@@ -108,18 +105,18 @@ def build():
            'This is a Phase 5 planning audit, not final syllabus/design freeze.','',
            '## Result','',
            'The accepted design covers intended Core assessment paths with logged Double DQN and IQL implementation revisions and maximization bias clarified as Core. Weekly teaching topics and minutes are unchanged. '
-           'The accepted 21-day rule retains original releases and allows one-week overlaps. Calendar mapping, January A4 compatibility and the deferred Week 13 conflict remain Phase 6 checks. The scaffold/runtime assumptions have not been piloted.','',
+           'The accepted 21-day rule retains original releases and allows one-week overlaps. Actual-date prerequisite mapping, 21-day windows and January compatibility remain unverified and are deferred until after Phase 7. The scaffold/runtime assumptions have not been piloted.','',
            '**Accepted best-three qualification:** '+p['drop_policy_consequence'],'',
            '## Core alignment','',
-           table(['Frozen Core groups','Proposed assignment evidence','Other assessment path / scope limit'],[['; '.join(row['groups']),', '.join(row['assignments']) or 'No coding assignment required',row['other']] for row in p['alignment']]),'',
+           table(['Frozen Core groups','Accepted assignment evidence','Other assessment path / scope limit'],[['; '.join(row['groups']),', '.join(row['assignments']) or 'No coding assignment required',row['other']] for row in p['alignment']]),'',
            'The implementation-bearing groups (planning, prediction, control, approximation, deep value and policy estimators) have direct opportunities in A1–A3. '
            'Dropping one of these tasks leaves its corresponding per-student implementation evidence incomplete. This is an acknowledged consequence of accepted aggregation, not a claim that exam answers prove coding mastery.','',
            '## Prerequisites and deadline pressure','',
            table(['Assignment','Release / final prerequisite','Scheduling consequence'],[[a['id'],session_label(a['release_after'])+' / '+session_label(max(a['prerequisites'],key=lambda k:(sessions[k]['week'],sessions[k]['slot']))),a['due_window']] for a in tasks]),'',
-           '- Relative schedule (without breaks): A1 4.2–7.2; A2 6.2–9.2; A3 8.2–11.2; A4 12.2–15.2. A1/A2 overlap during 6.2–7.2; A2/A3 during 8.2–9.2.',
-           '- A1 now shares Week 7 with project design; A3 is due in Week 11, after the Week 10 progress deadline. Midterm windows stay unchanged; later exam options may still coincide with deadlines. Exams cannot assume completed assignment work or feedback.',
-           '- A4 relative 15.2 must be mapped to the official calendar to verify the earlier second-week-of-January target and separation from the project report. No exact date is invented.',
-           '- The project presentation/midterm 3 clash remains intentionally deferred to the semester. See the Phase 6 workload audit for the updated combined schedule.', '',
+           '- The table uses accepted calendar-week targets; prerequisite labels are logical teaching positions. They are not interchangeable. Full 21-day windows remain required; early Week 7 A1 is an unresolved date-mapping issue.',
+           '- A1 is due early Week 7 and project design later that week. Progress is early Week 11 and A3 later that week. Exams cannot assume completed assignment work or feedback. See the accepted timeline for exam weeks.',
+           '- A4 targets Week 15, followed by the Week 16 project report subject to the letter-grade deadline rule. Exact spacing remains unverified.',
+           '- Presentations are Week 14, after Week 13 midterm 3; TA staffing and exact presentation slots remain open. See the Phase 6 workload audit.', '',
            '## Partial out-of-class workload','',
            table(['Component','Estimated active hours / attendance','Qualification'],[
                ['All four assignments',f'{hours[0]}–{hours[1]}','Low confidence; includes writeup and disclosure'],
@@ -141,7 +138,7 @@ def build():
            f'Frozen teaching remains {live[0]} minutes plus {live[1]} administration, leaving {number(live[2])} usable minutes. '
            'Assignment materials/support are proposed asynchronously. Exams and presentations remain outside lectures. Accepted bounded revisions substitute within existing 6.2 and 12.2 examples, adding zero live minutes; pilot support needs remain uncertain. No new prerequisite video or reading is assigned.','',
            '## Before acceptance and release','',
-           '- Bounded Double DQN/IQL mastery revisions are accepted. Apply the latest three-week scheduling rule and check the earlier January target against official dates.',
+           '- Bounded Double DQN/IQL mastery revisions are accepted. Apply the latest three-week scheduling rule and check the accepted January week targets against official dates after Phase 7.',
            '- Finalize rubric and penalty scope with concrete assignments; accepted LLM-report requirements need no further approval. Prepare one example report at that stage.',
            '- Before release, recover/build and test starter code, dependencies, deterministic checks and laptop run budgets. Source PDFs and reference scaffolds are evidence, not a verified deliverable.',
            '- Keep assignment feedback and midterm questions aligned with content taught before each exam; A4 completion is not required for midterm 3.',

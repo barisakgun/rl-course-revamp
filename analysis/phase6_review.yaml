@@ -1,5 +1,5 @@
 schema_version: 1
-state: schedule-provisionally-frozen-syllabus-and-audit-deferred
+state: phase6-closed-instructor-syllabus-freeze
 authority: Phase 6 audit assumptions and risks only; accepted facts remain in decisions.
 phase5_state: complete-high-level-design
 weekly_baseline:
@@ -162,8 +162,9 @@ weekly_baseline:
 calendar:
   session_dates: {}
   letter_grades_due: null
-  note: Use decisions/schedule_decisions.yaml for current calendar constraints and the post-Week-2 reopening trigger.
-    Exact session dates remain unset.
+  note: Accepted week targets remain in decisions/schedule_decisions.yaml. Exact-date mapping is deferred until
+    after Phase 7, retaining the post-Week-2 checkpoint. The supplied syllabus already states Tuesday/Thursday 14:30–15:40;
+    confirm against the stabilized timetable rather than requesting it again.
   accepted_constraints_source: decisions/schedule_decisions.yaml
 workload_assumptions:
   routine_study_hours_per_teaching_week:
@@ -182,8 +183,14 @@ deferred_to_semester:
 - TA-led Week 14 presentation slot allocation and TA/peer grading details
 - Pilot and calibrate concrete assignments before release
 remaining_finalization:
-- Reopen schedule after first two teaching weeks; confirm makeup dates, prerequisites, 21-day windows and exam dates/durations
-- Confirm TA-led online presentation operation and grading details
-- Confirm Week 16 final report against official letter-grade deadline
-- Revise supplied DOCX and run a full Phase 6 consistency/workload audit only when separately requested
-freeze_state: Schedule freeze accepted; final syllabus/design freeze not yet claimed
+- Before reusing Phase 7 tools, reconcile final concise syllabus policies and replace old draft-path/export assumptions;
+  do not restore omitted detail
+- After Phase 7, reopen calendar mapping at the post-Week-2 checkpoint; preserve prerequisites and full 21-day windows
+- After Phase 7, confirm exam dates/durations, TA-led presentation staffing/slots and TA/group grading details
+- After Phase 7, confirm Week 16 report against official grades and account for the retained late-day policy
+- Calibrate unpiloted assignment workload and finalize concrete rubric/penalty/example details before release
+freeze_state: 'See decisions/decision_log.md: 2026-09-29 instructor syllabus freeze; calendar/operational follow-up
+  remains deferred'
+syllabus_verification_source: analysis/syllabus_verification.json
+syllabus_verification_note: The referenced verification record applies to the earlier detailed draft, not the final
+  instructor-edited DOCX/PDF. Final acceptance is recorded in decisions/decision_log.md.

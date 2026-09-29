@@ -1,0 +1,162 @@
+EDIT SUGGESTIONS FOR syllabusFall26.docx
+
+Source: course/syllabus/syllabusFall26.docx
+Reviewed: 29 September 2026, including all five rendered pages.
+The DOCX was not edited. Page references below follow that rendering; the quoted text also provides a search target.
+
+These suggestions preserve the syllabus's flexible level of detail. They do not ask you to restore exact assessment dates, video schedules, assignment windows or detailed project requirements.
+
+CORRECTIONS AND CONSISTENCY ISSUES
+
+1. Page 5 — Early Exam Policy: obsolete reference to a final
+   Current: "There will be no makeups for the early final."
+   Suggested: "There will be no makeup for an early exam."
+   Reason: The Exams section explicitly says there is no final exam.
+
+2. Page 3 — Assignments: best three versus dropping one
+   Current: "The number may change depending on how the semester proceeds. If there are more than 3, the lowest one will be discarded."
+   Issue: The table says "best 3 out of 4." With five assignments, dropping only one would count four, rather than three. This is a conditional ambiguity, not an arithmetic error in the current four-assignment plan.
+   If you intend to retain the best-three rule while allowing the assignment count to change:
+   "Four programming assignments are planned, although the number may change depending on how the semester proceeds. If more than three assignments are offered, only the three highest scores will count."
+   If you intend to drop exactly one whenever more than three are offered, keep that policy and change the table description to "Planned: 4 individual assignments; lowest score dropped."
+   Choose the wording that matches your intent; neither option adds timing commitments.
+
+3. Page 3 — Exams: missing article/plural
+   Current: "The midterms will cover separate set of topics."
+   Suggested: "Each midterm will cover a different set of topics."
+   Reason: Corrects the grammar without promising that the sets are entirely disjoint.
+
+4. Page 3 — Final Project: missing comparison preposition
+   Current: "compare a meaningful baseline"
+   Suggested: "compare your solution against a meaningful baseline"
+   Reason: You compare the solution with the baseline, rather than simply comparing the baseline itself.
+
+5. Page 3 — Final Project: awkward introduction to weights
+   Current: "The final project milestones and their grades as percentage of the overall grade are:"
+   Suggested: "The project milestones and their weights in the overall course grade are:"
+   Reason: The percentages are grading weights; "as percentage" also needs an article or plural form.
+
+6. Page 4 — LLM policy: "credits" and unclear writing criterion
+   Current: "For project reports, typical AI verbosity, prose and phrasing will lose credits."
+   Minimal language correction: "Project reports containing typical AI verbosity, prose or phrasing will lose marks."
+   Clearer alternative, if it matches your intent: "Project reports will lose marks for verbose, repetitive or vague writing, including such writing produced by AI tools."
+   Reason: "Marks" or "points" is appropriate here; "credits" normally refers to course credits. "Typical AI prose" leaves the writing fault unclear. The alternative states observable writing problems, but changes the criterion from AI-associated style to writing quality, so it is a wording choice for you rather than an automatic correction.
+
+WORDING AND PUNCTUATION IMPROVEMENTS
+
+7. Page 1 — Class times
+   Current: "Times: Tuesdays and Thursdays between 14.30 and 15:40"
+   Suggested: "Times: Tuesdays and Thursdays, 14:30–15:40"
+   Reason: Uses one time notation consistently and shortens the sentence. The stated hours are unchanged.
+
+8. Page 1 — Email policy
+   Current: "Students are responsible for checking their account frequently and consistently."
+   Suggested: "Students are responsible for checking their university email regularly."
+   Reason: Identifies the account and removes the redundant pair "frequently and consistently."
+
+9. Page 1 — Office hours
+   Current: "By appointment (both online or face-to-face) or open door especially after lectures"
+   Suggested: "By appointment (online or in person), or whenever my door is open, especially after lectures."
+   Reason: "Both ... or" is incorrect, and "or open door" is an incomplete phrase.
+
+10. Page 2 — Textbook citation
+    Current: "Sutton and Barto, Reinforcement Learning: An Introduction 2nd Ed."
+    Suggested: "Sutton and Barto, Reinforcement Learning: An Introduction, 2nd ed."
+    Reason: Adds the missing separator before the edition. The title and edition are correct; this is punctuation only.
+
+11. Page 2 — Tentative Topics, Offline RL row
+    Current: "conceptual CQL"
+    Suggested: "conceptual overview of CQL"
+    Reason: More natural wording for the intended introductory treatment.
+
+12. Page 3 — Teaching
+    Current: "Lecture attendance will not be tracked but participation, questions and discussion are encouraged."
+    Suggested: "Lecture attendance will not be tracked, but participation, questions and discussion are encouraged."
+    Reason: Adds a comma between the two independent clauses.
+
+    Optional first-sentence revision: "The course will be taught mainly through lectures, supplemented by videos as needed."
+    This stays flexible and accommodates both background preparation and missed-lecture coverage. The current sentence describes videos only as compensation for missed lectures, whereas the internal plan also uses them for background preparation. There is no need to specify their number, timing or required status here.
+
+13. Page 3 — Final Project: small phrasing changes
+    "working on a ‘challenging’ problem" -> "working on a challenging problem"
+    "Teams of 2–3 are encouraged but individual work..." -> "Teams of 2–3 are encouraged, but individual work..."
+    "The expected scope of the project will change with the group size." -> "The expected project scope will depend on team size."
+    Reason: Removes unnecessary quotation marks, adds a clause-separating comma and makes the last sentence more natural.
+
+14. Page 4 — Submission timestamp and outage
+    Current: "The submission time will be taken as the server received time. If the system is down, we will give a proper extension."
+    Suggested: "The submission time is the time recorded by the server. If the system is down, an appropriate extension will be granted."
+    Reason: "Server received time" is awkward; "appropriate" is more natural than "proper" in this context.
+
+15. Page 4 — Checking submitted files
+    Current: "The students are expected to download their submissions and check them. It is the students’ responsibility to make sure that the submission is not corrupted, is not wrong, is not an older version etc. Only the latest submissions in the system will be graded."
+    Suggested: "Students are expected to download and check their submissions. They are responsible for ensuring that the correct, current files were uploaded and are not corrupted. Only the latest submission for each assignment or report will be graded."
+    Reason: Removes repetition and clarifies that 'latest' applies separately to each task.
+
+16. Page 4 — Late allowance
+    Current: "You will have a total of 10 days late allowance with a maximum lateness of 3 days per submission other than the final report."
+    Suggested: "You will have a total allowance of 10 late days, with a maximum of 3 late days per submission, except for the final report."
+    Also insert a comma before "but" in "You can use your remaining late days to submit your final report but..."
+    Reason: Improves grammar while retaining the existing numbers and final-report exception.
+
+17. Page 4 — LLM policy: disclosure and scope
+    "You are required to cite their use and failure to disclose is treated as plagiarism."
+    -> "You must disclose their use; failure to do so is treated as plagiarism."
+
+    "A usage report for each assignment and report is required..."
+    -> "An LLM-use statement is required with each assignment and project report..."
+    Use "LLM-use report" instead of "statement" if you intend a separate report; this suggestion should not change the deliverable's scope.
+
+    "The same goes for the coding part of projects."
+    -> "This no-credit rule also applies to project code."
+    Reason: These changes reduce repetition and specify what "the same" refers to. Your explicit extension to project code is treated as intentional, not as an error to reverse.
+
+18. Page 4 — LLM policy: exam sentence
+    Current: "The students are not allowed to use LLMs for their midterms in case they end up being online or take-home, since we are measuring your knowledge on the topics and not on solving a problem using a tool."
+    Suggested: "If midterms are held online or as take-home exams, students may not use LLMs: these exams assess their knowledge of the material, rather than their ability to solve problems using a tool."
+    Reason: Fixes "knowledge on," the nonparallel ending, and the shift between "students" and "your." Preserves the original condition concerning online/take-home exams.
+
+19. Pages 4–5 — Makeup notification wording
+    Current: "The instructor reserves the right to deny the makeup after 5 days even if the excuse is legitimate."
+    Suggested: "The instructor reserves the right to deny a makeup request if notification is received more than 5 days after the exam, even if the excuse is legitimate."
+    Reason: Makes clear that the limit concerns notification, not the date on which the makeup exam can take place. Retains the existing five-day rule and instructor discretion.
+
+20. Page 5 — Early Exam Policy opening
+    Current: "If you are going to an exchange program before the semester ends..."
+    Suggested: "If you will leave for an exchange program before the semester ends..."
+    Reason: More natural phrasing. Capitalize "Week 10" consistently if retaining that reference.
+
+OFFICIAL-TEXT NOTES — CONDITIONAL SUGGESTIONS ONLY
+
+The catalog description and official prerequisite text were previously designated for verbatim preservation. The following are language observations, not recommendations to depart from required institutional wording.
+
+21. Page 1 — Catalog Description
+    "Introduction to the Reinforcement Learning" would ordinarily be "Introduction to Reinforcement Learning."
+    Retain the official wording if this description must match the catalog exactly.
+
+22. Page 1 — Prerequisite descriptions
+    If these explanatory sentences are editable:
+    - "This pre-req also indirectly enforces probability and statistics, and to a lesser extent Python Programming"
+      -> "This prerequisite also assumes background in probability and statistics and, to a lesser extent, Python programming."
+      "Enforces" is awkward here; also add a final period.
+    - "No prerequisite but knowing deep learning would help the students."
+      -> "Prior coursework in deep learning is not required, but familiarity with it would be helpful."
+    - "No prerequisite, but students are expected to know or learn the relevant topics."
+      -> "No formal prerequisite, but students are expected to know or learn the relevant material."
+    - "No prerequisite, but if you don’t know Python, I recommend not taking this course."
+      -> "Python is not a formal prerequisite, but I recommend taking this course only if you already know Python."
+    These retain the distinction between formal prerequisites and recommended preparation. Keep mandated text unchanged where applicable.
+
+SMALL CONSISTENCY OPTIONS
+
+- Use "COMP341" and "COMP421/521" to match "COMP438/538" in the title, unless official labels require the current capitalization. The former "Cop421" typo is fixed.
+- Use "Large Language Model (LLM) Use Policy" rather than lowercase "use" in that heading.
+- Choose one spelling for the noun/adjective: "makeup" or "make-up." Both occur in the document. The verb is "make up."
+- "Students" is usually more natural than "The students" when stating general course rules.
+- The second project milestone is called "Formulation and Progress Report," while the next is "Progress and Evaluation Report." If the second milestone is chiefly a design checkpoint, "Formulation and Design Report" would distinguish them more clearly and match the internal project plan. The current label is not a factual error if intentional.
+
+FACTUAL CHECK RESULT
+
+The grading categories total 100% (20 + 45 + 35). Three midterms at 15% total 45%. The project milestone weights total 35% (5 + 5 + 7.5 + 7.5 + 10). I found no clear technical RL errors in the topic descriptions. Listing a textbook does not by itself impose assigned readings, so no change is needed on that basis.
+
+The main factual/internal-consistency correction is "early final." The assignment-count ambiguity is conditional on changing the number of assignments. Administrative details such as the room, official prerequisite rules and institutional makeup policy were treated as instructor-supplied facts, not independently verified university information.

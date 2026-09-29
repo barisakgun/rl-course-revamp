@@ -16,10 +16,10 @@ Category weights total 100%; the accepted project milestone split totals its 35%
 
 | Exam | Window | Coverage |
 | --- | --- | --- |
-| midterm_1 | [6, 7] | Weeks 1–5, before deep RL. Accepted taught/mastery scope governs questions; optional extensions are not silently examinable. |
-| midterm_2 | [10, 11] | Weeks 6–8 plus 9.1, including SAC; bandits in 9.2 are excluded. Interpret up to bandits as before bandits, following explicit session list. |
+| midterm_1 | [6] | Weeks 1–5, before deep RL. Accepted taught/mastery scope governs questions; optional extensions are not silently examinable. |
+| midterm_2 | [10] | Weeks 6–8 plus 9.1, including SAC; bandits in 9.2 are excluded. Interpret up to bandits as before bandits, following explicit session list. |
 
-**Third midterm:** Instructor explicitly confirmed keeping midterm 3 in Week 13; its scope ends at Week 12 and excludes the LLM bridge.
+**Third midterm:** Midterm 3 is frozen in calendar Week 13, covering taught material through logical 12.2 and excluding the LLM bridge. Exact date remains pending; avoid the assumed December 31 loss and January instructor absence.
 
 Future template: Week 14, 9.2 through Week 13 including the LLM bridge. Accepted current-semester schedule: Week 13, 9.2 through Week 12, excluding the LLM bridge. Week 14 is outside the 13-week teaching plan and is only a possible exam/submission period; confirm the official calendar.
 
@@ -58,8 +58,8 @@ See the [book-first map](../readings.md). It uses existing normalized book refer
 
 ## Phase 6 follow-up and in-semester work
 
-- Confirm per-exam weights, durations and exact dates around milestone deadlines. Third midterm in Week 13 and separate exam slots are accepted.
-- Project weights, lengths, team policy and final deadline rule are accepted. Finalize presentation scheduling after proposals and teams freeze; resolve the Week 13 midterm clash during the semester as directed. Operational project disclosure wording remains open.
+- Per-exam weights are accepted at 15% each; confirm durations and exact dates after Phase 7. Third midterm in Week 13 and separate exam slots are accepted.
+- Project weights, lengths, team policy and final deadline rule are accepted. Finalize presentation scheduling after proposals and teams freeze; retain Week 14 online, recorded, TA-led delivery after Week 13 midterm 3. Confirm staffing and the TA/group grading split. Operational project disclosure wording remains open.
 - Preserve accepted reading deferment this semester; retain the internal map for the next iteration.
 - Accepted [assignments](../assignments.md) include integrated Double DQN and scaffolded IQL. Release after prerequisites, allow 21 days, retain original releases, and allow one-week overlaps. Rubric/example work is deferred to the semester.
 - Then audit combined assignment/project/exam/video/presentation workload and alignment before syllabus/design freeze. Phase 6 is now in progress.

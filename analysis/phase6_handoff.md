@@ -1,51 +1,58 @@
-# Phase 6 reset handoff
+# Phase 6 handoff
 
-## Current stop boundary
+## Current boundary
 
-The instructor has accepted a **provisional week-level schedule freeze**, to be reopened after the first two weeks of classes when registration and attendance stabilize. This is not final syllabus/design freeze. The latest instruction explicitly prohibits starting the syllabus or running the full audit now. Neither was done in the freeze-recording turn.
+**Syllabus frozen by the instructor; Phase 6 closed. Phase 7 has not started.** The authoritative freeze record and artifact fingerprints are in the latest entry of `decisions/decision_log.md`.
 
-Read AGENTS.md and required context on resumption, then the latest decision-log entry, schedule/assignment/project/grading/video/reading decisions, this handoff and the generated `output/assessment_timeline.md`. Do not reconstruct decisions from old generated reports.
+The current student-facing artifacts are `course/syllabus/syllabusFall26.docx` and the instructor-produced `course/syllabus/syllabusFall26.pdf`. The instructor completed the final edits and PDF conversion for upload. No upload or fresh agent verification of that final PDF is claimed.
 
-## Authoritative updates
+No Phase 6 closeout task remains. Exact-date calendar finalization and operational follow-up remain after Phase 7, retaining the post-Week-2 checkpoint. Possible additional phases for work after lectures start remain a future workflow discussion.
 
-- `decisions/schedule_decisions.yaml`: freeze scope/reopening trigger, three makeup months, 26 retained lectures and unresolved calendar inputs.
-- `decisions/assignment_decisions.md`: each assignment's `schedule` gives accepted calendar-week targets. Prerequisites and the 21-day rule remain binding; early Week 7 A1 is a known mapping issue, not permission to shorten the assignment window.
-- `decisions/grading_decisions.md`: MT1 Week 6, MT2 Week 10, MT3 Week 13; three 15% weights and coverage unchanged. Regular-semester MT3 early Week 14 remains separate.
-- `decisions/project_decisions.md`: design late Week 7; progress early Week 11; TA-led online recorded presentations Week 14; final report target Week 16, still one week before letter grades. TA/group grading is accepted; split and operational rubric remain open. Regular-semester presentations late Week 14/early Week 15 are separate.
-- `config/course.yaml`: two assumed lost holiday/unavailable slots and three makeup lectures retain the 26-session capacity. December 31 unavailability is a planning assumption, not verified official holiday status. Teaching topics/minutes were not changed.
-- `decisions/decision_log.md`: acceptance and explicit audit/syllabus hold.
+### Before reusing the repository tools in Phase 7
 
-## Information completeness
+The existing Markdown syllabus, syllabus verification record and generator checks refer to the earlier detailed draft. They do not represent the final concise syllabus. Reconcile final policy wording with structured records and update generator input/export assumptions before reuse; preserve the instructor's flexibility and do not restore removed detail to make old checks pass. This is repository housekeeping for the later work, not a condition on the accepted freeze.
 
-Enough information exists for the provisional schedule and for a later syllabus draft with date placeholders. No new curriculum or high-level assessment choice is needed now. Remaining information is chiefly operational:
+Read AGENTS.md, required context and the latest decision-log entry on resumption. Treat the package description below as the history of the earlier integration pass, not as identification of the frozen artifact.
 
-| Needed | When / purpose |
+## Earlier integration package
+
+- `course/syllabus/syllabusFall26_draft.docx`: revised five-page syllabus with compact topic outline, accepted assessment weeks, project milestones, prerequisite videos, no assigned readings and assignment LLM-use rules.
+- `output/syllabus.md`: generated directly from the actual DOCX; the old independently populated Markdown syllabus is replaced. `course/syllabus/template.md` is now only its export wrapper.
+- `output/assessment_timeline.md`, `output/assessment_schedule.md`, `output/project_schedule.md`, `output/video_plan.md`: current accepted week targets, with exact dates explicitly pending.
+- `output/audits/workload.md`, `output/audits/design_consistency.md`, `output/audits/syllabus_verification.md`: updated audit results and limitations. Related assignment/project views were refreshed.
+- `analysis/syllabus_verification.json`: original paragraph preservation hashes, editorial review and final DOCX hash tied to a complete five-page visual review. Any further DOCX edit requires rerendering and renewed review.
+
+The earlier draft preserved the catalog description and official prerequisite text verbatim, including the then-supplied `Cop421/521` spelling; the instructor subsequently corrected that name. Class hours, contacts, submission/late-day policy, conduct and makeup policies are retained. The obsolete phrase “early final” was changed to “early exam” to match the accepted absence of a final exam.
+
+## Audit findings and limits
+
+Teaching remains 1,440 minutes plus 19 additional administration minutes, leaving 68 usable minutes. The configured 15% buffer and 20-minute syllabus briefing are accounted separately. No topics, mastery, grading weights or teaching minutes changed. Policy and offline units remain dense despite arithmetic fit.
+
+Estimated total student effort is 158.7–235 hours for all four assignments or 148.7–222 for exactly three. These are unpiloted sensitivity ranges; upper bounds exceed the 150–180-hour target. Workload is accepted in principle, not empirically calibrated. Best-three grading retains the accepted limitation that an omitted task leaves its implementation evidence incomplete.
+
+The accepted schedule removes the former same-week MT3/presentation conflict: MT3 is Week 13 and presentations Week 14. Actual-date prerequisite and preparation intervals, 21-day assignment windows, deadline spacing, staffing and grading turnaround are **pending**, not passed.
+
+The supplied DOCX already states Tuesday/Thursday 14:30–15:40, CASEZ27. Retain this evidence rather than asking for it again; confirmation against the stabilized timetable and mapping all 26 lectures remain deferred.
+
+## Deferred follow-up after Phase 7
+
+| Item | Required check |
 | --- | --- |
-| Stabilized registration, student timetable, lecture weekdays and October/November/December makeup dates | Post-Week-2 reopening; check the supplied DOCX for already stated class hours before asking again. Map all 26 logical lectures to actual dates. |
-| Exact exam dates, times, durations and arrangements | Confirm assessed topics were taught with preparation time before each exam. MT3 needs a feasible date before the year-end/January constraints. |
-| Assignment release/deadline days and times | Preserve full 21-day windows after prerequisites; reconcile A1 early Week 7, stagger Week 11 submissions and January deliverables. |
-| Official letter-grade deadline and grading turnaround | Verify Week 16 final report remains one week before grades; establish who can grade in January. |
-| TA availability for January presentations and assessment support | Instructor previously expected at most one TA, possibly none; the accepted TA-led plan still depends on staffing confirmation. |
-| Team count, presentation slots, online/recording arrangements, TA/peer grade split and rubric | Final slots after proposals/team freeze; no additional attendance requirement or grading weight is inferred. |
-| Concrete assignment rubrics, LLM penalty operation/example report, tested scaffolds and runtime calibration | Intentionally deferred to implementation during the semester, before release. Not a reason to reopen accepted task selection now. |
-| Syllabus administrative/policy text | Retrieve from the supplied DOCX first; no claim that all publication details have already been inspected. |
+| Stabilized registration/timetable and October/November/December makeup dates | Reopen after Week 2; map all 26 logical lectures to dates without changing teaching scope. |
+| Assignment dates | Preserve full 21-day windows after prerequisites; reconcile A1 early Week 7, stagger Week 11 and retain January spacing. |
+| Exam dates/durations | Check taught coverage and preparation time, especially MT3 before the year-end/January constraints. |
+| Official grade deadline and staffing | Verify Week 16 report is one week before grades and establish feasible January turnaround. |
+| Final-report late days | Supplied policy permits remaining late days with a possible Incomplete; lateness can consume or exceed the grading buffer. Operational handling remains unresolved. |
+| Presentation operation | Confirm TA availability, team count, three two-hour slots, online/recording arrangements and TA/group grading split/rubric. |
 
-## Syllabus handoff — do not edit until requested
+Concrete assignment scaffolds, pilots, run budgets, rubrics, excess-lateness penalty details and the example LLM-use report remain deferred until implementation before release. No policy numbers were invented. The assignment no-credit rule was not extended to projects; the supplied general disclosure obligation remains in the syllabus.
 
-`course/syllabus/syllabusFall26_draft.docx` exists and remains untouched. Use the documents skill when editing/rendering it. Preserve its catalog description and official COMP341 and COMP421/521 prerequisites verbatim. The instructor authorizes streamlining objectives/other editable descriptions and using a compact topic table instead of a lecture-by-lecture list. Do not revise the teaching plan to compensate for the official prerequisite wording. Existing `output/syllabus.md` and the editable Markdown template predate the latest schedule freeze.
+## Generator and verification workflow
 
-## Audit handoff — required later, not run now
+- `scripts/design_data.py` reads accepted calendar-week targets; logical prerequisite labels do not generate fake deadlines.
+- `scripts/schedule_report.py` provides the sole timeline renderer, also called by the integrated report. Its standalone command runs no audit and writes no syllabus.
+- `scripts/phase6_report.py` audits and renders schedules/reports only. It does not modify the DOCX or Markdown syllabus. With a syllabus review record, it checks the actual DOCX and exported Markdown, including the visual-review hash.
+- `scripts/syllabus_report.py` exports Markdown from the editable DOCX without modifying it. Run it with the documents runtime Python; it requires only the standard library.
+- `scripts/phase5_report.py` and `scripts/assignment_report.py` consume the current schedule and distinguish known prerequisite IDs from unverified dates.
 
-A full **Phase 6 course-design consistency and workload audit** is required before final syllabus/design freeze under AGENTS.md and docs/workflow.md. It should use the updated schedule and revised syllabus. It does not require repeating source collection, normalization or the entire curriculum analysis.
-
-Check prerequisite/date mapping, 21-day windows and overlaps, exact exam coverage/timing, project ordering and grading turnaround, online presentation attendance/staff effort, video lead times, workload against the 150–180-hour target, unchanged teaching budget, and agreement among decisions and the final syllabus. Carry unknown operational dates as explicit limitations if still unavailable; rerun affected calendar checks after the Week-2 reopening.
-
-## Generated-file and script status
-
-`scripts/schedule_report.py` renders **only** the current compact schedule from accepted decisions without invoking audits or syllabus generation. `output/assessment_timeline.md` is current.
-
-Other existing generated schedules, assignment/project views, syllabus and audit reports **predate this freeze**. They retain older exam windows, progress/presentation weeks or logical-slot deadlines. They are not the authority and must be refreshed in the next authorized syllabus/audit pass. Do not interpret previous passing reports as validation of the new dated plan.
-
-Before using `scripts/phase6_report.py` again, update it to consume accepted calendar-week targets rather than re-creating deadlines solely from logical lecture coordinates. It currently contains old narrative assumptions and also writes the syllabus/audits. Update `scripts/design_data.py`, `scripts/assignment_report.py` and `scripts/phase5_report.py` where they assume the prior schedule. Ensure the timeline has a single rendering path, retaining the new schedule-only renderer or calling it from the integrated report. Do not run these generators merely to refresh views while the user's audit/syllabus hold is active.
-
-The new freeze was recorded through decision edits, a schedule-only rendering and basic YAML parsing. No full audit, topic revision, DOCX edit, or final Phase 6 completion claim occurred.
+See `scripts/README.md` for commands and the warning about the old draft path. The instructor has now frozen the final syllabus; final dated validation remains deferred. No source collection or normalization rerun is needed.

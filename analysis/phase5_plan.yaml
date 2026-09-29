@@ -27,11 +27,11 @@ project:
     accepted_milestone_ref: final_report
   weight_basis: Accepted course-grade weights are read from decisions/project_decisions.md.
   timing_note: Accepted deadlines and the January/letter-grade final-report rule are read from project decisions;
-    no assumed Week 14 conversion. Exact presentation slots and the Week 13 midterm conflict remain deferred by
-    instructor direction.
-  llm_policy: Existing local final report asks for LLM disclosure/examples. Recommend retaining that for projects
-    with a contribution statement; the new assignment no-credit rule does not automatically apply to projects. Confirm
-    operational project policy separately.
+    no assumed Week 14 conversion. Actual dates and staffing remain deferred until after Phase 7; accepted presentation
+    delivery and week come from decisions.
+  llm_policy: The supplied syllabus retains a general LLM disclosure/usage-report obligation for coding and reports.
+    The assignment-specific no-credit rule is not extended to projects. Concrete project report instructions remain
+    to be finalized before release.
   workload_confidence: 'Low: active hours per student across non-overlapping intervals include implementation, experiments
     and milestone writing. Presentation preparation is included; scheduled presentation attendance (including own
     talk) is counted separately. Final-report estimate increased for the accepted 6–8 pages. Unattended compute,
@@ -40,9 +40,9 @@ project:
     from the final report, without adding a separate deliverable or lecture time.
   open_items:
   - Finalize presentation slots after proposals and team freeze
-  - Resolve the Week 13 midterm/presentation conflict during the semester using external scheduling information
+  - Confirm TA availability and online presentation logistics after Phase 7; use accepted week targets
   - Insert the exact final-report date from the official letter-grade deadline
-  - Operational project LLM disclosure policy remains a recommendation
+  - Concrete project LLM-report instructions remain open; the supplied syllabus already requires disclosure
 readings:
   strategy_recommendation: Readings are outside current planning. Preserve the existing internal map for possible
     reuse; do not expand it or add student reading tasks this semester.

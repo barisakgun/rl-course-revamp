@@ -1,37 +1,3 @@
-# {{course_name}} — syllabus draft
+<!-- Generated from the editable syllabus DOCX by scripts/syllabus_report.py. Edit the DOCX for teaching prose; accepted curriculum and assessment facts remain in decisions. -->
 
-{{state}}
-
-## Course purpose and preparation
-
-{{overview}}
-
-## Learning outcomes
-
-{{outcomes}}
-
-## Weekly teaching plan
-
-{{weekly_plan}}
-
-## Assessment and grading
-
-{{grading}}
-
-{{assignment_schedule}}
-
-## Project
-
-{{project}}
-
-## Videos and readings
-
-{{delivery}}
-
-## Assignment authorship and LLM use
-
-{{policies}}
-
-## Dates and operational details to finalize
-
-{{pending}}
+{{syllabus_content}}

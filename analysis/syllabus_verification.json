@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "authority": "Verification evidence only; no new curriculum or policy decisions.",
+  "docx_path": "course/syllabus/syllabusFall26_draft.docx",
+  "original_docx_sha256": "776db3d95c94e2bcd3a33ef426f3f21b919037b6a2d923a4f7ddb0cfdd1ecd4d",
+  "preserved_paragraphs": [
+    {
+      "source_body_index": 3,
+      "sha256": "a9218c6986c0b9da9209b0936dc4e730197ee2f07a83fcc2bc4836e6b3a97d3d"
+    },
+    {
+      "source_body_index": 4,
+      "sha256": "3fe15369bafff99a513399034d0a350a8592a294c9ba12bf4f8a1188506543a0"
+    },
+    {
+      "source_body_index": 5,
+      "sha256": "9a66c3b1019737c1620dbafa100a18005b9aad61139b682614de006f943a00df"
+    },
+    {
+      "source_body_index": 6,
+      "sha256": "87959ca1883350260948fe26f656d28db5c70c879fd9d1ef1d50418032ffe731"
+    },
+    {
+      "source_body_index": 9,
+      "sha256": "0b01897717d199b062ec72fec98107c245c32bbdc90643bed0bf10086fa4ae21"
+    },
+    {
+      "source_body_index": 10,
+      "sha256": "af1116b229c9f736eeabfe47a3104d7298bb2aee9def416c12b53a6814ddcf46"
+    },
+    {
+      "source_body_index": 11,
+      "sha256": "fc1d6fd93c0ba88806f5b9fb627d322cc0ee57bd05f88eaa42f70fdf4ca6d3ea"
+    },
+    {
+      "source_body_index": 17,
+      "sha256": "583b0c0e342dc6fefe2de53bfc2f4ba4d394a9ea6960dcb3cf898ee945ca5ebc"
+    },
+    {
+      "source_body_index": 18,
+      "sha256": "25ee223ad81c101823b5fb5b4266ccb12b8a24b43931b23c2b669d4aad9eac6e"
+    },
+    {
+      "source_body_index": 19,
+      "sha256": "2014a23f75d264464596f1366bcc8fd08896c9a2128b37a7baceeead4932249a"
+    },
+    {
+      "source_body_index": 20,
+      "sha256": "043aaf13f7b977aafcbc57bd7be05662ff2780e821265f70758f122956e5f2d0"
+    },
+    {
+      "source_body_index": 21,
+      "sha256": "d892903aa475fdd52357c312fb30c9886a9254795b4f3cfeebc8b692fafbafa9"
+    },
+    {
+      "source_body_index": 22,
+      "sha256": "bcd41373249e305015545f00cf618a7d2d225e4368f8b360d753e469570e59a4"
+    },
+    {
+      "source_body_index": 23,
+      "sha256": "393c51ccbbc55f0970b0f12df1bf9bcc1f2cded9fc8148af4a206401c43dc19f"
+    },
+    {
+      "source_body_index": 24,
+      "sha256": "6bb956265c1267f8afe5ec68deecd4d02932fe53e8385532a006023db45405ba"
+    },
+    {
+      "source_body_index": 25,
+      "sha256": "8962eb152da91c3940223991115806370dcd9bc8b7ebcdf74a12437986f2cec0"
+    },
+    {
+      "source_body_index": 26,
+      "sha256": "d15647d90cc9f8e341146110bf5058773171688b237d2f9b5704399a0b17c8bd"
+    },
+    {
+      "source_body_index": 27,
+      "sha256": "c55b07a0c8d7e013b74ba924ddc949279653f8f2fd312e776babd5f49dc0f70a"
+    },
+    {
+      "source_body_index": 30,
+      "sha256": "743dd36aa26810a17eada148506a85bca92d2197438c7f78a87c2a0ad2b1b461"
+    },
+    {
+      "source_body_index": 73,
+      "sha256": "ec52101a09b5f75d9ec809cfcec8c1065ed72111f25efa19fdebebff01786d68"
+    },
+    {
+      "source_body_index": 75,
+      "sha256": "f9a0ed7bc6ac67fbe1914bc52d48a05c5e6c774b654fe18de867e5dc0b2df869"
+    },
+    {
+      "source_body_index": 77,
+      "sha256": "251e8fba6ec70ea1f4774cebeb2f4552a9d27854fcc60166cb3b7f613cdb51e1"
+    },
+    {
+      "source_body_index": 80,
+      "sha256": "69ee0ae1167cecc4ac4d9d40bc829efcd0a4ea62f3927a27905a5823433018dc"
+    },
+    {
+      "source_body_index": 90,
+      "sha256": "652a3246bd9cccc314c77d4cf871bc2c73be18a7e849457d78ae9dc3793c529f"
+    },
+    {
+      "source_body_index": 91,
+      "sha256": "068a39ea3084d93baa433a2532e5008fc3c9504ac9865862067d8eb7d974579f"
+    },
+    {
+      "source_body_index": 92,
+      "sha256": "ae3d29665a16c2cf1e92b5e2e2637c82e239ab29c33b7533f38da06e406bb07d"
+    },
+    {
+      "source_body_index": 93,
+      "sha256": "1fffdd65099d8b53314e367ea44fd4ff9e6f34fa3f3d51d090948a9e6a339091"
+    },
+    {
+      "source_body_index": 94,
+      "sha256": "d3ee260eed502d43328ba4ae9a1119dcffd9eb31cc8688992dedb788a012de79"
+    },
+    {
+      "source_body_index": 95,
+      "sha256": "27cfea4dcc90e22835cfa4ad114703289712de461851e1adf3c29f28f69eed6a"
+    },
+    {
+      "source_body_index": 96,
+      "sha256": "63c1fa0b09adb4d5d4e3b9a5cd968b50582ceef34476ccefd768e7f031b99781"
+    },
+    {
+      "source_body_index": 85,
+      "sha256": "23f27f6e9aaf8fd55e24e65c7b361a946ab3bbfc19fe1b2ca06e26e72c21dc1a"
+    }
+  ],
+  "official_body_indices": [
+    17,
+    18,
+    19,
+    20,
+    21,
+    30
+  ],
+  "visual_review": {
+    "docx_sha256": "868344b546efe996fcaab40a4ce06ec548eef896eb5c6f272fb5bb64dc94879a",
+    "page_count": 5,
+    "all_pages_inspected": true,
+    "renderer": "documents/render_docx.py with bundled LibreOffice 25.2-headless-codex.1",
+    "pages": [
+      {
+        "page": 1,
+        "result": "No clipping, overlap, broken tables or missing glyphs."
+      },
+      {
+        "page": 2,
+        "result": "No clipping, overlap, broken tables or missing glyphs."
+      },
+      {
+        "page": 3,
+        "result": "No clipping, overlap, broken tables or missing glyphs."
+      },
+      {
+        "page": 4,
+        "result": "No clipping, overlap, broken tables or missing glyphs."
+      },
+      {
+        "page": 5,
+        "result": "No clipping, overlap, broken tables or missing glyphs."
+      }
+    ]
+  },
+  "editorial_review": [
+    "Catalog and official prerequisite paragraphs preserved verbatim, including supplied Cop421/521 spelling.",
+    "Class hours, room, contact details, submission/late-day policy, conduct, exam LLM restriction and makeup policy retained.",
+    "Course objectives streamlined; compact topic outline added; assessment tables aligned with current decisions.",
+    "Required-book wording removed to match no-assigned-readings decision; videos described as required prerequisites.",
+    "Assignment-specific no-credit rule added without extending it to projects; original disclosure obligation retained.",
+    "Early final changed to early exam to agree with no-final-exam decision."
+  ],
+  "open_issues": [
+    "Exact dates, staffing, presentation split and grading turnaround remain deferred after Phase 7.",
+    "Final-report late days may consume or exceed the one-week grading buffer; preserve the existing Incomplete caveat and revisit operational handling.",
+    "The supplied late policy does not quantify excess-lateness penalties; no numerical penalty was invented.",
+    "Workload estimates are unpiloted and exceed the target at the upper end; pilots remain future work."
+  ]
+}
