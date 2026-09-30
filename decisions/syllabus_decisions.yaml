@@ -1,0 +1,20 @@
+schema_version: 1
+state: frozen
+accepted_on: '2026-09-29'
+authority: Instructor-approved final syllabus; acceptance recorded in decisions/decision_log.md.
+phase6_state: closed
+phase7_state: not-started
+artifacts:
+  docx:
+    path: course/syllabus/syllabusFall26.docx
+    sha256: 71a332e99ca52eb41da303f0dbec0e07d310224f2339114d06c109ebeb337fb1
+  pdf:
+    path: course/syllabus/syllabusFall26.pdf
+    sha256: 687b7f5e0196d059a3d43f67894067bf04d7ca4c10187cc5bd6b1556111e6598
+scope: The concise student-facing syllabus is frozen. Detailed schedules, lengths, video
+  lead times and release requirements in other decisions remain internal planning targets
+  and rules; their omission from the syllabus does not cancel them or publish them as commitments.
+change_rule: Reopening the syllabus requires instructor authorization and a decision-log entry.
+  Regeneration must never update these fingerprints automatically or rewrite the DOCX/PDF.
+verification_scope: The instructor performed final edits and PDF conversion. Artifact identity
+  and Markdown/content consistency checks do not establish a new visual review or verify upload.

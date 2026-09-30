@@ -15,6 +15,7 @@ decisions/video_decisions.md
 decisions/reading_decisions.md
 decisions/assignment_decisions.md
 decisions/project_decisions.md
+decisions/syllabus_decisions.yaml
 decisions/decision_log.md
 
 Evidence
@@ -66,3 +67,4 @@ Notes:
 	* decisions/topic_decisions.yaml -> output/lecture_plan.md
 	* decisions/reading_decisions.md -> output/readings.md
 * Phase definitions and file/folder modification permissions are defined in docs/workflow.md
+* `decisions/syllabus_decisions.yaml` records the accepted syllabus identity and freeze scope. The frozen DOCX in `course/syllabus/` supplies student-facing wording; `output/syllabus.md` is its generated text view. Other decision files retain internal planning detail omitted from the concise syllabus. Exporters must not restore that detail to the student document or silently change frozen artifact fingerprints.

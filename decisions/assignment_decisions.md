@@ -23,6 +23,9 @@ unresolved: []
 design_scope: High-level tasks, individual/best-three policy and starter strategy accepted. Timing follows the Phase
   6 rule. Rubric/example work is outside the Phase 5 gate and deferred to the semester.
 aggregation:
+  plan_scope: The four-task, best-three design is the current internal plan. The frozen syllabus reserves
+    discretion to change the number as the semester proceeds; it drops the lowest assignment if more than
+    three are offered. Revisit aggregation, alignment and workload if the offered count changes.
   offered_count: 4
   counted_count: 3
   method: best-three-of-four

@@ -29,9 +29,7 @@ project:
   timing_note: Accepted deadlines and the January/letter-grade final-report rule are read from project decisions;
     no assumed Week 14 conversion. Actual dates and staffing remain deferred until after Phase 7; accepted presentation
     delivery and week come from decisions.
-  llm_policy: The supplied syllabus retains a general LLM disclosure/usage-report obligation for coding and reports.
-    The assignment-specific no-credit rule is not extended to projects. Concrete project report instructions remain
-    to be finalized before release.
+  llm_policy_source: decisions/project_decisions.md#/llm_use
   workload_confidence: 'Low: active hours per student across non-overlapping intervals include implementation, experiments
     and milestone writing. Presentation preparation is included; scheduled presentation attendance (including own
     talk) is counted separately. Final-report estimate increased for the accepted 6–8 pages. Unattended compute,

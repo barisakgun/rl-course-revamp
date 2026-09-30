@@ -1,28 +1,26 @@
 # Phase 6 handoff
 
+For resuming teaching-material work in a fresh conversation, see the [Phase 7 handoff](phase7_handoff.md).
+
 ## Current boundary
 
-**Syllabus frozen by the instructor; Phase 6 closed. Phase 7 has not started.** The authoritative freeze record and artifact fingerprints are in the latest entry of `decisions/decision_log.md`.
+**Syllabus frozen by the instructor; Phase 6 closed. Phase 7 has not started.** The authoritative freeze record and artifact fingerprints are in `decisions/syllabus_decisions.yaml`, with acceptance and reconciliation history in `decisions/decision_log.md`.
 
 The current student-facing artifacts are `course/syllabus/syllabusFall26.docx` and the instructor-produced `course/syllabus/syllabusFall26.pdf`. The instructor completed the final edits and PDF conversion for upload. No upload or fresh agent verification of that final PDF is claimed.
 
 No Phase 6 closeout task remains. Exact-date calendar finalization and operational follow-up remain after Phase 7, retaining the post-Week-2 checkpoint. Possible additional phases for work after lectures start remain a future workflow discussion.
 
-### Before reusing the repository tools in Phase 7
+## Generator alignment completed
 
-The existing Markdown syllabus, syllabus verification record and generator checks refer to the earlier detailed draft. They do not represent the final concise syllabus. Reconcile final policy wording with structured records and update generator input/export assumptions before reuse; preserve the instructor's flexibility and do not restore removed detail to make old checks pass. This is repository housekeeping for the later work, not a condition on the accepted freeze.
+The generators and Markdown views now use the frozen final syllabus. `output/syllabus.md` preserves its concise wording, assignment-count flexibility, links, lists and tables. It adds no internal deadlines, page limits, mandatory-video counts or detailed release rules. Accepted assignment records distinguish the current four-task plan from the syllabus's discretion to change the count; project records include the final disclosure and writing-quality policy.
 
-Read AGENTS.md, required context and the latest decision-log entry on resumption. Treat the package description below as the history of the earlier integration pass, not as identification of the frozen artifact.
+- `decisions/syllabus_decisions.yaml`: accepted final DOCX/PDF identity, freeze scope and change rule.
+- `output/syllabus.md`: generated final DOCX text view; `course/syllabus/template.md` is only its wrapper.
+- `output/assessment_timeline.md`, `output/assessment_schedule.md`, `output/project_schedule.md`, `output/video_plan.md`: internal planning views, with actual dates pending.
+- `output/audits/workload.md`, `output/audits/design_consistency.md`, `output/audits/syllabus_verification.md`: current checks and retained limitations. Related assignment/project views are refreshed.
+- `analysis/syllabus_verification.json`: historical evidence for `syllabusFall26_draft.docx` only. Its five-page visual review does not certify the instructor-edited final files. Current checks verify frozen-file identity and text consistency; they do not claim a new visual review or upload.
 
-## Earlier integration package
-
-- `course/syllabus/syllabusFall26_draft.docx`: revised five-page syllabus with compact topic outline, accepted assessment weeks, project milestones, prerequisite videos, no assigned readings and assignment LLM-use rules.
-- `output/syllabus.md`: generated directly from the actual DOCX; the old independently populated Markdown syllabus is replaced. `course/syllabus/template.md` is now only its export wrapper.
-- `output/assessment_timeline.md`, `output/assessment_schedule.md`, `output/project_schedule.md`, `output/video_plan.md`: current accepted week targets, with exact dates explicitly pending.
-- `output/audits/workload.md`, `output/audits/design_consistency.md`, `output/audits/syllabus_verification.md`: updated audit results and limitations. Related assignment/project views were refreshed.
-- `analysis/syllabus_verification.json`: original paragraph preservation hashes, editorial review and final DOCX hash tied to a complete five-page visual review. Any further DOCX edit requires rerendering and renewed review.
-
-The earlier draft preserved the catalog description and official prerequisite text verbatim, including the then-supplied `Cop421/521` spelling; the instructor subsequently corrected that name. Class hours, contacts, submission/late-day policy, conduct and makeup policies are retained. The obsolete phrase “early final” was changed to “early exam” to match the accepted absence of a final exam.
+The old detailed draft is superseded. Read AGENTS.md, required context and the current decision records on resumption. No tool now needs that old draft as its syllabus input.
 
 ## Audit findings and limits
 
@@ -45,14 +43,14 @@ The supplied DOCX already states Tuesday/Thursday 14:30–15:40, CASEZ27. Retain
 | Final-report late days | Supplied policy permits remaining late days with a possible Incomplete; lateness can consume or exceed the grading buffer. Operational handling remains unresolved. |
 | Presentation operation | Confirm TA availability, team count, three two-hour slots, online/recording arrangements and TA/group grading split/rubric. |
 
-Concrete assignment scaffolds, pilots, run budgets, rubrics, excess-lateness penalty details and the example LLM-use report remain deferred until implementation before release. No policy numbers were invented. The assignment no-credit rule was not extended to projects; the supplied general disclosure obligation remains in the syllabus.
+Concrete assignment scaffolds, pilots, run budgets, rubrics, excess-lateness penalty details and the example LLM-use report remain deferred until implementation before release. No policy numbers were invented. The assignment no-credit rule remains specific to assignments; the final syllabus also establishes project disclosure/report and writing-quality policy. Concrete instructions and rubrics remain deferred.
 
 ## Generator and verification workflow
 
 - `scripts/design_data.py` reads accepted calendar-week targets; logical prerequisite labels do not generate fake deadlines.
 - `scripts/schedule_report.py` provides the sole timeline renderer, also called by the integrated report. Its standalone command runs no audit and writes no syllabus.
-- `scripts/phase6_report.py` audits and renders schedules/reports only. It does not modify the DOCX or Markdown syllabus. With a syllabus review record, it checks the actual DOCX and exported Markdown, including the visual-review hash.
-- `scripts/syllabus_report.py` exports Markdown from the editable DOCX without modifying it. Run it with the documents runtime Python; it requires only the standard library.
+- `scripts/phase6_report.py` audits and renders schedules/reports only. It does not modify the DOCX or Markdown syllabus. It always checks final DOCX/PDF identity against the accepted freeze record, checks published facts against decisions, and requires the Markdown export to match.
+- `scripts/syllabus_report.py` exports Markdown from the frozen final DOCX without modifying either final artifact. Run it with Python 3 and PyYAML; changed frozen fingerprints cause a failure, not automatic acceptance.
 - `scripts/phase5_report.py` and `scripts/assignment_report.py` consume the current schedule and distinguish known prerequisite IDs from unverified dates.
 
-See `scripts/README.md` for commands and the warning about the old draft path. The instructor has now frozen the final syllabus; final dated validation remains deferred. No source collection or normalization rerun is needed.
+See `scripts/README.md` for regeneration and check commands. The instructor has now frozen the final syllabus; final dated validation remains deferred. No source collection or normalization rerun is needed.

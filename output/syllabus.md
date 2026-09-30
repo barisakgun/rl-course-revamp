@@ -1,60 +1,58 @@
-<!-- Generated from the editable syllabus DOCX by scripts/syllabus_report.py. Edit the DOCX for teaching prose; accepted curriculum and assessment facts remain in decisions. -->
+<!-- Generated from the instructor-frozen course/syllabus/syllabusFall26.docx by scripts/syllabus_report.py. Do not edit this view. Freeze identity/scope: decisions/syllabus_decisions.yaml. Internal planning detail is not added to the student-facing text. -->
 
-# COMP438/538 Reinforcement Learning
-
-Fall 2026
+# COMP438/538 Reinforcement Learning – Fall 2026
 
 ## Class
 
-Times: Tuesdays and Thursdays between 14.30 and 15:40
+Times: Tuesdays and Thursdays, 14.30 - 15:40
 
 Location: CASEZ27
 
-Website: https://learn.hub.ku.edu.tr
+Website: [https://learn.hub.ku.edu.tr](<https://learn.hub.ku.edu.tr>)
 
-E-mail policy: Students are responsible for checking their account frequently and consistently.
+E-mail policy: Students are responsible for checking their university email regularly.
 
 ## Instructor
 
 Barış Akgün
 
-Office Hours: By appointment (both online or face-to-face) or open door especially after lectures
+Office Hours: By appointment (online or in person), or whenever my door is open, especially after lectures.
 
-E-mail: baakgun@ku.edu.tr
+E-mail: [baakgun@ku.edu.tr](<mailto:baakgun@ku.edu.tr>)
 
 ## Teaching Assistants
 
-| Name | Email | Office hours |
+| NAME | E-MAIL | OFFICE HOURS |
 | --- | --- | --- |
 | TBA | TBA | TBA |
 
 ## Prerequisites
 
-Comp341: Intro to Artificial Intelligence
+### COMP341: Intro to Artificial Intelligence
 
-The student should know agent-based modeling, rationality, utility and decision-making concepts and have a sense of what state, action and reward/cost mean.
+- Students should know agent-based modeling, rationality, utility and decision-making concepts and have a sense of what state, action and reward/cost mean.
 
-This pre-req also indirectly enforces probability and statistics, and to a lesser extent Python Programming
+- This prerequisite also assumes background in probability and statistics and, to a lesser extent, Python programming.
 
-Cop421/521: Machine Learning
+### COMP421/521: Machine Learning
 
-The student should be familiar with general machine learning concepts, stochastic gradient descent, linear regression, and neural networks.
+- Students should be familiar with general machine learning concepts, stochastic gradient descent, linear regression, and neural networks.
 
-Deep Learning
+### Deep Learning
 
-No prerequisite but knowing deep learning would help the students.
+- Prior coursework in deep learning is not required, but familiarity with it would be helpful.
 
-Basics of Probability & Statistics and Linear Algebra (e.g., ENGR200 and MATH107)
+### Basics of Probability & Statistics and Linear Algebra (e.g., ENGR200 and MATH107)
 
-No prerequisite, but students are expected to know or learn the relevant topics.
+- No formal prerequisite, but students are expected to know/learn the relevant material.
 
-Python Programming
+### Python Programming
 
-No prerequisite, but if you don’t know Python, I recommend not taking this course.
+- Python is not a formal prerequisite, but I recommend taking this course only if you already know Python.
 
 ## Catalog Description
 
-Introduction to the Reinforcement Learning, Markov Decision Processes, Value and Policy Iteration, Q-Learning and SARSA, Policy Search and Policy Gradients, Actor-Critic Approaches, Deep Reinforcement Learning, Model-Based Methods, Exploration, Applications
+Introduction to Reinforcement Learning, Markov Decision Processes, Value and Policy Iteration, Q-Learning and SARSA, Policy Search and Policy Gradients, Actor-Critic Approaches, Deep Reinforcement Learning, Model-Based Methods, Exploration, Applications
 
 ## Course Objectives
 
@@ -62,145 +60,110 @@ Build a coherent foundation in reinforcement learning, formulate sequential deci
 
 ## Learning Outcomes
 
-L01. Distinguish RL from other learning and planning settings
+1. Distinguish RL from other learning and planning settings
 
-L02. Explain and distinguish state, observation, action, reward, value, policy, model and partial observability
+2. Explain and distinguish state, observation, action, reward, value, policy, model and partial observability
 
-L03. Formulate sequential decision problems as MDPs
+3. Formulate sequential decision problems as MDPs
 
-L04. Derive and implement representative RL methods
+4. Derive and implement representative RL methods
 
-L05. Select methods based on data, interaction and model availability
+5. Select methods based on data, interaction and model availability
 
-L06. Diagnose important RL failure modes
+6. Diagnose important RL failure modes
 
-L07. Design and evaluate RL experiments
+7. Design and evaluate RL experiments
 
-L08. Connect modern RL methods to common RL foundations
+8. Connect modern RL methods to common RL foundations
 
-## Topic Outline
+## Textbook
 
-The course retains 26 lectures in the sequence below. Teaching units describe progression, not booked calendar weeks. Timing may be adjusted within the topic scope.
+Sutton and Barto, [Reinforcement Learning: An Introduction](<http://incompleteideas.net/book/the-book.html>), 2nd Ed.
 
-| Teaching units | Topics |
+## Tentative Topics
+
+| Topic | Details |
 | --- | --- |
-| 1–2 | RL formulation and MDPs; returns and values; Bellman equations; policy evaluation, value iteration and policy iteration. |
-| 3–4 | MC and TD prediction; bias, variance and n-step returns; exploration; SARSA and Q-learning; control failure modes. |
-| 5–6 | Linear approximation and semi-gradients; instability and the deadly triad; DQN, replay, target networks and Double DQN. |
-| 7–9.1 | REINFORCE and baselines; actor-critic and GAE; importance ratios, PPO, entropy and SAC. |
-| 9.2–10 | Bandits and UCB; contextual decisions; MCTS, guided search and Dyna. |
-| 11 | Learned models, MPC, horizon choice, uncertainty and model error; representative world-model ideas. |
-| 12 | Offline data support and distribution shift; IQL value/policy fitting; brief conceptual CQL contrast. |
-| 13 | RL for LLM post-training: policy updates, grouped estimators, rewards, failure modes and evaluation. |
+| MDP Fundamentals | RL formulation and MDPs; returns and values; Bellman equations; policy evaluation, value iteration and policy iteration. |
+| Tabular RL | MC and TD prediction; bias, variance and n-step returns; exploration; SARSA and Q-learning; control failure modes. |
+| Value Function Approximation | Linear approximation and semi-gradients; instability and the deadly triad; DQN, replay, target networks and Double DQN. |
+| Policy Search | REINFORCE and baselines; actor-critic and GAE; importance ratios, PPO, entropy and SAC. |
+| Exploration and Planning | Bandits and UCB; contextual decisions; MCTS, guided search and Dyna. |
+| Model-Based RL | Learned models, MPC, horizon choice, uncertainty and model error; representative world-model ideas. |
+| Offline RL | Offline data support and distribution shift; IQL value/policy fitting; conceptual overview of CQL. |
+| LLMs + RL | RL for LLM post-training: policy updates, grouped estimators, rewards, failure modes and evaluation. |
 
-## Teaching and Preparation
+## Teaching
 
-Teaching is mainly through lectures and worked examples. Lecture attendance is not tracked; participation, questions and discussion are encouraged. Two required background videos prepare you for search/MCTS and LLM RL. Videos are tentatively released seven days before use, with preparation reviewed in Weeks 4, 8 and 11.
-
-No student readings are assigned this semester and there are no reading-only exam requirements. Required work is designed for personal-laptop access; there is no mandatory LLM-training assignment.
+The course will be taught mainly through lectures, supplemented by videos as needed. Lecture attendance will not be tracked, but participation, questions and discussion are encouraged.
 
 ## Assessment and Grading
 
 Theory, implementation and experimental reasoning are assessed through individual assignments, three midterms and a semester project.
 
-| Component | Assessment | Course grade |
+| Type | Description | Grade % |
 | --- | --- | --- |
-| Assignments | Four individual assignments; best three count | 20% |
-| Midterms | Three midterms; 15% each | 45% |
-| Project | Staged reports and presentation | 35% |
-| Total |  | 100% |
-
-## Calendar Targets
-
-Calendar Week 1 begins October 5, 2026. The expected end of classes is January 8, 2027. One makeup lecture is planned in each of October, November and December. Exact makeup, exam and submission dates and times are TBA. The week-level schedule will be reviewed after the first two weeks of classes when registration and attendance stabilize.
+| Assignments | Planned 4 individual assignments, lowest one dropped | 20 |
+| Midterms | 3 Midterms, 15% each | 45 |
+| Final Project | Reports and Presentation (see below) | 35 |
+| Total |  | 100 |
 
 ## Assignments
 
-The assignment category is 20% times the mean of your highest three normalized scores. Missing submissions count as zero; completing all four is not required. Each counted assignment can contribute up to 20/3 course percentage points.
+There are 4 planned programming assignments. The number may change depending on how the semester proceeds. If there are more than 3, the lowest one will be discarded.
 
-| Task | Focus | Release | Due |
-| --- | --- | --- | --- |
-| A1 | Planning and learning from sampled transitions | Week 4 | Week 7 (early) |
-| A2 | Representation, instability and a small DQN | Week 6 | Week 9 |
-| A3 | Policy-gradient estimators and update diagnosis | Week 8 | Week 11 (later) |
-| A4 | Scaffolded IQL and offline data support | Week 12 | Week 15 |
+## Exams
 
-Each assignment is released after its relevant concepts have been taught and remains open for at least 21 days. One-week overlaps are allowed. The early Week 7 A1 target must retain the full window after prerequisites; exact dates will be announced. Rubrics and an example LLM-use report will be provided with concrete assignment instructions.
+Each midterm will cover a different set of topics. There will be no final exam.
 
-## Midterms
+## Final Project
 
-| Exam | Target | Coverage |
-| --- | --- | --- |
-| MT1 | Week 6 | Teaching units 1–5: formulation through linear approximation and instability, before deep RL. |
-| MT2 | Week 10 | Teaching units 6–8 plus 9.1: DQN through SAC; excludes bandits. |
-| MT3 | Week 13 | Teaching units 9.2–12: bandits, search/model-based RL and offline RL, including a brief conceptual CQL question; excludes LLM RL. |
+The idea is for you to apply and extend your RL knowledge by working on a problem and develop an end-to-end RL study: formulate a problem, build a solution, compare your solution against a meaningful baseline, evaluate results systematically, communicate limitations and present your work. Teams of 2–3 are encouraged, but individual work and four-person teams may be considered. The expected project scope will depend on team size.  A well-supported negative result can succeed; novelty and benchmark superiority are not required. Further details of the final project will be presented during the semester. The project milestones and their weights in the overall course grade are:
 
-Each midterm uses a separate exam slot. Exact dates, durations and arrangements are TBA. There is no final exam. Exams assess taught concepts at the expected level; they do not assume that an assignment has been submitted or its feedback released.
+- Project Proposal Report (5%)
 
-## Semester Project
+- Formulation and Design Report (5%)
 
-Develop an end-to-end RL study: formulate a problem, build a solution, compare a meaningful baseline, evaluate results systematically and communicate limitations. Teams of 2–3 are encouraged; individual work and four-person teams are considered case by case. A well-supported negative result can succeed; novelty and benchmark superiority are not required.
+- Progress and Evaluation Report (7.5%)
 
-| Milestone | Target | Length | Course grade |
-| --- | --- | --- | --- |
-| Proposal | Week 4 | 2 pages | 5% |
-| Formulation/design | Week 7 (later in the week) | 2–3 pages | 5% |
-| Progress and evaluation plan | Week 11 (early in the week) | 3–4 pages | 7.5% |
-| Presentation | Week 14 | 10 minutes + 3 minutes discussion per team | 7.5% |
-| Final report and reproducibility package | Week 16 | 6–8 pages + references | 10% |
+- Presentation (7.5%)
 
-The final report and reproducibility package target Week 16, January 18–24, 2027. The exact deadline is TBA and must be one week before letter grades are due.
+- Final Report (10%)
 
-The proposal establishes the problem, baseline and feasibility. The design checkpoint establishes a runnable environment/data pipeline and simple baseline. The progress checkpoint shows preliminary results and an evaluation plan. The final report consolidates evidence, limitations, code/configuration and contributions.
+## Assignment/Report Submissions and Late Policy
 
-Presentations are online, TA-led and recorded in Week 14. The tentative plan is three two-hour slots with up to eight teams per slot. Each team attends only its own slot. The TA and attending groups grade presentations; slots, staffing, rubric and grade split will be announced. Each team has 10 minutes plus 3 minutes for discussion.
+All assignments and reports are required to be submitted online through the KU Hub system. The submission time is the time recorded by the server. If the system is down, an appropriate extension will be granted. E-mail submissions are not accepted.
 
-Projects using offline or LLM RL need early self-study, a simple runnable baseline and a feasible fallback by Week 7. Late topics do not postpone the Week 11 progress checkpoint. Keep compute budgets manageable and evaluate against a meaningful baseline with a controlled comparison.
+Students are expected to download and check their submissions. They are responsible for ensuring that the correct, current files were uploaded and are not corrupted. Only the latest submission for each assignment or report will be graded.
 
-## Homework and Report Submissions and Late Policy
-
-All homeworks and reports are required to be submitted online through the KU Hub system. The submission time will be taken as the server received time. If the system is down, we will give a proper extension. E-mail submissions are not accepted.
-
-The students are expected to download their submissions and check them. It is the students’ responsibility to make sure that the submission is not corrupted, is not wrong, is not an older version etc. Only the latest submissions in the system will be graded.
-
-You will have a total of 10 days late allowance with a maximum lateness of 3 days per submission other than the final report. You can use your remaining late days to submit your final report but depending on how late you are, you may receive an “Incomplete” grade. If you exceed your 3-day allowance per submission or your total 10-day allowance, your grades will be penalized.
+You will have a total allowance of 10 late days, with a maximum of 3 late days per submission, except for the final report. You can use your remaining late days to submit your final report, but depending on how late you are, you may receive an “Incomplete” grade. If you exceed your 3-day allowance per submission or your total 10-day allowance, your grades will be penalized.
 
 ## Code of Conduct
 
-The students are expected to abide by the student and classroom codes of conduct of KU. There will be no tolerance for cheating, plagiarism, unruliness, and all other unethical and disruptive behavior. Any violation will be dealt with according to university policies.
+Students are expected to abide by the student and classroom codes of conduct of KU. There will be no tolerance for cheating, plagiarism, unruliness, and all other unethical and disruptive behavior. Any violation will be dealt with according to university policies.
 
-## Large Language Model Use
+## Large Language Model (LLM) Use Policy
 
-LLMs may be used for coding and reports with disclosure. Cite their use; failure to disclose is treated as plagiarism. You remain responsible for errors and must understand, check and explain submitted work. A usage report is required; details will be supplied before the first assignment/report.
+LLMs may be used for coding and reports with disclosure. You must disclose their use and failure to do so is treated as plagiarism. You remain responsible for errors and must understand, check and explain submitted work. An LLM-use report is required for each assignment and report. The requirement details will be given before the first assignment/report. For assignments, one-shot or few-shot delegation of the assignment solution receives no credit. You must disclose their use; failure to do so is treated as plagiarism. Project reports will lose marks for verbose, repetitive, unnecessarily detailed, unfocused or vague writing, including such writing frequently produced by AI tools.
 
-For assignments, one-shot or few-shot delegation of the assignment solution receives no credit. The operational rubric and penalty details will accompany the concrete assignments. The assignment-specific no-credit rule is not automatically extended to projects.
+If midterms are held online or as take-home exams, students may not use LLMs: these exams assess their knowledge of the material, rather than their ability to solve problems using a tool.
 
-For the assignment LLM-use report:
+## Make-up Policy
 
-- Identify which task components used an LLM; include representative prompts and output excerpts.
+- There will be only a single comprehensive make-up exam, scheduled solely at the discretion of the instructor.
 
-- Explain what was accepted, rejected or changed, and why; supply at least one relevant check/debugging example if an LLM contributed a solution.
+- The make-up exam can be written or oral, at the discretion of the instructor.
 
-- Explain the submitted update/experiment in the student’s own terms. Disclose non-use without manufacturing logs.
+- Students need to have a legitimate excuse to be able to take the make-up exam. Students need to notify the instructor or the university within 5 days of the exam. The instructor reserves the right to deny a make-up request if notification is received more than 5 days after the exam, even if the excuse is legitimate.
 
-The students are not allowed to use LLMs for their midterms in case they end up being online or take-home, since we are measuring your knowledge on the topics and not on solving a problem using a tool.
+- If a student misses one exam with an acceptable excuse, the make-up grade will be counted towards the missed exam.
 
-## Makeup Exam Policy
+- If a student misses two exams with acceptable excuses, the make-up grade will be counted towards both.
 
-There will be only a single comprehensive makeup exam, scheduled solely at the discretion of the instructor.
+- If a student misses three exams, the make-up will be counted towards at most two exams, regardless of having legitimate excuses for all three.
 
-The makeup exam can be written or oral, at the discretion of the instructor.
-
-Students need to have a legitimate excuse to be able to take the makeup exam. Students need to notify the instructor or the university within 5 days of the exam. The instructor reserves the right to deny the makeup after 5 days even if the excuse is legitimate.
-
-If the student misses one exam with an acceptable excuse, the makeup grade will be counted towards the missed exam.
-
-If the student misses two exams with acceptable excuses, the makeup grade will be counted towards both.
-
-If the student misses three exams, the makeup will be counted towards at most two exams, regardless of having legitimate excuses for all three.
-
-There will be no makeups for the makeup exam.
+- There will be no make-ups for the make-up exam.
 
 ## Early Exam Policy
 
-If you are going to an exchange program before the semester ends, you need to contact the instructor before week 10 to schedule an early exam. There will be no makeups for the early exam.
+If you will leave for an exchange program before the semester ends, you need to contact the instructor before week 10 to schedule an early exam. There will be no make-ups for an early exam.

@@ -1,5 +1,8 @@
 {
   "schema_version": 1,
+  "artifact_scope": "historical-draft-only; superseded by the instructor-frozen syllabus",
+  "current_identity_source": "decisions/syllabus_decisions.yaml",
+  "current_checks": "output/audits/syllabus_verification.md",
   "authority": "Verification evidence only; no new curriculum or policy decisions.",
   "docx_path": "course/syllabus/syllabusFall26_draft.docx",
   "original_docx_sha256": "776db3d95c94e2bcd3a33ef426f3f21b919037b6a2d923a4f7ddb0cfdd1ecd4d",

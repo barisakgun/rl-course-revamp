@@ -183,14 +183,12 @@ deferred_to_semester:
 - TA-led Week 14 presentation slot allocation and TA/peer grading details
 - Pilot and calibrate concrete assignments before release
 remaining_finalization:
-- Before reusing Phase 7 tools, reconcile final concise syllabus policies and replace old draft-path/export assumptions;
-  do not restore omitted detail
 - After Phase 7, reopen calendar mapping at the post-Week-2 checkpoint; preserve prerequisites and full 21-day windows
 - After Phase 7, confirm exam dates/durations, TA-led presentation staffing/slots and TA/group grading details
 - After Phase 7, confirm Week 16 report against official grades and account for the retained late-day policy
 - Calibrate unpiloted assignment workload and finalize concrete rubric/penalty/example details before release
-freeze_state: 'See decisions/decision_log.md: 2026-09-29 instructor syllabus freeze; calendar/operational follow-up
-  remains deferred'
-syllabus_verification_source: analysis/syllabus_verification.json
-syllabus_verification_note: The referenced verification record applies to the earlier detailed draft, not the final
-  instructor-edited DOCX/PDF. Final acceptance is recorded in decisions/decision_log.md.
+freeze_state: 'See decisions/syllabus_decisions.yaml; calendar/operational follow-up remains deferred'
+syllabus_verification_source: output/audits/syllabus_verification.md
+syllabus_verification_note: Generators now check the frozen final DOCX/PDF identity and export the concise final
+  wording. Historical draft visual-review evidence remains in analysis/syllabus_verification.json and is not
+  used to certify the final files.

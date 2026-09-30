@@ -121,6 +121,15 @@ evaluation: One meaningful baseline and one controlled comparison; keep data/int
   Separate tuning from final evaluation and include a failure case.
 grading_principle: Grade formulation, correctness, experimental reasoning and communication. Negative results can
   succeed if well supported; extra compute and polished prose do not substitute for understanding.
+llm_use:
+  source: course/syllabus/syllabusFall26.docx, Large Language Model (LLM) Use Policy; instructor-frozen 2026-09-29
+  policy: LLMs may be used for coding and reports with disclosure; failure to disclose is treated as plagiarism.
+    Students remain responsible for errors and must understand, check and explain submitted work. An LLM-use
+    report is required for each report; requirement details will be provided before the first assignment/report.
+    The one-shot/few-shot no-credit rule is specific to assignments, not extended to project coding.
+  writing_quality: Project reports will lose marks for verbose, repetitive, unnecessarily detailed, unfocused or vague
+    writing, including such writing frequently produced by AI tools.
+  operational_state: Concrete project LLM-report instructions and rubric details remain to be finalized before release.
 regular_semester_template:
   presentation_window: Late Week 14 or early Week 15
   condition: Instructor available throughout; follows early-Week-14 midterm 3. This is a future-offering template,

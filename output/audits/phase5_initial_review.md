@@ -48,7 +48,7 @@ LLM-use report requirements are accepted in decisions/assignment_decisions.md. N
 
 Optional reading can support exam preparation; reading-exclusive graded questions would turn it into a hidden requirement.
 
-Midterm 3 provides a common conceptual assessment route for bandits, search/model-based RL and offline RL. Its questions must respect the frozen explain/analyze versus Exposure scope, including a brief conceptual CQL contrast. Week 13 LLM exposure is outside this semester’s exam coverage; no mandatory LLM implementation is introduced. Detailed assessment blueprints remain Phase 5 work.
+Midterm 3 provides a common conceptual assessment route for bandits, search/model-based RL and offline RL. Its questions must respect the frozen explain/analyze versus Exposure scope, including a brief conceptual CQL contrast. Week 13 LLM exposure is outside this semester’s exam coverage; no mandatory LLM implementation is introduced. Detailed assessment blueprints remain implementation work before release.
 
 ## Project and reading result
 
@@ -56,10 +56,10 @@ Retain the project spine; see [project review](../project.md). Estimated active 
 
 See the [book-first map](../readings.md). It uses existing normalized book references and selective inspected course excerpts; no evidence recollection or broad recent-paper search. Readings are outside current planning; the retained map adds no reading-only exam requirement and is not being expanded.
 
-## Phase 6 follow-up and in-semester work
+## Deferred calendar and in-semester work
 
 - Per-exam weights are accepted at 15% each; confirm durations and exact dates after Phase 7. Third midterm in Week 13 and separate exam slots are accepted.
-- Project weights, lengths, team policy and final deadline rule are accepted. Finalize presentation scheduling after proposals and teams freeze; retain Week 14 online, recorded, TA-led delivery after Week 13 midterm 3. Confirm staffing and the TA/group grading split. Operational project disclosure wording remains open.
+- Project weights, lengths, team policy and final deadline rule are accepted. Finalize presentation scheduling after proposals and teams freeze; retain Week 14 online, recorded, TA-led delivery after Week 13 midterm 3. Confirm staffing and the TA/group grading split. The final syllabus establishes disclosure and report-writing policy; concrete report instructions and rubric details remain open.
 - Preserve accepted reading deferment this semester; retain the internal map for the next iteration.
 - Accepted [assignments](../assignments.md) include integrated Double DQN and scaffolded IQL. Release after prerequisites, allow 21 days, retain original releases, and allow one-week overlaps. Rubric/example work is deferred to the semester.
-- Then audit combined assignment/project/exam/video/presentation workload and alignment before syllabus/design freeze. Phase 6 is now in progress.
+- Phase 6 workload and consistency audits are complete and the instructor has frozen the syllabus. Preserve their workload uncertainty; complete actual-date verification after Phase 7 and task pilots before release.

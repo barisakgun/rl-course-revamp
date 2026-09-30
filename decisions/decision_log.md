@@ -1,5 +1,14 @@
 # Decision Log
 
+## 2026-09-30 — Align generators and views with the frozen syllabus
+
+- Authority: instructor explicitly requests aligning generators and Markdown views with the final syllabus. The DOCX/PDF remain unchanged; Phase 6 stays closed and Phase 7 has not started.
+- Consolidate the accepted artifact identity and freeze scope in `decisions/syllabus_decisions.yaml`; its fingerprints are those recorded at the September 29 freeze. The exporter reads the final DOCX, preserves its wording, and refuses changed frozen artifacts rather than updating fingerprints automatically.
+- Reconcile accepted records with the actual final wording: four assignments/best-three remain the current internal design, while the syllabus reserves discretion to change the count and drop the lowest if more than three are offered. A changed count requires a renewed aggregation/alignment/workload review; no new count or formula is adopted here.
+- Record the final project disclosure/report obligation and writing-quality policy in project decisions. The final syllabus retains the assignment-specific one-shot/few-shot no-credit rule; it does not extend it to project coding. Concrete report instructions and rubrics remain deferred.
+- Detailed dates, project lengths, assignment windows and video rules omitted from the concise syllabus remain internal planning decisions, not additional published commitments. No topic, mastery, prerequisite, teaching-time allocation or grade weight changes; the unchanged time/workload audits remain applicable and are rerun during alignment.
+- Replace stale draft checks with final-file identity, published-fact and Markdown consistency checks. Preserve the old visual-review record explicitly as historical draft evidence; do not claim a new visual review, final-PDF layout verification or upload.
+
 ## 2026-09-29 — Instructor freezes syllabus; Phase 6 closed
 
 - Authority: instructor confirms incorporating the editorial suggestions, completing the PDF conversion for upload, and explicitly directs marking the syllabus frozen. Phase 6 is closed by instructor acceptance; Phase 7 will be addressed later and has not started.

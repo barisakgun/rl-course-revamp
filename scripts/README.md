@@ -1,4 +1,4 @@
-> Syllabus frozen by instructor decision; Phase 6 closed. Phase 7 has not started. The final artifacts are `course/syllabus/syllabusFall26.docx` and `.pdf`. Existing syllabus generators/checks and Markdown views still target the older detailed draft: reconcile them before reuse, preserving the final syllabus’s deliberate flexibility. Calendar finalization remains after Phase 7. See [handoff](../analysis/phase6_handoff.md).
+> Syllabus frozen by instructor decision; Phase 6 closed. Phase 7 has not started. Generators and Markdown views are aligned with the final `course/syllabus/syllabusFall26.docx` and `.pdf`; frozen identity/scope are in `decisions/syllabus_decisions.yaml`. Detailed schedules remain internal planning views. Calendar finalization remains after Phase 7. See [handoff](../analysis/phase6_handoff.md).
 
 # Phase 1 collection and inventory
 
@@ -120,8 +120,8 @@ The Phase 4 script reuses those checks and validates learning-outcome mappings, 
 # Phase 5 grading, project and reading review
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 scripts/phase5_report.py
-PYTHONDONTWRITEBYTECODE=1 python3 scripts/phase5_report.py --check
+PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/phase5_report.py
+PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/phase5_report.py --check
 ```
 
 The report reads the authoritative YAML blocks in grading/project/assignment/reading decision files, the frozen curriculum, `analysis/phase5_plan.yaml` and existing normalized book/course evidence. It validates grading totals, the tentative project split, milestone prerequisites, exam coverage and book/evidence references. It generates `output/project.md`, `output/readings.md` (internal map, not assigned readings), and `output/audits/phase5_initial_review.md`. Project milestone lengths/weights/deadline rules and team policy are accepted; operational refinements remain deferred; equal 15% exam weights are accepted. Reading deferment is accepted. Separate exam slots are accepted; exact dates/durations and combined workload remain unresolved. No source collection is performed. Assignment design is now handled by the separate report below.
@@ -129,8 +129,8 @@ The report reads the authoritative YAML blocks in grading/project/assignment/rea
 ## Assignment proposal and alignment audit
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 scripts/assignment_report.py
-PYTHONDONTWRITEBYTECODE=1 python3 scripts/assignment_report.py --check
+PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/assignment_report.py
+PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/assignment_report.py --check
 ```
 
 Accepted tasks, prerequisites, starter strategy, aggregation, LLM-report contents and scheduling rules live in `decisions/assignment_decisions.md`. `analysis/assignment_proposal.yaml` retains effort ranges, evidence and rationale. The report generates `output/assignments.md` and `output/audits/assignment_alignment.md`, checking prerequisite windows, Core assessment paths, accepted Double DQN/IQL scope revisions and evidence references. It records the implementation-evidence limitation under best-three grading without adding an all-four completion requirement.
@@ -139,25 +139,31 @@ Project reports join accepted milestone fields from `decisions/project_decisions
 
 # Phase 6 syllabus, schedules and workload audit
 
-```sh
-PYTHONDONTWRITEBYTECODE=1 python3 scripts/phase6_report.py
-PYTHONDONTWRITEBYTECODE=1 python3 scripts/phase6_report.py --check
-python3 scripts/schedule_report.py
-```
-
-The integrated generator joins accepted decisions with workload assumptions and the unchanged teaching baseline in `analysis/phase6_review.yaml`. It renders assessment/project/video schedules, the workload/design/syllabus-verification audits, and current lecture/curriculum views. It never writes the DOCX or Markdown syllabus. The standalone schedule command invokes the same timeline renderer without running audits.
-
-`scripts/design_data.py` reads accepted assignment calendar-week targets. Logical prerequisite positions remain separate. The 21-day rule and seven-day video lead are requirements, not verified elapsed intervals. Exact-date validation is deferred after Phase 7 and is not inferred from week arithmetic. A future populated session calendar requires a dedicated date audit; the provisional generator deliberately stops rather than silently certifying it.
-
-The editable student document is `course/syllabus/syllabusFall26_draft.docx`; accepted curriculum/assessment facts remain in decisions. Export its text/tables using `scripts/syllabus_report.py` and the documents runtime Python:
+Run these offline commands from the repository root with Python 3 and PyYAML:
 
 ```sh
-/Users/barisakgun/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/syllabus_report.py
-/Users/barisakgun/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/syllabus_report.py --check
+python3 -B scripts/syllabus_report.py
+python3 -B scripts/phase5_report.py
+python3 -B scripts/assignment_report.py
+python3 -B scripts/phase6_report.py
 ```
 
-The exporter uses only the standard library. `course/syllabus/template.md` is its minimal Markdown wrapper, not a second editable curriculum. `output/syllabus.md` is a view of the actual DOCX. The integrated audit checks syllabus tables/text against accepted facts, verifies preservation hashes and requires the exported view to match.
+The syllabus exporter reads `course/syllabus/syllabusFall26.docx`, preserving the final wording, hyperlinks, lists and tables. `course/syllabus/template.md` is its minimal wrapper, not an independently editable syllabus. The exporter checks both final artifact fingerprints against `decisions/syllabus_decisions.yaml` and writes only `output/syllabus.md`. It never modifies the DOCX/PDF or updates the accepted fingerprints. Changed artifacts require instructor-authorized review and a decision-log entry.
 
-After any DOCX edit, use the documents skill and its packaged `render_docx.py` with the bundled runtime Python and LibreOffice; inspect every rendered page. Record the new visual review in `analysis/syllabus_verification.json` only after inspection. The recorded DOCX hash deliberately fails if the file changes afterward. PNGs/PDFs are QA intermediates, not additional deliverables.
+The integrated generator joins accepted decisions with workload assumptions and the unchanged teaching baseline in `analysis/phase6_review.yaml`. It renders assessment/project/video schedules, workload/design/syllabus-verification audits, and current lecture/curriculum views. It never writes the DOCX, PDF or Markdown syllabus. Its content checks cover facts actually stated in the concise syllabus, not omitted internal dates, project lengths or release rules. It requires the Markdown export to match. The standalone `python3 scripts/schedule_report.py` invokes the same timeline renderer without running audits.
 
-`--check` verifies freshness without writes. After an accepted design change, regenerate the affected Phase 5/assignment views, export the reviewed syllabus if changed, then run Phase 6. Do not rerun source collection or normalization for this integration. Historical phase-completion views do not supersede the current handoff.
+The instructor's final wording preserves flexibility on assignment count, timing and delivery. The four-task/best-three design and detailed schedules remain internal planning decisions. `scripts/design_data.py` reads accepted calendar-week targets; logical prerequisite positions remain separate. The internal 21-day assignment rule and tentative seven-day video lead do not establish verified elapsed intervals. Actual-date validation is deferred until after Phase 7. A future populated session calendar requires a dedicated date audit; the current generator stops rather than silently certifying it.
+
+Check freshness without writes after regeneration:
+
+```sh
+python3 -B scripts/syllabus_report.py --check
+python3 -B scripts/phase5_report.py --check
+python3 -B scripts/assignment_report.py --check
+python3 -B scripts/phase6_report.py --check
+python3 -B -m unittest discover -s scripts -p 'test_syllabus_report.py'
+```
+
+`analysis/syllabus_verification.json` retains historical draft visual-review evidence only. The current verification report establishes final DOCX/PDF identity, published-fact agreement and Markdown consistency; it makes no new visual-review or upload claim. If an authorized future task edits the DOCX, follow the documents skill's render/inspect workflow and record evidence for those exact new bytes. Do not treat the historical draft review as final-file verification.
+
+No source collection or normalization rerun is needed. Historical phase-completion views do not supersede the current handoff. Phase 7 teaching-material work remains unstarted.
