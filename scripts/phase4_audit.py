@@ -180,7 +180,7 @@ def build():
                   'Evidence limitations: teaching durations are estimates, source coverage is not a vote or a measured pacing model, and total assessment/project/presentation workload is not yet designed. '
                   'Policy-method and modern-unit pacing need observation during teaching. No collection/normalization rerun was needed.', '',
                   'Next action: review the [Phase 4 consistency audit](../output/audits/curriculum_consistency.md), [topic details](../output/topic_details.md), '
-                  'and [weekly lecture plan](../output/lecture_plan.md). Curriculum freeze is now accepted; Phase 5 high-level design is complete; the instructor has frozen the final syllabus and closed Phase 6. Phase 7 has not started.', '']
+                  'and [weekly lecture plan](../output/lecture_plan.md). Curriculum freeze is now accepted; Phase 5 high-level design is complete; the instructor has frozen the final syllabus and closed Phase 6. Current artifact-work phase is recorded in `decisions/syllabus_decisions.yaml`.', '']
     return {'output/audits/curriculum_consistency.md':'\n'.join(audit), 'output/topic_details.md':'\n'.join(details),
             'output/lecture_plan.md':'\n'.join(plan), 'analysis/phase3_completion.md':'\n'.join(completion)}
 

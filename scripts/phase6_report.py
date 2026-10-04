@@ -162,7 +162,7 @@ def build():
             ['Syllabus artifact','Frozen identity and published facts checked','Final DOCX/PDF fingerprints match acceptance; Markdown mirrors the concise final DOCX. Historical draft visual review is not evidence of final-file layout.']]),
         'The syllabus preserves instructor discretion on assignment count and timing. Detailed targets remain internal, including assignment windows, '
         'project lengths/dates and video release rules. If assignment count changes, revisit aggregation, alignment and workload. '
-        'Operational unknowns remain explicit after freeze. No Phase 7 work has begun.',
+        'Operational unknowns remain explicit after freeze. Current artifact-work phase is recorded in `decisions/syllabus_decisions.yaml`.',
         'See [workload](workload.md), [assignment alignment](assignment_alignment.md), [curriculum consistency](curriculum_consistency.md), '
         '[assessment timeline](../assessment_timeline.md) and [syllabus verification](syllabus_verification.md).')
     outputs = {'output/assessment_timeline.md':timeline(), 'output/assessment_schedule.md':assessment,

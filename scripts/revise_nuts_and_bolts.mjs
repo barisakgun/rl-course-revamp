@@ -1,0 +1,173 @@
+/** Build a reviewed teaching copy from the original PPTX and editable content draft.
+ * Requires the bundled presentation runtime; see scripts/README.md.
+ * The build directory is private staging. This never overwrites the source or an
+ * existing final file. Copy the validated final deck into course/ after visual QA.
+ */
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { createRequire } from 'node:module';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { createHash } from 'node:crypto';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const build = path.resolve(process.argv[2] || '/private/tmp/rl-nuts-pptx');
+const skill = process.env.SKILL_DIR;
+const modules = process.env.RUNTIME_NODE_MODULES;
+const python = process.env.RUNTIME_PYTHON;
+if (![skill, modules, python].every(v => v && path.isAbsolute(v))) {
+  throw new Error('Set SKILL_DIR, RUNTIME_NODE_MODULES and RUNTIME_PYTHON from the bundled runtime.');
+}
+const requireRuntime = createRequire(path.join(modules, '__runtime__.cjs'));
+const { FileBlob, PresentationFile } = await import(pathToFileURL(requireRuntime.resolve('@oai/artifact-tool')).href);
+const { makeNativeBulletParagraphs, finalizePresentation } = await import(pathToFileURL(path.join(skill, 'container_tools/artifact_tool_utils.mjs')).href);
+const source = path.join(root, 'sources/current_course/0 - NutsAndBolts.pptx');
+const content = await fs.readFile(path.join(root, 'course/lectures/week01/nuts_and_bolts.md'), 'utf8');
+const sections = [...content.matchAll(/^## Slide (\d+) — (.+)\n\n\*\*On slide\*\*\n\n([\s\S]*?)\n\n\*\*Speaker notes — (.+?)\*\*\n\n([\s\S]*?)(?=\n## |$)/gm)]
+  .map(m => ({ n: Number(m[1]), title: m[2], copy: m[3], time: m[4], notes: m[5].trim() }));
+if (sections.length !== 14) throw new Error('Expected fourteen slide sections.');
+for (const dir of ['build', 'final', 'preview']) await fs.mkdir(path.join(build, dir), { recursive: true });
+const p = await PresentationFile.importPptx(await FileBlob.load(source));
+const snapshot = await p.inspect({ kind: 'slide,textbox,image,layout', maxChars: 100000 });
+await fs.writeFile(path.join(build, 'build/source-inspection.ndjson'), snapshot.ndjson);
+const records = snapshot.ndjson.split('\n').filter(Boolean).map(JSON.parse);
+const slideRecord = n => records.find(r => r.kind === 'slide' && r.slide === n);
+const shapeRecords = n => records.filter(r => r.kind === 'textbox' && r.slide === n);
+const imgRecords = n => records.filter(r => r.kind === 'image' && r.slide === n);
+const resolve = r => p.resolve(r.id);
+const RED = '#C00000';
+const titleFrame = { left: 41.27, top: 3.29, width: 1192, height: 139.17 };
+const bodyFrame = { left: 41.27, top: 155, width: 1192, height: 512 };
+
+function style(shape, size = 37.33, extra = {}) {
+  shape.text.style = { typeface: 'Calibri', fontSize: size, color: '#000000', bold: false,
+    alignment: 'left', verticalAlignment: 'top', autoFit: 'none', wrap: 'square',
+    insets: { top: 4.8, right: 9.6, bottom: 4.8, left: 9.6 }, ...extra };
+}
+function runs(text) {
+  const result = []; let last = 0;
+  const rx = /\[([^\]]+)\]\(([^)]+)\)|\*([^*]+)\*/g;
+  for (const m of text.matchAll(rx)) {
+    if (m.index > last) result.push(text.slice(last, m.index));
+    result.push(m[1] ? { run: m[1], textStyle: { underline: 'sng', color: '#0563C1' },
+      link: { uri: m[2], isExternal: true } } : { run: m[3], textStyle: { italic: true } });
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) result.push(text.slice(last));
+  return result;
+}
+function paras(copy, gap = 14) {
+  return copy.split('\n').filter(s => s.trim() && !s.startsWith('|')).map(line => {
+    const bullet = line.startsWith('- ');
+    const text = line.replace(/^- /, '').trim();
+    if (bullet) {
+      const paragraph = makeNativeBulletParagraphs([text], {
+        marginLeftPoints: 18, hangingPoints: 13, spaceAfterPoints: gap,
+      })[0];
+      return { ...paragraph, runs: runs(text) };
+    }
+    return { runs: runs(text), bulletCharacter: '', marginLeft: 0, indent: 0, spaceAfter: gap * 100 };
+  });
+}
+function fill(shape, copy, frame = bodyFrame, size = 37.33, gap = 14) {
+  shape.position = frame;
+  shape.text = paras(copy, gap);
+  style(shape, size);
+  return shape;
+}
+function newText(slide, name, copy, frame, size = 37.33, gap = 14) {
+  const shape = slide.shapes.add({ name, geometry: 'textbox', position: frame, fill: 'none', line: { fill: 'none', width: 0 } });
+  return fill(shape, copy, frame, size, gap);
+}
+function nativeTable(slide, copy, top, height) {
+  const values = copy.split('\n').filter(l => l.startsWith('|') && !/^\|\s*---/.test(l))
+    .map(l => l.split('|').slice(1, -1).map(x => x.trim()));
+  const table = slide.tables.add({ rows: values.length, columns: 2, left: 51, top, width: 1130, height,
+    columnWidths: [875, 255], values });
+  table.styleOptions = { headerRow: true, bandedRows: false, bandedColumns: false };
+  table.borders.assign({ style: 'solid', fill: '#D0D0D0', width: 0.7 });
+  for (let r = 0; r < values.length; r++) for (let c = 0; c < 2; c++) {
+    const cell = table.getCell(r, c);
+    cell.fill = '#FFFFFF';
+    cell.text.style = { typeface: 'Calibri', fontSize: 32, color: r === 0 ? RED : '#000000',
+      bold: r === 0, alignment: c === 1 ? 'center' : 'left', verticalAlignment: 'middle',
+      insets: { top: 5, bottom: 5, left: 12, right: 12 }, autoFit: 'none' };
+  }
+  return table;
+}
+
+for (const sec of sections) {
+  const slide = resolve(slideRecord(sec.n));
+  const shapes = shapeRecords(sec.n);
+  const title = resolve(shapes[0]);
+  title.text = [{ runs: [sec.title], bulletCharacter: '', marginLeft: 0, indent: 0 }];
+  title.position = titleFrame;
+  style(title, 58.67, { typeface: 'Calibri Light', color: RED, verticalAlignment: 'middle' });
+  const body = shapes[1] ? resolve(shapes[1]) : null;
+
+  if (sec.n === 1) {
+    title.position = { left: 0, top: 105, width: 1280, height: 485 };
+    style(title, 42.67, { typeface: 'Calibri Light', alignment: 'center' });
+    title.text = [
+      { runs: [{ run: sec.title, textStyle: { color: RED, fontSize: '44pt' } }], spaceAfter: 900 },
+      { runs: [{ run: 'COMP438/538 · Fall 2026', textStyle: { color: RED, fontSize: '32pt' } }], spaceAfter: 2400 },
+      { runs: [{ run: 'Nuts and bolts', textStyle: { fontSize: '32pt' } }], spaceAfter: 2600 },
+      { runs: [{ run: 'Barış Akgün', textStyle: { fontSize: '32pt' } }], spaceAfter: 400 },
+      { runs: [{ run: 'Koç University', textStyle: { fontSize: '28pt' } }] },
+    ];
+  } else if (sec.n === 2) {
+    fill(body, sec.copy, { left: 41.27, top: 160, width: 745, height: 510 }, 37.33, 16);
+    const image = resolve(imgRecords(2)[0]);
+    image.frame = { left: 820, top: 240, width: 395, height: 265.86 };
+  } else if (sec.n === 3) {
+    fill(body, sec.copy, { left: 430.67, top: 155, width: 780, height: 480 }, 34.67, 18);
+    for (const r of shapes.slice(2)) resolve(r).delete();
+  } else if (sec.n === 5) {
+    for (const r of imgRecords(5)) resolve(r).delete();
+    fill(body, sec.copy, bodyFrame, 37.33, 20);
+  } else if (sec.n === 7) {
+    // Preserve the supplied Sutton–Barto cover; remove the other book images.
+    for (const r of imgRecords(7)) if (r.name !== 'Picture 9') resolve(r).delete();
+    for (const r of shapes.slice(2)) resolve(r).delete();
+    fill(body, sec.copy, { left: 460, top: 155, width: 750, height: 490 }, 34.67, 17);
+  } else if (sec.n === 10) {
+    nativeTable(slide, sec.copy, 153, 222);
+    fill(body, sec.copy, { left: 41.27, top: 400, width: 1192, height: 267 }, 32, 9);
+  } else if (sec.n === 11) {
+    const before = sec.copy.split('\n\n|')[0];
+    const after = sec.copy.slice(sec.copy.lastIndexOf('|') + 1).trim();
+    fill(body, before, { left: 41.27, top: 140, width: 1192, height: 96 }, 32, 0);
+    nativeTable(slide, sec.copy, 252, 294);
+    newText(slide, 'Project teams', after, { left: 41.27, top: 572, width: 1192, height: 100 }, 32, 0);
+  } else {
+    const size = [8,12,14].includes(sec.n) ? 34.67 : 37.33;
+    fill(body, sec.copy, bodyFrame, size, sec.n === 14 ? 11 : 16);
+  }
+  slide.speakerNotes.textFrame.setText(`Suggested delivery: ${sec.time}\n\n${sec.notes}\n\nSource: course/syllabus/syllabusFall26.docx (instructor-frozen September 29, 2026). Course policies remain governed by that syllabus.${sec.n === 7 ? '\nReading policy: decisions/reading_decisions.md. Book cover retained from the instructor-supplied deck.' : ''}${[2,3].includes(sec.n) ? '\nImage retained from the instructor-supplied 0 - NutsAndBolts.pptx.' : ''}`);
+}
+
+const candidatePath = path.join(build, 'build/candidate.pptx');
+await (await PresentationFile.exportPptx(p)).save(candidatePath);
+const finalPath = path.join(build, 'final/nuts_and_bolts.pptx');
+const result = await finalizePresentation({
+  workspaceDir: build, candidatePath, finalPath, pythonExecutable: python,
+  integrityValidatorPath: path.join(skill, 'container_tools/inspect_presentation_package_integrity.py'),
+  layoutValidatorPath: path.join(skill, 'container_tools/inspect_presentation_layout_geometry.py'),
+  explicitTotalSlideCount: 14,
+  requiredNativeTableOwnerSlides: [10, 11],
+  layoutArgs: ['--expected-slide-size-emu', '12192000,6858000', '--validate-bullet-geometry', '--validate-heading-fit',
+    '--require-native-table-slide', '10', '--require-native-table-slide', '11'],
+  fontPolicy: { basis: 'reference', families: ['Calibri', 'Calibri Light'], referencePath: source,
+    referenceSha256: createHash('sha256').update(await fs.readFile(source)).digest('hex') },
+  verifyArtifactToolImport: true,
+  receiptPath: path.join(build, 'build/validation.json'),
+});
+console.log(JSON.stringify(result));
+// Inspect the actual exported file, not only the in-memory presentation.
+const final = await PresentationFile.importPptx(await FileBlob.load(finalPath));
+for (let i = 0; i < final.slides.items.length; i++) {
+  const slide = final.slides.items[i];
+  const preview = await final.export({ slide, format: 'png', scale: 1 });
+  await fs.writeFile(path.join(build, `preview/slide-${i + 1}.png`), new Uint8Array(await preview.arrayBuffer()));
+  await fs.writeFile(path.join(build, `preview/slide-${i + 1}.json`), await (await slide.export({ format: 'layout' })).text());
+}
+console.log(`Final deck and previews ready: ${finalPath}`);

@@ -1,5 +1,12 @@
 # Decision Log
 
+## 2026-10-04 — Phase 7 started with Week 1 nuts and bolts
+
+- Authority: instructor requests beginning Week 1 with the nuts-and-bolts material, permits a planning start, and supplies the source PPTX.
+- Start artifact revision with a syllabus-aligned slide-content draft and revision plan. This does not accept a new curriculum, policy, assessment, timing or workload decision.
+- Preserve the supplied PPTX under sources and the frozen syllabus DOCX/PDF. The first deliverable is editable Markdown under `course/lectures/week01/`; PowerPoint editing and visual verification remain pending.
+- Mark Phase 7 in progress. Phase 6 remains closed and actual-date calendar/operational finalization remains deferred as previously directed.
+
 ## 2026-09-30 — Align generators and views with the frozen syllabus
 
 - Authority: instructor explicitly requests aligning generators and Markdown views with the final syllabus. The DOCX/PDF remain unchanged; Phase 6 stays closed and Phase 7 has not started.

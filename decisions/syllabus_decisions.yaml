@@ -3,7 +3,7 @@ state: frozen
 accepted_on: '2026-09-29'
 authority: Instructor-approved final syllabus; acceptance recorded in decisions/decision_log.md.
 phase6_state: closed
-phase7_state: not-started
+phase7_state: in-progress
 artifacts:
   docx:
     path: course/syllabus/syllabusFall26.docx

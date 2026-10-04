@@ -177,7 +177,11 @@ This separation is intended to make curriculum changes reviewable, traceable, an
 
 ## Current status
 
-The repository sanity check has been completed and its setup clarifications are being incorporated. Phase 1 source collection has not begun and requires an explicit request.
+Phases 1–6 are complete. The curriculum and final syllabus are frozen, and Phase 6 is closed. Generator alignment with the final syllabus was completed on September 30, 2026. The accepted syllabus identity and freeze scope are recorded in [syllabus decisions](decisions/syllabus_decisions.yaml); accepted changes are recorded in the [decision log](decisions/decision_log.md).
+
+**Phase 7 — Teaching Artifact Revision — is in progress.** Work began on October 4, 2026 with Week 1 nuts and bolts. The [revised PPTX](course/lectures/week01/nuts_and_bolts.pptx) is ready for instructor review, with its [content source](course/lectures/week01/nuts_and_bolts.md) and [revision record](analysis/nuts_and_bolts_review.md). All 14 rendered slides were visually reviewed on October 5; PowerPoint itself was not opened. Work proceeds artifact by artifact. See the historical [Phase 7 handoff](analysis/phase7_handoff.md) for reuse guidance and verification commands, and the [workflow](docs/workflow.md) for phase boundaries.
+
+Assignment pilots, workload calibration, concrete rubrics, and example LLM-use reports remain implementation work before release. Actual-date calendar mapping and operational scheduling remain deferred until after Phase 7, retaining the post-Week-2 registration/attendance checkpoint. No student readings are assigned this semester. These open items do not reopen the accepted curriculum or syllabus.
 
 ## Codex usage
 
@@ -186,3 +190,9 @@ Codex should read `AGENTS.md` before performing substantive work.
 `AGENTS.md` identifies the additional project-context files that must be read and defines the permanent behavioral rules for work in this repository.
 
 Individual prompts should normally request one workflow phase at a time. Codex should not automatically advance to subsequent phases.
+
+## Claude Code usage
+
+Claude Code loads `CLAUDE.md` automatically at the start of each session. `CLAUDE.md` is a symlink to `AGENTS.md`, so both agents follow the same instructions. Edit `AGENTS.md` only; do not replace the symlink with a separate copy.
+
+Like Codex, Claude Code should read the project-context files listed in `AGENTS.md` before performing substantive work. It should follow the phase boundaries in `docs/workflow.md` and should not automatically advance to subsequent phases.

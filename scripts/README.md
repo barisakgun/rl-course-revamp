@@ -1,4 +1,12 @@
-> Syllabus frozen by instructor decision; Phase 6 closed. Phase 7 has not started. Generators and Markdown views are aligned with the final `course/syllabus/syllabusFall26.docx` and `.pdf`; frozen identity/scope are in `decisions/syllabus_decisions.yaml`. Detailed schedules remain internal planning views. Calendar finalization remains after Phase 7. See [handoff](../analysis/phase6_handoff.md).
+> Syllabus frozen by instructor decision; Phase 6 closed. Current artifact-work phase and frozen identity/scope are recorded in `decisions/syllabus_decisions.yaml`. Generators and Markdown views are aligned with the final `course/syllabus/syllabusFall26.docx` and `.pdf`. Detailed schedules remain internal planning views. Calendar finalization remains after Phase 7. See the historical [handoff](../analysis/phase7_handoff.md).
+
+# Teaching artifact builds
+
+## Phase 7 nuts-and-bolts deck
+
+`revise_nuts_and_bolts.mjs` builds a teaching copy from the original source PPTX and `course/lectures/week01/nuts_and_bolts.md`. It preserves the source and requires the bundled presentation runtime. Resolve `RUNTIME_NODE`, `RUNTIME_NODE_MODULES` and `RUNTIME_PYTHON` with `load_workspace_dependencies`; set `SKILL_DIR` to the installed presentations skill. Follow that skill's operation-marker instruction before starting an edit.
+
+Run `"$RUNTIME_NODE" scripts/revise_nuts_and_bolts.mjs /private/tmp/rl-nuts-build` with those variables exported, using a fresh private build directory. The builder validates and renders the exported deck. Review every slide before copying `final/nuts_and_bolts.pptx` into `course/lectures/week01/`. Keep receipts and intermediate files in private staging. It refuses to overwrite an existing final build file. Reconcile direct PPTX edits with the Markdown content source before regenerating; do not replace instructor edits silently.
 
 # Phase 1 collection and inventory
 
