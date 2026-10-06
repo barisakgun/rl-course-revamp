@@ -1,5 +1,49 @@
 # Decision Log
 
+## 2026-10-06 — Clarification: scope of content suggestions and roles
+
+- Authority: instructor instruction in the Claude conversation, restating the process given to ChatGPT; this fills gaps in the entry below.
+- Each AI provides initial content suggestions per topic (deck); a suggestion may propose splitting the deck.
+- Both AIs decide on content; Claude is the sole PPTX renderer. Old-slide reuse is still decided by the instructor editing the PPTX; Claude keeps the deck's content source in step with the edited deck. ChatGPT maintains no parallel deck or deck source.
+- Suggest new preliminary or detailed planning material only when the information does not already exist in the accepted plan, decisions, instructor sources or analysis. A way to compile existing sources into one place for easier access may be proposed.
+- Process and role clarification only; no curriculum, assessment, timing or workload change.
+
+## 2026-10-06 — Lecture-content pilot and deck 0 acceptance
+
+- Authority: instructor feedback on the Phase 7 workflow proposal in the ChatGPT conversation.
+- Accept the current Claude deck 0 (nuts and bolts): `course/lectures/week01/nuts_and_bolts_claude.pptx`, SHA-256 `bb87519e5a6fa2d364d47b77651435f7e5df484a2602ccdc4e922a6df069a951`. This identifies the accepted saved version, not future edits or the earlier ChatGPT deck/candidate. No Markdown extraction or deck regeneration is requested. Recording instructor acceptance does not claim a new technical/visual review or amend the frozen syllabus and curriculum decisions.
+- Use session 1.1 (`formulate`) as the content-workflow pilot. Its accepted scope and teaching allocation remain unchanged. The pilot choice does not approve ChatGPT's previous two-session content outline or a particular running example.
+- Prepare two independent initial content suggestions, followed by at least one iteration of both AIs checking each other's work, then instructor comments. After those comments, decide whether to continue brainstorming or develop content detailed enough to render. Claude handles PPTX production; two renders are not required.
+- Keep lecture planning lightweight and reuse the existing sources and accepted lecture plan. Do not impose an extremely detailed plan on each lecture. Cross-comparison of render-ready content remains deferred for evaluation after the pilot, not an adopted mandatory step.
+- Resolve notation and other preparation issues when the material needs them, not all in advance. The instructor accepts action/advantage distinction through context and permits `A_t`; resolve notation-guide O1 accordingly. Other notation questions remain deferred until needed, with instructor approval still required for changes to the guide.
+- Unanswered proposals are neither accepted nor rejected. Preserve them as open recommendations. Deck boundaries, a compulsory slide structure, review-file format and other unaddressed implementation suggestions remain unresolved.
+- These are artifact acceptance and Phase 7 working conventions. No topic, mastery, assessment, teaching-time or student-workload revision is made; no curriculum time-budget rerun is needed for this documentation change.
+
+## 2026-10-05 — Shared lecture-content conventions for Claude and ChatGPT
+
+- Authority: instructor direction while comparing Claude and ChatGPT lecture workflows.
+- One lecture deck per topic; the exact deck split is open in `analysis/phase7_brainstorming.md`.
+- Claude and ChatGPT draft independently and review each other's work on request (read-only cross-review); the instructor makes the final decision.
+- Both AIs may suggest reuse of old slides; the instructor decides by editing the PPTX, and each AI updates its own content source from it.
+- Equations: reuse existing PowerPoint equations where possible; LaTeX where they are not enough.
+- Adopt the shared `course/notation_guide.md`. Its open overlap items await instructor resolution; authors ask when it is missing a symbol or is ambiguous.
+- `sources/current_course/NOTES_FOR_NEXT_YEAR.txt` is not used as guidance.
+- This is a Phase 7 working convention. It does not change curriculum, assessment, timing or workload decisions.
+
+## 2026-10-05 — ChatGPT file suffix and separate Claude work
+
+- Instructor renamed the edited working deck to `course/lectures/week01/nuts_and_bolts_chatgpt.pptx` and requests the `_chatgpt` suffix on all subsequently created ChatGPT PPTX files, including candidates.
+- Point the Markdown exporter and current navigation at the renamed deck. Generated views follow the matching basename. Preserve the deck and Office lock files without modification.
+- Ignore Claude-created files unless obviously shared, such as the syllabus, or explicitly marked as shared. Ask when a needed file's ownership/shared status is uncertain. This does not undo prior work in either workflow.
+- These are naming and collaboration rules only. No curriculum, assessment or artifact acceptance change is inferred.
+
+## 2026-10-05 — Instructor edits lecture PPTX directly
+
+- Authority: instructor prefers viewing and editing the PPTX, requests refreshing Markdown from it if practical, and asks that generators preserve edited files.
+- Adopt PPTX-first lecture artifact editing. The nuts-and-bolts working file remains `course/lectures/week01/nuts_and_bolts.pptx`; its derived Markdown view moves to `output/lectures/week01/nuts_and_bolts.md` and refreshes through `scripts/pptx_to_markdown.py`.
+- Remove the former independently editable Markdown draft from `course/`; its earlier version remains in Git history. Protect the working PPTX from generator replacement. Reconstruction proposals use separate `.candidate.pptx` files, not automatic promotion into `course/`.
+- This accepts an editing workflow, not the contents of the current deck or a curriculum/policy revision. Current saved slide text and notes are extracted as-is; no slide changes, new pacing judgment or artifact acceptance is inferred. Visual previews must be refreshed separately after PowerPoint edits.
+
 ## 2026-10-04 — Phase 7 started with Week 1 nuts and bolts
 
 - Authority: instructor requests beginning Week 1 with the nuts-and-bolts material, permits a planning start, and supplies the source PPTX.

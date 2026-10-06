@@ -6,7 +6,7 @@ Prepared 2026-10-04. Phase 7 content planning for the instructor-supplied `sourc
 
 The frozen `course/syllabus/syllabusFall26.docx` governs student-facing policy. Its generated text view was checked against the frozen artifact. Relevant accepted assignment, project, grading and reading decisions were also inspected. Original PowerPoint text and external hyperlink relationships were inspected directly. All source and revised slides were subsequently rendered and visually inspected on October 5, 2026.
 
-The editable [slide-content source](../course/lectures/week01/nuts_and_bolts.md) supplies copy and speaker notes for the [revised PPTX](../course/lectures/week01/nuts_and_bolts.pptx). It retains 14 slides while replacing the duplicate opening, resource catalog and outdated programming/LLM guidance. The source deck remains unchanged as evidence. The [rendered overview](../output/lectures/week01/nuts_and_bolts_preview.png) is generated from the revised deck.
+The [working PPTX](../course/lectures/week01/nuts_and_bolts_chatgpt.pptx) is now the instructor-editable source. Its [Markdown text view](../output/lectures/week01/nuts_and_bolts_chatgpt.md) is extracted from the saved deck. The original export contained 14 slides; the instructor's subsequently edited deck currently has 15. The supplied source deck remains unchanged as evidence. The [rendered overview](../output/lectures/week01/nuts_and_bolts_preview.png) depicts the original 14-slide export and does not certify the later edited deck. The slide-change table below records the original revision proposal, not an independently maintained description of the current PPTX.
 
 ## Slide changes
 
@@ -53,3 +53,7 @@ The dependency tool became available in the Codex desktop app. `scripts/revise_n
 The final PPTX passed package, geometry, font-policy, native-table and import checks. Every rendered slide was reviewed at full size. A cover-formatting issue was repaired and rerendered; the other 13 rendered slides were unchanged. A separate content check verified all proposed slide text, current hyperlink targets, note count and the 100% grading / 35% project-milestone totals. The source PPTX and frozen syllabus fingerprints remain unchanged. PowerPoint was not opened or controlled.
 
 The content and pacing remain a teaching-artifact proposal for instructor review; this export accepts no new curriculum or policy decision.
+
+## PPTX-first editing follow-up
+
+The instructor chose direct PowerPoint editing on October 5. `scripts/pptx_to_markdown.py` now refreshes a derived Markdown view from the saved PPTX, preserving slide order, native text/tables, links and notes. The old Markdown authoring draft remains available in Git history. The current 15-slide deck was read without modification. Its changed content and pacing were not reassessed in this workflow update, and the earlier visual review does not apply to later edits. Overwrite safeguards were added at that stage. Claude-specific builders are now outside this workflow unless explicitly shared; ChatGPT reconstruction proposals use the `.candidate_chatgpt.pptx` suffix. See `scripts/README.md` for refresh commands and reconstruction boundaries.

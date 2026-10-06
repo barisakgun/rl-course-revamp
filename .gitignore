@@ -4,6 +4,8 @@ sources/current_course/exams
 sources/sutton/*.pdf
 sources/foundations-deep-rl-abbeel/*.pdf
 *.pptx
+!course/templates/*.pptx
+!course/lectures/**/*_chatgpt.pptx
+~$*.pptx
 .DS_Store
 __MACOSX
-

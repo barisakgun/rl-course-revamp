@@ -1,0 +1,376 @@
+# Week 1.1 syllabus briefing ("nuts and bolts") — content source for the Claude-built deck.
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week01/nuts_and_bolts_claude.yaml [--render]
+#
+# Authority: student-facing facts come from the frozen syllabus (course/syllabus/syllabusFall26.docx),
+# checked through its generated text view output/syllabus.md. Every `verify` string must occur verbatim
+# (after whitespace/quote normalisation) in that text; the build fails otherwise. `sources` names the
+# syllabus sections or source-deck slides a slide draws on. Instructor voice/advice that is not policy is
+# marked `instructor_voice` so it can be reviewed separately from syllabus facts.
+#
+# Time budget: config/course.yaml -> design.in_class_overheads[syllabus_overview] (20 min in 1.1).
+# Slide minutes + qa_minutes must not exceed it.
+
+deck:
+  template: course/templates/lecture_template_claude.pptx  # master/layouts (scripts/build_template_claude.py)
+  image_source: sources/current_course/0 - NutsAndBolts.pptx  # images referenced by source_slide/shape
+  output: course/lectures/week01/nuts_and_bolts_claude.pptx
+  preview: output/lectures/week01/nuts_and_bolts_claude_preview.png
+  syllabus_text: output/syllabus.md
+  overhead_id: syllabus_overview
+  qa_minutes: 3                # instructor 2026-10-05: further questions after class
+  title: COMP438/538 Reinforcement Learning — Course overview and logistics
+  author: Barış Akgün
+
+slides:
+  - id: title
+    kind: title
+    title: COMP438/538 Reinforcement Learning
+    subtitle: Fall 2026 · Course overview and logistics
+    byline: Barış Akgün · Koç University
+    image: {source_slide: 2, shape: Picture 4}
+    image_focus: 0.45            # horizontal crop centre for the full-height panel
+    minutes: 0.5
+    sources: [syllabus title, source slide 2]
+    verify: ["COMP438/538 Reinforcement Learning – Fall 2026", "Barış Akgün"]
+    notes: |
+      [0:30] Welcome. The first ~20 minutes are about how the course runs; then we start on the RL problem itself.
+      Everything here is in the syllabus on KU Hub — this is the short version.
+
+  - id: hello
+    kind: image_bullets
+    title: Hello!
+    image: {source_slide: 3, shape: Picture 6}
+    bullets:
+      - "**Barış Akgün**"
+      - "E-mail: [baakgun@ku.edu.tr](mailto:baakgun@ku.edu.tr)"
+      - "Office: Eng 273"
+      - "Office hours:"
+      - ["By appointment, online or in person", "Or whenever my door is open, especially after lectures"]
+      - "Teaching assistants: TBA"
+    footnote: "Easiest ways to reach me: just before or after a lecture, or by e-mail."
+    minutes: 1.5
+    sources: [Instructor, Teaching Assistants, source slide 3]
+    instructor_voice: ["Office: Eng 273 (source deck, not in syllabus)", "Easiest ways to reach me (source deck)"]
+    verify: ["baakgun@ku.edu.tr", "By appointment (online or in person), or whenever my door is open, especially after lectures", "| TBA | TBA | TBA |"]
+    notes: |
+      [1:30] Brief self-introduction — research interests, why I teach this course.
+      TAs will be announced on KU Hub once assigned.
+      (Deliberately no reply-time promise: it is not in the syllabus.)
+
+  - id: you
+    kind: two_column
+    title: What about you?
+    left:
+      heading: Raise your hand if you have…
+      bullets:
+        - seen MDPs or value iteration (e.g., in COMP341)
+        - taken a machine learning course
+        - trained a neural network yourself
+        - written a few hundred lines of Python for a project
+    right:
+      heading: 2–3 volunteers
+      bullets:
+        - Why are you taking this course?
+        - What would you like to apply RL to?
+    footnote: "Anything you would like me to know? E-mail me privately."
+    minutes: 2
+    sources: [Prerequisites, source slide 4]
+    instructor_voice: ["whole slide: interaction prompt"]
+    verify: ["COMP341"]
+    notes: |
+      [2:00] Show of hands, not a round of introductions — the full round does not fit in the 20-minute briefing.
+      Use the answers to calibrate: if few have seen MDPs, slow down the formulation part today.
+      Take two or three volunteers for the "why" question, then move on.
+
+  - id: syllabus
+    kind: image_bullets
+    title: Syllabus
+    image:
+      path: course/syllabus/IntroToRL_F26.png
+    image_side: right
+    image_width: 6.35
+    image_border: false
+    valign: middle
+    bullet_style: none
+    bullets:
+      - The [syllabus](https://drive.google.com/file/d/1un-4XQckmVocyYSlkC8AUX07D3FjHdNj/view?usp=share_link) contains the full course policies
+      - These slides highlight the main points
+    minutes: 0.5
+    sources: [instructor slide added in PowerPoint]
+    instructor_voice: [whole slide]
+    verify: []
+    notes: ''
+  - id: logistics
+    kind: image_bullets
+    image_side: right
+    title: How the course runs
+    image: {source_slide: 7, shape: Picture 9}
+    caption: "Textbook: Sutton & Barto, 2nd ed. — [free online](http://incompleteideas.net/book/the-book.html)"
+    bullets:
+      - "**Class:** Tue & Thu, 14:30–15:40, CASEZ27"
+      - "**KU Hub** ([learn.hub.ku.edu.tr](https://learn.hub.ku.edu.tr)): course materials, announcements and all submissions"
+      - "**E-mail:** check your university e-mail regularly"
+      - "**Lectures**, supplemented by videos as needed"
+      - "Attendance is not tracked — questions and discussion are encouraged"
+    minutes: 1.5
+    sources: [Class, Teaching, Textbook, source slides 6, 7, 9]
+    verify:
+      - "Tuesdays and Thursdays, 14.30 - 15:40"
+      - "CASEZ27"
+      - "https://learn.hub.ku.edu.tr"
+      - "Students are responsible for checking their university email regularly"
+      - "taught mainly through lectures, supplemented by videos as needed"
+      - "Lecture attendance will not be tracked, but participation, questions and discussion are encouraged"
+      - "http://incompleteideas.net/book/the-book.html"
+      - "submitted online through the KU Hub system"
+    notes: |
+      [1:30] The book is the reference text for the foundational part and is freely available.
+      Videos are used where they help (e.g., background material) — they will be announced on KU Hub.
+      I'd still like to learn your names and faces even though attendance is not taken.
+
+  - id: map
+    kind: flow
+    title: Where the course goes
+    lead: "Goal: solid foundations first, then deep, model-based, offline and LLM-based RL built on them."
+    columns: 4
+    boxes:
+      - [MDP Fundamentals, "MDPs, returns, values, Bellman equations, DP"]
+      - [Tabular RL, "MC & TD, exploration, SARSA, Q-learning"]
+      - [Value Function Approximation, "Linear methods, DQN, Double DQN"]
+      - [Policy Search, "REINFORCE, actor-critic, GAE, PPO, SAC"]
+      - [Exploration & Planning, "Bandits, UCB, MCTS, Dyna"]
+      - [Model-Based RL, "Learned models, MPC, model error"]
+      - [Offline RL, "Distribution shift, IQL; CQL overview"]
+      - [LLMs + RL, "RL for LLM post-training"]
+    footnote: "Tentative topics — see the syllabus. Later blocks reuse the same few ideas from the first two."
+    minutes: 2
+    sources: [Course Objectives, Tentative Topics]
+    verify:
+      - "Build a coherent foundation in reinforcement learning"
+      - "| MDP Fundamentals |"
+      - "| Tabular RL |"
+      - "| Value Function Approximation |"
+      - "| Policy Search |"
+      - "| Exploration and Planning |"
+      - "| Model-Based RL |"
+      - "| Offline RL |"
+      - "| LLMs + RL |"
+      - "conceptual overview of CQL"
+      - "RL for LLM post-training"
+    notes: |
+      [2:00] Do not explain the algorithms — labels only. The point: roughly the first third builds foundations
+      (MDPs, Bellman equations, sampling, bootstrapping); everything after reuses them with approximation,
+      models, fixed data or language models.
+      Learning outcomes are listed in the syllabus; mention that assessments are built around them.
+
+  - id: prep
+    kind: two_column
+    title: Before you commit
+    left:
+      heading: Expected background
+      bullets:
+        - "COMP341 Intro to AI: agents, utility, state/action/reward"
+        - "COMP421/521 ML: SGD, linear regression, neural networks"
+        - "Probability & statistics, linear algebra (e.g., ENGR200, MATH107)"
+        - "Python — take the course only if you already know it"
+    right:
+      heading: What the work looks like
+      bullets:
+        - Programming assignments and a coding-heavy project
+        - "Math you must turn into code: similar-looking equations differ in subtle ways"
+        - Deep learning experience helps but is not required
+    footnote: "**Unsure? Assess yourself honestly before the add/drop period ends — and talk to me.**"
+    minutes: 1.5
+    sources: [Prerequisites, source slide 13]
+    instructor_voice: ["right column bullet 2 and footnote (source slide 13 warning)"]
+    verify:
+      - "COMP341: Intro to Artificial Intelligence"
+      - "agent-based modeling, rationality, utility and decision-making concepts"
+      - "COMP421/521: Machine Learning"
+      - "stochastic gradient descent, linear regression, and neural networks"
+      - "ENGR200 and MATH107"
+      - "I recommend taking this course only if you already know Python"
+      - "Prior coursework in deep learning is not required, but familiarity with it would be helpful"
+      - "4 planned programming assignments"
+    notes: |
+      [1:30] Be direct: the most common difficulty is translating equations into code, not the equations alone.
+      Python is not a formal prerequisite, but I recommend taking the course only if you already know it.
+
+  - id: assessment
+    kind: table
+    title: Assessment
+    table:
+      widths: [2.6, 7.6, 1.6]
+      header: [Component, Details, Weight]
+      rows:
+        - [Assignments, "4 planned individual programming assignments; if more than 3, the lowest is dropped", "20%"]
+        - [Midterms, "3 midterms, 15% each; each covers a different set of topics", "45%"]
+        - [Final project, "Reports and presentation (next slide)", "35%"]
+      total: [Total, No final exam, "100%"]
+      check_sum: 100
+    bullets:
+      - "The number of assignments may change depending on how the semester proceeds."
+      - "Assessed: theory, implementation and experimental reasoning."
+    minutes: 1.5
+    sources: [Assessment and Grading, Assignments, Exams]
+    verify:
+      - "| Assignments | Planned 4 individual assignments, lowest one dropped | 20 |"
+      - "| Midterms | 3 Midterms, 15% each | 45 |"
+      - "| Final Project | Reports and Presentation (see below) | 35 |"
+      - "If there are more than 3, the lowest one will be discarded"
+      - "Each midterm will cover a different set of topics. There will be no final exam."
+      - "The number may change depending on how the semester proceeds"
+      - "Theory, implementation and experimental reasoning are assessed"
+    notes: |
+      [1:30] No final exam: three midterms spread the load. If exactly three assignments are given, all count.
+
+  - id: project
+    kind: project
+    title: "Final project: an end-to-end RL study"
+    steps: [Formulate a problem, Build a solution, Compare to a meaningful baseline, Evaluate systematically, Communicate & present]
+    bullets:
+      - "Teams of 2–3 encouraged; individual or four-person teams may be considered — scope scales with team size"
+      - "A well-supported negative result can succeed; novelty and beating benchmarks are not required"
+      - "Further details will be presented during the semester"
+    table:
+      widths: [3.9, 1.1]
+      header: [Milestone, Weight]
+      rows:
+        - [Proposal report, "5%"]
+        - [Formulation & design report, "5%"]
+        - [Progress & evaluation report, "7.5%"]
+        - [Presentation, "7.5%"]
+        - [Final report, "10%"]
+      total: [Total, "35%"]
+      check_sum: 35
+    minutes: 2
+    sources: [Final Project]
+    verify:
+      - "formulate a problem, build a solution, compare your solution against a meaningful baseline, evaluate results systematically, communicate limitations and present your work"
+      - "Teams of 2–3 are encouraged, but individual work and four-person teams may be considered"
+      - "The expected project scope will depend on team size"
+      - "A well-supported negative result can succeed; novelty and benchmark superiority are not required"
+      - "Further details of the final project will be presented during the semester"
+      - "Project Proposal Report (5%)"
+      - "Formulation and Design Report (5%)"
+      - "Progress and Evaluation Report (7.5%)"
+      - "Presentation (7.5%)"
+      - "Final Report (10%)"
+    notes: |
+      [2:00] Start thinking about problems you care about now; the proposal comes first.
+      The emphasis is on a careful study — a clear formulation, a fair baseline and honest evaluation — not on
+      beating benchmarks. Do not give dates here; they will be announced with the project handout.
+
+  - id: submissions
+    kind: callouts
+    title: Submissions and late days
+    callouts:
+      - ["10", late days in total]
+      - ["3", at most per submission]
+    bullets:
+      - "Submit everything through KU Hub — e-mail submissions are not accepted"
+      - "Server time counts; if the system is down, an appropriate extension is granted"
+      - "Download and check what you uploaded; only your latest submission is graded"
+      - "Exceeding either limit → grade penalty"
+      - "Final report: you may use remaining late days (no 3-day cap), but you may receive an “Incomplete”"
+    minutes: 1
+    sources: [Assignment/Report Submissions and Late Policy]
+    verify:
+      - "All assignments and reports are required to be submitted online through the KU Hub system"
+      - "The submission time is the time recorded by the server"
+      - "If the system is down, an appropriate extension will be granted. E-mail submissions are not accepted"
+      - "Students are expected to download and check their submissions"
+      - "Only the latest submission for each assignment or report will be graded"
+      - "total allowance of 10 late days, with a maximum of 3 late days per submission, except for the final report"
+      - "you may receive an “Incomplete” grade"
+      - "your grades will be penalized"
+    notes: |
+      [1:00] Late days are a buffer for real life — illness, deadlines in other courses. Do not spend them early.
+
+  - id: llm
+    kind: two_column
+    title: Using LLMs
+    left:
+      heading: Allowed — with disclosure
+      bullets:
+        - LLMs for coding and for reports
+        - "An LLM-use report with every assignment and report (requirements given before the first one)"
+        - "You are responsible for errors: understand, check and be able to explain what you submit"
+    right:
+      heading: Not acceptable
+      bullets:
+        - "Undisclosed use — treated as plagiarism"
+        - "One-shot or few-shot delegation of an assignment solution — no credit"
+        - "LLMs in online or take-home midterms"
+        - "Verbose, repetitive or vague project writing loses marks, however it was produced"
+    footnote: "LLMs make confident mistakes. You need to know the material to catch them."
+    minutes: 1.5
+    sources: [Large Language Model (LLM) Use Policy, source slide 12]
+    instructor_voice: ["footnote (source slide 12 advice)"]
+    verify:
+      - "LLMs may be used for coding and reports with disclosure"
+      - "failure to do so is treated as plagiarism"
+      - "You remain responsible for errors and must understand, check and explain submitted work"
+      - "An LLM-use report is required for each assignment and report"
+      - "The requirement details will be given before the first assignment/report"
+      - "one-shot or few-shot delegation of the assignment solution receives no credit"
+      - "If midterms are held online or as take-home exams, students may not use LLMs"
+      - "Project reports will lose marks for verbose, repetitive, unnecessarily detailed, unfocused or vague writing"
+    notes: |
+      [1:30] The no-credit rule is about assignments: pasting the task into a model and submitting the answer.
+      Using an LLM as a tool while you do the work is fine — and must be disclosed.
+      The exam rule applies only if midterms are online/take-home.
+
+  - id: exams
+    kind: bullets
+    title: Exams, make-ups and conduct
+    bullets:
+      - "Three midterms, each on a different set of topics; no final exam"
+      - "One comprehensive make-up exam, written or oral, scheduled at the instructor’s discretion"
+      - ["Requires a legitimate excuse; notify within 5 days of the exam", "No make-up for the make-up exam"]
+      - "Leaving for an exchange program? Contact me **before Week 10** to schedule an early exam"
+      - "KU student and classroom codes of conduct apply: no tolerance for cheating or plagiarism"
+    footnote: "How the make-up counts when more than one exam is missed: see the syllabus."
+    minutes: 0.75
+    sources: [Exams, Make-up Policy, Early Exam Policy, Code of Conduct]
+    verify:
+      - "There will be only a single comprehensive make-up exam, scheduled solely at the discretion of the instructor"
+      - "The make-up exam can be written or oral"
+      - "Students need to notify the instructor or the university within 5 days of the exam"
+      - "There will be no make-ups for the make-up exam"
+      - "you need to contact the instructor before week 10 to schedule an early exam"
+      - "There will be no tolerance for cheating, plagiarism"
+    notes: |
+      [0:45] Read quickly; the details are in the syllabus.
+
+  - id: additional_textbooks
+    kind: bullets
+    title: Additional Textbooks and Other Resources
+    bullets:
+      - David Silver’s Lecture Notes and Videos (Classical)
+      -   - <https://www.davidsilver.uk/teaching/>
+      - Shiyu Zhao’s Notes and Videos (Classical)
+      -   - <https://github.com/MathFoundationRL/Book-Mathematical-Foundation-of-Reinforcement-Learning>
+      - Sergey Levine’s Course
+      -   - <https://rail.eecs.berkeley.edu/deeprlcourse/>
+      - Emma Brunskill’s Course
+      -   - <https://web.stanford.edu/class/cs234/>
+      - Chelsea Finn’s Course
+      -   - <https://cs224r.stanford.edu/>
+      - Kevin Murphy’s Book (Both Classical and Deep)
+      -   - <https://arxiv.org/abs/2412.05265>
+    minutes: 0.5
+    sources: [instructor slide added in PowerPoint]
+    instructor_voice: [whole slide]
+    verify: []
+    notes: ''
+  - id: questions
+    kind: closing
+    title: Questions?
+    subtitle: "Next: what is a reinforcement learning problem?"
+    minutes: 0.25
+    sources: [output/lecture_plan.md 1.1]
+    verify: []
+    notes: |
+      [~4:00 Q&A] Then transition to 1.1 teaching: RL formulation and information (38 planned minutes).

@@ -235,6 +235,29 @@ Analysis must not silently become accepted decision.
 
 ## Working style
 
+### ChatGPT and Claude file ownership
+
+- Every PPTX created by ChatGPT/Codex must end in `_chatgpt.pptx`, including draft and candidate decks. For example: `nuts_and_bolts_chatgpt.pptx` and `nuts_and_bolts.candidate_chatgpt.pptx`.
+- Preserve instructor-edited PPTX files. For existing ChatGPT artifacts, refreshing Markdown must only read the `_chatgpt.pptx`; it must not overwrite the deck. Under the current shared content workflow, Claude handles PPTX production and ChatGPT need not create a parallel deck.
+- Ignore Claude-created files, including files named with `_claude`, unless they are obviously shared (such as the syllabus) or explicitly marked as shared. Do not read, edit, regenerate, rename, or adopt Claude-specific files as inputs to this workflow.
+- Claude follows the mirror rule: files Claude creates use the `_claude` suffix, and Claude ignores ChatGPT-created files (`_chatgpt`) on the same terms.
+- Exception for cross-review: when the instructor asks one AI to review the other's work, the reviewer may read the other AI's files for that review only. It must never edit, regenerate, rename or adopt them.
+- Shared syllabus, project configuration, accepted decisions and repository governance remain shared authority. If ownership or shared status is unclear and the file is needed, ask the instructor before using it.
+- Leave Office lock files (`~$...`) and unrelated files alone. The `_chatgpt` and `_claude` suffixes distinguish authorship, not curriculum acceptance.
+
+### Shared lecture-content conventions (Claude and ChatGPT)
+
+- Shared files: `course/notation_guide.md` (notation for all teaching material), `analysis/phase7_brainstorming.md` (open questions and proposals; both AIs may append, labelled by author and date) `analysis/ideas_backlog.md` (materials and tooling ideas for later course iterations; not accepted or scheduled) and `output/lectures/session_sources.md` (generated per-session index of plan, scope, dependencies, book sections and source pages; regenerate with `python3 scripts/build_session_sources.py`, never edit by hand).
+- Use only notation from the notation guide. If content needs a symbol that is missing, or the guide overlaps or is ambiguous (with itself, the book, the old decks or a cited paper), ask or notify the instructor and record the item in the guide's open items. Do not edit the guide without instructor approval.
+- Resolve notation and other preparation issues when the current material needs them. Do not require clearing all future open items before starting. Address correctness issues in the material being prepared; retain the instructor-approval rule for notation-guide changes.
+- One lecture deck per topic. The deck split is still open in the brainstorming file.
+- Claude and ChatGPT produce independent initial content suggestions per topic (deck); a suggestion may propose splitting the deck. Both AIs decide on content; at least one iteration of mutual cross-review precedes instructor comments. Read the counterpart's files only for the scoped review; preserve ownership and do not edit the counterpart's files. After instructor comments, proceed to more brainstorming or render-ready content as directed. Claude produces the PPTX; there are not two renders. Cross-review of render-ready content remains undecided pending the session 1.1 pilot.
+- Keep lecture planning lightweight, using the accepted lecture plan and existing sources. Do not require an extremely detailed per-lecture plan. Instructor silence on a proposal means neither acceptance nor rejection; only explicit decisions resolve it.
+- Both AIs may suggest which old slides (`sources/current_course/`) to reuse. The instructor decides by editing the PPTX; Claude, as the sole renderer, keeps the deck's content source in step with the edited deck.
+- Suggest new preliminary or detailed planning material only when the information does not already exist in the accepted plan, decisions, instructor sources or analysis.
+- Equations: reuse existing PowerPoint equations from the old decks where possible; use LaTeX where they are not enough.
+- Lecture content follows `decisions/topic_decisions.yaml` (session scope, mastery, exclusions, minutes, worked activity). A content need that conflicts with it is raised with the instructor, not silently resolved.
+
 Prefer structured Markdown and YAML that can be inspected and diffed.
 
 Prefer reproducible scripts for repeated extraction, normalization, auditing, or output generation.

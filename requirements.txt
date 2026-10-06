@@ -1,0 +1,16 @@
+# Python dependencies for scripts/ (tested with Python 3.11).
+# Install: python3 -m pip install -r requirements.txt
+
+# All audit/report/generator scripts
+PyYAML>=6.0
+
+# Phase 1 source collection (scripts/phase1_collect.py)
+requests>=2.31
+beautifulsoup4>=4.12
+
+# Lecture deck builds (scripts/build_deck_claude.py)
+python-pptx>=1.0
+Pillow>=10.0
+
+# Not pip-installable; needed only for `build_deck_claude.py --render`:
+#   macOS with Microsoft PowerPoint (PDF export via osascript) and pdftoppm (poppler).

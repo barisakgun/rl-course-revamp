@@ -1,0 +1,228 @@
+{
+  "original_sha256": "6bdf13c9c25f527a9fa493266c07e841d052fd49caf206cf89f33a1cdf626dbf",
+  "rebuilt_sha256": "bea870d74c4d0ce5d070dccf03d346411352392a0600a7946a96e25a23c818aa",
+  "slide_counts": [
+    15,
+    15
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "title": "Reinforcement Learning",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 2,
+      "title": "Instructor and contact",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 3,
+      "title": "Your background and interests",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 4,
+      "title": "Class and syllabus",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 5,
+      "title": "Course overview",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 6,
+      "title": "Preparation",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 7,
+      "title": "Course communication",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 8,
+      "title": "Textbook and resources",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 9,
+      "title": "Lectures and participation",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 10,
+      "title": "Assessment",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 11,
+      "title": "Semester project",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 12,
+      "title": "LLM use in coursework",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 13,
+      "title": "Writing and exams",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 14,
+      "title": "Submissions and late policy",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    },
+    {
+      "slide": 15,
+      "title": "Additional Textbooks and Other Resources",
+      "checks": {
+        "title": true,
+        "paragraphs": true,
+        "notes": true,
+        "tables": true,
+        "links": true,
+        "images": true,
+        "hidden": true
+      },
+      "differences": {}
+    }
+  ],
+  "all_content_checks_pass": true,
+  "totals": {
+    "paragraphs": 109,
+    "notes": 45,
+    "tables": 2,
+    "links": 9,
+    "images": 4
+  }
+}
