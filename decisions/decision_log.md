@@ -9,6 +9,19 @@
 
 - Authority: the instructor requested updating the workflow after the review of its two inconsistencies. `docs/lecture_workflow.md` now specifies one shared review file, one content file kept editable through the AI review/render/fix loop, and freezing at instructor takeover of the PPTX. `AGENTS.md` includes the shared review in its ownership exception. Existing independent proposals/reviews remain historical; the deck decision file remains outcomes-only. This is a workflow update, not authorization to create render-ready content or change curriculum scope, timing or workload.
 
+## 2026-10-07 — Session 1.2 decisions before the AI suggestions
+
+- Authority: the instructor's answers to Claude's pre-1.2 questions.
+- Recorded in a new deck decision file, `decisions/lectures/mdp_values.md`, B1–B6:
+  - 1.2 is a separate deck;
+  - the instructor picks old slides after the initial AI suggestions, marking must-keeps in advance;
+  - the robot keeps the 1.1 numbers, plus a terminal-state version (old MDP slide 21 mentions absorbing states);
+  - γ = 0.5, noted as not the norm;
+  - the history symbol stays available (notation O10 stays open);
+  - the model and returns are covered formally again in 1.2.
+- Introduction deck: O8 resolved (formulation checklist goes in the project-proposal instructions, not the deck); O9 moved to the 1.2 file.
+- No change to scope, mastery, minutes, assessment or workload.
+
 ## 2026-10-07 — 1.1 teaching time updated; `_chatgpt` decks untracked
 
 - Authority: the instructor's instruction to update 1.1's timing in the course plan, keep work on `main`, and ignore `_chatgpt` PPTX files.
