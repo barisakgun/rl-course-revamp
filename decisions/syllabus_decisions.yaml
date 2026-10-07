@@ -7,10 +7,10 @@ phase7_state: in-progress
 artifacts:
   docx:
     path: course/syllabus/syllabusFall26.docx
-    sha256: 71a332e99ca52eb41da303f0dbec0e07d310224f2339114d06c109ebeb337fb1
+    sha256: 393d71e06d7a386d03dc20b2c754e38b5ee7c039cdc57e0ef042c5a8e8bc4cfd  # 2026-10-06 TA update; see decision log
   pdf:
     path: course/syllabus/syllabusFall26.pdf
-    sha256: 687b7f5e0196d059a3d43f67894067bf04d7ca4c10187cc5bd6b1556111e6598
+    sha256: 75799d1b8f44054ba16ca087b0dba8d9c04b2631a9d5deac7457f4be0044813e  # 2026-10-06 instructor re-export with TAs
 scope: The concise student-facing syllabus is frozen. Detailed schedules, lengths, video
   lead times and release requirements in other decisions remain internal planning targets
   and rules; their omission from the syllabus does not cancel them or publish them as commitments.

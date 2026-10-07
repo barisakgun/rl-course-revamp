@@ -105,6 +105,14 @@ def notes_of(slide):
     return (head if sep else text).strip()
 
 
+def target_of(slide):
+    """Minutes from the builder's notes trailer ('Target: N min'), which the instructor may edit."""
+    if not slide.has_notes_slide:
+        return None
+    m = re.search(r'Target:\s*([\d.]+)\s*min', slide.notes_slide.notes_text_frame.text)
+    return float(m.group(1)) if m else None
+
+
 def deck_slides(prs):
     out = []
     for s in prs.slides:
@@ -112,7 +120,7 @@ def deck_slides(prs):
         for sh in s.shapes:
             if sh.name.startswith('yaml:'):
                 tagged[sh.name[5:]] = sh
-            elif sh.name.startswith('deco:'):
+            elif sh.name.startswith(('deco:', 'native:')):   # decoration / copied old-slide objects
                 continue
             elif sh.is_placeholder and sh.has_text_frame and not sh.text_frame.text.strip():
                 continue                                       # empty placeholder
@@ -271,6 +279,13 @@ class Pull:
         self.changes.append(f'{sid}: table changed ({len(old)}x{len(old[0])} -> {len(new)}x{len(new[0])})')
 
     def slide(self, sid, ref, ed, target):
+        if target.get('kind') == 'pptx_only':                 # content lives in the PPTX; sync metadata only
+            title = ed['slide'].shapes.title.text_frame.text.strip() if ed['slide'].shapes.title is not None else ''
+            if title != target.get('title'):
+                self.changes.append(f'{sid}: title {target.get("title")!r} -> {title!r}')
+                target['title'] = title
+            self.notes_and_minutes(sid, ed, target)
+            return
         for path, rsh in ref['tagged'].items():
             esh = ed['tagged'].get(path)
             if esh is None:
@@ -285,10 +300,17 @@ class Pull:
             self.lost.append(f'{sid}: shape tagged yaml:{path} has no counterpart in this slide kind; not pulled')
         for sh in ed['untagged']:
             self.lost.append(f'{sid}: added {describe(sh)} is not in the spec; a rebuild drops it')
+        self.notes_and_minutes(sid, ed, target)
+
+    def notes_and_minutes(self, sid, ed, target):
         old, new = (target.get('notes') or '').strip(), notes_of(ed['slide'])
         if old != new:
             target['notes'] = new + '\n' if new else ''
             self.changes.append(f'{sid}: notes edited')
+        mins = target_of(ed['slide'])
+        if mins is not None and mins != target.get('minutes') and not target.get('appendix'):
+            self.changes.append(f'{sid}: minutes {target.get("minutes")} -> {mins:g}')
+            target['minutes'] = int(mins) if mins == int(mins) else mins
 
     # ---- new slides
     def new_slide(self, ed, taken):
@@ -306,6 +328,8 @@ class Pull:
         while len(sid) < 18 and k < len(words):
             sid += '_' + words[k]
             k += 1
+        if ed['id'] and ed['id'] not in taken:               # a slide name set in the deck is the id
+            sid = ed['id']
         base, n = sid, 2
         while sid in taken:
             sid, n = f'{base}_{n}', n + 1
@@ -315,10 +339,17 @@ class Pull:
             entry['kind'] = 'bullets'
         elif not rest and len(pics) == 1 and len(texts) == 1:
             entry['kind'] = 'image_bullets'
-        else:
-            self.lost.append(f'new slide "{title}" has a layout the spec cannot express '
-                             f'({len(pics)} pictures, {len(texts)} text shapes, {len(rest)} other); not pulled')
-            return None
+        else:                                                  # keep it as a PPTX-only entry
+            entry['kind'] = 'pptx_only'
+            entry['title'] = title
+            mins = target_of(s)
+            entry['minutes'] = (int(mins) if mins == int(mins) else mins) if mins is not None else None
+            entry['sources'] = flow(['instructor slide authored in PowerPoint'])
+            entry['notes'] = notes_of(s) + '\n' if notes_of(s) else ''
+            self.changes.append(f'new slide "{title}" -> id {sid}, kind pptx_only '
+                                f'({len(pics)} pictures, {len(texts)} text shapes, {len(rest)} other)')
+            self.lost.append(f'{sid}: content kept in the PPTX only; the spec records title, minutes and notes')
+            return entry
         entry['title'] = title
         paras = paragraphs(texts[0])
         bullets = seq(nest([(lvl, to_markup(r)) for lvl, r in paras]))
@@ -342,7 +373,8 @@ class Pull:
             if not bulleted:
                 entry['bullet_style'] = 'none'
         entry['bullets'] = bullets
-        entry['minutes'] = None
+        mins = target_of(s)
+        entry['minutes'] = (int(mins) if mins == int(mins) else mins) if mins is not None else None
         entry['sources'] = flow(['instructor slide added in PowerPoint'])
         entry['instructor_voice'] = flow(['whole slide'])
         entry['verify'] = flow([])

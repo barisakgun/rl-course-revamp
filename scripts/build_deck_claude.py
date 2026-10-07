@@ -71,9 +71,12 @@ def pct(s):
 def validate(spec):
     errors = []
     d = spec['deck']
-    text = norm((ROOT / d['syllabus_text']).read_text(encoding='utf-8'))
+    text = norm((ROOT / d['syllabus_text']).read_text(encoding='utf-8')) if d.get('syllabus_text') else ''
     for s in spec['slides']:
         for q in s.get('verify', []):
+            if not text:
+                errors.append(f"{s['id']}: verify quote given but the deck has no syllabus_text")
+                continue
             if norm(q) not in text:
                 errors.append(f"{s['id']}: verify quote not in {d['syllabus_text']}: {q!r}")
         t = s.get('table')
@@ -87,15 +90,30 @@ def validate(spec):
         row = next(r for r in asmt['table']['rows'] if 'project' in r[0].lower())
         if pct(row[-1]) != proj['table']['check_sum']:
             errors.append('project milestone total differs from the assessment-table project weight')
-    course = yaml.safe_load((ROOT / 'config/course.yaml').read_text())
-    budget = next(o['minutes'] for o in course['design']['in_class_overheads'] if o['id'] == d['overhead_id'])
-    for s in spec['slides']:
+    budget = time_budget(d)
+    timed = [s for s in spec['slides'] if not s.get('appendix')]
+    for s in timed:
         if not isinstance(s.get('minutes'), (int, float)):
             errors.append(f"{s['id']}: no `minutes` estimate (needed for the {budget}-minute budget)")
-    used = sum(s.get('minutes') or 0 for s in spec['slides'])
-    if used + d['qa_minutes'] > budget:
-        errors.append(f'timing: {used} slide min + {d["qa_minutes"]} Q&A > {budget} configured minutes')
+    used = sum(s.get('minutes') or 0 for s in timed)
+    total = used + d.get('qa_minutes', 0)
+    ok = d.get('time_override', {})                   # instructor-accepted overrun, recorded in the spec
+    if total > budget and total <= ok.get('accepted_minutes', budget):
+        warnings.append(f'timing: {total} min exceeds the {budget}-minute budget; accepted up to '
+                        f'{ok["accepted_minutes"]} min ({ok.get("authority", "no authority given")})')
+    elif total > budget:
+        errors.append(f'timing: {used} slide min + {d.get("qa_minutes", 0)} Q&A > {budget} configured minutes')
     return errors, used, budget
+
+
+def time_budget(d):
+    """Minutes available: a lecture session's accepted teaching minutes (`session_id` in
+    decisions/topic_decisions.yaml) or a configured in-class overhead (`overhead_id` in config/course.yaml)."""
+    if d.get('session_id'):
+        plan = yaml.safe_load((ROOT / 'decisions/topic_decisions.yaml').read_text())['lecture_plan']
+        return next(e['teaching_minutes'] for e in plan if e['id'] == d['session_id'])
+    course = yaml.safe_load((ROOT / 'config/course.yaml').read_text())
+    return next(o['minutes'] for o in course['design']['in_class_overheads'] if o['id'] == d['overhead_id'])
 
 
 # ---------------------------------------------------------------- text helpers
@@ -277,7 +295,8 @@ def table(slide, x, y, w, spec, size=18, row_h=0.5, name='yaml:table'):
             tf.word_wrap = True
             p = tf.paragraphs[0]
             p.text = ''
-            p.alignment = PP_ALIGN.RIGHT if j == len(row) - 1 and j > 0 else PP_ALIGN.LEFT
+            p.alignment = (PP_ALIGN.RIGHT if j == len(row) - 1 and j > 0 and not spec.get('align_left')
+                           else PP_ALIGN.LEFT)
             header, total = i == 0, 'total' in spec and i == last
             add_runs(p, str(val), size, WHITE if header else INK, header or total or j == 0)
     # Plain table style: no theme banding, so our fills are the only fills.
@@ -288,7 +307,7 @@ def table(slide, x, y, w, spec, size=18, row_h=0.5, name='yaml:table'):
 
 
 def notes(slide, s):
-    head = f"Target: {s['minutes']} min. Sources: {', '.join(map(str, s.get('sources', [])))}."
+    head = f"Target: {s.get('minutes', 0)} min{' (appendix)' if s.get('appendix') else ''}. Sources: {', '.join(map(str, s.get('sources', [])))}."
     if s.get('instructor_voice'):
         head += f" Instructor voice (not syllabus policy): {'; '.join(s['instructor_voice'])}."
     slide.notes_slide.notes_text_frame.text = s.get('notes', '').strip() + '\n\n' + head
@@ -407,11 +426,17 @@ def k_flow(slide, s, img):
 
 
 def k_table(slide, s, img):
-    rows = len(s['table']['rows']) + 2
-    row_h = 0.68
-    table(slide, MX, TOP, W - 2 * MX, s['table'], size=22, row_h=row_h)
+    """Optional: table.size, table.row_h, bullets, footnote."""
+    t = s['table']
+    rows = len(t['rows']) + 1 + ('total' in t)
+    row_h = t.get('row_h', 0.68)
+    table(slide, MX, TOP, W - 2 * MX, t, size=t.get('size', 22), row_h=row_h)
     y = TOP + rows * row_h + 0.4
-    bullets(slide, MX, y, W - 2 * MX, BOTTOM - y, s['bullets'], size=22, name='yaml:bullets')
+    if s.get('bullets'):
+        bullets(slide, MX, y, W - 2 * MX, BOTTOM - y, s['bullets'], size=22, name='yaml:bullets',
+                style=s.get('bullet_style', 'bullet'))
+    if s.get('footnote'):
+        footnote(slide, s['footnote'])
 
 
 def k_project(slide, s, img):
@@ -462,9 +487,94 @@ def k_closing(slide, s, img):
     sub.text_frame.paragraphs[0].alignment = PP_ALIGN.CENTER
 
 
+def k_pptx_only(slide, s, img):
+    """Placeholder for a slide authored and maintained only in the instructor's PPTX: a rebuild shows where it
+    belongs instead of silently dropping it."""
+    para_box(slide, MX, TOP + 1.5, W - 2 * MX, 1.5, 'Instructor slide maintained in the course PPTX; '
+             'not reproduced by the builder.', 24, MUTED, align=PP_ALIGN.CENTER, name='deco:pptx_only')
+
+
+def k_blank(slide, s, img):
+    """Title only; the canvas stays empty for live work."""
+
+
+def k_image_grid(slide, s, img):
+    """2×2 (or n-column) cells: image or drawn `comparison`, bold heading, caption and small credit."""
+    cells, n = s['cells'], s.get('columns', 2)
+    rows = math.ceil(len(cells) / n)
+    gx, gy = 0.4, 0.25
+    cw = (W - 2 * MX - gx * (n - 1)) / n
+    ch = (BOTTOM - TOP - gy * (rows - 1)) / rows
+    iw = cw * 0.42
+    for i, c in enumerate(cells):
+        r, k = divmod(i, n)
+        x, y = MX + k * (cw + gx), TOP + r * (ch + gy)
+        box(slide, x, y, cw, ch, LIGHT)
+        if c.get('image'):
+            pic = picture(slide, img(c['image']), x + 0.12, y + 0.12, h=ch - 0.24, name=f'yaml:cells.{i}.image')
+            if pic.width.inches > iw:                          # crop around the centre to the image column
+                keep = iw / pic.width.inches
+                pic.crop_left = pic.crop_right = (1 - keep) / 2
+                pic.width = Inches(iw)
+        elif c.get('drawn') == 'comparison':
+            draw_comparison(slide, x + 0.12, y + 0.12, iw, ch - 0.24, i)
+        tx = x + iw + 0.32
+        tw = cw - iw - 0.44
+        para_box(slide, tx, y + 0.15, tw, 0.9, c['heading'], 20, INK, True, name=f'yaml:cells.{i}.heading')
+        para_box(slide, tx, y + 1.0, tw, ch - 1.55, c['caption'], 18, INK, name=f'yaml:cells.{i}.caption')
+        if c.get('credit'):
+            para_box(slide, tx, y + ch - 0.5, tw, 0.4, c['credit'], 12, MUTED, name=f'yaml:cells.{i}.credit')
+
+
+def draw_comparison(slide, x, y, w, h, i):
+    """Illustrative response comparison: two response cards, the preferred one ticked (native shapes)."""
+    bh = (h - 0.55) / 2
+    for j, (label, mark) in enumerate((('Response A', '✓ preferred'), ('Response B', ''))):
+        by = y + 0.45 + j * (bh + 0.1)
+        b = box(slide, x, by, w, bh, WHITE, line=RGBColor(0xBF, 0xBF, 0xBF), shape=MSO_SHAPE.ROUNDED_RECTANGLE)
+        b.name = f'deco:comparison.{i}.{j}'
+        para_box(slide, x + 0.1, by + 0.05, w - 0.2, 0.35, label, 14, MUTED, True, name=f'deco:comparison.{i}.{j}.label')
+        for k in range(2):
+            ln = box(slide, x + 0.1, by + 0.45 + k * 0.22, w * (0.75 - 0.2 * k), 0.08, LIGHT)
+            ln.name = f'deco:comparison.{i}.{j}.line{k}'
+        if mark:
+            para_box(slide, x + 0.1, by + bh - 0.45, w - 0.2, 0.4, mark, 14, RED, True,
+                     name=f'deco:comparison.{i}.{j}.mark')
+    para_box(slide, x, y, w, 0.4, 'Which response is better?', 14, INK, True, name=f'deco:comparison.{i}.prompt')
+
+
+def k_native_bullets(slide, s, img):
+    """Copy named, relationship-free shapes (e.g. a grouped diagram) from an old deck as native XML, centred at
+    the top; optional `relabel` replaces whole text runs; bullets go below."""
+    nat = s['native']
+    src = Presentation(ROOT / nat['deck']).slides[nat['slide'] - 1]
+    top = TOP
+    for name in nat['shapes']:
+        sh = next(x for x in src.shapes if x.name == name)
+        el = copy.deepcopy(sh._element)
+        if el.xpath('.//@r:embed | .//@r:id | .//@r:link'):
+            raise ValueError(f"{s['id']}: native shape {name!r} has relationships; copy it through PowerPoint")
+        used = {int(i) for i in slide.shapes._spTree.xpath('.//p:cNvPr/@id')}
+        nxt = max(used | {1}) + 1
+        for c in el.xpath('.//p:cNvPr'):                       # unique shape ids, or PowerPoint asks to repair
+            c.set('id', str(nxt)); nxt += 1
+        for t in el.xpath('.//a:t'):
+            if t.text in nat.get('relabel', {}):
+                t.text = nat['relabel'][t.text]
+        slide.shapes._spTree.append(el)
+        new = slide.shapes[-1]
+        new.name = f"native:{nat['deck'].split('/')[-1]}#{nat['slide']}:{name}"
+        new.left, new.top = Inches((W - new.width.inches) / 2), Inches(top)
+        top += new.height.inches + 0.2
+    bullets(slide, MX, top + 0.1, W - 2 * MX, BOTTOM - top - 0.1, s['bullets'], name='yaml:bullets',
+            style=s.get('bullet_style', 'bullet'))
+
+
 KINDS = {'title': k_title, 'image_bullets': k_image_bullets, 'bullets': k_bullets, 'two_column': k_two_column,
-         'flow': k_flow, 'table': k_table, 'project': k_project, 'callouts': k_callouts, 'closing': k_closing}
-LAYOUT = {'title': 'Title Slide', 'bullets': 'Title and Content', 'closing': 'Section Header'}  # else Title Only
+         'flow': k_flow, 'table': k_table, 'project': k_project, 'callouts': k_callouts, 'closing': k_closing,
+         'section': k_closing, 'blank': k_blank, 'pptx_only': k_pptx_only, 'image_grid': k_image_grid, 'native_bullets': k_native_bullets}
+LAYOUT = {'title': 'Title Slide', 'bullets': 'Title and Content', 'closing': 'Section Header',
+          'section': 'Section Header'}  # else Title Only
 
 
 # ---------------------------------------------------------------- build / render
@@ -480,7 +590,7 @@ def make_presentation(spec):
     """Build the deck in memory (no validation or saving); shared with pull_deck_claude.py."""
     d = spec['deck']
     template = ROOT / d['template']
-    src = Presentation(ROOT / d['image_source'])
+    src = Presentation(ROOT / d['image_source']) if d.get('image_source') else None
 
     def img(ref):
         """Image reference: {path: repo-relative file} or {source_slide: n, shape: name} in image_source."""
@@ -500,7 +610,10 @@ def make_presentation(spec):
         slide = prs.slides.add_slide(layouts[LAYOUT.get(s['kind'], 'Title Only')])
         slide._idx = n
         slide._element.cSld.set('name', s['id'])           # spec id, for mapping PowerPoint edits back
-        if s['kind'] not in ('title', 'closing'):
+        if s['kind'] == 'blank' and not s.get('title'):
+            ph = slide.shapes.title                        # untitled live canvas: drop the empty title box
+            ph._element.getparent().remove(ph._element)
+        elif s['kind'] not in ('title', 'closing', 'section'):
             set_title(slide, s['title'])
         KINDS[s['kind']](slide, s, img)
         notes(slide, s)
@@ -565,11 +678,13 @@ def main():
     errors, used, budget = validate(spec)
     nq = sum(len(s.get('verify', [])) for s in spec['slides'])
     print(f'{len(spec["slides"])} slides; {nq} syllabus quotes checked; timing {used} + '
-          f'{spec["deck"]["qa_minutes"]} Q&A of {budget} min')
+          f'{spec["deck"].get("qa_minutes", 0)} Q&A of {budget} min')
     if errors:
         print('\n'.join('ERROR ' + e for e in errors))
         sys.exit(1)
     if a.check:
+        for w_ in warnings:
+            print('WARN', w_)
         return
     out = candidate_output(ROOT, spec['deck']['output'])
     build(spec, out)

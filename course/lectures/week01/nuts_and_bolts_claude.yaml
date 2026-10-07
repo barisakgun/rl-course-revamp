@@ -47,15 +47,16 @@ slides:
       - "Office: Eng 273"
       - "Office hours:"
       - ["By appointment, online or in person", "Or whenever my door is open, especially after lectures"]
-      - "Teaching assistants: TBA"
+      - "Teaching assistants (office hours by appointment):"
+      - ["Alper Saydam · asaydam21@ku.edu.tr", "Aydın Ahmadi · aahmadi22@ku.edu.tr"]
     footnote: "Easiest ways to reach me: just before or after a lecture, or by e-mail."
     minutes: 1.5
     sources: [Instructor, Teaching Assistants, source slide 3]
     instructor_voice: ["Office: Eng 273 (source deck, not in syllabus)", "Easiest ways to reach me (source deck)"]
-    verify: ["baakgun@ku.edu.tr", "By appointment (online or in person), or whenever my door is open, especially after lectures", "| TBA | TBA | TBA |"]
+    verify: ["baakgun@ku.edu.tr", "By appointment (online or in person), or whenever my door is open, especially after lectures", "Alper Saydam", "asaydam21@ku.edu.tr", "Aydın Ahmadi", "aahmadi22@ku.edu.tr"]
     notes: |
       [1:30] Brief self-introduction — research interests, why I teach this course.
-      TAs will be announced on KU Hub once assigned.
+      TAs: Alper Saydam and Aydın Ahmadi, both by appointment (syllabus).
       (Deliberately no reply-time promise: it is not in the syllabus.)
 
   - id: you
@@ -191,7 +192,7 @@ slides:
       - "stochastic gradient descent, linear regression, and neural networks"
       - "ENGR200 and MATH107"
       - "I recommend taking this course only if you already know Python"
-      - "Prior coursework in deep learning is not required, but familiarity with it would be helpful"
+      - "Prior coursework in deep learning is not required, but familiarity with it is helpful"
       - "4 planned programming assignments"
     notes: |
       [1:30] Be direct: the most common difficulty is translating equations into code, not the equations alone.

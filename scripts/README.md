@@ -190,3 +190,20 @@ python3 -B -m unittest discover -s scripts -p 'test_syllabus_report.py'
 `analysis/syllabus_verification.json` retains historical draft visual-review evidence only. The current verification report establishes final DOCX/PDF identity, published-fact agreement and Markdown consistency; it makes no new visual-review or upload claim. If an authorized future task edits the DOCX, follow the documents skill's render/inspect workflow and record evidence for those exact new bytes. Do not treat the historical draft review as final-file verification.
 
 No source collection or normalization rerun is needed. Historical phase-completion views do not supersede the current handoff. Phase 7 teaching-material work remains unstarted.
+
+## Local copies of reference-course slides
+
+```
+python3 scripts/download_source_slides.py            # silver_rl, berkeley_cs285, stanford_cs234, stanford_cs224r
+python3 scripts/download_source_slides.py --refresh  # re-download existing files
+```
+
+Saves every `lecture_slides`/`discussion_slides` PDF listed in each source manifest to `sources/<id>/lectures/` and writes `sources/<id>/lectures/index.json`, with URL, file, size, SHA-256, HTTP status and retrieval time. The PDFs are git-ignored; the index is tracked. Manifests are not modified. Exits nonzero if any download failed; failures are recorded in the index.
+
+## Lecture-deck text view (Claude decks)
+
+```
+python3 scripts/deck_text_view_claude.py course/lectures/week01/introduction_claude.pptx output/lectures/week01/introduction_claude.md
+```
+
+Read-only Markdown view of a rendered deck for review: slide ids, titles, text, tables, diagram labels and notes, plus the deck's SHA-256. Lecture decks build with `scripts/build_deck_claude.py <spec> [--render]`. A spec with `deck.session_id` is timed against that session's accepted teaching minutes.

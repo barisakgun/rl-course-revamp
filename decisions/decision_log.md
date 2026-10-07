@@ -1,5 +1,99 @@
 # Decision Log
 
+## 2026-10-06 — Introduction shared content proposal authorized
+
+- Instructor requested reading the [introduction decisions](lectures/introduction.md) first and creating the shared content file. The 1.1 proposal and single shared review are now available. This authorizes content drafting, not rendering or acceptance of unaddressed proposals; scope, mastery and teaching allocation remain unchanged.
+- In follow-up answers, the instructor selected legged locomotion / learning to walk, ChatGPT / learning from human feedback, and an appendix reference for the recycling-robot formulation. Recorded as A11/A12; resolves O1/O2. The draft uses ANYmal (2019) and historical ChatGPT training (2022). The appendix adds no required teaching time or student task; other open content proposals remain open for review.
+
+## 2026-10-06 — Consolidation workflow clarified
+
+- Authority: the instructor requested updating the workflow after the review of its two inconsistencies. `docs/lecture_workflow.md` now specifies one shared review file, one content file kept editable through the AI review/render/fix loop, and freezing at instructor takeover of the PPTX. `AGENTS.md` includes the shared review in its ownership exception. Existing independent proposals/reviews remain historical; the deck decision file remains outcomes-only. This is a workflow update, not authorization to create render-ready content or change curriculum scope, timing or workload.
+
+## 2026-10-07 — Workflow pilot extended to session 1.2
+
+- Authority: the instructor, after accepting the 1.1 deck: "I want to also have 1.2 be part of it as I think we can improve more."
+- Session 1.2 (`mdp_values`) is the second pilot round of `docs/lecture_workflow.md`. The evaluation of the workflow (including whether both review steps earn their cost) moves to after 1.2.
+- No change to scope, mastery, minutes, assessment or workload.
+
+## 2026-10-07 — Session 1.1 deck accepted (done)
+
+- Authority: the instructor's explicit thumbs-up.
+- Accept `course/lectures/week01/introduction_claude.pptx`, SHA-256 `fd460cf5264650dbc0aab2b94ec6bacb6b51a097d51d24bb20257dfa5f4044e2`, as the done 1.1 deck. This identifies the saved version; later substantive edits reopen it.
+- Last change before acceptance: the "Why is RL different?" first bullet now uses the evaluative vs instructive feedback framing, with a sub-bullet that RL can also use a teacher (AlphaGo human games, ChatGPT human comparisons). Deck decision A20.
+- The deck source `introduction_claude.yaml` is in sync. The content file stays frozen as the pre-handoff record. The pilot's workflow evaluation (are both review steps worth their cost?) is still open in `docs/lecture_workflow.md`.
+- No change to accepted scope, mastery, assessment or workload.
+
+## 2026-10-07 — Session 1.1 deck handed off and pulled back
+
+- Authority: the instructor's edits to the 1.1 deck and the instruction to update the content and decision files.
+- Deck decisions A13–A19 are recorded in `decisions/lectures/introduction.md`, resolving O3–O7:
+  - structure;
+  - the robot model with numbers: every search +2, rescue −3, at high a search stays high with 0.8, at low a search stays low with 0.7;
+  - other model versions drawn only if time allows;
+  - no reward-table slide;
+  - a live summary with a Model row;
+  - the reworded "no teacher" line;
+  - 42.5 planned minutes accepted (above 38, within the slot).
+- The shared content file is frozen at handoff. The deck (SHA-256 `53c870887b16283402c08c797f8798191ac341fdb321ff1c2d4735bbf503a61f`) and its source `introduction_claude.yaml` are in sync. Awaiting the instructor's thumbs-up.
+- No change to accepted topic scope, mastery, assessment or workload. The 1.1 teaching-time overrun uses part of that lecture's buffer, by instructor decision.
+
+## 2026-10-07 — Lecture timing convention; 1.1 deck notes
+
+- Authority: the instructor's notes after the first lecture.
+- Plan and time lecture content as if delivery goes to plan. In-class time lost (1.1 stopped after the robot video and resumes from the Atari slide) is not carried into calculations; each lecture's buffer absorbs it. Recorded in `docs/lecture_workflow.md` (timing convention).
+- 1.1 deck: put the four-step reward table back with a 2.5-minute target. The book's recycling-robot figure (with symbols) stays for now as a "formulation" picture, by the instructor's choice; a redrawn, editable version is under discussion. Video sources: the robot video is the instructor's own; the Atari video is from DeepMind (pre-Google). Recorded in `introduction_media/credits.md`.
+- No change to accepted scope, mastery, minutes, assessment or workload.
+
+## 2026-10-06 — Lecture workflow adopted; second 1.1 comments; local reference slides
+
+- Authority: the instructor's second comments in the Claude conversation.
+- Adopt the per-deck lecture workflow in `docs/lecture_workflow.md`: the instructor's sequence, ChatGPT's Q12 refinements and Claude's round-2 adjustments.
+  - The instructor's addition: a per-deck decision file, `decisions/lectures/<deck>.md`, that keeps outcomes separate from content and reviews.
+  - The deck decision file and the render-ready content file are shared; `AGENTS.md` records this as an exception to the ownership rule.
+- Session 1.1 decisions are recorded in `decisions/lectures/introduction.md`, A6–A10:
+  - no symbols in 1.1;
+  - a short contrast with other learning methods;
+  - learning from experience and exploration;
+  - motivation with Go, fusion, one robotics and one LLM example;
+  - the CS224R chatbot example kept for 1.2.
+
+  The first comments (A1–A5) are copied there from the entry below.
+- Download the four linked-only reference courses' lecture and discussion slides into `sources/<id>/lectures/` with `scripts/download_source_slides.py`. Each folder gets an `index.json` with URL, hash and retrieval time; the PDFs are git-ignored. This is a local reference copy; manifests and evidence are unchanged.
+- No accepted scope, mastery, minutes, assessment or workload change. Render-ready content is not yet requested.
+
+## 2026-10-06 — Instructor comments on the session 1.1 pilot
+
+- Authority: the instructor's identical feedback to both AIs after their initial suggestions and cross-reviews.
+- Use the recycling robot as the working example for 1.1; gridworlds will receive ample later exposure. This resolves the pilot example choice, not the exact examples for all subsequent sessions.
+- Reuse the interaction diagram from `sources/current_course/1 - Introduction.pptx`, slide 42 (PPTX position, including hidden slides).
+- The instructor will reveal the robot progressively through discussion and can use an empty slide. Do not require a dedicated reveal slide or a prescribed pair exercise.
+- The instructor generally agrees with both sets of cut suggestions. This supports reducing the broad prerequisite review, history and extended applications material; it does not approve every proposed slide deletion or every unaddressed content detail.
+- Briefly contrast learning and planning only if it fits the discussion naturally.
+- Current authorization is to revisit the cross-reviews, inspect the other sources' introductory material, and recommend the consolidation workflow. Do not create render-ready content yet. The instructor's proposed ChatGPT-content / Claude-review-and-render / ChatGPT-deck-review sequence remains under discussion pending these comparisons.
+- No accepted topic scope, mastery, assessment or student workload changes. The pilot retains 38 teaching minutes within 39.5 available content minutes after the briefing; the chosen example replaces the proposed grid rather than adding a second activity.
+
+## 2026-10-06 — Teaching assistants added to the syllabus and deck 0
+
+- Authority: instructor announced the TAs and asked for the syllabus DOCX to be updated. This reopens the frozen syllabus for this change only.
+- The instructor had already edited `course/syllabus/syllabusFall26.docx`:
+  - The TA table now lists Alper Saydam (asaydam21@ku.edu.tr) and Aydın Ahmadi (aahmadi22@ku.edu.tr), office hours by appointment.
+  - One wording change: deep learning familiarity "is helpful" (was "would be helpful").
+- No other text or table changed against the committed version. New DOCX SHA-256 `393d71e06d7a386d03dc20b2c754e38b5ee7c039cdc57e0ef042c5a8e8bc4cfd`, recorded in `decisions/syllabus_decisions.yaml`. A LibreOffice render of page 1 was inspected.
+- `course/syllabus/syllabusFall26.pdf` was re-exported by the instructor and lists both TAs (text checked). New PDF SHA-256 `75799d1b8f44054ba16ca087b0dba8d9c04b2631a9d5deac7457f4be0044813e`, recorded in `decisions/syllabus_decisions.yaml`. This corrects an earlier version of this entry that said the PDF still showed "TBA".
+- Deck 0, `course/lectures/week01/nuts_and_bolts_claude.pptx`:
+  - Slide 2 replaces "Teaching assistants: TBA" with both TAs and their e-mails; the speaker note is updated. Backup in `output/deck_backups/`.
+  - The content source `nuts_and_bolts_claude.yaml` is kept in step.
+  - New SHA-256 `427b0edde8e85c6ecc23489e4df1c5a496c735edc24d21757ee0e7b7e5fb78e3` supersedes the accepted deck-0 fingerprint for this change only. Rendered slide inspected.
+- Staffing only; no curriculum, assessment, timing or workload change.
+
+## 2026-10-06 — Notation guide: observation symbol and Week 1 items
+
+- Authority: instructor instruction in the Claude conversation to update the notation guide with Claude's session 1.1 notation suggestions.
+- Add O_t (observation at time t, book §17.3) to `course/notation_guide.md`.
+- List the known old-deck conversions under O9.
+- Record the history symbol H_t (and its clash with the MPC horizon H) as open item O10, and the recycling-robot α/β and r(s, a, s′) issue as open item O11. Both remain open with proposals; O11 applies only if the robot is chosen as the running example.
+- Notation only; no curriculum, assessment, timing or workload change. The running-example choice (D1) remains open.
+
 ## 2026-10-06 — Clarification: scope of content suggestions and roles
 
 - Authority: instructor instruction in the Claude conversation, restating the process given to ChatGPT; this fills gaps in the entry below.

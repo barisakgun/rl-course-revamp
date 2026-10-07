@@ -1,6 +1,6 @@
 # Notation guide
 
-**Shared** by Claude and ChatGPT for all lecture, assignment and exam material. Status: draft started 2026-10-05; the instructor confirms changes and resolves the open items at the end.
+**Shared** by Claude and ChatGPT for all lecture, assignment and exam material. Status: draft started 2026-10-05; the instructor confirms changes and resolves the open items at the end. Updated 2026-10-06 (instructor-requested): O_t added; O9 conversions listed; O10–O11 recorded.
 
 Base convention: Sutton & Barto, *Reinforcement Learning: An Introduction*, 2nd ed., "Summary of Notation". Later units add symbols the book does not use; they are listed separately so the base stays recognisable to students who read the book.
 
@@ -30,6 +30,7 @@ Base convention: Sutton & Barto, *Reinforcement Learning: An Introduction*, 2nd 
 | ℛ | Possible rewards |
 | t, T | Time step; final time step of an episode |
 | S_t, A_t, R_{t+1} | State, action, and the reward that follows them (reward index is t+1) |
+| O_t | Observation at time t (book §17.3); distinct from the state S_t the agent keeps (added 2026-10-06) |
 | p(s′, r ∣ s, a) | Four-argument dynamics |
 | p(s′ ∣ s, a), r(s, a) | State-transition probabilities; expected reward |
 | γ | Discount factor |
@@ -102,4 +103,6 @@ Base convention: Sutton & Barto, *Reinforcement Learning: An Introduction*, 2nd 
 | O6 | β is the KL coefficient (LLM unit), the IQL/AWR inverse temperature and the book's average-reward step size | Choose per unit and state it on first use |
 | O7 | r is the reward value, r(s, a), the average reward r(π) and the LLM reward model r_φ(x, y) | Keep r(s, a); write the reward model as r_φ(x, y); avoid r(π) beyond the 5-minute mention |
 | O8 | Network parameters: the book uses **w** for values, many deep-RL papers use θ for Q-networks and φ/ψ for critics | Follow the book: **w** for value/critic weights, **θ** for the policy |
-| O9 | The old decks may use other symbols | Note the differences when slides are reused, and convert or ask |
+| O9 | The old decks may use other symbols | Note the differences when slides are reused, and convert or ask. Known conversions (Weeks 1–2 decks, checked 2026-10-06): reward R_t → R_{t+1} (MDP deck slide 3; Intro slide 54); G_t = r_t + γr_{t+1} + … → G_t = R_{t+1} + γR_{t+2} + … (MDP deck slides 22, 24); T(s, a, s′) → p(s′ ∣ s, a) and R(s, a) → r(s, a) (MDP deck slides 11, 36); history H_t (MDP deck slide 4) → see O10; recurrent-state weights W_s, W_o (MDP deck slide 10) clash with **w** and are not planned for reuse |
+| O10 | History H_t is not defined here. The book (§17.3) writes H_t = A_0, O_1, …, A_{t−1}, O_t, treating rewards as part of the observation; MDP deck slide 4 writes H_t = O_1, A_1, R_1, …, O_t. H is also the MPC planning horizon (Weeks 10–13) | Needed only if 1.2 reuses MDP deck slides 4/7 with symbols; otherwise say "history" in words. If a symbol is adopted, use the book form and state that rewards are part of the observation; the subscript keeps H_t (history) apart from H (horizon) |
+| O11 | The book's recycling robot (Example 3.3) uses α and β as transition probabilities (clashing with the step size α and with O6) and a three-argument expected reward r(s, a, s′), which is not defined here | Applies only if the robot is chosen as the running example. Write numeric probabilities on slides; present the dynamics as p(s′, r ∣ s, a) rows rather than r(s, a, s′); mention the book's symbols only when pointing to Example 3.3 |

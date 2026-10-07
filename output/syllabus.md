@@ -24,7 +24,8 @@ E-mail: [baakgun@ku.edu.tr](<mailto:baakgun@ku.edu.tr>)
 
 | NAME | E-MAIL | OFFICE HOURS |
 | --- | --- | --- |
-| TBA | TBA | TBA |
+| Alper Saydam | [asaydam21@ku.edu.](<mailto:asaydam21@ku.edu.>)[tr](<mailto:asaydam21@ku.edu.tr>) | By appointment |
+| Aydın Ahmadi | [aahmadi22@ku.edu.](<mailto:aahmadi22@ku.edu.tr>)[tr](<mailto:aahmadi22@ku.edu.tr>) | By appointment |
 
 ## Prerequisites
 
@@ -40,7 +41,7 @@ E-mail: [baakgun@ku.edu.tr](<mailto:baakgun@ku.edu.tr>)
 
 ### Deep Learning
 
-- Prior coursework in deep learning is not required, but familiarity with it would be helpful.
+- Prior coursework in deep learning is not required, but familiarity with it is helpful.
 
 ### Basics of Probability & Statistics and Linear Algebra (e.g., ENGR200 and MATH107)
 

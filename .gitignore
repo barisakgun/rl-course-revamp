@@ -9,3 +9,4 @@ sources/foundations-deep-rl-abbeel/*.pdf
 ~$*.pptx
 .DS_Store
 __MACOSX
+sources/*/lectures/*.pdf
