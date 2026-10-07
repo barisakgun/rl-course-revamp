@@ -12,10 +12,10 @@ Local decks with no page-level evidence (added or not exported when the evidence
 
 ### 1.1 RL formulation and information (`formulate`)
 
-- **Teaching:** 38 min (range 35–45); confidence medium
+- **Teaching:** 42.5 min (range 35–45); confidence medium
 - **Requires:** configured entry background
 - **Worked activity:** Formulate one running problem; distinguish reward, return, observation and state.
-- **Pacing note:** 20-minute configured syllabus overhead in this slot; defer abstraction theory.
+- **Pacing note:** 20-minute configured syllabus overhead in this slot; defer abstraction theory. Delivered deck (decisions/lectures/introduction.md) introduces the model and returns informally; 1.2 covers them again formally.
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
 | --- | --- | --- | --- |

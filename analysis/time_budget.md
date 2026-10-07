@@ -12,8 +12,8 @@ Frozen curriculum updated only through accepted bounded Double DQN/IQL mastery r
 - Calendar check: 28 − 2 − 3 + 3 = 26 available lectures; 13 × 2 = 26 planned. Losses are not subtracted again.
 - Planned contact: 26 × 70 = **1,820 minutes**. Configured reserve: **273 minutes** (15%).
 - Content capacity: 1,820 × 0.85 − 20 configured overhead = **1,527 minutes**.
-- Proposed teaching: **1,440 minutes**; additional project/checkpoint administration: **19 minutes**; combined **1,459 minutes**.
-- Unallocated capacity beyond the configured reserve: **68 minutes**. It is distributed across weeks, not a movable free lecture.
+- Proposed teaching: **1,444.5 minutes**; additional project/checkpoint administration: **19 minutes**; combined **1,463.5 minutes**.
+- Unallocated capacity beyond the configured reserve: **63.5 minutes**. It is distributed across weeks, not a movable free lecture.
 - The configured syllabus overhead is placed in Week 1, session 1. Additional project administration is charged separately. The 85% baseline is for advance planning; the generic buffer is available during delivery under the accepted policy.
 - Presentations: **0 live lecture minutes**, as configured. Attendance and preparation outside class remain workload; their length and cohort size are unknown.
 
@@ -49,7 +49,7 @@ Total provisional estimate: **1,730–2,210 minutes**. This sum uses whole-week 
 
 | Week | Capacity | Teaching | Added admin | Unallocated | Teaching range | Upper demand beyond planning budget | Upper demand beyond physical week |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 99 | 96 | 0 | 3 | 85–110 | 11 | 0 |
+| 1 | 99 | 100.5 | 0 | -1.5 | 85–110 | 11 | 0 |
 | 2 | 119 | 116 | 0 | 3 | 110–140 | 21 | 0 |
 | 3 | 119 | 117 | 0 | 2 | 104–135 | 16 | 0 |
 | 4 | 119 | 111 | 5 | 3 | 98–128 | 14 | 0 |
@@ -69,7 +69,7 @@ Excess beyond the planning budget may use the instructor-authorized generic buff
 
 | Week.slot / block | Available | Teaching + admin | Teaching range / confidence | Worked activity and scope limit |
 | --- | --- | --- | --- | --- |
-| 1.1 `formulate` | 39.5 | 38 + 0 | 35–45 / medium | Formulate one running problem; distinguish reward, return, observation and state. 20-minute configured syllabus overhead in this slot; defer abstraction theory. |
+| 1.1 `formulate` | 39.5 | 42.5 + 0 | 35–45 / medium | Formulate one running problem; distinguish reward, return, observation and state. 20-minute configured syllabus overhead in this slot; defer abstraction theory. Delivered deck (decisions/lectures/introduction.md) introduces the model and returns informally; 1.2 covers them again formally. |
 | 1.2 `mdp_values` | 59.5 | 58 + 0 | 50–65 / medium | Compute returns and define a policy/model/value on the running MDP. Representation and partial observability remain conceptual. |
 | 2.1 `bellman` | 59.5 | 58 + 0 | 55–70 / medium | Derive one expectation backup and perform policy-evaluation sweeps. High density; finite examples before operator formalism. |
 | 2.2 `improvement` | 59.5 | 58 + 0 | 55–70 / medium | Reuse one grid/table to compare improvement, VI and PI. Protect the improvement argument; asynchronous DP optional. |

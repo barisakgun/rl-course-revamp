@@ -169,7 +169,11 @@ def build():
     allocated = teaching + admin
     assert allocated <= capacity, 'Semester overload'
     for s in sessions:
-        assert s['teaching_minutes'] + s['administration_minutes'] <= per_session[s['week'], s['slot']], f'Session overload: {s["id"]}'
+        # An instructor-accepted overrun (recorded with its authority in the lecture plan) uses that lecture's buffer;
+        # the reports still show the negative remainder.
+        allowance = s.get('accepted_overrun_minutes', 0)
+        assert allowance == 0 or s.get('overrun_authority'), f'Overrun without authority: {s["id"]}'
+        assert s['teaching_minutes'] + s['administration_minutes'] <= per_session[s['week'], s['slot']] + allowance, f'Session overload: {s["id"]}'
     assert design['project_presentations_outside_class_hours'], 'Reallocate presentations before auditing an in-class scenario'
     demand = {x['week']: x for x in proposal['provisional_demand']}
     assert set(demand) == set(weekly_capacity)

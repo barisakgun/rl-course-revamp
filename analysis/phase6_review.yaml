@@ -7,7 +7,7 @@ weekly_baseline:
   week: 1
   slot: 1
   title: RL formulation and information
-  teaching_minutes: 38
+  teaching_minutes: 42.5  # instructor 2026-10-07: accepted 1.1 deck timing (was 38); see decision log
   administration_minutes: 0
 - id: mdp_values
   week: 1

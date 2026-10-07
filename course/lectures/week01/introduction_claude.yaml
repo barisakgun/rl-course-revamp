@@ -8,7 +8,7 @@
 # (docs/lecture_workflow.md step 6); content changes go into the shared proposal first.
 # After the instructor edits the PPTX, this file is kept in step with it (scripts/pull_deck_claude.py).
 #
-# Time budget: decisions/topic_decisions.yaml lecture_plan[formulate].teaching_minutes (38).
+# Time budget: decisions/topic_decisions.yaml lecture_plan[formulate].teaching_minutes (42.5 since 2026-10-07).
 # Appendix slides carry no teaching time.
 
 deck:
@@ -16,9 +16,6 @@ deck:
   output: course/lectures/week01/introduction_claude.pptx
   preview: output/lectures/week01/introduction_claude_preview.png
   session_id: formulate
-  time_override:              # planned total above the session's 38 accepted minutes, using part of the buffer
-    accepted_minutes: 42.5
-    authority: instructor 2026-10-07 (within the 70-minute slot; see decisions/lectures/introduction.md)
   qa_minutes: 0                # questions are inside each segment's estimate (content proposal)
   title: Introduction to reinforcement learning (session 1.1)
   author: Barış Akgün

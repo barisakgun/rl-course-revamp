@@ -48,7 +48,7 @@
 - A17. **Summary table is a live 0.5-minute slide** (replaces the appendix of A12). Rows: Decisions, State, Model, Reward, Objective, Horizon (continuing).
 - A18. **"Why is RL different?"** says "Can work with only a critic (reward) and no teacher (label)". Resolves O7. The observation/state question (O5) and the vacuum backup in the summary notes (O6) are kept as handed off.
 - A20. **"Why is RL different?", first bullet** (instructor, 2026-10-07): "Learns from **evaluative** feedback (rewards: how good was what I did?), not only **instructive** feedback (labels: what should I have done?)", with the sub-bullet "and can also use a teacher when available, e.g. human game records (AlphaGo) or human comparisons (ChatGPT)". This uses the book's evaluative/instructive distinction (Ch. 2) and avoids "critic", which means a learned value function in actor-critic methods (Weeks 7–8). Replaces the A18 wording.
-- A19. **Time:** the slides total **42.5 minutes** (robot formulation 9). That is above the session's 38 accepted minutes and 3 above the 39.5 planning allowance, using part of the buffer, within the 70-minute slot. Accepted by the instructor; recorded as `time_override` in the deck source. Under the 2026-10-07 timing convention, time lost in delivery is not counted.
+- A19. **Time:** the slides total **42.5 minutes** (robot formulation 9). This is now the session's accepted teaching time in `decisions/topic_decisions.yaml` (2026-10-07; was 38), with a recorded 3-minute overrun of the 39.5 usable minutes. The Week 1 spill-over is managed in delivery and not carried into later planning.
 
 ## Open
 

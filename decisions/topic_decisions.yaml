@@ -591,16 +591,21 @@ lecture_plan:
   week: 1
   slot: 1
   title: RL formulation and information
-  teaching_minutes: 38
+  teaching_minutes: 42.5
   teaching_range:
   - 35
   - 45
   administration_minutes: 0
+  accepted_overrun_minutes: 3
+  overrun_authority: Instructor 2026-10-07. The accepted deck plans 42.5 minutes against 39.5 usable after the briefing;
+    the overrun uses this lecture's buffer, and the resulting spill-over into Week 2 is managed in delivery and not
+    carried into later planning (docs/lecture_workflow.md timing convention).
   group_ids:
   - formulation
   requires: []
   worked_activity: Formulate one running problem; distinguish reward, return, observation and state.
-  feasibility_note: 20-minute configured syllabus overhead in this slot; defer abstraction theory.
+  feasibility_note: 20-minute configured syllabus overhead in this slot; defer abstraction theory. Delivered deck
+    (decisions/lectures/introduction.md) introduces the model and returns informally; 1.2 covers them again formally.
   confidence: medium
 - id: mdp_values
   week: 1

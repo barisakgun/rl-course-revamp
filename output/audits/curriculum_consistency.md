@@ -18,14 +18,14 @@ Curriculum freeze retained with accepted bounded Double DQN/IQL implementation r
 | Generic buffer (separate) | 273 |
 | Configured syllabus administration | 20 |
 | Usable budget after fraction and syllabus | 1,527 |
-| Teaching blocks | 1440 |
+| Teaching blocks | 1444.5 |
 | Additional checkpoint/synthesis administration | 19 |
-| Unallocated within usable budget | 68 |
+| Unallocated within usable budget | 63.5 |
 | Required video playback | 80–105 |
 | Required video student effort (includes playback) | 110–160 |
 | Project presentations | Outside class: zero lecture minutes; preparation/attendance workload to be designed |
 
-All 26 sessions fit their local planning allowance; topic IDs within a teaching block are not charged separately. The 68-minute semester margin is spread across sessions and is not freely transferable to any week. The generic buffer may be used in delivery, at the expense of questions/examples/consolidation. Teaching and video effort estimates are not a completed total student-workload budget.
+All 26 sessions fit their local planning allowance; topic IDs within a teaching block are not charged separately. The 63.5-minute semester margin is spread across sessions and is not freely transferable to any week. The generic buffer may be used in delivery, at the expense of questions/examples/consolidation. Teaching and video effort estimates are not a completed total student-workload budget.
 
 The 5 policy lectures allocate 280 teaching minutes and 5 administration minutes, leaving 12.5 within their planning allowance. A 15% teaching overrun needs 29.5 minutes of their 52.5-minute generic buffer in aggregate; individual lectures may need redistribution. SAC remains 30 minutes, without a proof or coding workshop. The offline week has 9 unallocated minutes, only 8.5 in its first session: optional five-minute LSTD and IRL mentions compete for that local margin. CQL already occupies five minutes in 12.2; the clarification adds zero time.
 

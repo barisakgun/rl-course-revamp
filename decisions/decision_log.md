@@ -9,6 +9,18 @@
 
 - Authority: the instructor requested updating the workflow after the review of its two inconsistencies. `docs/lecture_workflow.md` now specifies one shared review file, one content file kept editable through the AI review/render/fix loop, and freezing at instructor takeover of the PPTX. `AGENTS.md` includes the shared review in its ownership exception. Existing independent proposals/reviews remain historical; the deck decision file remains outcomes-only. This is a workflow update, not authorization to create render-ready content or change curriculum scope, timing or workload.
 
+## 2026-10-07 — 1.1 teaching time updated; `_chatgpt` decks untracked
+
+- Authority: the instructor's instruction to update 1.1's timing in the course plan, keep work on `main`, and ignore `_chatgpt` PPTX files.
+- `decisions/topic_decisions.yaml` `formulate`: teaching minutes 38 → **42.5** (inside the accepted 35–45 range), with `accepted_overrun_minutes: 3` and its authority. 1.1 introduces the model and returns informally; 1.2 keeps its 58 minutes and covers them again formally.
+- The Phase 3 time audit now accepts a session overrun only when the lecture plan records it with an authority, and its reports still show the negative remainder. The Phase 6 baseline (`analysis/phase6_review.yaml`) is updated to match.
+- Time-budget audit (regenerated):
+  - semester: 1,444.5 teaching + 19 administration = 1,463.5 of 1,527 usable minutes; unallocated 63.5 (was 68);
+  - Week 1: 100.5 of 99 (−1.5); 1.1 shows −3.
+  - The resulting spill-over from 1.1/1.2 into Week 2 is managed in delivery and not carried into later planning (timing convention). All audit checks pass.
+- `.gitignore` no longer whitelists `course/lectures/**/*_chatgpt.pptx`, and `nuts_and_bolts_chatgpt.pptx` is removed from Git tracking (the file stays on disk). Other `_chatgpt` files stay tracked. Claude decks were already ignored.
+- No change to scope, mastery, assessment or workload.
+
 ## 2026-10-07 — Workflow pilot extended to session 1.2
 
 - Authority: the instructor, after accepting the 1.1 deck: "I want to also have 1.2 be part of it as I think we can improve more."

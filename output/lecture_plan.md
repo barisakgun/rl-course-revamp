@@ -8,7 +8,7 @@ Minutes are planning estimates, not commitments or student workload. Ranges repr
 
 | Week.slot | Lecture | Teaching | Other admin | Demand range | Unallocated |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | RL formulation and information | 38 | 0 | 35–45 | 1.5 |
+| 1.1 | RL formulation and information | 42.5 | 0 | 35–45 | -3 |
 | 1.2 | MDPs, returns and values | 58 | 0 | 50–65 | 1.5 |
 | 2.1 | Bellman equations and evaluation | 58 | 0 | 55–70 | 1.5 |
 | 2.2 | Improvement, VI and PI | 58 | 0 | 55–70 | 1.5 |
@@ -35,7 +35,7 @@ Minutes are planning estimates, not commitments or student workload. Ranges repr
 | 13.1 | LLM policy updates after video preparation | 59 | 0 | 54–72 | 0.5 |
 | 13.2 | Grouped estimators, rewards and evaluation | 55 | 4 | 50–72 | 0.5 |
 
-Teaching 1440 + additional administration 19 = 1459 of 1,527 usable minutes; 68 unallocated. Configured syllabus briefing: 20 minutes in 1.1. Project presentations remain outside class.
+Teaching 1444.5 + additional administration 19 = 1463.5 of 1,527 usable minutes; 63.5 unallocated. Configured syllabus briefing: 20 minutes in 1.1. Project presentations remain outside class.
 
 ## Session detail
 
@@ -47,7 +47,7 @@ Teaching 1440 + additional administration 19 = 1459 of 1,527 usable minutes; 68 
 
 **Worked activity:** Formulate one running problem; distinguish reward, return, observation and state.
 
-**Pacing:** 20-minute configured syllabus overhead in this slot; defer abstraction theory. Confidence: medium.
+**Pacing:** 20-minute configured syllabus overhead in this slot; defer abstraction theory. Delivered deck (decisions/lectures/introduction.md) introduces the model and returns informally; 1.2 covers them again formally. Confidence: medium.
 
 ### 1.2 — MDPs, returns and values
 
