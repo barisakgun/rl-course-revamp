@@ -2,14 +2,12 @@
 
 **Shared** deck decision file (`docs/lecture_workflow.md`). It holds outcomes only; discussion and findings live in the [shared review](../../analysis/lecture_suggestions/mdp_values_review.md). The initial AI suggestions remain historical inputs.
 - **Scope:** session 1.2 `mdp_values`; accepted teaching allocation and ceiling live in `decisions/topic_decisions.yaml`. It is the second round of the workflow pilot (decision log 2026-10-07).
-- **Status: DONE (instructor-accepted 2026-10-09).**
-  - Deck: `course/lectures/week01/mdp_values_claude.pptx`, SHA-256 `b0bb3ee851bb9630c95d75089dde71703b734c511fbccbeed0a3f38cd861c331`. This identifies the accepted saved version; later substantive edits reopen the status.
-  - 22 live slides plus one hidden appendix (MA1, zero minutes); **62.5 minutes** of live targets (instructor's revised targets, 2026-10-08), within the accepted 65-minute ceiling (B10/B14). The planning baseline in `decisions/topic_decisions.yaml` remains approximately 62.
-  - Source: `course/lectures/week01/mdp_values_claude.yaml`, in sync; M01 and MA1 are PowerPoint-only.
-  - Previews: `output/lectures/week01/mdp_values_claude_preview.{png,pdf}`. Text view: `output/lectures/week01/mdp_values_claude.md`.
-  - Reviews: ChatGPT's full review of the instructor-edited deck found no layout or arithmetic defect; R15 withdrawn, R16 resolved by the instructor's wording, R17 (equation-source notes) resolved by Claude ([shared review](../../analysis/lecture_suggestions/mdp_values_review.md)).
-- **Teaching source:** instructor takeover on 2026-10-08 is recorded in Claude's source header. The PPTX is now the teaching artifact; Claude maintains its YAML and exported views. The [shared proposal](../../course/lectures/week01/mdp_values_content.md) is frozen at the preceding `2223e515…` handoff version. It must not be used to overwrite the instructor's changes.
-- **Current artifact structure:** M03a (Transition), M05a (Models Continued) and M09a (Return) are added; M06 follows M08; MA1 (Planning vs Reinforcement Learning) is hidden and timed at zero. The saved 62.5-minute estimate is within B10/B14's allowance; the planning baseline remains approximately 62 and the ceiling 65. This records the observed deck, not a newly approved live appendix or curriculum expansion.
+- **Status: DONE** (accepted 2026-10-09). This is the deck's only current status record; other files point here.
+  - Deck: `course/lectures/week01/mdp_values_claude.pptx`, SHA-256 `d9d8d19eb17ff6b150af41ecc32fde38a10a4f6c5eedc306e58ec7bd7bea3be2`. Later substantive edits reopen the status. (Equation fallback pictures were regenerated after acceptance, 2026-10-09; the slide content is that of the accepted `b0bb3ee8…`.)
+  - Content: 22 live slides plus a hidden appendix (MA1, zero minutes, a reference for students who ask about alternatives to RL). Instructor additions M03a (Transition), M05a (Models Continued) and M09a (Return); M06 follows M08. Live targets total **62.5 minutes**, within the accepted 65-minute ceiling (B10/B14); the planning baseline in `decisions/topic_decisions.yaml` stays approximately 62.
+  - Views: text view `output/lectures/week01/mdp_values_claude.md`; previews `output/lectures/week01/mdp_values_claude_preview.{png,pdf}`.
+  - Source YAML `course/lectures/week01/mdp_values_claude.yaml`: final, matches the accepted deck (M01 and MA1 are PowerPoint-only). It was kept in step during the pilot; under pilot v2 later decks' YAMLs are first drafts only.
+  - History: the [content proposal](../../course/lectures/week01/mdp_values_content.md) is frozen at the `2223e515…` handoff version and must not be used to overwrite the deck. Findings, including R15–R17, are in the [shared review](../../analysis/lecture_suggestions/mdp_values_review.md).
 
 ## Accepted (instructor, 2026-10-07)
 

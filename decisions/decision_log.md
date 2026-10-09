@@ -1,5 +1,15 @@
 # Decision Log
 
+## 2026-10-09 — Lecture workflow pilot v2 adopted
+
+- Authority: the instructor reviewed both AIs' post-pilot recommendations (`analysis/phase7_workflow_review_claude.md`, `analysis/phase7_workflow_review_chatgpt.md`), decided their points and asked for the workflow update. `docs/lecture_workflow.md` now describes pilot v2.
+  - Initial suggestions pull from all sources, starting from a delta against substantial old course slides and preserving introductory motivation.
+  - One cross-review; no review of the text proposal; at most one correctness pass before handoff.
+  - The PPTX is the source from the first render. Content file and YAML are frozen first-render inputs; a maintained YAML only on request.
+  - Instructor-edit ↔ AI-check iteration, with a final full check including a PowerPoint render.
+  - Deck status only in the deck decision file. Dropbox and backups for deck versions this semester.
+- The shared conventions (`AGENTS.md`, linked as `CLAUDE.md`) were aligned. The shortened chain and the deck split remain open. Curriculum scope, timing allocations, assessments and student workload are unchanged.
+
 ## 2026-10-09 — Session 1.2 deck accepted (done)
 
 - Authority: the instructor marked the 1.2 deck done after the R15–R17 follow-up ([MDP deck decisions](lectures/mdp_values.md), status). Accepted deck: `course/lectures/week01/mdp_values_claude.pptx`, SHA-256 `b0bb3ee851bb9630c95d75089dde71703b734c511fbccbeed0a3f38cd861c331`; source, text view and previews in sync.

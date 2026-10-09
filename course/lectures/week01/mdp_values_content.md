@@ -1,7 +1,7 @@
 # MDPs, returns and values — shared content proposal (frozen)
 
 **Shared:** instructor, ChatGPT and Claude. Revised by ChatGPT, 2026-10-07, following explicit instructor approval of C1–C8 and C10–C12, omitting C9 (deck decisions B12–B15).
-**Status:** frozen as the pre-handoff proposal following instructor takeover on 2026-10-08, recorded in Claude's renderer-source header and checked by ChatGPT. The handed-off version was `2223e51521cce3d35b7053df4abc52b74e8f5e16f61df862e5c95e12c3b08609`; the instructor-edited PPTX now supplies teaching content and Claude maintains its YAML/text views. Current artifact status is in the deck decisions and shared review. The slide bodies, notation, timing and handoff instructions below are historical, not instructions to rebuild over the edited PPTX. No instructor acceptance of the current deck is inferred.
+**Status: FROZEN** at the instructor handoff of 2026-10-08 (handed-off deck `2223e515…`): the record of the content agreed before the instructor took over the PPTX; do not edit it. Current deck status: [deck decisions](../../../decisions/lectures/mdp_values.md).
 **Historical scope at handoff:** session 1.2 `mdp_values`; **19 live slides, approximately 62 minutes; allowed ceiling 65, not a target**. M00 is the new title; M01–M18 retain their IDs. Battery ageing, position/velocity and the tail bound are notes-only backups, not additional slides or assigned work.
 **Authority:** [deck decisions](../../../decisions/lectures/mdp_values.md), [notation guide](../../notation_guide.md). **Review and responses:** [shared review](../../../analysis/lecture_suggestions/mdp_values_review.md).
 

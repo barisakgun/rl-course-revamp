@@ -1,7 +1,7 @@
 # Introduction — shared review and responses
 
 **Shared:** instructor, ChatGPT and Claude. Created 2026-10-06.
-**Current target:** [rendered deck](../../course/lectures/week01/introduction_claude.pptx), SHA-256 `acd07d54edceaf6821bbf39fb8112f83d68602d73ab0212649fb60f27c868d2e`, reviewed by ChatGPT on 2026-10-06 against the [shared content proposal](../../course/lectures/week01/introduction_content.md). Eleven live slides (I01–I08, I09a/I09b, I10) plus appendix I-A1; 38 minutes. Current review outcome: minor fixes, no substantive content disagreement; see step 7 below.
+**Status:** see the [deck decisions](../../decisions/lectures/introduction.md) (the deck is done). Each entry below names the deck or content version it reviewed.
 **Authority:** accepted/open outcomes live in [deck decisions](../../decisions/lectures/introduction.md). Review resolution is not instructor acceptance.
 
 Keep subsequent findings, responses and change summaries here. Existing [ChatGPT review](introduction_review_chatgpt.md), [Claude review](introduction_review_claude.md) and [Claude round 2](introduction_round2_claude.md) remain historical. The two initial suggestions are not competing maintained content files.

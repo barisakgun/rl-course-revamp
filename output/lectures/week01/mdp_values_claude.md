@@ -2,7 +2,7 @@
 
 # Text view: mdp_values_claude.pptx
 
-SHA-256 `b0bb3ee851bb9630c95d75089dde71703b734c511fbccbeed0a3f38cd861c331`
+SHA-256 `d9d8d19eb17ff6b150af41ecc32fde38a10a4f6c5eedc306e58ec7bd7bea3be2`
 
 ## 1. M00 — COMP438/538 Reinforcement Learning
 

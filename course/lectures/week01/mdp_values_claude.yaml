@@ -1,4 +1,6 @@
 # Session 1.2 (mdp_values): MDPs, returns and values. Claude's deck source (renderer input).
+# FINAL: this file matches the accepted deck; it was kept in step with the instructor's edits during the pilot.
+# From pilot v2 on (docs/lecture_workflow.md, 2026-10-09), deck YAMLs are first-render drafts that are not maintained.
 #
 # Build:  python3 scripts/build_deck_claude.py course/lectures/week01/mdp_values_claude.yaml [--render]
 #

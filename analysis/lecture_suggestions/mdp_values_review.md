@@ -1,7 +1,7 @@
 # MDPs, returns and values — shared discussion and review
 
 **Shared:** instructor, ChatGPT and Claude. Started by ChatGPT, 2026-10-07.
-**Stage:** instructor-edited deck reviewed by ChatGPT, 2026-10-08, SHA-256 `49da30ae…`: 22 live slides plus a hidden appendix, 62.5 live minutes. No layout/arithmetic defect in that full review. Targeted recheck of saved PPTX `7acc136d…`: R15 withdrawn after instructor clarification; R16 resolved by the M10 edit. R17 is minor stale equation-source metadata, not a mathematical error. The supplied preview still represents `49da30ae…`. R14 remains resolved. The pre-handoff shared content is now explicitly frozen; the edited PPTX takes precedence. This review does not accept the deck or mark it done.
+**Status:** see the [deck decisions](../../decisions/lectures/mdp_values.md) (the deck is done). Each entry below names the deck or content version it reviewed.
 **Authority:** [deck decisions](../../decisions/lectures/mdp_values.md); the accepted [1.1 decisions](../../decisions/lectures/introduction.md) and instructor-edited deck supply continuity. This file records evidence and recommendations, not accepted choices.
 
 ## Questions to settle

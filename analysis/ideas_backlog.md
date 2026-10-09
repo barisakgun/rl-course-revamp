@@ -20,4 +20,10 @@ Conventions: one entry per idea, with who proposed it and when, the motivation, 
 ### LaTeX → native PowerPoint equation converter
 - **Proposed:** instructor, 2026-10-05.
 - **Motivation:** keep equations editable in PowerPoint when the existing PowerPoint equations are not enough (the current fallback is LaTeX-rendered images).
-- **Status:** idea; a possible separate project.
+- **Status:** idea; a possible separate project. A minimal converter for the LaTeX subset used in decks exists as `scripts/omml_claude.py` (Claude, used for the 1.2 deck, 2026-10-07).
+
+### Slim, git-tracked copies of large decks
+- **Proposed:** instructor, 2026-10-09 (recorded by Claude).
+- **Motivation:** decks are git-ignored (`*.pptx`), so accepted versions live only in Dropbox history and `output/deck_backups/`. A slim copy with large objects replaced (e.g. a video by a screenshot) or removed, plus a log of what each replaced object should be, could be committed to GitHub.
+- **Risk:** the slim copy and the full deck can drift apart; the log must say how to restore the full deck.
+- **Status:** idea; for after the main lecture workflow is settled. For this semester Dropbox and the backups are enough (instructor, 2026-10-09).

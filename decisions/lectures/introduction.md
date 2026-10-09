@@ -1,13 +1,12 @@
-# Deck decisions: Introduction (and MDPs)
+# Deck decisions: Introduction (session 1.1)
 
 **Shared** deck decision file (`docs/lecture_workflow.md`). It holds outcomes only; the discussion is in `analysis/lecture_suggestions/introduction_*` and `intro_mdps_claude.md`.
 - **Scope of this deck:** session 1.1 `formulate` (the pilot). Session 1.2 is a separate deck, settled by [MDP decisions B1](mdp_values.md).
-- **Status: DONE (re-accepted 2026-10-07 after the wait-reward change, A14a; title slide restyled 2026-10-08, A21).**
-  - Deck: `course/lectures/week01/introduction_claude.pptx`, SHA-256 `60b76c839f5b8dcbccc26aedd4ea2609b4af2f4adad98d8a9fa05f303247a7bb`. This identifies the accepted saved version; later substantive edits reopen the status.
-  - Source: `course/lectures/week01/introduction_claude.yaml`, in sync; 4 slides are PowerPoint-only.
-  - Previews: `output/lectures/week01/introduction_claude_preview.{png,pdf}`.
-  - Text view: `output/lectures/week01/introduction_claude.md`.
-- **Content:** the [shared proposal](../../course/lectures/week01/introduction_content.md) is frozen as the record of what was agreed before handoff; the PPTX is now the teaching authority. **Discussion:** [shared review](../../analysis/lecture_suggestions/introduction_review.md).
+- **Status: DONE** (accepted 2026-10-07; re-accepted after A14a, 2026-10-07, and A21, 2026-10-08). This is the deck's only current status record; other files point here.
+  - Deck: `course/lectures/week01/introduction_claude.pptx`, SHA-256 `60b76c839f5b8dcbccc26aedd4ea2609b4af2f4adad98d8a9fa05f303247a7bb`. Later substantive edits reopen the status.
+  - Views: text view `output/lectures/week01/introduction_claude.md`; previews `output/lectures/week01/introduction_claude_preview.{png,pdf}`.
+  - Source YAML `course/lectures/week01/introduction_claude.yaml`: final, matches the accepted deck (4 slides are PowerPoint-only). It was kept in step during the pilot; under pilot v2 later decks' YAMLs are first drafts only.
+  - History: the [content proposal](../../course/lectures/week01/introduction_content.md) is frozen at handoff; findings are in the [shared review](../../analysis/lecture_suggestions/introduction_review.md).
 
 ## Accepted (instructor)
 
