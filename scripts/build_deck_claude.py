@@ -28,8 +28,10 @@ decks are never overwritten; a reviewed candidate needs explicit promotion.
 import argparse, copy, io, math, re, subprocess, sys, tempfile, unicodedata
 from pathlib import Path
 from deck_paths import candidate_output, validate_candidate_output
+import omml_claude as OMML
 
 import yaml
+from lxml import etree
 from pptx import Presentation
 from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
@@ -142,12 +144,43 @@ def markup(text):
 
 
 def add_runs(p, text, size, color=INK, bold=False, font=BODY_FONT):
+    """Inline markup; $...$ becomes text-math runs (italic letters, sub/superscript baselines)."""
+    parts = text.split('$')
+    if len(parts) > 1:
+        for k, part in enumerate(parts):
+            if k % 2:
+                text_math(p, part, size, color, bold)
+            elif part:
+                add_runs(p, part, size, color, bold, font)
+        return
     for seg, b, it, link in markup(text):
         r = _run(p, seg, size, RGBColor(0x05, 0x63, 0xC1) if link else color, bold or b, font)
         if it:
             r.font.italic = True
         if link:
             r.hyperlink.address = link
+
+
+def text_math(p, latex, size, color=INK, bold=False):
+    """Render a small LaTeX expression as ordinary runs (for table cells, where native equations are avoided)."""
+    def emit(items, baseline=0, sz=size):
+        for it in items:
+            if it[0] == 't':
+                r = _run(p, it[1], sz, color, bold, 'Cambria Math')
+                r.font.italic = not it[2]
+                if baseline:
+                    r.font._rPr.set('baseline', str(baseline))
+            elif it[0] == 'grp':
+                emit(it[1], baseline, sz)
+            elif it[0] == 'script':
+                emit([it[1]], baseline, sz)
+                if it[2]:
+                    emit(it[2], -25000, sz)
+                if it[3]:
+                    emit(it[3], 30000, sz)
+            elif it[0] == 'nary':
+                emit([('t', '∑', True)], baseline, sz); emit(it[3], baseline, sz)
+    emit(OMML.Parser(latex).seq())
 
 
 def _run(p, text, size, color, bold, font):
@@ -307,6 +340,9 @@ def table(slide, x, y, w, spec, size=18, row_h=0.5, name='yaml:table'):
 
 
 def notes(slide, s):
+    srcs = eq_sources(s.get('body')) + eq_sources(s.get('after'))
+    if srcs:
+        s = dict(s, notes=(s.get('notes', '').rstrip() + '\n\nEquation sources (LaTeX): ' + ' | '.join(srcs) + '\n'))
     head = f"Target: {s.get('minutes', 0)} min{' (appendix)' if s.get('appendix') else ''}. Sources: {', '.join(map(str, s.get('sources', [])))}."
     if s.get('instructor_voice'):
         head += f" Instructor voice (not syllabus policy): {'; '.join(s['instructor_voice'])}."
@@ -339,6 +375,34 @@ def k_title(slide, s, img):
     sub.left, sub.top, sub.width, sub.height = Inches(MX), Inches(4.4), Inches(tw), Inches(0.9)
     sub.text_frame.text = s['subtitle']
     para_box(slide, MX, 5.35, tw, 0.5, s['byline'], 20, MUTED, name='yaml:byline')
+
+
+def k_course_title(slide, s, img):
+    # Course title slide (instructor's format, Introduction deck 2026-10-08): course name, then the deck topic
+    # (bold), instructor and term as centred 36 pt lines; geometry and colours otherwise from the layout.
+    d = s['_deck']
+    t = slide.shapes.title
+    t.name = 'yaml:title'
+    t.left, t.top, t.width, t.height = Emu(1133575), Emu(865991), Emu(9924847), Emu(1573306)
+    sub = next(ph for ph in slide.placeholders if ph.placeholder_format.type == 4)   # subtitle
+    sub.name = 'yaml:subtitle'                                 # topic, instructor, term lines
+    sub.left, sub.top, sub.width, sub.height = Emu(2946392), Emu(2922493), Emu(6299215), Emu(2277035)
+    for shape, rows in ((t, [(s['title'], None, False)]),
+                        (sub, [(s['topic'], 36, True), (d['author'], 36, False), (d['term'], 36, False)])):
+        tf = shape.text_frame
+        bp = tf._txBody.bodyPr
+        for child in list(bp):
+            bp.remove(child)
+        bp.append(bp.makeelement(qn('a:normAutofit'), {}))
+        for i, (text, size, bold) in enumerate(rows):
+            par = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
+            par.alignment = PP_ALIGN.CENTER
+            r = par.add_run()
+            r.text = text
+            if size:
+                r.font.size = Pt(size)
+            if bold:
+                r.font.bold = True
 
 
 def k_image_bullets(slide, s, img):
@@ -487,6 +551,203 @@ def k_closing(slide, s, img):
     sub.text_frame.paragraphs[0].alignment = PP_ALIGN.CENTER
 
 
+def rich_paragraphs(tf, items, size, eq_size, first=True):
+    """Paragraphs for the `math` kind: strings are bullet paragraphs with native inline math ($...$) and markup;
+    {eq: latex} is a centred native display equation; {text: str} is an unbulleted paragraph; {sub: [...]}
+    holds level-1 bullets."""
+    for item in items:
+        if isinstance(item, dict) and 'sub' in item:
+            first = rich_paragraphs(tf, [{'_lvl': 1, 'p': x} for x in item['sub']], size, eq_size, first)
+            continue
+        if first:
+            p = tf.paragraphs[0]
+            first = False
+        else:
+            p = tf.add_paragraph()
+        if isinstance(item, dict) and 'eq' in item:
+            new = OMML.math_paragraph(item['eq'], item.get('size', eq_size))
+            p._p.addnext(new); p._p.getparent().remove(p._p)
+            continue
+        lvl = item.get('_lvl', 0) if isinstance(item, dict) else 0
+        text = item if isinstance(item, str) else item.get('p', item.get('text'))
+        sz = size if lvl == 0 else size - 4
+        if text.startswith('$'):
+            _run(p, '\u2060', sz, INK, False, BODY_FONT)   # word joiner: PowerPoint drops the bullet before an equation
+        for k, part in enumerate(text.split('$')):
+            if k % 2:
+                p._p.append(OMML.inline_math(part, sz))
+            elif part:
+                add_runs(p, part, sz, INK if lvl == 0 else MUTED)
+        if isinstance(item, dict) and 'text' in item:
+            pPr = p._p.get_or_add_pPr(); pPr.set('marL', '0'); pPr.set('indent', '0')
+            pPr.append(pPr.makeelement(qn('a:buNone'), {}))
+        else:
+            set_bullet(p, lvl, sz)
+        p.space_before = Pt(8 if lvl == 0 else 2)
+    return first
+
+
+def eq_sources(items):
+    """LaTeX of a slide's display equations and $inline$ math, in order and without repeats (for the notes)."""
+    out = []
+    for item in items or []:
+        if isinstance(item, dict) and 'eq' in item:
+            out.append(item['eq'])
+        elif isinstance(item, dict) and 'sub' in item:
+            out += eq_sources(item['sub'])
+        elif isinstance(item, dict) and 'text' in item:
+            out += item['text'].split('$')[1::2]
+        elif isinstance(item, str):
+            out += item.split('$')[1::2]
+    return list(dict.fromkeys(out))
+
+
+def copy_figure(slide, fig):
+    """Copy the shapes of a figure drawn natively on another deck's slide (by slide name), keeping positions and
+    remapping shape ids so connectors stay attached. Copies are named `native:fig:<original name>`."""
+    slides = Presentation(ROOT / fig['deck']).slides
+    src = (slides[fig['slide'] - 1] if isinstance(fig['slide'], int)              # old decks: PPTX position
+           else next(s for s in slides if s._element.cSld.get('name') == fig['slide']))
+    tree = slide.shapes._spTree
+    used = {int(i) for i in tree.xpath('.//p:cNvPr/@id')}
+    nxt = max(used | {1}) + 1
+    els, idmap = [], {}
+    for sh in src.shapes:
+        if sh.name in fig.get('exclude', []):
+            continue
+        if sh.shape_type == 13:                         # picture: re-add the image (relationships cannot be copied)
+            pic = slide.shapes.add_picture(io.BytesIO(sh.image.blob), sh.left, sh.top, sh.width, sh.height)
+            pic.name = 'native:fig:' + sh.name
+            for attr in ('crop_left', 'crop_right', 'crop_top', 'crop_bottom'):
+                setattr(pic, attr, getattr(sh, attr))
+            nxt = max(nxt, pic.shape_id + 1)
+            continue
+        el = copy.deepcopy(sh._element)
+        if el.xpath('.//@r:embed | .//@r:id | .//@r:link'):
+            raise ValueError(f'figure shape {sh.name!r} has relationships; copy it through PowerPoint')
+        for c in el.xpath('.//p:cNvPr'):
+            idmap[c.get('id')] = str(nxt)
+            if c is el.xpath('.//p:cNvPr')[0]:
+                c.set('name', 'native:fig:' + c.get('name'))
+            c.set('id', str(nxt)); nxt += 1
+        els.append(el)
+    for el in els:
+        for cx in el.xpath('.//a:stCxn | .//a:endCxn'):
+            cx.set('id', idmap.get(cx.get('id'), cx.get('id')))
+    if fig.get('group'):                                # one group placed at [x, y] (optionally scaled to [.., w, h])
+        tree.append(group_shapes(els, fig['group'], nxt))
+    else:
+        for el in els:
+            tree.append(el)
+    if fig.get('relabel'):
+        relabel(slide, fig['relabel'])
+    if fig.get('variant') == 'terminal':
+        terminal_variant(slide, fig)
+
+
+def group_shapes(els, box, gid):
+    """Wrap copied shape elements in a p:grpSp whose top-left is box[:2] (inches); box[2:] scales it if given."""
+    boxes = []
+    for el in els:                                      # visual bounds: 90/270-degree rotations swap the extents
+        f = el.xpath('./p:spPr/a:xfrm | ./p:grpSpPr/a:xfrm')[0]
+        x, y = int(f.find(qn('a:off')).get('x')), int(f.find(qn('a:off')).get('y'))
+        w_, h_ = int(f.find(qn('a:ext')).get('cx')), int(f.find(qn('a:ext')).get('cy'))
+        if round(int(f.get('rot', 0)) / 5400000) % 2:
+            x, y, w_, h_ = x + (w_ - h_) // 2, y + (h_ - w_) // 2, h_, w_
+        boxes.append((x, y, x + w_, y + h_))
+    x0, y0 = min(b[0] for b in boxes), min(b[1] for b in boxes)
+    cx, cy = max(b[2] for b in boxes) - x0, max(b[3] for b in boxes) - y0
+    w, h = (Inches(box[2]), Inches(box[3])) if len(box) == 4 else (cx, cy)
+    g = etree.fromstring(
+        f'<p:grpSp xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><p:nvGrpSpPr><p:cNvPr id="{gid}" name="native:fig:group"/>'
+        f'<p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr><p:grpSpPr><a:xfrm><a:off x="{Inches(box[0])}" y="{Inches(box[1])}"/>'
+        f'<a:ext cx="{w}" cy="{h}"/><a:chOff x="{x0}" y="{y0}"/><a:chExt cx="{cx}" cy="{cy}"/></a:xfrm>'
+        '</p:grpSpPr></p:grpSp>')
+    for el in els:
+        g.append(el)
+    return g
+
+
+def relabel(slide, mapping):
+    """Replace the text of copied shapes (also inside groups) whose whole text equals a key. The new text may hold
+    $...$ (typeset as text runs) and '\\n' line breaks; the first run's size, colour and bold are kept."""
+    from pptx.text.text import TextFrame
+    found = set()
+    for txBody in slide.shapes._spTree.iter(qn('p:txBody')):
+        tf = TextFrame(txBody, None)
+        old = tf.text.strip()
+        if old not in mapping:
+            continue
+        found.add(old)
+        r0 = next((r for p in tf.paragraphs for r in p.runs), None)
+        size = r0.font.size.pt if r0 is not None and r0.font.size else 18
+        color = r0.font.color.rgb if r0 is not None and r0.font.color and r0.font.color.type else INK
+        bold = bool(r0.font.bold) if r0 is not None else False
+        paras = tf.paragraphs
+        for p in paras[1:]:
+            p._p.getparent().remove(p._p)
+        p0 = paras[0]
+        for r in list(p0._p.xpath('./a:r | ./a:br | ./a:fld')):
+            p0._p.remove(r)
+        for k, line in enumerate(mapping[old].split('\n')):
+            p = p0 if k == 0 else tf.add_paragraph()
+            if k:
+                p.alignment = p0.alignment
+            add_runs(p, line, size, color, bold)
+    missing = set(mapping) - found
+    if missing:
+        raise ValueError(f'relabel: no copied shape has the text {sorted(missing)}')
+
+
+def terminal_variant(slide, fig):
+    """Replace the rescue branch (failed low search -> high) by an 'out of battery' terminal state."""
+    by = {sh.name: sh for sh in slide.shapes}
+    for name in fig['remove']:
+        el = by['native:fig:' + name]._element
+        el.getparent().remove(el)
+    t = fig['terminal']
+    node = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(t['x']), Inches(t['y']), Inches(t['w']), Inches(t['h']))
+    node.name = 'native:fig:terminal'
+    node.fill.solid(); node.fill.fore_color.rgb = TINT
+    node.line.color.rgb = RED; node.line.width = Pt(2)
+    node.shadow.inherit = False
+    tf = node.text_frame; tf.word_wrap = True
+    p = tf.paragraphs[0]; p.alignment = PP_ALIGN.CENTER
+    _run(p, t['label'], t.get('size', 16), RED, True, BODY_FONT)
+    src = by['native:fig:' + t['from']]
+    sx, sy = src.left + src.width // 2, src.top + src.height // 2
+    ex, ey = node.left + node.width, node.top + node.height // 2
+    arrow = slide.shapes.add_connector(1, sx, sy, ex, ey)          # straight connector
+    arrow.name = 'native:fig:terminal_arrow'
+    arrow.begin_connect(src, 0); arrow.end_connect(node, 3)
+    arrow.line.color.rgb = RED; arrow.line.width = Pt(1.5)
+    ln = arrow.line._get_or_add_ln()
+    ln.append(ln.makeelement(qn('a:tailEnd'), {'type': 'triangle'}))
+    for name, (x, y) in fig.get('move', {}).items():
+        sh = by['native:fig:' + name]; sh.left, sh.top = Inches(x), Inches(y)
+
+
+def k_math(slide, s, img):
+    """Text with native equations, optional table and optional copied figure. Boxes are [x, y, w(, h)] in inches."""
+    size, eq_size = s.get('size', 24), s.get('eq_size', s.get('size', 24))
+    if s.get('figure'):
+        copy_figure(slide, s['figure'])
+    bx = s.get('body_box', [MX, TOP, W - 2 * MX, BOTTOM - TOP])
+    if s.get('body'):
+        tb = textbox(slide, *bx[:3], bx[3] if len(bx) > 3 else BOTTOM - bx[1], name='yaml:body')
+        rich_paragraphs(tb.text_frame, s['body'], size, eq_size)
+    if s.get('table'):
+        tx = s.get('table_box', [MX, TOP + 1.2, W - 2 * MX])
+        t = s['table']
+        table(slide, tx[0], tx[1], tx[2], t, size=t.get('size', 20), row_h=t.get('row_h', 0.55))
+    if s.get('after'):
+        ax = s['after_box']
+        tb = textbox(slide, *ax[:3], ax[3] if len(ax) > 3 else BOTTOM - ax[1], name='yaml:after')
+        rich_paragraphs(tb.text_frame, s['after'], size, eq_size)
+    if s.get('footnote'):
+        footnote(slide, s['footnote'])
+
+
 def k_pptx_only(slide, s, img):
     """Placeholder for a slide authored and maintained only in the instructor's PPTX: a rebuild shows where it
     belongs instead of silently dropping it."""
@@ -570,10 +831,10 @@ def k_native_bullets(slide, s, img):
             style=s.get('bullet_style', 'bullet'))
 
 
-KINDS = {'title': k_title, 'image_bullets': k_image_bullets, 'bullets': k_bullets, 'two_column': k_two_column,
+KINDS = {'title': k_title, 'course_title': k_course_title, 'image_bullets': k_image_bullets, 'bullets': k_bullets, 'two_column': k_two_column,
          'flow': k_flow, 'table': k_table, 'project': k_project, 'callouts': k_callouts, 'closing': k_closing,
-         'section': k_closing, 'blank': k_blank, 'pptx_only': k_pptx_only, 'image_grid': k_image_grid, 'native_bullets': k_native_bullets}
-LAYOUT = {'title': 'Title Slide', 'bullets': 'Title and Content', 'closing': 'Section Header',
+         'section': k_closing, 'blank': k_blank, 'pptx_only': k_pptx_only, 'math': k_math, 'image_grid': k_image_grid, 'native_bullets': k_native_bullets}
+LAYOUT = {'title': 'Title Slide', 'course_title': 'Title Slide', 'bullets': 'Title and Content', 'closing': 'Section Header',
           'section': 'Section Header'}  # else Title Only
 
 
@@ -610,12 +871,15 @@ def make_presentation(spec):
         slide = prs.slides.add_slide(layouts[LAYOUT.get(s['kind'], 'Title Only')])
         slide._idx = n
         slide._element.cSld.set('name', s['id'])           # spec id, for mapping PowerPoint edits back
+        if s.get('hidden'):
+            slide._element.set('show', '0')                # hidden in the slide show (e.g. a backup appendix)
         if s['kind'] == 'blank' and not s.get('title'):
             ph = slide.shapes.title                        # untitled live canvas: drop the empty title box
             ph._element.getparent().remove(ph._element)
-        elif s['kind'] not in ('title', 'closing', 'section'):
+        elif s['kind'] not in ('title', 'course_title', 'closing', 'section'):
             set_title(slide, s['title'])
-        KINDS[s['kind']](slide, s, img)
+        KINDS[s['kind']](slide, dict(s, _deck=d) if s['kind'] == 'course_title' else s, img)
+        OMML.wrap_math_shapes(slide)
         notes(slide, s)
     cp = prs.core_properties
     cp.title, cp.author, cp.last_modified_by = d['title'], d['author'], 'scripts/build_deck_claude.py'
@@ -632,20 +896,64 @@ def build(spec, out):
         prs.save(destination)
 
 
+def preflight(pptx):
+    """Refuse files PowerPoint might stop on with a dialog: every equation shape must sit in an
+    mc:AlternateContent with a Choice and a Fallback, and shape ids must be unique per slide."""
+    from lxml import etree
+    problems = []
+    for n, s in enumerate(Presentation(pptx).slides, 1):
+        tree = s.shapes._spTree
+        def in_fallback(el):
+            while el is not None:
+                if el.tag == OMML.MC + 'Fallback':
+                    return True
+                el = el.getparent()
+            return False
+        ids = [c.get('id') for c in tree.iter(qn('p:cNvPr')) if not in_fallback(c)]   # fallbacks repeat ids
+        if len(ids) != len(set(ids)):
+            problems.append(f'slide {n}: duplicate shape ids')
+        for ac in tree.iter(OMML.MC + 'AlternateContent'):
+            kids = [c.tag for c in ac]
+            if kids != [OMML.MC + 'Choice', OMML.MC + 'Fallback']:
+                problems.append(f'slide {n}: AlternateContent without Choice+Fallback')
+        for m in tree.iter(OMML.A14 + 'm'):
+            anc = m.getparent()
+            while anc is not None and anc.tag != OMML.MC + 'Choice':
+                anc = anc.getparent()
+            if anc is None:
+                problems.append(f'slide {n}: equation outside mc:Choice')
+    if problems:
+        raise SystemExit('preflight failed, not opening in PowerPoint:\n  ' + '\n  '.join(problems))
+
+
+def render_dir(name):
+    """PowerPoint (sandboxed) opens files in the system temp folder without asking; other folders, such as the
+    agent's scratch space, trigger a blocking 'grant access' dialog. Always render here."""
+    d = Path(tempfile.gettempdir()) / 'deck_render' / name
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
 def render(pptx, preview, workdir):
+    preflight(pptx)
+    if not Path(workdir).resolve().is_relative_to(Path(tempfile.gettempdir()).resolve()):
+        raise SystemExit(f'render folder {workdir} is outside the system temp folder; PowerPoint would ask for '
+                         'access and block. Use the default (no --render-dir).')
     script = ('on run argv\n tell application "Microsoft PowerPoint"\n'
-              '  if not (exists presentation (item 3 of argv)) then open (POSIX file (item 1 of argv))\n'
+              '  open (POSIX file (item 1 of argv))\n'
               '  set p to presentation (item 3 of argv)\n'
               '  save p in (POSIX file (item 2 of argv)) as save as PDF\n  close p saving no\n'
               ' end tell\nend run\n')
     work = Path(workdir)
     # Reuse one folder per deck: remove only this builder's own previous outputs, so disk use stays
     # bounded and stale slide images from a longer earlier build cannot leak into the contact sheet.
-    for old in [*work.glob('slide-*.png'), work / 'render_copy.pptx', work / 'render_copy.pdf']:
+    for old in [*work.glob('slide-*.png'), *work.glob('render_*.pptx'), *work.glob('render_*.pdf')]:
         old.unlink(missing_ok=True)
-    copy_ = work / 'render_copy.pptx'          # never open the repository file in PowerPoint
+    import os, time
+    stem = f'render_{os.getpid()}_{int(time.time())}'   # unique: never picks up a presentation left open earlier
+    copy_ = work / f'{stem}.pptx'              # never open the repository file in PowerPoint
     copy_.write_bytes(Path(pptx).read_bytes())
-    pdf = work / 'render_copy.pdf'
+    pdf = work / f'{stem}.pdf'
     subprocess.run(['osascript', '-e', script, str(copy_), str(pdf), copy_.name], check=True, timeout=180)
     subprocess.run(['pdftoppm', '-r', '110', '-png', str(pdf), str(work / 'slide')], check=True)
     from PIL import Image
@@ -695,6 +1003,7 @@ def main():
         work = a.render_dir or Path(tempfile.gettempdir()) / 'deck_render' / spec_path.stem
         Path(work).mkdir(parents=True, exist_ok=True)
         pages = render(out, ROOT / spec['deck']['preview'], work)
+        (Path(work) / 'last_render.pdf').write_bytes(sorted(Path(work).glob('render_*.pdf'))[-1].read_bytes())
         print(f'rendered {len(pages)} pages to {work}; preview {spec["deck"]["preview"]}')
 
 

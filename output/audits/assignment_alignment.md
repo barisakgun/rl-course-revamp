@@ -75,7 +75,7 @@ With zero TA, upfront scaffold/testing work is the main unresolved cost. If thos
 
 ## Live-time result
 
-Frozen teaching remains 1440 minutes plus 19 administration, leaving 68 usable minutes. Assignment materials/support are proposed asynchronously. Exams and presentations remain outside lectures. Accepted bounded revisions substitute within existing 6.2 and 12.2 examples, adding zero live minutes; pilot support needs remain uncertain. No new prerequisite video or reading is assigned.
+Frozen teaching remains 1448.5 minutes plus 19 administration, leaving 59.5 usable minutes. Assignment materials/support are proposed asynchronously. Exams and presentations remain outside lectures. Accepted bounded revisions substitute within existing 6.2 and 12.2 examples, adding zero live minutes; pilot support needs remain uncertain. No new prerequisite video or reading is assigned.
 
 ## Before release
 

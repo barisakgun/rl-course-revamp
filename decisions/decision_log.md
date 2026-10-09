@@ -1,5 +1,34 @@
 # Decision Log
 
+## 2026-10-09 — Session 1.2 deck accepted (done)
+
+- Authority: the instructor marked the 1.2 deck done after the R15–R17 follow-up ([MDP deck decisions](lectures/mdp_values.md), status). Accepted deck: `course/lectures/week01/mdp_values_claude.pptx`, SHA-256 `b0bb3ee851bb9630c95d75089dde71703b734c511fbccbeed0a3f38cd861c331`; source, text view and previews in sync.
+- Timing: the slides total 62.5 minutes, from the instructor's revised targets of 2026-10-08, within the accepted 65-minute ceiling. The planning baseline in `decisions/topic_decisions.yaml` stays approximately 62, so the 59.5 usable minutes are exceeded by 3 within the recorded allowance. Scope, mastery, prerequisites, assessments, readings and videos are unchanged. No 1.1 carry-over is charged.
+- This completes the second round of the Phase 7 workflow pilot (sessions 1.1 and 1.2).
+
+## 2026-10-08 — Session 1.2 instructor edits reviewed and handoff status synchronized
+
+- Recorded the existing instructor-approved notation update from the shared guide in [MDP decision B16](lectures/mdp_values.md), and synchronized the observed instructor-takeover status and frozen proposal. Reviewed saved deck `49da30ae…` (22 live slides, one hidden appendix, 62.5-minute delivery estimate within the existing ceiling); findings are in the shared review R15–R17. The approximately 62-minute curriculum baseline is unchanged. This records review and prior decisions, not new deck acceptance, a new live learning/planning block, or resolution of remaining notation O12 choices.
+
+## 2026-10-08 — Session 1.1 title slide restyled; deck re-accepted
+
+- Authority: the instructor restyled the Introduction title slide (the format for all later decks) and slide 15, then asked Claude to write notes suited to this deck with a 0.5-minute target, record the new fingerprint and update the source ([Introduction decisions A21](lectures/introduction.md)). The slides now total 42 minutes; the accepted 42.5-minute teaching time in `decisions/topic_decisions.yaml` is unchanged.
+- The saved deck had the stale slide 9 notes line again ("2 and 1 … No probabilities"); Claude restored the accepted wording from the source. Deck and source are in sync.
+- Accepted deck: `course/lectures/week01/introduction_claude.pptx`, SHA-256 `60b76c839f5b8dcbccc26aedd4ea2609b4af2f4adad98d8a9fa05f303247a7bb`. This supersedes the 2026-10-07 fingerprint.
+
+## 2026-10-07 — Session 1.2 consolidated revision approved
+
+- Instructor explicitly approved C1–C8 and C10–C12, omitted C9, and authorized the shared-content revision and planning-view refresh; outcomes are recorded in [MDP decisions B12–B15](lectures/mdp_values.md), with the revised timing in `decisions/topic_decisions.yaml`. Earlier 58-minute/proposal records below are historical. Stop at Claude's review/rendering handoff; no PPTX or renderer-YAML edit or new acceptance is implied.
+
+## 2026-10-07 — Old-deck comparison: Week 2 placements and deferred search decision
+
+- Instructor accepted moving the relevant model-prediction, reward-sensitivity and formal value material to Week 2, and leaving the detailed search-tree framing decision to search/model-based RL preparation, e.g. MCTS. Placement and displacement constraints are recorded in `decisions/topic_decisions.yaml` under `bellman`, `improvement` and `mcts`; [MDP decisions B10–B11](lectures/mdp_values.md) record the handoff and timing permission. Exact examples remain preparation choices; later lecture allocations and assessments are unchanged.
+- Instructor permits 1.2 to run up to 65 minutes without filling that allowance. The 58-minute rendered baseline stays recorded; ChatGPT's approximately 62-minute replacement outline remains a proposal in the temporary note. Local time check: 59.5 usable minutes; a 62-minute delivery uses 2.5 minutes of the general buffer, and the permitted ceiling uses 5.5, leaving 5 of the physical 70 minutes. No 1.1 carryover is charged and no new required student work is added. No teaching-content or PPTX edit is authorized by this record alone.
+
+## 2026-10-07 — Session 1.2 consolidation accepted and documents finalized
+
+- Instructor accepted ChatGPT's consolidation recommendations and requested the documents for rendering. Outcomes, including the previously approved reward/history clarifications, are synchronized in [MDP deck decisions B3/B5/B7–B9](lectures/mdp_values.md); notation O10 is resolved. The single shared content file is ready for Claude's proposal check/rendering and subsequent deck review. Local time check: 58 of 59.5 usable minutes, no 1.1 carryover; scope, mastery, assessment and required workload unchanged. No PPTX acceptance or alteration of the accepted Introduction deck is implied.
+
 ## 2026-10-06 — Introduction shared content proposal authorized
 
 - Instructor requested reading the [introduction decisions](lectures/introduction.md) first and creating the shared content file. The 1.1 proposal and single shared review are now available. This authorizes content drafting, not rendering or acceptance of unaddressed proposals; scope, mastery and teaching allocation remain unchanged.
@@ -8,6 +37,18 @@
 ## 2026-10-06 — Consolidation workflow clarified
 
 - Authority: the instructor requested updating the workflow after the review of its two inconsistencies. `docs/lecture_workflow.md` now specifies one shared review file, one content file kept editable through the AI review/render/fix loop, and freezing at instructor takeover of the PPTX. `AGENTS.md` includes the shared review in its ownership exception. Existing independent proposals/reviews remain historical; the deck decision file remains outcomes-only. This is a workflow update, not authorization to create render-ready content or change curriculum scope, timing or workload.
+
+## 2026-10-07 — Session 1.1 deck re-accepted after the wait-reward change
+
+- Authority: the instructor saved the deck with the wait reward changed to 0 (figure wait loops, summary table, slide 9 notes). Claude fixed one stale notes line ("2 and 1 … No probabilities") and pulled the deck back; deck and source are in sync.
+- Accepted deck: `course/lectures/week01/introduction_claude.pptx`, SHA-256 `52ef4fea584bd2b1dc7039acccea296b5ff374fbbe39bda2480c7f339bc4082f`. This supersedes the earlier 1.1 fingerprint.
+
+## 2026-10-07 — Recycling robot: wait reward 0
+
+- Authority: an instructor decision during 1.2 preparation.
+- The wait reward changes from +1 to **0**; the book's reason for +1 (someone brings a can) is ignored. With +1 and γ = 0.5, waiting at low is optimal (2.0 vs recharge 1.83), undermining the example. With 0, the optimal policy is search when high, recharge when low (checked by value iteration).
+- Updated: Introduction deck decisions A14/A14a, the 1.2 decision B3, the deck source (`introduction_claude.yaml`) and the DOT figure. The instructor edits the 1.1 PPTX manually; the deck's done status is reopened until the edited deck is pulled back and its fingerprint recorded. The frozen content file and the historical analysis files are not changed.
+- No change to scope, mastery, minutes, assessment or workload.
 
 ## 2026-10-07 — Session 1.2 decisions before the AI suggestions
 

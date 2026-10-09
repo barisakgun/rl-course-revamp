@@ -1,6 +1,7 @@
 // Recycling robot (Sutton & Barto, Example 3.3), redrawn with numbers instead of symbols.
 // alpha = 0.8 (search at high stays high), beta = 0.7 (search at low stays low);
-// rewards are the deck's illustrative values: search +2, wait +1, recharge 0, rescue -3.
+// rewards are the deck's illustrative values: search +2, wait 0, recharge 0, rescue -3.
+// (wait was +1 until 2026-10-07; with gamma = 0.5 that made waiting at low optimal)
 // Edge label: "probability, reward". Grey lines: choosing an action; black arrows: outcomes.
 // Layout is pinned (pos="x,y!" in inches), so render with neato:
 //   neato -Tpng -Gdpi=200 recycling_robot.dot -o recycling_robot.png
@@ -37,11 +38,11 @@ digraph recycling_robot {
   ls -> high:ne [color="#C00000"];
 
   node [shape=plaintext, fontsize=20, width=0, height=0, margin=0];
-  o_hw [pos="-1.65,1.15!", label="1, +1"];
+  o_hw [pos="-1.65,1.15!", label="1, 0"];
   o_hs [pos="-0.5,-1.4!",  label="0.8, +2"];
   o_hl [pos="3.3,-1.5!",   label="0.2, +2"];
   o_lr [pos="1.2,0.35!",   label="1, 0"];
   o_ls [pos="6.3,1.55!",   label="0.7, +2"];
   o_lh [pos="0.95,1.95!",  label="0.3, −3 (rescued)", fontcolor="#C00000"];
-  o_lw [pos="7.1,-0.7!",   label="1, +1"];
+  o_lw [pos="7.1,-0.7!",   label="1, 0"];
 }

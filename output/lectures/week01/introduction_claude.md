@@ -2,18 +2,21 @@
 
 # Text view: introduction_claude.pptx
 
-SHA-256 `fd460cf5264650dbc0aab2b94ec6bacb6b51a097d51d24bb20257dfa5f4044e2`
+SHA-256 `60b76c839f5b8dcbccc26aedd4ea2609b4af2f4adad98d8a9fa05f303247a7bb`
 
-## 1. I01 — Introduction to reinforcement learning
+## 1. I01 — COMP438/538 Reinforcement Learning
 
-- Learning to make decisions from experience
+- Introduction
+- Barış Akgün
+- Fall 2026
 
 **Notes:**
 
-> The course briefing is already complete. Introduce the question of how an agent can improve its choices
-> using experience and feedback on their consequences. Do not repeat the syllabus or prerequisite overview.
+> The course briefing is already done, so skip the syllabus and prerequisites. Frame the session in one line:
+> how can an agent learn to make good decisions from experience and from feedback on their consequences?
+> The brainstorm on the next slide starts the discussion.
 > 
-> Target: 1 min. Sources: current Introduction PPTX 8, CS234 introduction p. 4.
+> Target: 0.5 min. Sources: instructor title slide format, 2026-10-08.
 
 ## 2. I01a — Brainstorm
 
@@ -170,8 +173,8 @@ SHA-256 `fd460cf5264650dbc0aab2b94ec6bacb6b51a097d51d24bb20257dfa5f4044e2`
 >   Omitting high-charge recharge is a modelling choice, not a physical impossibility.
 > - Search from high completes without rescue and leaves high or low. A successful search from low stays low;
 >   depletion means rescue and a return to high. Waiting leaves the charge unchanged; recharging returns it to high.
-> - Illustrative rewards: successful search 2, wait 1, recharge 0; a depleted search gives −3 on that transition
->   and collects no cans. 2 and 1 are teaching simplifications, not book constants. No probabilities.
+> - Illustrative rewards: successful search 2, wait 0, recharge 0; a depleted search gives −3 on that transition
+>   and collects no cans. 2 and 0 are teaching simplifications; the book's wait reward (someone brings a can) is ignored. Probabilities appear on the figure slide.
 > - The task continues; the aim is to collect cans while accounting for rescue costs, not to avoid all risk.
 > - Let students propose information, actions and feedback; discuss other defensible formulations before naming
 >   the book's. No fixed pair exercise.
@@ -282,7 +285,7 @@ SHA-256 `fd460cf5264650dbc0aab2b94ec6bacb6b51a097d51d24bb20257dfa5f4044e2`
 - wait
 
 - 1
-- +1
+- 0
 
 - 0.8
 - +2
@@ -297,7 +300,7 @@ SHA-256 `fd460cf5264650dbc0aab2b94ec6bacb6b51a097d51d24bb20257dfa5f4044e2`
 - −3
 
 - 1
-- +1
+- 0
 
 - 0.7
 - +2
@@ -321,7 +324,7 @@ SHA-256 `fd460cf5264650dbc0aab2b94ec6bacb6b51a097d51d24bb20257dfa5f4044e2`
 | Decisions | Search, wait, recharge |
 | State (same as observation for this example) | High or low battery charge |
 | Model | Search may lower the charge: from high it stays high with 0.8 (else low); from low it stays low with 0.7 (else the battery runs out and the robot is rescued to high). Wait keeps the charge; recharge returns it to high. |
-| Reward | Successful search: 2; wait: 1; recharge: 0; depletion/rescue: −3 |
+| Reward | Successful search: 2; wait: 0; recharge: 0; depletion/rescue: −3 |
 | Objective | Collect cans over time while accounting for rescue costs |
 | Horizon | Continuing |
 

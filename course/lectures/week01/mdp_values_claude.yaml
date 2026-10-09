@@ -1,0 +1,579 @@
+# Session 1.2 (mdp_values): MDPs, returns and values. Claude's deck source (renderer input).
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week01/mdp_values_claude.yaml [--render]
+#
+# The instructor took over the PPTX on 2026-10-08; the PPTX is now the teaching authority and this file follows
+# it (docs/lecture_workflow.md; pulled with scripts/pull_deck_claude.py plus hand-transcribed math slide bodies,
+# since the pull syncs only titles, notes and minutes of math slides). The shared proposal
+# course/lectures/week01/mdp_values_content.md (slide IDs M00–M18, revision of 2026-10-07) records what was agreed
+# before handoff; outcomes are in decisions/lectures/mdp_values.md. Instructor slides added in PowerPoint have IDs
+# M03a, M05a, M09a and MA1 (hidden appendix). M01 and MA1 are PowerPoint-only.
+# Equations are native PowerPoint equations generated from the LaTeX below (scripts/omml_claude.py);
+# $...$ is inline math. The robot figure is copied natively from the accepted Introduction deck (slide I05b).
+# "LIVE (required)" notes are taught within the slide's minutes (content file convention).
+#
+# Time budget: decisions/topic_decisions.yaml lecture_plan[mdp_values].teaching_minutes (62; ceiling 65). The edited
+# deck's slide targets total 62.5 minutes (instructor's revised targets, 2026-10-08), within the accepted ceiling.
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week01/mdp_values_claude.pptx
+  preview: output/lectures/week01/mdp_values_claude_preview.png
+  session_id: mdp_values
+  qa_minutes: 0                # questions are inside each segment's estimate (content proposal)
+  title: MDPs, returns and values (session 1.2)
+  author: Barış Akgün
+  term: Fall 2026              # course title slide (kind course_title)
+  time_override:               # the accepted ceiling, not a new decision
+    accepted_minutes: 65
+    authority: decisions/topic_decisions.yaml mdp_values accepted_overrun_minutes 5.5 (instructor 2026-10-07, B10)
+
+figure: &robot
+  deck: course/lectures/week01/introduction_claude.pptx
+  slide: I05b
+  exclude: [Title 1, Content Placeholder 2, 'yaml:footnote']
+
+slides:
+  - id: M00
+    kind: course_title         # instructor's title format (Introduction A21)
+    title: COMP438/538 Reinforcement Learning
+    topic: Markov Decision Processes
+    minutes: 0.5
+    sources: [old MDP PPTX 1, decision B12]
+    notes: |
+      Session 1.2. Brief opening only; the interaction loop follows on the next slide.
+
+  - id: M01
+    kind: pptx_only            # instructor-edited loop slide: old MDP PPTX 3 picture and diagram, bullets, prompts
+    title: The interaction loop
+    minutes: 3
+    sources: [old MDP PPTX 3 (picture, arrows and agent/environment diagram; labels corrected), book §3.1]
+    notes: |
+      Formalize the interaction already encountered; do not reteach unfinished 1.1 material. Keep observation and
+      state distinct here: the state timeline and the transition explanation come after "Observation, history and state"
+      defines history and state ("Transition", "Formalize Everything"). For the fully observed robot the observed charge can be identified with its model
+      state; this is not a general equivalence. Reward comes from the environment to the agent; the old R_t labels
+      are corrected to R_{t+1}.
+
+      What happens if time is continuous?
+      Mention observation to state
+
+  - id: M02
+    kind: math
+    title: The recycling robot
+    figure: *robot
+    body_box: [0.244, 1.2, 5.5]
+    eq_size: 22
+    body:
+      - eq: '\mathcal{S}=\{\text{high},\text{low}\}'
+      - eq: '\mathcal{A}(\text{high})=\{\text{search},\text{wait}\}'
+      - eq: '\mathcal{A}(\text{low})=\{\text{search},\text{wait},\text{recharge}\}'
+    minutes: 2
+    sources: [Introduction deck slide I05b figure (instructor-drawn, wait 0), Introduction A14a, book Example 3.3]
+    notes: |
+      Ask why A depends on the state. High-charge recharge is omitted as a modelling choice. These are high-level
+      decisions; the state need not describe every physical component of the robot. Failure at low gives −3 in
+      total (no +2 on that transition) and the robot is rescued to high. Do not restore the book's positive
+      waiting reward or the former +1.
+
+  - id: M03
+    kind: math
+    title: Observation, history and state
+    size: 22
+    body:
+      - 'The loop leads to a sequence of observations, actions and rewards'
+      - '$H_t$: The information accumulated before choosing $A_t$.'
+      - eq: 'H_t=(O_0,A_0,R_1,O_1,\ldots,A_{t-1},R_t,O_t),\qquad H_0=(O_0)'
+      - 'The environment state fully describes the environment:'
+      - sub:
+          - 'Need not be visible to the agent (not everything is in the observations)'
+          - 'But might be indirectly estimated (e.g. no battery gauge in the recycling robot example)'
+          - 'Need not be relevant to the agent'
+          - 'Autonomous driving example: the car does not know the exact traffic, and the heights of the buildings do not matter'
+      - 'Agent state is the internal representation used by the agent, built from the available history.'
+      - eq: 'S_t=f(H_t)'
+      - 'Ideally, the agent state holds enough information to make a decision (choose an action)'
+    minutes: 4
+    sources: [old MDP PPTX 4–5, book §17.3, notation O10 (resolved)]
+    notes: |
+      Answer the earlier (1.1) gauge question rather than restarting it as an exercise. Past observations, actions
+      and rewards can inform the charge without uniquely revealing it. This convention keeps rewards separate from
+      observations; the book's §17.3 folds rewards into observations. Do not mix the two sequences. A state can omit
+      irrelevant physical detail, but not information needed for the predictions being modelled.
+
+      Mention partial observability while talking about “But might be indirectly estimated “
+
+  - id: M03a
+    kind: math                 # instructor slide added in PowerPoint (2026-10-08)
+    title: Transition
+    size: 22
+    body:
+      - eq: 'O_t,A_t\to R_{t+1},O_{t+1}'
+      - 'At each time step, the environment changes:'
+      - sub:
+          - 'By the agent'
+          - 'By other agents'
+          - 'By its own dynamics'
+      - 'This change can be deterministic or stochastic'
+      - '(Agent State) Transition Model/Dynamics: Mathematical model of how the agent’s state evolves given agent actions'
+      - sub:
+          - 'Mapping from $S_t,A_t$ to $R_{t+1},S_{t+1}$'
+          - 'Distribution over $R_{t+1},S_{t+1}$ given $S_t,A_t$'
+          - 'In most practical applications, “reward function” and “state transition model” are treated separately'
+    minutes: 2.5
+    sources: [instructor slide added in PowerPoint]
+    notes: |
+
+  - id: M04
+    kind: math                 # instructor's rewrite of the Markov-state slide (2026-10-08)
+    title: Markov State Assumption and Models
+    size: 22
+    body:
+      - text: '“The future is independent of the past given the present” / “Future only depends on the current state”'
+      - eq: 'S_{0:t-1}\to S_t\to S_{t+1:\infty}'
+      - 'Simple state dynamics (no action):'
+      - eq: '\Pr\{S_{t+1}\mid S_t,S_{t-1},\ldots,S_0\}=\Pr\{S_{t+1}\mid S_t\}'
+      - 'State dynamics with action:'
+      - eq: '\Pr\{S_{t+1}\mid S_t,S_{t-1},\ldots,S_0,A_t,A_{t-1},\ldots,A_0\}=\Pr\{S_{t+1}\mid S_t,A_t\}'
+      - 'Full dynamics: $\Pr\{S_{t+1},R_{t+1}\mid S_t,A_t\}$'
+      - 'Markov Property and States?'
+      - sub:
+          - '$S_t=f(O_t)$ vs $S_t=f(O_{t-k+1:t})$ vs $S_t=H_t$'
+    minutes: 2
+    sources: [old MDP PPTX 7, book §3.1 and §17.3, CS234 introduction PDF 35–38]
+    notes: |
+      Relate the statement to high/low charge in
+      the simplified robot model. Stochasticity itself does not violate the Markov property; do not copy old slide
+      8's noise claim. Backup only (if asked): a worn battery drains faster, so two histories reporting "low" can
+      imply different depletion probabilities; if the history carries wear information that high/low omits,
+      high/low alone is not sufficient: add it to the state or accept an approximation.
+
+  - id: M05
+    kind: math
+    title: A chatbot's latest message
+    body:
+      - 'Latest user message: **“Yes, please.”**'
+      - 'Earlier question: “Would you like a shorter explanation?”'
+      - 'Or: “Would you like a worked example?”'
+      - '**What earlier information would you keep to interpret “Yes, please” and choose a response?**'
+      - 'Is using the last message as the state Markovian?'
+      - 'Are chatbots Markovian?'
+    minutes: 2.5
+    sources: [Introduction A10, CS224R introduction PDF 35–39]
+    notes: |
+      LIVE (required) / answer: give students a brief chance to answer. Retaining the preceding question resolves
+      this particular ambiguity: the latest observation is the same, but the useful context differs. Conversation
+      history does not guarantee observing all user intentions or a perfect Markov representation. Keep this a
+      transfer check, not a second fully specified MDP or an LLM-training discussion. Backup only (if asked):
+      the same observed position with opposite velocities leads to different next positions; recent observations can
+      help infer velocity; position plus velocity suffices only under a simplified motion model.
+
+  - id: M05a
+    kind: math                 # instructor slide added in PowerPoint (2026-10-08)
+    title: Models Continued
+    size: 22
+    body:
+      - 'Predict what happens next given the current (Markov) state and an action'
+      - 'Most generic model form:'
+      - eq: '\mathcal{M}(s,a,r,s'')\doteq\Pr\{S_{t+1}=s'',R_{t+1}=r\mid S_t=s,A_t=a\}'
+      - 'State-only Markov Transition Model: Predicting the next state'
+      - eq: '\mathcal{T}(s,a,s'')\doteq\Pr\{S_{t+1}=s''\mid S_t=s,A_t=a\}'
+      - 'Reward Model (or sometimes reward function): Predicting the immediate reward'
+      - eq: '\mathcal{R}(s,a)\doteq\mathbb{E}[R_{t+1}\mid S_t=s,A_t=a]'
+      - 'The reward function can have multiple forms:'
+      - eq: '\mathcal{R}(s),\mathcal{R}(s,a),\mathcal{R}(s,a,s''),\mathcal{R}(s'')'
+    minutes: 1
+    sources: [instructor slide added in PowerPoint]
+    notes: |
+      Go fast, just to keep these tidy at a single place and introduce the instantiations (lower case)
+
+  - id: M07
+    kind: math
+    title: Reading the robot's dynamics
+    figure:
+      <<: *robot
+      group: [0.24, 0.95]          # instructor placed the figure as a group on the left (2026-10-08)
+    table:
+      header: ['$s$', '$a$', '$r$', "$s'$", "$\\Pr\\{s',r\\mid s,a\\}$"]
+      rows:
+        - [high, search, '2', high, '0.8']
+        - [high, search, '2', low, '0.2']
+        - [high, wait, '0', high, '1']
+        - [low, search, '2', low, '0.7']
+        - [low, search, '−3', high, '0.3']
+        - [low, wait, '0', low, '1']
+        - [low, recharge, '0', high, '1']
+      widths: [0.8, 1.29, 0.58, 0.79, 1.83]
+      align_left: true
+      size: 20
+      row_h: 0.52
+    table_box: [7.52, 0.95, 5.29]
+    after_box: [0.244, 5.3, 12.85]
+    after:
+      - 'For each state/action pair, do the outcome probabilities add to one?'
+    minutes: 3.5
+    sources: [Introduction deck slide I05b figure (instructor-drawn, wait 0), Introduction A14a, book Example 3.3 and Exercise 3.4, accepted robot parameters]
+    notes: |
+      Identify the reward function/model, transition dynamics; ask the form of the reward function, 
+
+      Concentrate on the two low-search rows; distinguish the state/action being conditioned on from the outcome.
+      Failure gives −3 and returns the robot to high charge. The rows use fixed illustrative reward outcomes; the
+      book's can-count rewards need not be deterministic. No separate gridworld transition tree.
+
+  - id: M08
+    kind: math
+    title: A reward outcome and an expected reward
+    eq_size: 24
+    body:
+      - eq: '\mathcal{T}(s,a,s'')\doteq\Pr\{S_{t+1}=s''\mid S_t=s,A_t=a\}'
+      - eq: '\mathcal{R}(s,a)\doteq\mathbb{E}[R_{t+1}\mid S_t=s,A_t=a]'
+      - 'Searching at low charge gives **2** or **−3**.'
+      - eq: '\mathcal{R}(\text{low},\text{search})=0.7(2)+0.3(-3)=0.5'
+      - 'The expected reward is 0.5 but neither outcome gives 0.5.'
+    minutes: 1.5
+    sources: [old MDP PPTX 11, book §3.1]
+    notes: |
+      The transition-only probability is obtained by summing over reward outcomes in the joint model; explain in
+      words rather than adding another summation. The reward function is an expectation, not a claim that rewards
+      are deterministic given state and action.
+      Optional, only if a source or question calls for it: some texts condition rewards on the state alone, the state
+      and action, or also the next state. Check whether they mean a realized deterministic reward or a conditional
+      expectation; these are not interchangeable. The alternative forms are shown on "Models Continued"; do not repeat them here.
+
+  - id: M06
+    kind: math
+    title: 'Formalize Everything: Markov Decision Process'
+    eq_size: 22
+    size: 22
+    body:
+      - eq: 'S_0,\ A_0,\ R_1,\ S_1,\ A_1,\ R_2,\ S_2,\ldots'
+      - 'In a Markov-state model:'
+      - sub:
+          - 'At state $S_t$ apply action $A_t$'
+          - 'Consequences are reward $R_{t+1}$ and next state $S_{t+1}$'
+      - 'A finite MDP specifies'
+      - sub:
+          - 'State space: $\mathcal{S}$'
+          - 'Action space per state: $\mathcal{A}(s)$'
+          - 'Reward Model: $\mathcal{R}(\cdot)$'
+          - 'State dynamics:'
+      - eq: '\mathcal{T}(s,a,s'')\doteq\Pr\{S_{t+1}=s''\mid S_t=s,A_t=a\}'
+      - 'We will add more things soon'
+    after_box: [4.74, 4.2, 8.35]  # the PPTX joins this to the reward/dynamics lines with a right brace (PPTX only)
+    after:
+      - text: 'Or the full model:'
+      - eq: '\mathcal{M}(s,a,r,s'')\doteq\Pr\{S_{t+1}=s'',R_{t+1}=r\mid S_t=s,A_t=a\}'
+    minutes: 2.5
+    sources: [old MDP PPTX 3, 11 and 36, book §3.1]
+    notes: |
+      The relocated timeline now follows the history/state definitions: connect it directly to the conditional model
+      instead of repeating the interaction-loop narration. For our fully observed robot the observed charge identifies the model
+      state. The dynamics are time-independent in this model. The return objective adds the discount factor ("Discounted return").
+      State and action sets are already on "The recycling robot"; do not repeat a full component lecture. Terminal-inclusive S+ arrives
+      with "One failure, two possible endings". No learning-versus-planning bridge here (C9 not selected).
+
+  - id: M09
+    kind: math
+    title: Policies
+    body:
+      - 'Why are we doing all this?'
+      - '“Pick actions to maximize expected utility”'
+      - 'Policy: Mapping between states and actions'
+      - 'A deterministic policy chooses an action: $a=\pi(s)$.'
+      - sub:
+          - 'Search at high, recharge at low'
+      - 'A stochastic policy assigns action probabilities: $\pi(a\mid s)$.'
+      - sub:
+          - 'At low charge: search with probability 0.5, recharge with probability 0.5.'
+      - '**Policy probability:** which action the agent chooses.'
+      - '**Model probability:** what happens after that action.'
+    minutes: 3
+    sources: [old MDP PPTX 50–51, book §3.5, Silver lecture 2 PDF 26–28, CS285 lecture 4 PDF 6]
+    notes: |
+      The deterministic example is search at high, recharge at low. The stochastic example selects search
+      at high with probability 1 and wait with probability 0 everywhere. Ask students to distinguish its 0.5 choice
+      probability from the robot's 0.7 low-search success probability. Current policies are stationary; do not
+      claim all policies must be stationary or deterministic. Say once: fixing a stationary policy turns this MDP
+      into a Markov reward process. No separate chain/MRP example or optimality theorem.
+
+  - id: M09a
+    kind: bullets              # instructor slide added in PowerPoint (2026-10-08)
+    title: Return
+    bullets:
+      - How do we pick a policy?
+      - How do we know if a state is a “good state”?
+      - 'Remember the recycling robot:'
+      -   - Always search
+          - Search when high, recharge when low
+      - Which action has higher reward for the low state?
+      - Which policy has a higher (expected) return?
+      - 'Reward: immediate, Return: Long-term'
+      - How to calculate the return?
+      -   - Sum?
+          - Average?
+          - Discounted sum?
+    minutes: 3.5
+    sources: [instructor slide added in PowerPoint]
+    notes: |
+      LIVE (required), before the formula on "Discounted return" (about 1 minute): "If the task never ends, what happens
+      when we add all future rewards?" Use it with the Sum / Average / Discounted sum options: a hypothetical +1 at every
+      step makes the plain sum unbounded; the average is the Week 3 continuing objective (mention only); discounting
+      gives a finite return (next slide). This is a hypothetical stream, NOT the robot's wait reward, which is 0.
+
+  - id: M10
+    kind: math
+    title: Discounted return
+    eq_size: 24
+    body:
+      - 'Given a sequence of transitions (potentially infinite) $\ldots S_t,\ A_t,\ R_{t+1},\ S_{t+1},\ A_{t+1},\ R_{t+2},\ S_{t+2},\ldots$'
+      - eq: 'G_t\doteq R_{t+1}+\gamma R_{t+2}+\gamma^{2}R_{t+3}+\cdots=\sum_{k=0}^{\infty}\gamma^{k}R_{t+k+1}'
+      - eq: 'G_t=R_{t+1}+\gamma G_{t+1}'
+      - '$\gamma$ is called the discount factor'
+      - 'For example, given $\gamma=0.5,$ successive reward weights are 1, 0.5, 0.25, …'
+      - 'Smaller $\gamma$ gives less weight to later consequences.'
+      - 'Bounded rewards and $0\leq\gamma<1$ keep the continuing sum finite.'
+      - 'Important observation: Returns are calculated per time step and depend on the policy (but we don’t have a single return number for a policy!)'
+    minutes: 3
+    sources: [old MDP PPTX 21–23, book §3.3 (printed 54–55, including its +1 stream), Silver lecture 2 PDF 12–13]
+    notes: |
+      Follows the live infinite-return question on "Return". A hypothetical +1 at every step gives an unbounded undiscounted sum; discounting by 0.5
+      gives 1 + 0.5 + 0.25 + … = 2. This is a hypothetical stream, NOT the robot's wait reward, which is 0.
+      Discounting gives less weight to later consequences and changes the objective; bounded rewards with a discount
+      below one give a finite return.
+      0.5 is chosen for hand calculation, not as a typical setting; appropriate discounting depends on the task and
+      the duration of a step. The immediate reward is not discounted. Derive the recursion by grouping the later
+      terms; this is not a Bellman value derivation. Keep the discount reasons spoken; do not restore old slide 23's
+      claims that randomness makes the future unrepresentable or that discounting guarantees convergence of all RL
+      algorithms; no biological/economic analogies or stationary-preferences theorem. Average reward stays in Week 3.
+
+  - id: M11
+    kind: math
+    title: One failure, two possible endings
+    figure:
+      <<: *robot
+      variant: terminal
+      remove: [Curved Connector 76, TextBox 79]
+      terminal: {x: 8.25, y: 0.95, w: 1.7, h: 0.45, label: out of battery, from: Oval 72, size: 16}
+      move: {TextBox 56: [9.8, 1.32]}      # R14/C12: box and label clear of the title divider
+    body_box: [0.244, 1.2, 5.6]
+    size: 22
+    body:
+      - '$\mathcal{S}^{+}$ includes the terminal state.'
+      - 'After termination, imagine a self-loop producing reward **0** forever.'
+      - 'A terminal state can exist even if some policies never reach it.'
+    table:
+      header: [Model, Failed search at low charge]
+      rows:
+        - [Continuing rescue, Reward −3; return to high charge and keep working]
+        - [Terminal failure, Reward −3; the episode ends]
+      widths: [3, 9.85]
+      align_left: true
+      size: 20
+      row_h: 0.55
+    table_box: [0.244, 5.05, 12.85]
+    minutes: 3.5
+    sources: [old MDP PPTX 21 (adapted), book §§3.3–3.4, Abbeel lecture 1 PDF 17–20 (finite horizon), decisions B7/B13]
+    notes: |
+      LIVE (required, about 1 minute): continuing, natural termination, deadline. The rescue model keeps going; in
+      the terminal version an event (failed search) ends an episode. A separate imposed deadline ends the task when
+      its time is up. Time remaining can change the right action at the same physical state: a robot may recharge
+      when there is time to use that charge, but recharging only for later collection has no benefit when no working
+      step remains. Account for a deadline by including time remaining in the state, or by treating time explicitly
+      in a finite-horizon model and policy. This is a conceptual contrast, not a deadline added to our robot
+      calculations. Stopping data collection after four steps in an ongoing task does not make that task terminal.
+      The failure reward is paid once on entry; the zero-reward absorbing continuation unifies the return notation.
+      Wait/recharge policies can avoid failure indefinitely, so use γ = 0.5 for both variants. A bounded episode
+      allows an undiscounted sum, but this robot has no added deadline. (Old slide 21's "guarantee that every policy
+      reaches a terminal state" is a condition, not a property of absorbing states.) Instructor's verbal caveat:
+      "This should probably be penalized more, but this is just an example."
+
+  - id: M12
+    kind: math
+    title: Calculate the terminal return
+    body:
+      - text: 'The first three search transitions from our earlier example, now with a terminal ending:'
+    body_box: [0.244, 0.95, 12.85, 0.6]
+    table:
+      header: ['Time $t$', 'State $S_t$', 'Action $A_t$', 'Reward $R_{t+1}$', 'Next state $S_{t+1}$']
+      rows:
+        - ['0', high, search, '2', high]
+        - ['1', high, search, '2', low]
+        - ['2', low, search, '−3', terminal]
+      widths: [1.8, 2.4, 2.4, 2.6, 3.0]
+      align_left: true
+      size: 20
+      row_h: 0.5
+    table_box: [0.244, 1.6, 12.85]
+    after_box: [0.244, 3.75, 12.85]
+    after:
+      - eq: 'T=3,\qquad G_3=0,\qquad G_t=R_{t+1}+0.5\,G_{t+1}'
+      - 'Work backward: $G_2=?\quad G_1=?\quad G_0=?$'
+    minutes: 5
+    sources: [old MDP PPTX 24 (adapted), book §§3.3–3.4]
+    notes: |
+      Answer: G_2 = −3; G_1 = 2 + 0.5(−3) = 0.5; G_0 = 2 + 0.5(0.5) = 2.25. Direct check: 2 + 0.5(2) + 0.5²(−3)
+      = 2.25. G_3 = 0 because the penalty was already received as R_3; it is not counted again. The finite
+      discounted episode sum ends at R_T. Do not multiply realized rewards by transition probabilities when
+      calculating the return of this observed path. Leave room for annotation.
+
+  - id: M13
+    kind: math
+    title: The continuing return has a tail
+    eq_size: 24
+    body:
+      - 'Observed rewards: **2, 2, −3, 2**, then the robot continues.'
+      - 'Four-step discounted reward sum:'
+      - eq: '2+0.5(2)+{0.5}^{2}(-3)+{0.5}^{3}(2)=2.5'
+      - 'Complete continuing return:'
+      - eq: 'G_0=2.5+{0.5}^{4}G_4'
+      - 'These alone do not tell us $G_4$.'
+      - 'Questions:'
+      - sub:
+          - 'Is calculating a return for a single trajectory enough to differentiate policies?'
+          - 'What to do if the trajectory never terminates?'
+    minutes: 3.5
+    sources: [accepted Introduction trace, book §3.3, shared review R05/R10/R11]
+    notes: |
+      The same prefix students saw in 1.1; the third transition now rescues the robot to high and a fourth search
+      gives 2 and leaves it high. Contrast the complete terminal return 2.25 with the continuing expression, not with
+      a falsely completed 2.5. Do not label truncated backward values as complete G_t. The second 1.1 trace has
+      prefix sum 3.25 and its own tail; keep it here, not as a second live calculation. A single excerpt cannot
+      settle which policy has the greater expected return. Backup (if asked): with |R| ≤ 3 and γ = 0.5,
+      |G_4| ≤ 6, so the omitted tail 0.5⁴G_4 is at most 0.375 in magnitude; this concerns the omitted tail of a
+      realization, not sampling uncertainty.
+
+  - id: M14
+    kind: math
+    title: Values are expected returns
+    eq_size: 24
+    body:
+      - 'Value of a state: Expected return when starting in state $s$, then following the policy $\pi$.'
+      - eq: 'v_\pi(s)\doteq\mathbb{E}_\pi[G_t\mid S_t=s]'
+      - 'Value of a state-action pair (a.k.a. Q-value): Expected return when starting in $s$, taking action $a$, **then** following $\pi$.'
+      - eq: 'q_\pi(s,a)\doteq\mathbb{E}_\pi[G_t\mid S_t=s,A_t=a]'
+      - 'A return belongs to a trajectory. A value averages possible returns under a policy.'
+    minutes: 4
+    sources: [old MDP PPTX 25 and 58, book §3.5 (printed 58–59), Silver lecture 2 PDF 28]
+    notes: |
+      LIVE (required) — estimating values: run repeated independent episodes from the same state under the same
+      policy and average their complete discounted returns to estimate the state value. Illustrate with the terminal
+      robot under always-search: it terminates with probability one; other robot policies need not. To estimate an
+      action value, also fix the first action, then follow the same continuation policy. Averaging four-step excerpts
+      estimates the expected four-step sum, not the full continuing value: more samples reduce sampling noise; they
+      do not supply the missing tail. No estimator notation, Monte Carlo update or new exercise.
+      The second definition specifies the first action even if the policy would not choose it. The expectation
+      includes stochastic transitions and any stochastic policy choices. No value estimates V, Q, Monte Carlo updates
+      or Bellman expansion here.
+
+  - id: M15
+    kind: math
+    title: A policy whose values we can calculate
+    eq_size: 24
+    body:
+      - 'Let $\pi$ **always wait**, at either charge level.'
+      - 'Waiting preserves charge and gives reward 0.'
+      - eq: 'G_t=0+0.5(0)+{0.5}^{2}(0)+\cdots=0'
+      - eq: 'v_\pi(\text{high})=v_\pi(\text{low})=0'
+      - 'What if we take one different action, then always wait?'
+    minutes: 2.5
+    sources: [value definitions applied to the accepted zero-wait model]
+    notes: |
+      This policy is chosen because students can compute its values directly, not because it is desirable. The
+      infinite zero sequence is harmless even though this policy never terminates. Distinguish this from the nonzero
+      continuing rewards of search policies.
+
+  - id: M16
+    kind: math
+    title: The first action and the continuation policy
+    body:
+      - text: 'Take the specified action once, then always wait:'
+    body_box: [0.244, 0.95, 12.85, 0.6]
+    table:
+      header: [Starting state and first action, Expected complete return]
+      rows:
+        - ['high, search', '$q_\pi(\text{high},\text{search})=2$']
+        - ['low, search', '$q_\pi(\text{low},\text{search})=0.7(2)+0.3(−3)=0.5$']
+        - ['low, recharge', '$q_\pi(\text{low},\text{recharge})=0$']
+      widths: [4.5, 8.35]
+      align_left: true
+      size: 22
+      row_h: 0.6
+    table_box: [0.244, 1.6, 12.85]
+    after_box: [0.244, 4.4, 12.85]
+    after:
+      - '**Why is recharging worth zero here, even though it can be useful?**'
+    minutes: 3
+    sources: [book §3.5, old MDP PPTX 59 (state/action-value relationship, explanation only)]
+    notes: |
+      LIVE (required): a state's value averages its action values according to the policy's action probabilities;
+      for a deterministic policy it is the value of the chosen action (always-wait chooses wait, value zero). Here
+      recharge has zero value because the continuation waits forever. Under search-high/recharge-low, restored charge
+      has value because the continuation uses it to collect cans. Keep this in words; formal value relationships and
+      Bellman expansions remain in Week 2.
+      Answer: after the first action every reward is zero because the policy waits forever. Recharging restores
+      charge, but that charge is never used to collect cans. Action values depend on the continuation policy. Here
+      q_π(s, a) = ℛ(s, a) only because the continuation gives zero rewards; not true in general. The same values hold
+      in the terminal variant. State value averages action values according to the policy; for this deterministic
+      policy its chosen wait action has value zero. Do not add the next-state Bellman formula from old slide 59.
+
+  - id: M17
+    kind: math
+    title: Values of the two familiar policies
+    body:
+      - text: 'Continuing rescue model, $\gamma=0.5$'
+      - text: '**Goal: find a policy that maximizes expected discounted return.**'
+    body_box: [0.244, 0.95, 12.85, 1.1]
+    table:
+      header: [Policy, '$v_\pi(\text{high})$', '$v_\pi(\text{low})$']
+      rows:
+        - [Always search, '3.60', '1.60']
+        - ['Search at high; recharge at low', '3.64', '1.82']
+      widths: [7, 2.9, 2.9]
+      size: 22
+      row_h: 0.6
+    table_box: [0.244, 2.15, 12.85]
+    after_box: [0.244, 4.25, 12.85]
+    after:
+      - 'One observed excerpt cannot rank policies. These values average complete returns.'
+      - 'But wait, how do we compute these values if the task continues forever?'
+    footnote: Complete expected discounted returns, rounded to two decimals.
+    minutes: 3.5
+    sources: [independently checked policy evaluation of the accepted model, shared review R06/R07/R11, old MDP PPTX 51/53 and book §3.6 printed 62 (objective only)]
+    notes: |
+      LIVE (required): values let us evaluate policies and compare first actions under a specified continuation.
+      For this finite discounted MDP, an optimal policy achieves the best expected return from every state. The table
+      compares two policies; by itself it does not prove global optimality. Next we learn to compute values and improve
+      decisions; the proof and improvement argument stay in Week 2.
+      Show, do not derive. Exact values: (18/5, 8/5) and (40/11, 20/11); do not call 3.64/1.82 exact. Comparing the
+      2.5/3.25 prefixes with these values involves both an omitted tail and sampling variation; do not attribute all
+      of the difference to a lucky or unlucky sample. Ask how such values can be computed without enumerating every
+      future: that is the Week 2 bridge. Brief spoken contrast: with always-search, rescue restores a positive
+      expected continuation and terminal failure removes it, so rescue has the higher low-state value here (notes
+      only: 1.60 vs 10/13 ≈ 0.77). Not a general rule that termination is worse.
+
+  - id: M18
+    kind: math
+    title: From returns to value computation
+    body:
+      - 'For our robot:'
+      - sub:
+          - 'What distinguishes a reward, a return and a value?'
+          - 'Which uncertainty belongs to the policy, and which to the model?'
+          - 'What is missing when we see only the first four rewards?'
+      - '**Next:** use the model to compute values (Bellman equations and policy evaluation).'
+    minutes: 3
+    sources: [accepted formulate/mdp_values boundary]
+    notes: |
+      Answers: a reward is one step's feedback; a return accumulates a trajectory's future rewards according to the
+      objective; a value is its expectation under a specified policy. Policy probabilities describe chosen actions;
+      model probabilities describe subsequent outcomes. An excerpt lacks the tail and alone does not establish an
+      expectation. No new homework, reading or video.
+
+  - id: MA1
+    kind: pptx_only            # instructor slide, hidden: for students who ask about alternatives to RL
+    title: 'Appendix: Planning vs Reinforcement Learning'
+    appendix: true
+    hidden: true
+    sources: [instructor slide added in PowerPoint]
+    notes: |
+      Target: 0 min, just an appendix slide

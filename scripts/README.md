@@ -207,3 +207,9 @@ python3 scripts/deck_text_view_claude.py course/lectures/week01/introduction_cla
 ```
 
 Read-only Markdown view of a rendered deck for review: slide ids, titles, text, tables, diagram labels and notes, plus the deck's SHA-256. Lecture decks build with `scripts/build_deck_claude.py <spec> [--render]`. A spec with `deck.session_id` is timed against that session's accepted teaching minutes.
+
+## Native equations and safe PowerPoint rendering (Claude decks)
+
+`scripts/omml_claude.py` turns a LaTeX subset into native, editable PowerPoint equations (unsupported commands raise an error). In deck specs, the `math` slide kind takes text with `$inline$` math, `{eq: latex}` display equations, tables (symbols typeset as text) and native figures copied from another deck (`figure:`, optionally `variant: terminal`, or `group: [x, y(, w, h)]` to place the copy as one group). Each slide's notes list its equation sources (display equations and inline math). Any slide can be `hidden: true` (kept in the deck, skipped in the slide show). The `course_title` kind is the instructor's title slide for lecture decks (Title Slide layout): the slide's `title` (course name), then its `topic` in bold and the deck's `author` and `term`.
+
+`build_deck_claude.py --render` exports through PowerPoint only from the system temp folder. Other folders make sandboxed PowerPoint show a blocking "grant access" prompt. Each export uses a unique file name, and a preflight check refuses equation structures PowerPoint could stop on.

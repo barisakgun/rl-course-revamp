@@ -1,8 +1,15 @@
 # Deck decisions: MDPs, returns and values (session 1.2)
 
-**Shared** deck decision file (`docs/lecture_workflow.md`). It holds outcomes only; the discussion goes in `analysis/lecture_suggestions/mdp_values_*`.
-- **Scope:** session 1.2 `mdp_values` (58 minutes; `decisions/topic_decisions.yaml`). It is the second round of the workflow pilot (decision log 2026-10-07).
-- **Status:** step 0. Instructor decisions taken before the initial suggestions; the AI suggestions have not started.
+**Shared** deck decision file (`docs/lecture_workflow.md`). It holds outcomes only; discussion and findings live in the [shared review](../../analysis/lecture_suggestions/mdp_values_review.md). The initial AI suggestions remain historical inputs.
+- **Scope:** session 1.2 `mdp_values`; accepted teaching allocation and ceiling live in `decisions/topic_decisions.yaml`. It is the second round of the workflow pilot (decision log 2026-10-07).
+- **Status: DONE (instructor-accepted 2026-10-09).**
+  - Deck: `course/lectures/week01/mdp_values_claude.pptx`, SHA-256 `b0bb3ee851bb9630c95d75089dde71703b734c511fbccbeed0a3f38cd861c331`. This identifies the accepted saved version; later substantive edits reopen the status.
+  - 22 live slides plus one hidden appendix (MA1, zero minutes); **62.5 minutes** of live targets (instructor's revised targets, 2026-10-08), within the accepted 65-minute ceiling (B10/B14). The planning baseline in `decisions/topic_decisions.yaml` remains approximately 62.
+  - Source: `course/lectures/week01/mdp_values_claude.yaml`, in sync; M01 and MA1 are PowerPoint-only.
+  - Previews: `output/lectures/week01/mdp_values_claude_preview.{png,pdf}`. Text view: `output/lectures/week01/mdp_values_claude.md`.
+  - Reviews: ChatGPT's full review of the instructor-edited deck found no layout or arithmetic defect; R15 withdrawn, R16 resolved by the instructor's wording, R17 (equation-source notes) resolved by Claude ([shared review](../../analysis/lecture_suggestions/mdp_values_review.md)).
+- **Teaching source:** instructor takeover on 2026-10-08 is recorded in Claude's source header. The PPTX is now the teaching artifact; Claude maintains its YAML and exported views. The [shared proposal](../../course/lectures/week01/mdp_values_content.md) is frozen at the preceding `2223e515…` handoff version. It must not be used to overwrite the instructor's changes.
+- **Current artifact structure:** M03a (Transition), M05a (Models Continued) and M09a (Return) are added; M06 follows M08; MA1 (Planning vs Reinforcement Learning) is hidden and timed at zero. The saved 62.5-minute estimate is within B10/B14's allowance; the planning baseline remains approximately 62 and the ceiling 65. This records the observed deck, not a newly approved live appendix or curriculum expansion.
 
 ## Accepted (instructor, 2026-10-07)
 
@@ -11,16 +18,31 @@
 - B3. **Running example: the recycling robot with the 1.1 numbers** (Introduction deck decision A14).
   - At high, a search stays high with 0.8, otherwise low.
   - At low, a search stays low with 0.7, otherwise rescue to high.
-  - Rewards: search +2, wait +1, recharge 0, rescue −3.
+  - Rewards: **successful search +2; failed low-charge search/rescue −3 total** (no +2 on that transition); **wait 0**; recharge 0. Instructor clarified the failure reward and changed wait from +1 on 2026-10-07. With these numbers and γ = 0.5, the optimal policy is search when high, recharge when low (Introduction A14a); the 1.2 teaser does not derive or prove optimality.
+  - Waiting is idling without collecting cans. The book allows cans to be brought to the stationary robot and leaves the expected waiting reward symbolic; +1 was our earlier illustrative number, not a number imposed by the book.
 
   1.2 also shows a **terminal-state version** ("out of battery" instead of rescue) for the episodic contrast. Old `2 - Markov Decision Processes.pptx` slide 21 ("Infinite Utilities") already mentions absorbing states.
 - B4. **Discount γ = 0.5** for hand calculations, with a remark that this small value is not the norm in practice.
-- B5. **History symbol stays available** (notation-guide open item O10 remains open). It may be used, for example, in a "what if there were no battery gauge?" discussion, and later for partial observability.
-- B6. The model and returns, introduced informally in 1.1, are **covered again formally** in 1.2. 1.2 keeps its 58 minutes.
+- B5. **Explicit-reward history approved** (instructor's reply to ChatGPT, 2026-10-07): H_t = (O_0, A_0, R_1, O_1, …, A_{t−1}, R_t, O_t), with H_0 = (O_0). It describes available information before A_t. Rewards remain separate from observations; this is a stated departure from the book's compact §17.3 convention. Resolves notation O10; used to formalize the earlier hidden-gauge discussion and later partial observability.
+- B6. The model and returns, introduced informally in 1.1, are **covered again formally** in 1.2. Original baseline: 58 minutes; the later delivery allowance is recorded by B10.
+- B7. **Terminal failure reward −3 total**, then zero rewards after termination (instructor's reply to ChatGPT, 2026-10-07). Keep the same penalty to isolate termination; the instructor will verbally note that real failure might deserve a larger penalty. Retain γ = 0.5; an absorbing state does not guarantee every policy reaches it.
+- B8. **Consolidation accepted** (instructor, 2026-10-07): policies before returns; formalize the earlier gauge discussion with history and keep the short chatbot contrast; battery ageing and tail-bound derivation are notes-only backups. Use one familiar trajectory with terminal/continuing endings, preserving the continuing tail. Calculate always-wait values, then show the rounded value table for the two familiar policies. Distinguish sampling from truncation; keep the rescue/terminal explanation brief and model-specific. Reallocate two minutes from information/state to values; total remains 58. Full Bellman derivations and solvers remain in Week 2.
+- B9. **Finalization authorized** (same instruction): maintain one shared content file and one shared review for proposal check, rendering and deck review. Synchronize the already approved reward/history choices in these documents and the notation guide. The content stays editable until instructor takeover. This does not mark a rendered deck done or alter the accepted Introduction PPTX.
+- B10. **Timing flexibility accepted** (instructor, 2026-10-07, after the old-deck comparison): the instructor allows a longer 1.2 because the topic is crucial, without trying to fill the allowance. The authoritative ceiling and buffer allowance are recorded under `mdp_values` in [the session plan](../topic_decisions.yaml). At that stage the approximately 62-minute outline remained a recommendation; content and timing were subsequently accepted in B12–B14.
+- B11. **Later placements accepted** (same discussion; recording requested explicitly): Week 2 takes the transition-prediction example where useful for backups, reward sensitivity with improvement, and formal value/Bellman relationships. The detailed search-tree framing decision is left to preparation of search/model-based RL, e.g. MCTS. The actionable placements and displacement constraints are maintained under `bellman`, `improvement` and `mcts` in [the session plan](../topic_decisions.yaml). This accepts placement, not all old slides or a new mandatory expectiminimax block.
+- B12. **Consolidated revision accepted** (instructor, 2026-10-07): approve Claude comparison C1–C8 and C10–C12; omit C9. Add a dedicated title; restore old MDP slide 3's interaction loop using observations and corrected reward indexing. Move the state timeline and state/action transition explanation after the history/state definitions. Clarify environment versus agent state and strengthen the chatbot question. Position/velocity remains backup only.
+- B13. **Live explanations and exclusions:** teach the infinite-return motivation before the return formula and the continuing/natural-termination/deadline contrast live. Explicitly explain the policy objective, the verbal state/action-value relationship and estimation from repeated complete returns under the same policy/start state (also fixing the first action for action value). Keep discount reasons spoken and alternative reward conventions notes-only when useful, without new displayed notation. Do not add the learning-versus-planning bridge. Preserve B3–B8's robot parameters, calculations, continuing tail and sampling-versus-truncation distinction; formal value/Bellman relationships remain under B11.
+- B14. **Timing revision accepted:** replace the old rendered baseline with the revised allocation in the session plan; aim approximately 62 minutes, with 65 an allowed ceiling rather than a target. No 1.1 carryover. Fund the title from 0.5 minute of closing recap and the added live explanations from four minutes of remaining session capacity; protect the worked return/value reasoning. Scope/mastery, prerequisites, assessments, readings and videos are unchanged. Preserve B11's Week 2 placements and deferred search-tree decision.
+- B15. **Rendering handoff:** carry R14 forward as an accepted layout fix: lower M11's terminal box off the title divider and move its arrow with it. Revise the existing shared content and review, preserving slide IDs where practical, and refresh affected generated planning views. Stop for Claude's review/rendering; this revision does not authorize ChatGPT to create or modify a PPTX or Claude's renderer YAML.
 
-## Open
+- B16. **Notation update already approved by the instructor, 2026-10-08:** the shared notation guide records 𝒯(s, a, s′) for transition probabilities, ℳ(s, a, r, s′) for joint dynamics and ℛ(s, a) for expected reward; ℛ no longer denotes the reward set. Its alternative reward forms may be displayed when a source/problem uses them. This supersedes B13's earlier no-new-displayed-reward-notation restriction to that extent. Follow the guide as the single notation authority; O12's remaining book-conversion and learned-model choices are still open for relevant later preparation.
+
+## Resolved pre-content questions
 
 | # | Item | Notes |
 | --- | --- | --- |
-| P1 | Terminal-state reward (1.1 suggested −10 if drawn) and how the episodic and continuing versions are compared | For the initial suggestions. Returns of never-ending safe policies need discounting, or the absorbing-state view in book §3.4. |
-| P2 | Notation for the formal definitions (S_t, A_t, R_{t+1}, G_t, γ, π, p(s′, r ∣ s, a), v_π, q_π; history per B5) | Notation guide; old-deck conversions are listed in its O9. |
+| P1 | Terminal-state reward and comparison | Resolved by B7. |
+| P2 | Formal notation, including history | Resolved by B5 and the existing guide; use its old-deck conversions. |
+| P3 | Failed-search reward wording | Resolved by B3. |
+
+No blocking content choice remains. Final old-slide selection/editing remains with the instructor under B2; the shared content specifies working object-reuse mappings. Native equation fidelity, layout and preview checks remain tasks for rendering and deck review, not new curriculum decisions.

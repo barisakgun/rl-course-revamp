@@ -147,7 +147,7 @@ def build():
         '**Syllabus frozen by instructor acceptance; Phase 6 closed.** Internal date-dependent checks remain pending. '
         'Freeze scope and artifact identity are recorded in `decisions/syllabus_decisions.yaml`.',
         table(['Check','Result','Evidence or limitation'],[
-            ['Teaching scope and time','Pass unchanged','Exact comparison with the start-of-Phase-6 baseline; per-session and total budget checks pass.'],
+            ['Teaching scope and time','Pass with recorded revisions','Exact comparison with the audit baseline synchronized to accepted lecture decisions; per-session and total budget checks include instructor-authorized buffer use. See decisions/decision_log.md and the time audit.'],
             ['Learning outcomes and Core depth','Supported with pacing qualifications','Existing curriculum outcome mapping and worked Core activities validated; see curriculum consistency audit.'],
             ['Assessment alignment','Supported with accepted limitation','Assignment audit covers all Core groups. Best-three permits missing implementation evidence; exams do not establish coding mastery.'],
             ['Assignment windows','Pending actual dates',calendar_note],

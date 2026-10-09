@@ -1,9 +1,9 @@
 # Deck decisions: Introduction (and MDPs)
 
 **Shared** deck decision file (`docs/lecture_workflow.md`). It holds outcomes only; the discussion is in `analysis/lecture_suggestions/introduction_*` and `intro_mdps_claude.md`.
-- **Scope of this deck:** session 1.1 `formulate` (the pilot). Whether 1.2 joins this deck is still open (brainstorming Q2).
-- **Status: DONE (instructor thumbs-up, 2026-10-07; workflow step 11).**
-  - Deck: `course/lectures/week01/introduction_claude.pptx`, SHA-256 `fd460cf5264650dbc0aab2b94ec6bacb6b51a097d51d24bb20257dfa5f4044e2`. This identifies the accepted saved version; later substantive edits reopen the status.
+- **Scope of this deck:** session 1.1 `formulate` (the pilot). Session 1.2 is a separate deck, settled by [MDP decisions B1](mdp_values.md).
+- **Status: DONE (re-accepted 2026-10-07 after the wait-reward change, A14a; title slide restyled 2026-10-08, A21).**
+  - Deck: `course/lectures/week01/introduction_claude.pptx`, SHA-256 `60b76c839f5b8dcbccc26aedd4ea2609b4af2f4adad98d8a9fa05f303247a7bb`. This identifies the accepted saved version; later substantive edits reopen the status.
   - Source: `course/lectures/week01/introduction_claude.yaml`, in sync; 4 slides are PowerPoint-only.
   - Previews: `output/lectures/week01/introduction_claude_preview.{png,pdf}`.
   - Text view: `output/lectures/week01/introduction_claude.md`.
@@ -41,14 +41,16 @@
 - A14. **Robot model (book's rescue model with numbers).**
   - At high, a search stays high with 0.8, otherwise low.
   - At low, a search stays low with 0.7, otherwise the battery runs out and the robot is rescued and recharged to high.
-  - Rewards: **every search +2** (the book's reasoning), wait +1, recharge 0, rescue −3.
+  - Rewards: **every search +2** (the book's reasoning), **wait 0** (changed from +1 on 2026-10-07, see below), recharge 0, rescue −3.
   - The figure is drawn natively in PowerPoint by the instructor, with no symbols. Resolves O3; satisfies A6. The notation-guide item O11 is handled by using numbers on slides (the guide itself is unchanged).
+- A14a. **Wait reward 0** (instructor, 2026-10-07; amends A14). With wait +1 and γ = 0.5, waiting at low becomes optimal (low: wait 2.0 vs recharge 1.83 vs search 1.75), which undermines the example. The book's +1 (someone brings a can) is ignored. With wait 0, the optimal policy is search when high, recharge when low (high: search 3.64 vs wait 1.82; low: recharge 1.82, search 1.68, wait 0.91), the deck's second example strategy. The instructor edits the PPTX; this re-opens the deck's done status until the edited version is pulled back and its fingerprint recorded.
 - A15. **Other versions of the model:** if time allows, draw them on the figure: a "rescued" state with a probability-1 transition to high, and an "out of battery" terminal state (e.g. −10) instead of the rescue. If not, state them verbally. Conditional on timing.
 - A16. **No reward-table slide.** The robot formulation slide shows two example transition sequences (always search; search when high and recharge when low) and asks "Returns?" and "Which strategy is better?". The intended answer is in its notes. Resolves O4 in this form.
 - A17. **Summary table is a live 0.5-minute slide** (replaces the appendix of A12). Rows: Decisions, State, Model, Reward, Objective, Horizon (continuing).
 - A18. **"Why is RL different?"** says "Can work with only a critic (reward) and no teacher (label)". Resolves O7. The observation/state question (O5) and the vacuum backup in the summary notes (O6) are kept as handed off.
 - A20. **"Why is RL different?", first bullet** (instructor, 2026-10-07): "Learns from **evaluative** feedback (rewards: how good was what I did?), not only **instructive** feedback (labels: what should I have done?)", with the sub-bullet "and can also use a teacher when available, e.g. human game records (AlphaGo) or human comparisons (ChatGPT)". This uses the book's evaluative/instructive distinction (Ch. 2) and avoids "critic", which means a learned value function in actor-critic methods (Weeks 7–8). Replaces the A18 wording.
 - A19. **Time:** the slides total **42.5 minutes** (robot formulation 9). This is now the session's accepted teaching time in `decisions/topic_decisions.yaml` (2026-10-07; was 38), with a recorded 3-minute overrun of the 39.5 usable minutes. The Week 1 spill-over is managed in delivery and not carried into later planning.
+- A21. **Title slide format** (instructor, 2026-10-08; style edit). Slide 1 uses the template's Title Slide layout: "COMP438/538 Reinforcement Learning", then centred 36 pt lines with the deck topic in bold ("Introduction"), "Barış Akgün" and "Fall 2026"; no image or tagline. Later decks use the same format (builder kind `course_title`). The slide keeps a **0.5-minute** target with notes written for this deck, so the slides total **42 minutes** within the unchanged 42.5-minute allocation (A19). Slide 15 (summary table) was restyled with its text unchanged.
 
 ## Open
 

@@ -9,6 +9,13 @@ view can be matched to the saved deck it describes. Generated; never edit by han
 import hashlib, sys
 from pathlib import Path
 from pptx import Presentation
+from pptx.oxml.ns import qn
+from lxml import etree
+NSX = {'m': 'http://schemas.openxmlformats.org/officeDocument/2006/math',
+       'mc': 'http://schemas.openxmlformats.org/markup-compatibility/2006',
+       'p': 'http://schemas.openxmlformats.org/presentationml/2006/main',
+       'a': 'http://schemas.openxmlformats.org/drawingml/2006/main'}
+X = lambda el, path: etree._Element.xpath(el, path, namespaces=NSX)   # python-pptx's xpath lacks mc/m prefixes
 
 
 def main(deck, out):
@@ -36,6 +43,18 @@ def main(deck, out):
                     if p.text.strip():
                         lines.append('  ' * p.level + '- ' + p.text.strip())
                 lines.append('')
+        for sp in X(s.shapes._spTree, './mc:AlternateContent/mc:Choice/p:sp'):   # shapes holding equations
+            for para in X(sp, './/a:p'):
+                bits = []
+                for ch in para:
+                    if ch.tag == qn('a:r'):
+                        bits.append(''.join(X(ch, './a:t/text()')))
+                    elif ch.tag.endswith('}m'):
+                        bits.append('$' + ''.join(X(ch, './/m:t/text()')) + '$')
+                line = ''.join(bits).replace('\u2060', '').strip()
+                if line:
+                    lines.append('- ' + line)
+            lines.append('')
         if s.has_notes_slide and s.notes_slide.notes_text_frame.text.strip():
             lines += ['**Notes:**', '', *('> ' + l for l in s.notes_slide.notes_text_frame.text.strip().splitlines()), '']
     out.parent.mkdir(parents=True, exist_ok=True)

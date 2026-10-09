@@ -44,7 +44,7 @@ The supplied syllabus permits remaining late days for the final report, with a p
 
 ## Live teaching budget
 
-1444.5 teaching + 19 additional administration minutes, leaving 63.5 usable minutes. The separate 15% buffer and configured 20-minute syllabus briefing are not counted twice. No exam/presentation time consumes lectures. Per-session capacity and prerequisite order pass existing curriculum checks; policy-gradient/GAE/PPO and offline units remain conceptually dense. Their small local margins cannot be treated as freely transferable semester slack. See the curriculum and time audits.
+1448.5 teaching + 19 additional administration minutes, leaving 59.5 usable minutes. The separate 15% buffer and configured 20-minute syllabus briefing are not counted twice. No exam/presentation time consumes lectures. Per-session capacity and prerequisite order pass existing curriculum checks; policy-gradient/GAE/PPO and offline units remain conceptually dense. Their small local margins cannot be treated as freely transferable semester slack. See the curriculum and time audits.
 
 ## Follow-up
 

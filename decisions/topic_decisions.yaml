@@ -611,17 +611,29 @@ lecture_plan:
   week: 1
   slot: 2
   title: MDPs, returns and values
-  teaching_minutes: 58
+  teaching_minutes: 62
   teaching_range:
   - 50
   - 65
   administration_minutes: 0
+  accepted_overrun_minutes: 5.5
+  overrun_authority: Instructor 2026-10-07 permits up to 65 minutes for this foundational session, without
+    trying to fill the allowance. This is a ceiling using this lecture's buffer, not a new 65-minute target.
   group_ids:
   - formulation
   requires:
   - formulate
   worked_activity: Compute returns and define a policy/model/value on the running MDP.
-  feasibility_note: Representation and partial observability remain conceptual.
+  feasibility_note: Instructor 2026-10-07 accepts the consolidated revision in deck decisions B12-B15,
+    targeting approximately 62 minutes; 65 remains an allowed ceiling, not a target. The 62-minute plan
+    uses 2.5 minutes of the 59.5-minute usable-content budget's general buffer, leaving 8 physical minutes.
+    Representation and partial observability remain conceptual. Protect model-table interpretation,
+    the return calculation, continuing tail and always-wait value reasoning. The live discount motivation,
+    horizon contrast and value interpretation replace compressed explanations; no extra solver or exercise
+    block is added. The title takes 0.5 minute from the closing recap; the net addition uses four minutes
+    of previously unallocated session capacity. Backups are unassigned and notes-only; no hidden workload.
+    Do not charge 1.1 carryover. Week 2 placements are recorded under bellman and improvement; the decision
+    on detailed search-tree framing is deferred to preparation of the search/model-based RL portion (see mcts).
   confidence: medium
 - id: bellman
   week: 2
@@ -637,7 +649,12 @@ lecture_plan:
   requires:
   - mdp_values
   worked_activity: Derive one expectation backup and perform policy-evaluation sweeps.
-  feasibility_note: High density; finite examples before operator formalism.
+  feasibility_note: High density; finite examples before operator formalism. Instructor 2026-10-07 places
+    the old MDP deck's two-step transition prediction (PPTX 42-48) and formal state/action-value relationships
+    (59-61) in Week 2, here alongside expectation backups. Use a short model-prediction example where useful;
+    do not defer this elementary probability reasoning to policy gradients. Integrate with the existing
+    worked backup, replacing repeated setup or expansion, not adding another exercise block. Protect
+    policy-evaluation sweeps within the existing 58 minutes; exact example and local split are preparation choices.
   confidence: medium
 - id: improvement
   week: 2
@@ -653,7 +670,12 @@ lecture_plan:
   requires:
   - bellman
   worked_activity: Reuse one grid/table to compare improvement, VI and PI.
-  feasibility_note: Protect the improvement argument; asynchronous DP optional.
+  feasibility_note: Protect the improvement argument; asynchronous DP optional. Instructor 2026-10-07 places
+    reward sensitivity (old MDP PPTX 52, changing living reward changes preferred behaviour) in Week 2,
+    here alongside policy improvement on the same grid/table. Formal optimality relationships remain here
+    and in bellman as appropriate. Replace repeated example narration with the reward comparison; keep
+    the 58-minute allocation and protect the improvement argument and VI/PI comparison. This does not
+    change the accepted recycling-robot rewards or introduce another assessment requirement.
   confidence: medium
 - id: mc_td
   week: 3
@@ -984,7 +1006,11 @@ lecture_plan:
   worked_activity: Trace selection, expansion, rollout and backup; distinguish planning visits from environment
     interaction.
   feasibility_note: Required search preparation before class, with BFS/DFS recap skippable; spend at most five live
-    minutes on retrieval before the tree example.
+    minutes on retrieval before the tree example. Instructor 2026-10-07 defers the decision on detailed
+    expectimax/expectiminimax framing (old MDP PPTX 54) to preparation of the search/model-based RL portion,
+    with MCTS as the checkpoint, rather than restoring it in 1.2. Decide then whether it helps, how it relates
+    to the existing search-background video, and what it replaces within the retrieval/tree-example allocation.
+    No mandatory new adversarial-search block, extra minutes or new video requirement is accepted now.
   confidence: medium
 - id: search_dyna
   week: 10

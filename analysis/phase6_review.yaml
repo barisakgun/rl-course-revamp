@@ -13,7 +13,7 @@ weekly_baseline:
   week: 1
   slot: 2
   title: MDPs, returns and values
-  teaching_minutes: 58
+  teaching_minutes: 62  # instructor 2026-10-07: accepted consolidated 1.2 revision; deck decisions B12-B15
   administration_minutes: 0
 - id: bellman
   week: 2

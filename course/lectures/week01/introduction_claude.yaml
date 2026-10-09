@@ -19,17 +19,19 @@ deck:
   qa_minutes: 0                # questions are inside each segment's estimate (content proposal)
   title: Introduction to reinforcement learning (session 1.1)
   author: Barış Akgün
+  term: Fall 2026              # course title slide (kind course_title)
 
 slides:
   - id: I01
-    kind: section
-    title: Introduction to reinforcement learning
-    subtitle: Learning to make decisions from experience
-    minutes: 1
-    sources: [current Introduction PPTX 8, CS234 introduction p. 4]
+    kind: course_title         # instructor's title format (2026-10-08), used for all later decks
+    title: COMP438/538 Reinforcement Learning
+    topic: Introduction
+    minutes: 0.5
+    sources: [instructor title slide format, 2026-10-08]
     notes: |
-      The course briefing is already complete. Introduce the question of how an agent can improve its choices
-      using experience and feedback on their consequences. Do not repeat the syllabus or prerequisite overview.
+      The course briefing is already done, so skip the syllabus and prerequisites. Frame the session in one line:
+      how can an agent learn to make good decisions from experience and from feedback on their consequences?
+      The brainstorm on the next slide starts the discussion.
 
   - id: I01a
     kind: pptx_only
@@ -163,8 +165,8 @@ slides:
         Omitting high-charge recharge is a modelling choice, not a physical impossibility.
       - Search from high completes without rescue and leaves high or low. A successful search from low stays low;
         depletion means rescue and a return to high. Waiting leaves the charge unchanged; recharging returns it to high.
-      - Illustrative rewards: successful search 2, wait 1, recharge 0; a depleted search gives −3 on that transition
-        and collects no cans. 2 and 1 are teaching simplifications, not book constants. No probabilities.
+      - Illustrative rewards: successful search 2, wait 0, recharge 0; a depleted search gives −3 on that transition
+        and collects no cans. 2 and 0 are teaching simplifications; the book's wait reward (someone brings a can) is ignored. Probabilities appear on the figure slide.
       - The task continues; the aim is to collect cans while accounting for rescue costs, not to avoid all risk.
       - Let students propose information, actions and feedback; discuss other defensible formulations before naming
         the book's. No fixed pair exercise.
@@ -254,7 +256,7 @@ slides:
         - [Decisions, 'Search, wait, recharge']
         - [State (same as observation for this example), High or low battery charge]
         - [Model, 'Search may lower the charge: from high it stays high with 0.8 (else low); from low it stays low with 0.7 (else the battery runs out and the robot is rescued to high). Wait keeps the charge; recharge returns it to high.']
-        - [Reward, 'Successful search: 2; wait: 1; recharge: 0; depletion/rescue: −3']
+        - [Reward, 'Successful search: 2; wait: 0; recharge: 0; depletion/rescue: −3']
         - [Objective, Collect cans over time while accounting for rescue costs]
         - [Horizon, Continuing]
       widths: [4, 8.5]

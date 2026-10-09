@@ -23,10 +23,10 @@ Local decks with no page-level evidence (added or not exported when the evidence
 
 ### 1.2 MDPs, returns and values (`mdp_values`)
 
-- **Teaching:** 58 min (range 50–65); confidence medium
+- **Teaching:** 62 min (range 50–65); confidence medium
 - **Requires:** 1.1 `formulate`
 - **Worked activity:** Compute returns and define a policy/model/value on the running MDP.
-- **Pacing note:** Representation and partial observability remain conceptual.
+- **Pacing note:** Instructor 2026-10-07 accepts the consolidated revision in deck decisions B12-B15, targeting approximately 62 minutes; 65 remains an allowed ceiling, not a target. The 62-minute plan uses 2.5 minutes of the 59.5-minute usable-content budget's general buffer, leaving 8 physical minutes. Representation and partial observability remain conceptual. Protect model-table interpretation, the return calculation, continuing tail and always-wait value reasoning. The live discount motivation, horizon contrast and value interpretation replace compressed explanations; no extra solver or exercise block is added. The title takes 0.5 minute from the closing recap; the net addition uses four minutes of previously unallocated session capacity. Backups are unassigned and notes-only; no hidden workload. Do not charge 1.1 carryover. Week 2 placements are recorded under bellman and improvement; the decision on detailed search-tree framing is deferred to preparation of the search/model-based RL portion (see mcts).
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
 | --- | --- | --- | --- |
@@ -37,7 +37,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 - **Teaching:** 58 min (range 55–70); confidence medium
 - **Requires:** 1.2 `mdp_values`
 - **Worked activity:** Derive one expectation backup and perform policy-evaluation sweeps.
-- **Pacing note:** High density; finite examples before operator formalism.
+- **Pacing note:** High density; finite examples before operator formalism. Instructor 2026-10-07 places the old MDP deck's two-step transition prediction (PPTX 42-48) and formal state/action-value relationships (59-61) in Week 2, here alongside expectation backups. Use a short model-prediction example where useful; do not defer this elementary probability reasoning to policy gradients. Integrate with the existing worked backup, replacing repeated setup or expansion, not adding another exercise block. Protect policy-evaluation sweeps within the existing 58 minutes; exact example and local split are preparation choices.
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
 | --- | --- | --- | --- |
@@ -48,7 +48,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 - **Teaching:** 58 min (range 55–70); confidence medium
 - **Requires:** 2.1 `bellman`
 - **Worked activity:** Reuse one grid/table to compare improvement, VI and PI.
-- **Pacing note:** Protect the improvement argument; asynchronous DP optional.
+- **Pacing note:** Protect the improvement argument; asynchronous DP optional. Instructor 2026-10-07 places reward sensitivity (old MDP PPTX 52, changing living reward changes preferred behaviour) in Week 2, here alongside policy improvement on the same grid/table. Formal optimality relationships remain here and in bellman as appropriate. Replace repeated example narration with the reward comparison; keep the 58-minute allocation and protect the improvement argument and VI/PI comparison. This does not change the accepted recycling-robot rewards or introduce another assessment requirement.
 - **Prerequisite for:** A1 Planning and learning from sampled transitions (release week 4)
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
@@ -253,7 +253,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 - **Teaching:** 55 min (range 50–65); confidence medium
 - **Requires:** 9.2 `bandits`, 1.2 `mdp_values`
 - **Worked activity:** Trace selection, expansion, rollout and backup; distinguish planning visits from environment interaction.
-- **Pacing note:** Required search preparation before class, with BFS/DFS recap skippable; spend at most five live minutes on retrieval before the tree example.
+- **Pacing note:** Required search preparation before class, with BFS/DFS recap skippable; spend at most five live minutes on retrieval before the tree example. Instructor 2026-10-07 defers the decision on detailed expectimax/expectiminimax framing (old MDP PPTX 54) to preparation of the search/model-based RL portion, with MCTS as the checkpoint, rather than restoring it in 1.2. Decide then whether it helps, how it relates to the existing search-background video, and what it replaces within the retrieval/tree-example allocation. No mandatory new adversarial-search block, extra minutes or new video requirement is accepted now.
 - **Students watch first:** `search_background` (see `decisions/video_decisions.md`)
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
