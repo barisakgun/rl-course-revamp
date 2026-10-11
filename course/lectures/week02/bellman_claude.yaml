@@ -1,0 +1,532 @@
+# Week 2 deck `bellman` (sessions 2.1–2.2): Claude's renderer input.
+# First draft: renderer input for the first render of this deck only (2026-10-09). Not maintained: the PPTX is the
+# source from that render on. Do not rebuild over the deck or treat this file as its current content.
+# Status: decisions/lectures/bellman.md. Content: course/lectures/week02/bellman_content.md (shared, frozen at this
+# render; slide IDs B00–B16 as there). Only the session 2.1 portion exists; 2.2 is not yet prepared.
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week02/bellman_claude.yaml [--render]
+# Equations are native PowerPoint equations generated from the LaTeX below (scripts/omml_claude.py); $...$ is
+# inline math. Native reuse: old MDP PPTX 37 pictures (3×4 grid), old MDP PPTX 43 outcome tree (relabelled for
+# the 2×2 grid) and old DP PPTX 13 movement diagram. Grids and backup diagrams are drawn natively (`drawing`).
+# Time budget: decisions/topic_decisions.yaml lecture_plan[bellman].teaching_minutes (60; decision C9).
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week02/bellman_claude.pptx
+  preview: output/lectures/week02/bellman_claude_preview.png
+  session_id: bellman
+  qa_minutes: 0                # questions are inside each slide's estimate (content convention)
+  title: Bellman equations and dynamic programming (sessions 2.1–2.2)
+  author: Barış Akgün
+  term: Fall 2026
+
+small_grid: &grid2
+  grid:
+    x: 0.5
+    y: 1.2
+    cell: 1.4
+    cols: 2
+    rows: 2
+    fills: {'2,2': goal}
+    labels: {'1,1': '(1,1) start', '2,2': '(2,2) goal'}
+    arrows: {'1,1': right, '1,2': right, '2,1': right}
+    size: 14
+
+sweep_header: &sweep_header ['Sweep', '(1,1)', '(1,2)', '(2,1)', 'Terminal']
+
+slides:
+  - id: B00
+    kind: course_title
+    title: COMP438/538 Reinforcement Learning
+    topic: Bellman Equations and Dynamic Programming
+    minutes: 0.5
+    sources: [Introduction A21 title format]
+    notes: |
+      This deck covers Week 2. Today's portion develops policy evaluation and the Bellman optimality equations.
+
+  - id: B01
+    kind: math
+    title: Evaluating a policy
+    size: 24
+    body:
+      - text: '**How can we compute expected return when the task can continue indefinitely?**'
+      - 'Given: a model of the environment and a policy.'
+      - '**Prediction** (policy evaluation): calculate the policy''s state and action values.'
+      - '**Control**: find a policy with higher expected return.'
+      - text: 'Values account for delayed consequences and help us compare decisions.'
+    minutes: 3
+    sources: [old DP PPTX 3 and 38 (condensed), book §§3.5 and 4.1, accepted 1.2 closing question]
+    notes: |
+      LIVE (required): recall the open question after the robot's value table in 1.2, without repeating that
+      table or its calculations. Averaging repeated returns has sampling variation, and stopping a continuing
+      trajectory leaves a tail. A known model lets us average outcomes directly. The Bellman equation represents
+      the entire future through successor values. A finite number of iterative updates can still be approximate;
+      distinguish that later from solving the finite system exactly. Today the policy first stays fixed.
+      Improving it is the next question.
+
+  - id: B03a
+    kind: math
+    title: Gridworld as an MDP
+    figure:
+      deck: sources/current_course/2 - Markov Decision Processes.pptx
+      slide: 37
+      exclude: [Title 1, Rectangle 3, Slide Number Placeholder 3]
+    drawing:
+      - {label: '(4,3): **+1 on entry**   (4,2): **−1 on entry**', box: [7.45, 5.4, 5.4, 0.45], size: 18}
+      - {label: 'Other transitions: living reward −0.04', box: [7.45, 5.85, 5.4, 0.45], size: 18}
+    body_box: [0.244, 1.05, 7.1]
+    size: 22
+    body:
+      - 'Actions: up, down, left, right'
+      - 'Intended direction: 0.8; each perpendicular direction: 0.1'
+      - 'A blocked movement leaves the agent in the same cell'
+      - 'Entering either terminal cell ends the episode; no rewards follow'
+      - '$\gamma=0.5$ for today''s examples'
+    after_box: [0.244, 6.35, 12.85]
+    after:
+      - text: '**What are the states, actions, model, rewards and objective?**'
+    minutes: 3
+    sources: [old MDP PPTX 37/38/40 (map and rules; learning/planning block omitted), decisions C7/C8]
+    notes: |
+      Map: columns 1–4 left to right, rows 1–3 bottom to top. Start at (1,1); (2,2) is a wall.
+      LIVE (required) / answers: the state is the accessible cell, with the grid and rules fixed. There are nine
+      nonterminal cells (𝒮) and eleven accessible cells including the two terminals (𝒮⁺); the wall is not a state.
+      The model describes the possible actual movements after an intended action. A policy chooses an action; it
+      does not select which slip occurs. The objective is expected discounted return. On a terminal-entry
+      transition the reward is +1 or −1 total, not that amount minus 0.04. Colliding with an outer boundary or the
+      internal wall still incurs −0.04. These rules differ from the old nonzero terminal-value convention, so use
+      no old computed values here.
+
+  - id: B03
+    kind: math
+    title: A smaller grid for calculations
+    drawing:
+      - grid:
+          x: 8.3
+          y: 1.1
+          cell: 1.6
+          cols: 2
+          rows: 2
+          fills: {'2,2': goal}
+          labels: {'1,1': '(1,1) start', '2,2': '(2,2) goal'}
+          size: 16
+    figures:
+      - deck: sources/current_course/3 - Dynamic Programming.pptx
+        slide: 13
+        exclude: [Title 1, Table 3]
+        group: [9.3, 4.65]
+    body_box: [0.244, 1.05, 7.6]
+    size: 22
+    body:
+      - text: '**Same movement rules, smaller map. This is a separate MDP.**'
+      - 'Goal entry: **+1** total; every other transition before termination: **−0.04**'
+      - 'Goal continuation value 0; discount $\gamma=0.5$'
+      - 'Fixed policy $\pi$: choose **right** at every nonterminal cell'
+    minutes: 2
+    sources: [old DP PPTX 13 (cells and 80/10/10 diagram; prompt, terminal-value labels and initial estimates replaced), decisions C7/C8]
+    notes: |
+      LIVE (required): draw rightward policy arrows in the three nonterminal cells (later slides show them).
+      At the lower-right boundary the policy still intends to go right; an upward slip can reach the goal.
+      Evaluation can assess an inefficient policy. Moves into a boundary stay in the same cell. The goal has no
+      chosen action; for bookkeeping only, we may keep it absorbing with reward zero. No nonzero terminal value
+      is initialized. The smaller map is not a value-preserving reduction of the 3×4 grid.
+
+  - id: B04
+    kind: math
+    title: Two-step transition prediction
+    drawing: [*grid2]
+    figures:
+      - deck: sources/current_course/2 - Markov Decision Processes.pptx
+        slide: 43
+        exclude: [gridworld.png]
+        group: [3.9, 1.05, 8.9, 4.6]
+        text_by_name:
+          Shape 250: '(2,1)'
+          Shape 251: '(1,2)'
+          Shape 252: '(1,1)'
+          Shape 253: '(2,1)'
+          Shape 254: 'goal'
+          Shape 275: '.9'
+          Shape 276: '.1'
+          Shape 255: 'goal'
+          Shape 256: '(1,2)'
+          Shape 257: '(1,1)'
+          Shape 258: '(2,1)'
+          Shape 259: '(1,2)'
+          Shape 260: '(1,1)'
+    after_box: [0.244, 5.9, 12.85]
+    after:
+      - text: '**Under the always-right policy, what is the probability of reaching the goal in two steps?**'
+    minutes: 3.5
+    sources: [old MDP PPTX 42–48 (branching and path-probability reasoning; tree relabelled for the 2×2 grid)]
+    notes: |
+      LIVE (required) / answer: multiply probabilities along a route, then add disjoint routes ending at the same
+      state. Through (2,1): 0.8 × 0.1; through (1,2): 0.1 × 0.8. Total 0.16. The first step cannot terminate here,
+      so "in two steps" also means "by step 2". This is prediction using the model, with no sampled trial required.
+      Answer key: from (2,1): itself 0.9, goal 0.1; from (1,2): goal 0.8, itself 0.1, (1,1) 0.1; from (1,1): the
+      first-step distribution again. Final probabilities on ((1,1), (1,2), (2,1), goal): (0.02, 0.02, 0.80, 0.16).
+      This tree explains weighted outcomes, not a new search algorithm.
+
+  - id: B02
+    kind: math
+    title: Reusing future subproblems
+    size: 24
+    body:
+      - 'Different routes can arrive at the same state.'
+      - 'From that state, the same policy faces the same future problem.'
+      - 'Store one value per state and reuse it when evaluating predecessors.'
+      - text: '**Dynamic programming uses this repeated structure to compute values.**'
+    minutes: 2
+    sources: [old DP PPTX 23–24, Silver lecture 3 PDF 3–5]
+    notes: |
+      LIVE (required): point to repeated states in the two-step tree. Enumerating progressively longer futures
+      repeats work. The Markov state and fixed stationary policy let a state summarize the expected continuation.
+      Transitions can return to the same state, so its value may depend on itself. The values must satisfy their
+      equations together; the graph need not be a one-way chain. This motivates the recursion and later sweeps
+      before presenting their formulas.
+
+  - id: B05
+    kind: math
+    title: State values and action values
+    size: 24
+    eq_size: 26
+    body:
+      - text: 'A state value averages the first action according to the policy.'
+      - eq: 'v_\pi(s)=\sum_{a\in\mathcal{A}(s)}\pi(a\mid s)q_\pi(s,a)'
+      - text: 'An action value fixes the first action, then follows the policy.'
+      - eq: 'q_\pi(s,a)=\mathcal{R}(s,a)+\gamma\sum_{s''\in\mathcal{S}^{+}}\mathcal{T}(s,a,s'')v_\pi(s'')'
+      - text: '**Check:** if the agent acts differently after the first action, can that action''s value change?'
+    minutes: 4
+    sources: [old MDP PPTX 59 (converted), book §3.5 Exercises 3.12–3.13, Silver lecture 2 PDF 31–32]
+    notes: |
+      LIVE (required): the two averages answer different questions: which action the policy chooses, and what the
+      environment does after that action. ℛ is expected immediate reward. Separating its expectation from expected
+      continuation does not require reward and next state to be independent. In a terminal state v_π is zero. For
+      our always-right policy, v_π(s) = q_π(s, right), but other first actions still have action values under the
+      same continuation policy.
+      Check answer: yes. This formalizes the distinction introduced in 1.2.
+
+  - id: B06
+    kind: math
+    title: Bellman expectation equation
+    size: 22
+    eq_size: 24
+    body:
+      - eq: 'v_\pi(s)=\mathbb{E}_\pi[G_t\mid S_t=s]'
+      - eq: '=\mathbb{E}_\pi[R_{t+1}+\gamma G_{t+1}\mid S_t=s]'
+      - eq: '=\sum_{a\in\mathcal{A}(s)}\pi(a\mid s)\sum_{s''\in\mathcal{S}^{+},r}\mathcal{M}(s,a,r,s'')[r+\gamma v_\pi(s'')]'
+      - text: 'Equivalent form using expected reward and next-state probabilities:'
+      - eq: 'v_\pi(s)=\sum_{a\in\mathcal{A}(s)}\pi(a\mid s)[\mathcal{R}(s,a)+\gamma\sum_{s''\in\mathcal{S}^{+}}\mathcal{T}(s,a,s'')v_\pi(s'')]'
+      - text: '**Expected immediate reward + discounted expected continuation.**'
+    minutes: 6
+    sources: [old MDP PPTX 26/60/61 (λ corrected to γ, reward index t+1), book §3.5 eq. 3.14 printed 59 / PDF 81, CS224R tutorial PDF 13–14]
+    notes: |
+      LIVE (required): given the next Markov state and the same stationary policy, the expected remaining return is
+      that next state's value. This is the step replacing the conditional expectation of G_{t+1}; a sampled
+      G_{t+1} is not itself equal to v_π(S_{t+1}). The joint sum weights each numerical reward/next-state outcome.
+      Its reward part gives ℛ and its continuation part marginalizes over reward to give 𝒯. Do not leave a free r
+      in the marginal model or use ℛ as a reward set. With a deterministic policy the outer action average selects
+      its single action.
+      Check: "Does this equality hold for any arbitrary table of numbers?" No: it characterizes the true value
+      function. We will later use its right-hand side to update a provisional table.
+
+  - id: B07
+    kind: math
+    title: Action-value recursion and backups
+    size: 22
+    eq_size: 24
+    body_box: [0.244, 0.95, 12.85, 1.9]
+    body:
+      - eq: 'q_\pi(s,a)=\mathcal{R}(s,a)+\gamma\sum_{s''\in\mathcal{S}}\mathcal{T}(s,a,s'')\sum_{a''\in\mathcal{A}(s'')}\pi(a''\mid s'')q_\pi(s'',a'')'
+      - text: '**A backup carries value information from possible successors to the state or action being evaluated.**'
+    drawing:
+      # state-value backup (left): s -> a -> (r, s')
+      - {label: 'State value $v_\pi(s)$', box: [1.8, 2.95, 3.0, 0.45], size: 18, bold: true}
+      - {line: [3.3, 3.75, 2.3, 4.75]}
+      - {line: [3.3, 3.75, 4.3, 4.75]}
+      - {line: [2.3, 4.85, 1.8, 5.92]}
+      - {line: [2.3, 4.85, 2.8, 5.92]}
+      - {line: [4.3, 4.85, 3.8, 5.92]}
+      - {line: [4.3, 4.85, 4.8, 5.92]}
+      - {circle: [3.3, 3.6, 0.36]}
+      - {circle: [2.3, 4.8, 0.2], filled: true}
+      - {circle: [4.3, 4.8, 0.2], filled: true}
+      - {circle: [1.8, 6.1, 0.36]}
+      - {circle: [2.8, 6.1, 0.36]}
+      - {circle: [3.8, 6.1, 0.36]}
+      - {circle: [4.8, 6.1, 0.36]}
+      - {label: '$s$', box: [3.55, 3.35, 0.5, 0.45], size: 18}
+      - {label: '$a$', box: [4.45, 4.55, 0.5, 0.45], size: 18}
+      - {label: "$r,s'$", box: [5.05, 5.9, 0.8, 0.45], size: 18}
+      - {label: 'policy $\pi$', box: [0.7, 3.95, 1.8, 0.45], size: 18, red: true}
+      - {label: 'model $\mathcal{M}$', box: [0.3, 5.15, 1.8, 0.45], size: 18, red: true}
+      # action-value backup (right): (s, a) -> (r, s') -> a'
+      - {label: 'Action value $q_\pi(s,a)$', box: [8.3, 2.95, 3.0, 0.45], size: 18, bold: true}
+      - {line: [9.8, 3.7, 8.8, 4.62]}
+      - {line: [9.8, 3.7, 10.8, 4.62]}
+      - {line: [8.8, 4.98, 8.3, 6.0]}
+      - {line: [8.8, 4.98, 9.3, 6.0]}
+      - {line: [10.8, 4.98, 10.3, 6.0]}
+      - {line: [10.8, 4.98, 11.3, 6.0]}
+      - {circle: [9.8, 3.6, 0.2], filled: true}
+      - {circle: [8.8, 4.8, 0.36]}
+      - {circle: [10.8, 4.8, 0.36]}
+      - {circle: [8.3, 6.1, 0.2], filled: true}
+      - {circle: [9.3, 6.1, 0.2], filled: true}
+      - {circle: [10.3, 6.1, 0.2], filled: true}
+      - {circle: [11.3, 6.1, 0.2], filled: true}
+      - {label: '$s,a$', box: [10.0, 3.35, 0.8, 0.45], size: 18}
+      - {label: "$r,s'$", box: [11.05, 4.55, 0.8, 0.45], size: 18}
+      - {label: "$a'$", box: [11.5, 5.9, 0.5, 0.45], size: 18}
+      - {label: 'model $\mathcal{M}$', box: [7.2, 3.95, 1.8, 0.45], size: 18, red: true}
+      - {label: 'policy $\pi$', box: [6.8, 5.15, 1.8, 0.45], size: 18, red: true}
+    minutes: 3
+    sources: [old DP PPTX 7 (backup diagram, redrawn so policy branching matches the stochastic equation), old MDP PPTX 60, book §3.5 backup diagrams printed 59/61, Silver lecture 2 PDF 34]
+    notes: |
+      Open circles are states, solid dots are state/action pairs. Action branching is the policy π; outcome
+      branching is the model ℳ (reward and next state).
+      LIVE (required): here the successor sum is over nonterminal 𝒮; terminal continuation is zero and requires no
+      next-action policy. The next action follows π, so there is no max. Ask which branching belongs to the agent
+      and which to the environment. A backup is a calculation, not the agent physically moving backward or taking
+      a new step.
+
+  - id: B08
+    kind: math
+    title: Three states, three value equations
+    drawing:
+      - grid: {x: 10.5, y: 0.95, cell: 1.2, cols: 2, rows: 2, fills: {'2,2': goal}, labels: {'2,2': '(2,2) goal'}, arrows: {'1,1': right, '1,2': right, '2,1': right}, size: 13}
+    body_box: [0.244, 1.05, 10.0]
+    size: 22
+    body:
+      - 'Policy $\pi$: always right. Goal continuation value 0.'
+      - 'The paths may be arbitrarily long; this policy has only **three** unknown nonterminal values.'
+    after_box: [0.244, 3.55, 12.85]
+    eq_size: 22
+    after:
+      - eq: 'v_\pi((1,1))=-0.04+0.5[0.1v_\pi((1,1))+0.1v_\pi((1,2))+0.8v_\pi((2,1))]'
+      - eq: 'v_\pi((1,2))=?'
+      - eq: 'v_\pi((2,1))=?'
+    minutes: 3.5
+    sources: [old DP PPTX 5/27 (finite-system explanation), book §4.1, accepted grid adaptation]
+    notes: |
+      LIVE (required): students write the other two equations from the grid. Answers:
+      v_π((1,2)) = 0.792 + 0.5[0.1 v_π((1,1)) + 0.1 v_π((1,2))]
+      v_π((2,1)) = 0.064 + 0.5[0.9 v_π((2,1))]
+      Each coordinate pair denotes one state. At (1,2), expected immediate reward is 0.8(1) + 0.2(−0.04) = 0.792.
+      At (2,1), it is 0.1(1) + 0.9(−0.04) = 0.064. In both equations the successor term for the terminal is zero.
+      Do not add the terminal payoff again in the continuation term. Fixing the policy gives a Markov reward
+      process; mention the connection once.
+
+  - id: B08a
+    kind: math
+    title: Solving the value equations
+    size: 22
+    eq_size: 18
+    body_box: [0.244, 0.95, 12.85, 2.7]
+    body:
+      - text: '**Fixed policy: a linear system for the unknown state values.**'
+      - eq: 'v_\pi((1,1))=-0.04+0.5[0.1v_\pi((1,1))+0.1v_\pi((1,2))+0.8v_\pi((2,1))]'
+      - eq: 'v_\pi((1,2))=0.792+0.5[0.1v_\pi((1,1))+0.1v_\pi((1,2))]'
+      - eq: 'v_\pi((2,1))=0.064+0.5[0.9v_\pi((2,1))]'
+      - text: 'Write the system in matrix form and solve it.'
+    minutes: 3
+    sources: [old DP PPTX 5/27, old MDP PPTX 31–33, book §4.1, decision C4]
+    notes: |
+      LIVE (required): the instructor derives the matrix form on the tablet (writing space below). Use state order
+      (1,1), (1,2), (2,1). Collect current-state coefficients and successor terms from the three equations;
+      explain why there are no products of unknown values. A direct solve is practical for a small model, while
+      large dense systems are expensive. An iterative method reuses local computations and can stop at an
+      approximation. Avoid an unqualified claim that any problem containing a max has no analytic solution.
+      Answers: exact values in this order are 14/275, 46/55, 32/275 ≈ 0.05091, 0.83636, 0.11636. A generic dense
+      direct solve has cubic arithmetic cost in the number of states; structure/sparsity can change the practical
+      cost. No full complexity derivation. Do not require students to do three-state elimination by hand here.
+      No typed matrix notation on the slide (not in the notation guide; decision C4).
+
+  - id: B09
+    kind: math
+    title: Iterative policy evaluation
+    size: 22
+    eq_size: 24
+    body:
+      - eq: 'V_{k+1}(s)\leftarrow\sum_{a\in\mathcal{A}(s)}\pi(a\mid s)[\mathcal{R}(s,a)+\gamma\sum_{s''\in\mathcal{S}^{+}}\mathcal{T}(s,a,s'')V_k(s'')]'
+      - 'Initialize $V_0(s)=0$, including the terminal state.'
+      - 'Compute every new entry using the **old table**.'
+      - 'After all states are updated, replace the table and repeat.'
+      - 'Stop when the largest change over a sweep is sufficiently small.'
+      - text: '**$k$ counts computational sweeps. The policy stays fixed.**'
+    minutes: 3.5
+    sources: [old DP PPTX 6/27 ("closed form" caption replaced), book §4.1 eq. 4.5 printed 74–75 / PDF 96–97, CS234 lecture 2 PDF 12–13, notation decision C6]
+    notes: |
+      LIVE (required): the equality for v_π becomes an assignment for an estimate V. One sweep updates every
+      nonterminal state once. Keep the terminal estimate zero. The book also describes in-place updates using one
+      array, where later updates may read newly changed entries. Those can produce different intermediate tables;
+      this activity uses two tables and synchronous sweeps throughout. A small stopping change means approximate
+      convergence, not exact equality or a universal error certificate.
+
+  - id: B10
+    kind: math
+    title: First evaluation sweep
+    drawing: [*grid2]
+    table:
+      header: *sweep_header
+      rows:
+        - ['$V_0$', '0', '0', '0', '0']
+        - ['$V_1$', '−0.04', '0.792', '0.064', '0']
+      widths: [1.6, 1.8, 1.8, 1.8, 1.8]
+      size: 22
+      row_h: 0.6
+    table_box: [3.9, 1.3, 8.9]
+    after_box: [0.244, 4.6, 12.85]
+    after:
+      - text: '**With zero initial continuation values, the first sweep gives expected immediate rewards.**'
+      - 'Always-right policy, $\gamma=0.5$, $V_0=0$.'
+    minutes: 4
+    sources: [book §4.1, old DP PPTX 13–16 worked-table role adapted (not its numbers or maximization), accepted grid model]
+    notes: |
+      LIVE (required): calculate (1,2) together, explicitly weighting the +1 goal-entry outcome and the two −0.04
+      outcomes: 0.8(1) + 0.1(−0.04) + 0.1(−0.04) = 0.792. Ask students to supply (2,1) before revealing it:
+      0.1(1) + 0.9(−0.04) = 0.064. The value update uses an expectation over possible transitions; the agent does
+      not physically collect 0.792 on a single step. A transition's reward and its next-state value have separate
+      roles.
+
+  - id: B11
+    kind: math
+    title: Second evaluation sweep
+    drawing: [*grid2]
+    table:
+      header: *sweep_header
+      rows:
+        - ['$V_1$', '−0.04', '0.792', '0.064', '0']
+        - ['$V_2$', '?', '?', '?', '0']
+      widths: [1.6, 1.8, 1.8, 1.8, 1.8]
+      size: 22
+      row_h: 0.6
+    table_box: [3.9, 1.3, 8.9]
+    after_box: [0.244, 4.6, 12.85]
+    after:
+      - text: '**Compute $V_2$ using $V_1$ for every successor value. Keep the policy fixed.**'
+    minutes: 5
+    sources: [book §4.1, CS234 lecture 2 PDF 13 exercise structure, accepted grid model]
+    notes: |
+      PROTECTED student calculation. Answers (revealed on the next slide):
+      V_2((1,1)) = −0.04 + 0.5[0.1(−0.04) + 0.1(0.792) + 0.8(0.064)] = 0.0232
+      V_2((1,2)) = 0.792 + 0.5[0.1(−0.04) + 0.1(0.792)] = 0.8296
+      V_2((2,1)) = 0.064 + 0.5[0.9(0.064)] = 0.0928
+      Terminal remains 0.
+      Check whether a student has inserted an action max, reused a freshly computed V_2 entry, or counted the goal
+      payoff twice. Address these meanings before arithmetic slips. Do not shorten this activity to fit an
+      unplanned extra explanation.
+
+  - id: B12
+    kind: math
+    title: What the sweeps mean
+    drawing: [*grid2]
+    table:
+      header: *sweep_header
+      rows:
+        - ['$V_1$', '−0.04', '0.792', '0.064', '0']
+        - ['$V_2$', '0.0232', '0.8296', '0.0928', '0']
+        - ['$V_3$', '0.03976', '0.83464', '0.10576', '0']
+      widths: [1.6, 1.8, 1.8, 1.8, 1.8]
+      size: 22
+      row_h: 0.6
+    table_box: [3.9, 1.3, 8.9]
+    after_box: [0.244, 4.6, 12.85]
+    after:
+      - text: '**Starting from $V_0=0$, $k$ synchronous sweeps give the exact expected discounted sum of the first $k$ rewards under this policy.**'
+    minutes: 3
+    sources: [book §4.1, review R04 forward-prediction connection with R11/R12 qualifications]
+    notes: |
+      LIVE (required): the model averages outcomes without sampling variation, but a finite sweep count still omits
+      later rewards. Link to the two-step prediction: from (1,1), expected second reward is
+      0.8(0.064) + 0.1(0.792) + 0.1(−0.04) = 0.1264. Therefore the expected two-step discounted sum is
+      −0.04 + 0.5(0.1264) = 0.0232, exactly V_2((1,1)). After termination all later rewards are zero.
+      Checks: the lower-left value becomes positive when later rewards enter the estimate. The lower-right value
+      remains low because the policy keeps choosing right into a boundary and relies on a slip. Nearness to the goal
+      alone does not determine value. We have evaluated the same policy at every sweep. V_3 is supplied for
+      interpretation, not another calculation assignment. Do not claim every state's error decreases at every sweep.
+
+  - id: B13
+    kind: math
+    title: Why repeated backups settle
+    size: 22
+    eq_size: 24
+    body:
+      - eq: 'V_{k+1}=B_\pi V_k,\qquad B_\pi v_\pi=v_\pi'
+      - '$B_\pi$ applies one full policy-evaluation sweep.'
+      - 'Probability averaging cannot increase the largest discrepancy; discounting multiplies it by $\gamma$.'
+      - eq: '\max_{s\in\mathcal{S}^{+}}\,\lvert V_{k+1}(s)-v_\pi(s)\rvert\leq\gamma\,\max_{s\in\mathcal{S}^{+}}\,\lvert V_k(s)-v_\pi(s)\rvert'
+      - text: '**Finite MDP, bounded rewards, fixed policy, $0\leq\gamma<1$: the sweeps converge to its unique value function.**'
+    minutes: 4
+    sources: [old DP PPTX 20/22 (corrected: affine, made concrete), Silver lecture 3 PDF 35–38, book §4.1, decisions C5/C6]
+    notes: |
+      LIVE (required): subtract the true-value equation from the update. The expected immediate rewards cancel; the
+      remaining discrepancies are probability-weighted, then discounted. This is the one-line contraction argument,
+      not a theorem-proof sequence. B_π includes a reward offset and is generally affine, correcting old DP 20's
+      "linear operator" label. Its fixed point is the table unchanged by a sweep.
+      Optional numerical detail: grid maximum errors for sweeps 0–3 are about 0.83636, 0.09091, 0.02771, 0.01115,
+      each at most half the preceding maximum. Individual-state error need not fall: at (1,1) it increases from
+      about 0.05091 to 0.09091 on the first sweep. Do not describe the table as "each error halves". The k-step
+      interpretation and the contraction guarantee are different claims. Do not extend this discounted argument to
+      γ = 1 without additional episodic assumptions.
+
+  - id: B14
+    kind: math
+    title: A better first action?
+    drawing: [*grid2]
+    body_box: [3.9, 1.05, 9.2]
+    size: 22
+    eq_size: 22
+    body:
+      - text: '**At (2,1), compare continuing right with choosing up once, then following the same policy.**'
+      - eq: 'v_\pi((2,1))=q_\pi((2,1),\text{right})=32/275\approx0.11636'
+      - eq: 'q_\pi((2,1),\text{up})=0.792+0.5[0.1(14/275)+0.1(32/275)]\approx0.80036'
+    minutes: 2
+    sources: [old MDP PPTX 59 (action-value relation), book §4.2 opening printed 76 / PDF 98, old DP PPTX 30/36 motivation only]
+    notes: |
+      LIVE (required): up reaches the goal with probability 0.8; a left slip reaches (1,1), and a right slip hits the
+      boundary and stays at (2,1). Its immediate expected reward is 0.792. The continuation values still belong to
+      always-right. This suggests changing an action, but the computed q_π is not q_* and is not the value of
+      repeatedly following an improved policy. The next question is what values are possible when future actions
+      are also chosen optimally. The policy-improvement proof remains for 2.2.
+
+  - id: B15
+    kind: math
+    title: Optimal values
+    size: 22
+    eq_size: 24
+    body:
+      - eq: 'v_*(s)=\max_\pi\,v_\pi(s),\qquad q_*(s,a)=\max_\pi\,q_\pi(s,a)'
+      - '$v_*(s)$: best expected return from $s$.'
+      - '$q_*(s,a)$: expected return after first taking $a$, then acting optimally.'
+      - eq: 'v_*(s)=\max_{a\in\mathcal{A}(s)}\,q_*(s,a)'
+    minutes: 2
+    sources: [old MDP PPTX 63 (converted; search/q-state framing removed), book §3.6 printed 62–64 / PDF 84–86, decision C9]
+    notes: |
+      LIVE (required): we now change the question from evaluating a supplied policy to finding the best achievable
+      expected return. These maxima range over policies, not sampled lucky trajectories. In a finite discounted MDP,
+      an optimal stationary deterministic policy can attain these statewise optimal values. This statement uses
+      today's model assumptions; do not generalize it to every formulation of RL. Terminal value remains zero.
+
+  - id: B16
+    kind: math
+    title: Bellman optimality equations
+    size: 22
+    eq_size: 24
+    body:
+      - eq: 'v_*(s)=\max_{a\in\mathcal{A}(s)}[\mathcal{R}(s,a)+\gamma\sum_{s''\in\mathcal{S}^{+}}\mathcal{T}(s,a,s'')v_*(s'')]'
+      - eq: 'q_*(s,a)=\mathcal{R}(s,a)+\gamma\sum_{s''\in\mathcal{S}}\mathcal{T}(s,a,s'')\max_{a''\in\mathcal{A}(s'')}\,q_*(s'',a'')'
+      - text: '**The agent chooses an action; the environment''s outcomes are still averaged.**'
+      - text: 'Next: policy improvement, value iteration and policy iteration.'
+    minutes: 3
+    sources: [old MDP PPTX 64 (ℛ/𝒯, lower-case true values), book §3.6 eqs. 3.19–3.20 printed 63–64 / PDF 85–86, decision C9]
+    notes: |
+      LIVE (required): at each nonterminal state, replacing the policy average with an action maximum expresses
+      optimal choice with optimal continuation. For q_* the specified first action stays fixed; maximization applies
+      to the following action. The second equation sums over nonterminal successors only, since terminal
+      continuation is zero. We cannot select a favorable random outcome by moving the max over next states. In
+      general the action maximum makes the system nonlinear; the straightforward fixed-policy linear-system solve no
+      longer applies directly. Explain the parallel between the equations without a second full derivation or a
+      policy-improvement proof.
+      Closing: exact expected backups require the model. Later methods address sampled experience and larger
+      representations. This is the end of the prepared 2.1 section; 2.2 develops the algorithms in this same deck.

@@ -32,6 +32,7 @@ SYMBOLS = {
 }
 UPRIGHT_CMDS = {'Pr': 'Pr', 'max': 'max', 'min': 'min', 'arg': 'arg', 'log': 'log', 'exp': 'exp'}
 CAL = {c: ch for c, ch in zip('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵')}
+EQ_THEME_COLOR = 'accent5'        # #4472C4 in the course template
 BB = {'E': '𝔼', 'R': 'ℝ', 'N': 'ℕ', 'P': 'ℙ'}
 
 
@@ -119,6 +120,8 @@ class Parser:
                 raise ValueError('unbalanced }')
             base = self.atom()
             sub = sup = None
+            if self.peek() == ('chr', "'"):                # x' as a superscript prime, as PowerPoint builds it
+                self.take(); sup = [('t', '′', True)]
             while self.peek()[0] in ('_', '^'):
                 k, _ = self.take()
                 if k == '_': sub = self.group()
@@ -155,8 +158,11 @@ def _rpr(size, color, italic=False):
     r = etree.Element(A + 'rPr', lang='en-US', sz=str(int(size * 100)))
     if italic:
         r.set('i', '1')
+    f = etree.SubElement(r, A + 'solidFill')          # equations default to theme Accent 5 (instructor, 2026-10-11)
     if color:
-        f = etree.SubElement(r, A + 'solidFill'); etree.SubElement(f, A + 'srgbClr', val=color)
+        etree.SubElement(f, A + 'srgbClr', val=color)
+    else:
+        etree.SubElement(f, A + 'schemeClr', val=EQ_THEME_COLOR)
     etree.SubElement(r, A + 'latin', typeface='Cambria Math')
     return r
 
@@ -179,6 +185,10 @@ def _emit(items, parent, size, color):
             parent.append(_run(it[1], it[2], size, color))
         elif kind == 'grp':
             _emit(it[1], parent, size, color)
+        elif kind == 'script' and it[1][0] == 't' and it[1][1] in ('max', 'min') and it[2] and not it[3]:
+            el = etree.SubElement(parent, M + 'limLow')       # \max_{...}: limit set below the operator
+            e = etree.SubElement(el, M + 'e'); _emit([it[1]], e, size, color)
+            lim = etree.SubElement(el, M + 'lim'); _emit(it[2], lim, size, color)
         elif kind == 'script':
             _, base, sub, sup = it
             tag = 'sSubSup' if sub and sup else 'sSub' if sub else 'sSup'

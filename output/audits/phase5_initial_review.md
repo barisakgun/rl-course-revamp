@@ -32,11 +32,11 @@ The instructor confirmed separate exam slots. The frozen teaching allocation is 
 | Replacement lectures | Usable teaching capacity lost | Deficit beyond existing usable margin |
 | --- | --- | --- |
 | 0 | 0 | 0 |
-| 1 | 59.5 | 0 |
-| 2 | 119 | 59.5 |
-| 3 | 178.5 | 119 |
+| 1 | 59.5 | 2 |
+| 2 | 119 | 61.5 |
+| 3 | 178.5 | 121 |
 
-Base unallocated usable margin: 59.5 minutes. Even a semester-wide arithmetic fit may fail locally. Exams in normal lectures would require a specific curriculum/time revision; the same generic buffer cannot be counted as both exam time and teaching slack. Separate slots are accepted; only exam duration and exact dates remain unresolved.
+Base unallocated usable margin: 57.5 minutes. Even a semester-wide arithmetic fit may fail locally. Exams in normal lectures would require a specific curriculum/time revision; the same generic buffer cannot be counted as both exam time and teaching slack. Separate slots are accepted; only exam duration and exact dates remain unresolved.
 
 ## Assessment risks and recommendations
 

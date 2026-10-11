@@ -172,6 +172,8 @@ def text_math(p, latex, size, color=INK, bold=False):
                     r.font._rPr.set('baseline', str(baseline))
             elif it[0] == 'grp':
                 emit(it[1], baseline, sz)
+            elif it[0] == 'script' and it[3] == [('t', '′', True)] and not it[2]:
+                emit([it[1], ('t', '′', True)], baseline, sz)   # text runs: keep x′ on the baseline
             elif it[0] == 'script':
                 emit([it[1]], baseline, sz)
                 if it[2]:
@@ -571,13 +573,16 @@ def rich_paragraphs(tf, items, size, eq_size, first=True):
         lvl = item.get('_lvl', 0) if isinstance(item, dict) else 0
         text = item if isinstance(item, str) else item.get('p', item.get('text'))
         sz = size if lvl == 0 else size - 4
+        bold = text.startswith('**') and text.endswith('**') and text.count('**') == 2 and '$' in text
+        if bold:                                          # whole line bold around inline math: split on $ first
+            text = text[2:-2]
         if text.startswith('$'):
             _run(p, '\u2060', sz, INK, False, BODY_FONT)   # word joiner: PowerPoint drops the bullet before an equation
         for k, part in enumerate(text.split('$')):
             if k % 2:
                 p._p.append(OMML.inline_math(part, sz))
             elif part:
-                add_runs(p, part, sz, INK if lvl == 0 else MUTED)
+                add_runs(p, part, sz, INK if lvl == 0 else MUTED, bold)
         if isinstance(item, dict) and 'text' in item:
             pPr = p._p.get_or_add_pPr(); pPr.set('marL', '0'); pPr.set('indent', '0')
             pPr.append(pPr.makeelement(qn('a:buNone'), {}))
@@ -641,6 +646,8 @@ def copy_figure(slide, fig):
             tree.append(el)
     if fig.get('relabel'):
         relabel(slide, fig['relabel'])
+    if fig.get('text_by_name'):                         # position-specific relabel: {original shape name: text}
+        relabel_by_name(slide, fig['text_by_name'])
     if fig.get('variant') == 'terminal':
         terminal_variant(slide, fig)
 
@@ -699,6 +706,78 @@ def relabel(slide, mapping):
         raise ValueError(f'relabel: no copied shape has the text {sorted(missing)}')
 
 
+def relabel_by_name(slide, mapping):
+    """Replace the whole text of copied shapes `native:fig:<name>` (also inside groups), keeping the first run's
+    size, colour and bold. Used when several copied shapes share a text, so relabel() cannot tell them apart."""
+    from pptx.text.text import TextFrame
+    found = set()
+    for sp in slide.shapes._spTree.iter(qn('p:sp')):
+        name = sp.xpath('./p:nvSpPr/p:cNvPr/@name')[0].removeprefix('native:fig:')
+        if name not in mapping:
+            continue
+        found.add(name)
+        tf = TextFrame(sp.find(qn('p:txBody')), None)
+        r0 = next((r for p in tf.paragraphs for r in p.runs), None)
+        size = r0.font.size.pt if r0 is not None and r0.font.size else 18
+        color = r0.font.color.rgb if r0 is not None and r0.font.color and r0.font.color.type else INK
+        bold = bool(r0.font.bold) if r0 is not None else False
+        for p in tf.paragraphs[1:]:
+            p._p.getparent().remove(p._p)
+        p0 = tf.paragraphs[0]
+        for r in list(p0._p.xpath('./a:r | ./a:br | ./a:fld')):
+            p0._p.remove(r)
+        add_runs(p0, mapping[name], size, color, bold)
+    missing = set(mapping) - found
+    if missing:
+        raise ValueError(f'text_by_name: no copied shape named {sorted(missing)}')
+
+
+def drawing(slide, items):
+    """Native, editable diagram primitives (inches): grid, circle, line, label. Shapes are named `draw:*`."""
+    GREY, WALL = RGBColor(0xA6, 0xA6, 0xA6), RGBColor(0x7F, 0x7F, 0x7F)
+    FILLS = {'goal': RGBColor(0xE2, 0xEF, 0xDA), 'pit': TINT, 'wall': WALL, None: WHITE}
+    for n, it in enumerate(items):
+        if 'grid' in it:
+            g = it['grid']
+            x0, y0, c, cols, rows = g['x'], g['y'], g['cell'], g['cols'], g['rows']
+            for col in range(1, cols + 1):
+                for row in range(1, rows + 1):
+                    key = f'{col},{row}'
+                    x, y = x0 + (col - 1) * c, y0 + (rows - row) * c
+                    kind = g.get('fills', {}).get(key)
+                    b = box(slide, x, y, c, c, FILLS[kind], line=GREY)
+                    b.name = f'draw:{n}:cell({key})'
+                    label = g.get('labels', {}).get(key, f'({key})' if g.get('coords', True) and kind != 'wall' else '')
+                    if label:
+                        tb = para_box(slide, x + 0.04, y + 0.04, c - 0.08, c * 0.55, label, g.get('size', 14),
+                                      INK, kind == 'goal', align=PP_ALIGN.CENTER, name=f'draw:{n}:label({key})')
+                    if key in g.get('arrows', {}):
+                        shape = {'right': MSO_SHAPE.RIGHT_ARROW, 'up': MSO_SHAPE.UP_ARROW}[g['arrows'][key]]
+                        aw, ah = (c * 0.42, c * 0.2) if g['arrows'][key] == 'right' else (c * 0.2, c * 0.38)
+                        a = slide.shapes.add_shape(shape, Inches(x + (c - aw) / 2), Inches(y + c * 0.58),
+                                                   Inches(aw), Inches(ah))
+                        a.fill.solid(); a.fill.fore_color.rgb = RED; a.line.fill.background(); a.shadow.inherit = False
+                        a.name = f'draw:{n}:policy({key})'
+        elif 'circle' in it:
+            x, y, d = it['circle']
+            o = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(x - d / 2), Inches(y - d / 2), Inches(d), Inches(d))
+            o.fill.solid(); o.fill.fore_color.rgb = INK if it.get('filled') else WHITE
+            o.line.color.rgb = INK; o.line.width = Pt(1.5); o.shadow.inherit = False
+            o.name = f'draw:{n}:circle'
+        elif 'line' in it:
+            x1, y1, x2, y2 = it['line']
+            ln = slide.shapes.add_connector(1, Inches(x1), Inches(y1), Inches(x2), Inches(y2))
+            ln.line.color.rgb = INK; ln.line.width = Pt(1.25)
+            ln.name = f'draw:{n}:line'
+        elif 'label' in it:
+            x, y, w, h = it['box']
+            para_box(slide, x, y, w, h, it['label'], it.get('size', 18), RED if it.get('red') else INK,
+                     it.get('bold', False), align=PP_ALIGN.CENTER if it.get('center', True) else PP_ALIGN.LEFT,
+                     name=f'draw:{n}:label')
+        else:
+            raise ValueError(f'drawing item {n}: unknown primitive {sorted(it)}')
+
+
 def terminal_variant(slide, fig):
     """Replace the rescue branch (failed low search -> high) by an 'out of battery' terminal state."""
     by = {sh.name: sh for sh in slide.shapes}
@@ -730,8 +809,10 @@ def terminal_variant(slide, fig):
 def k_math(slide, s, img):
     """Text with native equations, optional table and optional copied figure. Boxes are [x, y, w(, h)] in inches."""
     size, eq_size = s.get('size', 24), s.get('eq_size', s.get('size', 24))
-    if s.get('figure'):
-        copy_figure(slide, s['figure'])
+    for fig in ([s['figure']] if s.get('figure') else []) + s.get('figures', []):
+        copy_figure(slide, fig)
+    if s.get('drawing'):
+        drawing(slide, s['drawing'])
     bx = s.get('body_box', [MX, TOP, W - 2 * MX, BOTTOM - TOP])
     if s.get('body'):
         tb = textbox(slide, *bx[:3], bx[3] if len(bx) > 3 else BOTTOM - bx[1], name='yaml:body')

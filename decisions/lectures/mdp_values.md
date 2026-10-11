@@ -2,11 +2,11 @@
 
 **Shared** deck decision file (`docs/lecture_workflow.md`). It holds outcomes only; discussion and findings live in the [shared review](../../analysis/lecture_suggestions/mdp_values_review.md). The initial AI suggestions remain historical inputs.
 - **Scope:** session 1.2 `mdp_values`; accepted teaching allocation and ceiling live in `decisions/topic_decisions.yaml`. It is the second round of the workflow pilot (decision log 2026-10-07).
-- **Status: DONE** (accepted 2026-10-09). This is the deck's only current status record; other files point here.
-  - Deck: `course/lectures/week01/mdp_values_claude.pptx`, SHA-256 `d9d8d19eb17ff6b150af41ecc32fde38a10a4f6c5eedc306e58ec7bd7bea3be2`. Later substantive edits reopen the status. (Equation fallback pictures were regenerated after acceptance, 2026-10-09; the slide content is that of the accepted `b0bb3ee8…`.)
+- **Status: DONE, updated after acceptance** (accepted 2026-10-09; notation and colour update B17, 2026-10-11). This is the deck's only current status record; other files point here.
+  - Deck: `course/lectures/week01/mdp_values_claude.pptx`, SHA-256 `cb460398455397dc62ecba1a9c11f53b97f3cd5b00f6ff50a08e82b2113f7827` (B17 applied to the accepted `b0bb3ee8…` content: superscript v^π, q^π and equations in Accent 5; fallback pictures refreshed). Previous fingerprint `d9d8d19e…` kept in `output/deck_backups/`. Instructor check of the corrected PDF pending; later substantive edits reopen the status.
   - Content: 22 live slides plus a hidden appendix (MA1, zero minutes, a reference for students who ask about alternatives to RL). Instructor additions M03a (Transition), M05a (Models Continued) and M09a (Return); M06 follows M08. Live targets total **62.5 minutes**, within the accepted 65-minute ceiling (B10/B14); the planning baseline in `decisions/topic_decisions.yaml` stays approximately 62.
   - Views: text view `output/lectures/week01/mdp_values_claude.md`; previews `output/lectures/week01/mdp_values_claude_preview.{png,pdf}`.
-  - Source YAML `course/lectures/week01/mdp_values_claude.yaml`: final, matches the accepted deck (M01 and MA1 are PowerPoint-only). It was kept in step during the pilot; under pilot v2 later decks' YAMLs are first drafts only.
+  - Source YAML `course/lectures/week01/mdp_values_claude.yaml`: historical since B17 (it keeps subscripts and default colours); it matched the accepted deck (M01 and MA1 are PowerPoint-only). It was kept in step during the pilot; under pilot v2 later decks' YAMLs are first drafts only.
   - History: the [content proposal](../../course/lectures/week01/mdp_values_content.md) is frozen at the `2223e515…` handoff version and must not be used to overwrite the deck. Findings, including R15–R17, are in the [shared review](../../analysis/lecture_suggestions/mdp_values_review.md).
 
 ## Accepted (instructor, 2026-10-07)
@@ -44,3 +44,7 @@
 | P3 | Failed-search reward wording | Resolved by B3. |
 
 No blocking content choice remains. Final old-slide selection/editing remains with the instructor under B2; the shared content specifies working object-reuse mappings. Native equation fidelity, layout and preview checks remain tasks for rendering and deck review, not new curriculum decisions.
+
+## Update after acceptance (instructor, 2026-10-11)
+
+- B17. **Superscript notation and equation colour.** Following the notation-guide change (`bellman` decision C11), the deck writes v^π(s) and q^π(s, a) instead of v_π, q_π (M14–M17, including table cells and notes). All native equations use the theme colour Accent 5 (#4472C4), the colour for 1.2, 2.1 and later decks; earlier decks are not changed. The instructor mentions the switch in class and uploads the corrected PDF. Content, timing and the accepted slide set are unchanged. Applied with `scripts/deck_math_style_claude.py`. Math typed as text in table cells stays black because it is not an equation object.

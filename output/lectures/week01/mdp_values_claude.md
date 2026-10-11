@@ -2,7 +2,7 @@
 
 # Text view: mdp_values_claude.pptx
 
-SHA-256 `d9d8d19eb17ff6b150af41ecc32fde38a10a4f6c5eedc306e58ec7bd7bea3be2`
+SHA-256 `cb460398455397dc62ecba1a9c11f53b97f3cd5b00f6ff50a08e82b2113f7827`
 
 ## 1. M00 — COMP438/538 Reinforcement Learning
 
@@ -521,7 +521,7 @@ SHA-256 `d9d8d19eb17ff6b150af41ecc32fde38a10a4f6c5eedc306e58ec7bd7bea3be2`
 > includes stochastic transitions and any stochastic policy choices. No value estimates V, Q, Monte Carlo updates
 > or Bellman expansion here.
 > 
-> Equation sources (LaTeX): s | \pi | v_\pi(s)\doteq\mathbb{E}_\pi[G_t\mid S_t=s] | a | q_\pi(s,a)\doteq\mathbb{E}_\pi[G_t\mid S_t=s,A_t=a]
+> Equation sources (LaTeX): s | \pi | v^{\pi}(s)\doteq\mathbb{E}_\pi[G_t\mid S_t=s] | a | q^{\pi}(s,a)\doteq\mathbb{E}_\pi[G_t\mid S_t=s,A_t=a]
 > 
 > Target: 4 min. Sources: old MDP PPTX 25 and 58, book §3.5 (printed 58–59), Silver lecture 2 PDF 28.
 
@@ -539,7 +539,7 @@ SHA-256 `d9d8d19eb17ff6b150af41ecc32fde38a10a4f6c5eedc306e58ec7bd7bea3be2`
 > infinite zero sequence is harmless even though this policy never terminates. Distinguish this from the nonzero
 > continuing rewards of search policies.
 > 
-> Equation sources (LaTeX): \pi | G_t=0+0.5(0)+{0.5}^{2}(0)+\cdots=0 | v_\pi(\text{high})=v_\pi(\text{low})=0
+> Equation sources (LaTeX): \pi | G_t=0+0.5(0)+{0.5}^{2}(0)+\cdots=0 | v^{\pi}(\text{high})=v^{\pi}(\text{low})=0
 > 
 > Target: 2.5 min. Sources: value definitions applied to the accepted zero-wait model.
 
@@ -564,7 +564,7 @@ SHA-256 `d9d8d19eb17ff6b150af41ecc32fde38a10a4f6c5eedc306e58ec7bd7bea3be2`
 > Bellman expansions remain in Week 2.
 > Answer: after the first action every reward is zero because the policy waits forever. Recharging restores
 > charge, but that charge is never used to collect cans. Action values depend on the continuation policy. Here
-> q_π(s, a) = ℛ(s, a) only because the continuation gives zero rewards; not true in general. The same values hold
+> q^π(s, a) = ℛ(s, a) only because the continuation gives zero rewards; not true in general. The same values hold
 > in the terminal variant. State value averages action values according to the policy; for this deterministic
 > policy its chosen wait action has value zero. Do not add the next-state Bellman formula from old slide 59.
 > 

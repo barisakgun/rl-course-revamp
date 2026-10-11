@@ -19,7 +19,7 @@ weekly_baseline:
   week: 2
   slot: 1
   title: Bellman equations and evaluation
-  teaching_minutes: 58
+  teaching_minutes: 60  # instructor 2026-10-09: longer 2.1 first draft with optimality; bellman C7-C10
   administration_minutes: 0
 - id: improvement
   week: 2

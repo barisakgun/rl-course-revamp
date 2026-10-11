@@ -10,7 +10,7 @@ Minutes are planning estimates, not commitments or student workload. Ranges repr
 | --- | --- | --- | --- | --- | --- |
 | 1.1 | RL formulation and information | 42.5 | 0 | 35–45 | -3 |
 | 1.2 | MDPs, returns and values | 62 | 0 | 50–65 | -2.5 |
-| 2.1 | Bellman equations and evaluation | 58 | 0 | 55–70 | 1.5 |
+| 2.1 | Bellman equations and evaluation | 60 | 0 | 55–70 | -0.5 |
 | 2.2 | Improvement, VI and PI | 58 | 0 | 55–70 | 1.5 |
 | 3.1 | Sampling, MC/TD and continuing objectives | 59 | 0 | 54–70 | 0.5 |
 | 3.2 | Bias, variance and n-step targets | 58 | 0 | 50–65 | 1.5 |
@@ -35,7 +35,7 @@ Minutes are planning estimates, not commitments or student workload. Ranges repr
 | 13.1 | LLM policy updates after video preparation | 59 | 0 | 54–72 | 0.5 |
 | 13.2 | Grouped estimators, rewards and evaluation | 55 | 4 | 50–72 | 0.5 |
 
-Teaching 1448.5 + additional administration 19 = 1467.5 of 1,527 usable minutes; 59.5 unallocated. Configured syllabus briefing: 20 minutes in 1.1. Project presentations remain outside class.
+Teaching 1450.5 + additional administration 19 = 1469.5 of 1,527 usable minutes; 57.5 unallocated. Configured syllabus briefing: 20 minutes in 1.1. Project presentations remain outside class.
 
 ## Session detail
 
@@ -67,7 +67,7 @@ Teaching 1448.5 + additional administration 19 = 1467.5 of 1,527 usable minutes;
 
 **Worked activity:** Derive one expectation backup and perform policy-evaluation sweeps.
 
-**Pacing:** High density; finite examples before operator formalism. Instructor 2026-10-07 places the old MDP deck's two-step transition prediction (PPTX 42-48) and formal state/action-value relationships (59-61) in Week 2, here alongside expectation backups. Use a short model-prediction example where useful; do not defer this elementary probability reasoning to policy gradients. Integrate with the existing worked backup, replacing repeated setup or expansion, not adding another exercise block. Protect policy-evaluation sweeps within the existing 58 minutes; exact example and local split are preparation choices. Confidence: medium.
+**Pacing:** High density; finite examples before operator formalism. Instructor 2026-10-07 places the old MDP deck's two-step transition prediction (PPTX 42-48) and formal state/action-value relationships (59-61) in Week 2, here alongside expectation backups. Use a short model-prediction example where useful; do not defer this elementary probability reasoning to policy gradients. Integrate with the existing worked backup, replacing repeated setup or expansion, not adding another exercise block. Protect policy-evaluation sweeps. Instructor 2026-10-09 selects the 3x4 grid for the MDP introduction and the simplified 2x2 grid for calculations, with terminal rewards paid on entry and zero continuation. The matrix form is derived live on the tablet; the one-line convergence argument and the optimality equations remain in the first draft. Target approximately 60 minutes, leaving 10 physical minutes; this is a planning estimate, not evidence of delivery feasibility. The instructor will cut during review if needed. The 2.2 allocation remains 58 minutes; avoid duplicating the optimality introduction. Confidence: medium.
 
 ### 2.2 — Improvement, VI and PI
 

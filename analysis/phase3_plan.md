@@ -11,7 +11,7 @@ This is an analytical candidate, not the accepted lecture plan. Session allocati
 | --- | --- | --- | --- |
 | 1.1 | RL formulation and information | Assumed audience background | 42.5 / 0 |
 | 1.2 | MDPs, returns and values | formulate | 62 / 0 |
-| 2.1 | Bellman equations and evaluation | mdp_values | 58 / 0 |
+| 2.1 | Bellman equations and evaluation | mdp_values | 60 / 0 |
 | 2.2 | Improvement, VI and PI | bellman | 58 / 0 |
 | 3.1 | Sampling, MC/TD and continuing objectives | improvement | 59 / 0 |
 | 3.2 | Bias, variance and n-step targets | mc_td | 58 / 0 |

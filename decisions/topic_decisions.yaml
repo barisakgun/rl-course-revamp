@@ -639,11 +639,15 @@ lecture_plan:
   week: 2
   slot: 1
   title: Bellman equations and evaluation
-  teaching_minutes: 58
+  teaching_minutes: 60
   teaching_range:
   - 55
   - 70
   administration_minutes: 0
+  accepted_overrun_minutes: 0.5
+  overrun_authority: Instructor 2026-10-09 retains the optimality equations in 2.1 and authorizes a longer
+    first draft to cut during content review. The consolidated 60-minute estimate uses 0.5 minute of
+    this session's general buffer; it does not create a new numerical ceiling or charge earlier carryover.
   group_ids:
   - planning
   requires:
@@ -654,7 +658,12 @@ lecture_plan:
     (59-61) in Week 2, here alongside expectation backups. Use a short model-prediction example where useful;
     do not defer this elementary probability reasoning to policy gradients. Integrate with the existing
     worked backup, replacing repeated setup or expansion, not adding another exercise block. Protect
-    policy-evaluation sweeps within the existing 58 minutes; exact example and local split are preparation choices.
+    policy-evaluation sweeps. Instructor 2026-10-09 selects the 3x4 grid for the MDP introduction and
+    the simplified 2x2 grid for calculations, with terminal rewards paid on entry and zero continuation.
+    The matrix form is derived live on the tablet; the one-line convergence argument and the optimality
+    equations remain in the first draft. Target approximately 60 minutes, leaving 10 physical minutes;
+    this is a planning estimate, not evidence of delivery feasibility. The instructor will cut during
+    review if needed. The 2.2 allocation remains 58 minutes; avoid duplicating the optimality introduction.
   confidence: medium
 - id: improvement
   week: 2

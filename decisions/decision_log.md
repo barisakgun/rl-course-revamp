@@ -1,5 +1,17 @@
 # Decision Log
 
+## 2026-10-11 — Superscript value notation and equation colour
+
+- Authority: the instructor chose superscripts for policy and optimality marks (v^π, q^π, v^\*, q^\*, π^\*, B^π), departing from the book's subscripts, and blue (theme Accent 5) equations for 1.2, 2.1 and later decks; earlier decks are unchanged. Recorded in `course/notation_guide.md`, [`bellman` C11–C12](lectures/bellman.md) and [`mdp_values` B17](lectures/mdp_values.md). The accepted 1.2 deck was updated (new fingerprint `cb460398…`; content and timing unchanged); the instructor announces the switch and uploads the corrected PDF. No scope, timing, assessment or workload change.
+
+## 2026-10-09 — Bellman 2.1 grid, reward convention and longer first-render draft approved
+
+- Instructor accepts the 3×4 introduction with 2×2 calculations and rewards on terminal entry, retains the optimality equations in 2.1 and authorizes the shared render-ready content ([deck decisions C7–C10](lectures/bellman.md)). Implement the existing approximately 60-minute consolidated draft, replacing the 58-minute planning estimate and using 0.5 minute of local buffer; the instructor will cut if needed. Synchronize the audit baseline and generated views. Scope/mastery, the 58-minute 2.2 allocation, assessments and student workload remain unchanged; 2.2 content is still pending, and this is not deck acceptance.
+
+## 2026-10-09 — Week 2 deck: instructor choices on the step-1 questions
+
+- Authority: the instructor answered Claude's step-1 questions for session 2.1 ([`bellman` deck decisions](lectures/bellman.md) C1–C6). One deck `bellman` covers sessions 2.1 and 2.2. The worked example moves to a grid; which grid is open (G1). The Bellman optimality equation goes at the end of 2.1 and moves to 2.2 if time is short. The instructor derives the matrix form on the tablet. The one-line convergence argument stays in the first draft. V_k(s) is added to the notation guide. Scope, mastery, teaching allocations (58 + 58), assessments, readings and videos are unchanged.
+
 ## 2026-10-09 — Lecture workflow pilot v2 adopted
 
 - Authority: the instructor reviewed both AIs' post-pilot recommendations (`analysis/phase7_workflow_review_claude.md`, `analysis/phase7_workflow_review_chatgpt.md`), decided their points and asked for the workflow update. `docs/lecture_workflow.md` now describes pilot v2.

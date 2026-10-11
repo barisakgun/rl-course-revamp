@@ -34,10 +34,10 @@ Local decks with no page-level evidence (added or not exported when the evidence
 
 ### 2.1 Bellman equations and evaluation (`bellman`)
 
-- **Teaching:** 58 min (range 55–70); confidence medium
+- **Teaching:** 60 min (range 55–70); confidence medium
 - **Requires:** 1.2 `mdp_values`
 - **Worked activity:** Derive one expectation backup and perform policy-evaluation sweeps.
-- **Pacing note:** High density; finite examples before operator formalism. Instructor 2026-10-07 places the old MDP deck's two-step transition prediction (PPTX 42-48) and formal state/action-value relationships (59-61) in Week 2, here alongside expectation backups. Use a short model-prediction example where useful; do not defer this elementary probability reasoning to policy gradients. Integrate with the existing worked backup, replacing repeated setup or expansion, not adding another exercise block. Protect policy-evaluation sweeps within the existing 58 minutes; exact example and local split are preparation choices.
+- **Pacing note:** High density; finite examples before operator formalism. Instructor 2026-10-07 places the old MDP deck's two-step transition prediction (PPTX 42-48) and formal state/action-value relationships (59-61) in Week 2, here alongside expectation backups. Use a short model-prediction example where useful; do not defer this elementary probability reasoning to policy gradients. Integrate with the existing worked backup, replacing repeated setup or expansion, not adding another exercise block. Protect policy-evaluation sweeps. Instructor 2026-10-09 selects the 3x4 grid for the MDP introduction and the simplified 2x2 grid for calculations, with terminal rewards paid on entry and zero continuation. The matrix form is derived live on the tablet; the one-line convergence argument and the optimality equations remain in the first draft. Target approximately 60 minutes, leaving 10 physical minutes; this is a planning estimate, not evidence of delivery feasibility. The instructor will cut during review if needed. The 2.2 allocation remains 58 minutes; avoid duplicating the optimality introduction.
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
 | --- | --- | --- | --- |
