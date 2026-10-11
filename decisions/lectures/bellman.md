@@ -2,7 +2,7 @@
 
 **Shared** deck decision file (`docs/lecture_workflow.md`). It holds outcomes only; discussion and findings are in the [shared review](../../analysis/lecture_suggestions/bellman_review.md). The initial AI suggestions ([Claude](../../analysis/lecture_suggestions/bellman_claude.md), [ChatGPT](../../analysis/lecture_suggestions/bellman_chatgpt.md)) are historical inputs.
 - **Scope:** sessions 2.1 `bellman` and 2.2 `improvement`. Accepted teaching allocations, scope and mastery live in `decisions/topic_decisions.yaml`.
-- **Status: 2.1 portion ready for teaching after the final short check (2026-10-11); 2.2 not started.** Current saved deck `course/lectures/week02/bellman_claude.pptx`, SHA-256 `841adc8ef562a67b3be29862ac88a82686e2d2324a78ba67195906803c984988`: 22 slides (B00–B16 plus B00a, B00b, B05a, B05b), targets summing to 61 minutes against the 60-minute estimate (C9; not re-recorded). Review findings R01–R28 are resolved. The first-render content and YAML are frozen. Views: `output/lectures/week02/bellman_claude.md` and `bellman_claude_preview.{png,pdf}`. Session 2.2 continues in this deck (C1); the combined deck is not done or accepted. This is the deck's only current status record; other files point here.
+- **Status: 2.1 portion ready for teaching (instructor, 2026-10-11); 2.2 next (step 1).** Current saved deck `course/lectures/week02/bellman_claude.pptx`, SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`: 22 slides (B00–B16 plus B00a, B00b, B05a, B05b), targets summing to 61 minutes (C15). Review findings R01–R28 are resolved. The first-render content and YAML are frozen. Views: `output/lectures/week02/bellman_claude.md` and `bellman_claude_preview.{png,pdf}`. Session 2.2 continues in this deck (C1); the combined deck is not done or accepted. This is the deck's only current status record; other files point here.
 
 ## Accepted (instructor, 2026-10-09)
 
@@ -23,6 +23,7 @@ These are the instructor's answers to Claude's step-1 questions Q1–Q6.
 - C12. **Equation colour:** native equations use the theme colour Accent 5 (#4472C4) in 1.2, 2.1 and later decks; earlier decks are not changed. The builder defaults to it.
 - C13. **Matrix form (amends C4):** the instructor still derives the matrix form live, with notation only; computing the exact values is an optional home exercise. No typed matrix notation is required on slides.
 - C14. **Bellman operator definition** added to B13 (slide 19), so the operator is described rather than only shown.
+- C15. **2.1 portion settled for teaching** (instructor, 2026-10-11): the 61-minute slide targets are fine for delivery; the planning estimate in `decisions/topic_decisions.yaml` stays 60 (as with 1.2's targets against its estimate). Slide wording stays as it is (R24/R27 remain notes-only). Animations confirmed by the instructor. Final instructor edits: V₁ row as question marks on B10; π^\*(s) = argmax_a q^\*(s, a) added to B16 (notes updated).
 
 ## Open
 

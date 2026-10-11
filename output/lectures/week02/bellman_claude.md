@@ -2,7 +2,7 @@
 
 # Text view: bellman_claude.pptx
 
-SHA-256 `841adc8ef562a67b3be29862ac88a82686e2d2324a78ba67195906803c984988`
+SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 
 ## 1. B00 — COMP438/538 Reinforcement Learning
 
@@ -240,7 +240,7 @@ SHA-256 `841adc8ef562a67b3be29862ac88a82686e2d2324a78ba67195906803c984988`
 - $=𝑎∈𝒜(𝑠)𝜋(𝑎∣𝑠)𝑠′∈𝒮+,𝑟ℳ(𝑠,𝑎,𝑟,𝑠′)[𝑟+𝛾𝑣𝜋(𝑠′)]$
 - Equivalent form using expected reward and next-state probabilities:
 - $𝑣𝜋(𝑠)=𝑎∈𝒜(𝑠)𝜋(𝑎∣𝑠)[ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)𝑣𝜋(𝑠′)]$
-- Expected immediate reward + discounted expected continuation.
+- Expected immediate reward + discounted expected continuation
 - Deterministic Policy :
 - $𝑣𝜋(𝑠)=ℛ(𝑠,𝜋(𝑠))+𝛾𝑠′∈𝒮+𝒯(𝑠,𝜋(𝑠),𝑠′)𝑣𝜋(𝑠′) $
 
@@ -396,7 +396,7 @@ SHA-256 `841adc8ef562a67b3be29862ac88a82686e2d2324a78ba67195906803c984988`
 | Sweep | (1,1) | (1,2) | (2,1) | Terminal |
 | --- | --- | --- | --- | --- |
 | V0 | 0 | 0 | 0 | 0 |
-| V1 | −0.04 | 0.792 | 0.064 | 0 |
+| V1 | ? | ? | ? | 0 |
 
 - With zero initial continuation values, the first sweep gives expected immediate rewards.
 - Always-right policy, $𝛾=0.5$, $𝑉0=0$.
@@ -404,8 +404,7 @@ SHA-256 `841adc8ef562a67b3be29862ac88a82686e2d2324a78ba67195906803c984988`
 **Notes:**
 
 > LIVE (required): calculate (1,2) together, explicitly weighting the +1 goal-entry outcome and the two −0.04
-> outcomes: 0.8(1) + 0.1(−0.04) + 0.1(−0.04) = 0.792. The full V₁ row is visible on arrival (no build): cover the (2,1) entry, or ask for it before advancing to this slide:
-> 0.1(1) + 0.9(−0.04) = 0.064. The value update uses an expectation over possible transitions; the agent does
+> outcomes: 0.8(1) + 0.1(−0.04) + 0.1(−0.04) = 0.792. The V₁ row starts as question marks: students supply (1,1) and (2,1). Answers: V₁((1,1)) = −0.04 (no goal reachable in one step); V₁((2,1)) = 0.1(1) + 0.9(−0.04) = 0.064. The full row is shown on the next slide. The value update uses an expectation over possible transitions; the agent does
 > not physically collect 0.792 on a single step. A transition's reward and its next-state value have separate
 > roles.
 > 
@@ -559,6 +558,7 @@ SHA-256 `841adc8ef562a67b3be29862ac88a82686e2d2324a78ba67195906803c984988`
 
 - $𝑣∗(𝑠)=max𝑎∈𝒜(𝑠)[ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)𝑣∗(𝑠′)]$
 - $𝑞∗(𝑠,𝑎)=ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮𝒯(𝑠,𝑎,𝑠′)max𝑎′∈𝒜(𝑠′) 𝑞∗(𝑠′,𝑎′)$
+- $𝜋∗(𝑠)=argmax𝑎∈𝒜(𝑠) 𝑞∗(𝑠,𝑎)$
 - The agent chooses an action; the environment's outcomes are still averaged.
 - Side Note: For finite discounted MDPs, there always exists an optimal deterministic policy.
 - Next: policy improvement, value iteration and policy iteration.
@@ -572,6 +572,7 @@ SHA-256 `841adc8ef562a67b3be29862ac88a82686e2d2324a78ba67195906803c984988`
 > general the action maximum makes the system nonlinear; the straightforward fixed-policy linear-system solve no
 > longer applies directly. Explain the parallel between the equations without a second full derivation or a
 > policy-improvement proof.
+> π^*(s) = argmax_a q^*(s, a): acting greedily with respect to q^* is optimal; when several actions tie, any of them (or any mixture) is optimal, so state a tie-breaking rule when a single policy is needed. This needs no model once q^* is known, unlike extracting a policy from v^*, which needs ℛ and 𝒯.
 > Closing: exact expected backups require the model. Later methods address sampled experience and larger
 > representations. This is the end of the prepared 2.1 section; 2.2 develops the algorithms in this same deck.
 > 

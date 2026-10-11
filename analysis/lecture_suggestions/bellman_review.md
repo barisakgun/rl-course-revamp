@@ -330,3 +330,7 @@ Only this shared review and its pointer in the deck's status record were updated
 - **Builds.** Animation playback can only be confirmed in slideshow mode.
 
 No correctness issue remains. The 2.2 portion continues in this deck; it must not repeat the optimality introduction (C9).
+
+## 2.1 portion settled — 2026-10-11
+
+The instructor turned B10's V₁ row into question marks and added π^\*(s) = argmax_a q^\*(s, a) to B16; both are correct and use the superscript form and Accent 5. Claude updated B10's cue and answers and added a tie-breaking note to B16. Saved deck SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`; views regenerated. Timing (61 minutes), slide wording and animations accepted by the instructor (C15). Next: step-1 suggestions for session 2.2 in this deck.
