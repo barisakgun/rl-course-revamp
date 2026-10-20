@@ -1,5 +1,29 @@
 # Decision Log
 
+## 2026-10-20 — Bellman deck (sessions 2.1–2.2) accepted (done)
+
+- Authority: the instructor accepted the `bellman` deck after both AIs' final checks and confirmed the animations ([Bellman C25](lectures/bellman.md)). Accepted deck: `course/lectures/week02/bellman_claude.pptx`, SHA-256 `ec28bf43c37e2b7f37fa8e18e3f400414a0aaaeea91645923e847ea9561d20db`; text view and previews in sync. Slide targets 61 (2.1) and 59.5 (2.2) minutes; planning estimates unchanged at 60 and 58. No scope, assessment or workload change.
+
+## 2026-10-20 — Bellman deck: 2.2 settled for teaching; open issues closed
+
+- Authority: the instructor accepted the 59.5-minute 2.2 slide targets for delivery (planning estimate stays 58), kept the notes-level fixes for R24–R28 (closing the C16 checkpoint) and the visible 0-minute appendix BA1, and stated that all open issues are answered ([Bellman C23–C24](lectures/bellman.md)). No scope, allocation, assessment or workload change. The deck is not yet marked done.
+
+## 2026-10-20 — Bellman deck: C22 additions in the 2.2 edit round
+
+- Authority: instructor request. A hidden appendix slide (deterministic-policy and ℛ(s, a, s′) forms of the policy-iteration updates) and a 2-minute slide on choosing between policy and value iteration were added to the `bellman` deck ([C22](lectures/bellman.md)). 2.2's slide targets now total 59.5 minutes against the 58-minute estimate, which is unchanged by this record. No scope, assessment or workload change.
+
+## 2026-10-11 — Session 2.2 cross-review and initial content handoff
+
+- Instructor requests review of Claude's latest suggestions and initial render-ready content if no outstanding issue remains. Reciprocal review completed with routine correctness qualifications and no further instructor choice needed; Bellman C21 records the content authorization. The shared 2.2 addendum `course/lectures/week02/bellman_improvement_content.md` implements C17–C20 and the agreed improvement/PI/VI sequence: 15 slides, 57.5 minutes against the unchanged 58-minute estimate and 59.5 usable. The γ = 0.9 reward panels were independently recomputed. No required student workload or assessment change. Existing PPTX, frozen 2.1 inputs and R24–R28's pending next-edit status are preserved.
+
+## 2026-10-11 — Session 2.2 instructor choices C17–C20
+
+- Authority: the instructor answered Claude's 2.2 questions: γ = 0.9 with an explanatory sentence for the reward-sensitivity comparison; the book's improvement proof; a short Q-value-iteration bridge to Q-learning (notation Q_k added to the guide); one line on asynchronous DP. Recorded in [Bellman decisions C17–C20](lectures/bellman.md). The 58-minute 2.2 estimate, scope, assessment and workload are unchanged.
+
+## 2026-10-11 — Session 2.2 independent preparation and pending review items
+
+- Instructor authorizes step-1 suggestions for 2.2 in the combined Bellman/DP deck, preserving entry rewards, instructor edits, the improvement argument, VI/PI comparison, reward sensitivity and the 58-minute estimate. C16 in [Bellman decisions](lectures/bellman.md) records the instruction. R24–R28 remain pending for the next PPTX edit despite earlier recorded fixes; the shared review preserves that implementation history. PPTX and frozen first-render inputs remain unchanged. No new content proposal is accepted by this record.
+
 ## 2026-10-11 — Superscript value notation and equation colour
 
 - Authority: the instructor chose superscripts for policy and optimality marks (v^π, q^π, v^\*, q^\*, π^\*, B^π), departing from the book's subscripts, and blue (theme Accent 5) equations for 1.2, 2.1 and later decks; earlier decks are unchanged. Recorded in `course/notation_guide.md`, [`bellman` C11–C12](lectures/bellman.md) and [`mdp_values` B17](lectures/mdp_values.md). The accepted 1.2 deck was updated (new fingerprint `cb460398…`; content and timing unchanged); the instructor announces the switch and uploads the corrected PDF. No scope, timing, assessment or workload change.

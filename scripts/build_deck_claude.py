@@ -747,17 +747,26 @@ def drawing(slide, items):
                     kind = g.get('fills', {}).get(key)
                     b = box(slide, x, y, c, c, FILLS[kind], line=GREY)
                     b.name = f'draw:{n}:cell({key})'
-                    label = g.get('labels', {}).get(key, f'({key})' if g.get('coords', True) and kind != 'wall' else '')
+                    label = g.get('labels', {}).get(key, f'({key})' if g.get('coords', True) and kind not in ('wall', 'goal', 'pit') else '')
                     if label:
                         tb = para_box(slide, x + 0.04, y + 0.04, c - 0.08, c * 0.55, label, g.get('size', 14),
                                       INK, kind == 'goal', align=PP_ALIGN.CENTER, name=f'draw:{n}:label({key})')
-                    if key in g.get('arrows', {}):
-                        shape = {'right': MSO_SHAPE.RIGHT_ARROW, 'up': MSO_SHAPE.UP_ARROW}[g['arrows'][key]]
-                        aw, ah = (c * 0.42, c * 0.2) if g['arrows'][key] == 'right' else (c * 0.2, c * 0.38)
-                        a = slide.shapes.add_shape(shape, Inches(x + (c - aw) / 2), Inches(y + c * 0.58),
-                                                   Inches(aw), Inches(ah))
-                        a.fill.solid(); a.fill.fore_color.rgb = RED; a.line.fill.background(); a.shadow.inherit = False
-                        a.name = f'draw:{n}:policy({key})'
+                    dirs = g.get('arrows', {}).get(key)
+                    if dirs == 'any':                       # every action optimal: say so, no preferred arrow
+                        para_box(slide, x, y + c * g.get('arrow_y', 0.58) - 0.05, c, c * 0.35, 'any',
+                                 g.get('size', 14), RED, True, align=PP_ALIGN.CENTER, name=f'draw:{n}:policy({key})')
+                    elif dirs:
+                        dirs = [dirs] if isinstance(dirs, str) else dirs
+                        for j, d in enumerate(dirs):
+                            shape = {'right': MSO_SHAPE.RIGHT_ARROW, 'left': MSO_SHAPE.LEFT_ARROW,
+                                     'up': MSO_SHAPE.UP_ARROW, 'down': MSO_SHAPE.DOWN_ARROW}[d]
+                            aw, ah = (c * 0.38, c * 0.18) if d in ('right', 'left') else (c * 0.18, c * 0.34)
+                            cx = x + c * (j + 1) / (len(dirs) + 1)          # several tied actions side by side
+                            a = slide.shapes.add_shape(shape, Inches(cx - aw / 2),
+                                                       Inches(y + c * g.get('arrow_y', 0.58)), Inches(aw), Inches(ah))
+                            a.fill.solid(); a.fill.fore_color.rgb = RED; a.line.fill.background()
+                            a.shadow.inherit = False
+                            a.name = f'draw:{n}:policy({key}):{d}'
         elif 'circle' in it:
             x, y, d = it['circle']
             o = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(x - d / 2), Inches(y - d / 2), Inches(d), Inches(d))
@@ -768,7 +777,16 @@ def drawing(slide, items):
             x1, y1, x2, y2 = it['line']
             ln = slide.shapes.add_connector(1, Inches(x1), Inches(y1), Inches(x2), Inches(y2))
             ln.line.color.rgb = INK; ln.line.width = Pt(1.25)
+            if it.get('arrow'):
+                l_ = ln.line._get_or_add_ln(); l_.append(l_.makeelement(qn('a:tailEnd'), {'type': 'triangle'}))
             ln.name = f'draw:{n}:line'
+        elif 'box' in it and 'text' in it:                 # bordered text block (e.g. GPI diagram)
+            x, y, w, h = it['box']
+            b = box(slide, x, y, w, h, TINT if it.get('tint') else LIGHT, line=RGBColor(0xA6, 0xA6, 0xA6),
+                    shape=MSO_SHAPE.ROUNDED_RECTANGLE)
+            b.name = f'draw:{n}:block'
+            para_box(slide, x + 0.12, y + 0.08, w - 0.24, h - 0.16, it['text'], it.get('size', 18), INK,
+                     align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE, name=f'draw:{n}:block_text')
         elif 'label' in it:
             x, y, w, h = it['box']
             para_box(slide, x, y, w, h, it['label'], it.get('size', 18), RED if it.get('red') else INK,

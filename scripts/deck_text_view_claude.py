@@ -35,7 +35,7 @@ def main(deck, out):
                 lines += ['| ' + ' | '.join(r) + ' |' for r in rows[1:]] + ['']
             elif sh.shape_type == 6:
                 texts = [t for t in sh._element.xpath('.//a:t/text()') if t.strip()]
-                lines += [f'*Diagram `{sh.name}`:* ' + ' · '.join(texts), '']
+                lines += [(f'*Diagram `{sh.name}`:* ' + ' · '.join(texts)).rstrip(), '']
             elif sh.shape_type == 13:
                 lines += [f'*Image `{sh.name}`*', '']
             elif sh.has_text_frame and sh.text_frame.text.strip():           # includes drawn deco: labels (R14)
@@ -55,8 +55,22 @@ def main(deck, out):
                 if line:
                     lines.append('- ' + line)
             lines.append('')
+        for gf in X(s.shapes._spTree, './mc:AlternateContent/mc:Choice/p:graphicFrame'):   # tables holding equations
+            def cell(tc):
+                out = []
+                for para in X(tc, './/a:p'):
+                    for ch in para:
+                        if ch.tag == qn('a:r'):
+                            out.append(''.join(X(ch, './a:t/text()')))
+                        elif ch.tag.endswith('}m'):
+                            out.append('$' + ''.join(X(ch, './/m:t/text()')) + '$')
+                return ''.join(out).strip()
+            rows = [[cell(tc) for tc in X(tr, './a:tc')] for tr in X(gf, './/a:tbl/a:tr')]
+            if rows:
+                lines += ['| ' + ' | '.join(rows[0]) + ' |', '|' + ' --- |' * len(rows[0])]
+                lines += ['| ' + ' | '.join(r) + ' |' for r in rows[1:]] + ['']
         if s.has_notes_slide and s.notes_slide.notes_text_frame.text.strip():
-            lines += ['**Notes:**', '', *('> ' + l for l in s.notes_slide.notes_text_frame.text.strip().splitlines()), '']
+            lines += ['**Notes:**', '', *(('> ' + l).rstrip() for l in s.notes_slide.notes_text_frame.text.strip().splitlines()), '']
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text('\n'.join(lines) + '\n', encoding='utf-8')
 

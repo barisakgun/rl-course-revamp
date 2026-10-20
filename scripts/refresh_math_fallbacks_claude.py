@@ -133,8 +133,9 @@ def replace_fallback(slide, ac, png, frame):
     for c in list(fb):
         fb.remove(c)
     fb.append(new)
-    for r in old_rids:
-        if r != rid:
+    used = {b.get(R + 'embed') for b in slide._element.iter(A + 'blip')}   # PowerPoint may share one image
+    for r in set(old_rids):                                                 # between identical fallbacks
+        if r != rid and r not in used and r in slide.part.rels:
             slide.part.drop_rel(r)
 
 

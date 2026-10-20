@@ -1,0 +1,75 @@
+# Week 2 deck `bellman`: two slides added at the instructor's request (2026-10-20), Claude's renderer input.
+# First draft: renderer input for the first render of these slides only (2026-10-20). Not maintained: the PPTX is the
+# source from that render on. B25a is inserted after B25; BA1 is a hidden appendix slide at the end of the deck.
+# Status: decisions/lectures/bellman.md (C22).
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week02/bellman_additions_claude.pptx
+  preview: output/lectures/week02/bellman_additions_claude_preview.png
+  session_id: improvement
+  qa_minutes: 0
+  title: Bellman deck additions (B25a, BA1)
+  author: Barış Akgün
+  term: Fall 2026
+
+slides:
+  - id: B25a
+    kind: math
+    title: Which one to choose?
+    table:
+      header: ['Situation', 'Tends to favour', 'Why']
+      rows:
+        - ['Many actions per state', 'Policy iteration', 'Evaluation sweeps use one action per state; all actions are compared only at improvement']
+        - ['Many states', 'Value iteration, or PI with a few evaluation sweeps', 'An exact solve costs about $|\mathcal{S}|^{3}$; a sweep costs about $|\mathcal{S}|^{2}|\mathcal{A}|$ (less with sparse transitions)']
+        - ['Discount close to 1', 'Policy iteration', 'VI shrinks the error only by $\gamma$ per sweep; PI usually needs few improvement rounds']
+        - ['Need a certified optimal policy', 'Policy iteration', 'Stops at a stable policy (its stability test)']
+      widths: [3.0, 3.6, 6.25]
+      align_left: true
+      size: 18
+      row_h: 0.75
+    table_box: [0.244, 1.1, 12.85]
+    after_box: [0.244, 5.15, 12.85]
+    size: 20
+    after:
+      - text: '**No universal winner: count the total work.** PI with a few evaluation sweeps per improvement sits in between (generalized policy iteration).'
+    minutes: 2
+    sources: [instructor request 2026-10-20 (C22), book §4.4 end and §4.6, Silver L3 PDF 18–19, Puterman (1994) modified policy iteration (background, not cited on the slide)]
+    notes: |
+      Guidance, not theorems; say "tends to". Count the work per improvement round:
+      - Policy iteration: evaluation of a deterministic policy costs about |𝒮|² per sweep (one action per state), or
+        about |𝒮|³ for a direct dense solve; improvement costs about |𝒮|²|𝒜| once per round.
+      - Value iteration: every sweep costs about |𝒮|²|𝒜|, because each sweep compares all actions.
+      Many actions: PI pays the |𝒜| factor only at improvement, and usually needs few rounds, so it tends to win.
+      Many states: an exact linear solve becomes the bottleneck; use VI, or PI whose evaluation is a few sweeps
+      (modified PI). Sparse transitions (our grid: at most 3 successors per action) lower both costs.
+      Discount near 1: VI's largest error shrinks only by a factor γ per sweep, so it needs about log(1/ε)/(1 − γ)
+      sweeps; PI's number of improvement rounds is usually small in practice (an empirical observation, not a bound).
+      Certified policy: PI stops when greedy improvement no longer changes the policy (B20); VI needs that extra
+      evaluation-plus-improvement check (B24r) to certify its greedy policy.
+      These are rules of thumb for exact tabular DP with a known model; later, with sampling and approximation, the
+      trade-offs change. Ties to generalized policy iteration (next slide).
+
+  - id: BA1
+    kind: math
+    title: 'Appendix: other forms of the PI updates'
+    hidden: true
+    appendix: true
+    size: 18
+    eq_size: 20
+    body:
+      - text: '**Deterministic policy** $a=\pi(s)$: evaluation sweep and improvement step'
+      - eq: 'V_{k+1}(s)\leftarrow\mathcal{R}(s,\pi(s))+\gamma\sum_{s''\in\mathcal{S}^{+}}\mathcal{T}(s,\pi(s),s'')V_k(s'')'
+      - eq: '\pi''(s)=\arg\max_{a\in\mathcal{A}(s)}[\mathcal{R}(s,a)+\gamma\sum_{s''\in\mathcal{S}^{+}}\mathcal{T}(s,a,s'')v^{\pi}(s'')]'
+      - text: '**Reward depending on the next state:** $\mathcal{R}(s,a,s'')\doteq\mathbb{E}[R_{t+1}\mid S_t=s,A_t=a,S_{t+1}=s'']$, so $\mathcal{R}(s,a)=\sum_{s''}\mathcal{T}(s,a,s'')\mathcal{R}(s,a,s'')$'
+      - eq: 'V_{k+1}(s)\leftarrow\sum_{s''\in\mathcal{S}^{+}}\mathcal{T}(s,\pi(s),s'')[\mathcal{R}(s,\pi(s),s'')+\gamma V_k(s'')]'
+      - eq: '\pi''(s)=\arg\max_{a\in\mathcal{A}(s)}\sum_{s''\in\mathcal{S}^{+}}\mathcal{T}(s,a,s'')[\mathcal{R}(s,a,s'')+\gamma v^{\pi}(s'')]'
+      - text: 'Our grids fit this form: the reward depends only on the next cell (+1 or −1 on entry, −0.04 otherwise).'
+    minutes: 0
+    sources: [instructor request 2026-10-20 (C22), book §3.2 eq. 3.6 and §4.1–4.2 (eqs. 4.5, 4.9), old DP PPTX 10 (R(s,a,s') case), old MDP PPTX 36, notation guide (ℛ(s,a,s′) as an allowed alternative form)]
+    notes: |
+      Hidden appendix slide for reference (0 min). Deterministic policy: the policy average Σ_a π(a ∣ s) collapses to
+      the single action π(s). Next-state rewards: averaging ℛ(s,a,s′) over s′ gives ℛ(s,a), so both forms give the same
+      values; with ℛ(s,a,s′) the reward goes inside the successor sum. Value iteration has the same form with a max
+      over a in place of π(s). For a stochastic policy, put Σ_a π(a ∣ s) in front. Terminal successors have value 0
+      and no action. ℛ(s,a,s′) is an allowed alternative form in the notation guide.

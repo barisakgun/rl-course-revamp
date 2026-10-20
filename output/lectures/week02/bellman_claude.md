@@ -2,7 +2,7 @@
 
 # Text view: bellman_claude.pptx
 
-SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
+SHA-256 `ec28bf43c37e2b7f37fa8e18e3f400414a0aaaeea91645923e847ea9561d20db`
 
 ## 1. B00 — COMP438/538 Reinforcement Learning
 
@@ -13,7 +13,7 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 **Notes:**
 
 > This deck covers Week 2. Today's portion develops policy evaluation and the Bellman optimality equations.
-> 
+>
 > Target: 0.5 min. Sources: Introduction A21 title format.
 
 ## 2. B00a — So Far
@@ -44,13 +44,13 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > Use sample averages to estimate the expectation
 > Prepare them for MC methods
 > Highlight once again the issues with non-ending trajectories
-> 
+>
 > LIVE (required): recall the open question after the robot's value table in 1.2, without repeating that
 > table or its calculations. Averaging repeated returns has sampling variation, and stopping a continuing
 > trajectory leaves a tail. A known model lets us average outcomes directly. The Bellman equation represents
 > the entire future through successor values. A finite number of iterative updates can still be approximate;
-> distinguish that later from solving the finite system exactly. 
-> 
+> distinguish that later from solving the finite system exactly.
+>
 > Target: 3 min
 
 ## 4. B01 — Evaluating a policy
@@ -69,7 +69,7 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 
 > Today the policy first stays fixed.
 > Improving it is the next question.
-> 
+>
 > Target: 1 min
 
 ## 5. B03a — Gridworld as an MDP 
@@ -112,9 +112,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > transition the reward is +1 or −1 total, not that amount minus 0.04. Colliding with an outer boundary or the
 > internal wall still incurs −0.04. These rules differ from the old nonzero terminal-value convention, so use
 > no old computed values here.
-> 
+>
 > Equation sources (LaTeX): \gamma=0.5
-> 
+>
 > Target: 3 min. Sources: old MDP PPTX 37/38/40 (map and rules; learning/planning block omitted), decisions C7/C8.
 
 ## 6. B03 — A smaller grid for calculations
@@ -130,7 +130,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 - (2,2) goal
 
 - Same movement rules, smaller map. This is a separate MDP.
-- Goal entry: +1 total; every other transition before termination: −0.04
+- Rewards:
+- Goal entry: +1 total
+- Every other transition before termination: −0.04
 - Goal continuation value 0; discount $𝛾=0.5$
 - Fixed policy $𝜋$: choose right at every nonterminal cell
 
@@ -141,9 +143,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > Evaluation can assess an inefficient policy. Moves into a boundary stay in the same cell. The goal has no
 > chosen action; for bookkeeping only, we may keep it absorbing with reward zero. No nonzero terminal value
 > is initialized. The smaller map is not a value-preserving reduction of the 3×4 grid.
-> 
+>
 > Equation sources (LaTeX): \gamma=0.5 | \pi
-> 
+>
 > Target: 2 min. Sources: old DP PPTX 13 (cells and 80/10/10 diagram; prompt, terminal-value labels and initial estimates replaced), decisions C7/C8.
 
 ## 7. B04 — Two-step transition prediction
@@ -168,7 +170,7 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > Answer key: from (2,1): itself 0.9, goal 0.1; from (1,2): goal 0.8, itself 0.1, (1,1) 0.1; from (1,1): the
 > first-step distribution again. Final probabilities on ((1,1), (1,2), (2,1), goal): (0.02, 0.02, 0.80, 0.16).
 > This tree explains weighted outcomes, not a new search algorithm.
-> 
+>
 > Target: 3.5 min. Sources: old MDP PPTX 42–48 (branching and path-probability reasoning; tree relabelled for the 2×2 grid).
 
 ## 8. B02 — Reusing future subproblems
@@ -185,7 +187,7 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > Transitions can return to the same state, so its value may depend on itself. The values must satisfy their
 > equations together; the graph need not be a one-way chain. This motivates the recursion and later sweeps
 > before presenting their formulas.
-> 
+>
 > Target: 1.5 min. Sources: old DP PPTX 23–24, Silver lecture 3 PDF 3–5.
 
 ## 9. B05a — Back to Values
@@ -201,12 +203,12 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 
 **Notes:**
 
-> Stating the obvious until bullet point 5. 
-> 
-> ℛ is expected immediate reward. Separating its expectation from expected continuation does not require reward and next state to be independent. 
-> 
-> 
-> 
+> Stating the obvious until bullet point 5.
+>
+> ℛ is expected immediate reward. Separating its expectation from expected continuation does not require reward and next state to be independent.
+>
+>
+>
 > Target: 3 min. Sources: book §3.5 (printed 58–59 / PDF 80–81), old MDP PPTX 59–61 (converted).
 
 ## 10. B05b — State and State-Action Values
@@ -225,12 +227,12 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > environment does after that action. In a terminal state v^π is zero. For
 > our always-right policy, v^π(s) = q^π(s, right), but other first actions still have action values under the
 > same continuation policy.
-> 
-> 
+>
+>
 > Check answer: yes. This formalizes the distinction introduced in 1.2.
-> 
+>
 > Equation sources (LaTeX): v^{\pi}(s)=\sum_{a\in\mathcal{A}(s)}\pi(a\mid s)q^{\pi}(s,a) | q^{\pi}(s,a)=\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')v^{\pi}(s')
-> 
+>
 > Target: 2 min. Sources: old MDP PPTX 59 (converted), book §3.5 Exercises 3.18–3.19 (printed 62 / PDF 84), Silver lecture 2 PDF 31–32.
 
 ## 11. B06 — Bellman Expectation Equation
@@ -254,9 +256,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > its single action.
 > Check: "Does this equality hold for any arbitrary table of numbers?" No: it characterizes the true value
 > function. We will later use its right-hand side to update a provisional table.
-> 
+>
 > Equation sources (LaTeX): v^{\pi}(s)=\mathbb{E}_\pi[G_t\mid S_t=s] | =\mathbb{E}_\pi[R_{t+1}+\gamma G_{t+1}\mid S_t=s] | =\sum_{a\in\mathcal{A}(s)}\pi(a\mid s)\sum_{s'\in\mathcal{S}^{+},r}\mathcal{M}(s,a,r,s')[r+\gamma v^{\pi}(s')] | v^{\pi}(s)=\sum_{a\in\mathcal{A}(s)}\pi(a\mid s)[\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')v^{\pi}(s')] | v^{\pi}(s)=\mathcal{R}(s,\pi(s))+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,\pi(s),s')v^{\pi}(s')
-> 
+>
 > Target: 3 min. Sources: old MDP PPTX 26/60/61 (λ corrected to γ, reward index t+1), book §3.5 eq. 3.14 printed 59 / PDF 81, CS224R tutorial PDF 13–14.
 
 ## 12. B07 — Action-value recursion and backups
@@ -296,9 +298,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > next-action policy. The next action follows π, so there is no max. Ask which branching belongs to the agent
 > and which to the environment. A backup is a calculation, not the agent physically moving backward or taking
 > a new step.
-> 
+>
 > Equation sources (LaTeX): q^{\pi}(s,a)=\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}}\mathcal{T}(s,a,s')\sum_{a'\in\mathcal{A}(s')}\pi(a'\mid s')q^{\pi}(s',a')
-> 
+>
 > Target: 3 min. Sources: old DP PPTX 7 (backup diagram, redrawn so policy branching matches the stochastic equation), old MDP PPTX 60, book §3.5 backup diagrams printed 59/61, Silver lecture 2 PDF 34.
 
 ## 13. B08 — Three states, three value equations
@@ -327,9 +329,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > At (2,1), it is 0.1(1) + 0.9(−0.04) = 0.064. In both equations the successor term for the terminal is zero.
 > Say (or write) that each equation is linear in the unknown values: no products of unknowns, so the system is linear. Do not add the terminal payoff again in the continuation term. Fixing the policy gives a Markov reward
 > process; mention the connection once.
-> 
+>
 > Equation sources (LaTeX): \pi | v^{\pi}((1,1))=-0.04+0.5[0.1v^{\pi}((1,1))+0.1v^{\pi}((1,2))+0.8v^{\pi}((2,1))] | v^{\pi}((1,2))=? | v^{\pi}((2,1))=?
-> 
+>
 > Target: 3.5 min. Sources: old DP PPTX 5/27 (finite-system explanation), book §4.1, accepted grid adaptation.
 
 ## 14. B08a — Solving the value equations
@@ -352,9 +354,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > direct solve has cubic arithmetic cost in the number of states; structure/sparsity can change the practical
 > cost. No full complexity derivation. Do not require students to do three-state elimination by hand here.
 > Complexity question: building the system takes O(n²|𝒜|) for n = |𝒮| states (O(n²) for a deterministic policy); a direct dense solve (Gaussian elimination or inversion) costs O(n³). No typed matrix notation on the slide (not in the notation guide; decisions C4/C13).
-> 
+>
 > Equation sources (LaTeX): v^{\pi}((1,1))=-0.04+0.5[0.1v^{\pi}((1,1))+0.1v^{\pi}((1,2))+0.8v^{\pi}((2,1))] | v^{\pi}((1,2))=0.792+0.5[0.1v^{\pi}((1,1))+0.1v^{\pi}((1,2))] | v^{\pi}((2,1))=0.064+0.5[0.9v^{\pi}((2,1))]
-> 
+>
 > Target: 3 min. Sources: old DP PPTX 5/27, old MDP PPTX 31–33, book §4.1, decision C4.
 
 ## 15. B09 — Iterative policy evaluation
@@ -376,11 +378,11 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > this activity uses two tables and synchronous sweeps throughout. A small stopping change means approximate
 > convergence, not exact equality or a universal error certificate.
 > Complexity answers: one synchronous sweep costs O(|𝒮|²|𝒜|) with dense transitions (O(|𝒮|²) for a deterministic policy; less with sparse successors: here at most 3 per action). The largest error is multiplied by at most γ per sweep, so reaching accuracy ε from initial error e₀ takes about log(e₀/ε)/log(1/γ) sweeps; total = number of sweeps × cost per sweep. Compare with the O(n³) direct solve on the previous slide. "Per step" on the slide means per sweep (k counts sweeps, not environment steps). The sweep count is a sufficient worst-case bound (round up) for 0 < γ < 1 and e₀ > ε; with γ = 0 one sweep suffices. It needs a bound on the initial error, so it is not a stopping rule you can observe directly.
-> 
+>
 > Note that the value of the terminal state will always be 0.
-> 
+>
 > Equation sources (LaTeX): V_{k+1}(s)\leftarrow\sum_{a\in\mathcal{A}(s)}\pi(a\mid s)[\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')V_k(s')] | V_0(s)=0 | k
-> 
+>
 > Target: 3.5 min. Sources: old DP PPTX 6/27 ("closed form" caption replaced), book §4.1 eq. 4.5 printed 74–75 / PDF 96–97, CS234 lecture 2 PDF 12–13, notation decision C6.
 
 ## 16. B10 — First evaluation sweep
@@ -407,9 +409,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > outcomes: 0.8(1) + 0.1(−0.04) + 0.1(−0.04) = 0.792. The V₁ row starts as question marks: students supply (1,1) and (2,1). Answers: V₁((1,1)) = −0.04 (no goal reachable in one step); V₁((2,1)) = 0.1(1) + 0.9(−0.04) = 0.064. The full row is shown on the next slide. The value update uses an expectation over possible transitions; the agent does
 > not physically collect 0.792 on a single step. A transition's reward and its next-state value have separate
 > roles.
-> 
+>
 > Equation sources (LaTeX): \gamma=0.5 | V_0=0
-> 
+>
 > Target: 4 min. Sources: book §4.1, old DP PPTX 13–16 worked-table role adapted (not its numbers or maximization), accepted grid model.
 
 ## 17. B11 — Second evaluation sweep
@@ -439,9 +441,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > Check whether a student has inserted an action max, reused a freshly computed V_2 entry, or counted the goal
 > payoff twice. Address these meanings before arithmetic slips. Do not shorten this activity to fit an
 > unplanned extra explanation.
-> 
+>
 > Equation sources (LaTeX): V_2 | V_1
-> 
+>
 > Target: 5 min. Sources: book §4.1, CS234 lecture 2 PDF 13 exercise structure, accepted grid model.
 
 ## 18. B12 — What the sweeps mean
@@ -472,9 +474,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > remains low because the policy keeps choosing right into a boundary and relies on a slip. Nearness to the goal
 > alone does not determine value. We have evaluated the same policy at every sweep. V_3 is supplied for
 > interpretation, not another calculation assignment. Do not claim every state's error decreases at every sweep.
-> 
+>
 > Equation sources (LaTeX): V_0=0 | k
-> 
+>
 > Target: 3 min. Sources: book §4.1, review R04 forward-prediction connection with R11/R12 qualifications.
 
 ## 19. B13 — Why repeated backups settle
@@ -498,9 +500,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > about 0.05091 to 0.09091 on the first sweep. Do not describe the table as "each error halves". The k-step
 > interpretation and the contraction guarantee are different claims. Do not extend this discounted argument to
 > γ = 1 without additional episodic assumptions.
-> 
+>
 > Equation sources (LaTeX): (B^{\pi}V)(s)\doteq\sum_{a\in\mathcal{A}(s)}\pi(a\mid s)[\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')V(s')] | V_{k+1}=B^{\pi} V_k,\qquad B^{\pi} v^{\pi}=v^{\pi} | B^{\pi} | \gamma | \max_{s\in\mathcal{S}^{+}}\,\lvert V_{k+1}(s)-v^{\pi}(s)\rvert\leq\gamma\,\max_{s\in\mathcal{S}^{+}}\,\lvert V_k(s)-v^{\pi}(s)\rvert | 0\leq\gamma<1
-> 
+>
 > Target: 4.5 min. Sources: old DP PPTX 20/22 (corrected: affine, made concrete), Silver lecture 3 PDF 35–38, book §4.1, decisions C5/C6.
 
 ## 20. B14 — A better first action?
@@ -526,14 +528,14 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > always-right. This suggests changing an action, but the computed q^π is not q^{*} and is not the value of
 > repeatedly following an improved policy. The next question is what values are possible when future actions
 > are also chosen optimally. The policy-improvement proof remains for 2.2.
-> 
+>
 > Note: Fractions are the solved values of the always-right policy
-> 
+>
 > Answer to "How to formalize this step?": in every state choose the action with the largest q^π, a greedy policy π′(s) = argmax_a q^π(s, a). That this new policy is at least as good everywhere is the policy improvement theorem (2.2); here we only motivate it.
-> 
-> 
+>
+>
 > Equation sources (LaTeX): v^{\pi}((2,1))=q^{\pi}((2,1),\text{right})=32/275\approx0.11636 | q^{\pi}((2,1),\text{up})=0.792+0.5[0.1(14/275)+0.1(32/275)]\approx0.80036
-> 
+>
 > Target: 2 min. Sources: old MDP PPTX 59 (action-value relation), book §4.2 opening printed 76 / PDF 98, old DP PPTX 30/36 motivation only.
 
 ## 21. B15 — Optimal values
@@ -549,9 +551,9 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > expected return. These maxima range over policies, not sampled lucky trajectories. In a finite discounted MDP,
 > an optimal stationary deterministic policy can attain these statewise optimal values. This statement uses
 > today's model assumptions; do not generalize it to every formulation of RL. Terminal value remains zero.
-> 
+>
 > Equation sources (LaTeX): v^{*}(s)=\max_\pi\,v^{\pi}(s),\qquad q^{*}(s,a)=\max_\pi\,q^{\pi}(s,a) | v^{*}(s) | s | q^{*}(s,a) | a | v^{*}(s)=\max_{a\in\mathcal{A}(s)}\,q^{*}(s,a)
-> 
+>
 > Target: 2 min. Sources: old MDP PPTX 63 (converted; search/q-state framing removed), book §3.6 printed 62–64 / PDF 84–86, decision C9.
 
 ## 22. B16 — Bellman optimality equations
@@ -559,7 +561,7 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 - $𝑣∗(𝑠)=max𝑎∈𝒜(𝑠)[ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)𝑣∗(𝑠′)]$
 - $𝑞∗(𝑠,𝑎)=ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮𝒯(𝑠,𝑎,𝑠′)max𝑎′∈𝒜(𝑠′) 𝑞∗(𝑠′,𝑎′)$
 - $𝜋∗(𝑠)=argmax𝑎∈𝒜(𝑠) 𝑞∗(𝑠,𝑎)$
-- The agent chooses an action; the environment's outcomes are still averaged.
+- The agent chooses an action and the environment's outcomes are still averaged.
 - Side Note: For finite discounted MDPs, there always exists an optimal deterministic policy.
 - Next: policy improvement, value iteration and policy iteration.
 
@@ -575,8 +577,503 @@ SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`
 > π^*(s) = argmax_a q^*(s, a): acting greedily with respect to q^* is optimal; when several actions tie, any of them (or any mixture) is optimal, so state a tie-breaking rule when a single policy is needed. This needs no model once q^* is known, unlike extracting a policy from v^*, which needs ℛ and 𝒯.
 > Closing: exact expected backups require the model. Later methods address sampled experience and larger
 > representations. This is the end of the prepared 2.1 section; 2.2 develops the algorithms in this same deck.
-> 
+>
 > Equation sources (LaTeX): v^{*}(s)=\max_{a\in\mathcal{A}(s)}[\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')v^{*}(s')] | q^{*}(s,a)=\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}}\mathcal{T}(s,a,s')\max_{a'\in\mathcal{A}(s')}\,q^{*}(s',a')
-> 
+>
 > Target: 3 min. Sources: old MDP PPTX 64 (ℛ/𝒯, lower-case true values), book §3.6 eqs. 3.19–3.20 printed 63–64 / PDF 85–86, decision C9.
+
+## 23. B17 — Improving the policy
+
+- (1,1) start
+
+- (1,2)
+
+- (2,1)
+
+- (2,2) goal
+
+- At (2,1), choosing up once and then following always-right gives higher expected return:
+- $𝑞𝜋((2,1),up)≈0.80036 > 𝑣𝜋((2,1))≈0.11636$
+- Does choosing better actions at every visit give a better policy?
+- Today: policy improvement, policy iteration and value iteration.
+
+**Notes:**
+
+> Section opening for session 2.2 (no second course title slide).
+> π is the old always-right policy. These are solved policy values, not the last displayed evaluation-sweep
+> estimates. The optional matrix home exercise is not a prerequisite: the values are supplied again on B21.
+> B15/B16 already defined optimality and the optimality equations; do not reteach them. The question is how to
+> turn the earlier one-action comparison into a control method. Known model and finite discounted setting
+> throughout.
+>
+> Equation sources (LaTeX): q^{\pi}((2,1),\text{up})\approx0.80036\quad>\quad v^{\pi}((2,1))\approx0.11636
+>
+> Target: 2 min. Sources: old DP PPTX 3 (control framing), B14 continuity.
+
+## 24. B18 — Greedy policy improvement
+
+- Use the current policy's values to compare candidate first actions (no need to store $𝑞𝜋(𝑠,𝑎)$):
+- $𝑞𝜋(𝑠,𝑎)=ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)𝑣𝜋(𝑠′)$
+- Choose a maximizing action at each nonterminal state:
+- $𝜋′(𝑠)=argmax𝑎∈𝒜(𝑠) 𝑞𝜋(𝑠,𝑎)$
+- For a deterministic current policy,
+- $𝑞𝜋(𝑠,𝜋′(𝑠))=max𝑎 𝑞𝜋(𝑠,𝑎)≥𝑞𝜋(𝑠,𝜋(𝑠))=𝑣𝜋(𝑠)$
+- “Greedy” includes expected future return through $𝑣𝜋$.
+
+**Notes:**
+
+> π′ means the changed policy. First interpret q^π as a chosen first action followed by π. Improvement chooses
+> an action; it does not select a favorable random outcome. Keep the current action when it is tied for maximum;
+> otherwise choose the first maximizing action in the order up, right, down, left. For a stochastic old policy
+> the maximum dominates its policy-weighted average as well; one spoken sentence suffices. Terminal continuation
+> is zero, with no terminal action. Given q^π, action selection needs only an argmax; calculating these q values
+> from v^π needs the model. Neither greedy selection nor a one-step score is yet an evaluation of π′.
+> Check: is this greedy in immediate reward alone? No: the continuation term accounts for future consequences
+> under the old policy.
+>
+> Equation sources (LaTeX): q^{\pi}(s,a)=\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')v^{\pi}(s') | \pi'(s)=\arg\max_{a\in\mathcal{A}(s)}\,q^{\pi}(s,a) | q^{\pi}(s,\pi'(s))=\max_{a}\,q^{\pi}(s,a)\geq q^{\pi}(s,\pi(s))=v^{\pi}(s) | v^{\pi}
+>
+> Target: 4 min. Sources: old DP PPTX 30 and 36 (converted), book §4.2 printed 78–79 / PDF 100–101, Silver L3 PDF 16.
+
+## 25. B19 — Why policy improvement works
+
+- If at every nonterminal state,
+- $𝑞𝜋(𝑠,𝜋′(𝑠))≥𝑣𝜋(𝑠)$
+- then following $𝜋′$ throughout is at least as good:
+- $𝑣𝜋′(𝑠)≥𝑣𝜋(𝑠)$
+- Why? Replace the old continuation with another improved action:
+- $𝑣𝜋(𝑠)≤𝔼𝜋′[𝑅𝑡+1+𝛾𝑣𝜋(𝑆𝑡+1)∣𝑆𝑡=𝑠]$
+- $≤𝔼𝜋′[𝑅𝑡+1+𝛾𝑅𝑡+2+𝛾2𝑣𝜋(𝑆𝑡+2)∣𝑆𝑡=𝑠]$
+- $≤⋯→𝑣𝜋′(𝑠)$
+- Finite MDP, bounded rewards, $0≤𝛾<1$.
+
+**Notes:**
+
+> PROTECTED (required derivation, C18). First inequality: choose π′ once, then π. At every possible successor,
+> v^π is no larger than the return from choosing π′ once there and then π. Substitute that inequality into the
+> first expectation; nonnegative probabilities and discount preserve the inequality. Expanding the substituted
+> q term produces the second displayed line. Now the first two actions follow π′; only the remaining tail uses
+> the old values. Repeat. Bounded old values multiplied by successive powers of γ have a vanishing tail, leaving
+> the return of π′. For an episode, treat later rewards and continuation as zero after termination; no terminal
+> action distribution is needed.
+> Ask students to explain the second inequality. The hypothesis must hold for every possible successor where the
+> policy changes; maximizing immediate reward alone does not establish it. The theorem is non-worsening from
+> every state; it does not say every state must strictly improve. A strict one-step gain at a state gives strict
+> value improvement there. Greedy improvement is a sufficient way to meet the condition. For stochastic π, use
+> the policy-weighted average at the start rather than the deterministic-policy equality on B18.
+>
+> Equation sources (LaTeX): q^{\pi}(s,\pi'(s))\geq v^{\pi}(s) | \pi' | v^{\pi'}(s)\geq v^{\pi}(s) | v^{\pi}(s)\leq\mathbb{E}_{\pi'}[R_{t+1}+\gamma v^{\pi}(S_{t+1})\mid S_t=s] | \leq\mathbb{E}_{\pi'}[R_{t+1}+\gamma R_{t+2}+\gamma^{2}v^{\pi}(S_{t+2})\mid S_t=s] | \leq\cdots\to v^{\pi'}(s) | 0\leq\gamma<1
+>
+> Target: 8 min. Sources: old DP PPTX 36 (statement; live argument replaces "see the book"), book §4.2 printed 78–79 / PDF 100–101 eqs. 4.7–4.9, Silver L3 PDF 16–17, CS234 L2 PDF 24–27, decision C18.
+
+## 26. B20 — Policy iteration
+
+- 1. Choose an initial policy.
+- 2. Evaluate: calculate its values while keeping the policy fixed.
+- 3. Improve: choose greedy actions while keeping those values fixed.
+- Retain the current action when it is among the maximizing actions.
+- 4. Repeat evaluation and improvement until the policy is stable.
+- At stability, with exact evaluation,
+- $𝑣𝜋(𝑠)=max𝑎∈𝒜(𝑠)[ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)𝑣𝜋(𝑠′)]$
+- This is the Bellman optimality equation: $𝑣𝜋=𝑣∗$.
+
+**Notes:**
+
+> Evaluation can use a linear solve or repeated fixed-policy sweeps, as in 2.1. The theorem uses exact
+> evaluation; implementations using a stopping tolerance are approximate. Initialize an estimate if needed, but
+> do not call that arbitrary estimate the true value of the policy. Under exact evaluation and current-action tie
+> retention, a genuine policy change has a strict gain somewhere and loses nowhere. There are finitely many
+> deterministic policies, so PI terminates after finitely many improving rounds. Do not claim finite exact
+> convergence of the inner iterative evaluation: its limit may require infinitely many sweeps. The grid uses
+> solved values to make the comparison exact. A stable policy under a rough estimate is not an exact optimality
+> certificate. Tie retention avoids endlessly switching between equally good policies (book Exercise 4.4).
+>
+> Equation sources (LaTeX): v^{\pi}(s)=\max_{a\in\mathcal{A}(s)}[\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')v^{\pi}(s')] | v^{\pi}=v^{*}
+>
+> Target: 4 min. Sources: old DP PPTX 26 and 31 (policy/value indexing corrected), book §4.3 printed 80–82 / PDF 102–104, Silver L3 PDF 13 and 17, Abbeel L1 PDF 56–57.
+
+## 27. B21 — Improving always-right on the grid
+
+- (1,1) start
+
+- (1,2)
+
+- (2,1)
+
+- (2,2) goal
+
+- Solved values for $𝜋$ = always-right (+1 on goal entry, −0.04 otherwise, $𝛾=0.5$)
+
+- Calculate $𝑞𝜋((1,1),up)$. Is up better than right here?
+- $𝑞𝜋((1,1),up)=−0.04+0.5[0.8(46/55)+0.1(32/275)+0.1(14/275)]≈0.30291 > 𝑣𝜋((1,1))$
+- Do this for all three nonterminal states at home.
+
+| State | vπ(s) |
+| --- | --- |
+| (1,1) | $14/275≈0.05091$ |
+| (1,2) | $230/275≈0.83636$ |
+| (2,1) | $32/275≈0.11636$ |
+
+**Notes:**
+
+> PROTECTED (with B21r). The table shows the exact old values 14/275, 230/275 (= 46/55) and 32/275. Point to the upper-left
+> successor (intended up), lower-right successor (right slip), and current cell (left slip blocked). Give students time before the click that reveals the answer: up gives 0.302909…, versus right (the current action) 0.050909…. B14 already established the good up
+> action at (2,1). The next slide supplies all action scores to confirm the choices; repeating the calculation for the other states is a home exercise (slide), not class work. These values are provided, so the optional homework is not assumed.
+>
+> Equation sources (LaTeX): \pi | \gamma=0.5 | q^{\pi}((1,1),\text{up}) | q^{\pi}((1,1),\text{up})=-0.04+0.5[0.8(46/55)+0.1(32/275)+0.1(14/275)]
+>
+> Target: 3 min. Sources: B14 model and values, old DP PPTX 28–31 (evaluate/compare purpose moved to the grid), book §4.2, numbers recomputed under C8.
+
+## 28. B21r — The improved policy and its values
+
+- (1,1) start
+
+- (1,2)
+
+- (2,1)
+
+- (2,2) goal
+
+- Action scores under the old continuation policy:
+
+| State | up | right | down | left |
+| --- | --- | --- | --- | --- |
+| (1,1) | 0.30291 | 0.05091 | −0.01127 | 0.02473 |
+| (1,2) | 0.44036 | 0.83636 | 0.12618 | 0.33891 |
+| (2,1) | 0.80036 | 0.11636 | 0.01491 | 0.09018 |
+
+- Reevaluate the changed policy $𝜋′$ = (up, right, up):
+- $𝑣𝜋′((1,1))=199/550≈0.36182,  𝑣𝜋′((1,2))=𝑣𝜋′((2,1))=469/550≈0.85273$
+- A further improvement leaves the policy unchanged; up and right tie at (1,1).
+
+**Notes:**
+
+> PROTECTED (completes the six-minute PI activity). The values are higher than the old policy's at each of the
+> three states. The one-action score 0.80036 is not the new policy's value 0.85273: the latter follows π′ after
+> the first action too. At the next greedy check, up/right at (1,1) each score 0.361818…; retain up. This example
+> needs the initial evaluation, one improving round, reevaluation and a stability check. One improvement reaches
+> optimality here; this is not a general bound on PI rounds. Do not add another linear-system calculation. Exact
+> checks compare the solution against all 64 deterministic policies.
+>
+> Equation sources (LaTeX): \pi' | v^{\pi'}((1,1))=199/550\approx0.36182,\qquad v^{\pi'}((1,2))=v^{\pi'}((2,1))=469/550\approx0.85273
+>
+> Target: 3 min. Sources: B14 model and values, old DP PPTX 28–31, book §4.2, exact recomputation (scripts/check_bellman_session22_chatgpt.py).
+
+## 29. B22 — Why shorten policy evaluation?
+
+- A full policy evaluation may require many sweeps.
+- Useful action choices may emerge before the values have settled.
+- Must we finish evaluating each policy before making another improvement?
+- Value iteration combines a greedy choice with one backup using the current table.
+
+**Notes:**
+
+> Explain the order precisely: choose a policy greedily from the current V table; then do one evaluation backup
+> for that chosen action using the same V table. Substitution folds the two operations into the max update on the
+> next slide. This is the sense in which VI uses one evaluation sweep between improvements. It does not exactly
+> evaluate the newly chosen policy, nor mean that one arbitrary old-policy evaluation sweep is itself the
+> optimality update. Do not claim PI or VI is universally faster.
+>
+> Target: 2.5 min. Sources: old DP PPTX 25–26 (motivation, reordered after PI; erroneous V(s) successor removed), book §4.4 opening printed 82–83 / PDF 104–105, Silver L3 PDF 18, CS285 L7 PDF 9.
+
+## 30. B23 — Value iteration
+
+- For every nonterminal state $𝑠∈𝒮$,
+- $𝑉𝑘+1(𝑠)←max𝑎∈𝒜(𝑠)[ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)𝑉𝑘(𝑠′)]$
+- 1. Initialize $𝑉0$ to zero, including terminal entries.
+- 2. Compute each new nonterminal entry using the old table. (implementation requires 2 copies!)
+- 3. Replace the table after the full sweep; keep terminal entries zero.
+- 4. Repeat until the largest sweep change is sufficiently small.
+- Extract a greedy policy using the final stored table $𝑉$:
+- $𝜋(𝑠)=argmax𝑎∈𝒜(𝑠)[ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)𝑉(𝑠′)]$
+
+**Notes:**
+
+> k counts sweeps, not environment time; this is a synchronous two-table implementation. Arbitrary nonterminal
+> initialization is possible, but our example starts at zero. The max selects the action; outcome probabilities
+> remain averaged. Terminal payoff is in ℛ, not added again through terminal V. A finite table is generally
+> approximate; use π rather than asserting π^* for an arbitrary stopped table. Choose ties consistently (up,
+> right, down, left when no current action is retained).
+> One-line convergence explanation: in a finite discounted MDP, each action's average and then the maximum cannot
+> enlarge the largest input discrepancy; discounting bounds the new largest discrepancy by γ times the old one.
+> Repeated updates therefore approach v^*. A small sweep change is a practical stopping condition, not exact
+> equality or a universal error certificate. Do not repeat the formal proof or iteration-count bounds.
+>
+> Equation sources (LaTeX): s\in\mathcal{S} | V_{k+1}(s)\leftarrow\max_{a\in\mathcal{A}(s)}[\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')V_k(s')] | V_0 | V | \pi(s)=\arg\max_{a\in\mathcal{A}(s)}[\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')V(s')]
+>
+> Target: 4 min. Sources: old DP PPTX 10–12 (converted), old DP PPTX 21–22 (convergence purpose, compressed), book §4.4 printed 83 / PDF 105, Silver L3 PDF 23–24.
+
+## 31. B24 — A value-iteration sweep
+
+- (1,1) start
+
+- (1,2)
+
+- (2,1)
+
+- (2,2) goal
+
+| Sweep | (1,1) | (1,2) | (2,1) | Terminal |
+| --- | --- | --- | --- | --- |
+| V1 | −0.04 | 0.792 | 0.792 | 0 |
+| V2 | ? | ? | ? | 0 |
+
+- $𝛾=0.5$; living reward −0.04; +1 on goal entry, continuation 0; synchronous VI from $𝑉0=0$.
+
+- Compute $𝑉2((1,1))$ and identify the maximizing actions.
+- Every candidate action uses the same $𝑉1$ successor values.
+
+**Notes:**
+
+> PROTECTED (with B24r). First check the supplied V₁: the first backup at (2,1) chooses up, giving
+> 0.8(+1) + 0.2(−0.04) = 0.792. Fixed always-right evaluation in 2.1 gave 0.064 there. Do not ask students to
+> redo all of V₁. Work the four action scores for (1,1), ideally in pairs; students may use symmetry. Up/right
+> each give 0.3144, down/left each −0.0184. All actions have −0.04 immediate reward from this state. Do not use
+> just the single most valuable neighbor: slip probabilities cannot be chosen. Do not read an already updated V₂
+> entry. Allow working/explanation time before B24r. Other second-sweep cells are supplied as feedback, not
+> another required calculation.
+>
+> Equation sources (LaTeX): \gamma=0.5 | V_0=0 | V_2((1,1)) | V_1
+>
+> Target: 5 min. Sources: old DP PPTX 13–16 (grid and exercise structure; all values replaced), book §4.4, decision C8.
+
+## 32. B24r — Value-iteration results
+
+- (1,1) start
+
+- (1,2)
+
+- (2,1)
+
+- (2,2) goal
+
+| Table | (1,1) | (1,2) | (2,1) | Terminal |
+| --- | --- | --- | --- | --- |
+| V1 | −0.04 | 0.792 | 0.792 | 0 |
+| V2 | 0.3144 | 0.8296 | 0.8296 | 0 |
+| V3 | 0.34904 | 0.8492 | 0.8492 | 0 |
+| v* | 0.36182… | 0.85273… | 0.85273… | 0 |
+
+- Values keep changing even when the greedy actions agree -> Policy Converges before the values
+- If you do not care about the values, you can check for policy convergence in Value Iteration to have the best of both worlds. But you need to do policy evaluation, policy improvement and do a convergence check.
+
+- At (1,1): up/right each score 0.3144; down/left each score −0.0184.
+- $𝑉2((1,1))=−0.04+0.5[0.8(0.792)+0.1(0.792)+0.1(−0.04)]=0.3144$
+
+**Notes:**
+
+> PROTECTED (completes the eight-minute VI activity). The optimal row is the evaluated improved policy from B21r;
+> it is supplied as a reference, not obtained by rounding V₃. With zero initialization and synchronous updates,
+> V_k is the optimal expected discounted sum of the next k rewards with zero tail. An intermediate table need not
+> be an infinite-horizon value function of any stationary policy. Greedy extraction using V₁ already gives an
+> optimal policy for this small grid, even though V₁ differs from v^*. An unchanged greedy policy between two VI sweeps is not by itself a stopping rule: it can stay the same for several sweeps and then change. The valid check on the slide: evaluate the greedy policy FULLY (linear solve, or sweeps run to convergence; one sweep is not enough), then do one greedy improvement step; if the policy does not change, it is optimal (PI's stability test, B20). The tied up/right
+> actions at (1,1) are shown explicitly; a consistent tie choice is sufficient. Old DP 13–16's terminal value 1
+> and answers 0.37/0.01 are not applicable.
+>
+> Equation sources (LaTeX): V_2((1,1))=-0.04+0.5[0.8(0.792)+0.1(0.792)+0.1(-0.04)]=0.3144
+>
+> Target: 3 min. Sources: old DP PPTX 13–16, book §4.4, Silver L3 PDF 23 (intermediate-table qualification), exact recomputation (scripts/check_bellman_session22_chatgpt.py).
+
+## 33. B24a — Q-value iteration
+
+- Use action-value estimates directly:
+- $𝑄𝑘+1(𝑠,𝑎)←ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮𝒯(𝑠,𝑎,𝑠′)max𝑎′∈𝒜(𝑠′) 𝑄𝑘(𝑠′,𝑎′)$
+- $𝑄𝑘(𝑠,𝑎)$: action-value estimate after $𝑘$ sweeps.
+- Greedy action selection from $𝑄$ needs no model.
+- Computing this expected update still needs the model.
+- In a couple of weeks: Q-learning uses sampled transitions for this kind of target.
+
+**Notes:**
+
+> Bridge to Q-learning (C19); no exercise. Update every nonterminal state/action pair from the old Q table. The
+> successor sum uses nonterminal 𝒮; terminal rewards remain in ℛ and terminal continuation contributes zero, so
+> there is no max over an empty terminal action set. At convergence this estimates q^*. Action selection and
+> learning the table have different information requirements. The later sample target is the observed reward
+> plus the discounted maximum next-action estimate (zero continuation when terminal); no Q-learning update, step
+> size, convergence claim or new assignment here. Q_k is approved in C19 and the notation guide.
+>
+> Equation sources (LaTeX): Q_{k+1}(s,a)\leftarrow\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}}\mathcal{T}(s,a,s')\max_{a'\in\mathcal{A}(s')}\,Q_k(s',a') | Q_k(s,a) | k | Q
+>
+> Target: 1.5 min. Sources: B16 (q-optimality equation as an update), old DP PPTX 34 (question answered), book §4.4 Exercise 4.10 printed 84 / PDF 106, decision C19.
+
+## 34. B25 — Policy iteration and value iteration
+
+|  | Policy iteration | Value iteration |
+| --- | --- | --- |
+| Main computation | Evaluate a fixed policy, then improve | Max backup at each state, each sweep |
+| Intermediate table | Evaluates the current policy, exactly or approximately | May not be a policy's infinite-horizon values |
+| Work per outer iteration | Evaluation work plus greedy improvement | One sweep over states and candidate actions |
+| On our grid | One improving round, then reevaluation and stability | V1, V2, V3 approach the same v* |
+
+- A PI round and a VI sweep measure different amounts of work.
+
+**Notes:**
+
+> Dense VI sweep: O(|𝒮|²|𝒜|). A deterministic-policy evaluation sweep uses one selected action per state,
+> O(|𝒮|²); improvement considers all actions and has the dense VI-sweep order of work. PI may require many such
+> evaluation sweeps or a direct solve. Costs can be lower with sparse transitions; this grid has at most three
+> distinct successors per action. Avoid repeating the full cost derivation from 2.1. Neither algorithm has a
+> universal speed advantage. Our common limit is (0.361818…, 0.852727…, 0.852727…). Action ties can yield
+> different equally optimal policy arrows. A1 implements VI and compares against a supplied PI; no requirement to
+> implement both.
+> Check: does a small number of PI rounds establish lower total computation? No; count the evaluation work and
+> action/successor backups too.
+>
+> Target: 4 min. Sources: old DP PPTX 25, 37 and 39 (unconditional speed claims corrected), book §4.4 opening and end, accepted assignment decision A1.
+
+## 35. B25a — Which one to choose?
+
+| Situation | Tends to favour | Why |
+| --- | --- | --- |
+| Many actions per state | Policy iteration | Evaluation sweeps use one action per state; all actions are compared only at improvement |
+| Many states | Value iteration, or PI with a few evaluation sweeps | An exact solve costs about |𝒮|3; a sweep costs about |𝒮|2|𝒜| (less with sparse transitions) |
+| Discount close to 1 | Policy iteration | VI’s worst-case error bound shrinks only by a factor γ per sweep; PI usually needs few improvement rounds |
+| Need a certified optimal policy | Policy iteration | Stops at a stable policy (its stability test) |
+
+- No universal winner: count the total work. PI with a few evaluation sweeps per improvement sits in between (generalized policy iteration).
+
+**Notes:**
+
+> Guidance, not theorems; say "tends to". Count the work per improvement round:
+> - Policy iteration: evaluation of a deterministic policy costs about |𝒮|² per sweep (one action per state), or
+>   about |𝒮|³ for a direct dense solve; improvement costs about |𝒮|²|𝒜| once per round.
+> - Value iteration: every sweep costs about |𝒮|²|𝒜|, because each sweep compares all actions.
+> Many actions: PI pays the |𝒜| factor only at improvement, and usually needs few rounds, so it tends to win.
+> Many states: an exact linear solve becomes the bottleneck; use VI, or PI whose evaluation is a few sweeps
+> (modified PI). Sparse transitions (our grid: at most 3 successors per action) lower both costs.
+> Discount near 1: VI's guarantee is that the largest error shrinks by at least a factor γ per sweep. With γ near 1 this worst-case bound is weak (of the order of log(1/ε)/(1 − γ) sweeps for a fixed accuracy, depending on the initial error), although actual convergence can be faster. PI's number of improvement rounds is usually small in practice (an empirical observation, not a bound).
+> Certified policy: PI has a direct stability test after exact evaluation (B20). For VI, a full evaluation of the greedy policy followed by one improvement step (B24r) is one way to certify it; an exact fixed point or value-change (residual) bounds are others, not covered here.
+> These are rules of thumb for exact tabular DP with a known model; later, with sampling and approximation, the
+> trade-offs change. Ties to generalized policy iteration (next slide).
+>
+> Target: 2 min. Sources: instructor request 2026-10-20 (C22), book §4.4 end and §4.6, Silver L3 PDF 18–19, Puterman (1994) modified policy iteration (background, not cited on the slide).
+
+## 36. B26 — What is optimal depends on the reward
+
+- Living reward −2
+
+- −1 on entry
+
+- +1 on entry
+
+- Living reward −0.04
+
+- −1 on entry
+
+- +1 on entry
+
+- Living reward +0.2
+
+- any
+
+- any
+
+- any
+
+- any
+
+- any
+
+- any
+
+- −1 on entry
+
+- +1 on entry
+
+- At (3,2), should the policy choose right toward the −1 terminal, up, or left?
+- Can a reward make avoiding the +1 terminal optimal?
+
+*Diagram `Group 82`:*
+
+- Same 3×4 grid and motion model. For this comparison, $𝛾=0.9$: later rewards count more, which makes the risk/delay trade-off more visible than with $𝛾=0.5$.
+
+**Notes:**
+
+> PROTECTED discussion. First announce the discount change from the earlier examples (C17). Hold γ = 0.9 across
+> all three panels, along with geometry, transitions and terminal rewards; it is then the living reward that
+> drives the comparison. Ask the two questions before revealing the panels (they build in turn). The picture is the familiar map (old MDP 37) as a reminder.
+> "any" = all four actions are optimal there; no preferred direction. Terminal payoffs are the total reward on
+> entry, with continuation zero; the living reward applies to every other transition, including blocked moves.
+> - With −2, prolonged living is so costly that the policy intends to enter the negative terminal from (3,2) or
+>   (4,1). Motion still slips. The policy optimizes expected discounted return, not our informal preference for
+>   the positive goal.
+> - With −0.04, the policy proceeds toward the positive goal, accounting for delay and risk: up at (3,2), and left
+>   away from the pit at (4,1). It accepts some slip risk; it is not a guaranteed safe path.
+> - With +0.2, following the displayed optimal policy keeps the process in nonterminal states. The return is
+>   0.2 + 0.9(0.2) + … = 0.2/(1 − 0.9) = 2, exceeding the immediate +1 exit. At (3,3), left turns away from the
+>   goal; at (3,2), left points into the wall, with safe perpendicular slips; at (4,1), down likewise avoids the
+>   pit. In the six "any" cells every action's outcomes stay in states with optimal continuation 2. All
+>   nonterminal optimal values are 2.
+> Ask which part of the specification made this behavior desirable. The algorithm cannot infer an unstated desire
+> to finish. A terminal state does not imply every policy reaches it; discounting still makes this return finite.
+> These scenarios do not change the robot's accepted rewards. Living rewards −0.4 and −0.04 give the same arrows
+> at γ = 0.9; 0 differs only at (2,1).
+>
+> Equation sources (LaTeX): \gamma=0.9 | \gamma=0.5
+>
+> Target: 8 min. Sources: old MDP PPTX 51–52 (question and side-by-side idea; arrows recomputed), decisions C8 and C17, exact recomputation (scripts/check_bellman_session22_chatgpt.py).
+
+## 37. B27 — Generalized policy iteration
+
+- Evaluation: move the value estimates toward the current policy's values
+
+- Improvement: move the policy toward greedy actions for the current estimates
+
+- Generalized policy iteration describes how these processes interact, at different granularities.
+- PI completes evaluation before improvement; VI combines improvement with a single backup.
+- In a finite discounted MDP, exact-model asynchronous updates can also converge when every state continues to be updated.
+- In a few weeks, we will do evaluation and improvement using experience (environment interaction).
+
+**Notes:**
+
+> GPI names the common structure, rather than a third solver to implement. Evaluation and improvement can be
+> interleaved more finely; mention partial evaluation in one sentence, without another sweep-count symbol or
+> pseudocode. The one asynchronous sentence fulfills C20. It concerns tabular exact backups with 0 ≤ γ < 1 and
+> repeated coverage, not a guarantee for arbitrary sample-based learning. In-place updates can use the newest
+> available entries; our numerical activities deliberately used synchronous old-table sweeps. No asynchronous
+> exercise or homework. Do not claim every possible interaction of approximate processes converges.
+>
+> Target: 3.5 min. Sources: old DP PPTX 35 and 41–42, book §§4.5–4.6 printed 85–87 / PDF 107–109, Sutton DP slides PDF 24–25, Silver L3 PDF 18–19, decision C20.
+
+## 38. B28 — Planning with a known model
+
+| Task | Computation |
+| --- | --- |
+| Evaluate a supplied policy | Bellman expectation backups |
+| Find a better policy | Greedy improvement using that policy's values |
+| Solve control with a known model | Policy iteration or value iteration |
+
+- Which computations need the transition and reward model?
+- Which action-selection step can use a learned table directly?
+- Next: estimating values from sampled experience when the model is unavailable.
+
+**Notes:**
+
+> Answers: full expected evaluation and VI/PI/Q-value-iteration backups need the transition/reward model (or its
+> equivalent full outcome distribution). Greedy selection from available action values uses the Q table directly;
+> extracting from state values needs one-step model lookahead. Model-free prediction begins in Week 3; Q-learning
+> follows in Week 4. Full expectations can also be costly in large spaces. Do not start an additional
+> sampled-update derivation. The reward discussion established that values and optimal policies depend on the
+> specified objective.
+>
+> Target: 2 min. Sources: old DP PPTX 38–39 (summary) and 43–45 (model availability), condensed.
+
+## 39. BA1 — Appendix: other forms of the VI updates
+
+- Deterministic policy $𝑎=𝜋(𝑠)$:
+- $𝑉𝑘+1(𝑠)←max𝑎∈𝒜𝑠[ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮+𝒯𝑠,𝑎,𝑠′𝑉𝑘𝑠′]$
+- $𝜋′(𝑠)=argmax𝑎∈𝒜(𝑠)[ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)𝑣𝜋(𝑠′)]$
+- Reward depending on the next state: $ℛ(𝑠,𝑎,𝑠′)≐𝔼[𝑅𝑡+1∣𝑆𝑡=𝑠,𝐴𝑡=𝑎,𝑆𝑡+1=𝑠′]$, so $ℛ(𝑠,𝑎)=𝑠′𝒯(𝑠,𝑎,𝑠′)ℛ(𝑠,𝑎,𝑠′)$
+- $𝑉𝑘+1(𝑠)←max𝑎∈𝒜(𝑠)𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)[ℛ(𝑠,𝑎,𝑠′)+𝛾𝑉𝑘(𝑠′)]$
+- $𝜋′(𝑠)=argmax𝑎∈𝒜(𝑠)𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)[ℛ(𝑠,𝑎,𝑠′)+𝛾𝑣𝜋(𝑠′)]$
+- Our grids fit this form: the reward depends only on the next cell (+1 or −1 on entry, −0.04 otherwise).
+- For the PI updates, remove the $max$ operator from the value calculations and use $𝜋(𝑠)$ instead of $𝑎$
+
+**Notes:**
+
+> Appendix slide for reference (0 min). Rows 1–2: the value-iteration update with ℛ(s, a), and the greedy improvement step using the evaluated policy's values v^π. Rows 3–5: the same with a reward that depends on the next state; averaging ℛ(s, a, s′) over s′ gives ℛ(s, a), so both forms give the same values, and with ℛ(s, a, s′) the reward goes inside the successor sum. Last line: for policy evaluation (inside PI), drop the max and use the policy's action, V_{k+1}(s) ← ℛ(s, π(s)) + γ Σ_{s′} 𝒯(s, π(s), s′) V_k(s′), or with ℛ(s, π(s), s′) inside the sum. For a stochastic policy, put Σ_a π(a ∣ s) in front instead. In VI the greedy step uses the final table V (B23); with v^π it is PI's improvement step. Terminal successors have value 0 and no action. ℛ(s, a, s′) is an allowed alternative form in the notation guide.
+>
+> Equation sources (LaTeX, as built): V_{k+1}(s)\leftarrow\max_{a\in\mathcal{A}(s)}[\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')V_k(s')] | \pi'(s)=\arg\max_{a\in\mathcal{A}(s)}[\mathcal{R}(s,a)+\gamma\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')v^{\pi}(s')] | \mathcal{R}(s,a)=\sum_{s'}\mathcal{T}(s,a,s')\mathcal{R}(s,a,s') | V_{k+1}(s)\leftarrow\max_{a\in\mathcal{A}(s)}\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')[\mathcal{R}(s,a,s')+\gamma V_k(s')] | \pi'(s)=\arg\max_{a\in\mathcal{A}(s)}\sum_{s'\in\mathcal{S}^{+}}\mathcal{T}(s,a,s')[\mathcal{R}(s,a,s')+\gamma v^{\pi}(s')]
+>
+> Target: 0 min (appendix). Sources: instructor request 2026-10-20 (C22), book §3.2 eq. 3.6 and §4.1–4.2 (eqs. 4.5, 4.9), old DP PPTX 10 (R(s, a, s') case), old MDP PPTX 36, notation guide (ℛ(s, a, s′) as an allowed alternative form).
 

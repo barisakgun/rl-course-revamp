@@ -1,5 +1,7 @@
 # Bellman equations and evaluation — ChatGPT initial suggestion
 
+**Navigation:** the original 2.1 suggestion below is historical. See [Session 2.2 independent suggestions](#session-22-independent-suggestions--chatgpt-2026-10-11) for the new step-1 proposal. Current deck status and accepted choices remain in [deck decisions](../../decisions/lectures/bellman.md).
+
 **Author/date:** ChatGPT, 2026-10-09. Independent initial suggestion under [pilot v2](../../docs/lecture_workflow.md), step 1. No counterpart suggestion was read. This is a recommendation, not accepted deck content or a rendering input.
 
 **Accepted frame:** session 2.1 `bellman`, 58 teaching minutes; derive one expectation backup and perform policy-evaluation sweeps. Planning is Core, with derive/implement/analyze mastery across Week 2. No full convergence-proof sequence. The [session decisions](../../decisions/topic_decisions.yaml) place the old two-step transition prediction and formal state/action-value relationships here, integrated into the worked backup. Session 2.2 retains improvement, optimality/VI/PI and reward sensitivity. Detailed search-tree framing remains deferred to MCTS/model-based preparation. No 1.1/1.2 carryover enters this allocation.
@@ -175,3 +177,159 @@ Feasibility remains an estimate. The seven-minute derivation and first use of su
 Validation used exact rational arithmetic for the proposed model: outgoing probabilities normalize, the two-step distribution sums to one, the first three synchronous sweeps match the table, and the exact values satisfy all three Bellman equations. Relevant source figures were visually inspected, including the old small grid, backup diagram and two-step transition tree. This is a content suggestion, not a rendered-deck or classroom timing check.
 
 **Next workflow step:** the counterpart's independent suggestion and one mutual cross-review, followed by instructor choices. No shared rendering content, PPTX or renderer YAML has been created or modified.
+
+## Session 2.2 independent suggestions — ChatGPT, 2026-10-11
+
+**Workflow step 1; proposal only.** Continue the existing combined `bellman` deck after B16. This section leaves the historical 2.1 suggestion intact. No counterpart's 2.2 suggestion was read. The shared decisions/review and instructor-edited PPTX were read as requested; the PPTX and frozen first-render inputs were not edited. Current status lives only in [deck decisions](../../decisions/lectures/bellman.md).
+
+**Accepted frame:** `improvement`, 58 teaching minutes; planning is Core with derive/implement/analyze mastery. Reuse a grid/table to compare improvement, VI and PI; protect the improvement argument and reward sensitivity. No full convergence-proof sequence; asynchronous DP optional. This proposal adds no reading, video or assessment requirement.
+
+**Continuity checked:** latest saved PPTX SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`, 22 slides. Read native text/equations and notes, and inspected existing preview pages 20/22 for the handoff; this was not a fresh PowerPoint render. B14 already compares up once with always-right; B15 defines optimal values; B16 supplies both optimality equations and the instructor's greedy extraction from q^*. B10's question-mark row and other instructor edits stay intact. R24–R28 remain recorded for the next PPTX edit under the instructor's latest instruction; see the dated shared-review addendum, including evidence of fixes already present. This proposal does not resolve them.
+
+### Recommendation and motivation
+
+Teach **improvement, then PI, then VI**, although the session title names VI first. Begin with B14's unanswered distinction: choosing up once and then following the old policy is better, but why should repeatedly following a changed policy be better? The local action comparison motivates the improvement theorem. PI then supplies a complete control procedure using the evaluation machinery students already know. Finally ask whether evaluating each policy fully is worth the work; this motivates VI as a shorter computation using the optimality equation already introduced in 2.1.
+
+Use the **same 2×2 grid** for the calculations, with the solved always-right values supplied explicitly. No dependence on completing the optional matrix home exercise. Use the already introduced **3×4 grid** for the reward comparison: its two terminal outcomes expose a meaningful change in desired behavior. Neither map needs a second MDP-formulation lecture. Keep the 80/10/10 motion, walls, γ = 0.5, terminal-entry payoffs and zero continuation. Only the named living-reward comparison changes reward numbers.
+
+### Delta against the old course
+
+References are **PPTX positions**, including hidden slides. `DP` is [3 - Dynamic Programming.pptx](../../sources/current_course/3%20-%20Dynamic%20Programming.pptx); `MDP` is [2 - Markov Decision Processes.pptx](../../sources/current_course/2%20-%20Markov%20Decision%20Processes.pptx). Native text/equations were inspected; PDF page numbers can differ (MDP PPTX 52 is PDF 47).
+
+| Old material | Keep / cut / fix / move | Teaching purpose retained and displacement |
+| --- | --- | --- |
+| DP 3, 8–9; MDP 63–64 | Compress recall | Keep the control problem and the question of how to compute a solution. B15–B16 already introduce optimality; no repeat definitions or second optimality derivation. The brief opening makes room for the improvement argument. |
+| DP 30, 36 | Keep, move earlier, expand the central argument | Replace “just do policy extraction” and “see the book for proof” by meaning, a greedy action comparison, and two steps of the improvement argument. Use v^π/q^π and ℛ/𝒯. State that improvement is non-worsening everywhere, possibly strict somewhere; it need not strictly improve every state. |
+| DP 26–31 | Keep PI structure; combine examples | Preserve evaluate/change/evaluate, the fixed-policy versus fixed-value distinction, and the stop condition. Replace the separate caveman examples (28–29) with the existing 2×2 grid. Repair 31's policy/value indexing; initializing a table to zero does not make it the policy's true value. |
+| DP 9–12, 21, 25 | Keep VI motivation and algorithm; move after PI; fix | Explain why full evaluation may be excessive, then turn B16's equality into an update. Fix DP 25's successor V(s) to V(s′). Use “may stabilize earlier” for greedy actions, rather than asserting that policies always converge first or PI is always faster. Keep one qualified convergence explanation, not DP 22's full operator proof. |
+| DP 13–16 | Keep grid and calculation/reveal structure; recompute | Preserve the student action comparison and sweeps. Replace the old 0.1 initial values and terminal value 1 with V₀ = 0 everywhere and reward +1 on entry. Old answers 0.37 and 0.01 are inapplicable. |
+| DP 17–19 | Keep extraction purpose; merge into 2×2 comparison | Students choose an action using immediate reward plus expected continuation, rather than the largest neighboring cell. Do not import the old 3×4 values, γ = 0.99 or living reward −0.01 into this calculation. Its home exercise is not a new requirement. |
+| MDP 52 (PDF 47) | Keep reward-sensitivity question; adapt pictures | Preserve the consequence of changing the objective while dynamics stay fixed. Recompute arrows under entry rewards and γ = 0.5. Do not reuse the old four policy pictures as numerical evidence for this model. Suggested three cases below replace repeated grid narration. |
+| DP 23–24, 35, 37–39 | Keep comparison and GPI; compress duplicate summaries | B02 already explains stored subproblems. Retain what evaluation/improvement each changes, the relative work of VI/PI, and their common structure. GPI names that structure and prepares Week 4; no third algorithm catalog. |
+| DP 32, 34, 40–46 | Omit detours; move future material to accepted placement | The award slide adds no necessary algorithm context. No live Q-value-iteration derivation, caveman homework or coding exercise. Asynchronous DP remains optional/unassigned. Retain only the known-model limitation from 43–45 as a bridge to Week 3's sampled prediction; no MC/TD derivation here. |
+
+Proposed native reuse should preserve old equation/diagram objects where practical, with notation and model corrections. This is a reuse recommendation for the later renderer, not authorization to copy over existing deck slides.
+
+### Slide-level sequence and timing
+
+Provisional IDs continue after B16; actual slide splits can wait. Required spoken explanation, questions and answer discussion are included. Targets sum to **58 minutes**.
+
+| ID | Content and reason | Student check / essential treatment | Min |
+| --- | --- | --- | ---: |
+| B17 | Improving the policy — section boundary and control motivation | Recall B14's result in one sentence. Ask why a better first action might justify a different policy at every visit. No full optimality recap. | 2 |
+| B18 | Greedy policy improvement | Define the changed policy using the old policy's q values. Compare action scores at (2,1); explain “greedy” includes future return through v^π. | 4 |
+| B19 | Why improvement works | **Protected:** one-step inequality, substitute it at every successor, show two steps and explain the vanishing discounted tail. Ask why improving only immediate reward would not establish this result. | 8 |
+| B20 | Policy iteration | Evaluate the fixed policy, hold its values fixed to improve, then reevaluate. Explain ties and why a stable greedy policy satisfies the already known optimality equation. | 4 |
+| B21 | PI on the familiar grid | **Protected:** supply solved old values; students choose the new arrows. Reveal the reevaluated values and check stability. This small example needs one improving round, not all problems. | 6 |
+| B22 | Why shorten policy evaluation? | Evaluation itself may require many sweeps. Could useful action decisions be made before values settle? Preserve old DP 25's computational motivation without an unconditional speed claim. | 3 |
+| B23 | Value iteration | Turn B16 into the synchronous Vₖ update; keep terminal entries zero. Show compact procedural steps and a separate greedy extraction from the final table. | 4 |
+| B24 | VI sweeps and action choices | **Protected:** supply first sweep; students compute the second-sweep lower-left entry and choose its maximizing actions. Reveal the full second table, then briefly interpret a third. | 8 |
+| B25 | Comparing PI and VI | Put their grid/table results beside each other. Compare what is held fixed, what each iteration costs and what intermediate values mean. A PI round and a VI sweep are different units of work. | 5 |
+| B26 | Reward sensitivity | **Protected discussion:** predict changed behavior on the familiar 3×4 map, then reveal recomputed policies for −2, −0.04 and +0.6 living rewards. Explain the algorithm is optimizing the specified objective. | 8 |
+| B27 | Generalized policy iteration | Name the evaluation/improvement interaction already seen. Full evaluation and shortened evaluation are different schedules; Week 4 reuses the idea with experience. | 4 |
+| B28 | Planning limits and exit check | Which quantities require a model? How would behavior change if we changed rewards? Close on needing sampled experience when exact dynamics are unavailable. | 2 |
+| | **Total** | | **58** |
+
+### Improvement argument: the indispensable mathematics
+
+Write π′ for the changed policy (a second policy, not a new kind of object). On nonterminal states,
+
+\[
+\pi'(s)=\arg\max_{a\in\mathcal A(s)}q^\pi(s,a),\qquad
+q^\pi(s,a)=\mathcal R(s,a)+\gamma\sum_{s'\in\mathcal S^+}\mathcal T(s,a,s')v^\pi(s').
+\]
+
+Keep the old action when it is among the maximizers; otherwise choose the first maximizing action in the stated order up, right, down, left. For a deterministic old policy,
+
+\[
+q^\pi(s,\pi'(s))=\max_a q^\pi(s,a)\ge q^\pi(s,\pi(s))=v^\pi(s).
+\]
+
+The action value still means **new action once, then old policy**. The missing argument is why using the new policy repeatedly is safe. Because the inequality holds at every nonterminal successor and probabilities and γ are nonnegative,
+
+\[
+\begin{aligned}
+v^\pi(s)&\le\mathbb E_{\pi'}[R_{t+1}+\gamma v^\pi(S_{t+1})\mid S_t=s]\\
+&\le\mathbb E_{\pi'}[R_{t+1}+\gamma R_{t+2}+\gamma^2v^\pi(S_{t+2})\mid S_t=s]\\
+&\le\cdots\longrightarrow v^{\pi'}(s).
+\end{aligned}
+\]
+
+Explain the second inequality aloud, rather than replacing it with “repeat.” Use a finite MDP, bounded rewards and 0 ≤ γ < 1: the remaining discounted old-value tail vanishes. At termination continuation is zero; no terminal action is required. This is the central improvement argument, not a full contraction-proof sequence. With a stochastic old policy, the maximum similarly dominates its policy-weighted average; mention once, without a second proof.
+
+PI with exact evaluation and tie retention improves until stable; at stability v^π equals the maximum one-step backup of itself, hence satisfies the optimality equation and equals v^*. Finitely many deterministic policies and strict value progress on a genuine change give finite policy termination. Numerical evaluation to a tolerance is approximate: do not promote an unchanged policy under a rough table into an exact optimality certificate.
+
+### Concrete grid checks for cross-review
+
+The numbers below are answer material, not instructions to display all answers at once. The 2×2 model is unchanged from B03: state order **(1,1), (1,2), (2,1)**; terminal (2,2); intended/perpendicular motion 0.8/0.1/0.1; blocked motion stays put; γ = 0.5; +1 total on goal entry, −0.04 otherwise, zero after termination.
+
+**PI:** supply the solved always-right values `(0.050909, 0.836364, 0.116364)`, not the earlier third-sweep estimates. At (2,1), q^π for up/right/down/left is approximately `(0.800364, 0.116364, 0.014909, 0.090182)`. Up is genuinely the maximizing action. Students then determine the three greedy arrows: **up, right, up**. In particular, at (1,1), up scores 0.302909 whereas right scores 0.050909, because the old continuation policy handles the upper-left state much better.
+
+Reevaluation yields `(199/550, 469/550, 469/550)`, approximately **(0.361818, 0.852727, 0.852727)**. At (1,1), up and right now tie; retaining up avoids a gratuitous policy change. Another greedy pass leaves the policy unchanged. Label the steps separately: one improving round followed by reevaluation and a stability check. The 0.800364 one-action score is not the new policy's value 0.852727. One improvement reaching optimality is special to this grid.
+
+**VI:** for s ∈ 𝒮,
+
+\[
+V_{k+1}(s)\leftarrow\max_{a\in\mathcal A(s)}
+\left[\mathcal R(s,a)+\gamma\sum_{s'\in\mathcal S^+}\mathcal T(s,a,s')V_k(s')\right].
+\]
+
+Initialize V₀ = 0; read every successor from the old table; update nonterminal states; replace the table after the sweep. Terminal entries stay zero. Extract a policy by maximizing the same expression using the **final stored table**. Do not label an arbitrary intermediate action score q^π or q^*: the current V table need not be a policy's infinite-horizon value.
+
+| Computation | (1,1) | (1,2) | (2,1) | Terminal |
+| --- | ---: | ---: | ---: | ---: |
+| VI V₀ | 0 | 0 | 0 | 0 |
+| VI V₁ | −0.04 | 0.792 | 0.792 | 0 |
+| VI V₂ | 0.3144 | 0.8296 | 0.8296 | 0 |
+| VI V₃ | 0.34904 | 0.8492 | 0.8492 | 0 |
+| PI's reevaluated improved policy / optimal limit | 0.361818… | 0.852727… | 0.852727… | 0 |
+
+At (1,1), the second VI sweep scores up/right **0.3144** each, and down/left **−0.0184** each. The maximizing action is tied; choose consistently. One calculation is
+`−0.04 + 0.5[0.8(0.792) + 0.1(0.792) + 0.1(−0.04)] = 0.3144`.
+Contrast with fixed-policy evaluation's second-sweep 0.0232 only after students identify the changed continuation values. No repeat 2.1 evaluation exercise.
+
+With zero initialization and synchronous updates, Vₖ represents the optimal expected discounted sum of the next k rewards with zero remaining tail; an intermediate table is not generally an infinite-horizon evaluated stationary policy. The greedy choices can stabilize before the values; here the final greedy policy is already obtainable from V₁, while V₁ is far from v^*. Do not use policy stability alone as a universal VI stopping rule.
+
+**Convergence/cost in B25:** in the finite discounted setting, action averaging and taking a maximum do not enlarge the worst input discrepancy; discounting bounds the new maximum discrepancy by γ times the old one. Use that single explanation for convergence, with a practical small-sweep-change stopping condition clearly approximate. A dense VI sweep considers every state/action/successor; a deterministic-policy evaluation sweep considers one chosen action per state; PI additionally pays for improvement and however many evaluation sweeps or a solve it uses. The grid has at most three distinct successors per action, so dense worst-case costs overstate its local work. No blanket VI/PI winner and no rederivation of 2.1's complexity formulas.
+
+### Reward sensitivity without changing conventions
+
+Return to B03a's **3×4 map**, wall (2,2), terminals (4,3) and (4,2). Keep γ = 0.5 and all transitions fixed. Entering those terminals pays +1 or −1 **total**, with zero continuation; the living reward applies only when the next state is nonterminal, including wall collisions. This changes the grid scenario for discussion, not the accepted recycling-robot rewards.
+
+Propose three recomputed policy panels, with the same map orientation. Ask students to predict the action at **(3,2)**, immediately left of the negative terminal, before revealing:
+
+| Living reward | Optimal action at (3,2) | Interpretation |
+| --- | --- | --- |
+| −2 | right | Ending quickly can be preferable even through the −1 terminal when remaining alive is very costly. |
+| −0.04 (baseline) | up | Seek the positive outcome while accounting for slip risk and delay. |
+| +0.6 | left, into the wall as the intended motion | Remaining in safe nonterminal states can beat the +1 exit; all slips and future policy choices still count. |
+
+For +0.6, an optimal policy from the left side can avoid both terminals indefinitely, obtaining `0.6 + 0.5(0.6) + … = 1.2`. Discounting keeps this finite. A terminal label does not itself force eventual termination. The policy panel must show ties where relevant, not imply that a particular arrow is uniquely optimal everywhere.
+
+The old −0.03 and −0.01 panels do not produce the old pictured contrast under the current model: recomputation gives the same optimal action sets as −0.04. The proposed positive case exposes a clear third behavior without silently changing γ. Alternative: use **−2, −0.4, −0.04** only; these distinguish urgency/risk in the lower row and avoid the positive-reward case, within the same eight minutes. This is a consequential example choice for cross-review/instructor selection, not an accepted reward change. Preserve at least the clear −2 versus baseline comparison.
+
+### Source contributions and evidence limits
+
+Local files were inspected on 2026-10-11. These are teaching references, not votes for inclusion. PDF locators below are physical pages; book printed pages are also supplied. The old decks supply the base; the latest redesigned deck supplies continuity.
+
+| Source | Specific contribution / limit |
+| --- | --- |
+| [Sutton & Barto](../../sources/RLbook2020.pdf), §§4.2–4.4, printed 76–84 / PDF 98–106; §4.6, printed 86–87 / PDF 108–109 | One-action versus repeated-policy argument, PI, shortened evaluation motivating VI, and GPI. Exercise 4.4 (printed 82) motivates stable tie handling. Reuse explanations, not the book's different grids, undiscounted assumptions or notation. |
+| [Silver lecture 3](../../sources/silver_rl/lectures/lecture-3-planning-by-dynamic-programming-.pdf), PDF 12–24, especially 16–19 and 23–24 | Improvement proof and stability, PI before VI, and the warning that intermediate VI tables may not correspond to policy values. Omit the car-rental setup and full contraction appendix. |
+| [CS234 lecture 2, Winter 2026](../../sources/stanford_cs234/lectures/lecture2post.pdf), PDF 18–27, 33–43 | The explicit question about acting once versus following the new policy repeatedly is useful motivation; policy enumeration motivates iteration. Avoid copying its indexing and broad optimal-policy/convergence claims without finite discounted assumptions. No extra policy-counting exercise. |
+| [CS285 lecture 7](../../sources/berkeley_cs285/lectures/lec-7.pdf), PDF 6–9 | Backup using a stored table and the shorter value-update picture. The slide's “approximates the new value” qualification matters. Its sample-fitting context does not turn this session into model-free control. |
+| [Abbeel lecture 1](../../sources/foundations-deep-rl-abbeel/l1-mdps-exact-methods.pdf), PDF 22–25, 54–57 | Common grid and the comparison between maximization and fixed-policy evaluation; finite-policy termination sketch. Convert terminal conventions and successor indices; preserve only conditional speed claims. |
+| [Sutton DP slides](../../sources/sutton/7-8-DP.pdf), PDF 8–12, 19–21, 24–27 | Alternating evaluation/improvement, tie issue, and GPI as an interaction at different granularities. The excerpted book page numbers differ from our local 2020 book; cite our book directly for the proof. |
+| [CS224R tutorial](../../sources/stanford_cs224r/lectures/CS224R_Tutotial_Max.pdf), PDF 19–27 | Boundary check: optimal versus policy-dependent action values is relevant, while advantage/Monte Carlo/n-step material belongs later. No extra content added from these pages. |
+
+Numerical checks used exact rational dynamics and policy evaluation: reproduced the inherited old-policy values, computed all greedy scores and VI sweeps, checked the improved 2×2 policy against all 64 deterministic policies, and verified each proposed 3×4 solution satisfies the optimality equation exactly. The reproducible checker is [check_bellman_session22_chatgpt.py](../../scripts/check_bellman_session22_chatgpt.py). New numbers are calculations under the explicitly stated adapted model, not facts extracted from the old slides.
+
+### Time-budget audit, open choices and next step
+
+`70 × 0.85 = 59.5` usable minutes; the proposed targets sum to **58**, leaving **1.5 usable minutes** and **12 physical minutes**. The accepted Week 2 estimates remain 60 + 58 = 118 against 119 usable; 2.1's accepted 61-minute slide targets do not consume 2.2's allocation. No carryover, added required work or changed assessment is assumed.
+
+Arithmetic fit does not establish feasibility. Main risks are the first encounter with the improvement argument, confusion between a one-action score and a new policy's value, PI's inner/outer computations, and switching back to the larger grid. Supply solved PI values and protect the 8-minute argument, 6-minute PI activity, 8-minute VI activity and 8-minute reward discussion. The additional explanation displaces old duplicate optimality/DP recaps, the caveman setup, and live derivation of Q-value iteration; no accepted core topic is moved out. Use B25/B27's repeated summary language as the first place to shorten delivery, rather than removing the proof or student work. Keep asynchronous methods unassigned and optional, with no hidden workload.
+
+Prerequisites are exactly 2.1's value relationships, expectation backups, solved-policy interpretation and optimality equations; no new probability, matrix or notation prerequisite is required. This prepares the accepted VI/PI implementation/comparison mastery, without specifying a new assignment or expecting both algorithms to be coded during class.
+
+**Consequential choices for the normal cross-review:** PI-before-VI ordering; the three reward panels (especially the +0.6 alternative). No running-map, reward-entry, scope or minute decision needs reopening. Independent mutual cross-review is next, before instructor choices and any deck extension. This step stops at suggestions: no 2.2 rendering input, PPTX edit, new acceptance or resolution of R24–R28 is implied.

@@ -1,8 +1,12 @@
 # Deck decisions: Bellman equations and dynamic programming (sessions 2.1–2.2)
 
-**Shared** deck decision file (`docs/lecture_workflow.md`). It holds outcomes only; discussion and findings are in the [shared review](../../analysis/lecture_suggestions/bellman_review.md). The initial AI suggestions ([Claude](../../analysis/lecture_suggestions/bellman_claude.md), [ChatGPT](../../analysis/lecture_suggestions/bellman_chatgpt.md)) are historical inputs.
+**Shared** deck decision file (`docs/lecture_workflow.md`). It holds outcomes only; discussion and findings are in the [shared review](../../analysis/lecture_suggestions/bellman_review.md). The initial 2.1 AI suggestions ([Claude](../../analysis/lecture_suggestions/bellman_claude.md), [ChatGPT](../../analysis/lecture_suggestions/bellman_chatgpt.md)) are historical inputs; ChatGPT's dated 2.2 section is a new step-1 proposal.
 - **Scope:** sessions 2.1 `bellman` and 2.2 `improvement`. Accepted teaching allocations, scope and mastery live in `decisions/topic_decisions.yaml`.
-- **Status: 2.1 portion ready for teaching (instructor, 2026-10-11); 2.2 next (step 1).** Current saved deck `course/lectures/week02/bellman_claude.pptx`, SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`: 22 slides (B00–B16 plus B00a, B00b, B05a, B05b), targets summing to 61 minutes (C15). Review findings R01–R28 are resolved. The first-render content and YAML are frozen. Views: `output/lectures/week02/bellman_claude.md` and `bellman_claude_preview.{png,pdf}`. Session 2.2 continues in this deck (C1); the combined deck is not done or accepted. This is the deck's only current status record; other files point here.
+- **Status: DONE** (accepted by the instructor, 2026-10-20, C25). This is the deck's only current status record; other files point here.
+  - Deck: `course/lectures/week02/bellman_claude.pptx`, SHA-256 `ec28bf43c37e2b7f37fa8e18e3f400414a0aaaeea91645923e847ea9561d20db`, 39 slides (2.1: B00–B16 with B00a, B00b, B05a, B05b; 2.2: B17–B28 with B21r, B24r, B24a, B25a; appendix BA1, visible, 0 minutes). Later substantive edits reopen the status.
+  - Timing: slide targets 61 minutes for 2.1 (C15) and 59.5 for 2.2 (C24); planning estimates in `decisions/topic_decisions.yaml` stay 60 and 58.
+  - Views: text view `output/lectures/week02/bellman_claude.md`; previews `output/lectures/week02/bellman_claude_preview.{png,pdf}` (39 pages), from this deck.
+  - History: findings R01–R49 in the [shared review](../../analysis/lecture_suggestions/bellman_review.md); the first-render inputs (`bellman_content.md`, `bellman_claude.yaml`, `bellman_improvement_content.md`, `bellman_improvement_claude.yaml`, `bellman_additions_claude.yaml`) are frozen and must not be used to rebuild the deck.
 
 ## Accepted (instructor, 2026-10-09)
 
@@ -24,11 +28,21 @@ These are the instructor's answers to Claude's step-1 questions Q1–Q6.
 - C13. **Matrix form (amends C4):** the instructor still derives the matrix form live, with notation only; computing the exact values is an optional home exercise. No typed matrix notation is required on slides.
 - C14. **Bellman operator definition** added to B13 (slide 19), so the operator is described rather than only shown.
 - C15. **2.1 portion settled for teaching** (instructor, 2026-10-11): the 61-minute slide targets are fine for delivery; the planning estimate in `decisions/topic_decisions.yaml` stays 60 (as with 1.2's targets against its estimate). Slide wording stays as it is (R24/R27 remain notes-only). Animations confirmed by the instructor. Final instructor edits: V₁ row as question marks on B10; π^\*(s) = argmax_a q^\*(s, a) added to B16 (notes updated).
+- C16. **2.2 preparation instruction** (instructor, later 2026-10-11 request): start independent suggestions in this combined deck using the old course sources and latest saved PPTX for continuity. Preserve entry rewards, instructor edits, the improvement argument, grid VI/PI comparison and reward sensitivity; do not repeat 2.1's optimality introduction. Keep the 58-minute estimate. R24–R28 remain recorded for the next PPTX edit and are not to be silently marked resolved. Preserve the PPTX and frozen first-render inputs during this step. This changes the pending-review disposition, not the recorded implementation history or 2.1's readiness for teaching.
+
+**Instructor, 2026-10-11 (answers to Claude's 2.2 questions):**
+- C17. **Reward sensitivity uses γ = 0.9** on the 3×4 grid, with a sentence explaining the change from the deck's γ = 0.5 (later rewards count more, so the risk/delay trade-off shows). Entry rewards (C8) stay; the panels are recomputed.
+- C18. **Improvement theorem: the book's repeated-expansion proof** (§4.2). ChatGPT's suggestion uses the same argument.
+- C19. **Include a short Q-value-iteration bridge to Q-learning.** Notation Q_k(s, a), by analogy with V_k, added to the notation guide.
+- C20. **Asynchronous DP: one line.**
+- C21. **Initial 2.2 render-ready content authorized** (instructor, subsequent 2026-10-11 request): review Claude's latest suggestions, ask about outstanding issues, and otherwise create the initial content. Reciprocal review found no remaining consequential choice requiring instructor input. Consolidate C17–C20 and the agreed sequence, with the correctness qualifications in R37–R40; keep the 58-minute estimate (57.5-minute slide targets). Because the original 2.1 content is frozen, put the new portion in shared `course/lectures/week02/bellman_improvement_content.md`, solely for appending to this deck after B16; freeze it at that portion's first render. This authorizes content preparation, not overwriting existing slides, closing R24–R28 or accepting the rendered deck.
+
+**Instructor, 2026-10-20 (edit round on 2.2):**
+- C22. **Additions requested:** a hidden appendix slide BA1 with the deterministic-policy forms of the evaluation and improvement updates and their ℛ(s, a, s′) forms (0 minutes), and a slide B25a after B25 on when to choose policy iteration or value iteration (2 minutes). 2.2's targets now sum to 59.5 minutes against the 58-minute estimate (the 59.5 usable minutes); the estimate is not changed by this record.
+- C23. **BA1 stays visible with a 0-minute target** (instructor, 2026-10-20). The instructor kept the deterministic-policy heading over the value-iteration forms and the closing line giving the policy-evaluation form.
+- C24. **2.2 portion settled for teaching** (instructor, 2026-10-20): the 59.5-minute slide targets are fine for delivery; the planning estimate in `decisions/topic_decisions.yaml` stays 58 (as in C15). The notes-level fixes for R24–R28 are kept and the items are closed (ends the C16 checkpoint). All open issues are answered.
+- C25. **Deck accepted as done** (instructor, 2026-10-20) after both AIs' final checks; the instructor confirmed the animations in slideshow mode.
 
 ## Open
 
-| # | Item | Where discussed |
-| --- | --- | --- |
-| — | Initial content suggestions for session 2.2 | not started |
-
-No substantive 2.1 choice remains open. G1/G2 and the longer sequence are resolved by C7–C10; the shared review tracks implementation and later rendering checks.
+None.

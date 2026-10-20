@@ -1,6 +1,6 @@
 # Notation guide
 
-**Shared** by Claude and ChatGPT for all lecture, assignment and exam material. Status: draft started 2026-10-05; the instructor confirms changes and resolves open items when needed. Updated 2026-10-11 by the instructor: policy and optimality marks are superscripts (v^π, q^π, v^\*, q^\*, π^\*, B^π), departing from the book's subscripts. Updated 2026-10-09 with instructor approval: V_k(s) for dynamic-programming sweeps. Updated 2026-10-08 by the instructor: 𝒯 and ℳ for the dynamics (O12); ℛ is the reward function, no longer the set of possible rewards. Updated 2026-10-07 during authorized 1.2 finalization: explicit-reward H_t added and O10 resolved by the instructor's earlier approval. The 2026-10-06 additions (O_t, O9 conversions and O11) remain.
+**Shared** by Claude and ChatGPT for all lecture, assignment and exam material. Status: draft started 2026-10-05; the instructor confirms changes and resolves open items when needed. Updated 2026-10-11 by the instructor: Q_k(s, a) for Q-value iteration; policy and optimality marks are superscripts (v^π, q^π, v^\*, q^\*, π^\*, B^π), departing from the book's subscripts. Updated 2026-10-09 with instructor approval: V_k(s) for dynamic-programming sweeps. Updated 2026-10-08 by the instructor: 𝒯 and ℳ for the dynamics (O12); ℛ is the reward function, no longer the set of possible rewards. Updated 2026-10-07 during authorized 1.2 finalization: explicit-reward H_t added and O10 resolved by the instructor's earlier approval. The 2026-10-06 additions (O_t, O9 conversions and O11) remain.
 
 Base convention: Sutton & Barto, *Reinforcement Learning: An Introduction*, 2nd ed., "Summary of Notation". Later units add symbols the book does not use; they are listed separately so the base stays recognisable to students who read the book.
 
@@ -42,6 +42,7 @@ Base convention: Sutton & Barto, *Reinforcement Learning: An Introduction*, 2nd 
 | v^π(s), q^π(s, a) | State/action value under π. Superscript, not the book's v_π, q_π (instructor, 2026-10-11): a superscript marks the policy or optimality; subscripts stay for time, sweep and parameter indices (S_t, V_k, π_**θ**). Say once that the book writes v_π |
 | v^\*(s), q^\*(s, a), π^\* | Optimal values and policy (superscript asterisk, as in A^\*; the book writes v_\*, q_\*, π_\*) |
 | V(s), Q(s, a) | Tabular estimates (with subscript t when time matters) |
+| Q_k(s, a) | Action-value estimate after k sweeps (Q-value iteration), by analogy with V_k (instructor approved the Q-value-iteration bridge, 2026-10-11, deck decision `bellman` C19) |
 | V_k(s) | Estimate after k sweeps of a dynamic-programming method (policy evaluation, value iteration); k counts sweeps, not environment time steps. The book writes v_k (instructor approved 2026-10-09, deck decision `bellman` C6) |
 | B^π | Bellman (expectation) operator (used sparingly; finite examples before operator notation); B^\* for the optimality operator if needed |
 | δ_t | TD error |

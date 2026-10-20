@@ -334,3 +334,264 @@ No correctness issue remains. The 2.2 portion continues in this deck; it must no
 ## 2.1 portion settled — 2026-10-11
 
 The instructor turned B10's V₁ row into question marks and added π^\*(s) = argmax_a q^\*(s, a) to B16; both are correct and use the superscript form and Accent 5. Claude updated B10's cue and answers and added a tie-breaking note to B16. Saved deck SHA-256 `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3`; views regenerated. Timing (61 minutes), slide wording and animations accepted by the instructor (C15). Next: step-1 suggestions for session 2.2 in this deck.
+
+## Session 2.2 step-1 handoff and pending edit checkpoint — ChatGPT, 2026-10-11
+
+**Authority:** the instructor's later request to continue 2.2 explicitly says “R24–R28 remain recorded for the next PPTX edit; do not silently mark them resolved.” C16 records that instruction. The earlier resolved status cells and final-check paragraphs above describe earlier rounds; they are preserved as history. The disposition below follows the latest instruction. It does not imply that prior fixes are absent or should be undone.
+
+Read the latest saved deck `add3062bae827a723e7d5ad7bfe1682e80cd072cf053cf96fa33d534c056dbb3` for continuity. **No deck edit or fresh full-render review occurred.**
+
+| ID | Current disposition for the next PPTX edit | Evidence already present in the saved deck; preserve it |
+| --- | --- | --- |
+| R24 | **Closed by the instructor, 2026-10-20 (C24): notes-level fixes kept** | B09/B13 notes state nonterminal updates and zero terminal values. C15 retains existing slide wording. Carry the explicit terminal boundary into new VI/PI material; do not reopen on-slide wording without instruction. |
+| R25 | **Closed by the instructor, 2026-10-20 (C24): notes-level fixes kept** | The instructor replaced B10's V₁ values with question marks; notes supply the answers and point to the following table. Preserve this edit and check reveal continuity after any deck extension. |
+| R26 | **Closed by the instructor, 2026-10-20 (C24): notes-level fixes kept** | B14 notes identify the fractions as solved always-right values. Supply that interpretation again when 2.2 uses them; optional matrix homework remains optional. |
+| R27 | **Closed by the instructor, 2026-10-20 (C24): notes-level fixes kept** | B09 notes qualify the sweep count and explain “per step” as per sweep; C15 keeps slide wording. New comparison material should use sweep/PI-round terminology precisely. |
+| R28 | **Closed by the instructor, 2026-10-20 (C24): notes-level fixes kept** | Superscript note text, Exercises 3.18–3.19, B05a's source and B13's prose source line are already present. Preserve them and verify affected source/notes after the next edit. |
+
+[ChatGPT's independent 2.2 suggestion](bellman_chatgpt.md#session-22-independent-suggestions--chatgpt-2026-10-11) is ready for the normal mutual cross-review. It proposes improvement → PI → VI on the existing 2×2 grid, followed by a recomputed 3×4 reward comparison. The order and reward-case selection remain proposals. The latest 2.1 PPTX supplies continuity; old DP/MDP slides and inspected local references supply the source base. No counterpart's 2.2 proposal was read and no cross-review of it is claimed.
+
+Targets sum to 58 minutes versus 59.5 usable; the improvement argument, grid comparison and reward discussion have explicit protected time. Exact rational checks cover the proposed new numbers, including exhaustive comparison with the 2×2 grid's 64 deterministic policies. This is an initial suggestion with a local feasibility audit, not acceptance or evidence of classroom pacing. No new required student workload, deck rendering, frozen-input edit or curriculum-scope change was made.
+
+## Session 2.2: Claude cross-review of ChatGPT's suggestion, with instructor comments — 2026-10-11
+
+**Under review:**
+- ChatGPT's [2.2 section](bellman_chatgpt.md#session-22-independent-suggestions--chatgpt-2026-10-11);
+- Claude's [2.2 suggestion](bellman_improvement_claude.md), written before reading ChatGPT's;
+- the instructor's answers to Claude's Q1–Q4, recorded as C17–C20.
+
+The deck is not touched: saved version `add3062b…`. R24–R28 stay pending for the next PPTX edit (C16).
+
+**Instructor comments (2026-10-11):**
+- **Q1:** γ = 0.9 for the reward-sensitivity comparison, with an added sentence explaining the change.
+- **Q2:** the book's improvement proof is fine; Claude was to check ChatGPT's version. ChatGPT proposes the same repeated-expansion argument, with the second inequality explained aloud and the stochastic-policy case mentioned once. Agreed; nothing to choose between.
+- **Q3:** include the Q-value-iteration bridge to Q-learning.
+- **Q4:** asynchronous DP gets one line.
+
+**Agreement:**
+- **Order and grids:** improvement → PI → VI; the 2×2 grid for all calculations, with the solved always-right values supplied; the 3×4 grid for reward sensitivity.
+- **Recap and ties:** no repeat of 2.1's optimality introduction; ties kept with the current action (book Exercise 4.4).
+- **Numbers:** every new number checks out in exact arithmetic:
+  - q^π at (2,1) and (1,1);
+  - π′ = (up, right, up);
+  - v^{π′} = (199/550, 469/550, 469/550);
+  - VI's V₁ to V₃, and the second-sweep tie at (1,1): 0.3144 for up/right, −0.0184 for down/left.
+- **Claims:** ChatGPT's qualifications on VI tables (an intermediate table is not a policy's value) and on policy-before-value stability (not a universal stopping rule) are correct; adopt them.
+
+### Findings
+
+| ID | Label | Target | Issue | Proposed resolution | Status |
+| --- | --- | --- | --- | --- | --- |
+| R29 | decision applied | ChatGPT B26 | ChatGPT keeps γ = 0.5 and adds a +0.6 living reward. C17 sets γ = 0.9. Recomputed at γ = 0.9, the three distinct behaviours are: −2 (from (3,2) and (4,1) straight into the −1 pit); −0.04 (baseline: short route past the pit at (3,1) and (3,2), and at (4,1) a move away from the pit); +0.2 (never finish: (3,3) moves left away from +1, (3,2) left, (4,1) down; elsewhere every action ties, V = 0.2/(1 − 0.9) = 2). −0.4 gives the same policy as −0.04, and 0 differs only at (2,1). | Three native panels: −2, −0.04, +0.2. The tie cells are marked "any action". Add the sentence: "With γ = 0.9 later rewards count more, so the trade-off between risk and delay shows; with 0.5 the next few steps dominate." | resolved by C17 |
+| R30 | decision applied | ChatGPT omits the Q-value-iteration bridge | C19 includes it. | One short slide after the VI sweeps: Q_{k+1}(s, a) ← ℛ(s, a) + γ Σ_{s′∈𝒮} 𝒯(s, a, s′) max_{a′} Q_k(s′, a′), which is 2.1's q^\* equation as an update. Acting greedily from Q needs no model; Week 4 replaces the expectation with samples (Q-learning). No exercise. Notation Q_k is added to the guide by analogy with V_k (C19). | resolved by C19 |
+| R31 | decision applied | ChatGPT keeps async DP optional and unassigned | C20: one line. | One spoken or bulleted line in GPI: in-place and asynchronous updates also converge if every state keeps being updated. | resolved by C20 |
+| R32 | correction (Claude's own) | Claude's reserve | Claude reserved 7.5 minutes for a possible 2.1 spill-over. Under the course timing convention (plan as if on schedule, `docs/lecture_workflow.md`), spill-over is not planned for. ChatGPT is right that 2.1's 61 minutes do not consume 2.2's allocation. | Plan 2.2 at about 57–58 minutes. If 2.1 runs over, the instructor handles it in delivery. | resolved in ChatGPT's 2026-10-11 response and 2.2 content specification |
+| R33 | correction (Claude's own) | Claude's I10 table | Claude's −0.4 row described a "short route" that is the same policy as −0.04 at γ = 0.9. | Superseded by R29's three panels. | resolved |
+| R34 | teaching risk | ChatGPT B24 vs Claude I07 | ChatGPT supplies V₁ and has students compute the second sweep at (1,1), with its up/right tie. Claude had students compute V₁. ChatGPT's choice exercises the max and the tie, the new parts of VI. | Adopt ChatGPT's activity. Keep Claude's contrast as a spoken check: V₁((2,1)) = 0.792 under VI against 0.064 in 2.1's evaluation (the max picks up). | resolved in ChatGPT's 2026-10-11 response and 2.2 content specification |
+| R35 | optional preference | ChatGPT B22 | A separate "Why shorten policy evaluation?" slide (3 minutes) motivates VI well. | Keep it at 2.5 minutes. State there that VI is PI with a single evaluation sweep. | resolved in ChatGPT's 2026-10-11 response and 2.2 content specification |
+| R36 | maintenance | IDs | Claude used I00–I12; ChatGPT continues B17–B28. | Use B17 onward, continuing the deck; insert the bridge as B24a. | resolved in ChatGPT's 2026-10-11 response and 2.2 content specification |
+
+### Consolidated 2.2 sequence (proposal for ChatGPT's response and the content step)
+
+| ID | Content | Target |
+| --- | --- | ---: |
+| B17 | Improving the policy: recall B14's one-action result; why might a better first action justify changing the whole policy? | 2 |
+| B18 | Greedy improvement from q^π; extracting from v^π needs ℛ and 𝒯 | 4 |
+| B19 | Improvement theorem: book's repeated-expansion proof, second step aloud (C18) (**protected**) | 8 |
+| B20 | Policy iteration; ties (Exercise 4.4); a stable policy satisfies B16's optimality equation; finite termination | 4 |
+| B21 | PI on the 2×2 grid: solved values supplied, students choose the arrows; reevaluation and stability (**protected**) | 6 |
+| B22 | Why shorten evaluation? VI is PI with a single evaluation sweep | 2.5 |
+| B23 | Value iteration update from B16; terminal entries zero; greedy extraction; convergence in one line | 4 |
+| B24 | VI sweeps: V₁ supplied, students compute V₂((1,1)) and its maximizing (tied) actions (**protected**) | 8 |
+| B24a | Q-value iteration: bridge to Q-learning (C19) | 1.5 |
+| B25 | PI vs VI on the same grid: what each holds fixed; a PI round is not a VI sweep; cost per iteration | 4 |
+| B26 | Reward sensitivity, 3×4 grid, γ = 0.9 with the added sentence; panels −2, −0.04, +0.2 (C17) (**protected**) | 8 |
+| B27 | Generalized policy iteration, plus one line on asynchronous DP (C20) | 3.5 |
+| B28 | Planning limits and exit check: what needs the model; Week 3 samples | 2 |
+| | **Total** | **57.5** |
+
+Usable time is 59.5, leaving 2 minutes; 58 is the accepted estimate. The protected blocks keep 30 minutes. Compared with ChatGPT's plan:
+- B18, B25 and B27 lose 0.5 or 1 minute each, and B22 loses 0.5;
+- this funds the 1.5-minute bridge and the async line.
+
+**Next:** ChatGPT's response to R32 and R34–R36. Then the instructor's choices on what remains, then the first-render content (step 4, ChatGPT) and rendering into the same deck after B16 (step 5, Claude), preserving every instructor edit to B00–B16.
+
+## Session 2.2: ChatGPT cross-review and consolidation — 2026-10-11
+
+**Reviewed:** Claude's `bellman_improvement_claude.md`, SHA-256 `4c1985ada838cd2011a694cb963075761730cf4add32f5cfa4a65f39d43688d2`, and the consolidated sequence/R29–R36 above, against C17–C20, the updated notation guide and accepted `improvement` scope. This completes the reciprocal content review. The instructor's current request authorizes render-ready content if no consequential issue remains; no unanswered instructor choice remains after the corrections below. R24–R28 retain their pending next-PPTX-edit status.
+
+**Response:** agree with R29–R31 and the consolidation. Adopt R32 (no planned carryover), R34 (second-sweep student activity), R35 (2.5-minute motivation) and R36 (B IDs, Q bridge B24a). R32/R34/R35/R36 are resolved for the content specification by this response; no PPTX implementation is claimed. The consolidated targets sum to 57.5, keeping the authoritative estimate at 58. Its comparison text accidentally says B18 loses time; B18 remains four minutes. The actual changes from ChatGPT's 58-minute proposal are B22 −0.5, B25 −1, B27 −0.5, and bridge +1.5, net −0.5. The asynchronous sentence is included in B27.
+
+| ID | Label | Target | Finding and correction | Status |
+| --- | --- | --- | --- | --- |
+| R37 | mathematical qualification | Claude I04/I05 and I08 | Tie changes need not improve values; finite PI termination uses exact evaluation, retaining an already maximizing action, and strict gain somewhere when a genuine improvement occurs. A rough table or an unchanged greedy policy in VI is not an exact certificate. Use these qualifications and the same-grid example; avoid an unconditional PI/VI speed ranking. | resolved in the 2.2 content specification |
+| R38 | teaching clarity | Consolidated B22; Claude I06 | “PI with one evaluation sweep” can sound like one sweep of an arbitrary old policy followed by improvement. State the order: choose a greedy policy from the current table and back up that policy once using that same table; the combined operation is the maximum backup. This is not an exact evaluation of the newly chosen policy. | resolved in the 2.2 content specification |
+| R39 | mathematical qualification | R31/B27 | The one-line asynchronous claim needs the finite discounted, exact-model setting; it should not imply arbitrary sample updates converge merely by revisiting states. State this in the line. | resolved in the 2.2 content specification |
+| R40 | teaching clarity / source fidelity | Claude reward prose; R29 | “Straight into the pit” describes the intended action; motion remains stochastic. “Never finishes” describes following the displayed optimal policy, not every possible action sequence. “−0.04 and above almost identical” in the original γ = 0.5 discussion is too broad (positive living rewards can change behavior). Use the recomputed C17 panels, state slips remain, and attribute the contrast to changing living reward with γ held at 0.9 across panels. | resolved in the 2.2 content specification |
+
+**Independent verification of the changed example:** extended the existing exact-rational checker to γ = 0.9. The policies for −2, −0.04 and +0.2 agree with R29, including all ties. −0.4 matches −0.04; zero differs at (2,1). Every result satisfies the optimality equation exactly. At +0.2 every nonterminal optimal value is 2; the restricted arrows near the terminals avoid entry, and the other cells allow all four actions. The 2×2 q scores, PI evaluation and VI tables remain unchanged. A1's accepted decision confirms one VI implementation and a supplied PI comparison; the bridge adds no assignment.
+
+**Handoff:** the new shared `course/lectures/week02/bellman_improvement_content.md` is an append-only rendering specification for the new 2.2 portion, not a replacement for the frozen `bellman_content.md` or a second deck. Question/answer pairs use B21/B21r and B24/B24r so students do not see answers before working; their combined targets remain six and eight minutes. There are 15 proposed new slides, totaling 57.5 minutes. The renderer should append them after B16 while preserving all 22 existing slides and instructor edits. Freeze this addendum at its first render. R24–R28 still require the next-edit checkpoint; this content review does not close them.
+
+**Local time audit:** 57.5 minutes of targets against 58 planned and 59.5 usable leaves 2 usable minutes and 12.5 physical minutes. The 30 protected minutes for proof, PI/VI calculations and reward discussion remain. Main pacing risks are the proof, distinguishing q^π from the changed policy's value, and the explicitly announced discount switch. No carryover, extra required homework, altered assessment or curriculum allocation. No new evidence gap blocks initial rendering; visual layout and live pacing still require the normal deck review.
+
+## 2.2 first render (Claude, 2026-10-11, workflow step 5)
+
+**Content check before rendering:** no contradictions with C1–C21 and no choice needing the instructor. Claude re-verified the new numbers against the model:
+- q^π((1,1), up) = 0.302909… from the B21 expression;
+- V₂((1,1)) = 0.3144 and the −0.0184 down/left scores;
+- the three γ = 0.9 panels, including the six "any" cells at +0.2.
+
+**Deck:** `course/lectures/week02/bellman_claude.pptx`, SHA-256 `0319256d4ad261095818484852f57388f694b365462433a59006f93bf810ead2`, 37 slides.
+- **Appended:** the 15 new slides B17–B28 (with B21r, B24r and B24a) were built from `course/lectures/week02/bellman_improvement_claude.yaml` and appended after B16.
+- **Preserved:** the first 22 slides are byte-identical to the instructor's saved `add3062b…` (checked), and the deck was backed up first.
+- **Timing:** 2.2's targets sum to 57.5 minutes against the 58-minute estimate.
+- **Drawn natively:** the 2×2 grids (old policy, improved policy, tied up/right arrows), the three 3×4 reward panels ("any" where all actions tie) and the GPI cycle.
+- **Builder additions:** several or "any" arrows per cell, left/down arrows, arrowheads on connectors, and text blocks.
+- **Equations and views:** fallbacks refreshed; PowerPoint render checked on all new slides; text view and previews regenerated.
+
+**Fixed during rendering:**
+- partial bold around inline math printed literal `**` (B21, B26);
+- B24's intro line collided with the table.
+
+**PowerPoint:** one fallback-refresh export failed transiently; the retry succeeded.
+
+**Open:**
+- R24–R28 remain pending for the next PPTX edit (C16).
+- B26 asks two questions on the same slide as the answer panels: cover them, or add a build.
+- Instructor editing (step 6) is next.
+
+## Claude check of the instructor's 2.2 edits — 2026-10-20 (step 6)
+
+**Under review:** saved deck SHA-256 `d56306a90928f764f19655b61550c7d364be1017e6935ea5a5a345eba839aaa6`, 37 slides (backed up). Compared with the first render `0319256d…`. Text view regenerated, PowerPoint render of all slides inspected. The text-view generator now also reads tables that contain equations, such as B21's.
+
+**Changes:**
+- B03 rewards are split into sub-bullets.
+- B16 and B19 have wording edits, and B20's tie rule is now a sub-bullet of step 3.
+- B18 adds "(no need to store q^π(s, a))".
+- B21's table shows exact fractions, the q^π((1,1), up) result is revealed by a build, and the prompt reads "Do this for all three nonterminal states".
+- B23 adds "(implementation requires 2 copies!)".
+- B24r adds a policy-convergence remark.
+- B24a and B27 refer to "in a couple of / a few weeks".
+- B26 builds its panels in turn and shows the 3×4 picture from B03a.
+- B28's exit check is split into two questions.
+- Timing is unchanged: 2.1 sums to 61 minutes, 2.2 to 57.5.
+- Every animation target resolves.
+
+Checked correct: 230/275 = 46/55 ≈ 0.83636; the ≈ 0.30291 > v^π((1,1)) comparison; B18's remark (the q values are computed from v^π and the model when needed); B23's two-table remark (synchronous sweeps; the in-place alternative is the one-line asynchronous point on B27).
+
+| ID | Label | Slide | Issue and consequence | Proposed fix | Status |
+| --- | --- | --- | --- | --- | --- |
+| R41 | error | 32 (B24r) | "If you do not care about the values, you can check for policy convergence in Value Iteration to have the best of both worlds." An unchanged greedy policy between two VI sweeps does not prove it is optimal: the greedy policy can stay the same for several sweeps and change later. The first part ("the policy converges before the values") is right in the sense that, in a finite MDP, the greedy policy becomes optimal after finitely many sweeps while the values only converge in the limit. But that moment cannot be detected by watching the policy. The slide contradicts its notes ("not a universal stopping rule"). | Replace the second line with a valid version of the same idea, for example: "If you only need the policy: take VI's greedy policy, evaluate it, and check whether greedy improvement changes it (PI's stability test). If not, it is optimal." That is the policy-iteration certificate; it links to B25/B27. Alternatively keep only the first line, worded "the greedy policy often settles before the values do", and drop the second. | resolved by the instructor (second line now gives the evaluate-then-improve check); notes updated. Optional: on the slide, "a full policy evaluation" instead of "one more step of policy evaluation", and "followed by" for "followed," |
+| R42 | teaching risk / timing | 27 (B21) | "Do this for all three nonterminal states" can read as computing every action's score in every state: 12 calculations in a 3-minute slot. The notes say students need not calculate all 12 and that B21r supplies the scores. | Either "Then choose the improved action at each nonterminal state (all scores on the next slide)", or keep the wording if the intent is the up-vs-current comparison at each state. That is 3 calculations, one already known from B14; the notes then say so. | resolved by the instructor ("at home") |
+| R43 | maintenance | 27 (B21) | The notes still say "in the table order 14/275, 46/55, 32/275" and "give students time before advancing". The answer is now revealed by a click, not by advancing, and the table shows 230/275. | Update the notes after R42. | resolved (notes updated) |
+| R44 | maintenance | 35 (B26) | The notes still say "cover them, or add a build". The panels now build in turn, and the 3×4 picture is a reminder of the map; it is not mentioned. | Notes: "Ask the two questions before revealing the panels (build)"; mention the picture as the map reminder (old MDP 37). | resolved (notes updated) |
+
+**R24–R28 checkpoint (C16):** the instructor's edits did not touch B05a, B05b, B09, B10, B13 or B14, so the notes-level fixes recorded for R24–R28 are intact in this version. The slide wording stays as the instructor chose (C15). Claude proposes closing R24–R28; per C16 this needs the instructor's word.
+
+## Claude recheck and C22 additions — 2026-10-20 (step 6)
+
+**Instructor edits checked** (`c7185061…`):
+- B21 now says "at home" (R42 resolved).
+- B24r's second line adds the evaluate-then-improve check (R41 resolved). Precision point for the slide wording: the evaluation must be a full evaluation of the greedy policy, not one sweep. The notes say so; the slide wording is left to the instructor, along with the small typo "followed," (should be "followed by").
+- The B21, B24r and B26 notes are updated (R43, R44).
+
+**C22 additions:**
+- **B25a "Which one to choose?" (2 minutes, after B25).** Rules of thumb by situation: many actions → PI; many states → VI or PI with a few evaluation sweeps; γ near 1 → PI; a certified policy → PI. The notes carry the cost counts and qualifications.
+- **BA1 (hidden appendix, 0 minutes).** Deterministic-policy evaluation and improvement updates, and the same pair with ℛ(s, a, s′) inside the successor sum. The notes cover ℛ(s, a) = Σ_{s′} 𝒯(s, a, s′) ℛ(s, a, s′), and the fact that the grids' rewards depend only on the next cell.
+- Built from `course/lectures/week02/bellman_additions_claude.yaml` (frozen first draft) and inserted without changing other slides.
+
+**Fallback refresh fix:** the script failed when two fallbacks on a slide shared one image (PowerPoint deduplicates identical images). It now drops an old image link only when nothing else uses it.
+
+**Saved deck:** `c9043fb231f23c8fd99ecdb216a81a3216f294e152796a472950102ff63c67ec`; PowerPoint render of all shown slides plus a separate check of B25a and BA1. **Timing:** 2.2 sums to 59.5 minutes (C22).
+
+## Claude content check — 2026-10-20 (step 6)
+
+**Under review:** saved deck SHA-256 `76d4683f0cd497d6ddd169f016cba63b4a67eaf10ac20c6fc745421cf3d618fc` (backed up; renders accepted by the instructor).
+- **B24r:** "you need to do policy evaluation, policy improvement and do a convergence check": correct; R41's precision point is settled.
+- **BA1:** the instructor replaced both evaluation updates by value-iteration updates, V_{k+1}(s) ← max_a[ℛ(s, a) + γ Σ 𝒯(s, a, s′) V_k(s′)] and V_{k+1}(s) ← max_a Σ 𝒯(s, a, s′)[ℛ(s, a, s′) + γ V_k(s′)]. Both are correct.
+
+| ID | Label | Slide | Issue | Proposed fix | Status |
+| --- | --- | --- | --- | --- | --- |
+| R45 | consistency | BA1 | The first label still reads "Deterministic policy a = π(s): evaluation sweep and improvement step", and the title "other forms of the PI updates". The slide now shows a value-iteration update (no fixed policy) next to the PI improvement step, and the deterministic-policy evaluation update requested in C22 is no longer there. | Either (a) relabel, e.g. title "Appendix: other forms of the updates" and label "Value-iteration update and policy-improvement step"; or (b) keep the VI lines and add back the deterministic evaluation update V_{k+1}(s) ← ℛ(s, π(s)) + γ Σ 𝒯(s, π(s), s′) V_k(s′), with its ℛ(s, a, s′) form. Then update the notes, whose equation sources and "deterministic policy" sentence describe the earlier version. | resolved by the instructor (heading shortened to "Deterministic policy a = π(s):"; BA1 visible, 0 minutes, C23), 2026-10-20 |
+| R46 | optional preference | BA1 | In the two new equations the action a is upright ("a"), elsewhere italic. | Retype a in the equations, or leave it. | resolved by the instructor |
+
+## Claude recheck of BA1 — 2026-10-20
+
+**Checked:** saved `a9e4e0a9…`. Claude then updated only BA1's notes, giving `93e7b55726890cb928acde1642a630330eb16bc3c4e0430c3d228865c89ade09`.
+
+**BA1 content:** the new title "other forms of the VI updates", both value-iteration updates and both improvement steps are correct. So is the new last line ("For the PI updates, remove the max … and use π(s) instead of a"), and the italics are fixed. The notes are rewritten to match: what each row is, the evaluation form spelled out, the stochastic-policy variant, and the fact that VI's greedy step uses the final table V while the v^π version is PI's improvement step.
+
+**Remaining:**
+- The first label still says "Deterministic policy a = π(s): evaluation sweep and improvement step". Suggestion: "Value-iteration update and greedy improvement step".
+- BA1 is no longer hidden (it was a hidden appendix with a 0-minute target). If it should show in the slideshow it adds no planned time; otherwise hide it again.
+
+## BA1 settled — 2026-10-20
+
+The instructor shortened the first label to "Deterministic policy a = π(s):" and kept BA1 visible with a 0-minute target (C23). The content is correct and the notes match. Saved deck `5e0154fe09b26dd4166396521a5f938ba0b11b959e356f678471bd416301d81a`, backed up before the check.
+
+## All open issues answered — 2026-10-20
+
+Instructor: the 59.5-minute 2.2 targets are fine (C24); keep the earlier notes-level fixes, which closes R24–R28 (ends the C16 checkpoint); this answers all open issues. No finding remains open on saved deck `5e0154fe09b26dd4166396521a5f938ba0b11b959e356f678471bd416301d81a`. Next: the workflow's final complete check (step 7) and acceptance.
+
+## ChatGPT final check of session 2.2 — 2026-10-20
+
+**Reviewed version:** saved PPTX SHA-256 `5e0154fe09b26dd4166396521a5f938ba0b11b959e356f678471bd416301d81a`. Scope: slides 23–39 (B17–B28 and BA1), including every slide's notes, native equations, tables, grid arrows, visibility and build definitions. Read the 2.1 boundary for continuity; this is not a new complete review of slides 1–22. Current status remains in the [deck decision file](../../decisions/lectures/bellman.md).
+
+**Visual evidence:** exported a byte-identical temporary copy through Microsoft PowerPoint to a fresh 39-page PDF and inspected all 17 session-2.2 pages. No clipping, overlaps, missing equations or unreadable grid labels found. The saved 38-page preview is older than this PPTX and omits the now-visible BA1 (R49). The teaching PPTX, frozen inputs and Claude-owned review views were not changed.
+
+**Content and calculation checks:**
+- Motivation, the repeated-expansion improvement argument, exact PI stability with tie retention, synchronous VI, the Q-value bridge and the qualified asynchronous line are coherent. The opening recalls the earlier example without repeating 2.1's optimality introduction.
+- Independently recomputed the 2×2 action scores, improved values and VI sweeps with exact rational arithmetic (`scripts/check_bellman_session22_chatgpt.py`). The displayed fractions, decimals and arrows agree. In particular, the improved values are `(199/550, 469/550, 469/550)` and the second-sweep up/right tie is `0.3144`.
+- Rechecked all three 3×4 reward panels at γ = 0.9 against the optimality equation. Entry rewards, zero terminal continuation, the discount switch and the six “any” cells at living reward +0.2 are correct. The latter panel has value 2 at every nonterminal state.
+- Speaker notes provide the full evaluation requirement for B24r's policy certificate. The accepted BA1 heading/visibility and R41–R46 decisions are preserved. C24 explicitly closes R24–R28; this review does not reopen them.
+- All animation targets resolve. B21's two entrance effects target different paragraphs of the same text box; they are not duplicate effects. B26's three panel builds have valid grouped targets. No session-2.2 external links or media require checking. Actual click pacing remains an instructor slideshow check; static exports cannot verify playback.
+
+### New findings
+
+All three findings below are by ChatGPT, 2026-10-20. These concern the latest additions or their views, not previously settled wording.
+
+| ID | Label | Slide | Issue and consequence | Proposed fix | Status |
+| --- | --- | --- | --- | --- | --- |
+| R47 | error | 35 (B25a), discount row and notes | “VI shrinks the error only by γ per sweep” turns a worst-case upper bound into an actual rate. The notes repeat this and say VI “needs” about `log(1/ε)/(1−γ)` sweeps. Actual convergence can be much faster; the bound also depends on initial error. This conflicts with C5's correct “at most γ” formulation. | Slide: “VI's worst-case error bound contracts by γ per sweep; PI often needs few improvement rounds.” Notes: explain that γ near 1 weakens this guarantee, without asserting a necessary sweep count. Keep the empirical PI qualification. | resolved by Claude: B25a row now "VI’s worst-case error bound shrinks only by a factor γ per sweep"; notes corrected, 2026-10-20 |
+| R48 | error | 35 (B25a), certification notes | “VI needs that extra evaluation-plus-improvement check … to certify its greedy policy” incorrectly makes this one sufficient procedure necessary. The slide's recommendation of PI for a direct stability certificate is reasonable; the exclusivity in the notes is not. VI can also certify via a Bellman fixed point or suitable residual/action-gap bounds. | Notes: “PI has a direct stability test after exact evaluation. For VI, full policy evaluation followed by improvement is one way to certify the greedy policy, as on B24r.” No extra slide or theory is needed. | resolved by Claude: B25a notes now call the B24r check one way to certify VI’s policy, 2026-10-20 |
+| R49 | maintenance | Saved preview PDF/PNG | The saved PDF has 38 pages while the current PPTX has 39 visible slides; BA1 is missing. The text view identifies the current PPTX correctly. The existing previews cannot serve as the final views of this version. | Claude refreshes both saved previews from the final saved PPTX after any approved corrections, keeping the text view and fingerprint aligned. | resolved: previews refreshed from the final saved deck (39 pages), 2026-10-20 |
+
+**Mathematical basis for R47–R48 (review evidence, not added teaching scope):** for the finite discounted model, the maximum value error after a VI sweep is at most γ times the preceding maximum error. This permits faster convergence, including a one-sweep solution for a one-step terminating problem. An exact Bellman fixed point already yields an optimal greedy policy, without a separate policy evaluation. More generally, a residual bounds value error by residual divided by `(1−γ)`; a sufficiently separated greedy-action gap can then certify the maximizing action. Thus B24r's full-evaluation procedure remains valid but is not compulsory for every certificate. These follow from the same discounted Bellman contraction used in this deck; book §4.4 supplies the VI context.
+
+**Time audit:** the current 2.2 notes total **59.5 minutes**, including B25a's two minutes and BA1's accepted zero-minute visible appendix. This matches the usable budget `70 × 0.85 = 59.5`, leaves 10.5 physical minutes and no unused usable-content allowance. The authoritative planning estimate remains **58 minutes** (C24). The protected proof, PI/VI calculations and reward discussion remain intact. R47–R48 are replacements within existing text/notes and add no topic, prerequisite, assessment or planned time. The proof and worked discussions still require pacing; BA1 must remain optional in delivery to preserve the accepted targets.
+
+**Next:** decide/apply the two B25a wording corrections, recheck that slide and notes, and refresh the saved previews. No other correctness or layout issue was found in 2.2. Instructor acceptance as done remains separate from this review.
+
+## Claude final complete check — 2026-10-20 (workflow step 7)
+
+**Deck:** `course/lectures/week02/bellman_claude.pptx`, ec28bf43c37e2b7f37fa8e18e3f400414a0aaaeea91645923e847ea9561d20db-256 `ec28bf43c37e2b7f37fa8e18e3f400414a0aaaeea91645923e847ea9561d20db`, 39 slides, none hidden (BA1 visible by C23).
+
+**ChatGPT's final 2.2 findings applied:**
+- **R47:** B25a's discount row now states the worst-case bound, not an actual rate; notes corrected.
+- **R48:** the notes call B24r's check one way to certify VI's greedy policy.
+- **R49:** previews refreshed.
+
+**Final-check fix:** the three fractions in B21's table (instructor-typed equations) were in the default colour and are now Accent 5 (C12).
+
+**Automated checks, all slides:**
+- every slide has exactly one target: 2.1 sums to 61 minutes (C15), 2.2 to 59.5 (C24);
+- no subscript policy/optimality marks in equations, label math or notes (C11);
+- every equation run is Accent 5;
+- every equation box has a picture fallback (refreshed from PowerPoint after the last edit outside PowerPoint);
+- every animation target resolves;
+- no stale-note phrases from earlier rounds.
+
+**Visual:** a fresh PowerPoint render of all 39 slides, inspected page by page. No clipping, overlap, missing equation or unreadable label. Optional: B26's map picture reaches the bottom edge of the slide.
+
+**Content:** the 2.1 portion was fully reviewed in earlier rounds (both AIs; R01–R28); since then it changed only in wording (B03, B16), which was rechecked. ChatGPT's final check covered 2.2 and BA1; Claude rechecked B25a and BA1 against it. Mathematics, notation, terminal conventions, the reward panels and the notes are consistent.
+
+**Views:** `output/lectures/week02/bellman_claude.md` and `bellman_claude_preview.{png,pdf}` (39 pages) correspond to this fingerprint.
+
+**Instructor-only checks:** animation playback in slideshow mode (the 2.2 builds, including B21's reveal and B26's panels; the 2.1 builds were confirmed in C15).
+
+No finding remains open. The deck is ready for the instructor's acceptance (step 8).
+
+## Deck accepted — 2026-10-20
+
+The instructor confirmed the animations and accepted the deck as done (C25), fingerprint `ec28bf43c37e2b7f37fa8e18e3f400414a0aaaeea91645923e847ea9561d20db`. Status: [deck decisions](../../decisions/lectures/bellman.md).
