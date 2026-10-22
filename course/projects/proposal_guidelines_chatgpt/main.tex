@@ -1,0 +1,56 @@
+% Instructor-accepted, 2026-10-22. Formatting: sources/NonRL/COMP341_example_hw.tex.
+% Content base: sources/current_course/ProposalSpring21.pdf, p. 1.
+% Authority and accepted PDF location: decisions/project_decisions.md.
+\documentclass{article}
+\usepackage[a4paper,margin=2.54cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\instructor}{Bar{\i}\c{s} Akg\"un}
+\setlist{itemsep=2pt,topsep=4pt}
+\begin{document}
+\begin{center}
+{\Large\bfseries Ko\c{c} University\\COMP438/538\\Reinforcement Learning\\Project Proposal\par}
+\vspace{5pt}
+Instructor: \instructor\\
+Due Date: November 1, 2026, 23:59\\
+Submission Through: LearnHub\\
+%\textit{Draft for instructor review}
+\end{center}
+
+The proposal motivates your project and presents an initial plan. It contributes \textbf{5\% of your overall course grade}. \underline{Your formulation, approach and baseline can change later}. No completed implementation or experimental results are expected yet.
+
+\noindent Include the following information, using these headings or another clear structure.
+\begin{enumerate}[leftmargin=*,itemsep=3pt]
+\item \textbf{Introduction and project question.}
+In your own words, motivate and describe the problem. Explain what the agent must decide, why RL is appropriate, and one focused question you want to investigate.
+
+\item \textbf{Tentative problem formulation.}
+Describe the problem precisely enough to understand it as an RL task. Use this checklist:
+\begin{itemize}[leftmargin=1.5em,itemsep=1pt]
+\item Agent/environment; available observations and the proposed state representation.
+\item Actions and their effects; a qualitative account of the dynamics is sufficient.
+\item Rewards and the return or objective to optimize.
+\item Episodic/continuing task, horizon or termination, and relevant initial conditions.
+\end{itemize}
+State assumptions, open choices and any formulation differences you plan to compare. Describe the problem itself, beyond naming a software environment.
+
+\item \textbf{Related work and tentative approach/baseline.}
+Use relevant sources to support the motivation and clarify the problem. Related work can be high-level and incomplete; an exhaustive survey is not expected. Identify a motivating paper if applicable. Briefly describe your \textbf{candidate approach} and a \textbf{tentative baseline}, explaining why the comparison is informative. Neither must be final or implemented yet.
+
+\item \textbf{Evaluation plan and feasibility.}
+Explain how you plan to measure success: the comparison, metrics and evaluation conditions. Metrics can differ from the training reward. For example, navigation success rate, collision frequency, win rates. Identify the environment/data, how you will access it, available compute, and practical risks. Explain how you could reduce scope if needed. Estimates and open questions are appropriate.
+\end{enumerate}
+
+\section*{Report format and submission}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item At most \textbf{2 pages of main content, plus references}. You need not fill two pages. Figures and tables count toward the main-content limit.
+\item Include the project title and all team members' names on the top of the first page. Do not include a cover page. Use 11 or 12 pt text, single spacing, margins of at least 2 cm, and single or double columns.
+\item One team member submits the proposal PDF through LearnHub, email submissions are not accepted. Download and check the uploaded files to see if they are corrupted or empty. The syllabus submission and late-day policies apply. Once grading begins, no further submissions or replacement files will be accepted.
+\item Submit a separate LLM-use report following the companion instructions, or a brief non-use declaration. It is outside the proposal's two-page limit.
+\end{itemize}
+
+\noindent\textbf{LLM assistance and ownership.} Disclosed brainstorming, literature and writing assistance is permitted. \textbf{Your team must choose and justify the project and develop its substantive content. Do not delegate project selection or the writing of the entire proposal or later reports to AI.} Check sources and errors, and be able to explain your submission. Write concisely and specifically.
+\end{document}

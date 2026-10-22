@@ -22,9 +22,17 @@ milestones:
   name: Proposal
   week: 4
   weight_percent: 5
-  length: 2 pages
-  scope: Problem motivation; tentative MDP/state-action-reward/horizon; one question, candidate baseline, evaluation
-    metric and access/compute feasibility. A small related-work pointer, not an exhaustive survey.
+  length: 2 pages + references
+  due_at: '2026-11-01T23:59:00+03:00'
+  submission_platform: LearnHub
+  submission_cutoff: The syllabus submission and late-day policies apply. Once grading begins, no further
+    submissions or replacement files will be accepted.
+  scope: Problem motivation and definition; tentative MDP/state-action-reward/horizon; one question and a tentative
+    baseline. High-level, potentially incomplete related work should support motivation and problem definition.
+    An initial evaluation plan should connect metrics and the intended comparison to the question, and address
+    environment/data access, available compute and practical feasibility. An exhaustive survey, completed
+    implementation and experimental results are not required at this stage.
+  clarification_date: '2026-10-22'
   prerequisites:
   - formulate
   - mdp_values
@@ -129,7 +137,34 @@ llm_use:
     The one-shot/few-shot no-credit rule is specific to assignments, not extended to project coding.
   writing_quality: Project reports will lose marks for verbose, repetitive, unnecessarily detailed, unfocused or vague
     writing, including such writing frequently produced by AI tools.
-  operational_state: Concrete project LLM-report instructions and rubric details remain to be finalized before release.
+  ownership_boundary: Students must choose and justify their project and develop its substantive content. Do not
+    delegate project selection or the writing of an entire proposal or later project report to AI. Brainstorming
+    and writing assistance remain permitted with disclosure; this is not a new project-coding restriction.
+  ownership_boundary_authority: Instructor's proposal-guidelines request, 2026-10-22.
+  operational_state: Instructor accepted the written-report LLM-use guidelines on October 22, 2026. The current wording is in
+    course/projects/llm_use_written_reports_chatgpt/main.tex; the accepted PDF is in course/projects/handouts/.
+    Publication is not recorded. Detailed proposal-rubric
+    review is deferred until grading following a first pass with no significant issues.
+proposal_guidelines_preparation:
+  state: guidelines-accepted; rubric-first-pass-reviewed
+  accepted_date: '2026-10-22'
+  instruction_date: '2026-10-22'
+  scope_source: milestones/proposal
+  release: TBD
+  due_source: milestones/proposal/due_at
+  delivery: Give the standalone guidelines on proposal release day. The instructor now anticipates today or tomorrow;
+    do not put a release date in the document. The November 1 deadline supersedes the earlier due-date TBD.
+  deck_dates: The October 22 overview render retains its originally requested TBD placeholders. Update its proposal
+    due date before release; other release/due dates remain unbooked. Do not regenerate the editable deck from text.
+  guidelines_source: course/projects/proposal_guidelines_chatgpt/main.tex
+  accepted_pdfs:
+    proposal: course/projects/handouts/proposal_guidelines_chatgpt.pdf
+    llm_use: course/projects/handouts/llm_use_written_reports_chatgpt.pdf
+  pending_recommendations: analysis/project_proposal_preparation_chatgpt.md
+  rubric_review: Instructor's first pass found no significant issues; revisit the existing rubric during grading.
+    This records review status, not a new penalty rule or a formal freeze of numeric weights.
+  remaining_release_details:
+  - Publication of the instructor-edited guidelines and companion instructions (not yet recorded)
 regular_semester_template:
   presentation_window: Late Week 14 or early Week 15
   condition: Instructor available throughout; follows early-Week-14 midterm 3. This is a future-offering template,

@@ -1,6 +1,7 @@
 """Shared joins and accepted week targets; never invent dated assessment windows."""
 from phase3_audit import read
 from phase5_report import decision
+from schedule_report import exact_deadline_label
 
 
 def assignments():
@@ -18,6 +19,8 @@ def week_label(week, placement=None):
 
 def milestone_when(m):
     target = week_label(m.get('week', m.get('target_week')), m.get('placement'))
+    if m.get('due_at'):
+        target += '; ' + exact_deadline_label(m)
     return target + ('; ' + m['deadline_rule'] if 'deadline_rule' in m else '')
 
 

@@ -62,6 +62,7 @@ output/
 
 
 Notes:
+* Instructor-accepted project handout PDFs are stored under `course/projects/handouts/` at the instructor's request. Their editable TeX sources remain in the corresponding `course/projects/` project directories; acceptance and artifact paths are recorded in `decisions/project_decisions.md`. These PDFs are distribution exports, not independent editing sources. Keep draft exports and previews under `output/projects/`; do not maintain duplicate accepted PDFs there.
 * We will have derived relationships. Generated/derived files should not be edited to change authoritative state. Some examples:
 	* decisions/topic_decisions.yaml -> output/topic_details.md
 	* decisions/topic_decisions.yaml -> output/lecture_plan.md

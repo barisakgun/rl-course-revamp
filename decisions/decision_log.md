@@ -1,5 +1,37 @@
 # Decision Log
 
+## 2026-10-22 — Proposal and written-report LLM-use guidelines accepted
+
+- Instructor accepts the two current guideline documents and requests their PDFs under `course/`, with a local Git commit for a separate instructor push. The accepted distribution copies are `course/projects/handouts/proposal_guidelines_chatgpt.pdf` and `course/projects/handouts/llm_use_written_reports_chatgpt.pdf`; editable TeX sources remain in their existing project directories. Remove the duplicate PDF locations under `output/projects/` and document this storage exception in the repository contract.
+- Acceptance includes the instructor-edited submission, formatting and LLM-report instructions, with the clarified grading-start cutoff preserving syllabus late days. The rubric remains the first-pass reference for later grading review; its weights are not frozen by this acceptance. Publication is not recorded.
+- No curriculum scope, prerequisite, lecture allocation or workload change; this closes document review. No new time-budget audit is required for acceptance and relocation of unchanged handouts.
+
+## 2026-10-22 — Proposal submission cutoff clarified
+
+- Instructor explicitly retains the syllabus late-day allowance and clarifies that submissions are not accepted after grading begins. The proposal handout now states that the syllabus submission and late-day policies apply, and that no further submissions or replacement files will be accepted once grading begins.
+- Resolves the wording question in the preceding guideline-review entry. No grading-start date is specified; publication remains unrecorded. No teaching-time, prerequisite or workload change.
+
+## 2026-10-22 — Instructor edits proposal and LLM-use guidelines; rubric review deferred
+
+- Instructor reports slight edits to both TeX handouts. Preserve the saved sources, including the removed visible draft labels, proposal emphasis/submission wording, grouped attribution for similar AI use, at most three representative examples and the reference to CLI logs. Refresh the derived PDFs from those sources; no publication or formal freeze is inferred.
+- The instructor's first rubric pass found no significant issues and directs detailed review to grading. Preserve the rubric as the first-pass reference; do not invent further weights or penalties.
+- One clarification remains: the proposal's new "We will not accept submissions later" wording can conflict with its next sentence retaining the syllabus late-day policy. Ask whether this concerns later replacement files; preserve the instructor's text until clarified. No late-day-policy change is accepted by this record.
+- No teaching scope, prerequisite, allocation or student deliverable change. Existing workload estimates remain unpiloted.
+
+## 2026-10-22 — Proposal deadline and guidelines drafting
+
+- Authority: instructor's request to draft the proposal guidelines using `ProposalSpring21.pdf` for content and `sources/NonRL/COMP341_example_hw.tex` for formatting. Accept November 1, 2026 at 23:59 (course local time) and LearnHub submission. This fits the existing Week 4 target. Omit the anticipated release date from the student document.
+- Record the instructor's ownership boundary: students choose and justify the project and develop its substantive content; AI must not select the project on their behalf or write the entire proposal/later report. Disclosed brainstorming and writing assistance remain permitted. No new automatic penalty or project-coding restriction is adopted.
+- Authorize drafts of the guidelines, concise rubric, and generic written-report LLM-use instructions with a proposal-specific section. Numeric rubric weights, disclosure packaging/page treatment, example limits and other operational details remain recommendations for review in `analysis/project_proposal_preparation_chatgpt.md`. The frozen syllabus and assignments are unchanged.
+- No new lecture content, method prerequisite or milestone. The disclosure draft operationalizes the existing reporting obligation. Its effort estimate and bounded evidence approach are documented in the preparation note; workload is not claimed piloted. The editable overview deck retains its earlier TBD wording and needs its proposal date updated before publication.
+
+## 2026-10-22 — Proposal clarifications and project overview deck authorized
+
+- Authority: instructor's project-deliverables request. The proposal baseline is tentative; high-level and incomplete related work is acceptable when it supports motivation/problem definition. Accept a broader initial evaluation/feasibility plan and two pages plus references. These clarify the existing Week 4 scope; full protocols, runnable baselines and preliminary results remain later-milestone expectations. Recorded in `decisions/project_decisions.md`.
+- Prepare a project-requirements summary deck with 1–3 dedicated proposal-detail slides, using the regular lecture template. The instructor explicitly requests a ChatGPT PowerPoint render for this artifact; this is a scoped exception to the usual Claude rendering workflow. The render is for instructor review, not accepted as final by this request.
+- Show release and due dates as TBD. Internal milestone week targets remain unchanged. Standalone proposal guidelines will be given on release day; likely early next week is tentative. For now, record their requirements in the project decisions rather than producing the separate handout. LLM-report details/page-count treatment, formatting, rubric and exact dates remain open.
+- Displacement/prerequisites/workload: compress related-work coverage within the existing proposal rather than adding a survey or implementation task. No new milestone, advanced-method prerequisite, required reading/video or accepted lecture allocation. References sit outside the two-page main text. The existing proposal effort estimate remains unpiloted; a brief overview delivery estimate does not reserve teaching time or establish workload fit.
+
 ## 2026-10-22 — Week 3 deck (`mc_td`): session 3.1 accepted
 
 - Authority: instructor acceptance after both AIs' final checks ([mc_td D11](lectures/mc_td.md)). Accepted 3.1 deck: `course/lectures/week03/mc_td_claude.pptx`, SHA-256 `b1d2c2dec74ada2066b8a6134340c22e6a49688dbaf4b7dd0e505504c08b3be1`, 20 slides, slide targets 60 minutes (D10); planning estimate stays 59. No scope, allocation, assessment or workload change. The combined deck is not done; session 3.2 has not started.

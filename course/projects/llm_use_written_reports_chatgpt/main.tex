@@ -1,0 +1,56 @@
+% Instructor-accepted, 2026-10-22. Authority: decisions/project_decisions.md.
+% Format adapted from sources/NonRL/COMP341_example_hw.tex.
+\documentclass{article}
+\usepackage[a4paper,margin=2.54cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx,array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+\usepackage[hidelinks]{hyperref}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcommand{\cb}{\fbox{\rule{0pt}{0.7ex}\rule{0.7ex}{0pt}}\ }
+\setlist{itemsep=3pt,topsep=4pt}
+\begin{document}
+\begin{center}
+{\Large\bfseries Ko\c{c} University\\COMP438/538 Reinforcement Learning\\LLM-use Report Instructions for Written Reports\par}
+%\vspace{5pt}
+%Written project reports\\
+%\textit{Draft for instructor review}
+\end{center}
+
+Submit a short usage report with each written project deliverable, using the common instructions and the relevant deliverable-specific prompts. If no team member used an LLM, state this and stop.
+
+\section*{1. Tools, people and purposes}
+Identify the project, deliverable and team members. List who used each AI product/model (version if known), which report parts it affected, and why. You can group people if they used it for similar tasks. Include AI features inside search, writing and document tools. Check all purposes that apply and briefly describe your actual use:
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}LL@{}}
+\cb Project/topic search & \cb Project brainstorming\\
+\cb Formulation brainstorming & \cb Literature search\\
+\cb Literature summarizing/organizing & \cb Evaluation or feasibility planning\\
+\cb Converting our ideas into paragraphs & \cb Streamlining/editing our text\\
+\cb Figures, tables or report preparation & \cb Other: specify\\
+\end{tabularx}
+\end{center}
+Describe any tools the AI used: web search, opening papers, reading files, editing documents or running code to analyze evidence. Identify important inputs and resulting sources/artifacts. %Manual search or formatting without AI does not need an entry.
+
+\section*{2. Representative examples and your decisions}
+For a single use, one example is enough. For more extensive use, choose \textbf{at most three representative examples}, while listing all purposes above. Full conversation or CLI logs are unnecessary.
+
+For each example, show the task/prompt and a relevant output excerpt, tool action or document edit. Explain \textbf{what you accepted, changed or rejected, why, and how you checked it}. You may use screenshots and write annotations over them. Include enough context to explain your decision and omit unrelated material.
+
+Check original sources and whether they support retained claims. Explain your reasoning for conceptual suggestions, or the evidence/calculation checked for numerical claims. Identify unresolved checks honestly. Do not invent prompts, outputs or verification.
+
+\section*{3. Proposal-specific prompts}
+Address relevant prompts in your summary or examples, without repeating the proposal:
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item How did your team choose the project and question, if AI was used for this? Explain your selection or rejection of any AI-suggested options.
+\item If AI helped with formulation or a baseline, explain one substantive choice your team made and how you judged it.
+\item For literature, evaluation or feasibility assistance, identify a source, claim or assumption you checked and any remaining uncertainty.
+\end{itemize}
+
+\section*{Ownership and submission}
+\textbf{Your team must choose and justify the project and develop its substantive content. Do not let AI pick the project or write an entire proposal or later report on your behalf}, even across multiple prompts. Disclosed brainstorming and editing your own ideas into clearer prose are permitted. You remain responsible for errors and must explain your work. Nondisclosure is treated as plagiarism under the syllabus.
+
+Submit one usage-report PDF per team alongside the project report, outside its main-content page limit. Aim for about one page of summary plus up to three brief annotated examples, covering all members' use.
+\end{document}

@@ -59,7 +59,7 @@ See the [book-first map](../readings.md). It uses existing normalized book refer
 ## Deferred calendar and in-semester work
 
 - Per-exam weights are accepted at 15% each; confirm durations and exact dates after Phase 7. Third midterm in Week 13 and separate exam slots are accepted.
-- Project weights, lengths, team policy and final deadline rule are accepted. Finalize presentation scheduling after proposals and teams freeze; retain Week 14 online, recorded, TA-led delivery after Week 13 midterm 3. Confirm staffing and the TA/group grading split. The final syllabus establishes disclosure and report-writing policy; concrete report instructions and rubric details remain open.
+- Project weights, lengths, team policy and final deadline rule are accepted. Finalize presentation scheduling after proposals and teams freeze; retain Week 14 online, recorded, TA-led delivery after Week 13 midterm 3. Confirm staffing and the TA/group grading split. The final syllabus establishes disclosure and report-writing policy; see accepted project decisions for current report-instruction status; detailed rubric review remains deferred to grading.
 - Preserve accepted reading deferment this semester; retain the internal map for the next iteration.
 - Accepted [assignments](../assignments.md) include integrated Double DQN and scaffolded IQL. Release after prerequisites, allow 21 days, retain original releases, and allow one-week overlaps. Rubric/example work is deferred to the semester.
 - Phase 6 workload and consistency audits are complete and the instructor has frozen the syllabus. Preserve their workload uncertainty; complete actual-date verification after Phase 7 and task pilots before release.

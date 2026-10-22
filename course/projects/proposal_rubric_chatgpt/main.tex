@@ -1,0 +1,50 @@
+% ChatGPT recommendation, 2026-10-22. Not an accepted grading decision.
+% Format adapted from sources/NonRL/COMP341_example_hw.tex.
+\documentclass{article}
+\usepackage[a4paper,margin=2.54cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx,array}
+\usepackage{enumitem}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\renewcommand{\arraystretch}{1.35}
+\begin{document}
+\title{\textbf{Ko\c{c} University\\COMP438/538 Reinforcement Learning\\Proposal Rubric}}
+\date{}
+\maketitle
+\vspace{-2cm}
+\begin{center}
+\textit{Proposed rubric for instructor review}\\
+20 points, contributing 5\% of the overall course grade
+\end{center}
+
+\noindent
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.8cm}rL@{}}
+\textbf{Criterion} & \textbf{Points} & \textbf{What earns full credit}\\ \hline
+Problem, question and related work & 4 &
+A clear motivation and focused question. Relevant sources help define or motivate the problem. A high-level, incomplete literature discussion is sufficient.\\
+Tentative RL formulation & 6 &
+A coherent account of the agent, state/observation, actions, dynamics, reward, objective and horizon/termination, as relevant. Assumptions and important open choices are explicit.\\
+Tentative approach and baseline & 3 &
+A plausible approach and tentative baseline, with an explanation of what the comparison would reveal. Method choices may remain provisional.\\
+Evaluation and feasibility & 5 &
+Metrics and an intended comparison address the question. The plan considers evaluation conditions, environment/data access, compute and important risks. Estimates can be tentative.\\
+Clarity and presentation & 2 &
+Concise, specific and organized writing, identifiable citations and compliance with the main-content limit. Avoid repetition and unsupported claims.\\ \hline
+\textbf{Total} & \textbf{20} & \\
+\end{tabularx}
+
+\section*{How to apply the rubric}
+\begin{itemize}[leftmargin=*,itemsep=5pt]
+\item Award full credit when the criterion is met at \textbf{proposal-stage depth}. Award partial credit for useful but unclear, incomplete or inconsistent reasoning. Award little or no credit for missing or unsupported content.
+\item Grade the quality of the planned study. A working implementation, experimental results, exhaustive related work, novelty and benchmark superiority are not proposal requirements.
+\item An explicit, reasonable uncertainty is different from omitting a required part. A baseline described as tentative can earn full credit.
+\item Treat writing problems under clarity unless they also prevent assessment of substantive reasoning. Avoid deducting twice for the same defect.
+\end{itemize}
+
+\section*{LLM disclosure}
+The LLM-use report is a required disclosure, not a separate source of bonus points. Permitted, disclosed AI assistance does not by itself reduce the score. Assess the students' reasoning and ownership of the submitted proposal.
+
+The syllabus governs nondisclosure and academic integrity. Do not infer an automatic numerical penalty from this draft. Additional penalties must be settled before release.
+
+\noindent\textbf{Grade conversion:} proposal score divided by 20, multiplied by 5, gives the contribution in course percentage points.
+\end{document}
