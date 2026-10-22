@@ -1,0 +1,674 @@
+# Week 3 deck `mc_td` (sessions 3.1–3.2): Claude's renderer input.
+# First draft: renderer input for the first render of this deck only (2026-10-22). Not maintained: the PPTX is the
+# source from that render on. Do not rebuild over the deck or treat this file as its current content.
+# Status: decisions/lectures/mc_td.md. Content: course/lectures/week03/mc_td_content.md (shared, frozen at this
+# render; slide IDs MT00–MT14 as there). Only the session 3.1 portion exists; 3.2 is not yet prepared.
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week03/mc_td_claude.yaml [--render]
+# Equations are native PowerPoint equations generated from the LaTeX below (scripts/omml_claude.py), Accent 5,
+# superscript policy marks (v^π). $...$ is inline math. `reveal` lists click-to-appear builds (Appear).
+# Old Model-Free Prediction PPTX numbering ("P") is presentation order (59 slides). P28's arrow panels (book
+# Figure 6.1) are copied as the original picture; the backup diagrams of P4/P5 and P37–39 are rasters with
+# embedded labels, so they are redrawn natively (content MT02/MT12).
+# Time budget: decisions/topic_decisions.yaml lecture_plan[mc_td].teaching_minutes (59; deck decision D8: 58 planned).
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week03/mc_td_claude.pptx
+  preview: output/lectures/week03/mc_td_claude_preview.png
+  session_id: mc_td
+  qa_minutes: 0                # questions are inside each slide's estimate (content convention)
+  title: Model-free prediction (sessions 3.1–3.2)
+  author: Barış Akgün
+  term: Fall 2026
+
+old: &old sources/current_course/4 - Model Free Prediction.pptx
+
+slides:
+  - id: MT00
+    kind: course_title
+    title: COMP438/538 Reinforcement Learning
+    topic: Model-Free Prediction
+    minutes: 0.5
+    sources: [old Model-Free Prediction PPTX 1 (title), Introduction title format]
+    notes: |
+      This is the combined deck's title. Today is session 3.1: learning values from experience. Do not add a
+      second title or an agenda catalogue before the problem.
+
+  - id: MT01
+    kind: math
+    title: Policy evaluation without the model
+    drawing:
+      - grid: {x: 9.6, y: 1.1, cell: 1.6, cols: 2, rows: 2, fills: {'2,2': goal}, labels: {'2,2': '(2,2) goal'}, arrows: {'1,1': right, '1,2': right, '2,1': right}, size: 16}
+      - {label: 'Always choose right; $\gamma=0.5$.', box: [8.9, 4.4, 4.6, 0.45], size: 18, bold: true}
+      - {label: 'Transition probabilities: **?**', box: [8.9, 4.9, 4.6, 0.45], size: 18, red: true}
+    body_box: [0.244, 1.1, 8.3, 3.8]
+    size: 24
+    body:
+      - 'With a model: evaluate a policy, then improve it.'
+      - 'Today: evaluate the **same fixed policy** using observed experience.'
+      - 'Next week: improve policies using experience.'
+    after_box: [0.244, 5.6, 12.85]
+    after:
+      - text: '**Question:** You can run this policy and observe what happens. How could you estimate $v^{\pi}((1,1))$?'
+    minutes: 4
+    sources: [old Model-Free Prediction PPTX 3 (recap) and 15 (prediction question), accepted bellman 2×2 grid]
+    notes: |
+      About 1 minute recall, 2 minutes responses, 1 minute connecting answers. Evaluation is one half of
+      generalized policy iteration; we are temporarily holding the policy fixed. Students may propose averaging
+      returns, collecting transition counts or trying different actions. Identify return averaging as today's
+      first route; fitting a model is a different possible route, and changing actions to improve the policy is
+      control. Ask what DP needed that the learner no longer has: the expected rewards and transition
+      probabilities. An observed transition is evidence, not the full distribution. Do not repeat the improvement
+      proof or Q-value iteration.
+
+  - id: MT02
+    kind: math
+    title: Why learn from samples?
+    drawing:
+      # expected backup (left column): root, two actions, four successors
+      - {line: [3.45, 1.31, 2.45, 1.91]}
+      - {line: [3.45, 1.31, 4.45, 1.91]}
+      - {line: [2.45, 2.0, 1.95, 2.59]}
+      - {line: [2.45, 2.0, 2.95, 2.59]}
+      - {line: [4.45, 2.0, 3.95, 2.59]}
+      - {line: [4.45, 2.0, 4.95, 2.59]}
+      - {circle: [3.45, 1.15, 0.32]}
+      - {circle: [2.45, 1.95, 0.18], filled: true}
+      - {circle: [4.45, 1.95, 0.18], filled: true}
+      - {circle: [1.95, 2.75, 0.32]}
+      - {circle: [2.95, 2.75, 0.32]}
+      - {circle: [3.95, 2.75, 0.32]}
+      - {circle: [4.95, 2.75, 0.32]}
+      - {label: '$V(s)$', box: [3.7, 0.95, 1.0, 0.4], size: 18}
+      - {label: "$V(s')$", box: [5.15, 2.55, 1.0, 0.4], size: 18}
+      # sample backup (right column): one observed transition
+      - {line: [9.9, 1.31, 9.9, 1.86]}
+      - {line: [9.9, 2.04, 9.9, 2.59]}
+      - {circle: [9.9, 1.15, 0.32]}
+      - {circle: [9.9, 1.95, 0.18], filled: true}
+      - {circle: [9.9, 2.75, 0.32]}
+      - {label: '$V(s)$', box: [10.15, 0.95, 1.0, 0.4], size: 18}
+      - {label: "$V(s')$", box: [10.15, 2.55, 1.0, 0.4], size: 18}
+    table_box: [0.244, 3.2, 12.85]
+    table:
+      size: 18
+      row_h: 0.5
+      align_left: true
+      widths: [1, 1]
+      header: ['Expected backup', 'Sample backup']
+      rows:
+        - ['Average over possible outcomes using the model', 'Use an observed transition']
+        - ['Need outcome probabilities and expected rewards', 'Receive $(S_t,A_t,R_{t+1},S_{t+1})$']
+    after_box: [0.244, 4.95, 12.85]
+    size: 22
+    after:
+      - 'A robot''s dynamics may be unknown or unreliable.'
+      - 'A simulator may produce samples even when enumerating all outcomes is impractical.'
+      - 'One cheap update can still require many samples to learn accurately.'
+    minutes: 3
+    sources: [old Model-Free Prediction PPTX 4–5 (backup pictures redrawn natively with V(s)/V(s′) labels; offline/online labels and future-method list removed), PPTX 12 (motivation, shortened), book §8.5]
+    notes: |
+      A simulator is a source of experience; model-free describes how the learning method uses that experience.
+      For a tabular one-step update, arithmetic/value-table accesses do not scale with the number of possible
+      successors; sample generation itself need not be cheap. Sampling does not by itself solve large-state-space
+      representation. Ask: does observing one transition tell us that it is the only possible outcome? Answer: no.
+      Sources: P4–5/P12; book §8.5 for the expected/sample distinction.
+
+  - id: MT03
+    kind: math
+    title: Three different questions about the data
+    table_box: [0.244, 1.3, 12.85]
+    table:
+      size: 20
+      row_h: 0.65
+      align_left: true
+      widths: [8, 4.85]
+      header: ['Question', 'Distinction']
+      rows:
+        - ['Do we use or learn an environment model?', 'Model-based / model-free']
+        - ['Can we collect more interaction data while learning?', 'Online / offline (fixed data)']
+        - ['Does the behaviour generating data match the policy being evaluated?', 'On-policy / off-policy']
+    after_box: [0.244, 4.6, 12.85]
+    after:
+      - text: '**Today: tabular, model-free, on-policy prediction of a fixed $\pi$.**'
+    minutes: 3
+    sources: [old Model-Free Prediction PPTX 13–14 (definitions replaced by this table)]
+    notes: |
+      For on-policy prediction, actions in the experience follow the policy being evaluated. Off-policy prediction
+      evaluates a target policy using data generated by a different behaviour policy; the target need not be
+      optimal. Do not introduce correction ratios. A fixed dataset can have been collected under the target
+      policy; fixed data and off-policy are not synonyms. Likewise, MC can collect episodes online and update after
+      each one: waiting for termination does not make the overall learning setting offline. These distinctions
+      return in Weeks 4, 11 and 12; no formal offline-RL method is taught now.
+
+  - id: MT04
+    kind: math
+    title: One observed episode
+    drawing:
+      - grid: {x: 10.0, y: 1.2, cell: 1.4, cols: 2, rows: 2, fills: {'2,2': goal}, labels: {'2,2': '(2,2) goal'}, arrows: {'1,1': right, '1,2': right, '2,1': right}, size: 14}
+    body_box: [0.244, 1.05, 9.4, 0.6]
+    size: 28
+    body:
+      - text: '**(1,1) → (1,1) → (1,2) → goal**'
+    table_box: [0.244, 1.9, 9.2]
+    table:
+      size: 20
+      row_h: 0.55
+      align_left: true
+      widths: [0.8, 1.6, 1.6, 1.6, 1.6]
+      header: ['$t$', '$S_t$', '$A_t$', '$R_{t+1}$', '$S_{t+1}$']
+      rows:
+        - ['0', '(1,1)', 'right', '−0.04', '(1,1)']
+        - ['1', '(1,1)', 'right', '−0.04', '(1,2)']
+        - ['2', '(1,2)', 'right', '+1', 'goal']
+    after_box: [0.244, 4.6, 12.85]
+    after:
+      - text: '**$\gamma=0.5$. The +1 is paid on entry; continuation after the goal is zero.**'
+    minutes: 2
+    sources: [old Model-Free Prediction PPTX 5 (transition-tuple structure), accepted bellman grid (B03)]
+    notes: |
+      The learner observes states, chosen actions, rewards and termination. Intending right need not mean moving
+      right. No transition probabilities are needed to compute any MC/TD update. For instructor verification only:
+      intended direction has probability 0.8, each perpendicular slip 0.1; hitting a wall leaves the state
+      unchanged. This path has probability 0.1 × 0.1 × 0.8 = 0.008 under always-right. It is deliberately selected
+      to show repeated visits in a short episode, not a representative performance sample. Entry payoff +1 is
+      total, not +1−0.04. (2,1) is not visited. These rules are the accepted Bellman MDP, not a new grid.
+
+  - id: MT05
+    kind: math
+    title: 'Monte Carlo: value as a mean return'
+    body_box: [0.244, 0.95, 12.85, 4.0]
+    size: 22
+    eq_size: 24
+    body:
+      - eq: 'v^{\pi}(s)=\mathbb{E}_{\pi}[G_t\mid S_t=s]'
+      - text: '**Monte Carlo prediction:** follow $\pi$, observe complete episodes, and average returns after visits to each state.'
+      - eq: 'G_T=0,\qquad G_t=R_{t+1}+\gamma G_{t+1}'
+      - text: 'Episode: (1,1) → (1,1) → (1,2) → goal; rewards −0.04, −0.04, +1; $\gamma=0.5$.'
+      - text: '**Your turn:** calculate $G_2$, then $G_1$, then $G_0$ for our episode.'
+    after_box: [0.244, 5.05, 12.85]
+    after:
+      - eq: 'G_2=1,\qquad G_1=-0.04+0.5(1)=0.46,\qquad G_0=-0.04+0.5(0.46)=0.19'
+      - text: '**One observed return is a sample, not the expectation.**'
+    reveal: ['yaml:after']
+    minutes: 5
+    sources: [old Model-Free Prediction PPTX 16–17 (value/return equations, converted), book §5.1, Silver lecture 4 pp. 4–7, CS234 lecture 3 pp. 10–14]
+    notes: |
+      About 1 minute rationale, 2 minutes student calculation, 2 minutes discussion. Click: answers. T = 3 here; the
+      terminal entry reward is in G_2, not in G_3. The unknown quantity is the expected return; an episode supplies
+      an observed target. This complete-return MC method needs the relevant episode to terminate. A truncated
+      partial sum is not the same target. The book writes v_π; course notation is v^π.
+      Sources: book §5.1; Silver pp. 4–7; CS234 pp. 10–14.
+
+  - id: MT06
+    kind: math
+    title: Which visits count?
+    table_box: [0.244, 1.2, 7.4]
+    table:
+      size: 20
+      row_h: 0.55
+      widths: [3.6, 3.8]
+      header: ['Visit to (1,1)', 'Return following that visit']
+      rows:
+        - ['First, $t=0$', '0.19']
+        - ['Second, $t=1$', '0.46']
+    drawing:
+      - {label: 'Episode: (1,1) → (1,1) → (1,2) → goal', box: [8.0, 1.45, 5.0, 0.9], size: 20, center: false}
+    body_box: [0.244, 3.2, 12.85, 2.1]
+    size: 24
+    body:
+      - '**First-visit MC:** include only the first visit to a state in each episode.'
+      - '**Every-visit MC:** include every visit to that state.'
+      - text: '**Question:** what sample mean does each produce after this one episode?'
+    after_box: [0.244, 5.5, 12.85]
+    after:
+      - text: '**Answer:** first-visit $0.19$; every-visit $(0.19+0.46)/2=0.325$.'
+    reveal: ['yaml:after']
+    minutes: 3
+    sources: [old Model-Free Prediction PPTX 18 (repeated-state question) and 21 (first/every-visit distinction), book §5.1, CS234 lecture 3 p. 26]
+    notes: |
+      Ask students which returns belong in each average before revealing it (click: answer). At (1,2), either
+      convention includes the single return 1. N(s) counts included returns: first visits for first-visit MC, all
+      visits for every-visit MC. Returns from repeated visits within an episode are correlated; do not call them
+      independent episodes or assert that every finite-sample MC estimate is unbiased. Under the usual
+      fixed-policy/visitation assumptions both visit conventions are consistent. These numbers are sample means;
+      later we explicitly switch to constant-step updates. Sources: book §5.1, CS234 p. 26.
+
+  - id: MT07
+    kind: math
+    title: From an average to an incremental update
+    body_box: [0.244, 0.95, 12.85, 4.15]
+    size: 22
+    eq_size: 24
+    body:
+      - text: 'For one newly included return $G_t$, first increment $N(s)$:'
+      - eq: 'N(s)\leftarrow N(s)+1'
+      - eq: 'V(s)\leftarrow\frac{(N(s)-1)V(s)+G_t}{N(s)}=V(s)+\frac{1}{N(s)}[G_t-V(s)]'
+      - text: '**A common update form**'
+      - eq: 'V(S_t)\leftarrow V(S_t)+\alpha[U_t-V(S_t)]'
+      - text: '$U_t$: target. $\alpha$: fraction of the discrepancy used for this update.'
+    table_box: [1.6, 5.25, 10.1]
+    table:
+      size: 18
+      row_h: 0.45
+      align_left: true
+      widths: [3, 7.1]
+      header: ['Step size for MC', 'Meaning']
+      rows:
+        - ['$1/N(s)$', 'Exact sample mean of included returns']
+        - ['Constant $\alpha$', 'Recency weighting; initialization can still matter']
+    minutes: 3
+    sources: [old Model-Free Prediction PPTX 18–20 (running-mean equations; V̄ → V, visit indices removed, N(s) kept, old δ for the MC error not used), book §§2.4–2.5, Silver lecture 4 p. 11]
+    notes: |
+      The right-hand V(s) is its old value; after incrementing the count, N(s)−1 returns contributed to that old
+      mean. Show the algebra, not just the final rule. Constant α weights recent targets more and can be useful
+      when the policy changes later; here π is fixed. For this presentation take 0 < α ≤ 1. A first-visit sample
+      mean and a constant-step estimate are different estimators even when fed the same return. No gradient aside
+      or convergence-sum derivation. Sources: P18–20; book §§2.4–2.5; Silver p. 11.
+
+  - id: MT07a
+    kind: math
+    title: First-visit MC prediction
+    body_box: [0.244, 1.0, 12.85, 4.9]
+    size: 22
+    body:
+      - text: '1. Fix $\pi$. Initialize $V(s)=0$ and $N(s)=0$ for nonterminal states.'
+      - text: '2. Generate a complete episode following $\pi$.'
+      - text: '3. Compute its returns backwards: $G_T=0$, then $G_t=R_{t+1}+\gamma G_{t+1}$.'
+      - text: '4. Scan the episode in time order. At the **first visit** to each state:'
+      - sub:
+          - 'increment $N(S_t)$;'
+          - 'update $V(S_t)\leftarrow V(S_t)+\frac{1}{N(S_t)}[G_t-V(S_t)]$.'
+      - text: '5. Repeat with another episode.'
+    after_box: [0.244, 5.6, 12.85]
+    after:
+      - text: '**For constant-step MC, replace $1/N(S_t)$ by $\alpha$ in step 4. The first-visit rule stays.**'
+    minutes: 2
+    sources: [old Model-Free Prediction PPTX 21 (algorithm picture; rebuilt as editable text without its Returns lists), book §5.1]
+    notes: |
+      "First" means earliest in the episode, not first encountered in the backward return calculation. Students
+      need to understand this order before implementing an update kernel. No list of returns need be retained
+      across episodes; the current episode still needs enough information to compute its returns. For every-visit
+      MC omit the first-visit restriction. Spoken caveat: fixed-policy tabular convergence requires sufficient
+      visits and suitable step sizes; constant α generally leaves fluctuations in noisy problems. The Robbins–Monro
+      step-size conditions are one source of such guarantees, not a proof that every constant-step process must
+      fluctuate. We will compare mechanisms today, not prove convergence.
+
+  - id: MT08
+    kind: math
+    title: 'Driving home: must learning wait?'
+    body_box: [0.244, 0.95, 12.85, 0.5]
+    size: 24
+    body:
+      - text: '**Predict the minutes remaining until home**'
+    tables:
+      - &drive_partial
+        box: [0.8, 1.6, 11.7]
+        size: 18
+        row_h: 0.48
+        widths: [4.2, 2.5, 2.5, 2.5]
+        header: ['Situation', 'Elapsed minutes', 'Predicted minutes remaining', 'Predicted total minutes']
+        rows:
+          - ['Leave office', '0', '30', '30']
+          - ['Reach car; raining', '5', '35', '40']
+      - <<: *drive_partial
+        rows:
+          - ['Leave office', '0', '30', '30']
+          - ['Reach car; raining', '5', '35', '40']
+          - ['Exit highway', '20', '15', '35']
+          - ['Behind slow truck', '30', '10', '40']
+          - ['Enter home street', '40', '3', '43']
+          - ['Arrive home', '43', '0', '43']
+    after_box: [0.244, 5.25, 12.85]
+    after:
+      - text: '**At the car, would you revise the office prediction now, or wait until home?**'
+    footnote: 'Standalone prediction example: rewards are elapsed minutes; $\gamma=1$. Book Example 6.1 (Sutton & Barto, 2018).'
+    reveal: ['yaml:tables.1']
+    minutes: 5
+    sources: [old Model-Free Prediction PPTX 28 (driving-home table, raster, recreated as editable tables), book Example 6.1 printed 122 / PDF 144]
+    notes: |
+      About 1 minute setup, 2 minutes discussion, 1 minute the numeric contrast, 1 minute transfer to the grid.
+      This predicts positive travel time under a fixed behaviour; it is not a reward-maximizing driving-control
+      problem. Explain elapsed versus remaining time before interpreting total-time changes. At the car we have
+      spent 5 minutes and predict 35 more: the office target can already be 40. MC must wait for the realized 43.
+      Reveal the rows from "exit highway" downward only after the question (click: full table) so students do not
+      get the outcome prematurely. Then pause the grid after its first observed transition: what can replace the
+      unseen return? The next state's current value estimate. It can be wrong; the point is that it is available
+      earlier. Do not introduce a second driving scenario or all six updates here. This is the first of two
+      book-illustration slides; the arrow panels follow the TD rule (MT09b).
+
+  - id: MT09
+    kind: math
+    title: A sampled Bellman target
+    body_box: [0.244, 0.95, 12.85, 1.45]
+    size: 22
+    eq_size: 24
+    body:
+      - text: '**1.** Recall the Bellman expectation equation:'
+      - eq: 'v^{\pi}(s)=\mathbb{E}_{\pi}[R_{t+1}+\gamma v^{\pi}(S_{t+1})\mid S_t=s]'
+    blocks:
+      - box: [0.244, 2.45, 12.85, 1.35]
+        items:
+          - text: '**2.** Use one observed transition and the current next-state estimate:'
+          - eq: 'U_t=R_{t+1}+\gamma V(S_{t+1})'
+      - box: [0.244, 3.85, 12.85, 1.4]
+        items:
+          - text: '**3.** Compare the target with the current estimate, then update:'
+          - eq: '\delta_t=U_t-V(S_t),\qquad V(S_t)\leftarrow V(S_t)+\alpha\delta_t'
+    after_box: [0.244, 5.4, 12.85]
+    after:
+      - text: '**Bootstrapping:** use an existing value estimate in a new update target.'
+      - text: 'The expected TD target is a Bellman backup of the current $V$; it need not equal $v^{\pi}$.'
+    reveal: ['yaml:blocks.0', ['yaml:blocks.1', 'yaml:after']]
+    minutes: 2.5
+    sources: [old Model-Free Prediction PPTX 24 (bootstrapping explanation) and 25–26 (TD equations; reward index, barred values and policy marks converted), book §6.1 printed 119–121 / PDF 141–143]
+    notes: |
+      Reveal in order (two clicks: step 2; then step 3 with the bootstrapping line). The two approximations are
+      sampling the expectation and replacing the unknown true successor value with V. For a fixed table under π,
+      averaging this target gives the DP evaluation backup of that table. Correct successor values are sufficient,
+      not necessary, for that expectation to equal the true value at a given state: successor errors may cancel.
+      Do not use "unbiased only if the whole table is exact." A single target is not guaranteed closer to truth.
+      This is one-step TD, called TD(0); the zero is part of the method's name, not α = 0. At a terminal successor
+      V = 0, so the target is just the observed entry reward. No maximization: this is fixed-policy prediction.
+
+  - id: MT09a
+    kind: math
+    title: TD(0) prediction
+    body_box: [0.244, 1.0, 12.85, 5.0]
+    size: 22
+    body:
+      - text: 'Fix $\pi$ and choose $\alpha$. Initialize the nonterminal estimates; set $V(\text{terminal})=0$.'
+      - text: 'At each transition:'
+      - text: '1. Take $A_t$ according to $\pi$; observe $R_{t+1}$ and $S_{t+1}$.'
+      - text: '2. Form $U_t=R_{t+1}+\gamma V(S_{t+1})$.'
+      - text: '3. Update $V(S_t)\leftarrow V(S_t)+\alpha[U_t-V(S_t)]$.'
+      - text: '4. Advance to the next state; if terminal, end the episode.'
+    after_box: [0.244, 5.6, 12.85]
+    after:
+      - text: '**Update after observing the transition. Read the current table before changing it.**'
+    minutes: 1.5
+    sources: [old Model-Free Prediction PPTX 27 (algorithm picture; rebuilt as editable text), book §6.1]
+    notes: |
+      This matters for self-transitions: calculate the target before overwriting the same table entry. Keep the
+      terminal value at zero. In a continuing discounted task, continue taking transitions without an episode-end
+      test. This does not make the displayed TD rule an average-reward algorithm; the objective contrast later
+      changes the question, not this algorithm. The fixed-policy, tabular, adequate-visitation and
+      suitable-step-size qualifications apply to convergence. No theorem or function-approximation guarantee is
+      added here.
+
+  - id: MT09b
+    kind: math
+    title: 'Driving home: what each update changes'
+    pictures:
+      - {deck: *old, slide: 28, shape: Picture 4, box: [0.9, 1.5, 11.5]}
+    drawing:
+      - {label: '**MC: toward the final outcome**', box: [2.4, 0.98, 4.6, 0.45], size: 20}
+      - {label: '**TD: toward the next prediction**', box: [7.5, 0.98, 4.8, 0.45], size: 20}
+      - {outline: [2.83, 1.8, 0.45, 2.6]}
+      - {outline: [7.69, 2.3, 0.45, 2.1]}
+      - {label: 'First arrow: office prediction $30\to43$, after reaching home', box: [1.6, 5.75, 5.4, 0.75], size: 18, red: true}
+      - {label: 'First arrow: office prediction $30\to5+35=40$, after reaching the car', box: [7.3, 5.75, 5.4, 0.75], size: 18, red: true}
+    footnote: '$\gamma=1$; $\alpha=1$ for the full arrows. Figure: Sutton & Barto (2018), Figure 6.1.'
+    minutes: 1.5
+    sources: [old Model-Free Prediction PPTX 28 (MC/TD arrow panels, original picture; table removed), book Figure 6.1 printed 123 / PDF 145]
+    notes: |
+      Point to the first arrow in each panel only. The table's state value is remaining time; the graph adds
+      elapsed time to plot total predicted duration. That is why adjacent graph heights show the TD discrepancy
+      with γ = 1. Full arrows illustrate α = 1, not a recommended universal step size. This is the explanation
+      time reserved in unit 10; do not narrate every arrow. Return explicitly to the grid's γ = 0.5 and reward
+      units for MT10.
+
+  - id: MT10
+    kind: math
+    title: 'Your turn: MC and TD on the same episode'
+    body_box: [0.244, 0.95, 12.85, 2.55]
+    size: 20
+    body:
+      - text: '(1,1) → (1,1) → (1,2) → goal;   rewards −0.04, −0.04, +1;   returns 0.19, 0.46, 1'
+      - text: '**Reset each method independently: $V=0$, $\gamma=0.5$, constant $\alpha=0.5$.**'
+      - text: '1. First-visit MC: update each state''s first visit using its completed return.'
+      - text: '2. TD(0): update after each transition, in time order.'
+      - text: '3. Why does the goal reward affect the estimates differently?'
+    tables:
+      - &ex_q
+        box: [0.8, 3.6, 11.7]
+        size: 18
+        row_h: 0.5
+        widths: [3.6, 2.4, 3.1, 2.6]
+        header: ['Method / event', 'Target $U_t$', 'Estimate being changed', 'Value after update']
+        rows:
+          - ['MC, first (1,1) visit', '?', '?', '?']
+          - ['MC, first (1,2) visit', '?', '?', '?']
+          - ['TD, $t=0$', '?', '?', '?']
+          - ['TD, $t=1$', '?', '?', '?']
+          - ['TD, $t=2$', '?', '?', '?']
+      - <<: *ex_q
+        rows:
+          - ['MC, first (1,1) visit', '0.19', '$V((1,1))$', '0.095']
+          - ['MC, first (1,2) visit', '1', '$V((1,2))$', '0.5']
+          - ['TD, $t=0$', '−0.04', '$V((1,1))$', '−0.02']
+          - ['TD, $t=1$', '−0.04', '$V((1,1))$', '−0.03']
+          - ['TD, $t=2$', '1', '$V((1,2))$', '0.5']
+    footnote: 'MC and TD have different targets and update schedules; this is not a performance ranking.'
+    reveal: ['yaml:tables.1']
+    minutes: 9
+    sources: [old Model-Free Prediction PPTX 21/27 (algorithm structures), MT04 trajectory, new answer table; numbers checked by scripts/check_mc_td_claude.py section 3]
+    notes: |
+      PROTECTED student reasoning. Allow roughly 1 minute instructions/reset, 4 minutes students calculate,
+      3 minutes answer discussion, 1 minute interpretation. Click: answer table.
+      Constant-step first-visit MC: 0 + 0.5(0.19 − 0) = 0.095; skip the second (1,1) visit; 0 + 0.5(1 − 0) = 0.5
+      at (1,2). These differ from MT06's sample means because α is now fixed at 0.5.
+      TD t=0: target −0.04 + 0.5(0) = −0.04, error −0.04, new V((1,1)) = −0.02.
+      TD t=1: V((1,2)) is still zero, so target −0.04; error −0.04 − (−0.02) = −0.02; new
+      V((1,1)) = −0.02 + 0.5(−0.02) = −0.03.
+      TD t=2: target 1 + 0.5(0) = 1; error 1; new V((1,2)) = 0.5. No update to the terminal state. (2,1) stays
+      zero in both tables because it is unvisited.
+      MC uses the realized goal reward immediately in the earlier completed-return target. Online TD's earlier
+      updates happened before the successor estimate learned from the goal. Later visits can propagate this
+      information; there is no extra backward TD sweep at the end of this pass.
+      Equal α does not isolate only target choice: first-visit MC updates (1,1) once; TD updates it twice. Do not
+      interpret a negative estimate after one episode as proof of failure or positive estimates as proof of
+      optimism.
+
+  - id: MT11
+    kind: math
+    title: One episode versus an expected value
+    table_box: [0.244, 1.2, 12.85]
+    table:
+      size: 20
+      row_h: 0.6
+      widths: [1.8, 3.6, 3.2, 4.25]
+      header: ['State', 'First-visit MC after this episode', 'TD(0) after this episode', 'True $v^{\pi}$ from the known model']
+      rows:
+        - ['(1,1)', '0.095', '−0.03', '≈ 0.051']
+        - ['(1,2)', '0.5', '0.5', '≈ 0.836']
+    body_box: [0.244, 3.4, 12.85, 3.3]
+    size: 24
+    body:
+      - text: '**The right-hand column is a checking benchmark; the learner did not use it.**'
+      - text: '**Questions:** Can this episode establish which method is better? What would we need to compare learning after many episodes?'
+    minutes: 2.5
+    sources: [old Model-Free Prediction PPTX 29 (comparison question), exact values from the accepted bellman grid (14/275, 46/55)]
+    notes: |
+      Exact benchmark values are 14/275 and 46/55, respectively. Answer: one illustrative path cannot rank the
+      methods. Repeated datasets/runs, step sizes, initialization, a stated error metric and comparable data budgets
+      matter. More episodes can improve estimates under the appropriate conditions, but 1,000 episodes is not a
+      guarantee or a ranking. Leave full bias/variance and evaluation reasoning to 3.2. Do not rederive the Bellman
+      solution. This table makes the difference between an outcome and an expectation visible. These values follow
+      the accepted grid and always-right policy; they are not the old DP deck's terminal-boundary numbers.
+
+  - id: MT12
+    kind: math
+    title: Sampling and bootstrapping
+    drawing:
+      # DP: full breadth, one step
+      - {line: [2.2, 1.29, 1.6, 1.88]}
+      - {line: [2.2, 1.29, 2.8, 1.88]}
+      - {line: [1.6, 1.95, 1.3, 2.47]}
+      - {line: [1.6, 1.95, 1.9, 2.47]}
+      - {line: [2.8, 1.95, 2.5, 2.47]}
+      - {line: [2.8, 1.95, 3.1, 2.47]}
+      - {circle: [2.2, 1.15, 0.28]}
+      - {circle: [1.6, 1.93, 0.15], filled: true}
+      - {circle: [2.8, 1.93, 0.15], filled: true}
+      - {circle: [1.3, 2.6, 0.26]}
+      - {circle: [1.9, 2.6, 0.26]}
+      - {circle: [2.5, 2.6, 0.26]}
+      - {circle: [3.1, 2.6, 0.26]}
+      - {label: 'DP: all successors, one step', box: [0.4, 2.85, 3.6, 0.35], size: 14}
+      # MC: one sampled path to termination
+      - {line: [6.6, 1.13, 6.6, 1.36]}
+      - {line: [6.6, 1.48, 6.6, 1.68]}
+      - {line: [6.6, 1.92, 6.6, 2.14]}
+      - {line: [6.6, 2.26, 6.6, 2.45]}
+      - {circle: [6.6, 1.01, 0.24]}
+      - {circle: [6.6, 1.42, 0.13], filled: true}
+      - {circle: [6.6, 1.8, 0.24]}
+      - {circle: [6.6, 2.2, 0.13], filled: true}
+      - {box: [6.1, 2.45, 1.0, 0.33], text: 'terminal', size: 12}
+      - {label: 'MC: one path to termination', box: [4.8, 2.85, 3.6, 0.35], size: 14}
+      # TD(0): one sampled step
+      - {line: [10.8, 1.29, 10.8, 1.86]}
+      - {line: [10.8, 2.0, 10.8, 2.47]}
+      - {circle: [10.8, 1.15, 0.28]}
+      - {circle: [10.8, 1.93, 0.15], filled: true}
+      - {circle: [10.8, 2.6, 0.26]}
+      - {label: 'TD(0): one sampled step', box: [9.0, 2.85, 3.6, 0.35], size: 14}
+    table_box: [0.244, 3.3, 12.85]
+    table:
+      size: 16
+      row_h: 0.45
+      align_left: true
+      widths: [3.3, 2.3, 2.6, 4.65]
+      header: ['Method', 'Uses sampled experience?', 'Bootstraps from value estimates?', 'What supplies the target?']
+      rows:
+        - ['DP expected evaluation backup', 'No', 'Yes', 'Model-weighted reward and successor values']
+        - ['Complete-return MC', 'Yes', 'No', 'Observed return through termination']
+        - ['TD(0)', 'Yes', 'Yes', 'One observed reward and next-state estimate']
+    after_box: [0.244, 5.45, 12.85]
+    size: 18
+    after:
+      - text: '**Sampling:** use observed outcomes in place of a full expectation.   **Bootstrapping:** use a value estimate in the target.'
+      - text: '**Check:** Which needs a model? Which must wait for the completed return? Which can update before the episode ends?'
+    footnote: 'Backup diagrams redrawn after David Silver, RL Lecture 4 (old Model-Free Prediction slides 37–39).'
+    minutes: 4
+    sources: [old Model-Free Prediction PPTX 37–39 (Silver backup pictures; redrawn natively because "T" labels are embedded; non-Markov claims removed) and 40 (classification), Silver lecture 4 pp. 26–29]
+    notes: |
+      Answers: the displayed DP backup; complete-return MC; TD(0). Samples can come from real interaction or a
+      simulator. For a fixed table, one sample TD target averages to a DP evaluation backup; the current table
+      itself may be inaccurate. No claim that each sampled update reduces error. The classification concerns these
+      three specific methods, not every possible algorithm called DP or MC. Detailed bias/variance, batch learning
+      and n-step targets belong in 3.2. Do not add the old full unified-method diagram, λ axis or eligibility
+      traces. Open circles are states, solid dots are actions.
+
+  - id: MT13
+    kind: math
+    title: A task that keeps running
+    body_box: [0.244, 0.95, 12.85, 0.5]
+    size: 22
+    body:
+      - text: '**A continuing service system — equal-duration time steps**'
+    drawing:
+      - {box: [0.6, 2.9, 1.6, 0.8], text: '**ready**', size: 20, tint: true}
+      - {box: [5.0, 2.9, 1.6, 0.8], text: '**busy**', size: 20}
+      # steady service: self-loop above ready
+      - {line: [1.1, 2.9, 1.1, 2.15]}
+      - {line: [1.1, 2.15, 1.7, 2.15]}
+      - {line: [1.7, 2.15, 1.7, 2.9], arrow: true}
+      - {label: 'steady service; reward 0.8', box: [0.2, 1.6, 3.6, 0.45], size: 16, center: false}
+      # ready -> busy and back
+      - {line: [2.2, 3.1, 5.0, 3.1], arrow: true}
+      - {label: 'start large job; reward 0', box: [2.2, 2.6, 2.8, 0.45], size: 15}
+      - {line: [5.0, 3.5, 2.2, 3.5], arrow: true}
+      - {label: 'complete job; reward 2', box: [2.2, 3.55, 2.8, 0.45], size: 15}
+      - {label: '(only action at busy)', box: [4.6, 3.75, 2.4, 0.4], size: 14}
+      - {label: 'Starting from ready:', box: [7.3, 1.6, 5.8, 0.45], size: 20, center: false}
+    table_box: [7.3, 2.15, 5.8]
+    table:
+      size: 18
+      row_h: 0.55
+      align_left: true
+      widths: [3.1, 2.7]
+      header: ['Fixed policy at ready', 'Reward sequence']
+      rows:
+        - ['Always steady service', '0.8, 0.8, 0.8, …']
+        - ['Always start a large job', '0, 2, 0, 2, …']
+    after_box: [0.244, 4.9, 12.85]
+    after:
+      - text: '**There is no terminal state. What should good long-run performance mean?**'
+    minutes: 2
+    sources: [old Value Function Approximation PPTX 37 (continuing-objective motivation only), deck decision D7 (ChatGPT's service example)]
+    notes: |
+      This is a separate continuing example, not a restart of the grid. Both policies use forced completion at
+      busy. Discounted return is already one meaningful objective for such a task. We now contrast it with average
+      reward. All rewards are received on the stated transitions and each transition consumes one equal unit of
+      time. Students identify the two reward sequences before the next slide. No policy learning algorithm is
+      introduced. Do not copy VFA PPTX 37's stationary-limit line or the later differential-value slides.
+
+  - id: MT13a
+    kind: math
+    title: Discounted return and average reward
+    body_box: [0.244, 0.95, 12.85, 2.3]
+    size: 22
+    eq_size: 24
+    body:
+      - text: '**Average reward: expected reward per step over a long run**'
+      - text: 'For the policies in this service example, starting from ready:'
+      - eq: 'r(\pi)\doteq\lim_{t\to\infty}\frac{1}{t}\mathbb{E}_{\pi}[R_1+R_2+\cdots+R_t\mid S_0=\text{ready}]'
+    tables:
+      - &avg_q
+        box: [1.2, 3.4, 10.9]
+        size: 20
+        row_h: 0.55
+        widths: [2.6, 3.3, 5.0]
+        header: ['Policy', 'Average reward per step', 'Discounted return from ready, $\gamma=0.5$']
+        rows:
+          - ['Steady service', '?', '?']
+          - ['Large jobs', '?', '?']
+      - <<: *avg_q
+        rows:
+          - ['Steady service', '0.8', '1.6']
+          - ['Large jobs', '(0 + 2)/2 = 1', '4/3 ≈ 1.333']
+    after_box: [0.244, 5.45, 12.85]
+    after:
+      - text: '**The objective changes the ranking:** discounted return prefers steady service; average reward prefers large jobs.'
+    reveal: ['yaml:tables.1', 'yaml:after']
+    minutes: 3
+    sources: [old Value Function Approximation PPTX 37 (average-reward definition, restricted to the time-average form), book §10.3 Eq. 10.6 printed 249 / PDF 271 (Eq. 10.7 not used)]
+    notes: |
+      About 1 minute students compute rates, 1 minute discounted comparison, 1 minute interpretation. Ask for the
+      average-reward entries first; click: full table; click: ranking line. Show the rates as the proportion of
+      total reward to elapsed steps. Discounted values:
+      Steady: 0.8 + 0.5×0.8 + … = 0.8/(1−0.5) = 1.6.
+      Large jobs: 0 + 0.5×2 + 0.5³×2 + … = 1/(1−0.5²) = 4/3.
+      The job pays more per step in the long run but delays its first payment. This is an objective choice;
+      neither objective is universally correct.
+      The alternating policy is periodic. Its time average exists, but its individual expected rewards oscillate;
+      do not write r(π) = lim 𝔼[R_t] or claim convergence to a stationary distribution. No ergodicity lesson is
+      required. The displayed definition is scoped to this example, avoiding a claim that every MDP has a
+      start-independent average reward.
+      The discounted TD(0) rule taught earlier does not by itself learn this average-reward objective. No
+      differential returns, differential Bellman equations, average-reward algorithm or approximation teaser here.
+      MT13 and MT13a together keep exactly the accepted five-minute contrast.
+
+  - id: MT14
+    kind: math
+    title: What can we learn before the episode ends?
+    body_box: [0.244, 1.0, 12.85, 5.9]
+    size: 24
+    body:
+      - 'MC updates toward a completed observed return.'
+      - 'TD updates toward an observed reward plus estimated continuation.'
+      - 'Both can evaluate a fixed policy from experience.'
+      - text: '**Exit check:** Which needs the next state''s estimate? Which needs the completed return?'
+      - text: '**Next session:** bias, variance, n-step targets and evaluating learning.'
+      - text: '**Week 4:** improve policies using learned action values.'
+    minutes: 1.5
+    sources: [old Model-Free Prediction PPTX 6 (roadmap, reduced) and 29 (availability question)]
+    notes: |
+      TD uses the next estimate; complete-return MC waits for the return. Both methods here are model-free and
+      on-policy; episode-based MC can still learn while collecting fresh data. The service example changed the
+      objective, not these answers. Link back to GPI: greedy improvement using state values alone ordinarily needs
+      a model for action lookahead; learning action values provides the next route. Do not give SARSA/Q-learning
+      rules yet.

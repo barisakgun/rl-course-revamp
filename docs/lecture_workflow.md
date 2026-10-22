@@ -144,6 +144,14 @@ stay exact, but report them as "targets sum to X", not as proof that the lecture
 explanation and discussion time; required spoken content counts even when it is only in the notes. Changes to accepted
 allocations or ceilings go through the normal decision process.
 
+**Delivery allowance up to 63 minutes** (instructor, 2026-10-21). A deck's slide targets for a session may go up to 63
+minutes where the motivation and intuition behind methods need the time. This is a delivery allowance, not a target to
+fill: plan to the session's accepted minutes first and use the allowance for motivation, intuition and worked reasoning,
+not extra topics. The planning fraction in `config/course.yaml` (0.85, 59.5 usable minutes) and the accepted session
+allocations in `decisions/topic_decisions.yaml` are unchanged, so slide targets above the allocation are recorded per deck
+as "fine for delivery; planning estimate unchanged" (as in `bellman` C15/C24). Using the allowance reduces that lecture's
+buffer to about 7 minutes.
+
 ## Important decisions (reasons to pause)
 
 Pause and ask the instructor only for:

@@ -2,7 +2,7 @@
 """Minimal LaTeX -> native PowerPoint equation (OMML) converter for Claude-built decks.
 
 Supports the subset used in lecture decks: letters/digits/operators, sub- and superscripts (x_t, x^{2}, x_a^b),
-\\sum with limits, \\mathcal{S}, \\mathbb{E}, \\text{...}, \\Pr, \\{ \\}, \\mid, \\doteq, \\ldots, \\cdots,
+\\sum with limits, \\frac, \\lim_{...}, \\mathcal{S}, \\mathbb{E}, \\text{...}, \\Pr, \\{ \\}, \\mid, \\doteq, \\ldots, \\cdots,
 Greek letters, primes, spacing commands. Unsupported commands raise ValueError, so a typo cannot silently produce
 a wrong equation. The output is editable in PowerPoint's equation editor; the LaTeX source is kept in the slide
 notes by the builder.
@@ -30,7 +30,7 @@ SYMBOLS = {
     'cdot': '·', 'pm': '±', 'quad': ' ', 'qquad': '  ', ',': ' ', ';': ' ', ' ': ' ',
     '{': '{', '}': '}', 'lvert': '|', 'rvert': '|', 'prime': '′', 'leftarrow': '←', 'sum': '∑',
 }
-UPRIGHT_CMDS = {'Pr': 'Pr', 'max': 'max', 'min': 'min', 'arg': 'arg', 'log': 'log', 'exp': 'exp'}
+UPRIGHT_CMDS = {'Pr': 'Pr', 'max': 'max', 'min': 'min', 'lim': 'lim', 'arg': 'arg', 'log': 'log', 'exp': 'exp'}
 CAL = {c: ch for c, ch in zip('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵')}
 EQ_THEME_COLOR = 'accent5'        # #4472C4 in the course template
 BB = {'E': '𝔼', 'R': 'ℝ', 'N': 'ℕ', 'P': 'ℙ'}
@@ -105,6 +105,9 @@ class Parser:
                 return ('t', UPRIGHT_CMDS[v], True)
             if v == 'sum':
                 return ('sum',)
+            if v == 'frac':
+                num = self.group(); den = self.group()
+                return ('frac', num, den)
             if v in ('left', 'right', 'big', 'Big'):
                 return ('grp', [])
             if v in SYMBOLS:
@@ -185,7 +188,7 @@ def _emit(items, parent, size, color):
             parent.append(_run(it[1], it[2], size, color))
         elif kind == 'grp':
             _emit(it[1], parent, size, color)
-        elif kind == 'script' and it[1][0] == 't' and it[1][1] in ('max', 'min') and it[2] and not it[3]:
+        elif kind == 'script' and it[1][0] == 't' and it[1][1] in ('max', 'min', 'lim') and it[2] and not it[3]:
             el = etree.SubElement(parent, M + 'limLow')       # \max_{...}: limit set below the operator
             e = etree.SubElement(el, M + 'e'); _emit([it[1]], e, size, color)
             lim = etree.SubElement(el, M + 'lim'); _emit(it[2], lim, size, color)
@@ -198,6 +201,10 @@ def _emit(items, parent, size, color):
                 s = etree.SubElement(el, M + 'sub'); _emit(sub, s, size, color)
             if sup:
                 s = etree.SubElement(el, M + 'sup'); _emit(sup, s, size, color)
+        elif kind == 'frac':
+            el = etree.SubElement(parent, M + 'f')
+            n = etree.SubElement(el, M + 'num'); _emit(it[1], n, size, color)
+            d = etree.SubElement(el, M + 'den'); _emit(it[2], d, size, color)
         elif kind == 'nary':
             _, sub, sup, body = it
             el = etree.SubElement(parent, M + 'nary')

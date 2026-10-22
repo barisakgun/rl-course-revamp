@@ -1,6 +1,6 @@
 # Notation guide
 
-**Shared** by Claude and ChatGPT for all lecture, assignment and exam material. Status: draft started 2026-10-05; the instructor confirms changes and resolves open items when needed. Updated 2026-10-11 by the instructor: Q_k(s, a) for Q-value iteration; policy and optimality marks are superscripts (v^π, q^π, v^\*, q^\*, π^\*, B^π), departing from the book's subscripts. Updated 2026-10-09 with instructor approval: V_k(s) for dynamic-programming sweeps. Updated 2026-10-08 by the instructor: 𝒯 and ℳ for the dynamics (O12); ℛ is the reward function, no longer the set of possible rewards. Updated 2026-10-07 during authorized 1.2 finalization: explicit-reward H_t added and O10 resolved by the instructor's earlier approval. The 2026-10-06 additions (O_t, O9 conversions and O11) remain.
+**Shared** by Claude and ChatGPT for all lecture, assignment and exam material. Status: draft started 2026-10-05; the instructor confirms changes and resolves open items when needed. Updated 2026-10-21 by the instructor: N(s), the visit count for Monte Carlo sample averages (deck decision `mc_td` D4). Updated 2026-10-11 by the instructor: Q_k(s, a) for Q-value iteration; policy and optimality marks are superscripts (v^π, q^π, v^\*, q^\*, π^\*, B^π), departing from the book's subscripts. Updated 2026-10-09 with instructor approval: V_k(s) for dynamic-programming sweeps. Updated 2026-10-08 by the instructor: 𝒯 and ℳ for the dynamics (O12); ℛ is the reward function, no longer the set of possible rewards. Updated 2026-10-07 during authorized 1.2 finalization: explicit-reward H_t added and O10 resolved by the instructor's earlier approval. The 2026-10-06 additions (O_t, O9 conversions and O11) remain.
 
 Base convention: Sutton & Barto, *Reinforcement Learning: An Introduction*, 2nd ed., "Summary of Notation". Later units add symbols the book does not use; they are listed separately so the base stays recognisable to students who read the book.
 
@@ -47,6 +47,7 @@ Base convention: Sutton & Barto, *Reinforcement Learning: An Introduction*, 2nd 
 | B^π | Bellman (expectation) operator (used sparingly; finite examples before operator notation); B^\* for the optimality operator if needed |
 | δ_t | TD error |
 | U_t | Update target |
+| N(s) | Number of (first) visits to s so far; Monte Carlo sample averages, V(s) ← V(s) + (1/N(s))[G − V(s)]. Not indexed by k, which counts DP sweeps (instructor approved 2026-10-21, deck decision `mc_td` D4; relation to the bandit N_t(a) to be revisited when Week 9 needs it) |
 | α, ε | Step size; exploration probability of ε-greedy |
 | b(a ∣ s) | Behaviour policy (off-policy learning) |
 | ρ_{t:h}, ρ_t | Importance-sampling ratio |

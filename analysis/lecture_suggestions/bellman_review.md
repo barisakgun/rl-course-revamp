@@ -595,3 +595,42 @@ No finding remains open. The deck is ready for the instructor's acceptance (step
 ## Deck accepted — 2026-10-20
 
 The instructor confirmed the animations and accepted the deck as done (C25), fingerprint `ec28bf43c37e2b7f37fa8e18e3f400414a0aaaeea91645923e847ea9561d20db`. Status: [deck decisions](../../decisions/lectures/bellman.md).
+
+## Pilot v2 retrospective (first deck under pilot v2) — 2026-10-21
+
+Written by Claude with the instructor's comments, as `docs/lecture_workflow.md` ("Evaluating pilot v2") asks after the first deck under pilot v2. **Outcome: the workflow continues as pilot v2; it is not yet a complete, final switch** (instructor, 2026-10-21).
+
+**Did the first PPTX keep the relevant source explanations?** Mostly yes.
+- The old-deck delta (keep / cut / fix / move) carried the old DP and MDP material, adapted to the entry-reward convention and the 2×2 grid.
+- Natively drawn grids and diagrams kept everything editable.
+- 2.2 went particularly smoothly (instructor).
+
+**Did the instructor have to restore motivation?** Yes, in places.
+- The instructor added the "So Far" recap and the "Brainstorming" question to 2.1.
+- They added a step-by-step q-value derivation (B05a) and the policy-convergence remark on B24r.
+- They asked for the "Which one to choose?" slide (B25a).
+
+**Lesson (instructor):** spend more time on the motivation and intuition behind each method, in the initial suggestions and in the content. The instructor is willing to allow more time per lecture for this; that is a separate decision.
+
+**Consequential errors caught by the checks** (before teaching):
+- the deterministic-policy equation with a reward outcome and an unbound action (R15);
+- a bare action in a conditioning statement (R16);
+- "shrinks by at most γ" inverted (R07);
+- an unchanged greedy policy in VI used as a stopping rule (R41);
+- a worst-case bound stated as an actual rate, and one certification route stated as the only one (R47–R48);
+- old grid values carrying the wrong terminal convention (R03; panels recomputed);
+- instructor-typed equations left out of the agreed colour.
+
+**Where synchronization cost effort:**
+- the deck status line was rewritten by both AIs in many rounds, and fingerprints went stale quickly;
+- the R24–R28 open/closed back-and-forth (C16 → C24);
+- two timing notions to keep apart (slide targets against planning estimates; C15, C24);
+- several frozen first-render inputs for one deck (2.1, 2.2 and the additions);
+- PowerPoint export interruptions;
+- the text view missing tables that contain equations (since fixed).
+
+**Carry forward:**
+1. Motivation and intuition get explicit time in step 1.
+2. Multi-session decks: append later sessions to the edited PPTX (never rebuild); one frozen input per addition.
+3. After every edit outside PowerPoint: the style script (colour, superscripts) and the fallback refresh.
+4. Record timing once per session as "slide targets fine for delivery; planning estimate unchanged" unless an allocation changes.

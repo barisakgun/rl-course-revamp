@@ -117,7 +117,7 @@ Sources: [accepted topic decisions](../decisions/topic_decisions.yaml), [assessm
 | [Finite-difference policy search](#finite_difference_policy_gradient) | Exposure (accepted) | recognize | 7.1 |
 | [Average-reward RL](#average_reward) | Exposure (accepted) | recognize, explain | 3.1 |
 | [Intrinsic motivation and count-based exploration](#intrinsic_exploration) | Exposure (accepted) | explain | 11.2 |
-| [Psychological and neural connections](#psychology_neuroscience) | Exposure (accepted) | recognize | 3.1, 7.2 |
+| [Psychological and neural connections](#psychology_neuroscience) | Exposure (accepted) | recognize | 7.2 |
 | [Implicit Q-learning](#implicit_q_learning) | Core (accepted) | explain, analyze, implement | 12.1, 12.2 |
 | [Behavior cloning](#behavior_cloning) | Exposure (accepted) | explain | 12.1 |
 | [Maximization bias](#maximization_bias) | Core (accepted) | explain, analyze | 6.2 |
@@ -632,7 +632,7 @@ Group `psychology_connections`. **Exposure (accepted); accepted mastery: recogni
 
 Disperse brief psychology/neuroscience connections within existing examples, without a separate teaching block or assessment requirement.
 
-**Delivery:** live. **Sessions:** 3.1, 7.2. **Proposed assessment path:** none.
+**Delivery:** live. **Sessions:** 7.2. **Proposed assessment path:** none.
 
 **Accepted status:** foundational. 
 

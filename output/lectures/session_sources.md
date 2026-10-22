@@ -59,16 +59,15 @@ Local decks with no page-level evidence (added or not exported when the evidence
 
 - **Teaching:** 59 min (range 54–70); confidence medium
 - **Requires:** 2.2 `improvement`
-- **Worked activity:** Shared MC/TD trajectory; five-minute average-reward objective contrast; psychology context within the existing prediction-error example.
-- **Pacing note:** Average reward uses four previously unallocated minutes and one minute from taxonomy recap. It does not make average-reward algorithms a prerequisite.
-- **Segments:** MC/TD, data access and shared example (psychology connection embedded) (54 min); Average-reward objective (5 min)
+- **Worked activity:** Shared MC/TD trajectory; five-minute average-reward objective contrast.
+- **Pacing note:** Average reward uses four previously unallocated minutes and one minute from taxonomy recap. It does not make average-reward algorithms a prerequisite. Instructor 2026-10-21 removed the embedded psychology connection from this session (no minutes of its own); the psychology_connections group keeps its 7.2 placement.
+- **Segments:** MC/TD, data access and shared example (54 min); Average-reward objective (5 min)
 - **Prerequisite for:** A1 Planning and learning from sampled transitions (release week 4)
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
 | --- | --- | --- | --- |
 | prediction (`prediction`) | core · explain, derive, implement, analyze · live | MC and TD(0) updates on one shared trajectory; derive n-step target. Implement representative MC/TD prediction, not all return variants. Data-access taxonomy is brief and revisited. | [on_off_policy_learning](#topic-on-off-policy-learning), [online_offline_learning](#topic-online-offline-learning), [monte_carlo_prediction](#topic-monte-carlo-prediction), [sampling_bootstrapping](#topic-sampling-bootstrapping), [temporal_difference_learning](#topic-temporal-difference-learning), [bias_variance](#topic-bias-variance), [n_step_returns](#topic-n-step-returns) |
 | average_reward_context (`average_reward_context`) | exposure · recognize, explain · live | Five-minute introduction to average reward as a continuing-task objective; no differential-value derivation or algorithm. | [average_reward](#topic-average-reward) |
-| psychology_connections (`psychology_connections`) | exposure · recognize · live | Disperse brief psychology/neuroscience connections within existing examples, without a separate teaching block or assessment requirement. | [psychology_neuroscience](#topic-psychology-neuroscience) |
 
 ### 3.2 Bias, variance and n-step targets (`returns`)
 
@@ -883,15 +882,6 @@ Sessions: 3.1, 3.2, 4.2, 8.1, 8.2, 12.1.
 - **CS224R** (explicitly-covered):
   - [07_cs224r_offline_rl_2026.pdf](https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf#page=7) pp. 7–15 — Defines offline fixed-data learning and unsupported-action overestimation.
 
-<a id="topic-psychology-neuroscience"></a>
-### Psychological and neural connections (`psychology_neuroscience`)
-
-Sessions: 3.1, 7.2.
-
-- **Sutton & Barto:** §14.2 Classical Conditioning (printed pp. 343–357, [PDF pp. 365–379](../../sources/RLbook2020.pdf#page=365)); §15.3 The Reward Prediction Error Hypothesis (printed pp. 381–383, [PDF pp. 403–405](../../sources/RLbook2020.pdf#page=403)); §15.6 TD Error/Dopamine Correspondence (printed pp. 390–395, [PDF pp. 412–417](../../sources/RLbook2020.pdf#page=412))
-- **Sutton slides** (explicitly-covered):
-  - [23-biopsych.pdf](../../sources/sutton/23-biopsych.pdf#page=2) pp. 2–35 — Relates conditioning and reward prediction to TD models and dopamine evidence.
-
 <a id="topic-sampling-bootstrapping"></a>
 ### Sampling and bootstrapping (`sampling_bootstrapping`)
 
@@ -1471,6 +1461,15 @@ Sessions: 7.1, 7.2, 8.1, 13.1.
   - [l3-policy-gradient-and-advantage-estimation.pdf](../../sources/foundations-deep-rl-abbeel/l3-policy-gradient-and-advantage-estimation.pdf#page=5) pp. 5–24 — Derives likelihood-ratio policy-gradient estimators and trajectory decomposition.
 - **Sutton slides** (explicitly-covered):
   - [24-PG+hidden.pdf](../../sources/sutton/24-PG+hidden.pdf#page=2) pp. 2–15 — Develops policy-gradient theorem, REINFORCE and baseline subtraction.
+
+<a id="topic-psychology-neuroscience"></a>
+### Psychological and neural connections (`psychology_neuroscience`)
+
+Sessions: 7.2.
+
+- **Sutton & Barto:** §14.2 Classical Conditioning (printed pp. 343–357, [PDF pp. 365–379](../../sources/RLbook2020.pdf#page=365)); §15.3 The Reward Prediction Error Hypothesis (printed pp. 381–383, [PDF pp. 403–405](../../sources/RLbook2020.pdf#page=403)); §15.6 TD Error/Dopamine Correspondence (printed pp. 390–395, [PDF pp. 412–417](../../sources/RLbook2020.pdf#page=412))
+- **Sutton slides** (explicitly-covered):
+  - [23-biopsych.pdf](../../sources/sutton/23-biopsych.pdf#page=2) pp. 2–35 — Relates conditioning and reward prediction to TD models and dopamine evidence.
 
 <a id="topic-eligibility-traces"></a>
 ### Eligibility traces (`eligibility_traces`)

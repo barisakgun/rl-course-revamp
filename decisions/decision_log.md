@@ -1,5 +1,35 @@
 # Decision Log
 
+## 2026-10-22 — Week 3 deck (`mc_td`): session 3.1 accepted
+
+- Authority: instructor acceptance after both AIs' final checks ([mc_td D11](lectures/mc_td.md)). Accepted 3.1 deck: `course/lectures/week03/mc_td_claude.pptx`, SHA-256 `b1d2c2dec74ada2066b8a6134340c22e6a49688dbaf4b7dd0e505504c08b3be1`, 20 slides, slide targets 60 minutes (D10); planning estimate stays 59. No scope, allocation, assessment or workload change. The combined deck is not done; session 3.2 has not started.
+
+## 2026-10-22 — Week 3 deck (`mc_td`): 3.1 delivery target 60 minutes
+
+- Authority: instructor ("Timing is fine as is"), recorded as [mc_td D10](lectures/mc_td.md); resolves O3 (review R22). Change: the instructor's added two-minute recap raises 3.1's slide targets from 58 to 60. This uses one minute of the existing delivery allowance up to 63 minutes. It amends D6's statement that 3.1 uses no delivery allowance. No scope, planning-allocation (59), assessment or workload change; the protected exercise and average-reward minutes are unchanged, and no overrun moves into 3.2.
+
+## 2026-10-22 — Week 3 deck (`mc_td`): session 3.1 choices after cross-review
+
+- Authority: instructor answers I1–I3, recorded as [mc_td D6–D8](lectures/mc_td.md). D6: Examples 6.1 in 3.1, 6.2 and 6.4 in 3.2 (resolves O1). D7: ChatGPT's continuing service example for the average-reward contrast (resolves O2). D8: the consolidated 15-unit 3.1 sequence (slide targets 58 minutes) is the basis for the first-render content. No scope, allocation, assessment or workload change: average reward keeps 5 minutes, the 3.1 planning estimate stays 59, and 3.2's fit for 6.2/6.4 is to be shown in its step 1.
+- Subsequent instructor request authorized the first-render content after checking the cross-review (D9). No 3.1 question remained. ChatGPT prepared shared `course/lectures/week03/mc_td_content.md`: 19 slides retaining the 15 units and 58-minute targets, with checked equations, reuse references, answers and speaker cues. No PPTX, frozen earlier input, notation or curriculum allocation changed; the 19-state example remains deferred to 3.2.
+
+## 2026-10-21 — Week 3 deck (`mc_td`): N(s) notation; continuing example for average reward
+
+- Authority: instructor answers after Claude's step-1 suggestion, recorded as [mc_td D4–D5](lectures/mc_td.md). D4 adds N(s), the Monte Carlo visit count, to `course/notation_guide.md`. D5: the average-reward contrast uses a continuing example (the recycling robot or another; open as O2), not the episodic 2×2 grid. No scope, allocation, assessment or workload change. O1 (book-example placement) is decided after the cross-review.
+
+## 2026-10-21 — Delivery allowance up to 63 minutes per lecture
+
+- Authority: instructor choice (a) between a delivery rule and a formal change of the usable fraction. Deck slide targets may go up to 63 minutes per lecture where motivation and intuition need the time; recorded in the timing convention of `docs/lecture_workflow.md`. Not adopted: raising `planned_content_fraction` to 0.90. `config/course.yaml` (0.85), the accepted session allocations in `decisions/topic_decisions.yaml`, the semester time budget and all planning views are unchanged. Consequence: a lecture that uses the allowance keeps about 7 minutes of buffer instead of 10.5; with a day already lost to flooding, the remaining buffers and the three makeup lectures absorb delivery slips. No scope, assessment or workload change.
+
+## 2026-10-21 — Pilot v2 retrospective: continue with pilot v2
+
+- Authority: instructor comments on the first deck under pilot v2 (`bellman`). The retrospective is in the [Bellman shared review](../analysis/lecture_suggestions/bellman_review.md). The lecture workflow continues as pilot v2 (`docs/lecture_workflow.md`); it is not yet a complete, final switch. Lesson recorded: give motivation and intuition behind methods more time. The instructor's willingness to raise the nominal lecture budget to 63 minutes is a separate, pending decision (it would change `config/course.yaml` or the per-session allocations). No scope, allocation or workload change by this record.
+
+## 2026-10-21 — Week 3 deck (`mc_td`): pre-suggestion choices; 3.1 psychology connection removed
+
+- Authority: instructor answers before step 1 for session 3.1, recorded as [mc_td D1–D3](lectures/mc_td.md): one deck for 3.1–3.2; the 2×2 grid as running example plus the book's example as a standalone one- or two-slide illustration; the average-reward contrast stays.
+- Curriculum change (D3): the embedded psychology/neuroscience connection is removed from 3.1. Why: instructor judgement that 3.1's time is better spent on prediction and average reward. Evidence/displacement: it had no minutes of its own (embedded in the prediction-error example), so nothing is displaced and the 59-minute allocation and 54/5 segment split are unchanged. The `psychology_connections` group keeps its 7.2 placement, so the accepted "dispersed connections, no separate block" scope still holds with one placement fewer. No prerequisite, assessment, reading or workload consequence. Updated `decisions/topic_decisions.yaml` (`mc_td`) and regenerated the dependent views (Phase 3/4/6 views, `output/lecture_plan.md`, `output/topic_details.md`, `analysis/time_budget.md`, session source index); all freshness checks pass.
+
 ## 2026-10-20 — Bellman deck (sessions 2.1–2.2) accepted (done)
 
 - Authority: the instructor accepted the `bellman` deck after both AIs' final checks and confirmed the animations ([Bellman C25](lectures/bellman.md)). Accepted deck: `course/lectures/week02/bellman_claude.pptx`, SHA-256 `ec28bf43c37e2b7f37fa8e18e3f400414a0aaaeea91645923e847ea9561d20db`; text view and previews in sync. Slide targets 61 (2.1) and 59.5 (2.2) minutes; planning estimates unchanged at 60 and 58. No scope, assessment or workload change.

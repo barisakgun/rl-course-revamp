@@ -182,6 +182,8 @@ def text_math(p, latex, size, color=INK, bold=False):
                     emit(it[3], 30000, sz)
             elif it[0] == 'nary':
                 emit([('t', '∑', True)], baseline, sz); emit(it[3], baseline, sz)
+            elif it[0] == 'frac':
+                emit(it[1], baseline, sz); emit([('t', '/', True)], baseline, sz); emit(it[2], baseline, sz)
     emit(OMML.Parser(latex).seq())
 
 
@@ -342,7 +344,8 @@ def table(slide, x, y, w, spec, size=18, row_h=0.5, name='yaml:table'):
 
 
 def notes(slide, s):
-    srcs = eq_sources(s.get('body')) + eq_sources(s.get('after'))
+    srcs = list(dict.fromkeys(eq_sources(s.get('body')) + [x for b in s.get('blocks', []) for x in eq_sources(b['items'])]
+                              + eq_sources(s.get('after'))))
     if srcs:
         s = dict(s, notes=(s.get('notes', '').rstrip() + '\n\nEquation sources (LaTeX): ' + ' | '.join(srcs) + '\n'))
     head = f"Target: {s.get('minutes', 0)} min{' (appendix)' if s.get('appendix') else ''}. Sources: {', '.join(map(str, s.get('sources', [])))}."
@@ -787,6 +790,11 @@ def drawing(slide, items):
             b.name = f'draw:{n}:block'
             para_box(slide, x + 0.12, y + 0.08, w - 0.24, h - 0.16, it['text'], it.get('size', 18), INK,
                      align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE, name=f'draw:{n}:block_text')
+        elif 'outline' in it:                               # unfilled red frame, e.g. to highlight part of a figure
+            x, y, w, h = it['outline']
+            o = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(h))
+            o.fill.background(); o.line.color.rgb = RED; o.line.width = Pt(2.25); o.shadow.inherit = False
+            o.name = f'draw:{n}:outline'
         elif 'label' in it:
             x, y, w, h = it['box']
             para_box(slide, x, y, w, h, it['label'], it.get('size', 18), RED if it.get('red') else INK,
@@ -829,6 +837,10 @@ def k_math(slide, s, img):
     size, eq_size = s.get('size', 24), s.get('eq_size', s.get('size', 24))
     for fig in ([s['figure']] if s.get('figure') else []) + s.get('figures', []):
         copy_figure(slide, fig)
+    for pic in s.get('pictures', []):                      # picture copied by shape name from an old deck slide (below drawings)
+        src = Presentation(ROOT / pic['deck']).slides[pic['slide'] - 1]
+        sh = next(x for x in src.shapes if x.name == pic['shape'])
+        picture(slide, sh.image.blob, *pic['box'][:3], name=f"native:pic:{pic['slide']}:{pic['shape']}")
     if s.get('drawing'):
         drawing(slide, s['drawing'])
     bx = s.get('body_box', [MX, TOP, W - 2 * MX, BOTTOM - TOP])
@@ -839,12 +851,66 @@ def k_math(slide, s, img):
         tx = s.get('table_box', [MX, TOP + 1.2, W - 2 * MX])
         t = s['table']
         table(slide, tx[0], tx[1], tx[2], t, size=t.get('size', 20), row_h=t.get('row_h', 0.55))
+    for i, t in enumerate(s.get('tables', [])):            # several tables, e.g. a question table and its answer overlay
+        table(slide, *t['box'][:3], t, size=t.get('size', 20), row_h=t.get('row_h', 0.55), name=f'yaml:tables.{i}')
+    for i, b in enumerate(s.get('blocks', [])):            # extra rich-text boxes (separately revealable)
+        bb = b['box']
+        tb = textbox(slide, *bb[:3], bb[3] if len(bb) > 3 else BOTTOM - bb[1], name=f'yaml:blocks.{i}')
+        rich_paragraphs(tb.text_frame, b['items'], b.get('size', size), b.get('eq_size', eq_size))
     if s.get('after'):
         ax = s['after_box']
         tb = textbox(slide, *ax[:3], ax[3] if len(ax) > 3 else BOTTOM - ax[1], name='yaml:after')
         rich_paragraphs(tb.text_frame, s['after'], size, eq_size)
     if s.get('footnote'):
         footnote(slide, s['footnote'])
+
+
+def add_reveals(slide, steps):
+    """Click-to-appear builds (PowerPoint 'Appear', as the instructor uses): each step is a shape name or a list of
+    names appearing together on one click, in order. Names are the builder's shape names (yaml:after, yaml:tables.1)."""
+    P = '{http://schemas.openxmlformats.org/presentationml/2006/main}'
+    def find(name):
+        for c in slide.shapes._spTree.iter(P + 'cNvPr'):
+            anc = c.getparent()
+            while anc is not None and anc.tag != OMML.MC + 'Fallback':
+                anc = anc.getparent()
+            if anc is None and c.get('name') == name:
+                return c.get('id'), c.getparent().getparent().tag.split('}')[1]
+        raise ValueError(f'reveal: no shape named {name!r}')
+    ids, n = [], [2]
+    def ctn(**kw):
+        n[0] += 1
+        return ' '.join(f'{k}="{v}"' for k, v in dict(id=n[0], **kw).items())
+    clicks = []
+    for step in steps:
+        names = [step] if isinstance(step, str) else step
+        effects = []
+        for k, name in enumerate(names):
+            spid, tag = find(name)
+            ids.append((spid, tag))
+            effects.append(
+                f'<p:par><p:cTn {ctn(presetID=1, presetClass="entr", presetSubtype=0, fill="hold", grpId=0, nodeType="clickEffect" if k == 0 else "withEffect")}>'
+                '<p:stCondLst><p:cond delay="0"/></p:stCondLst><p:childTnLst><p:set><p:cBhvr>'
+                f'<p:cTn {ctn(dur=1, fill="hold")}><p:stCondLst><p:cond delay="0"/></p:stCondLst></p:cTn>'
+                f'<p:tgtEl><p:spTgt spid="{spid}"/></p:tgtEl><p:attrNameLst><p:attrName>style.visibility</p:attrName>'
+                '</p:attrNameLst></p:cBhvr><p:to><p:strVal val="visible"/></p:to></p:set></p:childTnLst></p:cTn></p:par>')
+        outer, inner = ctn(fill="hold"), ctn(fill="hold")
+        clicks.append(f'<p:par><p:cTn {outer}><p:stCondLst><p:cond delay="indefinite"/></p:stCondLst><p:childTnLst>'
+                      f'<p:par><p:cTn {inner}><p:stCondLst><p:cond delay="0"/></p:stCondLst><p:childTnLst>'
+                      + ''.join(effects) + '</p:childTnLst></p:cTn></p:par></p:childTnLst></p:cTn></p:par>')
+    bld = ''.join(f'<p:bldP spid="{i}" grpId="0"/>' if t == 'sp' else
+                  f'<p:bldGraphic spid="{i}" grpId="0"><p:bldAsOne/></p:bldGraphic>' if t == 'graphicFrame' else ''
+                  for i, t in ids)
+    xml = (f'<p:timing xmlns:p="{P[1:-1]}"><p:tnLst><p:par><p:cTn id="1" dur="indefinite" restart="never" nodeType="tmRoot">'
+           '<p:childTnLst><p:seq concurrent="1" nextAc="seek"><p:cTn id="2" dur="indefinite" nodeType="mainSeq"><p:childTnLst>'
+           + ''.join(clicks) + '</p:childTnLst></p:cTn><p:prevCondLst><p:cond evt="onPrev" delay="0"><p:tgtEl><p:sldTgt/>'
+           '</p:tgtEl></p:cond></p:prevCondLst><p:nextCondLst><p:cond evt="onNext" delay="0"><p:tgtEl><p:sldTgt/></p:tgtEl>'
+           '</p:cond></p:nextCondLst></p:seq></p:childTnLst></p:cTn></p:par></p:tnLst>'
+           + (f'<p:bldLst>{bld}</p:bldLst>' if bld else '') + '</p:timing>')
+    el = etree.fromstring(xml)
+    sld = slide._element
+    anchor = sld.find(P + 'clrMapOvr')
+    (anchor if anchor is not None else sld.cSld).addnext(el)
 
 
 def k_pptx_only(slide, s, img):
@@ -979,6 +1045,8 @@ def make_presentation(spec):
             set_title(slide, s['title'])
         KINDS[s['kind']](slide, dict(s, _deck=d) if s['kind'] == 'course_title' else s, img)
         OMML.wrap_math_shapes(slide)
+        if s.get('reveal'):
+            add_reveals(slide, s['reveal'])
         notes(slide, s)
     cp = prs.core_properties
     cp.title, cp.author, cp.last_modified_by = d['title'], d['author'], 'scripts/build_deck_claude.py'

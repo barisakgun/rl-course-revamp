@@ -698,16 +698,16 @@ lecture_plan:
   group_ids:
   - prediction
   - average_reward_context
-  - psychology_connections
   requires:
   - improvement
-  worked_activity: Shared MC/TD trajectory; five-minute average-reward objective contrast; psychology context within
-    the existing prediction-error example.
+  worked_activity: Shared MC/TD trajectory; five-minute average-reward objective contrast.
   feasibility_note: Average reward uses four previously unallocated minutes and one minute from taxonomy recap.
-    It does not make average-reward algorithms a prerequisite.
+    It does not make average-reward algorithms a prerequisite. Instructor 2026-10-21 removed the embedded
+    psychology connection from this session (no minutes of its own); the psychology_connections group keeps its
+    7.2 placement.
   confidence: medium
   segments:
-  - label: MC/TD, data access and shared example (psychology connection embedded)
+  - label: MC/TD, data access and shared example
     minutes: 54
   - label: Average-reward objective
     accepted_minutes_ref: average_reward_live_minutes

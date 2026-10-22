@@ -81,17 +81,17 @@ Teaching 1450.5 + additional administration 19 = 1469.5 of 1,527 usable minutes;
 
 ### 3.1 — Sampling, MC/TD and continuing objectives
 
-**Topic groups:** On-policy and off-policy learning, Online versus offline data access and related concepts; Average-reward RL; Psychological and neural connections.
+**Topic groups:** On-policy and off-policy learning, Online versus offline data access and related concepts; Average-reward RL.
 
 **Prerequisite sessions:** 2.2.
 
-**Worked activity:** Shared MC/TD trajectory; five-minute average-reward objective contrast; psychology context within the existing prediction-error example.
+**Worked activity:** Shared MC/TD trajectory; five-minute average-reward objective contrast.
 
-**Pacing:** Average reward uses four previously unallocated minutes and one minute from taxonomy recap. It does not make average-reward algorithms a prerequisite. Confidence: medium.
+**Pacing:** Average reward uses four previously unallocated minutes and one minute from taxonomy recap. It does not make average-reward algorithms a prerequisite. Instructor 2026-10-21 removed the embedded psychology connection from this session (no minutes of its own); the psychology_connections group keeps its 7.2 placement. Confidence: medium.
 
 | Exclusive teaching segment | Minutes |
 | --- | --- |
-| MC/TD, data access and shared example (psychology connection embedded) | 54 |
+| MC/TD, data access and shared example | 54 |
 | Average-reward objective | 5 |
 
 ### 3.2 — Bias, variance and n-step targets
