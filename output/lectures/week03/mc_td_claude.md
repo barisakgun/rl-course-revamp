@@ -2,7 +2,7 @@
 
 # Text view: mc_td_claude.pptx
 
-SHA-256 `b1d2c2dec74ada2066b8a6134340c22e6a49688dbaf4b7dd0e505504c08b3be1`
+SHA-256 `f7fd9c59b688adc91c6093bd96d0e2d6545d0fc700ed29dd1434782d5a803c71`
 
 ## 1. MT00 — COMP438/538 Reinforcement Learning
 
@@ -575,4 +575,636 @@ SHA-256 `b1d2c2dec74ada2066b8a6134340c22e6a49688dbaf4b7dd0e505504c08b3be1`
 > rules yet.
 >
 > Target: 1.5 min. Sources: old Model-Free Prediction PPTX 6 (roadmap, reduced) and 29 (availability question).
+
+## 21. MT15 — Can one episode decide?
+
+- Question: Does one episode tell us which method learns better?
+
+- Today: noisy targets, n-step prediction and evidence for a comparison.
+
+- We evaluated a fixed policy from experience:
+- $𝑈𝑡=𝐺𝑡 (MC),  𝑈𝑡=𝑅𝑡+1+𝛾𝑉(𝑆𝑡+1) (TD(0))$
+- Our grid episode gave different value updates.
+
+**Notes:**
+
+> Allow a response before the closing line (click: "Today" line). No: one episode illustrates mechanics, and the
+> 3.1 first-visit MC and TD update schedules also differed. Accuracy requires a true-value benchmark or an
+> appropriate independent evaluation procedure. Hold the policy fixed throughout this session. We ask why the
+> targets behave differently and how to judge repeated learning. Do not redo the 3.1 arithmetic.
+>
+> Equation sources (LaTeX): U_t=G_t\quad\text{(MC)},\qquad U_t=R_{t+1}+\gamma V(S_{t+1})\quad\text{(TD(0))}
+>
+> Target: 2 min. Sources: old Model-Free Prediction PPTX 29 (comparison question), 3.1 MT11 exercise (continuity).
+
+## 22. MT16 — Bias and variance describe repeated samples
+
+- At the same state, repeat the sampling experiment while holding the current table fixed.
+- Bias: mean target minus the true value.
+- Variance: spread of targets around their own mean.
+- Mean squared error = variance + bias².
+
+| Equally likely targets | Mean | Bias | Variance |
+| --- | --- | --- | --- |
+| 0.0 or 2.0 | 1.0 | ? | ? |
+| 0.8 or 1.0 | 0.9 | ? | ? |
+
+| Equally likely targets | Mean | Bias | Variance |
+| --- | --- | --- | --- |
+| 0.0 or 2.0 | 1.0 | 0.0 | 1.0 |
+| 0.8 or 1.0 | 0.9 | −0.1 | 0.01 |
+
+- Illustration, true value 1.0:
+
+**Notes:**
+
+> These are illustrative target distributions, not experiment results or labels for MC/TD. Ask which pair is
+> less spread out, then reveal the last two columns (click: answers). Zero bias alone need not mean lower
+> squared error: here the MSEs are 1 and 0.02. One observed target cannot establish its mean or spread.
+> Distinguish a random update target from the estimate after a history of updates. Keep this to meaning and the
+> simple numerical illustration; no statistical derivation live.
+>
+> Target: 2 min. Sources: old Model-Free Prediction PPTX 30 (framing; unconditional statements replaced), CS234 lecture 3 pp. 23–24.
+
+## 23. MT16a — What randomness enters each target?
+
+|  | MC | TD(0) |
+| --- | --- | --- |
+| Target | Gt | Rt+1+γV(St+1) |
+| Samples | Remaining episode | One transition |
+| Uses the current value table in the target? | No | Yes |
+
+- Question: On the grid, which random transitions affect each target for the start state?
+
+- $𝔼𝜋[𝐺𝑡∣𝑆𝑡=𝑠]=𝑣𝜋(𝑠)$
+- $𝔼𝜋[𝑅𝑡+1+𝛾𝑉(𝑆𝑡+1)∣𝑆𝑡=𝑠]-𝑣𝜋(𝑠)=𝛾 𝔼𝜋[𝑉(𝑆𝑡+1)-𝑣𝜋(𝑆𝑡+1)∣𝑆𝑡=𝑠]$
+- MC has an unbiased target. TD's target can inherit error from the table.
+
+**Notes:**
+
+> About 1 minute on the table, 1 on the expectation equation, 1 on the grid question. MC includes every later
+> slip and reward; TD(0) includes the next transition and the fixed table. Random actions also enter in
+> problems with a stochastic policy; the grid policy is deterministic. The TD expression is a Bellman
+> expectation backup, not necessarily the true value. Correct successor values are sufficient for zero target
+> bias, not necessary: successor errors can cancel. MC does not use V in its target, but a constant-α MC
+> estimate can still depend on its initialization. In noisy problems constant α generally leaves estimates
+> fluctuating.
+> Say: "Bootstrapping often reduces sampling variability, but a poor table can reverse that comparison." No
+> universal variance ordering for arbitrary learned tables.
+> Optional explanation if asked: with fixed correct V in a Markov task under a fixed policy, and finite second
+> moments, the TD target is the conditional expectation of the return given the first observed transition;
+> total variance gives its variance no greater than the return's. Longer true-value targets condition on
+> longer prefixes. This argument does not cover arbitrary inaccurate V. Counterexample: zero rewards throughout
+> and equally likely nonterminal successors with V = +1/−1 yield a variable TD target but a constant zero
+> return. Do not add a proof or counterexample slide.
+>
+> Equation sources (LaTeX): \mathbb{E}_{\pi}[G_t\mid S_t=s]=v^{\pi}(s) | \mathbb{E}_{\pi}[R_{t+1}+\gamma V(S_{t+1})\mid S_t=s]-v^{\pi}(s)=\gamma\,\mathbb{E}_{\pi}[V(S_{t+1})-v^{\pi}(S_{t+1})\mid S_t=s]
+>
+> Target: 3 min. Sources: old Model-Free Prediction PPTX 30 (equations rewritten), book §6.2, CS234 lecture 3 pp. 24–26.
+
+## 24. MT17 — Example 6.2: random-walk prediction
+
+*Image `native:pic:32:Picture 3`*
+
+| State | A | B | C | D | E |
+| --- | --- | --- | --- | --- | --- |
+| True value | 1/6 | 2/6 | 3/6 | 4/6 | 5/6 |
+
+- Book Example 6.2 (Sutton & Barto, 2018, p. 125).
+
+- Five nonterminal states A, B, C, D, E between left and right terminals. Start at C. Each step moves left or right with probability 0.5.
+- New example: $𝛾=1$, +1 on right-terminal entry, 0 on every other transition.
+- Both terminals have zero continuation value.
+- Start with $𝑉(𝑠)=0.5$ for each nonterminal state.
+
+- Question: Why is $𝑣𝜋(C)=0.5$?
+
+**Notes:**
+
+> One minute setup, one on return/probability interpretation, one on measurement. This is a Markov reward
+> process, equivalent to holding a policy fixed; no action selection to optimize. Undiscounted return is 1 on a
+> right exit and 0 on a left exit, so value is the probability of exiting right. Symmetry gives 0.5 at C. Supply
+> the other values; do not add a linear-system exercise. Measure RMS value error over the five states, not
+> episode reward. Explain RMS as: square each prediction error, average over states, then take the square
+> root. True values and the model are available to us for checking; the learning updates use experience only.
+> Announce the changed rewards/discount explicitly: this is not the grid.
+>
+> Equation sources (LaTeX): \gamma=1 | V(s)=0.5 | v^{\pi}(\text{C})=0.5
+>
+> Target: 3 min. Sources: old Model-Free Prediction PPTX 32 (chain picture), book Example 6.2 printed p. 125 / PDF 147.
+
+## 25. MT17a — What the random-walk curves show
+
+*Image `native:pic:32:Picture 4`*
+
+*Image `native:pic:32:Picture 5`*
+
+- Left: one TD(0) run, α=0.1, estimated values by state
+
+- Right: mean RMS error over 100 runs, several α values, by training episode
+
+- Question: After the first episode, only V(A) changed. Where did the episode end, and by how much did V(A) change?
+
+- Plots: book Example 6.2 (p. 125). Not Figure 6.2, which shows batch training.
+
+- Answer: left exit. V(A): $0.5+0.1(0-0.5)=0.45$
+
+**Notes:**
+
+> About 45 seconds for the two axes, 45 for the prompt, 30 for the answer/transition (click: answer). Every
+> nonterminal-to-nonterminal TD target during that first episode was 0 + 0.5, equal to the current estimate.
+> The left-terminal transition alone gives target zero and a −0.05 change. The episode may have revisited
+> states; its exact path cannot be inferred. With constant α the noisy estimates need not settle exactly on the
+> true values. The right plot shows lower error for TD at the illustrated settings; defer the strength and
+> fairness of that conclusion to evaluation. It has no uncertainty bands.
+> Transition: "What does each method do with the same finite experience if we train on it repeatedly?"
+> Do not claim a first-visit convention for the book's plotted constant-α MC; the source does not specify it.
+>
+> Equation sources (LaTeX): 0.5+0.1(0-0.5)=0.45
+>
+> Target: 2 min. Sources: old Model-Free Prediction PPTX 32 (both plots), book Example 6.2 and Exercise 6.3, printed pp. 125–126 / PDF 147–148.
+
+## 26. MT18 — Learning repeatedly from a fixed batch
+
+- Question: Can repeated learning from the same data lead to different answers?
+
+- We have a fixed set of complete episodes. No new experience arrives.
+- For each pass through the batch:
+- 1. Hold V fixed while computing each visit's increment.
+- 2. Add the increments for each state.
+- 3. Apply those sums, then start the next pass.
+- $increment=𝛼[𝑈𝑡-𝑉(𝑆𝑡)]$
+- MC uses the observed return. TD uses the reward and the next state's estimate.
+
+**Notes:**
+
+> Set up the experiment before the puzzle. "Fixed V" lasts for one pass, not all passes; bootstrapped targets
+> change on later passes. This is the batch convention of book §6.3, not online updates applied immediately on
+> each visit, and not a first introduction to modern offline-control problems. Use sufficiently small α for
+> stable batch iteration. In this small tabular example each method approaches its own fixed point. Repeating a
+> batch changes computation, not the amount of collected experience. The next example asks about the converged
+> batch answers, not one pass from zero.
+>
+> Equation sources (LaTeX): \text{increment}=\alpha[U_t-V(S_t)]
+>
+> Target: 3 min. Sources: old Model-Free Prediction PPTX 33 (finite-data question; batch curve omitted), book §6.3 printed p. 126 / PDF 148, Sutton TD slides pp. 21–31.
+
+## 27. MT19 — Example 6.4: you are the predictor
+
+| Count | Episode, with rewards on transitions |
+| --- | --- |
+| 1 | A →(0) B →(0) terminal |
+| 6 | B →(1) terminal |
+| 1 | B →(0) terminal |
+
+- Question: What should V(A) and V(B) be after repeated batch learning?
+- Vote for V(A):   0,   0.75,   or   depends on the prediction rule.
+
+- Book Example 6.4 (Sutton & Barto, 2018, p. 127).
+
+- New example: states A and B, $𝛾=1$, zero terminal continuation.
+- Eight observed episodes:
+
+**Notes:**
+
+> One minute to parse the counts and think, one minute for a vote and reasons. There are eight B observations,
+> including B in the first episode. State names are local to this new example; they are unrelated to A/B in the
+> five-state walk. Give no answer until MT19a.
+>
+> Equation sources (LaTeX): \gamma=1
+>
+> Target: 2 min. Sources: old Model-Free Prediction PPTX 34 (data; answers and model diagram moved to MT19a), book Example 6.4 printed p. 127 / PDF 149, Silver lecture 4 AB example.
+
+## 28. MT19a — Two batch answers from the same data
+
+*Image `native:pic:34:Picture 4`*
+
+- Empirical model from the eight episodes
+
+- MC: fit the observed returns at each state.
+- TD: use the observed transitions and share the continuation estimate at B.
+
+|  | Batch MC | Batch TD(0) |
+| --- | --- | --- |
+| B | V(B)=6/8=0.75 | V(B)=6/8=0.75 |
+| A | Its only observed return was 0 | Its observed successor was B, with reward 0 |
+| Answer at A | V(A)=0 | V(A)=0+V(B)=0.75 |
+
+- Data: A →(0) B →(0) terminal ×1;  B →(1) terminal ×6;  B →(0) terminal ×1.
+
+- Question: When is it reasonable to reuse all the B outcomes after arriving from A?
+
+- Model picture: old course slides (book Example 6.4). Both terminal branches have continuation zero.
+
+**Notes:**
+
+> About 1 minute for B, 1 for the MC answer, 2 for the TD/model explanation, 1 for the question. Reusing B's
+> outcomes assumes the future from B does not depend on arriving via A versus starting in B: the Markov
+> property. Batch MC minimizes squared error on observed returns. It fits A's one return exactly, but that does
+> not establish best future prediction. At B the observed targets include both 0 and 1, so neither method fits
+> every return exactly. Batch TD's fixed point equals the value of the maximum-likelihood empirical Markov
+> model in this example, often called the certainty-equivalence answer. TD itself need not build or solve that
+> model.
+> The data do not prove this empirical model is the true environment. With only one A visit, both answers
+> reflect limited evidence. If the label B hides relevant history, pooling all its continuations can mislead.
+> MC avoids bootstrapping through that aliased state but does not repair partial observability. Do not present
+> this as proof TD always wins or merely as a bias–variance illustration: the central distinction is return
+> fitting versus Markov structure in batch learning. Ordinary online updates need not reach either batch answer
+> after one pass.
+>
+> Target: 5 min. Sources: old Model-Free Prediction PPTX 34 (empirical Markov diagram) and 35 (two solution interpretations, corrected), book §6.3 pp. 127–128 / PDF 149–150, Silver lecture 4, Sutton TD slides pp. 21–31.
+
+## 29. MT20 — Between one transition and a complete return
+
+- V(St+1)
+
+- ⋮
+
+- V(St+n) if still running
+
+- ⋮
+
+- terminal
+
+- TD(0): one reward, then V at the next state
+
+- n-step TD: n rewards, then V if the episode continues
+
+- MC: rewards through termination
+
+- Question: How much experience should we use before trusting the remaining value estimate?
+
+- Sampled backup paths after Sutton & Barto (2018), Figure 7.1. Open circles: states; solid dots: actions.
+
+**Notes:**
+
+> This is a change in how far the sampled backup reaches, not a model-based tree expansion or a new policy.
+> Longer targets use more observed outcomes before bootstrapping, at the cost of waiting longer. Show
+> termination without a value tail. No claim that adding samples always increases variance. The n-step method
+> can update before a long episode ends.
+>
+> Target: 2 min. Sources: old Model-Free Prediction PPTX 37–38 (backup endpoints) and 41–42 (framing; superficial-coverage note and λ question removed), book Figure 7.1 p. 142 / PDF 164, Sutton multistep slides pp. 3–10.
+
+## 30. MT21 — The n-step target
+
+- Before termination, replace the unobserved tail by the current estimate:
+- $𝐺𝑡:𝑡+1=𝑅𝑡+1+𝛾𝑉(𝑆𝑡+1)$
+- $𝐺𝑡:𝑡+2=𝑅𝑡+1+𝛾𝑅𝑡+2+𝛾2𝑉(𝑆𝑡+2)$
+
+- For a positive integer n and a visit $𝑡<𝑇$:
+- If $𝑡+𝑛<𝑇$:
+- $𝐺𝑡:𝑡+𝑛=𝑖=1𝑛𝛾𝑖-1𝑅𝑡+𝑖+𝛾𝑛𝑉(𝑆𝑡+𝑛)$
+- If $𝑡+𝑛≥𝑇$:
+- $𝐺𝑡:𝑡+𝑛=𝑖=1𝑇-𝑡𝛾𝑖-1𝑅𝑡+𝑖=𝐺𝑡$
+
+- Same update form when the target becomes available:
+- $𝑉(𝑆𝑡)←𝑉(𝑆𝑡)+𝛼[𝐺𝑡:𝑡+𝑛-𝑉(𝑆𝑡)]$
+
+**Notes:**
+
+> One minute expanding the first two targets, two for deriving the general/terminal cases (click: general
+> case), one for the update (click: update). Split the complete return into n observed rewards and its
+> remaining discounted tail; replace that tail by V. The last observed reward has weight γ^(n−1), and the
+> continuation has weight γ^n. At or past termination there is no continuation, no fictitious extra reward and
+> no state lookup beyond T. The terminal-entry payoff is already included once. V means the table available
+> when computing the delayed update, immediately before that update, unless a frozen snapshot is explicitly
+> requested. Thus these equations do not silently mean the old table from the original visit time t. Use the
+> in-place form to avoid a new update-clock symbol.
+>
+> Equation sources (LaTeX): G_{t:t+1}=R_{t+1}+\gamma V(S_{t+1}) | G_{t:t+2}=R_{t+1}+\gamma R_{t+2}+\gamma^{2}V(S_{t+2}) | t<T | t+n<T | G_{t:t+n}=\sum_{i=1}^{n}\gamma^{i-1}R_{t+i}+\gamma^{n}V(S_{t+n}) | t+n\geq T | G_{t:t+n}=\sum_{i=1}^{T-t}\gamma^{i-1}R_{t+i}=G_t | V(S_t)\leftarrow V(S_t)+\alpha[G_{t:t+n}-V(S_t)]
+>
+> Target: 4 min. Sources: old Model-Free Prediction PPTX 43 (equations converted to the guide notation; reward indices fixed), book §7.1 eqs. 7.1–7.2 printed pp. 143–144 / PDF 165–166.
+
+## 31. MT21a — When can the update happen?
+
+- For the visit at time t, wait until n further transitions or termination, whichever comes first.
+
+| Experience observed | Earliest eligible work |
+| --- | --- |
+| One transition | Wait, unless it terminated |
+| Two transitions | Update the visit at time 0 |
+| Later transitions | Update visits as their targets become available |
+| Episode terminates | Complete all remaining visits in their original order |
+
+- For n = 2:
+
+- Terminal completion needs no further environment transitions.
+- $𝑉(𝑆𝑡)←𝑉(𝑆𝑡)+𝛼[𝐺𝑡:𝑡+𝑛-𝑉(𝑆𝑡)]$
+
+**Notes:**
+
+> Distinguish environment interaction from processing pending updates. Before n rewards arrive, the target
+> usually needs data we have not seen. If the episode ends sooner, the complete return is already known. Finish
+> pending visits before starting the next episode. A repeated state may receive multiple updates. A target equal
+> to the complete return does not by itself make the update schedule first-visit MC; n-step prediction updates
+> each visit. The next exercise shows the terminal flush explicitly.
+>
+> Equation sources (LaTeX): V(S_t)\leftarrow V(S_t)+\alpha[G_{t:t+n}-V(S_t)]
+>
+> Target: 2 min. Sources: book §7.1 algorithm p. 144 / PDF 166 (without its auxiliary τ notation).
+
+## 32. MT22 — Your turn: targets on the grid
+
+- (1,1)
+
+- (1,2)
+
+- (2,1)
+
+- (2,2) goal
+
+| State | (1,1) | (1,2) | (2,1) | goal |
+| --- | --- | --- | --- | --- |
+| V | −0.03 | 0.5 | 0 | 0 |
+
+- Always choose right. $𝛾=0.5$, $𝛼=0.5$. Observe:
+- (1,1) —(−0.04)→ (1,1) —(−0.04)→ (1,2) —(+1)→ goal,   $𝑇=3$
+- Use this frozen starting snapshot, the table after 3.1's TD pass:
+
+- 1. At $𝑡=0$, calculate the targets for n = 1, 2, 3 and 5.
+- 2. Using n = 2, make one isolated update to V((1,1)).
+- Hold every table entry fixed while calculating part 1. Part 2 starts from the same snapshot.
+
+**Notes:**
+
+> PROTECTED exercise (MT22–MT22b, 9 minutes). About 30 seconds setup, three minutes student calculation/pair
+> comparison, 30 seconds collecting answers. The time-0 successor is the same grid state, so the one-step target
+> uses −0.03. The two-step target uses 0.5 at the upper-left state. No transition probabilities or true values
+> are needed. Keep the numerical answer off this slide. Next slide supplies the answers; the final exercise slide
+> resets and performs chronological updates.
+>
+> Equation sources (LaTeX): \gamma=0.5 | \alpha=0.5 | T=3 | t=0
+>
+> Target: 4 min. Sources: 3.1 grid and shared trajectory (MT04, MT10), old Model-Free Prediction PPTX 43 (formula); numbers checked by scripts/check_mc_td_returns_claude.py.
+
+## 33. MT22a — Grid targets and one isolated update
+
+| n | Target for the time-0 visit |
+| --- | --- |
+| 1 | −0.04 + 0.5(−0.03) = −0.055 |
+| 2 | −0.04 + 0.5(−0.04) + 0.5²(0.5) = 0.065 |
+| 3 | −0.04 + 0.5(−0.04) + 0.5²(1) = 0.19 |
+| 5 | 0.19 because the episode already ended |
+
+- Question: For n = 5, why is there no extra discounting after the goal?
+
+- Episode (1,1) →(−0.04) (1,1) →(−0.04) (1,2) →(+1) goal.  Snapshot V((1,1)) = −0.03, V((1,2)) = 0.5.  $𝛾=𝛼=0.5$.
+
+- One isolated n = 2 update:
+- $𝑉((1,1))←-0.03+0.5[0.065-(-0.03)]=0.0175$
+
+**Notes:**
+
+> The same realized rewards remain at their original time indices. Extending the requested horizon cannot push
+> the terminal payoff later or create a bootstrap from a nonexistent state. The equal n = 3/5 targets are
+> complete returns. These frozen-snapshot targets compare backup horizons on one trajectory, not expected
+> accuracy. Repeated-state updates have not yet been applied in part 1.
+>
+> Equation sources (LaTeX): \gamma=\alpha=0.5 | V((1,1))\leftarrow-0.03+0.5[0.065-(-0.03)]=0.0175
+>
+> Target: 2 min. Sources: MT22 trajectory and snapshot; numbers checked by scripts/check_mc_td_returns_claude.py.
+
+## 34. MT22b — Reset, then update in time order
+
+- Reset to V((1,1)) = −0.03, V((1,2)) = 0.5. Use n = 2 and α = 0.5.
+
+| When | Visit updated | Target | New estimate |
+| --- | --- | --- | --- |
+| After transition 1 | ? | ? | ? |
+| After transition 2 | ? | ? | ? |
+| At termination, after transition 3 | ? | ? | ? |
+| Finish pending work, no new transition | ? | ? | ? |
+
+| When | Visit updated | Target | New estimate |
+| --- | --- | --- | --- |
+| After transition 1 | None | — | No change |
+| After transition 2 | t=0, (1,1) | 0.065 | 0.0175 |
+| At termination, after transition 3 | t=1, (1,1) | −0.04 + 0.5(1) = 0.46 | 0.23875 |
+| Finish pending work, no new transition | t=2, (1,2) | 1 | 0.75 |
+
+- $0.0175+0.5(0.46-0.0175)=0.23875,  0.5+0.5(1-0.5)=0.75$
+- Same trajectory, delayed information, multiple visits.
+
+**Notes:**
+
+> One minute for eligibility predictions, one for the repeated-state update, one for terminal completion and
+> questions. Ask when each visit becomes eligible, then click: answers. The second update to (1,1) uses its new
+> estimate 0.0175, not the frozen −0.03. Its target contains only observed rewards because t+n = T. The final
+> pending visit uses the complete one-reward return. State (2,1) remains 0, the goal remains 0. These are
+> mechanics, not a ranking of learning methods. The first-visit MC schedule from 3.1 updates the repeated state
+> only once, whereas this trace updates both visits.
+>
+> Equation sources (LaTeX): 0.0175+0.5(0.46-0.0175)=0.23875,\qquad 0.5+0.5(1-0.5)=0.75
+>
+> Target: 3 min. Sources: MT22 trajectory and snapshot; book §7.1 algorithm p. 144; numbers checked by scripts/check_mc_td_returns_claude.py.
+
+## 35. MT23 — A larger random walk tests the choice of n
+
+- Both terminal continuation values are zero.
+- The plot measures RMS error over 19 states at each episode end, then averages over the first 10 episodes and 100 runs.
+
+|  | Earlier five-state walk | New 19-state walk |
+| --- | --- | --- |
+| Start | C | Middle state |
+| Moves | Left/right with probability 0.5 | Same |
+| Terminal-entry rewards | Left 0, right +1 | Left −1, right +1 |
+| Other rewards / γ | 0 / 1 | 0 / 1 |
+| Initial nonterminal V | 0.5 | 0 |
+
+- Book Example 7.1 (Sutton & Barto, 2018, p. 145).
+
+**Notes:**
+
+> This is the book's distinct experiment in Example 7.1, not a new run of the grid and not a continuation of
+> the five-state training curve. The same sampled walks are reused across all parameter settings. The true
+> values are −0.9, −0.8, …, 0.9, including 0 at the middle; give this if asked, no second derivation. Average
+> the per-episode RMS errors; do not take one square root after pooling all runs/episodes. Announce the metric
+> because the next graph's horizontal axis is α, not episodes.
+>
+> Target: 2 min. Sources: old Model-Free Prediction PPTX 44 (experiment framing, expanded with the changed conventions), book Example 7.1 and Figure 7.2 p. 145 / PDF 167.
+
+## 36. MT23a — n and step size interact
+
+*Image `native:pic:44:Picture 5`*
+
+- Each curve fixes n. Horizontal axis: α. Lower error is better.
+- Question: Is the best n the same at every α? What can we conclude from the low points of these curves?
+
+- Intermediate n performs best in this experiment. Step size matters too.
+- The target uses the table only if the episode is still running after n steps. A longer horizon reaches a complete return more often, but can also add sampling variability and delay.
+
+- Plot: Sutton & Barto (2018), Figure 7.2 (19-state random walk).
+
+**Notes:**
+
+> Two minutes to read axes/curves, two for discussion and the mechanism (click: conclusion and mechanism). The
+> plot reports early learning over ten episodes, not asymptotic performance. For this undiscounted walk γ^n = 1:
+> discounting does not reduce the bootstrap weight. The chance that the target reaches termination instead of
+> the table changes with n. With an imperfect table, more sampled rewards often increase variability but there
+> is no universal ordering. A shrinking bias bound does not prove monotonic bias reduction or that some
+> intermediate n must win. Large finite n curves such as 256/512 are not literally MC on every possible episode.
+> This plot motivates a sensitivity check, not a universal n recommendation.
+> Optional, notes only: for a fixed table and starting state s, the absolute error of the expected n-step target
+> is bounded by γ^n × probability the episode is still running after those n transitions × the largest absolute
+> error in V. The probability is conditional on the starting state and policy. Terminal errors are zero. For
+> γ = 1 only the survival factor changes this bound. This is a statement about the expected target with a fixed
+> table, not each noisy sample or the evolving online learning curve.
+>
+> Target: 4 min. Sources: old Model-Free Prediction PPTX 44 (Figure 7.2; old best-of-all-n bridge to λ removed), book §7.1 eq. 7.3 and Example 7.1.
+
+## 37. MT24 — Mean error and individual runs
+
+*Image `yaml:pictures.0`*
+
+- Course simulation of the five-state task. TD(0), α = 0.1; every-visit MC, α = 0.02.
+
+- Question: Do the mean-error intervals overlap at episodes 25 and 100? What does the individual-run panel tell us that the mean alone cannot?
+
+**Notes:**
+
+> Two minutes in addition to the ten-minute evaluation activity (D16). One minute to identify mean, band and
+> single-run traces; one for the questions. The intervals do not overlap at either checkpoint. The right panel
+> shows different trajectories despite the fixed task/method/α, including crossings at some episodes. The two
+> runs per method were selected by seed order before inspecting results; they do not estimate the full
+> distribution. A narrow interval for a mean is compatible with noisy individual runs. The shaded intervals are
+> approximate pointwise 95% intervals for the mean RMS error, not 95% of single runs and not a simultaneous
+> interval for the whole curve. Overlap/non-overlap of separate marginal intervals is not itself a calibrated 5%
+> test of their difference. No significance-testing lesson is added. Continue the reasoning on MT24a–c.
+> Provenance: NumPy default_rng (PCG64), TD seeds 1000–1099, MC seeds 2000–2099, 100 episodes per run; each
+> method has its own independent run set. Displayed single runs: seeds 1000/1001 and 2000/2001. Every-visit MC
+> applies constant-α updates in visit order after termination; TD updates online after each transition.
+> Initial nonterminal values 0.5, terminal values 0, γ = 1, start C. The α values are prespecified
+> illustrations, not tuned on these runs. Band = mean ± 1.96 × sample sd / √100 (denominator 99) over the 100
+> per-run RMS values. At episode 25: TD 0.0558 ± 0.0038, MC 0.1567 ± 0.0064; at episode 100: TD 0.0536 ± 0.0043,
+> MC 0.0859 ± 0.0095. Initial error √(1/18) ≈ 0.236 (dotted line). Data and exact provenance:
+> output/lectures/week03/mc_td_returns_evaluation_chatgpt.{csv,json}. No cross-pair statistic is used.
+>
+> Target: 2 min. Sources: shared course-generated figure course/lectures/week03/assets/mc_td_returns_evaluation_chatgpt.png (D13, D16, D17); data output/lectures/week03/mc_td_returns_evaluation_chatgpt.csv.
+
+## 38. MT24a — Claim 1: “TD learns better”
+
+*Image `yaml:pictures.0`*
+
+- “This figure proves TD is the better algorithm.”
+- Vote:  supported,  unsupported,  or  needs a narrower claim.
+
+- Answer: TD has lower mean prediction error at these checkpoints for this task, these α values, initialization and episode budget.
+
+- Question: What changes if one individual MC run has lower error than one TD run?
+
+**Notes:**
+
+> PROTECTED evaluation activity (MT24a–MT24c, 10 minutes). 30 seconds vote, one minute evidence (click: answer),
+> one minute for individual runs and the baseline (click: question), 30 seconds summary. A single favorable or
+> unfavorable run does not overturn a population-mean comparison; the figure does not prove every TD run wins. MC
+> is a meaningful comparison because it solves the same fixed-policy prediction problem with completed-return
+> targets. The dotted initialization error is another reference; it is not a threshold every noisy run must
+> improve on. State that the object evaluated is V, the value estimator, not a control policy. Do not expand
+> "better" to all environments, all α or all resource budgets.
+>
+> Target: 3 min. Sources: shared course-generated figure (mean panel), book Example 6.2 and its limitations, CS234 lecture 3 p. 23.
+
+## 39. MT24b — Claim 2: “One setting settles the comparison”
+
+*Image `native:pic:32:Picture 5`*
+
+*Image `native:pic:44:Picture 5`*
+
+- Example 6.2 (p. 125): MC vs TD, several α
+
+- Figure 7.2: 19-state walk, n vs α
+
+- “With a wider α search, MC would win.”   Vote, then identify the missing evidence.
+
+- Answer: these plots do not establish that counterfactual. Compare sensitivity and give both methods equal tuning effort.
+
+- Learning: fit V using experience.
+- Tuning: choose α and n on separate development runs.
+- Final evaluation: report performance on fresh runs after those choices.
+
+- Question: In the 19-state experiment, how could we isolate the effect of n?
+
+**Notes:**
+
+> One minute vote/evidence (click: answer), one minute sensitivity, one minute learning/tuning/evaluation
+> (click: three roles), one minute the ablation (click: question). This adapts book Exercise 6.4: neither "MC
+> would win" nor "no wider search could change anything" follows from the displayed settings. Each method may
+> need a different α. The generated figure used declared illustrative α values, not claimed optimal ones. For an
+> ablation, hold the task, initialization, walk sets, evaluation and α fixed while varying n; report several α
+> settings to expose interactions. A separate best-tuned-method comparison uses equal search effort per method.
+> Figure 7.2 is valuable precisely because it varies both parameters visibly.
+> Separate sources of data: training episodes fit V within a run; development runs select settings; fresh final
+> runs assess the selected procedure. Here we know exact values, so we compute value error directly at
+> checkpoints without collecting evaluation episodes. Without exact values, freeze V and compare predictions
+> with independent return samples under the same policy and specified evaluation-state distribution. Squared
+> error against sampled returns also contains irreducible return noise, so it is not automatically the same
+> quantity as squared error against true values. Choosing settings using the reported test runs makes the
+> result optimistic. No new statistical estimator or implementation assignment is introduced.
+> Optional response to Exercise 6.5 if raised: with larger constant α, the early improvement can give way to
+> fluctuation as the favorable initialization is forgotten; this pattern depends on the task/initialization and
+> is not universal. Do not add this as a fourth live claim.
+>
+> Target: 4 min. Sources: old Model-Free Prediction PPTX 32 (Example 6.2 right-hand plot) and 44 (Figure 7.2), book Exercises 6.4–6.5 p. 126 / PDF 148, CS234 lecture 3 p. 23.
+
+## 40. MT24c — Claim 3: “Same episodes means same cost”
+
+*Image `yaml:pictures.0`*
+
+- “Both methods used 100 episodes, so their interaction and computation costs were equal.”
+- Vote:  supported  or  unsupported?
+
+| Budget | What to count |
+| --- | --- |
+| Interaction | Environment transitions, not only episodes |
+| Computation | Updates, data passes, and time under a stated implementation |
+| Tuning | Configurations and runs used to choose them |
+
+- Answer: specify the budget.
+
+- Question: What does another pass through a fixed batch cost?
+
+**Notes:**
+
+> One minute vote and variable episode lengths (click: budget table), one minute batch/compute (click:
+> question), one minute consolidation. Episode lengths vary. Our two independently seeded methods need not see
+> equal transition totals at the same episode count, even though they use the same start and transition
+> distribution. Under the generated every-visit protocol both methods make one update per visited nonterminal
+> state, but their timing, storage and total sampled transitions can differ. MC waits for episode completion; TD
+> updates online. Repeating the same batch adds data-processing cost without new interactions. For stronger
+> interaction-matched claims, compare at matched cumulative transitions; wall-clock claims need measurements.
+> Figure 7.2 reused the same walks across settings, helping control interaction variability, but that does not
+> prove equal compute costs.
+> Close by asking students to name the checks actually used: meaningful baseline, multiple runs/uncertainty, fair
+> tuning/sensitivity, separate final evaluation, declared budgets. These checks recur in A1 and the project; this
+> slide adds no deliverable.
+>
+> Target: 3 min. Sources: shared course-generated figure (mean panel) and CSV transition/update counts, book §6.3 batch setup (MT18), CS234 lecture 3 p. 23.
+
+## 41. MT25 — Choosing between MC, TD and n-step targets
+
+| Question | MC | TD(0) | n-step TD |
+| --- | --- | --- | --- |
+| Target | Complete return | One reward + V | n rewards + V if still running |
+| Earliest update | Episode end | Next transition | n transitions or episode end |
+| Target error | Unbiased under the fixed policy | Can inherit table bias | Horizon changes reliance on the table |
+| Sampling variability | Often high | Often lower with a useful table | Often grows with horizon; not guaranteed |
+| Useful when | Complete episodes are available; avoid a bootstrap target | Need immediate updates or discounted continuing prediction | Can wait for more evidence before bootstrapping |
+| Dependence on V in the target | None | Direct | Through a surviving continuation |
+
+- TD shares continuation estimates using the Markov assumption. MC's completed target avoids that bootstrap; it does not solve partial observability.
+- Choice needs evidence: compare runs, tuning and budgets on the task.
+- Next: control with sampled targets. λ mixtures: Week 8.
+
+**Notes:**
+
+> About two minutes to revisit the practical choices and one to connect forward. This is the reference slide the
+> instructor asked to keep (deck decision D14). The variability row states common tendencies, not a theorem for
+> arbitrary V. For n reaching the episode end, the target is the full return; every-visit versus first-visit
+> scheduling can still differ. MC's target has no V, but finite-data/constant-α estimates can retain
+> initialization effects. TD/n-step targets can inherit errors from initial tables. For continuing tasks, the
+> methods discussed here are ordinary discounted prediction; do not imply the same formula solves average-reward
+> differential prediction. The earlier five-minute objective contrast introduced no such algorithm. No
+> function-approximation convergence promises, universal MC/TD ranking or new λ derivation.
+>
+> Target: 3 min. Sources: old Model-Free Prediction PPTX 29/31/36 (reference-table purpose; claims qualified under review R28–R29), book §§6.2–6.3 and §7.1.
 

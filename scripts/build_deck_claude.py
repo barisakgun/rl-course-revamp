@@ -837,10 +837,19 @@ def k_math(slide, s, img):
     size, eq_size = s.get('size', 24), s.get('eq_size', s.get('size', 24))
     for fig in ([s['figure']] if s.get('figure') else []) + s.get('figures', []):
         copy_figure(slide, fig)
-    for pic in s.get('pictures', []):                      # picture copied by shape name from an old deck slide (below drawings)
-        src = Presentation(ROOT / pic['deck']).slides[pic['slide'] - 1]
-        sh = next(x for x in src.shapes if x.name == pic['shape'])
-        picture(slide, sh.image.blob, *pic['box'][:3], name=f"native:pic:{pic['slide']}:{pic['shape']}")
+    for i, pic in enumerate(s.get('pictures', [])):        # picture (below drawings): a named shape of an old deck slide,
+        if pic.get('file'):                                # or a repository image file (e.g. an explicitly shared figure)
+            blob, name = (ROOT / pic['file']).read_bytes(), f'yaml:pictures.{i}'
+        else:
+            src = Presentation(ROOT / pic['deck']).slides[pic['slide'] - 1]
+            sh = next(x for x in src.shapes if x.name == pic['shape'])
+            blob, name = sh.image.blob, f"native:pic:{pic['slide']}:{pic['shape']}"
+        p = picture(slide, blob, *pic['box'][:3], name=name)
+        if pic.get('crop'):                                # [left, top, right, bottom] fractions; keep the box width
+            l, t, r, b = pic['crop']
+            h = p.height * (1 - t - b) / (1 - l - r)
+            p.crop_left, p.crop_top, p.crop_right, p.crop_bottom = l, t, r, b
+            p.height = int(h)
     if s.get('drawing'):
         drawing(slide, s['drawing'])
     bx = s.get('body_box', [MX, TOP, W - 2 * MX, BOTTOM - TOP])

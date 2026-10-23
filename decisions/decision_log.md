@@ -25,6 +25,13 @@
 - Authorize drafts of the guidelines, concise rubric, and generic written-report LLM-use instructions with a proposal-specific section. Numeric rubric weights, disclosure packaging/page treatment, example limits and other operational details remain recommendations for review in `analysis/project_proposal_preparation_chatgpt.md`. The frozen syllabus and assignments are unchanged.
 - No new lecture content, method prerequisite or milestone. The disclosure draft operationalizes the existing reporting obligation. Its effort estimate and bounded evidence approach are documented in the preparation note; workload is not claimed piloted. The editable overview deck retains its earlier TBD wording and needs its proposal date updated before publication.
 
+## 2026-10-22 — Week 3 deck (`mc_td`): session 3.2 choices after cross-review
+
+- Authority: instructor answers to Q1–Q3, recorded as [mc_td D12–D15](lectures/mc_td.md): keep the 19-state n-step plot for now (about 6 minutes); one course-generated learning-curve figure in the evaluation block under the review's conditions; keep a single MC-versus-TD reference slide; the consolidated sequence becomes the content basis once finalized (O4). No scope, allocation, assessment or workload change; the 58-minute planning allocation and the ten evaluation minutes are unchanged.
+- D16 (same day): the generated figure gets about 2 minutes of its own; the evaluation block becomes 12 minutes and 3.2's slide targets 60, using 2 minutes of the delivery allowance for worked reasoning. Amends D13's replacement condition. Planning allocation stays 58; the physical buffer drops from 12 to 10 minutes. No scope, assessment or workload change.
+
+- D17 (same day): instructor authorizes the render-ready 3.2 addition after sequence finalization. ChatGPT prepared shared `course/lectures/week03/mc_td_returns_content.md` (21 new slides, 60-minute targets), with the generated evaluation figure and declared protocol/data. Accepted 3.1, its frozen inputs and notation remain unchanged. Ready for Claude to append/render; no new scope, allocation, assessment or workload decision.
+
 ## 2026-10-22 — Proposal clarifications and project overview deck authorized
 
 - Authority: instructor's project-deliverables request. The proposal baseline is tentative; high-level and incomplete related work is acceptable when it supports motivation/problem definition. Accept a broader initial evaluation/feasibility plan and two pages plus references. These clarify the existing Week 4 scope; full protocols, runnable baselines and preliminary results remain later-milestone expectations. Recorded in `decisions/project_decisions.md`.
