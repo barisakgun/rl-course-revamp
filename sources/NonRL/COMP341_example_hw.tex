@@ -1,0 +1,190 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass{article}
+
+\usepackage{url}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage[a4paper, margin=2.54cm]{geometry}
+\usepackage{wrapfig}
+\usepackage{textpos}
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage{ulem}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{soul}
+\usepackage{soul}
+\usepackage{dialogue}
+
+\definecolor{red}{rgb}{1.0, 0.0, 0.0}  %red
+\definecolor{TAColor1}{rgb}  {0.0, 0.75,0.0}  %green
+\definecolor{TAColor2}{rgb}  {0.0, 0.0, 1.0}  %blue
+\definecolor{TAColor3}{rgb}  {1.0, 0.5, 0.0}  %orange
+\definecolor{TAColor4}{rgb}  {0.5, 0.5, 0.0}  %dark greenish yellow
+\definecolor{TAColor5}{rgb}  {1.0, 0.0, 1.0}  %pink
+\definecolor{TAColor6}{rgb}  {0.5, 0.25,0.0}  %brown
+
+\newcommand{\baris}[1]{{\color{red}#1}}
+\newcommand{\dogancan}[1]{{\color{TAColor1}#1}}
+\newcommand{\onur}[1]{{\color{TAColor2}#1}}
+\newcommand{\gursu}[1]{{\color{TAColor3}#1}}
+\newcommand{\ainaz}[1]{{\color{TAColor4}#1}}
+\newcommand{\ahnaf}[1]{{\color{TAColor6}#1}}
+
+\newif\ifanswers
+\answerstrue % comment out to hide answers
+\newcommand{\myAnswer}[1]{\ifanswers {\begin{onehalfspacing}
+\color{blue}#1
+\end{onehalfspacing}} \fi}
+
+
+%% Definitions
+\newcommand{\instructor}{Bar{\i}\c{s} Akg\"un } %need the space at the end
+\newcommand{\courseCode}{COMP341 } %need the space at the end
+\newcommand{\courseName}{Introduction to Artificial Intelligence}
+\newcommand{\assingmentNum}{4}
+\newcommand{\responsibleTA}{None}
+\newcommand{\dueDate}{June 14 2026, 23:59}
+\newcommand{\submissionType}{Blackboard}
+\newcommand{\coursePart}{reinforcement learning }
+
+\newcommand{\additionalInfo}{Relevant Programming Session: None}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\begin{document}
+
+\title{\textbf{Ko\c{c} University \\ \courseCode \\ \courseName \\ Assignment \assingmentNum }}
+\date{}
+
+\maketitle
+
+\vspace{-2cm}
+
+\begin{center}
+Instructor: \instructor \\
+%Responsible TA: \responsibleTA \\
+Due Date: \dueDate \\
+Submission Through: \submissionType \\
+%\additionalInfo \\
+\textbf{Make sure you read and understand every part of this document} \\
+%\textbf{Important:} Download your submission to make sure it is not corrupted and it has your latest report/code.
+%You are only going to be graded by your blackboard submission.
+\end{center}
+
+This programming assignment will test your knowledge and your implementation
+abilities of what you have learned in the \coursePart part of the class.You are asked to complete
+a coding part and answer a few questions about how it runs.  The coding part of the homework will follow the
+Berkeley CS188 Spring 2026 Pacman Project P3: Reinforcement Learning at \url{https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj3/}. 
+
+This homework must be completed individually. Discussion about algorithms, algorithm properties, code structure, and Python is
+allowed but group work is not. Coming up with the same approach and talking about the ways of implementation
+leads to very similar code which is treated as plagiarism! Furthermore, do not discuss the answers directly as it will lead to
+similar sentences which is treated as plagiarism. If you are unsure, you should not discuss. Any academic dishonesty, will not be tolerated.
+\textbf{By submitting your assignment, you agree to abide by the Ko\c{c} University codes of conduct.}
+
+
+\textbf{Important:} Make sure you go over all the submission instructions at the end of this document before submission. Once you upload your submission, 
+download it to make sure it is not corrupted and it has your latest documents. You are only going to be graded by your blackboard submission. 
+
+\textbf{Warning:} The solution code for the homeworks can be found online. We are going to compare your submission with these sources. We are also going to 
+compare your code to latest and previous submissions of Ko\c{c} students. If your code's similarity level is above a certain threshold, your code will be
+scrutinized. If there is strong suspicion of plagiarism, we will take action based on university policies. 
+
+\section*{Programming}
+You are going to do the 9 programming questions about \coursePart given in the website.
+You are only required to change \textit{valueIterationAgents.py}, \textit{qlearningAgents.py} and \textit{analysis.py}.  If you have any issues with other
+parts of the code let your instructor or TA know ASAP, even if you manage to solve your problem.  Use
+the data structures in \textit{util.py} for the autograder to work properly. Some of these are really useful as well! If the you think you have the right
+answer but the autograder is not giving you any points, try to run it on individual questions (examples on how to do this is given in the website).
+
+The website of the homework and the comments in the code have very useful tips and explanations. Do not skip them!
+
+\subsection*{Hints}
+%The questions are fairly straightforward. We have not covered Q4 and Q5 in class, but the website has enough information to implement them. Feel free to
+%complete the other questions and get back to these later.
+
+\noindent
+\textbf{util.Counter()} \\
+The \texttt{util.Counter()} data structure is very useful. It is a modified dictionary, returning 0 for keys that are not in the dictionary. Use this to your
+advantage. \\
+
+\noindent
+\textbf{Calculating the max and the argmax for Q-Values} \\
+I recommend that you write a separate function which returns both the maximum Q-value given a state and the corresponding action (argmax). 
+This will be useful in many parts of your code. You can return two values from a function in Python. 
+You should do this both for value iteration and q-learning agents. \\
+
+\noindent\textbf{Terminal States} \\
+You do not need to calculate anything for the terminal states, do not forget to handle them accordingly! There is a function to test whether a state is
+terminal or not. \\
+
+%\noindent
+%\textbf{Asynchronous Value Iteration} \\
+%You need to iterate over the states in a cyclic manner for the given number of iterations. Use the modulo operator to do this. 
+
+
+
+\noindent
+This is not a hint but a suggestion; For personal satisfaction, I recommend you add your features from homework 2 and watch pacman learn! 
+
+\section*{Large-Language Model Usage Report}
+As mentioned in the syllabus, you are allowed to use Large-Language Models (LLMs) such as ChatGPT, as long as you cite your usage. Towards this end,
+you are asked to prepare a short usage report if you used these. This report should include for which questions and how you used LLMs. 
+The how part can be achieved by adding a few example prompts and their outputs. I am giving a few examples below:\\
+
+``I used LLMs to get help on Python. I was getting \texttt{unhashable type: \textquotesingle list\textquotesingle} error while 
+trying to create an explored set. Here is how I used the LLM: 
+\begin{dialogue}
+\speak{Me} I am getting an unhashable type: list error while I am trying to populate a list. How can I solve this?
+\speak{LLM} The ``unhashable type: list'' error usually occurs when you try to use a list as a key in a dictionary or as an element in a set. 
+This is because lists are mutable (changeable) and therefore unhashable, meaning they can't be used as dictionary keys or stored directly in a set. 
+To fix this error, check if you're accidentally trying to add a list as an element in a set or as a key in a dictionary. Instead of using a list, 
+you can use a tuple (which is immutable) if you need a similar structure but also need it to be hashable.
+\end{dialogue}
+As a result, I have changed my state representation from a list to a tuple and fixed my issue.'' \\
+
+You can also describe it as a narrative without all the interaction: \\
+``I used LLMs to get an implementation of the depth first algorithm. 
+My prompt was ``...." followed by the incomplete code I needed to complete. The response was not compatible with the code base so 
+I additionally sent this ``...". Finally, I modified line 7 so that the dictionary has the correct values."
+
+It does not have to be code, you can use it for math as well:\\
+``I forgot how the quadratic formula and this is how I used ChatGPT
+\begin{dialogue}
+\speak{Me} Can you explain how to solve a quadratic equation using the quadratic formula, with an example?
+\speak{LLM} To solve a quadratic equation of the form $ax^2 + bx + c = 0$ using the quadratic formula, you apply the formula $x = (-b ± \sqrt{b²-4ac}) / (2a)$. 
+For example, for the equation $x^2 - 3x - 4 = 0$, we have $x_1 = $ \ldots
+\end{dialogue}
+
+Prepare and send a report with the aforementioned information. If the report looks like it is going to be too long, tell us where you used it and only
+provide a few examples. The format of the report is not too critical but it needs to clearly show how you used LLMs.
+
+
+\section*{Submission}
+
+You are going to submit a compressed archive through the blackboard site. 
+This file should only contain \textit{valueIterationAgents.py}, \textit{qlearningAgents.py}, \textit{analysis.py} and optionally \textit{report.pdf} if you used LLMs. 
+Other files will be deleted and/or overwritten. 
+
+
+\subsection*{Submission Instructions} 
+\begin{itemize}
+ \item You are going to submit a \textbf{single} compressed archive through the blackboard site. 
+ The file can have \textit{zip}, \textit{rar},  \textit{tar}, \textit{tar.gz} or \textit{7z} format. 
+ If you submit files individually they may get lost.
+ \item You are fine as long as the compressed archive has the required files within 4 folder levels.
+ \item Code that does not run (e.g. due to syntax errors), that does not terminate (e.g. due to infinite loops) or that blows up memory will not get any
+ points.
+ \item \textbf{Important:} Download your submission to make sure it is not corrupted and it has your latest code. 
+You are only going to be graded by your blackboard submission.
+\end{itemize}
+
+\end{document}
