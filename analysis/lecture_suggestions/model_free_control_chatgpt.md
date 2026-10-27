@@ -1,0 +1,125 @@
+# `model_free_control`: independent initial suggestions
+
+ChatGPT · 2026-10-27 · Phase 7, workflow step 1. Recommendations only, not accepted deck decisions or render-ready content. No Claude Week 4 suggestions, reviews or renderer inputs were consulted. The instructor-requested use of the current `mc_td` deck is limited to continuity; its accepted decisions remain closed.
+
+## Next deck and session boundary
+
+**Propose one deck, `model_free_control`, for sessions 4.1 `control_targets` and 4.2 `control_practice`.** The topic is learning better behaviour from experience. Session 4.1 ends after students have calculated and explained the different SARSA/Q-learning targets and identified the acting and target policies. Session 4.2 starts with retrieval of that distinction, then uses cliff walking to connect targets, behaviour and evaluation before the project activity. A physical split into two decks is possible without changing this boundary; the combined deck is my preference, not an accepted split.
+
+Authority: [accepted session scope](../../decisions/topic_decisions.yaml), [lecture workflow](../../docs/lecture_workflow.md), [generated session/source index](../../output/lectures/session_sources.md), [notation guide](../../course/notation_guide.md), and the accepted [assignment](../../decisions/assignment_decisions.md), [project](../../decisions/project_decisions.md) and [reading](../../decisions/reading_decisions.md) decisions.
+
+- **4.1:** 58 teaching minutes. Core control is `derive`, `implement`, `analyze`; reuse GPI without repeating its proof. MC control is an approximately eight-minute Exposure bridge (`explain`), with no separate implementation. No importance-sampling derivation.
+- **4.2:** 53 teaching minutes plus five administrative minutes. Preserve the cliff-style comparison and **15 minutes choosing a project baseline and evaluation metric**. Treat these as application and consolidation, not space for additional control algorithms.
+- **A1:** prepare one epsilon-greedy tabular loop with SARSA/Q-learning target choices, terminal handling and an exploratory-control comparison. Do not restore the old assignment's five-agent implementation burden or add λ work. A1 follows 4.2; this suggestion does not author the assignment.
+- **Boundaries:** maximization bias and tabular Double Q are in 6.2 (Core and Exposure respectively); importance-ratio work is in Week 8; deeper exploration is in Week 9. Expected SARSA and softmax are Extension with no scheduled teaching or assigned reading. Backward-trace mathematics remains excluded. The provisional Week 4 topic list is not the accepted scope.
+
+## Continuity from the accepted prediction deck
+
+Read the saved `course/lectures/week03/mc_td_claude.pptx`, 50 slides, SHA-256 `b4ca75d4317a629ca7941888759a70ca926aae93d2c96baadde10e46f1ef72ba`; this matches [mc_td D19](../../decisions/lectures/mc_td.md). Use it as context, not as the source base for this deck.
+
+- Slides 3–6 and 15 established the 2×2 grid, always-right prediction, the sampled transition tuple and the trajectory `(1,1) → (1,1) → (1,2) → goal`, rewards `−0.04, −0.04, +1`, with γ = 0.5. Propose keeping that grid for the short 4.1 mechanics examples, with **a new Q table and an explicitly changing exploratory policy**. Never relabel the previous V table as Q or imply that always-right data explored every action.
+- Slides 29–39 established n-step targets and the **forward λ mixture**, including terminal remainder weights and a supplied-formula calculation. At the opening, recall that students now have several ways to form a prediction target; today's new question is which actions to learn about and which future policy a control target represents. No λ formula recap, derivation, trace algorithm or Sarsa(λ) follows. The full Week 8 mixture/GAE segment stays intact; `mc_td` O6 on the exam remains untouched.
+- Slides 40–42 gave a compact evaluation discussion and the MC/TD/n-step reference. Students have seen tuning/evaluation separation and interaction versus computation, but the expanded appendix is **not prerequisite material**. Session 4.2 applies these ideas to policies rather than trying to recover the removed evaluation lecture.
+- Use cliff walking as a **separate, explicitly introduced task**, already called for by 4.2, not as a changed version of the 2×2 grid. Its γ, rewards, dynamics and reset rule differ.
+
+## Delta against the old course
+
+Base: [5 – Model Free Control PPTX](../../sources/current_course/5%20-%20Model%20Free%20Control.pptx), **61 slides**, and [PDF](../../sources/current_course/5%20-%20Model%20Free%20Control.pdf), **57 pages**. P means physical PPTX slide; PDF means physical PDF page. Numbering was checked separately. Reuse is proposed, subject to instructor selection and notation correction; this is not a new deck assembled from earlier redesigned decks.
+
+| Treatment | Old material | Teaching purpose and proposed change |
+| --- | --- | --- |
+| Keep/compress | P4–10; PDF2–7 | Retain the control problem, missing-model motivation, GPI and why learning action values enables action selection. Merge the repeated prediction/control recaps; P9/P10 duplicate the central question. Say **the state-value versions just taught** estimate V, rather than claiming MC/TD cannot estimate Q. |
+| Compress | P11–12, P16; PDF8–9, 13 | Recall improvement and interleaving evaluation/improvement; omit the repeated proof and epsilon-soft proof. Preserve why improvement is reasonable, while distinguishing exact q^π from noisy Q. |
+| Keep/fix | P13–18; PDF10–15 | Keep the failure of pure greediness, epsilon-greedy selection and MC control loop. Put exploration before the completed MC loop. Correct P18: nonzero action probabilities at visited states do not guarantee finite-time state-space coverage or improvement after each noisy update. An optimal deterministic policy exists in the finite setting; optimal policies need not all be deterministic. |
+| Keep/fix | P19, P21–24; PDF16, 18–20 | Keep learning before episode end, action-value TD targets and SARSA's sequence. Use one loop and one update explanation instead of duplicate prose/pseudocode. Remove Expected SARSA from P21. Qualify the lower-variance claim as in `mc_td`; do not promise convergence merely from decaying ε. |
+| Omit second task setup | P25; PDF21, windy gridworld | Its purpose—online action-value learning before termination—survives in the SARSA loop. Use the familiar grid for mechanics and the accepted cliff task for consequences. Windy-grid rules and a second learning curve would displace worked reasoning; no new optional-reading assignment is proposed. |
+| Cut from this deck | P2–3, P26–31; PDF22–27 for the latter group | Forward/backward TD recap and n-step/Sarsa(λ) sequence. P26–31 already say they are skipped. Forward λ has been introduced in 3.2; that does not authorize control variants. Retain only the verbal continuity link above; backward mathematics stays excluded. |
+| Keep/reposition | P6/P32, P40–43/P45; PDF4/28, 36–39/41 | Introduce behaviour versus target at the SARSA/Q-learning contrast. Preserve Q-learning's sampled optimality backup, loop and coverage/step-size qualifications. Fix “no IS because we already took the action”: the conditional transition sample and the computed successor maximum explain the one-step target. |
+| Move/exclude | P33–39; PDF29–35 | Expected SARSA stays unscheduled Extension. Formal IS material belongs to the accepted Week 8 ratio work; no six-slide detour here. Keep the underlying question—whose future behaviour is represented?—in the target comparison. |
+| Keep/expand for reasoning | P44; PDF40 | Reuse the cliff diagram and published curve, separating task setup, target calculation and interpretation. Explain reset-to-start versus termination, and exploratory training return versus greedy evaluation. Remove the note's unsupported “finds the optimal path faster” generalization. |
+| Later placement | P46–48; PDF42–44 | Maximization bias and Double Q support 6.2. Do not interpret 4.2's title “failure modes” as permission to move them back. Here failure means poor coverage, acting/target mismatch in interpretation, and incorrect loop/terminal handling. |
+| Cut/compress | P49–52; PDF45–48 | Drop the off-policy algorithm catalogue and afterstates detour. Replace the broad comparison pictures with a compact MC/SARSA/Q-learning synthesis using only taught methods. Their organizing purpose remains, without new dependencies. |
+| Keep one idea; move the rest | P53–61; PDF49–57 | Fold the epsilon-greedy recap into its first introduction. Keep the question “what information will never be learned if we stop trying actions?” Optimism, exploration bonuses and regret belong to Week 9; softmax remains unscheduled Extension. No bonus-modified Q update in Week 4. |
+
+Notation fixes on reused material: `R_t` → `R_{t+1}` where it denotes the reward after the action; behaviour `μ` → `b(a∣s)`; true values `q^π`, `q^*` versus estimates `Q`; targets `U_t`. Avoid importing old `H` return notation, which now means observable history in the guide. No guide change is needed for the proposed content; describe MC averaging in words instead of introducing an unapproved state-action counter.
+
+## Proposed slide-level sequence
+
+These are teaching units, not final wording, layouts or speaker notes. Reasons, checks and timing include required spoken explanation. Slide IDs are provisional.
+
+### Session 4.1 — from prediction to exploratory control
+
+| Unit | Purpose, source and check | Minutes |
+| --- | --- | ---: |
+| C01 | **What changes when we want better behaviour?** Recall the fixed policy and target family from `mc_td`; now change actions using experience. Ask which part of GPI was held fixed last week. P4–8. | 3 |
+| C02 | **Why learn Q?** A state value alone does not tell us which unknown action outcome to prefer. Contrast a model-based one-step lookahead with choosing from learned Q entries. Q means take this action, then follow a specified future policy. P9–10; book §5.2. | 4 |
+| C03 | **Evaluation and improvement interleave.** Recall the existing argument, then replace complete evaluation with sample updates. Ask whether one noisy estimate certifies improvement: no. P8/P11–13; book §§4.6, 5.3–5.4. | 4 |
+| C04 | **Why pure greediness can fail.** On the familiar grid, an untried action can remain undervalued; acting on the current winner prevents learning otherwise. Ask what evidence the untouched entry contains. P13–14; Silver PDF10. | 5 |
+| C05 | **Epsilon-greedy is an action distribution.** Random branch samples uniformly from all available actions, including the greedy one. With four actions, unique maximum and ε = 0.2, probabilities are 0.85 and three times 0.05. State tie handling. P15; book §5.4. | 5 |
+| C06 | **MC control bridge: complete episode → Q estimates → updated policy.** Reuse MC return reasoning, now grouping by state-action pair; do not teach a second implementation. Keep ε exploration while improving. P17; book §5.4. | 4 |
+| C07 | **Trace one MC control cycle.** Reuse the short episode's supplied returns, update visited pairs and choose the next exploratory policy. Ask what remains unknown. No repeated return derivation or convergence proof. P13/P17, grid continuity. | 4 |
+| C08 | **Can control learn before termination?** Recall TD's sampled continuation estimate, now at a state-action pair. The remaining design question is which successor action supplies that estimate. P19/P21. | 3 |
+| C09 | **SARSA: learn about the behaviour being used.** Derive the one-step action-value target from the sampled successor action; identify the five items in the name and the zero terminal continuation. P21–24; book §6.4. | 5 |
+| C10 | **Trace the SARSA loop.** Select the next action, use it in the target, then actually execute that selected action. Mark where exploration and improvement happen. Ask why drawing a second action can change the intended loop. P23–24. | 4 |
+| C11 | **Q-learning: a greedy continuation while still exploring.** Recall the Bellman optimality backup and replace the model expectation by a transition sample. Distinguish behaviour b from the greedy target π; the maximizer need not be the action executed next. P40–42; Abbeel PDF5–7. | 5 |
+| C12 | **Same transition, different target.** Protected paired calculation, explanation and terminal variant; numbers below. Ask when the targets agree and what extra action SARSA needs. P21/P40; book eqs. 6.7–6.8. | 8 |
+| C13 | **One control-loop structure, two target choices.** Summarize what is sampled, what is computed and what policy each continuation represents. Explain the one-step no-IS point and attach the coverage caveat. End with the question: can the better greedy path have worse exploratory return? | 4 |
+| | **Targets sum to** | **58** |
+
+**MC bridge check (C06–07, eight minutes total).** Treat the familiar right/right/right episode as a possible episode under an exploratory policy held fixed during that episode, not as newly collected evidence. Its supplied returns are 0.19, 0.46 and 1. With a reset zero Q table and first-visit sample averaging, the first observed return for `((1,1), right)` gives 0.19 and for `((1,2), right)` gives 1; the repeated first pair is skipped. Other actions remain at their initial estimates. Update the exploratory policy after the episode. The teaching point is what evaluation/improvement now operate on, not that one episode establishes the best policy.
+
+**Target comparison (C12).** Supply a new, illustrative snapshot, explicitly not values learned in `mc_td`: `Q((1,1), right) = 0.1`; at `(1,2)`, Q for right/up/down/left is `0.8/0.2/0.1/0`. Observe `(1,1), right, −0.04, (1,2)` and select **up** as the next exploratory action. With γ = 0.5 and α = 0.5:
+
+- SARSA: `U_t = −0.04 + 0.5(0.2) = 0.06`; updated entry `0.08`.
+- Q-learning: `U_t = −0.04 + 0.5(0.8) = 0.36`; updated entry `0.23`.
+- Both begin with the same frozen snapshot; neither uses the other's updated entry. A reward of +1 on goal entry gives target 1 for either method, without a next action. Equal next-action values can also make targets coincide; one coinciding target does not establish identical learning trajectories.
+
+### Session 4.2 — consequences, diagnosis and project formulation
+
+| Unit | Purpose, source and check | Minutes |
+| --- | --- | ---: |
+| P01 | **Retrieve the target distinction.** Students identify which continuation uses the next behaviour action and which uses a maximum. Reuse C13, without repeating the derivation. | 3 |
+| P02 | **Cliff task, before its result.** Introduce deterministic movement, four actions, γ = 1, −1 per ordinary transition, −100 and reset to start on a fall, and termination only at the goal. Keep ε = 0.1. P44; book Example 6.6. | 4 |
+| P03 | **Work a target beside the cliff.** Protected calculation with supplied Q entries, then explain how an exploratory next action affects the update. Include a separate fall/reset versus goal/terminal check. | 8 |
+| P04 | **Why the preferred routes can differ.** SARSA's sampled updates account for the exploration actually used; Q-learning bootstraps a greedy continuation. Trace how repeated backups carry the consequence to earlier choices. P44 diagram; book Example 6.6. | 5 |
+| P05 | **What performance did the curve measure?** Read the original curve as episodic reward during exploratory learning, not exact value error or a frozen greedy-policy test. State the comparison needed for deployment evaluation. P44; `mc_td` slides 40–41. | 6 |
+| P06 | **Debug one shared loop.** Diagnose three short cases: SARSA redraws its already-selected next action; Q-learning executes the target maximizer instead of the intended exploratory action; a goal transition bootstraps. Explain each consequence. This prepares A1 without adding an assignment task. | 6 |
+| P07 | **What can exploration and convergence claims actually promise?** Persistent state-action coverage and appropriate step sizes matter. Fixed ε retains exploratory cost; shrinking ε too quickly can lose coverage. Q-learning need not make its behaviour greedy to learn optimal tabular values under its conditions. No proof or prescribed decay schedule. P18/P43; book §§6.4–6.5; Abbeel PDF9–10. | 4 |
+| P08 | **Project baseline and metric activity.** Choose a question, baseline, metric and a feasible comparison; include student discussion and feedback as detailed below. Existing accepted activity, not a new handout or assessment. | 15 |
+| P09 | **Synthesis and Week 5 boundary.** Q tables enabled action comparison; large spaces now make tabulation impractical. Preview approximation as the next problem, without a gradient update or stability lesson. | 2 |
+| | **Teaching targets sum to** | **53** |
+| P10 | **Proposal expectations, administration.** Point to the accepted proposal guidelines and current project decisions. Two pages plus references; tentative formulation, baseline and initial evaluation/feasibility plan, not completed experiments. Current due date: November 1, 2026, 23:59 Istanbul, via LearnHub. Recheck the decision record when preparing slides. | **5** |
+
+**Cliff arithmetic (P03).** Illustrative snapshot, not a reproduction of a trained table: after an ordinary move with reward −1, the next state is beside the cliff. The selected next action is down with Q = −100; the largest next-action value is −10; current pair has Q = −20; α = 0.5. SARSA target −101 gives updated Q = −60.5; Q-learning target −11 gives −15.5. The −100 here is a supplied **action-value estimate**, not an additional reward already observed. On the subsequent actual fall both algorithms observe −100 and bootstrap from the start state; a fall is not terminal. Only reaching the goal removes continuation. A single update illustrates the mechanism, not proof of the learned route.
+
+**Project activity (P08).** Two minutes set the question: “What would count as improvement, compared with what?” Five minutes individually or in pairs: use a tentative project or the cliff example to select a simple feasible baseline, one primary metric and a comparison. Five minutes exchange and challenge the choice: same task/objective, exploratory training versus frozen evaluation, comparable interaction budget, separate tuning/final runs and feasible repeated seeds. Three minutes discuss one example and revise. A defensible cliff answer compares SARSA and Q-learning under matched exploration and interaction budgets for online return; a separate greedy evaluation addresses a different question. A project may need a heuristic/random baseline instead. Do not equate the λ-related reduction in 3.2 evaluation time with six minutes owed here, or require students to have an implemented project already.
+
+## Source grounding and limits
+
+The following are observations from the configured **local copies**, inspected for this suggestion. Teaching choices above are my interpretation, not a vote across courses. External page numbers below are physical PDF pages. URL/offering/retrieval provenance remains in each source's manifest and, for downloaded slides, `lectures/index.json`.
+
+| Source and precise location | Observed content → use here |
+| --- | --- |
+| [Sutton & Barto](../../sources/RLbook2020.pdf): §§5.2–5.4, printed pp. 96–103 / PDF118–125; §6.4, pp. 129–131 / PDF151–153; §6.5 and Example 6.6, pp. 131–132 / PDF153–154 | Action values, exploratory MC control, SARSA and Q-learning, cliff comparison. Primary mathematical checks and terminal conventions. The exact-value qualification continues onto printed p. 103; do not turn the improvement argument into a per-sample guarantee. §12.1 is continuity from 3.2, not a new Week 4 derivation. |
+| [Silver Lecture 5](../../sources/silver_rl/lectures/lecture-5-model-free-control-.pdf), PDF6–16, 20–22, 35–40; 2015 course, local retrieval 2026-10-06 | GPI, Q versus V for model-free improvement, exploration motivation, sampled SARSA versus greedy Q continuation. Use the structure, not its complete MC/GLIE or multi-step sequence. |
+| [CS234 Lecture 4](../../sources/stanford_cs234/lectures/lecture4post.pdf), PDF17–20, 31, 33–38; Winter 2026, retrieved 2026-10-06 | Explicitly asks how to interleave evaluation/improvement with estimated Q; epsilon-greedy and Q-learning development. Useful source for the opening questions. Its sufficient GLIE presentation is not a reason to require greedy behaviour for every Q-learning convergence statement. |
+| [CS285 Lecture 7](../../sources/berkeley_cs285/lectures/lec-7.pdf), PDF12–19; Spring 2026, retrieved 2026-10-06 | Develops action-value learning without dynamics, separates sample generation and value updating, and cautions about leaving tabulation. Borrow those distinctions, not fitted-function losses or the softmax branch. |
+| [CS224R Q-learning](../../sources/stanford_cs224r/lectures/06_cs224r_qlearning_2026.pdf), PDF7–15; Spring 2026, retrieved 2026-10-06 | Improvement thought experiment and Bellman-optimality explanation; policy/data-collection separation. Its actor-critic-to-Q-learning route presupposes material not yet taught here, so do not copy that sequence. Replay and target networks stay later. |
+| [Abbeel Lecture 2](../../sources/foundations-deep-rl-abbeel/l2-deep-q-learning.pdf), PDF5–10 | Direct Q-value-iteration → expectation → sampled update bridge; explicit terminal case and per-pair convergence conditions. Suitable for C11/P07. Series metadata points to 2021; original PDF download URL/date are unknown in the manifest. |
+| [Sutton MC slides](../../sources/sutton/9-10-MC.pdf), PDF9–15; [TD slides](../../sources/sutton/11-12-TD.pdf), PDF34–39 | Action-value MC, GPI, epsilon-soft control; SARSA sequence and cliff walking. Fall 2017 CMPUT 366/609 per manifest; original download dates unknown. Embedded book excerpts have older page numbering, so cite the configured book for current page references. |
+
+The old baseline is one composite course; source dates do not define separate offerings. The old cliff figure and book Example 6.6 were also inspected visually. Use them as published illustrations, not course-generated replications or uncertainty estimates. The old slide supplies no seed/interval protocol; do not invent one. No external optional material is promoted to required reading. No live experiment, new plot or source-collection expansion is needed at step 1.
+
+## Feasibility, alternatives and unresolved choices
+
+**Budget check:** `70 × 0.85 = 59.5` planned usable minutes per session. Proposed 4.1 targets total 58 teaching minutes; 4.2 totals 53 teaching + 5 administration = 58. Together, **111 teaching + 5 administration = 116**, against 119 usable minutes, leaving three unallocated usable minutes plus the configured 21 minutes of protected slack. Neither session uses the delivery allowance to 63. These are target sums, not proof of pedagogical fit; the accepted planning allocations are unchanged.
+
+Main density risk is 4.1: exploration, action values, changing policies and two target choices are genuinely new distinctions. Keep C12's eight minutes and the eight-minute MC bridge; compress duplicate recaps, proofs and algorithm boxes first. Session 4.2 deliberately spends time explaining the cliff setup and mechanism before interpreting its curve. P08's 15 minutes and the five administrative minutes are protected. No extra videos, reading, preparation exercise or simulation runtime create hidden workload.
+
+**Consequential choices for cross-review, then instructor comments:**
+
+1. Confirm the combined `model_free_control` deck and the C13/P01 session break. Splitting files at that boundary changes no minutes or prerequisites.
+2. Confirm the proposed use of the existing 2×2 grid for 4.1 and the book's separate cliff task for 4.2. This is a proposed cross-session example choice, not an accepted extension of the previous deck's decisions. Alternative: introduce cliff walking already in 4.1; budget approximately three extra setup minutes there by replacing C03's four-minute GPI recall with a one-minute retrieval, then use the saved 4.2 setup time for route reasoning. Prefer the familiar grid to reduce first-session density.
+3. Review whether the two numerical target exercises serve different purposes: 4.1 isolates the continuation action; 4.2 connects it to exploratory cost and reset handling. If redundant, replace P03's repeated ordinary update with a fall/reset trace within the same eight minutes, retaining calculation and explanation time.
+
+No accepted scope, mastery, allocation, notation, assessment or reading change is requested. Exact slide reuse and final wording remain for instructor choices and first-render preparation. The remaining limitation is delivery feasibility, especially first-time understanding of behaviour versus target; it needs mutual review and teaching judgment, not more topic coverage. **Stop here:** next is the workflow's mutual cross-review, followed by instructor choices. This file is the only repository artifact produced in this step.

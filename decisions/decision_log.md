@@ -1,5 +1,10 @@
 # Decision Log
 
+## 2026-10-27 — Week 4 deck (`model_free_control`, sessions 4.1–4.2): instructor choices after cross-review
+
+- Authority: instructor answers to the five items in the shared review, recorded as [model_free_control D1–D5](lectures/model_free_control.md). One deck `model_free_control`; the 2×2 grid for 4.1 (MC cycle, lock-in at (2,1), always-left with ε = 0 in place of the windy gridworld, target exercise) and book cliff walking for 4.2; project timing relative to the proposal deadline left to the instructor outside the deck; the fixed-policy cliff route returns shown initially; the merged sequence with the R01–R23 fixes as the basis for first-render content (targets 57.5 and 53 + 5 minutes).
+- No scope, planning-allocation, mastery, notation, assessment, reading or workload change. The instructor's remark that the A1 release might move a week is not a recorded schedule or assignment change.
+
 ## 2026-10-27 — Week 3 deck (`mc_td`, sessions 3.1–3.2) accepted (done)
 
 - Authority: the instructor marked 3.2 done after the edit round following D18 and Claude's notes check ([mc_td D19](lectures/mc_td.md)). Accepted deck: `course/lectures/week03/mc_td_claude.pptx`, SHA-256 `b4ca75d4317a629ca7941888759a70ca926aae93d2c96baadde10e46f1ef72ba`; text view and previews in sync. Slide targets 60 minutes per session; planning estimates unchanged at 59 and 58. Instructor-added optional slides 43–44 carry no live time. No scope, assessment or workload change; O6 remains open.
