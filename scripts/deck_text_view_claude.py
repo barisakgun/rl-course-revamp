@@ -25,7 +25,8 @@ def main(deck, out):
              f'# Text view: {deck.name}', '', f'SHA-256 `{hashlib.sha256(deck.read_bytes()).hexdigest()}`', '']
     for n, s in enumerate(prs.slides, 1):
         title = s.shapes.title.text_frame.text if s.shapes.title is not None else ''
-        lines += [f'## {n}. {s._element.cSld.get("name") or "(no id)"} — {title}', '']
+        hidden = ' (hidden)' if s._element.get('show') == '0' else ''
+        lines += [f'## {n}. {s._element.cSld.get("name") or "(no id)"} — {title}{hidden}', '']
         for sh in s.shapes:
             if s.shapes.title is not None and sh.shape_id == s.shapes.title.shape_id:
                 continue

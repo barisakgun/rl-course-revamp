@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Append the slides of a built candidate deck to an existing (instructor-edited) deck (Claude-built workflow).
 
-    python3 scripts/append_slides_claude.py <deck.pptx> <candidate.pptx> [--expect-sha SHA] [--dry-run]
+    python3 scripts/append_slides_claude.py <deck.pptx> <candidate.pptx> [--only ID,ID] [--after ID] [--expect-sha SHA]
+                                            [--dry-run]
 
 Used when a later session of a multi-session deck is rendered: the new slides are built from their own YAML
 (build_deck_claude.py), their equation fallbacks refreshed on the candidate, and then appended here. The existing
@@ -10,6 +11,9 @@ slides are never rebuilt: only new slide parts are added, so the existing slides
 For each candidate slide: the slide layout with the same name in the deck is used; the shape tree, slide name, slide
 attributes, builds/animations (p:timing) and transition are copied; images (including equation fallback pictures)
 are added to the deck and their relationship ids remapped; the speaker notes body is copied.
+
+--only appends just the candidate slides with those slide names (spec ids), in candidate order. --after inserts the
+new slides right after the deck slide with that name instead of at the end (e.g. a revision inside a session).
 
 --expect-sha refuses to run if the deck is not the expected saved version (e.g. the instructor saved new edits).
 A backup goes to output/deck_backups/ before the deck is replaced. The deck must not be open in PowerPoint.
@@ -29,9 +33,22 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def append(deck, cand):
+def slide_name(s):
+    return s._element.cSld.get('name')
+
+
+def append(deck, cand, only=None, after=None):
     layouts = {l.name: l for l in deck.slide_layouts}
-    for cs in cand.slides:
+    picked = [cs for cs in cand.slides if only is None or slide_name(cs) in only]
+    if only is not None and len(picked) != len(only):
+        raise SystemExit(f'candidate lacks slides {sorted(set(only) - {slide_name(cs) for cs in picked})}')
+    ids = deck.slides._sldIdLst
+    pos = None
+    if after is not None:
+        pos = next((sid for sid, s in zip(ids, deck.slides) if slide_name(s) == after), None)
+        if pos is None:
+            raise SystemExit(f'deck has no slide named {after}')
+    for cs in picked:
         lay = layouts[cs.slide_layout.name]
         ns = deck.slides.add_slide(lay)
         tree = ns.shapes._spTree
@@ -73,13 +90,19 @@ def append(deck, cand):
                 target.remove(el)
             for el in body:
                 target.append(copy.deepcopy(el))
-    return len(cand.slides)
+        if pos is not None:                                    # move the new slide's entry after `after`
+            sid = ids[-1]
+            pos.addnext(sid)
+            pos = sid
+    return len(picked)
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('deck')
     ap.add_argument('candidate')
+    ap.add_argument('--only', help='comma-separated candidate slide names to append (default: all)')
+    ap.add_argument('--after', help='insert after the deck slide with this name (default: at the end)')
     ap.add_argument('--expect-sha')
     ap.add_argument('--dry-run', action='store_true', help='write <deck>.appended.pptx in the system temp folder only')
     a = ap.parse_args()
@@ -92,7 +115,7 @@ def main():
         raise SystemExit(f'deck SHA-256 {before} differs from the expected {a.expect_sha}; reconcile first.')
     deck, cand = Presentation(deck_path), Presentation(a.candidate)
     n0 = len(deck.slides)
-    n = append(deck, cand)
+    n = append(deck, cand, a.only.split(',') if a.only else None, a.after)
     buf = io.BytesIO()
     deck.save(buf)
     if a.dry_run:
@@ -106,7 +129,7 @@ def main():
     bk = backups / f'{deck_path.stem}.{time.strftime("%Y%m%d-%H%M%S")}.{before[:8]}.pptx'
     shutil.copy2(deck_path, bk)
     deck_path.write_bytes(buf.getvalue())
-    print(f'appended {n} slides after slide {n0}; backup {bk.relative_to(ROOT)}; new SHA-256 {sha(deck_path)}')
+    print(f'added {n} slides ({"after " + a.after if a.after else f"after slide {n0}"}); backup {bk.relative_to(ROOT)}; new SHA-256 {sha(deck_path)}')
 
 
 if __name__ == '__main__':

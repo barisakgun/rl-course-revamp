@@ -96,13 +96,13 @@ Teaching 1450.5 + additional administration 19 = 1469.5 of 1,527 usable minutes;
 
 ### 3.2 — Bias, variance and n-step targets
 
-**Topic groups:** On-policy and off-policy learning, Online versus offline data access and related concepts; Experimental design and evaluation.
+**Topic groups:** On-policy and off-policy learning, Online versus offline data access and related concepts; Experimental design and evaluation; Lambda returns; Eligibility traces.
 
 **Prerequisite sessions:** 3.1.
 
-**Worked activity:** Trace n-step targets; inspect noisy learning curves and a baseline comparison.
+**Worked activity:** Trace n-step targets; combine the supplied targets into one finite episodic lambda-return; inspect noisy learning curves and discuss a baseline, tuning/evaluation separation and resource budgets.
 
-**Pacing:** Includes 10 minutes of evaluation reasoning; lambda mixture moves to Week 8. Confidence: medium.
+**Pacing:** Instructor 2026-10-27 accepts mc_td D18. Seven minutes introduce the forward lambda-return after the 19-state n-step plot; six minutes across two slides replace the prior twelve-minute evaluation block (two figure-reading plus ten reasoning minutes). The extended evaluation and additional lambda-versus-n-step performance comparison are optional appendix material, not required reading. The n-step plot discussion shortens by one minute and continues into the mixture motivation; the nine-minute n-step exercise and closing MC/TD/n-step reference remain live. Targets stay 60 minutes under the existing delivery allowance, planning allocation stays 58. Backward view is existence-only. Deeper lambda/GAE work and the full 18-minute mixture segment remain in 8.1; no ten-minute saving is assumed. No A1 task or new Midterm 1 requirement. Confidence: medium.
 
 ### 4.1 — Exploratory control and target policies
 
@@ -199,13 +199,13 @@ Teaching 1450.5 + additional administration 19 = 1469.5 of 1,527 usable minutes;
 
 ### 8.1 — Actor-critic, forward lambda and GAE
 
-**Topic groups:** Policy gradients, REINFORCE and related concepts; On-policy and off-policy learning, Online versus offline data access and related concepts; Eligibility traces.
+**Topic groups:** Policy gradients, REINFORCE and related concepts; On-policy and off-policy learning, Online versus offline data access and related concepts; Lambda returns; Eligibility traces.
 
 **Prerequisite sessions:** 7.2, 3.2.
 
 **Worked activity:** One-step actor-critic example; forward mixtures; existence-only backward-view mention; GAE as a TD-residual sum.
 
-**Pacing:** No backward equations or trace algorithm. Forward-mixture and GAE example share the same trajectory. Confidence: medium.
+**Pacing:** No backward equations or trace algorithm. Forward-mixture and GAE example share the same trajectory. Session 3.2 now supplies an initial finite-mixture example (mc_td D18, 2026-10-27); retain this session's full 18-minute mixture segment for retrieval, advantage transfer and the GAE connection until deck preparation establishes any saving. No replacement topic or reduced allocation is accepted. Confidence: medium.
 
 | Exclusive teaching segment | Minutes |
 | --- | --- |

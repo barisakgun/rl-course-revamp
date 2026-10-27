@@ -167,7 +167,6 @@ scope_decisions:
   - reinforce
   - baselines_advantages
   - actor_critic
-  - lambda_return
   - generalized_advantage_estimation
   scope: Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from
     TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed.
@@ -182,6 +181,25 @@ scope_decisions:
   status:
   - foundational
   - classical
+- id: return_mixtures
+  topic_ids:
+  - lambda_return
+  scope: Session 3.2 introduces the forward lambda-return through nonnegative weights, the finite-episode
+    terminal remainder, endpoint interpretation and one supplied-formula grid calculation. No derivation,
+    trace algorithm or implementation is required in 3.2. Session 8.1 develops the mixture-to-advantage/GAE
+    connection; deeper mastery and any implementation remain within the accepted policy-estimator path,
+    not a separate lambda implementation task. Midterm 1 inclusion is not established by this early placement.
+  delivery:
+  - live
+  mastery:
+  - derive
+  - implement
+  - analyze
+  role: core
+  status:
+  - foundational
+  - classical
+  status_scope: Episodic on-policy return mixtures, as defined in Sutton and Barto Section 12.1.
 - id: policy_updates
   topic_ids:
   - importance_sampling
@@ -723,10 +741,20 @@ lecture_plan:
   group_ids:
   - prediction
   - evaluation
+  - return_mixtures
+  - backward_trace_mention
   requires:
   - mc_td
-  worked_activity: Trace n-step targets; inspect noisy learning curves and a baseline comparison.
-  feasibility_note: Includes 10 minutes of evaluation reasoning; lambda mixture moves to Week 8.
+  worked_activity: Trace n-step targets; combine the supplied targets into one finite episodic lambda-return;
+    inspect noisy learning curves and discuss a baseline, tuning/evaluation separation and resource budgets.
+  feasibility_note: Instructor 2026-10-27 accepts mc_td D18. Seven minutes introduce the forward lambda-return
+    after the 19-state n-step plot; six minutes across two slides replace the prior twelve-minute evaluation
+    block (two figure-reading plus ten reasoning minutes). The extended evaluation and additional lambda-versus-n-step
+    performance comparison are optional appendix material, not required reading. The n-step plot discussion
+    shortens by one minute and continues into the mixture motivation; the nine-minute n-step exercise and
+    closing MC/TD/n-step reference remain live. Targets stay 60 minutes under the existing delivery allowance,
+    planning allocation stays 58. Backward view is existence-only. Deeper lambda/GAE work and the full 18-minute
+    mixture segment remain in 8.1; no ten-minute saving is assumed. No A1 task or new Midterm 1 requirement.
   confidence: medium
 - id: control_targets
   week: 4
@@ -908,6 +936,7 @@ lecture_plan:
   group_ids:
   - policy_estimators
   - prediction
+  - return_mixtures
   - backward_trace_mention
   requires:
   - baseline
@@ -915,6 +944,9 @@ lecture_plan:
   worked_activity: One-step actor-critic example; forward mixtures; existence-only backward-view mention; GAE as
     a TD-residual sum.
   feasibility_note: No backward equations or trace algorithm. Forward-mixture and GAE example share the same trajectory.
+    Session 3.2 now supplies an initial finite-mixture example (mc_td D18, 2026-10-27); retain this session's
+    full 18-minute mixture segment for retrieval, advantage transfer and the GAE connection until deck
+    preparation establishes any saving. No replacement topic or reduced allocation is accepted.
   confidence: medium
   segments:
   - label: Actor-critic target and bias example

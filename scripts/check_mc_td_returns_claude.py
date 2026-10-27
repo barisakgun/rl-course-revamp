@@ -66,6 +66,16 @@ print('\nn-step targets from the post-3.1 TD table (no updates in between):')
 for t in range(T):
     print(f'  t={t} S_t={S[t]}:', {n: float(n_step_target(t, n, V0)) for n in (1, 2, 3, 4)})
 
+
+def lambda_return(t, lam, V):
+    """Finite-episode λ-return (book eq. 12.3): weights (1-λ)λ^(n-1) for n < T-t, λ^(T-t-1) on G_t."""
+    g = sum((1 - lam) * lam ** (n - 1) * n_step_target(t, n, V) for n in range(1, T - t))
+    return g + lam ** (T - t - 1) * n_step_target(t, T - t, V)
+
+
+# Deck decision D18 (slide MTL3): λ-returns at t = 0 from the same frozen table.
+print('lambda-return at t=0 (lambda 0, 0.5, 1):', [float(lambda_return(0, lam, V0)) for lam in (0, F(1, 2), 1)])
+
 # n = 2 online: S_t is updated at time t + n (or at termination), in order, with the table as it is then.
 V = dict(V0)
 log = []

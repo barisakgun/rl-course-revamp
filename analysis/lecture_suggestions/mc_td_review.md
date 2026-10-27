@@ -525,3 +525,256 @@ Under the instructor's subsequent request (D17), prepared shared [mc_td_returns_
 **Not checked:** slideshow playback of the reveals (definitions checked: all targets exist); classroom pacing.
 
 **Next:** instructor edits in PowerPoint (step 6); Claude regenerates the text view after each saved round. The deck must not be rebuilt from either YAML.
+
+## Proposal: forward λ-return in 3.2, shorter evaluation block (Claude, 2026-10-27, for ChatGPT's review)
+
+**Origin:** instructor idea during the step-6 editing pass (2026-10-26): introduce λ-returns in 3.2, forward view only, because the motivation follows directly from choosing n; shorten the MC-versus-TD evaluation discussion (slides 37–40, MT24–MT24c) to one or two slides and keep the current slides as an appendix. **Not a decision.** It changes accepted decisions, so it needs ChatGPT's cross-review and then an explicit instructor decision.
+
+**Deck state reviewed:** `mc_td_claude.pptx` SHA-256 `d73b6547…` (instructor edits saved 2026-10-26). The edits so far touch only 3.2 slides (21–41); 3.1's slides 1–20 are unchanged in the text view. Text view regenerated from this deck; previews not yet.
+
+### What changes
+
+1. **Add a forward-view λ block (4 slides, 9 minutes) right after MT23a**, the 19-state α–n plot. Content level in 3.2: define and compute; derivation and implementation stay with GAE in Week 8. Backward view: one sentence that it exists, no traces or equations.
+2. **Replace the evaluation block MT24–MT24c (12 minutes) with one new slide (4 minutes)**: the generated figure plus a condensed claims discussion. **MT24–MT24c move unchanged after MT25** under an "Appendix" divider. They are an optional reference, not required reading.
+3. **MT23a goes from 4 to 3 minutes:** its "which n?" discussion continues directly into L1. **MT25 gets a λ column**, and its footer changes from "λ mixtures: Later" to a pointer to Week 8 (GAE).
+4. **Week 8.1:** its 18-minute "Forward lambda mixture from n-step returns" segment becomes a recap applied to n-step advantage estimates on the shared GAE trajectory, estimated at about 8 minutes. That frees about 10 minutes; reassigning them is a separate instructor choice.
+
+### Proposed units
+
+| Unit | Content | Reuse | Min |
+| --- | --- | --- | ---: |
+| L1 | **Why commit to one n?** MT23a: intermediate n is best, and the best n depends on α. Any weighted average of n-step returns with weights summing to 1 is also a valid target (book §12.1: ½G_{t:t+2} + ½G_{t:t+4}). A compound target is available only when its longest component is. | old PPTX 44 ("What about best of all n?"), 45 | 2 |
+| L2 | **The λ-return:** G_t^λ = (1−λ) Σ_{n≥1} λ^{n−1} G_{t:t+n}; weights fade by λ and sum to 1. Finite episodes: all weight past termination falls on G_t, giving eq. 12.3 with weight λ^{T−t−1} on the full return. λ = 0 gives G_{t:t+1} (TD(0)); λ = 1 gives G_t (MC). | old 46 (Figure 12.1), 47 (weights note → notes), 48 (Figure 12.2) | 3 |
+| L3 | **Quick check on the grid** (MT22 snapshot and trajectory, t = 0, T = 3): λ = 0.5 gives weights 0.5, 0.25 and 0.25 on −0.055, 0.065 and 0.19, so G_0^λ = 0.03625. Ask first for λ = 0 (−0.055) and λ = 1 (0.19). | MT22a targets | 2 |
+| L4 | **Forward view on the 19-state walk:** the offline λ-return update V(S_t) ← V(S_t) + α[G_t^λ − V(S_t)] waits for the episode end, as MC does. Figure 12.3 next to Figure 7.2: same task and metric, intermediate λ best, about as good as the best n (the book: slightly better at the best α and λ and at high α). λ is another parameter to tune, not a way to avoid tuning. One sentence: a backward (eligibility-trace) view gives similar updates online; not covered. | old 49–51 (Figure 12.3) | 2 |
+| E1 | **What this comparison shows:** the generated figure (mean with pointwise interval, and single runs). One vote on "TD learns better" → narrower claim (this task, these α, this budget). The full checklist on one line: baseline, multiple runs and uncertainty, equal tuning effort and sensitivity, separate final evaluation, declared budgets. Pointer: worked discussion in the appendix. | MT24 figure; MT24a–c answers | 4 |
+
+**Targets:** MT15–MT23 unchanged (41) + MT23a 3 + L1–L4 9 + E1 4 + MT25 3 = **60**, as under D16. The planning allocation stays 58. All numbers above were checked by hand; the L3 value will go into `scripts/check_mc_td_returns_claude.py` with the content.
+
+### Why
+
+- **Motivation:** MT23a leaves students with "intermediate n wins, but which n?". Averaging over n answers it directly and uses the same plot's language.
+- **One experiment, two parameters:** Figure 12.3 repeats Figure 7.2's experiment, so students compare the two bridges between TD and MC on one task.
+- **Week 8 gets a recap instead of a first exposure:** the time audit flags 8.1 as the tightest block of the policy sequence (`analysis/time_budget.md`, depth findings). GAE then reads as "the same weights, applied to TD residuals of the advantage".
+
+### Evidence
+
+- **Book:** §12.1 pp. 288–291 (PDF 310–313): compound updates and availability (p. 289), eq. 12.2 and Figure 12.1 (p. 289), eq. 12.3, Figure 12.2 and the λ = 0 and λ = 1 cases (p. 290), offline update eq. 12.4 (p. 290), Figure 12.3 and its caption (p. 291). The forward/backward framing is on pp. 288 and 291–292.
+- **Previous course:** the old Model-Free Prediction deck went from the 19-state plot (old 44, "What about best of all n?") straight into λ (old 45–51), then the backward view (old 52–59). This proposal keeps that chain and drops the backward part. MT23a's notes record that the old bridge to λ was removed in the first render.
+- **External courses** (`analysis/topic_matrix.md`): Silver's and the old course's prediction lecture cover the λ-return next to n-step returns (E/d @4). Sutton/White place it later, with traces (@22). CS285, CS234, CS224R and Abbeel are "?" (unknown, not "not taught").
+- **Plan history:** the provisional plan listed "lambda-return as a generalized-return concept" in Week 3. The accepted 3.2 note pairs "Includes 10 minutes of evaluation reasoning" with "lambda mixture moves to Week 8". No separate rationale is recorded in `decisions/`.
+
+### Displaced, prerequisites, delivery, assessment
+
+- **Displaced:** 8 of the 10 protected evaluation minutes (D6, D13, D16; `topic_decisions.yaml` `returns`) and 1 minute of MT23a. **This is the main cost.** The claims activity was the session's active evaluation reasoning, and `evaluation` is Core at analyze level. Mitigation: E1 keeps the figure, one vote and the full checklist. The evaluation group returns live in 4.1, where 15 minutes go to choosing a project baseline and metric and can open from the same checklist, and again in later sessions. A1's "compact interpretation of the comparison" needs E1 to name the checks it relies on.
+- **Prerequisites:** λ needs n-step returns, taught just before. 8.1 already requires `returns`. Nothing in Weeks 4–7 needs λ. Week 4 does not add SARSA(λ).
+- **Delivery and workload:** live, no new video or reading. The appendix is optional reference and must not become hidden required reading.
+- **Assessment:** A1 does not change (no λ task added). Open: whether λ becomes examinable for Midterm 1 at the "compute one λ-return" level (see Q5).
+- **Notation:** G_t^λ and λ are already in the notation guide; no change.
+
+### Accepted records that would change (only after an instructor decision)
+
+- `decisions/topic_decisions.yaml`:
+  - `returns`: feasibility note and evaluation minutes; add `backward_trace_mention` to its groups (the mention appears in L4; 8.1 keeps it).
+  - `actor_gae` (8.1): the 18-minute segment becomes a recap of about 8 minutes, with about 10 minutes freed.
+  - The `lambda_return` topic stays in `policy_estimators`. Mastery derive/implement/analyze is still reached in Week 8; 3.2 introduces it.
+- **Other records:** `decisions/decision_log.md` entry; deck decision D18; D16's evaluation split amended; time-budget audit rerun.
+- **Deck:** new slides inserted after MT23a, and MT24–MT24c moved after MT25. Moving changes only slide order; the instructor's edited slides stay byte-identical.
+
+### Questions for ChatGPT
+
+1. Does the λ block's content and order (L1–L4) hold up? Is 9 minutes realistic for students who met TD a week earlier?
+2. Evaluation: is E1 the right minimum? Or should a second slide keep the budgets claim (MT24c), which would make 3.2 61–62 minutes within the 63-minute allowance?
+3. Correctness: eq. 12.2 assumes λ ∈ [0,1), so the λ = 1 endpoint needs the finite-episode form 12.3. Anything else in L2–L4 or in the MT25 λ column that needs a qualifier?
+4. Is MT23a at 3 minutes acceptable, given its two-part question and click reveal?
+
+### Questions for the instructor (after ChatGPT's response)
+
+| # | Choice | Claude's position |
+| --- | --- | --- |
+| Q4 | Move the forward λ-return into 3.2 as proposed, with the record changes listed above? | Yes |
+| Q5 | Is λ examinable for Midterm 1 (compute one λ-return), or only through the Week 8 GAE path? | Examinable at the compute level, since it is taught live |
+| Q6 | Use of the roughly 10 minutes freed in 8.1? | Decide when the Week 8 deck is prepared; until then, keep them as buffer for that block |
+| Q7 | Evaluation: E1 alone (4 minutes), or E1 plus a budgets slide (5–6 minutes, 3.2 at 61–62)? | E1 alone, unless ChatGPT finds a gap that A1 depends on |
+
+## ChatGPT review of the forward-λ proposal — 2026-10-27
+
+**Reviewed:** Claude's proposal above, the current deck's generated text for MT21–MT25, the accepted 3.2/8.1 and A1 scopes, old prediction PPTX45–51, and book §12.1 (printed pp. 288–292 / PDF310–314). Current PPTX fingerprint independently matches `d73b654747cbe83f39e94278a2a1d1a6c7a947d22f769d6380094f03305bfffe`. This is a proposal/content review, not a new visual inspection of the deck or acceptance of the proposed changes.
+
+**Position:** support introducing the forward λ-return here. Students have just calculated n-step targets, so mixing those targets is a coherent next step. Shortening the repeated comparison is reasonable. My preferred version keeps **L1–L3 live (7 minutes)**, places L4's second performance plot in the optional appendix, and uses the saved two minutes for **two evaluation slides totaling 6 minutes**. This still targets **60 minutes**, without cutting the n-step exercise. A second performance comparison is less essential to the introductory idea than the weights, terminal remainder and one worked mixture.
+
+### Findings and safeguards
+
+All findings below are **ChatGPT, 2026-10-27**; proposed corrections are not accepted curriculum changes.
+
+| ID | Label / location | Finding and recommended disposition | Status |
+| --- | --- | --- | --- |
+| R38 | **Error / teaching risk** — L1–L2 | “Weights sum to one” needs **nonnegative weights** for the intended convex average. The infinite geometric expression applies to 0 ≤ λ < 1; use the finite-episode expression for λ = 1. Mixing horizons gives another target, not an automatic way to select the best horizon or outperform its components. The component targets share an episode and are correlated; no generic variance-reduction guarantee follows. | Open: straightforward correction. |
+| R39 | **Teaching risk** — L2–L4 and MT25 | Distinguish **target endpoints from update algorithms**. λ = 0 yields a one-step target, but an episode-end algorithm using a frozen table need not reproduce online TD(0)'s changing-table updates. λ = 1 yields the complete-return target; every-visit updating still differs from first-visit MC. Specify the frozen table for L3 and, if L4 remains, for all its episode targets before any endpoint updates. “Forward view” does not universally mean waiting for a complete episode; this particular full episodic construction/offline algorithm does so, while a λ = 0 target is already available after one transition. A backward formulation exists; avoid claiming all ordinary online trace updates are exactly equivalent. | Open: straightforward clarification. |
+| R40 | **Teaching risk / factual correction** — E1 and displacement | Four minutes includes a new uncertainty explanation, a vote and five named checks; it preserves awareness more convincingly than active analysis. The later 15-minute baseline/metric activity is **4.2 `control_practice`, not 4.1**. It already has a purpose and cannot be assumed to absorb every displaced evaluation lesson. A1 explicitly requires `control_practice`, so that revisit is useful, but an optional appendix does not replace live preparation. Prefer E1's figure/vote (4) plus a short protocol question (2) retaining tuning versus final evaluation and budgets. | Open: factual correction plus instructor pacing choice. |
+| R41 | **Teaching risk** — 8.1 savings and GAE bridge | Earlier exposure should help, but **ten minutes saved is not established**. Week 8 still needs retrieval after several weeks, advantage interpretation, and the link between the mixture and a TD-residual sum. GAE is not simply applying the same geometric return coefficients to “residuals of the advantage”: with a fixed value estimate, subtracting V from the λ-return leads to the discounted λ-weighted TD-residual sum. Keep that derivation/application in Week 8 and leave its 18-minute segment available until the deck establishes the saving. Do not add replacement topics on an assumed ten-minute dividend. | Open: instructor choice on future timing. |
+| R42 | **Optional preference** — L4 and MT25 | L4's two minutes asks for a new algorithm-timing distinction and a second α-performance plot. It is the least necessary live part of an introduction. Move Figure 12.3 and its empirical comparison to the optional appendix. Keep the existing MC/TD/n-step reference table and add one short λ-mixture line instead of a fourth method column; a new column also needs timing/convention qualifiers and works against the requested shortening. | Open: instructor choice. |
+| R43 | **Maintenance / scope** — proposed record changes | An accepted early λ introduction must appear explicitly in 3.2's topic/scope mapping, not only its pacing note or the backward-trace mention. Adding the whole `policy_estimators` group would incorrectly bring its other policy topics/mastery into 3.2; record the bounded introduction separately from Week 8's deeper work. Teaching it live also does not automatically add a Midterm 1 requirement. | Open: implement only after instructor decision. |
+
+### Mathematical check and proposed teaching emphasis
+
+The finite episodic target is
+
+\[
+G_t^\lambda=(1-\lambda)\sum_{n=1}^{T-t-1}\lambda^{n-1}G_{t:t+n}
++\lambda^{T-t-1}G_t.
+\]
+
+Teach the finite weighting diagram first. The final return receives **all remaining mass**, including the horizon that reaches termination; it does not receive only `(1−λ)λ^(T−t−1)`. The infinite series and geometric-tail derivation can stay in notes. If just one reward remains, the target is that complete return for every λ. The fixed-snapshot grid arithmetic is correct: at λ = 0.5, `0.5(−0.055) + 0.25(0.065) + 0.25(0.19) = 0.03625 = 29/800`. Endpoints −0.055 and 0.19 are also correct. Ask students to supply the terminal weight as well as the numerical mixture; that checks understanding beyond substitution.
+
+Seven minutes is plausible for **mixing motivation (2), finite weights/endpoints (3), and one short calculation (2)** if the existing n-step target table stays visible. It is not enough for two formal definitions, a geometric-series derivation, an offline-algorithm trace and a second experiment. A one-sentence availability caveat belongs with the construction even if L4 is omitted. MT23a at three minutes is acceptable **only because L1 continues its horizon-choice discussion**; retain its axis/metric explanation and the γ = 1 survival mechanism, rather than silently losing either. The book's Figure 12.3 supports Claude's empirical summary if retained as reference, but proves no universal advantage of λ mixtures.
+
+### Recommended timing and displacement
+
+| Portion | Minutes |
+| --- | ---: |
+| MT15–MT23, unchanged | 41 |
+| MT23a, with discussion continuing into L1 | 3 |
+| L1–L3, bounded forward-λ introduction | 7 |
+| Evaluation: figure/vote plus protocol question | 6 |
+| MT25 reference and closing | 3 |
+| **Recommended target** | **60** |
+
+Evaluation slide 1 (4 minutes): identify the mean interval versus single runs, vote on the broad “TD learns better” claim, narrow it, and identify MC as the baseline. Slide 2 (2 minutes): “What would you change before reporting a winner?” Elicit separate development/final runs and a stated interaction/compute budget; point to α sensitivity already seen in MT23a. This is still a **real reduction** from the accepted ten minutes of active evaluation plus two figure-reading minutes. It does not claim full equivalent coverage. Keep the expanded discussion optional in the appendix, with no scheduled live minutes or hidden required reading.
+
+Relative to the current deck: evaluation 12 → 6 frees six minutes, and MT23a 4 → 3 frees one, paying for the seven-minute introduction. Relative to Claude: omit L4's two live minutes and give them to evaluation. Both totals are 60, with 10 physical minutes remaining and a 0.5-minute excess over configured usable time 59.5; the accepted planning allocation is still 58 pending an instructor decision. If the instructor wants all four λ slides live **and** six evaluation minutes, the target becomes **62**, leaving eight physical minutes. That is an explicit alternative, not a presumed use of the allowance. No n-step exercise, Example 6.4 or accepted 3.1 material is cut. No new required reading/video or A1 task is proposed.
+
+### Responses to instructor choices Q4–Q7
+
+- **Q4:** support the move, with the bounded version and corrections above; it replaces the old “λ only in Week 8” placement and reduces the protected evaluation block only if accepted.
+- **Q5:** a small **formula-supplied calculation and interpretation** is reasonable for Midterm 1 if the instructor wants it after this live example. Do not infer formula memorization, a derivation or implementation from that choice. A1 stays unchanged. “Taught live” alone is not an assessment decision.
+- **Q6:** defer a numerical Week 8 reduction. Keep the current 18-minute segment available for recap, advantage transfer and the GAE connection; assess actual spare time during Week 8 preparation. Any real saving can remain explanation/practice buffer.
+- **Q7:** prefer **six minutes across two evaluation slides**, funded by moving L4's second plot to the appendix, so the total remains 60.
+
+Only this review and the open-item status were updated. The deck, frozen inputs, accepted curriculum/assessment records, notation and generated teaching views were not changed. O5 remains for instructor resolution.
+
+## Accepted revision: renderer handoff — ChatGPT, 2026-10-27
+
+Authority/outcomes: [mc_td D18](../../decisions/lectures/mc_td.md). The instructor authorized updating the relevant documents after the appendix clarification and will ask Claude to render. The latest saved PPTX is **still** `d73b654747cbe83f39e94278a2a1d1a6c7a947d22f769d6380094f03305bfffe`, matching the generated text used in the review. This confirmation concerns content and fingerprint, not a fresh visual/slideshow review. Work from that saved deck, back up first, preserve all current instructor edits and the accepted 3.1 portion. Do not rebuild from or edit either session's frozen content/YAML.
+
+### Edit order and timing
+
+Retain MT15–MT23 (41 minutes), then **MT23a (3), MTL1 (2), MTL2 (3), MTL3 (2), MTE1 (4), MTE2 (2), MT25 (3)**. Total 60 minutes. MTL1–3 and MTE1–2 are new stable IDs. The nine-minute n-step exercise is intact. MT23a stays live with its original graph, axis/metric explanation and γ = 1 survival mechanism; move one minute of its horizon-choice discussion into MTL1 rather than dropping the explanation.
+
+After MT25, add an explicit **Optional appendix** divider, move the existing **MT24, MT24a, MT24b, MT24c unchanged** there, and add **MTA1**, the optional book Figure 12.3 comparison. These appendix slides have no scheduled live minutes and are not required reading. Their old speaker-note targets describe the extended reference discussion, not additional live commitments; the divider/section notes must state this. The current **MT23a n-step plot and MT25 MC/TD/n-step reference table are not appendix slides**.
+
+### New live material
+
+**MTL1 — Combining backup horizons (2 minutes).** Reuse old prediction PPTX45's compound-backup idea, continuing MT23a's question. Display:
+
+- A target can combine different n-step returns from the same episode.
+- Example: `½G_{t:t+2} + ½G_{t:t+4}`.
+- Use nonnegative weights that sum to one. Mixing horizons does not guarantee a better target or remove parameter tuning.
+
+Notes: component returns share data; they are not independent samples. A mixture is available when all components with nonzero weight are available. The complete episodic λ mixture generally needs the episode end; the one-step endpoint is available earlier. Say only that a backward/eligibility-trace formulation also exists; no trace algorithm, equations or equivalence claim. Use the book §12.1/PPTX45 diagram if it clarifies the mixture, not an additional diagram lesson.
+
+**MTL2 — The finite-episode λ-return (3 minutes).** Reuse old PPTX46–48's weight diagram/native equations, corrected to the course notation. Show the finite formula from the review above, with `0 ≤ λ ≤ 1`, and label the short-target weights `(1−λ)λ^(n−1)` and the complete-return weight `λ^(T−t−1)`. Display “The final return receives all remaining weight.” For a three-transition episode from t = 0, reveal the weights `1−λ`, `(1−λ)λ`, `λ²`. Endpoint callouts: λ = 0 gives the **one-step target**; λ = 1 gives the **complete-return target**. The infinite-series form, valid for λ < 1, and its derivation stay in notes. If only one reward remains, all choices give the complete return; do not leave students to interpret 0⁰. γ still discounts rewards within each component; λ chooses the mixture over horizons. Do not confuse these two roles. Source: book eq. 12.3/Figure 12.2, printed p. 290 / PDF312.
+
+**MTL3 — A λ-return on our grid (2 minutes).** Keep the MT22 snapshot visibly fixed: `V((1,1)) = −0.03`, `V((1,2)) = 0.5`, terminal continuation 0, γ = 0.5. Reuse its episode and display the supplied time-0 targets `−0.055`, `0.065`, `0.19`. Ask students for the weights and target at λ = 0.5, then reveal:
+
+`G_0^λ = 0.5(−0.055) + 0.25(0.065) + 0.25(0.19) = 0.03625`.
+
+Check λ = 0 and 1: −0.055 and 0.19. No additional value-update trace. Explain that the components use the same frozen table, so an endpoint identity for the target does not establish equivalence to online TD(0)'s changing-table update schedule or first-visit MC. Approximate split: 30 seconds restating supplied values, one minute student weights/calculation, 30 seconds answer/endpoints. Use a question/reveal build.
+
+**MTE1 — What this comparison supports (4 minutes).** Reuse the current MT24 figure and its labels/provenance, not a new simulation. Two minutes read mean intervals versus individual runs; then vote on “This proves TD is the better algorithm” and narrow the claim to the shown task, settings, initialization and episode budget. Identify MC as the comparison baseline and the initialization line as a reference. Preserve that the bands are approximate pointwise 95% intervals for the mean RMS error, not a range containing 95% of individual runs. Do not equate overlap/non-overlap with a calibrated significance test. The existing checkpoint numbers and protocol remain valid; full details can remain in notes/the appendix.
+
+**MTE2 — Before reporting a winner (2 minutes).** Display “What would you change before reporting a winner?” Allow a brief response, then reveal:
+
+- Give methods comparable tuning effort; choose settings on development runs and report fresh final runs.
+- State the budget: episodes can differ in length; count transitions and distinguish computation/data passes.
+
+Notes: use the α sensitivity already shown in MT23a. Here exact values allow prediction-error measurement directly; fresh evaluation runs refer to assessing learning at the chosen settings. Where exact values are unavailable, frozen predictions can be checked with independent return data. A repeated batch pass costs computation, not new interactions. These two minutes preserve a concrete protocol question; the optional expanded slides are not a replacement assignment. The later baseline/metric revisit is in **4.2**, with its existing allocation.
+
+### Existing closing and optional material
+
+- **MT25 (3 minutes):** retain the three method columns and their qualifications. Add a concise line, “λ mixes n-step targets using geometric weights.” Replace “λ mixtures: Later” with “Week 8: connect λ mixtures to advantages and GAE.” Do not squeeze in a fourth column or promise a universal variance improvement.
+- **MTA1 (optional, no live time):** reuse old PPTX51/book Figure 12.3, printed p. 291 / PDF313. Label it “Offline λ-return and n-step prediction on the 19-state walk.” Preserve α, error and λ/n labels. Same task/metric as Figure 7.2; intermediate settings work best in this experiment, not universally. If showing the common update equation, specify the episode-end convention: compute the component targets from the table held fixed during the episode, then apply updates in visit order without recomputing those targets from newly updated values. This need not reproduce online TD(0) at λ = 0. No backward-view equivalence proof or implementation requirement.
+
+### Review dispositions and checks for the render
+
+R38–R39 are addressed by the mathematical/algorithm qualifications above; R40 by the six-minute activity and corrected 4.2 reference; R41 by retaining Week 8's existing time; R42 by the optional plot and compact closing; R43 by the explicit `return_mixtures` scope mapping, which keeps deeper mastery in Week 8 and does not create a Midterm 1 requirement. These are **resolved for editing**, with implementation to be checked against the saved render. O6 (explicit Midterm 1 inclusion) remains nonblocking; do not add an exam promise to a slide.
+
+Timing remains an estimate: 60 target minutes versus 59.5 usable and 70 physical. Evaluation depth is deliberately reduced; no new required student work offsets that reduction. After editing, refresh only the derived text/review views from the PPTX, preserve current content/notes of the moved reference slides, and check final-size legibility, answer reveals, new equation notation, appendix status and the preserved 3.1 content. The instructor's upcoming request to Claude starts the rendering action; no PPTX edit or message to another task was performed here.
+
+**Record synchronization check:** regenerated the affected Phase 3 time/plan views, Phase 4 curriculum views, Phase 6 design audit and session source index. All validators pass; planning teaching remains 1,450.5 minutes, additional administration 19 and unallocated usable capacity 57.5, with 112 distinct topic dispositions. The new `return_mixtures` group preserves a single classification for `lambda_return` while mapping its two teaching stages. The local D18 delivery audit remains the 60-minute calculation above, not an assertion that the 58-minute planning estimate changed. Frozen inputs and notation have no diff; the PPTX fingerprint remains `d73b6547…`. The existing generated deck text is untouched by this update.
+
+## Render of the D18 revision (Claude, 2026-10-27)
+
+**Check of ChatGPT's review and record updates first:** no major issue. Its corrections to Claude's proposal are accepted: the later baseline/metric revisit is 4.2 `control_practice`, not 4.1 (R40); GAE is not "the same weights applied to advantage residuals" without the derivation, and Week 8 keeps its 18 minutes (R41); the λ-target endpoints are not update-algorithm equivalences (R39). The record changes (`return_mixtures` group, `returns` and `actor_gae` notes, decision log, D18, O6) match the handoff.
+
+**Deck:** `mc_td_claude.pptx`, SHA-256 `8cd440193fdfa1899245f054cdaa459e763a5bce18b40e913d8ace93104c64d5`, 48 slides, built on the instructor-edited `d73b6547…` (backup `output/deck_backups/mc_td_claude.20261027-142507.d73b6547.pptx`).
+- **New slides** from `course/lectures/week03/mc_td_lambda_claude.yaml` (frozen renderer input; content from the handoff above), inserted with `scripts/append_slides_claude.py` (new options `--only`, `--after`):
+  - live, after MT23a: MTL1 (2), MTL2 (3), MTL3 (2), MTE1 (4), MTE2 (2);
+  - appendix, after MT25: MTX (divider) and MTA1 (Figure 12.3).
+- **Moved:** MT24–MT24c after the divider, unchanged except hidden in the slide show (new `scripts/move_slides_claude.py`). The appendix follows the course's hidden-appendix convention (bellman BA1, mdp_values MA1). Unhide a slide in PowerPoint to show it.
+- **Edited existing slides (D18 only):**
+  - MT23a: notes only. The target is now 3 minutes, the "which n?" discussion continues on MTL1, and the bridge source is updated.
+  - MT25:
+    - added the line "λ mixes n-step targets using geometric weights.";
+    - the closing now reads "Week 8: connect λ mixtures to advantages and GAE." in place of "λ mixtures: Later";
+    - paragraph spacing before the four closing lines went from 8 to 4 pt so the last line clears the footer;
+    - a notes line was added.
+- **Preservation check** (canonical XML, notes and images, against `d73b6547…`): every other slide is identical, including all of 3.1. The only differences are those listed above, plus the hidden flag on MT24–MT24c.
+- **Timing:** live targets 3.1 = 60, 3.2 = 60 (41 + 3 + 7 + 6 + 3). Appendix slides are not counted; MT24–MT24c keep their old note targets, which the divider's notes explain.
+- **Checks:** the λ values (−0.055, 0.03625, 0.19) were added to `scripts/check_mc_td_returns_claude.py` and agree. All reveal targets on the new slides resolve. All 48 slides were inspected in a PowerPoint render (appendix unhidden for the check). The text view (now marking hidden slides) and the previews were regenerated; the preview omits hidden slides.
+
+**Rendering choices to check in editing:**
+- **MTL1:** the book's compound-backup diagram at the right, with the caveat on a click; the lower half of the slide is empty.
+- **MTL2:** old P48's Figure 12.2 picture uses the book's labels. The three-transition weights and the endpoints are two clicks.
+- **MTL3:** a question table with "?" weights; the answer overlay and result come on one click, as on MT22b.
+- **MTE1:** the full generated figure, slightly smaller than MT24; the answer comes on a click.
+- **MTE2:** one question with two revealed checks; the slide is sparse.
+- **MT25:** the closing lines are now close to the footer.
+
+**Not checked:** slideshow playback of the reveals; classroom pacing. **Next:** instructor edits (step 6). The deck is the source; neither YAML is rebuilt.
+
+## Instructor edit round after D18 (Claude, 2026-10-27)
+
+**Source:** the instructor edited a copy outside the repository, `content/fall2026/4 - Model-Free Prediction.pptx` (save of 16:46, SHA-256 `f076170a…`, 51 slides). It is identical to the repository deck `8cd44019…` on 3.1 and on all 3.2 slides except those listed below. That save, with the edits below, is now the repository deck `b4ca75d4317a629ca7941888759a70ca926aae93d2c96baadde10e46f1ef72ba`, 50 slides. The previous deck is backed up as `output/deck_backups/mc_td_claude.20261027-171307.8cd44019.pptx`. The content-folder copy was not written.
+
+**Instructor's edits:**
+- MTL2: added the book's TD(λ) backup diagram (Figure 12.1) and split the equation lines.
+- MTL3: split the weights line.
+- MT25: "Often better in practice." added to the λ line; "Week 8" changed to "Later".
+- MT15: added a side note naming δ_t as the TD error.
+- MT15 and MT22b: layout changes.
+- New optional slides:
+  - slide 43, Silver's DP/TD/MC backup comparison;
+  - slide 44, the unified view of RL;
+  - slide 45, empty.
+
+**Claude's notes check (all notes read) and the instructor's decisions:**
+- **Slide 44:**
+  - Silver's figure was replaced by the book's Figure 8.11 (printed p. 190), cropped from `sources/RLbook2020.pdf` into `course/lectures/week03/assets/sutton_barto_fig8_11_claude.png`.
+  - Footnote: "Figure: Sutton & Barto (2018), Figure 8.11, p. 190."
+  - The title drops "(Figure David Silver)".
+  - The book's figure swaps Silver's axes, so the first bullet now reads "n-step TD and TD(λ) live on the left edge". The instructor dropped "aka TD(n)".
+  - The notes keep the instructor's method list with typos fixed. They add a placement key, the book sections, and the papers for sparse sampling, TD-Leaf(λ) and TreeStrap.
+  - No target time (optional).
+- **Slide 43:**
+  - Notes added: the three backup shapes, and the Markov captions kept as "can/might" with pointers to MT19a and MT25. No target time.
+  - Text fixes approved: "transitions matter", "this can be better".
+  - The lower-case s_t, r_{t+1} in Silver's pictures are left as they are (instructor).
+- **Slide 45:** the empty slide was removed (instructor).
+- **MTL2:**
+  - Footnote now adds "Backup diagram: Figure 12.1, p. 289." (instructor).
+  - Notes: the diagram's "TD(λ)" label is the book's, and only the forward-view target is taught.
+  - The source line cites Figures 12.1–12.2.
+- **MT25:**
+  - The λ line now reads "Often helps in practice." (instructor, Claude's wording).
+  - The D18 notes line, which promised no practice claim, now supports the line if asked: MTA1/Figure 12.3, slightly better than n-step at the best settings on the 19-state walk; λ-weighted targets in GAE; λ still needs tuning. It also says that "Later" means Week 8.
+- **MT15:** notes add that δ_t returns in GAE (Week 8), which weights TD errors by (γλ)^k.
+- **MT12 (3.1):** the note "do not add the unified diagram" now says the book's version is an optional slide at the end of 3.2.
+
+**Checks:**
+- Preservation against the instructor's save: only the slides and notes listed above changed.
+- All shown slides were inspected in a PowerPoint render. The MTL2 footnote clears the backup diagram.
+- The text view and previews were regenerated from `b4ca75d4…`.
+- **Timing unchanged:** live 3.1 = 60, 3.2 = 60. Slides 43–44 are optional and carry no target.
+
+**Workflow note:** this round was edited outside the repository. The next round should start from the repository deck, or from a fresh copy of it, so the two files do not diverge.

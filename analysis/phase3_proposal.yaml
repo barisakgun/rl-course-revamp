@@ -67,6 +67,11 @@ groups:
   - assignment
   - exam
   accepted_scope_ref: policy_estimators
+- id: return_mixtures
+  assessment_expectation:
+  - assignment
+  - exam
+  accepted_scope_ref: return_mixtures
 - id: policy_updates
   assessment_expectation:
   - exam

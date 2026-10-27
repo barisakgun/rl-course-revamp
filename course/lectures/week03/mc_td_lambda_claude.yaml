@@ -1,0 +1,267 @@
+# Week 3 deck `mc_td`, session 3.2 revision under deck decision D18 (forward λ-return, shorter evaluation): Claude's
+# renderer input for the new slides only (2026-10-27). Not maintained: the PPTX is the source once these slides are
+# inserted. Do not rebuild over the deck or treat this file as its current content.
+# Content: the shared review's "Accepted revision: renderer handoff — ChatGPT, 2026-10-27"
+# (analysis/lecture_suggestions/mc_td_review.md) and decisions/lectures/mc_td.md D18. Status: decisions/lectures/mc_td.md.
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week03/mc_td_lambda_claude.yaml
+# Then:   python3 scripts/append_slides_claude.py <deck> <candidate> --only MTL1,MTL2,MTL3,MTE1,MTE2 --after MT23a
+#         python3 scripts/append_slides_claude.py <deck> <candidate> --only MTX,MTA1 (appended at the end)
+#         python3 scripts/move_slides_claude.py <deck> MT24,MT24a,MT24b,MT24c --after MTX --hide
+# Old Model-Free Prediction PPTX numbering ("P") is presentation order (59 slides): P45 compound-backup diagram,
+# P48 Figure 12.2 weighting, P51 Figure 12.3, copied as the original pictures.
+# Live minutes here: 13 (MTL1–3: 7, MTE1–2: 6). With MT15–MT23 (41), MT23a (3) and MT25 (3), 3.2 targets 60 (D18).
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week03/mc_td_lambda_claude.pptx
+  preview: output/lectures/week03/mc_td_lambda_claude_preview.png
+  session_id: returns
+  qa_minutes: 0                # questions are inside each slide's estimate (content convention)
+  title: Model-free prediction (session 3.2, D18 revision)
+  author: Barış Akgün
+  term: Fall 2026
+
+old: &old sources/current_course/4 - Model Free Prediction.pptx
+fig: &fig course/lectures/week03/assets/mc_td_returns_evaluation_chatgpt.png
+
+slides:
+  # ---------------------------------------------------------------- forward λ (7 min)
+  - id: MTL1
+    kind: math
+    title: Combining backup horizons
+    pictures:
+      - {deck: *old, slide: 45, shape: Picture 3, box: [11.45, 0.95, 1.2]}
+    drawing:
+      - {label: 'Half two-step, half four-step', box: [9.75, 6.6, 3.4, 0.35], size: 12}
+    body_box: [0.244, 1.0, 10.6, 3.6]
+    size: 22
+    eq_size: 24
+    body:
+      - text: 'The best n depended on α. **Instead of choosing one n, can a target use several?**'
+      - text: 'A target can combine different n-step returns from the **same episode**. Example:'
+      - {eq: '\frac{1}{2}G_{t:t+2}+\frac{1}{2}G_{t:t+4}'}
+      - text: 'Use **nonnegative weights that sum to one**.'
+    after_box: [0.244, 3.35, 10.6]
+    size: 22
+    after:
+      - text: 'Mixing horizons does **not** guarantee a better target or remove parameter tuning.'
+    reveal: ['yaml:after']
+    minutes: 2
+    sources:
+      - old Model-Free Prediction PPTX 44-45 (best-of-all-n question; compound backup diagram)
+      - book §12.1 printed pp. 288-289 / PDF 310-311
+      - deck decision D18
+    notes: |
+      Continue MT23a's horizon-choice discussion (one minute moved here from MT23a under D18). Ask the question, then
+      build the example (click: caveat). The component returns share the same rewards and states; they are not
+      independent samples, so no generic variance reduction follows from averaging them. A mixture is available
+      when every component with nonzero weight is available: the example above at time t+4 (or at termination).
+      The complete episodic λ mixture on the next slide generally needs the episode end; its λ = 0 endpoint, the
+      one-step target, is available after one transition. Say only that a backward (eligibility-trace)
+      formulation also exists; no trace algorithm, equations or equivalence claim. The diagram is the book's
+      compound backup for this example.
+
+  - id: MTL2
+    kind: math
+    title: The finite-episode λ-return
+    body_box: [0.244, 0.95, 12.85, 1.15]
+    size: 20
+    eq_size: 24
+    body:
+      - {eq: 'G_t^{\lambda}=(1-\lambda)\sum_{n=1}^{T-t-1}\lambda^{n-1}G_{t:t+n}+\lambda^{T-t-1}G_t,\qquad 0\leq\lambda\leq 1'}
+    pictures:
+      - {deck: *old, slide: 48, shape: Picture 4, box: [0.244, 2.1, 7.7]}
+    blocks:
+      - box: [8.15, 2.1, 4.95, 2.9]
+        size: 20
+        eq_size: 20
+        items:
+          - text: 'Shorter targets: weight $(1-\lambda)\lambda^{n-1}$'
+          - text: 'Complete return: weight $\lambda^{T-t-1}$'
+          - text: '**The final return receives all remaining weight.**'
+      - box: [0.244, 5.2, 12.85, 0.6]
+        size: 20
+        eq_size: 20
+        items:
+          - text: 'Three transitions from $t=0$: weights $1-\lambda$, $(1-\lambda)\lambda$, $\lambda^{2}$ on $G_{0:1}$, $G_{0:2}$, $G_0$.'
+      - box: [0.244, 5.85, 12.85, 0.9]
+        size: 20
+        items:
+          - text: '**λ = 0:** the one-step target.     **λ = 1:** the complete-return target.'
+    footnote: 'Weighting diagram: Sutton & Barto (2018), Figure 12.2, p. 290.'
+    reveal: ['yaml:blocks.1', 'yaml:blocks.2']
+    minutes: 3
+    sources:
+      - old Model-Free Prediction PPTX 46-48 (λ-return, weights note, Figure 12.2), converted to the finite form and course notation
+      - book §12.1 eq. 12.3 and Figure 12.2 printed p. 290 / PDF 312
+    notes: |
+      One minute on the weights in the diagram, one for the three-transition case (click: weights), one for the
+      endpoints (click: endpoints). Each shorter horizon n gets (1−λ)λ^(n−1); the weight fades by λ per extra step.
+      Every horizon that reaches termination gives the complete return, so G_t collects all the remaining weight
+      λ^(T−t−1), not (1−λ)λ^(T−t−1). The weights are nonnegative and sum to one for every 0 ≤ λ ≤ 1. These are
+      target endpoints, not update algorithms: an episode-end algorithm on a frozen table at λ = 0 need not
+      reproduce online TD(0)'s changing-table updates, and at λ = 1 every-visit updating still differs from
+      first-visit MC. If only one reward remains (t = T−1), every λ gives the complete return; do not leave
+      students to interpret 0⁰. γ still discounts rewards inside each component return; λ chooses the mixture over
+      horizons. Notes only: for 0 ≤ λ < 1 the book writes G_t^λ = (1−λ) Σ_{n≥1} λ^(n−1) G_{t:t+n} (eq. 12.2); the
+      post-termination terms all equal G_t and their weights sum to λ^(T−t−1), which gives the finite form.
+
+  - id: MTL3
+    kind: math
+    title: A λ-return on our grid
+    body_box: [0.244, 0.95, 12.85, 1.3]
+    size: 20
+    body:
+      - text: 'Episode (1,1) →(−0.04) (1,1) →(−0.04) (1,2) →(+1) goal,  $T=3$,  $\gamma=0.5$.'
+      - text: '**Fixed snapshot** from MT22: V((1,1)) = −0.03, V((1,2)) = 0.5, goal 0.'
+    tables:
+      - &mix_q
+        box: [1.0, 2.35, 11.3]
+        size: 20
+        row_h: 0.55
+        align_left: true
+        widths: [3.5, 2.4, 2.4, 3.0]
+        header: ['Time-0 target', '$G_{0:1}$', '$G_{0:2}$', '$G_0$ (complete)']
+        rows:
+          - ['Value', '−0.055', '0.065', '0.19']
+          - ['Weight at λ = 0.5', '?', '?', '?']
+      - <<: *mix_q
+        rows:
+          - ['Value', '−0.055', '0.065', '0.19']
+          - ['Weight at λ = 0.5', '0.5', '0.25', '0.25']
+    blocks:
+      - box: [0.244, 4.2, 12.85, 0.6]
+        size: 20
+        eq_size: 20
+        items:
+          - text: '**Question:** At λ = 0.5, what weight does each target get, and what is $G_0^{\lambda}$?'
+    after_box: [0.244, 4.95, 12.85]
+    size: 20
+    eq_size: 22
+    after:
+      - {eq: 'G_0^{\lambda}=0.5(-0.055)+0.25(0.065)+0.25(0.19)=0.03625'}
+      - text: 'Check the endpoints: λ = 0 gives −0.055; λ = 1 gives 0.19.'
+    reveal: [['yaml:tables.1', 'yaml:after']]
+    minutes: 2
+    sources:
+      - MT22 trajectory, snapshot and MT22a targets
+      - book §12.1 eq. 12.3
+      - numbers checked by scripts/check_mc_td_returns_claude.py
+    notes: |
+      About 30 seconds restating the supplied targets, one minute for students to find the weights and the target,
+      30 seconds for the answer and endpoints (click: weights and result). Ask for the terminal weight too: the
+      complete return gets λ² = 0.25, all the remaining weight, not (1−λ)λ². G_0^λ = 0.03625 = 29/800. The three
+      component targets use the same frozen table (the MT22 snapshot), so no value-update trace is added here. An
+      endpoint identity for the target does not make an update schedule equal to online TD(0)'s changing-table
+      updates or to first-visit MC.
+
+  # ---------------------------------------------------------------- evaluation (6 min)
+  - id: MTE1
+    kind: math
+    title: What this comparison supports
+    pictures:
+      - {file: *fig, box: [1.2, 0.95, 10.9]}
+    body_box: [0.244, 4.85, 12.85, 0.45]
+    size: 16
+    body:
+      - text: '**Simulation of the five-state task. TD(0), α = 0.1 and every-visit MC, α = 0.02.**'
+    blocks:
+      - box: [0.244, 5.35, 12.85, 0.55]
+        size: 20
+        items:
+          - text: '“This proves TD is the better algorithm.”  Vote: **supported**, **unsupported**, or **needs a narrower claim**?'
+    after_box: [0.244, 5.95, 12.85]
+    size: 18
+    after:
+      - text: '**Answer:** narrower. TD has lower mean error at these checkpoints for **this task, these α values, this initialization and episode budget**. MC is the baseline; the dotted line is the starting error.'
+    reveal: ['yaml:after']
+    minutes: 4
+    sources:
+      - shared course-generated figure course/lectures/week03/assets/mc_td_returns_evaluation_chatgpt.png (D13, D17, D18)
+      - data output/lectures/week03/mc_td_returns_evaluation_chatgpt.csv
+      - appendix MT24-MT24a (first-render discussion)
+    notes: |
+      Two minutes reading the figure: mean curves with their bands versus the individual runs. Do the intervals
+      overlap at episodes 25 and 100? (No, at either.) What do the single runs show that the mean cannot? (Different
+      trajectories for a fixed task, method and α, with crossings.) Then the vote, one minute, and the answer
+      (click). The bands are approximate pointwise 95% intervals for the mean RMS error, not a range containing 95%
+      of individual runs and not a simultaneous band for the whole curve; overlap or non-overlap of separate
+      intervals is not a calibrated significance test. A single run does not overturn a comparison of means. MC is
+      a meaningful baseline because it solves the same fixed-policy prediction problem; the dotted initialization
+      error is a reference, not a threshold. The object evaluated is V, not a control policy.
+      Provenance: NumPy default_rng (PCG64), TD seeds 1000–1099, MC seeds 2000–2099, 100 episodes per run. Displayed
+      single runs: seeds 1000/1001 and 2000/2001, chosen by seed order before inspecting results. Every-visit MC
+      updates in visit order after termination; TD updates after each transition. Initial nonterminal values 0.5,
+      γ = 1, start C; α values prespecified, not tuned on these runs. Band = mean ± 1.96 × sample sd / √100. At
+      episode 25: TD 0.0558 ± 0.0038, MC 0.1567 ± 0.0064; at episode 100: TD 0.0536 ± 0.0043, MC 0.0859 ± 0.0095.
+      Initial error √(1/18) ≈ 0.236. The expanded discussion is in the optional appendix (MT24–MT24c).
+
+  - id: MTE2
+    kind: math
+    title: Before reporting a winner
+    body_box: [0.244, 1.1, 12.85, 1.0]
+    size: 26
+    body:
+      - text: '**Question:** What would you change before reporting a winner?'
+    blocks:
+      - box: [0.244, 2.1, 12.85, 3.0]
+        size: 22
+        items:
+          - text: 'Give methods **comparable tuning effort**; choose settings on development runs and report **fresh final runs**.'
+          - text: '**State the budget:** episodes can differ in length; count transitions and distinguish computation and data passes.'
+    reveal: ['yaml:blocks.0']
+    minutes: 2
+    sources:
+      - appendix MT24b-MT24c (first-render discussion)
+      - book Exercise 6.4 p. 126
+      - CS234 lecture 3 p. 23
+    notes: |
+      Allow a brief response (about one minute), then click: the two checks. Use the α sensitivity already seen on
+      MT23a: each method may need a different α, and choosing settings on the reported runs makes the result
+      optimistic. Here exact values allow measuring prediction error directly; "fresh final runs" means assessing
+      learning at the chosen settings on new runs. Where exact values are unavailable, frozen predictions can be
+      checked against independent return data. A repeated pass over a fixed batch costs computation, not new
+      interactions. These two minutes keep a concrete protocol question; the optional appendix slides are not a
+      replacement assignment. The baseline/metric revisit is in 4.2, with its existing allocation.
+
+  # ---------------------------------------------------------------- optional appendix (no live time)
+  - id: MTX
+    kind: section
+    title: Optional appendix
+    subtitle: 'Reference slides: no live time, not required reading'
+    hidden: true
+    appendix: true
+    minutes: 0
+    sources: [deck decision D18]
+    notes: |
+      Optional appendix (D18): reference slides with no scheduled live minutes; not required reading. MT24–MT24c
+      are the first-render evaluation slides, moved here unchanged; their speaker-note "Target" lines describe that
+      extended discussion, not live commitments. MTA1 is the optional λ-return versus n-step comparison. The slides
+      are hidden in the slide show; unhide one to show it.
+
+  - id: MTA1
+    kind: math
+    title: Offline λ-return and n-step prediction on the 19-state walk
+    pictures:
+      - {deck: *old, slide: 51, shape: Picture 3, box: [1.2, 1.0, 10.9]}
+    body_box: [0.244, 5.6, 12.85, 1.3]
+    size: 18
+    body:
+      - text: 'Same task and metric as Figure 7.2 (MT23a). Intermediate λ and n work best **in this experiment**, not universally.'
+      - text: 'Offline update: compute each visit''s λ-return from the table held fixed during the episode, then update in visit order at the episode end.'
+    footnote: 'Plot: Sutton & Barto (2018), Figure 12.3, p. 291.'
+    hidden: true
+    appendix: true
+    minutes: 0
+    sources:
+      - old Model-Free Prediction PPTX 51 (Figure 12.3)
+      - book §12.1 eq. 12.4 and Figure 12.3 printed pp. 290-291 / PDF 312-313
+    notes: |
+      Optional reference. Same 19-state walk, metric (RMS error at episode end over 19 states, averaged over the
+      first 10 episodes and 100 runs) and α axis as Figure 7.2; λ varies instead of n. The book reports overall
+      performance comparable to n-step methods, slightly better at the best α and λ and at high α. This is one
+      experiment; it proves no universal advantage of λ mixtures. Update convention: the component targets are
+      computed from the table held fixed during the episode; updates are then applied in visit order without
+      recomputing those targets from newly updated values. This need not reproduce online TD(0) at λ = 0. No
+      backward-view equivalence proof or implementation requirement.

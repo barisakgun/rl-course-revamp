@@ -53,8 +53,8 @@ Sources: [accepted topic decisions](../decisions/topic_decisions.yaml), [assessm
 | [REINFORCE](#reinforce) | Core (accepted) | derive, implement, analyze | 7.1, 7.2, 8.1, 13.1 |
 | [Baselines and advantages](#baselines_advantages) | Core (accepted) | derive, implement, analyze | 7.1, 7.2, 8.1, 13.1 |
 | [Actor-critic](#actor_critic) | Core (accepted) | derive, implement, analyze | 7.1, 7.2, 8.1, 13.1 |
-| [Lambda returns](#lambda_return) | Core (accepted) | derive, implement, analyze | 7.1, 7.2, 8.1, 13.1 |
 | [Generalized advantage estimation](#generalized_advantage_estimation) | Core (accepted) | derive, implement, analyze | 7.1, 7.2, 8.1, 13.1 |
+| [Lambda returns](#lambda_return) | Core (accepted) | derive, implement, analyze | 3.2, 8.1 |
 | [Importance sampling](#importance_sampling) | Core (accepted) | explain, analyze | 8.2, 9.1, 13.1 |
 | [Proximal policy optimization](#proximal_policy_optimization) | Core (accepted) | explain, analyze | 8.2, 9.1, 13.1 |
 | [Entropy regularization and maximum-entropy RL](#entropy_regularization) | Core (accepted) | explain, analyze | 8.2, 9.1, 13.1 |
@@ -111,7 +111,7 @@ Sources: [accepted topic decisions](../decisions/topic_decisions.yaml), [assessm
 | [MuZero](#muzero) | Extension (accepted) | recognize | Preparation video / optional only |
 | [Auxiliary prediction objectives](#auxiliary_prediction) | Extension (accepted) | recognize | Preparation video / optional only |
 | [Offline-to-online learning](#offline_to_online) | Extension (accepted) | recognize | Preparation video / optional only |
-| [Eligibility traces](#eligibility_traces) | Exposure (accepted) | recognize | 8.1 |
+| [Eligibility traces](#eligibility_traces) | Exposure (accepted) | recognize | 3.2, 8.1 |
 | [Direct policy search](#policy_search) | Exposure (accepted) | recognize | 7.1 |
 | [Cross-entropy optimization](#cross_entropy_method) | Exposure (accepted) | recognize | 7.1 |
 | [Finite-difference policy search](#finite_difference_policy_gradient) | Exposure (accepted) | recognize | 7.1 |
@@ -285,20 +285,33 @@ Explain tabular Double Q-learning as a contrast; no separate tabular Double Q im
 <a id="reinforce"></a>
 <a id="baselines_advantages"></a>
 <a id="actor_critic"></a>
-<a id="lambda_return"></a>
 <a id="generalized_advantage_estimation"></a>
 
 ### Policy gradients, REINFORCE and related concepts
 
 Group `policy_estimators`. **Core (accepted); accepted mastery: derive, implement, analyze.**
 
-**Topics:** Policy gradients (`policy_gradient`); REINFORCE (`reinforce`); Baselines and advantages (`baselines_advantages`); Actor-critic (`actor_critic`); Lambda returns (`lambda_return`); Generalized advantage estimation (`generalized_advantage_estimation`).
+**Topics:** Policy gradients (`policy_gradient`); REINFORCE (`reinforce`); Baselines and advantages (`baselines_advantages`); Actor-critic (`actor_critic`); Generalized advantage estimation (`generalized_advantage_estimation`).
 
 Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed. Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics.
 
 **Delivery:** live. **Sessions:** 7.1, 7.2, 8.1, 13.1. **Proposed assessment path:** assignment, exam.
 
 **Accepted status:** foundational, classical. 
+
+<a id="lambda_return"></a>
+
+### Lambda returns
+
+Group `return_mixtures`. **Core (accepted); accepted mastery: derive, implement, analyze.**
+
+**Topics:** Lambda returns (`lambda_return`).
+
+Session 3.2 introduces the forward lambda-return through nonnegative weights, the finite-episode terminal remainder, endpoint interpretation and one supplied-formula grid calculation. No derivation, trace algorithm or implementation is required in 3.2. Session 8.1 develops the mixture-to-advantage/GAE connection; deeper mastery and any implementation remain within the accepted policy-estimator path, not a separate lambda implementation task. Midterm 1 inclusion is not established by this early placement.
+
+**Delivery:** live. **Sessions:** 3.2, 8.1. **Proposed assessment path:** assignment, exam.
+
+**Accepted status:** foundational, classical. Episodic on-policy return mixtures, as defined in Sutton and Barto Section 12.1.
 
 <a id="importance_sampling"></a>
 <a id="proximal_policy_optimization"></a>
@@ -574,7 +587,7 @@ Group `backward_trace_mention`. **Exposure (accepted); accepted mastery: recogni
 
 Mention that a backward-view/eligibility-trace formulation also exists while discussing forward lambda and GAE. No backward-lambda mathematics or algorithm coverage.
 
-**Delivery:** live. **Sessions:** 8.1. **Proposed assessment path:** none.
+**Delivery:** live. **Sessions:** 3.2, 8.1. **Proposed assessment path:** none.
 
 **Accepted status:** classical. 
 

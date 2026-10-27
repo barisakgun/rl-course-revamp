@@ -1,5 +1,16 @@
 # Decision Log
 
+## 2026-10-27 — Week 3 deck (`mc_td`, sessions 3.1–3.2) accepted (done)
+
+- Authority: the instructor marked 3.2 done after the edit round following D18 and Claude's notes check ([mc_td D19](lectures/mc_td.md)). Accepted deck: `course/lectures/week03/mc_td_claude.pptx`, SHA-256 `b4ca75d4317a629ca7941888759a70ca926aae93d2c96baadde10e46f1ef72ba`; text view and previews in sync. Slide targets 60 minutes per session; planning estimates unchanged at 59 and 58. Instructor-added optional slides 43–44 carry no live time. No scope, assessment or workload change; O6 remains open.
+
+## 2026-10-27 — Week 3 forward-λ introduction and shorter evaluation accepted
+
+- Authority: instructor asks to update the documents for Claude's render after ChatGPT's review and clarification of which slides move to appendices; recorded as [mc_td D18](lectures/mc_td.md). Use current saved deck `d73b6547…`, whose fingerprint still matches the reviewed text view. Accepted 3.1 and all frozen first-render inputs stay unchanged.
+- Change/evidence: introduce forward λ immediately after n-step prediction using the book §12.1 mixture/terminal-weight construction and one calculation on the existing grid. Three new live slides receive seven minutes. Shorten evaluation from twelve to six minutes across two slides; move MT24–MT24c and the additional λ-versus-n-step performance plot to an optional appendix. The n-step plot discussion shortens by one minute and continues into the λ motivation. The existing n-step exercise and closing method-reference table remain live. This is a reduction in evaluation depth, not equivalent coverage through optional reading; 4.2's existing baseline/metric activity is a later revisit, not newly allocated catch-up time.
+- Timing: six recovered evaluation minutes plus one discussion minute fund the seven-minute introduction. Slide targets stay 60 (0.5 above 59.5 usable; 10 physical minutes remaining), planning allocation stays 58. Week 8.1 keeps all 18 mixture minutes and its 59-minute allocation for retrieval/advantage/GAE work; no assumed saving or new topic.
+- Prerequisites/mastery: n-step prediction immediately precedes the introductory mixture. `lambda_return` is separated into a narrowly scoped `return_mixtures` group so the 3.2 introduction and Week 8 deeper work map explicitly without bringing policy methods into 3.2. It retains its existing Core classification and later mastery/assessment path. No trace mathematics, λ implementation task, A1 change, required reading/video or new Midterm 1 requirement. An explicit early-exam choice remains open and does not block rendering. Regenerate the affected curriculum views and time/consistency audits from the accepted records.
+
 ## 2026-10-22 — Proposal and written-report LLM-use guidelines accepted
 
 - Instructor accepts the two current guideline documents and requests their PDFs under `course/`, with a local Git commit for a separate instructor push. The accepted distribution copies are `course/projects/handouts/proposal_guidelines_chatgpt.pdf` and `course/projects/handouts/llm_use_written_reports_chatgpt.pdf`; editable TeX sources remain in their existing project directories. Remove the duplicate PDF locations under `output/projects/` and document this storage exception in the repository contract.

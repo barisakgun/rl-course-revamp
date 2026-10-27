@@ -73,14 +73,16 @@ Local decks with no page-level evidence (added or not exported when the evidence
 
 - **Teaching:** 58 min (range 50–65); confidence medium
 - **Requires:** 3.1 `mc_td`
-- **Worked activity:** Trace n-step targets; inspect noisy learning curves and a baseline comparison.
-- **Pacing note:** Includes 10 minutes of evaluation reasoning; lambda mixture moves to Week 8.
+- **Worked activity:** Trace n-step targets; combine the supplied targets into one finite episodic lambda-return; inspect noisy learning curves and discuss a baseline, tuning/evaluation separation and resource budgets.
+- **Pacing note:** Instructor 2026-10-27 accepts mc_td D18. Seven minutes introduce the forward lambda-return after the 19-state n-step plot; six minutes across two slides replace the prior twelve-minute evaluation block (two figure-reading plus ten reasoning minutes). The extended evaluation and additional lambda-versus-n-step performance comparison are optional appendix material, not required reading. The n-step plot discussion shortens by one minute and continues into the mixture motivation; the nine-minute n-step exercise and closing MC/TD/n-step reference remain live. Targets stay 60 minutes under the existing delivery allowance, planning allocation stays 58. Backward view is existence-only. Deeper lambda/GAE work and the full 18-minute mixture segment remain in 8.1; no ten-minute saving is assumed. No A1 task or new Midterm 1 requirement.
 - **Prerequisite for:** A1 Planning and learning from sampled transitions (release week 4)
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
 | --- | --- | --- | --- |
 | prediction (`prediction`) | core · explain, derive, implement, analyze · live | MC and TD(0) updates on one shared trajectory; derive n-step target. Implement representative MC/TD prediction, not all return variants. Data-access taxonomy is brief and revisited. | [on_off_policy_learning](#topic-on-off-policy-learning), [online_offline_learning](#topic-online-offline-learning), [monte_carlo_prediction](#topic-monte-carlo-prediction), [sampling_bootstrapping](#topic-sampling-bootstrapping), [temporal_difference_learning](#topic-temporal-difference-learning), [bias_variance](#topic-bias-variance), [n_step_returns](#topic-n-step-returns) |
 | evaluation (`evaluation`) | core · analyze · live | Choose a baseline, separate training/evaluation, compare seeds and uncertainty, distinguish interaction/compute budgets, and interpret ablations; revisit reward validity late. | [experiment_design](#topic-experiment-design) |
+| return_mixtures (`return_mixtures`) | core · derive, implement, analyze · live | Session 3.2 introduces the forward lambda-return through nonnegative weights, the finite-episode terminal remainder, endpoint interpretation and one supplied-formula grid calculation. No derivation, trace algorithm or implementation is required in 3.2. Session 8.1 develops the mixture-to-advantage/GAE connection; deeper mastery and any implementation remain within the accepted policy-estimator path, not a separate lambda implementation task. Midterm 1 inclusion is not established by this early placement. | [lambda_return](#topic-lambda-return) |
+| backward_trace_mention (`backward_trace_mention`) | exposure · recognize · live | Mention that a backward-view/eligibility-trace formulation also exists while discussing forward lambda and GAE. No backward-lambda mathematics or algorithm coverage. | [eligibility_traces](#topic-eligibility-traces) |
 
 ### 4.1 Exploratory control and target policies (`control_targets`)
 
@@ -174,7 +176,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
 | --- | --- | --- | --- |
 | policy_history (`policy_history`) | exposure · recognize · live | Ten-minute historical overview of gradient-free search and finite differences. No mathematics or algorithms. | [policy_search](#topic-policy-search), [cross_entropy_method](#topic-cross-entropy-method), [finite_difference_policy_gradient](#topic-finite-difference-policy-gradient) |
-| policy_estimators (`policy_estimators`) | core · derive, implement, analyze · live | Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed. Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics. | [policy_gradient](#topic-policy-gradient), [reinforce](#topic-reinforce), [baselines_advantages](#topic-baselines-advantages), [actor_critic](#topic-actor-critic), [lambda_return](#topic-lambda-return), [generalized_advantage_estimation](#topic-generalized-advantage-estimation) |
+| policy_estimators (`policy_estimators`) | core · derive, implement, analyze · live | Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed. Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics. | [policy_gradient](#topic-policy-gradient), [reinforce](#topic-reinforce), [baselines_advantages](#topic-baselines-advantages), [actor_critic](#topic-actor-critic), [generalized_advantage_estimation](#topic-generalized-advantage-estimation) |
 | formulation (`formulation`) | core · explain, analyze · live | Formulate finite episodic/discounted MDPs; distinguish observed information from a Markov state. No POMDP solver or abstraction theorem. Stochastic policy parameterization revisited in policy gradients. | [rl_formulation](#topic-rl-formulation), [mdp](#topic-mdp), [state_representation](#topic-state-representation), [partial_observability](#topic-partial-observability), [reward_return](#topic-reward-return), [value_functions](#topic-value-functions), [policy_parameterization](#topic-policy-parameterization), [environment_models](#topic-environment-models) |
 
 ### 7.2 Sampled gradients, baselines and critic motivation (`baseline`)
@@ -188,7 +190,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
 | --- | --- | --- | --- |
-| policy_estimators (`policy_estimators`) | core · derive, implement, analyze · live | Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed. Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics. | [policy_gradient](#topic-policy-gradient), [reinforce](#topic-reinforce), [baselines_advantages](#topic-baselines-advantages), [actor_critic](#topic-actor-critic), [lambda_return](#topic-lambda-return), [generalized_advantage_estimation](#topic-generalized-advantage-estimation) |
+| policy_estimators (`policy_estimators`) | core · derive, implement, analyze · live | Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed. Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics. | [policy_gradient](#topic-policy-gradient), [reinforce](#topic-reinforce), [baselines_advantages](#topic-baselines-advantages), [actor_critic](#topic-actor-critic), [generalized_advantage_estimation](#topic-generalized-advantage-estimation) |
 | evaluation (`evaluation`) | core · analyze · live | Choose a baseline, separate training/evaluation, compare seeds and uncertainty, distinguish interaction/compute budgets, and interpret ablations; revisit reward validity late. | [experiment_design](#topic-experiment-design) |
 | psychology_connections (`psychology_connections`) | exposure · recognize · live | Disperse brief psychology/neuroscience connections within existing examples, without a separate teaching block or assessment requirement. | [psychology_neuroscience](#topic-psychology-neuroscience) |
 
@@ -197,14 +199,15 @@ Local decks with no page-level evidence (added or not exported when the evidence
 - **Teaching:** 59 min (range 55–74); confidence medium
 - **Requires:** 7.2 `baseline`, 3.2 `returns`
 - **Worked activity:** One-step actor-critic example; forward mixtures; existence-only backward-view mention; GAE as a TD-residual sum.
-- **Pacing note:** No backward equations or trace algorithm. Forward-mixture and GAE example share the same trajectory.
+- **Pacing note:** No backward equations or trace algorithm. Forward-mixture and GAE example share the same trajectory. Session 3.2 now supplies an initial finite-mixture example (mc_td D18, 2026-10-27); retain this session's full 18-minute mixture segment for retrieval, advantage transfer and the GAE connection until deck preparation establishes any saving. No replacement topic or reduced allocation is accepted.
 - **Segments:** Actor-critic target and bias example (20 min); Forward lambda mixture from n-step returns (18 min); Backward-view existence mention; no math (1 min); GAE residual sum and worked target (20 min)
 - **Prerequisite for:** A3 Policy-gradient estimators and update diagnosis (release week 8)
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
 | --- | --- | --- | --- |
-| policy_estimators (`policy_estimators`) | core · derive, implement, analyze · live | Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed. Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics. | [policy_gradient](#topic-policy-gradient), [reinforce](#topic-reinforce), [baselines_advantages](#topic-baselines-advantages), [actor_critic](#topic-actor-critic), [lambda_return](#topic-lambda-return), [generalized_advantage_estimation](#topic-generalized-advantage-estimation) |
+| policy_estimators (`policy_estimators`) | core · derive, implement, analyze · live | Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed. Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics. | [policy_gradient](#topic-policy-gradient), [reinforce](#topic-reinforce), [baselines_advantages](#topic-baselines-advantages), [actor_critic](#topic-actor-critic), [generalized_advantage_estimation](#topic-generalized-advantage-estimation) |
 | prediction (`prediction`) | core · explain, derive, implement, analyze · live | MC and TD(0) updates on one shared trajectory; derive n-step target. Implement representative MC/TD prediction, not all return variants. Data-access taxonomy is brief and revisited. | [on_off_policy_learning](#topic-on-off-policy-learning), [online_offline_learning](#topic-online-offline-learning), [monte_carlo_prediction](#topic-monte-carlo-prediction), [sampling_bootstrapping](#topic-sampling-bootstrapping), [temporal_difference_learning](#topic-temporal-difference-learning), [bias_variance](#topic-bias-variance), [n_step_returns](#topic-n-step-returns) |
+| return_mixtures (`return_mixtures`) | core · derive, implement, analyze · live | Session 3.2 introduces the forward lambda-return through nonnegative weights, the finite-episode terminal remainder, endpoint interpretation and one supplied-formula grid calculation. No derivation, trace algorithm or implementation is required in 3.2. Session 8.1 develops the mixture-to-advantage/GAE connection; deeper mastery and any implementation remain within the accepted policy-estimator path, not a separate lambda implementation task. Midterm 1 inclusion is not established by this early placement. | [lambda_return](#topic-lambda-return) |
 | backward_trace_mention (`backward_trace_mention`) | exposure · recognize · live | Mention that a backward-view/eligibility-trace formulation also exists while discussing forward lambda and GAE. No backward-lambda mathematics or algorithm coverage. | [eligibility_traces](#topic-eligibility-traces) |
 
 ### 8.2 Importance ratios, PPO and entropy (`ratios`)
@@ -345,7 +348,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 | --- | --- | --- | --- |
 | llm_transfer (`llm_transfer`) | exposure · explain · live | LLM RL is an exposure-oriented application unit, supported by prerequisite video, intended to prepare students to begin reading contemporary papers. Retain formulation, PPO/KL, drift and reward/evaluation reasoning at that bounded depth; this is not a comprehensive LLM post-training course or a mandatory training assignment. | [llm_post_training](#topic-llm-post-training), [language_model_formulation](#topic-language-model-formulation), [kl_regularization](#topic-kl-regularization), [reward_process_outcome](#topic-reward-process-outcome), [reward_specification](#topic-reward-specification) |
 | policy_updates (`policy_updates`) | core · explain, analyze · live | Explain likelihood ratios, support/variance, clipped surrogate and entropy bonus. Analyze clipping on a scalar example; distinguish recent-batch reuse from arbitrary replay. No PPO convergence guarantee or full implementation requirement. | [importance_sampling](#topic-importance-sampling), [proximal_policy_optimization](#topic-proximal-policy-optimization), [entropy_regularization](#topic-entropy-regularization) |
-| policy_estimators (`policy_estimators`) | core · derive, implement, analyze · live | Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed. Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics. | [policy_gradient](#topic-policy-gradient), [reinforce](#topic-reinforce), [baselines_advantages](#topic-baselines-advantages), [actor_critic](#topic-actor-critic), [lambda_return](#topic-lambda-return), [generalized_advantage_estimation](#topic-generalized-advantage-estimation) |
+| policy_estimators (`policy_estimators`) | core · derive, implement, analyze · live | Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed. Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics. | [policy_gradient](#topic-policy-gradient), [reinforce](#topic-reinforce), [baselines_advantages](#topic-baselines-advantages), [actor_critic](#topic-actor-critic), [generalized_advantage_estimation](#topic-generalized-advantage-estimation) |
 | bandit_concepts (`bandit_concepts`) | core · explain · live | Bandit as a one-step decision problem, regret as a criterion, one numerical UCB choice and contextual formulation. No regret-bound proof or contextual-bandit algorithm implementation. | [multi_armed_bandits](#topic-multi-armed-bandits), [contextual_bandits](#topic-contextual-bandits), [optimism](#topic-optimism), [regret](#topic-regret), [upper_confidence_bound](#topic-upper-confidence-bound) |
 
 ### 13.2 Grouped estimators, rewards and evaluation (`llm_failure`)
@@ -925,6 +928,28 @@ Sessions: 3.1, 3.2, 4.2, 8.1, 8.2, 12.1.
 - **Sutton slides** (explicitly-covered):
   - [11-12-TD.pdf](../../sources/sutton/11-12-TD.pdf#page=2) pp. 2–20 — Develops TD(0), bootstrapping and driving/random-walk examples.
 
+<a id="topic-eligibility-traces"></a>
+### Eligibility traces (`eligibility_traces`)
+
+Sessions: 3.2, 8.1.
+
+- **Sutton & Barto:** §12.2 TD(λ) (printed pp. 292–295, [PDF pp. 314–317](../../sources/RLbook2020.pdf#page=314)); §12.7 Sarsa(λ) (printed pp. 303–307, [PDF pp. 325–329](../../sources/RLbook2020.pdf#page=325))
+- **Current course (local)** (explicitly-covered):
+  - [4 - Model Free Prediction.pdf](../../sources/current_course/4%20-%20Model%20Free%20Prediction.pdf#page=48) pp. 48–54 (deck: `4 - Model Free Prediction.pptx`) — Defines backward eligibility traces and TD(lambda), including forward/backward relation.
+  - [5 - Model Free Control.pdf](../../sources/current_course/5%20-%20Model%20Free%20Control.pdf#page=22) pp. 22–27 (deck: `5 - Model Free Control.pptx`) — Sarsa extensions appear in the deck with explicit skipping labels on algorithm/comparison slides.
+  - [7 - Policy Space Methods.pdf](../../sources/current_course/7%20-%20Policy%20Space%20Methods.pdf#page=50) pp. 50–54 (deck: `7 - Policy Space Methods.pptx`) — Actor/critic time-scale and trace slides explicitly exclude their contents from exam topics.
+- **Silver** (explicitly-covered):
+  - [lecture-4-model-free-prediction-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-4-model-free-prediction-.pdf#page=39) pp. 39–51 — Develops backward traces and forward/backward equivalence; offline here refers to update timing.
+  - [lecture-5-model-free-control-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-5-model-free-control-.pdf#page=20) pp. 20–30 — Presents Sarsa, multi-step Sarsa and Sarsa(lambda).
+  - [lecture-7-policy-gradient-methods.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-7-policy-gradient-methods.pdf#page=23) pp. 23–34 — Explains learned critics, compatible approximation, baselines and trace-based policy updates.
+  - [easy21-assignment.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/easy21-assignment.pdf#page=2) pp. 2–3 — Requires MC control, Sarsa(lambda) and linear feature-based Sarsa experiments.
+  - [previous-rl-exam-questions-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf#page=3) p. 3 — Past exam asks for MC, batch TD, trace-based TD and LSTD estimates on observed episodes.
+  - [previous-rl-exam-questions-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf#page=4) pp. 4–5 — Past exam asks for feature values, forward lambda returns and backward trace updates.
+- **CS285** (brief-exposure):
+  - [lec-6.pdf](https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-6.pdf#page=23) p. 23 — Eligibility traces are named alongside n-step returns; no backward trace derivation established from this page.
+- **Sutton slides** (explicitly-covered):
+  - [22-eligibility-traces.pdf](../../sources/sutton/22-eligibility-traces.pdf#page=12) pp. 12–55 — Develops backward, true-online and Dutch traces plus action-value trace variants.
+
 <a id="topic-experiment-design"></a>
 ### Experimental design and evaluation (`experiment_design`)
 
@@ -949,6 +974,20 @@ Sessions: 3.2, 4.2, 6.2, 7.2, 9.1, 12.2, 13.2.
   - [CS224R_2026_Homework_2.pdf](https://cs224r.stanford.edu/material/hw2/CS224R_2026_Homework_2.pdf#page=10) pp. 10–12 — Requires a replay-based actor-critic with target critics and ensemble/update-ratio experiments.
   - [CS224R_2026_Homework_3.pdf](https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.pdf#page=8) pp. 8–15 — Requires AWAC and IQL, multiple seeds and trajectory/return comparisons.
   - [CS224R_Default_Project_Guidelines.pdf](https://cs224r.stanford.edu/material/CS224R_Default_Project_Guidelines.pdf#page=9) pp. 9–10 — Requires controlled evaluation of SFT/IPO/RLOO checkpoints using the Countdown verifier.
+
+<a id="topic-lambda-return"></a>
+### Lambda returns (`lambda_return`)
+
+Sessions: 3.2, 8.1.
+
+- **Sutton & Barto:** §12.1 The λ-return (printed pp. 288–292, [PDF pp. 310–314](../../sources/RLbook2020.pdf#page=310))
+- **Current course (local)** (explicitly-covered):
+  - [4 - Model Free Prediction.pdf](../../sources/current_course/4%20-%20Model%20Free%20Prediction.pdf#page=39) pp. 39–47 (deck: `4 - Model Free Prediction.pptx`) — Develops n-step targets and forward lambda returns.
+- **Silver** (explicitly-covered):
+  - [lecture-4-model-free-prediction-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-4-model-free-prediction-.pdf#page=31) pp. 31–38 — Develops n-step and forward lambda returns.
+  - [previous-rl-exam-questions-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf#page=4) pp. 4–5 — Past exam asks for feature values, forward lambda returns and backward trace updates.
+- **Sutton slides** (explicitly-covered):
+  - [22-eligibility-traces.pdf](../../sources/sutton/22-eligibility-traces.pdf#page=4) pp. 4–11 — Develops mixtures of returns and the forward lambda-return view.
 
 <a id="topic-epsilon-greedy"></a>
 ### Epsilon-greedy exploration (`epsilon_greedy`)
@@ -1382,20 +1421,6 @@ Sessions: 7.1, 7.2, 8.1, 13.1.
 - **Abbeel (Foundations of Deep RL)** (explicitly-covered):
   - [l3-policy-gradient-and-advantage-estimation.pdf](../../sources/foundations-deep-rl-abbeel/l3-policy-gradient-and-advantage-estimation.pdf#page=34) pp. 34–51 — Develops advantage estimates, discount/approximation tradeoffs, A3C and GAE.
 
-<a id="topic-lambda-return"></a>
-### Lambda returns (`lambda_return`)
-
-Sessions: 7.1, 7.2, 8.1, 13.1.
-
-- **Sutton & Barto:** §12.1 The λ-return (printed pp. 288–292, [PDF pp. 310–314](../../sources/RLbook2020.pdf#page=310))
-- **Current course (local)** (explicitly-covered):
-  - [4 - Model Free Prediction.pdf](../../sources/current_course/4%20-%20Model%20Free%20Prediction.pdf#page=39) pp. 39–47 (deck: `4 - Model Free Prediction.pptx`) — Develops n-step targets and forward lambda returns.
-- **Silver** (explicitly-covered):
-  - [lecture-4-model-free-prediction-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-4-model-free-prediction-.pdf#page=31) pp. 31–38 — Develops n-step and forward lambda returns.
-  - [previous-rl-exam-questions-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf#page=4) pp. 4–5 — Past exam asks for feature values, forward lambda returns and backward trace updates.
-- **Sutton slides** (explicitly-covered):
-  - [22-eligibility-traces.pdf](../../sources/sutton/22-eligibility-traces.pdf#page=4) pp. 4–11 — Develops mixtures of returns and the forward lambda-return view.
-
 <a id="topic-policy-gradient"></a>
 ### Policy gradients (`policy_gradient`)
 
@@ -1470,28 +1495,6 @@ Sessions: 7.2.
 - **Sutton & Barto:** §14.2 Classical Conditioning (printed pp. 343–357, [PDF pp. 365–379](../../sources/RLbook2020.pdf#page=365)); §15.3 The Reward Prediction Error Hypothesis (printed pp. 381–383, [PDF pp. 403–405](../../sources/RLbook2020.pdf#page=403)); §15.6 TD Error/Dopamine Correspondence (printed pp. 390–395, [PDF pp. 412–417](../../sources/RLbook2020.pdf#page=412))
 - **Sutton slides** (explicitly-covered):
   - [23-biopsych.pdf](../../sources/sutton/23-biopsych.pdf#page=2) pp. 2–35 — Relates conditioning and reward prediction to TD models and dopamine evidence.
-
-<a id="topic-eligibility-traces"></a>
-### Eligibility traces (`eligibility_traces`)
-
-Sessions: 8.1.
-
-- **Sutton & Barto:** §12.2 TD(λ) (printed pp. 292–295, [PDF pp. 314–317](../../sources/RLbook2020.pdf#page=314)); §12.7 Sarsa(λ) (printed pp. 303–307, [PDF pp. 325–329](../../sources/RLbook2020.pdf#page=325))
-- **Current course (local)** (explicitly-covered):
-  - [4 - Model Free Prediction.pdf](../../sources/current_course/4%20-%20Model%20Free%20Prediction.pdf#page=48) pp. 48–54 (deck: `4 - Model Free Prediction.pptx`) — Defines backward eligibility traces and TD(lambda), including forward/backward relation.
-  - [5 - Model Free Control.pdf](../../sources/current_course/5%20-%20Model%20Free%20Control.pdf#page=22) pp. 22–27 (deck: `5 - Model Free Control.pptx`) — Sarsa extensions appear in the deck with explicit skipping labels on algorithm/comparison slides.
-  - [7 - Policy Space Methods.pdf](../../sources/current_course/7%20-%20Policy%20Space%20Methods.pdf#page=50) pp. 50–54 (deck: `7 - Policy Space Methods.pptx`) — Actor/critic time-scale and trace slides explicitly exclude their contents from exam topics.
-- **Silver** (explicitly-covered):
-  - [lecture-4-model-free-prediction-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-4-model-free-prediction-.pdf#page=39) pp. 39–51 — Develops backward traces and forward/backward equivalence; offline here refers to update timing.
-  - [lecture-5-model-free-control-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-5-model-free-control-.pdf#page=20) pp. 20–30 — Presents Sarsa, multi-step Sarsa and Sarsa(lambda).
-  - [lecture-7-policy-gradient-methods.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/lecture-7-policy-gradient-methods.pdf#page=23) pp. 23–34 — Explains learned critics, compatible approximation, baselines and trace-based policy updates.
-  - [easy21-assignment.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/easy21-assignment.pdf#page=2) pp. 2–3 — Requires MC control, Sarsa(lambda) and linear feature-based Sarsa experiments.
-  - [previous-rl-exam-questions-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf#page=3) p. 3 — Past exam asks for MC, batch TD, trace-based TD and LSTD estimates on observed episodes.
-  - [previous-rl-exam-questions-.pdf](https://davidstarsilver.wordpress.com/wp-content/uploads/2025/04/previous-rl-exam-questions-.pdf#page=4) pp. 4–5 — Past exam asks for feature values, forward lambda returns and backward trace updates.
-- **CS285** (brief-exposure):
-  - [lec-6.pdf](https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-6.pdf#page=23) p. 23 — Eligibility traces are named alongside n-step returns; no backward trace derivation established from this page.
-- **Sutton slides** (explicitly-covered):
-  - [22-eligibility-traces.pdf](../../sources/sutton/22-eligibility-traces.pdf#page=12) pp. 12–55 — Develops backward, true-online and Dutch traces plus action-value trace variants.
 
 <a id="topic-entropy-regularization"></a>
 ### Entropy regularization and maximum-entropy RL (`entropy_regularization`)

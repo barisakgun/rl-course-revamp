@@ -154,9 +154,23 @@ Group: `policy_estimators`.
 
 Accepted scope: Derive score-function REINFORCE and baseline identity; derive a simple actor-critic target and GAE from TD residuals. Implement REINFORCE with a baseline or a simple actor-critic; PPO implementation not assumed. Forward lambda mixture is the bridge, with only a backward-trace existence mention; no backward mathematics.
 
-Topic IDs: `policy_gradient`, `reinforce`, `baselines_advantages`, `actor_critic`, `lambda_return`, `generalized_advantage_estimation`.
+Topic IDs: `policy_gradient`, `reinforce`, `baselines_advantages`, `actor_critic`, `generalized_advantage_estimation`.
 
 Assessment path to review later: assignment, exam.
+
+### Lambda returns
+
+Group: `return_mixtures`.
+
+**core** (accepted); accepted mastery: derive, implement, analyze; status: foundational, classical; delivery: live.
+
+Accepted scope: Session 3.2 introduces the forward lambda-return through nonnegative weights, the finite-episode terminal remainder, endpoint interpretation and one supplied-formula grid calculation. No derivation, trace algorithm or implementation is required in 3.2. Session 8.1 develops the mixture-to-advantage/GAE connection; deeper mastery and any implementation remain within the accepted policy-estimator path, not a separate lambda implementation task. Midterm 1 inclusion is not established by this early placement.
+
+Topic IDs: `lambda_return`.
+
+Assessment path to review later: assignment, exam.
+
+Status scope: Episodic on-policy return mixtures, as defined in Sutton and Barto Section 12.1.
 
 ### Importance sampling / Proximal policy optimization / Entropy regularization and maximum-entropy RL
 
