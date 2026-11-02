@@ -1,0 +1,422 @@
+# Week 4 deck `model_free_control`, session 4.2 portion (P00–P11): Claude's renderer input.
+# First draft: renderer input for the first render of this deck only (2026-10-27). Not maintained: the PPTX is the
+# source from that render on. Do not rebuild over the deck or treat this file as its current content.
+# The slides built from this file are appended after C17 of course/lectures/week04/model_free_control_claude.pptx.
+# Status: decisions/lectures/model_free_control.md. Content: course/lectures/week04/model_free_control_content.md
+# (shared, frozen at this render; slide IDs as there).
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week04/model_free_control_practice_claude.yaml
+# Then:   python3 scripts/append_slides_claude.py <deck> <candidate> (appends, backs up the deck first)
+# Old Model-Free Control PPTX numbering ("P") is presentation order (61 slides). P44's two pictures (book Example 6.6:
+# task diagram and learning curve) are copied as the original pictures. The cliff grid for the worked target
+# (P03/P03a) is drawn natively so the cells used in the calculation can be labelled.
+# Time budget: decisions/topic_decisions.yaml lecture_plan[control_practice].teaching_minutes (53). P11 carries the
+# separate 5 administrative minutes, so its teaching target is 0.
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week04/model_free_control_practice_claude.pptx
+  preview: output/lectures/week04/model_free_control_practice_claude_preview.png
+  session_id: control_practice
+  qa_minutes: 0
+  title: Model-free control (session 4.2 portion)
+  author: Barış Akgün
+  term: Fall 2026
+
+old: &old sources/current_course/5 - Model Free Control.pptx
+
+slides:
+  - id: P00
+    kind: section
+    title: When exploration has a cost
+    subtitle: Control targets, behaviour and evidence
+    minutes: 0.5
+    sources: ['new section opener (no second course title, as bellman B17)']
+    notes: |
+      Start session 4.2. Today: interpret a target difference, diagnose behaviour, and choose a meaningful project
+      comparison.
+
+  - id: P01
+    kind: math
+    title: Which continuation does the target use?
+    body_box: [0.244, 1.1, 12.85, 2.2]
+    size: 24
+    body:
+      - text: 'A nonterminal transition gives reward 0. The chosen next action has $Q=2$; the largest next-action value is 5. Let $\gamma=0.5$.'
+    after_box: [0.244, 3.0, 12.85]
+    after:
+      - text: '**Which target is SARSA''s, which is Q-learning''s, and why?**'
+      - text: 'Candidates: **1** and **2.5**.'
+    minutes: 3
+    sources: ['C15 target distinction, fresh numbers']
+    notes: |
+      One minute pair responses, two for reasoning and connection. SARSA uses 1, from the sampled behaviour action;
+      Q-learning uses 2.5, from the maximum. Neither can choose which next state was sampled. On a terminal
+      transition both would use reward 0 alone. This abstract retrieval does not change the familiar grid's rewards
+      or pretend to be a new grid transition.
+
+  - id: P02
+    kind: math
+    title: 'Cliff walking: predict before seeing the result'
+    pictures:
+      - {deck: *old, slide: 44, shape: Picture 3, box: [0.3, 1.0, 7.4]}
+    body_box: [7.95, 1.0, 5.15, 4.2]
+    size: 20
+    body:
+      - text: '**A different task:** deterministic movement; four actions; $\gamma=1$; $\epsilon=0.1$.'
+      - 'Ordinary transition: −1, including arrival at the goal.'
+      - 'Fall: −100 and return to start; **the episode continues**.'
+      - 'Only the goal terminates.'
+    after_box: [0.244, 5.3, 12.85]
+    after:
+      - text: '**Vote:** Which path would you expect from each method? Which earns more reward while exploring?'
+    minutes: 3.5
+    sources: ['old Model-Free Control PPTX 44 (task picture only; learning curve held back until P05), book Example 6.6 printed 132 / PDF 154']
+    notes: |
+      About two minutes rules, 1.5 minutes vote. Distinguish random action selection from stochastic dynamics:
+      here actions have deterministic consequences, unlike the earlier slip grid. A fall is not a terminal
+      transition. The pictured shorter route takes 13 moves from start to goal; the top route takes 17 without
+      exploration. Do not reveal the curve or claim a universal algorithm ranking. The picture labels the routes
+      "Safer path" and "Optimal path" but does not attribute them to a method. Source: book Example 6.6,
+      printed132/PDF154; old P44/PDF40.
+
+  - id: P03
+    kind: math
+    title: Work a target beside the cliff
+    drawing:
+      - grid: {x: 0.5, y: 1.05, cell: 0.5, cols: 12, rows: 4, coords: false, fills: {'2,1': pit, '3,1': pit, '4,1': pit, '5,1': pit, '6,1': pit, '7,1': pit, '8,1': pit, '9,1': pit, '10,1': pit, '11,1': pit, '12,1': goal}, labels: {'1,1': 'S', '12,1': 'G', '2,2': '(1,1)', '3,2': '(2,1)'}, arrows: {'2,2': right, '3,2': down}, size: 10, arrow_y: 0.55}
+      - {label: 'The Cliff: −100, back to start', box: [1.0, 2.6, 5.0, 0.45], size: 14, red: true}
+      - {label: 'Coordinates (column, row): bottom row 0, left column 0', box: [0.5, 3.15, 6.0, 0.4], size: 14}
+    body_box: [6.9, 1.0, 6.2, 2.6]
+    size: 20
+    body:
+      - text: 'Observe **(1,1), right, −1, (2,1)**; the selected next action is **down**.'
+      - text: '$\gamma=1$,  $\alpha=0.5$,  $Q((1,1),\text{right})=-20$.'
+      - text: 'At (2,1): $Q(\text{down})=-113$;  $\max_a Q(a)=Q(\text{right})=-10$.'
+    after_box: [0.244, 3.75, 12.85, 0.6]
+    after:
+      - text: '**Compute each target and the updated $Q((1,1),\text{right})$.**'
+    blocks:
+      - box: [0.244, 4.5, 12.85, 1.6]
+        items:
+          - 'SARSA: $U_t=-1-113=-114$; updated $Q$ = **−67**.'
+          - 'Q-learning: $U_t=-1-10=-11$; updated $Q$ = **−15.5**.'
+    reveal: ['yaml:blocks.0']
+    minutes: 4
+    sources: ['old Model-Free Control PPTX 44 (task; grid redrawn natively so the worked cells can be labelled), review R06/R17, book eqs. 6.7–6.8 and Example 6.6, numbers in scripts/check_control_claude.py']
+    notes: |
+      One minute setup, two work, one explanation. Click: answers. At (2,1), down enters the cliff; −113 is a
+      supplied action-value estimate containing future return, not the reward already observed. It is
+      interpretable as −100 plus a −13 continuation from start; that does not make the whole snapshot exact or a
+      converged SARSA table. Optional complete successor row: right −10, up −12, left −12, down −113. The common
+      current value −20 is an in-progress estimate. The next slide actually executes the selected down action to
+      make reset handling concrete. Sources: R06/R17; book eqs.6.7–6.8 and Example6.6.
+
+  - id: P03a
+    kind: math
+    title: A fall resets the state, not the episode
+    drawing:
+      - grid: {x: 0.5, y: 1.05, cell: 0.5, cols: 12, rows: 4, coords: false, fills: {'2,1': pit, '3,1': pit, '4,1': pit, '5,1': pit, '6,1': pit, '7,1': pit, '8,1': pit, '9,1': pit, '10,1': pit, '11,1': pit, '12,1': goal}, labels: {'1,1': 'S', '12,1': 'G', '3,2': '(2,1)'}, arrows: {'3,2': down}, size: 10, arrow_y: 0.55}
+      - {line: [1.75, 2.85, 0.75, 2.85]}
+      - {line: [0.75, 2.85, 0.75, 2.6], arrow: true}
+      - {label: 'reset to start', box: [0.5, 2.9, 2.6, 0.4], size: 14, red: true}
+    body_box: [6.9, 1.0, 6.2, 3.0]
+    size: 20
+    eq_size: 22
+    body:
+      - text: 'Now execute the selected **down** action: observe **−100**, next state **start**.'
+      - text: '**Q-learning''s target:**'
+      - eq: 'U_t=-100+\max_a Q(\text{start},a)'
+      - text: '**SARSA''s target:** −100 plus $Q$ at the next action selected from start.'
+    after_box: [0.244, 4.2, 12.85, 0.6]
+    after:
+      - text: '**Question:** Is the continuation zero?'
+    blocks:
+      - box: [0.244, 4.9, 12.85, 0.8]
+        items:
+          - text: '**No. The goal, not a fall, terminates this task.**'
+    reveal: ['yaml:blocks.0']
+    minutes: 2
+    sources: ['P03 grid, old Model-Free Control PPTX 40 (target form, observed reward), book Example 6.6']
+    notes: |
+      Click: answer. Use a fresh local time t for this new update; this updates the pair at the cliff edge, not the
+      earlier pair in P03. Both methods use the observed fall penalty. Q-learning omits averaging over the next
+      exploratory action, not actual rewards or environment risk. An independent goal transition gives target −1
+      for both methods. This contrast is why the illustration used −113 rather than encouraging the
+      interpretation that a fall must have value exactly −100. No additional arbitrary start Q values are needed to
+      make the reset point.
+
+  - id: P04
+    kind: math
+    title: Compare fixed policies around the routes
+    pictures:
+      - {deck: *old, slide: 44, shape: Picture 3, box: [0.3, 1.0, 6.4]}
+    body_box: [7.0, 1.0, 6.1, 0.9]
+    size: 18
+    body:
+      - text: '**Fixed-policy expected returns from start.** Exact model calculations for the policies below; $\gamma=1$, $\epsilon=0.1$.'
+    table_box: [7.0, 2.0, 6.1]
+    table:
+      size: 17
+      row_h: 0.6
+      widths: [4.3, 1.8]
+      header: ['Policy', 'Expected episode return']
+      rows:
+        - ['Epsilon-greedy around the edge route', '**≈ −52**']
+        - ['Epsilon-greedy around the top route', '**≈ −22**']
+        - ['Greedy edge route, no exploration', '**−13**']
+    after_box: [0.244, 4.4, 12.85]
+    after:
+      - text: '**A shorter greedy route can be worse when exploration continues.**'
+    minutes: 4
+    sources: ['old Model-Free Control PPTX 44 (task picture), D4 (numbers shown initially), book Example 6.6 and §5.4 epsilon-soft construction, scripts/check_control_claude.py']
+    notes: |
+      A minute for routes, a minute for the comparison, two to connect targets to behaviour. These are
+      evaluations of fixed policies, not SARSA/Q-learning learning curves or guaranteed limiting values of
+      constant-step runs. At a cell immediately above the cliff, with down nongreedy, the random branch selects
+      down with probability 0.1/4 = 0.025. The risk compounds over repeated visits and falls reset without ending
+      the episode; do not compute the episode cost as simply 0.025 times 13 steps.
+
+      Full policy specification for reproducibility (cliff coordinates as in P03): for the edge policy the travel
+      row is 1; for the top policy it is 3. In the last column choose down. In all other columns choose up below
+      the travel row, right on it, and down above it. This defines a designated greedy action at every reachable
+      nonterminal state, including states away from the pictured route. Assign it probability 0.925 and each other
+      action 0.025; the random branch may also choose it. The goal has zero continuation, falls give −100 and reset
+      to start, and ordinary/goal-entry rewards are −1. Linear policy evaluation gives −51.813188 and −22.272817;
+      the deterministic edge policy returns −13. These are designated fixed policies, not an invocation of random
+      tie-breaking on an unspecified Q table. For reference only, optimizing over epsilon-soft policies on this
+      task gives start value approximately −20.707677; keep it in notes, not as another displayed comparison.
+
+      SARSA's sampled continuation reflects the behaviour policy's exploratory costs; Q-learning's maximum
+      represents greedy continuation. Repeated backups propagate those differences to earlier choices. If asked
+      about motion slips: optimal values change and the preferred route can change, depending on
+      probabilities/costs; no unconditional route-switch claim. D4: the instructor may remove the displayed numbers.
+
+  - id: P05
+    kind: math
+    title: What did the learning curve measure?
+    pictures:
+      - {deck: *old, slide: 44, shape: Picture 5, box: [0.3, 1.0, 6.2]}
+    drawing:
+      - {label: 'Sutton & Barto, Example 6.6: reward during exploratory learning, ε = 0.1.', box: [0.3, 4.85, 6.2, 0.6], size: 14, center: false}
+    body_box: [6.85, 1.0, 6.25, 3.4]
+    size: 20
+    body:
+      - text: '**Which question are we asking?**'
+      - 'How much reward is collected while learning?'
+      - 'How good is the final greedy policy in separate evaluation?'
+      - 'How many falls occur during learning?'
+    after_box: [6.85, 4.4, 6.25]
+    after:
+      - text: 'A simulator where only the final policy matters; a robot learning near stairs; a policy trained in simulation for deployment. **Would you report the same measure?**'
+    minutes: 6
+    sources: ['old Model-Free Control PPTX 44 (learning-curve picture), book Example 6.6, mc_td MTE1–MTE2 continuity']
+    notes: |
+      Two minutes read the plot, two discuss cases, two explain. Horizontal axis is episodes, vertical axis sum of
+      rewards during each episode: a control measure, not prediction RMS error. The shown SARSA curve is less
+      negative than Q-learning's during exploratory learning. A greedy policy extracted from Q-learning can take
+      the shortest path without its training exploration, which is a different evaluation condition. The
+      historical curve is an illustration, not a multi-seed uncertainty estimate or proof of a universal winner;
+      do not claim these data establish which learns the optimal path faster. P04's exact-policy numbers explain
+      the scale but are not a reproduction of this learning trace.
+
+      Possible answers: final greedy return is central in the simulator-only case; online falls/reward matter for
+      the learning robot; simulation-to-deployment also requires representative evaluation dynamics and explicit
+      exploration choices. A simulator success alone does not establish physical deployment performance.
+      Distinguish learning run variability from evaluation variability, freeze updates for evaluating a learned
+      policy, and state whether exploration is enabled. Match training interaction budgets and separate tuning from
+      final comparisons. Sources: old P44; book Example6.6; mc_td MTE1–MTE2 continuity.
+
+  - id: P06
+    kind: math
+    title: Debug one shared control loop
+    body_box: [0.244, 1.0, 12.85, 0.6]
+    size: 22
+    body:
+      - text: '**For each bug, name the mismatch and repair it.**'
+    table_box: [0.244, 1.75, 12.85]
+    table:
+      size: 18
+      row_h: 0.95
+      align_left: true
+      widths: [9.6, 3.25]
+      header: ['Bug', 'What happens?']
+      rows:
+        - ['SARSA chooses $A_{t+1}$ for its target, then draws another action to execute.', '?']
+        - ['Q-learning always executes the maximizing target action instead of its intended epsilon-greedy behaviour choice.', '?']
+        - ['A goal transition includes $\gamma$ times an initialized terminal $Q$ value.', '?']
+    minutes: 5
+    sources: ['editable loop text from C12/C13a with three deliberate bugs, review R11']
+    notes: |
+      Three minutes pair reasoning, two answers. (1) The target's sampled action no longer matches the action used
+      for the next step; retain and execute the selected A_{t+1}. (2) This silently changes the behaviour to
+      greedy, potentially losing coverage; compute the max for the target but choose behaviour actions separately.
+      Greedy behaviour is not categorically an invalid Q-learning update; it is a bug relative to the intended
+      exploratory loop and cannot supply a general coverage guarantee. (3) True termination has zero continuation;
+      use only the observed reward. In the cliff example a fall is not termination. Do not add time-limit/truncation
+      API conventions as a new lesson. These checks prepare A1's common loop without adding a new assignment
+      requirement.
+
+  - id: P07
+    kind: math
+    title: Diagnose what is fluctuating
+    table_box: [0.244, 1.0, 12.85]
+    table:
+      size: 17
+      row_h: 0.6
+      align_left: true
+      widths: [5.6, 7.25]
+      header: ['Observation', 'What would you check?']
+      rows:
+        - ['Some actions have no data', 'State-action visits and exploration']
+        - ['Good greedy evaluation, poor training reward', 'Exploratory cost; whether evaluation freezes learning']
+        - ['Episode returns fluctuate', 'Action/environment randomness; compare Q and policy changes separately']
+        - ['Q estimates keep changing substantially', 'Step sizes, target correctness, visitation and changing policy']
+        - ['One run looks better', 'Repeated runs, tuning effort and interaction budget']
+    after_box: [0.244, 5.0, 12.85]
+    after:
+      - text: '**Coverage and suitable step sizes matter. A noisy return curve alone does not diagnose nonconvergence.**'
+    minutes: 5
+    sources: ['old Model-Free Control PPTX 18 and 43 (caveats, qualified) and 53 (exploration question), review R21']
+    notes: |
+      Two minutes students choose a check, three for explanations. Constant ε keeps behaviour exploratory, even if
+      the table and greedy policy are stable; constant α can retain estimate noise. Do not automatically prescribe
+      decaying ε when ongoing exploration is deliberate. For standard tabular optimality claims, every relevant
+      pair must keep receiving updates and step sizes must shrink appropriately. SARSA's usual optimality
+      conditions also make behaviour greedy in the limit; Q-learning need not make its behaviour greedy to estimate
+      optimal action values. A schedule name alone does not prove coverage. Finite data, initialization and reward
+      validity also matter. Brief pointer only: smarter exploration returns in Weeks 9/11; maximization bias in
+      6.2; approximation changes the stability story in Week 5. No proof, formulas for schedules or new assessed
+      method.
+
+  - id: P08
+    kind: math
+    title: Learning from someone else's data
+    table_box: [0.244, 1.0, 12.85]
+    table:
+      size: 19
+      row_h: 0.6
+      align_left: true
+      widths: [8.0, 4.85]
+      header: ['Question', 'Distinction']
+      rows:
+        - ['Are we using a transition model in the update?', 'Model-based / model-free']
+        - ['Can we gather more interaction?', 'Online / fixed-data offline']
+        - ['Does behaviour match the target policy?', 'On-policy / off-policy']
+    after_box: [0.244, 3.75, 12.85]
+    after:
+      - text: '**Q-learning can use transitions from another behaviour policy. This does not supply missing state-action experience.**'
+      - text: '**Question:** If an action never appears in the dataset, what evidence updates its tabular $Q$ entry?'
+    minutes: 3
+    sources: ['old Model-Free Control PPTX 6, 32 and 40 (policy distinction), mc_td MT03 table (recreated as editable text), accepted prediction-group revisit']
+    notes: |
+      Answer: none; its entry can retain an unsupported initial value, and a max can select it. Off-policy does not
+      imply an unlimited fixed dataset can support every target. We may collect fresh off-policy experience or use
+      old data; the axes are distinct. A dataset collected under the target policy can be on-policy despite being
+      fixed. Keep this a taxonomy/coverage revisit; detailed fixed-data failures and methods belong to Week 12, and
+      the approximation interaction to Week 5. Sources: accepted prediction revisit, old P32/P40.
+
+  - id: P09
+    kind: math
+    title: A meaningful project comparison
+    body_box: [0.244, 1.0, 12.85, 0.6]
+    size: 20
+    body:
+      - text: '**Example question:** Which learner incurs fewer falls during a fixed amount of cliff interaction?'
+    table_box: [0.244, 1.7, 12.85]
+    table:
+      size: 16
+      row_h: 0.55
+      align_left: true
+      widths: [3.0, 9.85]
+      header: ['Item', 'Example plan']
+      rows:
+        - ['Compared methods', 'Q-learning versus SARSA baseline']
+        - ['Primary metric', 'Number of training falls within the interaction budget']
+        - ['Secondary question', 'Frozen greedy-policy return, stopping at the goal or after 200 transitions']
+        - ['Per-run budget', '10,000 environment transitions per method']
+        - ['Repetitions', 'Three independent training runs per method']
+        - ['Separate evaluation', '20 rollouts per trained policy from start; no updates, ε = 0; report how often the cap is reached']
+    after_box: [0.244, 5.85, 12.85]
+    after:
+      - text: '**Same number of episodes need not mean the same amount of interaction.**'
+    minutes: 3
+    sources: ['accepted control_practice worked activity and evaluation scope, D3, review R22']
+    notes: |
+      This is a hypothetical small planning example, not an assigned experiment, recommended universal run count or
+      reported result. Other defensible primary measures include accumulated training reward. Falls reset the state
+      but remain within an episode; use transitions to count interaction. Three seeds count independent runs, not a
+      guarantee of precision. Evaluation retains uniform random tie-breaking among maxima, with no exploratory
+      branch. With unique maximizing actions in this deterministic task, repeated rollouts from the same start may
+      repeat; variability across separately trained policies still matters. The declared evaluation cap keeps an
+      unsuccessful greedy policy from running forever; the measured return is capped, unlike P04's full-episode
+      expectation. Report cap hits separately. No training terminal-handling convention is changed. For real
+      projects, adapt initial conditions/evaluation to the question. Separate hyperparameter tuning from the final
+      runs and report computation as relevant. Do not infer deployment safety or robust uncertainty from these
+      small counts. Sources: accepted evaluation scope, D3, R22.
+
+  - id: P09a
+    kind: math
+    title: Choose your baseline, metric and budget
+    body_box: [0.244, 1.0, 12.85, 5.6]
+    size: 22
+    body:
+      - text: '**Eight minutes, with your team or a partner:** use a candidate project, or use cliff walking if needed.'
+      - text: '1. What question are you trying to answer? What does the agent control?'
+      - text: '2. What simple baseline would make the comparison informative?'
+      - text: '3. What is the primary metric, and when is it measured?'
+      - text: '4. What interaction/computation budget and repeated runs are feasible?'
+      - text: '5. What result would *not* support your claim?'
+      - text: ' '
+      - text: '**Four minutes: share and challenge two or three plans.**'
+    minutes: 12
+    sources: ['accepted control_practice worked activity (15 minutes across P09/P09a), project evaluation scope']
+    notes: |
+      PROTECTED (with P09: 15 minutes). The activity chooses a comparison, not a required new handout or
+      submission. A random or heuristic baseline may be more informative than another RL algorithm. A baseline must
+      address the same task/objective; compare budgets and distinguish training behaviour from frozen evaluation.
+      Ask whether the metric reflects the stated question, whether tuning reuses the final evidence, and whether a
+      negative result would still be informative. Students need no implementation or complete proposal. Example
+      challenge: fewer falls after fewer interactions is not evidence of greater learning efficiency; better greedy
+      return does not establish fewer training failures. The instructor handles project timing separately under
+      D3; do not frame this as before/after a specific deadline. Preserve all fifteen minutes across P09/P09a.
+
+  - id: P10
+    kind: math
+    title: From tables to generalization
+    body_box: [0.244, 1.1, 12.85, 3.2]
+    size: 26
+    body:
+      - 'Specify the policy represented by the target.'
+      - 'Distinguish learned values, acting behaviour and the performance measure.'
+      - 'Check coverage, terminal handling and comparison budgets.'
+    after_box: [0.244, 4.6, 12.85]
+    after:
+      - text: '**Next:** a separate estimate for every state-action pair is impractical in large spaces. How can experience generalize?'
+    minutes: 2
+    sources: ['old Model-Free Control PPTX 45 (recap purpose; text replaced)']
+    notes: |
+      Ask for one example of confusing behaviour performance with the target policy's values. Then motivate
+      approximation without a gradient update or an instability theorem. This is the end of the 53-minute teaching
+      allocation.
+
+  - id: P11
+    kind: math
+    title: Course announcements
+    body_box: [0.244, 1.2, 12.85, 4.5]
+    size: 26
+    body:
+      - text: '**A1 preparation:** planning backups, MC/TD prediction, and a shared SARSA/Q-learning control loop.'
+      - text: ' '
+      - text: '**Assignment and project questions**'
+    minutes: 0
+    sources: ['accepted 5 administrative minutes (control_practice), D3']
+    notes: |
+      ADMINISTRATION: 5 minutes, separate from the 53 teaching minutes (hence a teaching target of 0 below).
+      Instructor-led logistics under D3. No release date, deadline, proposal-timing assumption or schedule change is
+      printed. The instructor may use these minutes for A1 logistics and current questions. A1's accepted design is
+      one supplied-MDP value-iteration solver with supplied policy-iteration comparison; MC/TD prediction kernels
+      and supplied n-step/terminal checks; one epsilon-greedy control loop with two target choices. This is a scope
+      reminder, not the assignment handout. No separate MC-control, lambda, Expected-SARSA or Double-Q
+      implementation task is introduced. The possible release move mentioned by the instructor is not an accepted
+      schedule change.

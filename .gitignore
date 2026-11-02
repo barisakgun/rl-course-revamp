@@ -11,3 +11,8 @@ __MACOSX
 sources/*/lectures/*.pdf
 __pycache__/
 *.pyc
+# Exam material stays out of git until the exam has been held (docs/exam_workflow.md)
+analysis/exam_suggestions/
+decisions/exams/
+course/exams/
+output/exams/

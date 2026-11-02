@@ -222,7 +222,7 @@ Teaching 1450.5 + additional administration 19 = 1469.5 of 1,527 usable minutes;
 
 **Worked activity:** Ratio support/variance example, surrogate/clipping signs, and entropy as an objective term.
 
-**Pacing:** Small-update motivation stays conceptual; no natural-gradient/TRPO proof. Confidence: medium.
+**Pacing:** Small-update motivation stays conceptual; no natural-gradient/TRPO proof. Instructor 2026-11-02 (model_free_control D6) keeps importance sampling out of Week 4; within the likelihood-ratio segment, pose the question why the one-step Q-learning target needs no importance ratio. No minute or scope change. Confidence: medium.
 
 | Exclusive teaching segment | Minutes |
 | --- | --- |

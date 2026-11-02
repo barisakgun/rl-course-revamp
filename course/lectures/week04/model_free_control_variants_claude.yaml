@@ -1,0 +1,51 @@
+# Week 4 deck `model_free_control`: addition C12a (deck decision D7), Claude's renderer input.
+# First draft: renderer input for this one inserted slide only (2026-11-02). Not maintained: the PPTX is the source.
+# Do not rebuild over the deck or treat this file as its current content. Status: decisions/lectures/model_free_control.md.
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week04/model_free_control_variants_claude.yaml
+# Then:   python3 scripts/append_slides_claude.py <deck> <candidate> --after C12
+# Old Model-Free Control PPTX 31 ("Comparison of Sarsa Variants"): its picture (book Figure 7.4 with the Sarsa(λ)
+# panel of Example 12.1) is copied as the original picture; the old slide's covering rectangles are not copied.
+# Time budget: decisions/topic_decisions.yaml lecture_plan[control_targets]; this slide adds 2 minutes (D7).
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week04/model_free_control_variants_claude.pptx
+  preview: output/lectures/week04/model_free_control_variants_claude_preview.png
+  session_id: control_targets
+  qa_minutes: 0
+  title: Model-free control (addition C12a)
+  author: Barış Akgün
+  term: Fall 2026
+
+old: &old sources/current_course/5 - Model Free Control.pptx
+
+slides:
+  - id: C12a
+    kind: math
+    title: 'Longer SARSA targets: credit further back'
+    pictures:
+      - {deck: *old, slide: 31, shape: Picture 7, box: [0.3, 1.0, 12.73]}
+    drawing:
+      - {label: 'Sutton & Barto, Figure 7.4 and Example 12.1: one episode, all rewards 0 except at G, Q initially 0.', box: [0.3, 3.85, 12.73, 0.4], size: 14, center: false}
+    body_box: [0.244, 4.45, 12.85, 2.4]
+    size: 22
+    body:
+      - 'One-step SARSA increases only the last action''s value; a 10-step target, or a λ-mixture of targets, also credits earlier actions.'
+      - 'Same idea as Week 3''s n-step and λ-return prediction targets, with $Q$ in place of $V$.'
+      - text: '**A connection only: no new algorithm today.**'
+    minutes: 2
+    sources: ['old Model-Free Control PPTX 31 (comparison of Sarsa variants; picture only), book §7.2 Figure 7.4 printed 147 / PDF 169 and §12.7 Example 12.1, mc_td MT21 and MTL1–MTL3, deck decision D7']
+    notes: |
+      About one minute on the panels, one on the connection. The agent took the path shown and reached G, the only
+      nonzero reward; all action values started at 0. One-step SARSA's target uses only the next reward and the next
+      action's value, so after this episode only the action that entered G has a larger value. A 10-step target uses
+      ten rewards before bootstrapping, so the last ten actions are credited at once. The λ = 0.9 panel mixes targets
+      of all lengths with geometric weights, so earlier actions get smaller increases (smaller arrows).
+      Connect to Week 3: the n-step target (MT21) and the λ-return (MTL1–MTL3), now for action values. In words:
+      n rewards, then the discounted value of the action taken n steps later.
+      Scope (D7): no n-step SARSA or Sarsa(λ) algorithm, implementation, assessment or new notation. The book's λ
+      panel is computed with eligibility traces; at most say that such a backward-view implementation exists
+      (accepted existence-only mention), with no trace mathematics. Longer targets also wait longer and add
+      variance, as in Week 3; the choice of n or λ is empirical. Off-policy multi-step methods are not discussed
+      here (D6). A1 is unchanged.

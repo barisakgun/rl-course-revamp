@@ -215,7 +215,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 - **Teaching:** 59 min (range 55–72); confidence medium
 - **Requires:** 8.1 `actor_gae`
 - **Worked activity:** Ratio support/variance example, surrogate/clipping signs, and entropy as an objective term.
-- **Pacing note:** Small-update motivation stays conceptual; no natural-gradient/TRPO proof.
+- **Pacing note:** Small-update motivation stays conceptual; no natural-gradient/TRPO proof. Instructor 2026-11-02 (model_free_control D6) keeps importance sampling out of Week 4; within the likelihood-ratio segment, pose the question why the one-step Q-learning target needs no importance ratio. No minute or scope change.
 - **Segments:** Likelihood ratios, support and variance (15 min); PPO surrogate and update drift (24 min); Clipping example for advantage signs (10 min); Entropy objective and interpretation (10 min)
 - **Prerequisite for:** A3 Policy-gradient estimators and update diagnosis (release week 8)
 

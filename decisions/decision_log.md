@@ -1,5 +1,38 @@
 # Decision Log
 
+## 2026-11-02 — Week 4 deck (`model_free_control`, sessions 4.1–4.2) accepted (done)
+
+- Authority: instructor, after ChatGPT's recheck left no open issue ([model_free_control D9](lectures/model_free_control.md)). Accepted deck: `course/lectures/week04/model_free_control_claude.pptx`, SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`, 36 slides (P11 hidden); text view and previews are in sync. Slide targets are 61.5 minutes for 4.1 (within the delivery allowance) and 53 + 5 for 4.2; planning allocations are unchanged. The Fall 2026 delivery note stays in force. No scope, assessment or workload change.
+
+## 2026-11-02 — Week 4 deck (`model_free_control`): C01a timed
+
+- Authority: instructor, recorded as [model_free_control D8](lectures/model_free_control.md). The instructor-added slide C01a ("Why Model-Free Control?", old P5) gets 2 minutes and a short note. 4.1's slide targets become 61.5 minutes, within the delivery allowance up to 63; the planning allocation stays 58. No scope, mastery, assessment or workload change.
+
+## 2026-11-02 — Week 4 deck (`model_free_control`): Fall 2026 recorded delivery
+
+- Authority: instructor ([model_free_control Fall 2026 delivery note](lectures/model_free_control.md)). There is no live class on 3 November; the lecture is recorded and shared, and may run shorter. The P09/P09a project activity is done at home this semester only.
+- The design is unchanged for future offerings: the activity stays in class with 15 protected minutes, and no scope, allocation, worked-activity, assessment or workload decision changes. This closes the deck's O1.
+
+## 2026-11-02 — Midterm 1 coverage and date; coverage decided before each midterm
+
+- Authority: instructor. Midterm 1 is on November 5, 2026 and covers sessions 1.1–3.2 (`formulate` through `returns`). The class runs one week behind after a class cancellation and a holiday; the exam date could not move. Each midterm's coverage is decided right before that midterm; the session lists for midterms 2 and 3 in `grading_decisions.md` become planning windows.
+- What changes: `control_targets`, `control_practice`, `linear` and `instability` leave the midterm 1 coverage. Their exam placement is open until the midterm 2 coverage decision. The 3.2 forward λ-return (`return_mixtures`, whose scope left midterm 1 inclusion open) is settled below.
+- Midterm 1 format (instructor answers, same day): 100 minutes in a separate slot; closed book, no aids, with a supplied equation sheet similar to previous exams. The forward λ-return gets one short written or true/false question at its 3.2 taught scope, which settles its midterm 1 inclusion. Exam suggestions, decisions, sources and PDFs stay git-ignored until the exam has been held.
+- Scope of these midterm 1 decisions (instructor, same day): Fall 2026 only. Midterm 1 topics may change in future offerings; the previous Weeks 1–5 session list is kept as a non-binding `future_template` in `grading_decisions.md`.
+- Midterm 1 exam choices (instructor, same day, recorded in the git-ignored `decisions/exams/midterm_1.md` X1–X6): the equation sheet includes the λ-return formula; COMP 438 and 538 take the same exam; the remaining points stay open for the instructor's review.
+- No lecture minutes, scope, mastery or assignment changes. A1 is not due before midterm 1, consistent with the accepted rule that exams never assume assignment submission or feedback. Draft exam guideline and workflow: `docs/exam_workflow.md` (not yet adopted).
+
+## 2026-11-02 — Week 4 deck (`model_free_control`): SARSA-variants figure; Week 8 ratio question
+
+- Authority: instructor, recorded as [model_free_control D6 refinement and D7](lectures/model_free_control.md).
+  - The C14 importance-ratio question moves to Week 8 (8.2 `ratios`); a forward note is added to that session's `feasibility_note`, with no minute or scope change.
+  - New slide C12a: the old deck's SARSA-variants figure (book Figure 7.4 and Example 12.1), linking to multi-step targets with no algorithm coverage. It takes 2 minutes, so 4.1's slide targets become 59.5, within the delivery allowance; the planning allocation stays 58.
+- No mastery, assessment or workload change.
+
+## 2026-11-02 — Week 4 deck (`model_free_control`): no importance sampling in Week 4
+
+- Authority: instructor, during the first editing round, recorded as [model_free_control D6](lectures/model_free_control.md). On-/off-policy is taught through SARSA and Q-learning (behaviour versus target). The C14 importance-ratio question and its notes are removed, and importance sampling stays in 8.2 as already accepted. No scope, allocation, mastery, assessment or workload change.
+
 ## 2026-10-27 — Week 4 deck (`model_free_control`, sessions 4.1–4.2): instructor choices after cross-review
 
 - Authority: instructor answers to the five items in the shared review, recorded as [model_free_control D1–D5](lectures/model_free_control.md). One deck `model_free_control`; the 2×2 grid for 4.1 (MC cycle, lock-in at (2,1), always-left with ε = 0 in place of the windy gridworld, target exercise) and book cliff walking for 4.2; project timing relative to the proposal deadline left to the instructor outside the deck; the fixed-policy cliff route returns shown initially; the merged sequence with the R01–R23 fixes as the basis for first-render content (targets 57.5 and 53 + 5 minutes).

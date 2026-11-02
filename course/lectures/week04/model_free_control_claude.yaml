@@ -1,0 +1,552 @@
+# Week 4 deck `model_free_control` (sessions 4.1–4.2), session 4.1 portion (C00–C17): Claude's renderer input.
+# First draft: renderer input for the first render of this deck only (2026-10-27). Not maintained: the PPTX is the
+# source from that render on. Do not rebuild over the deck or treat this file as its current content.
+# Status: decisions/lectures/model_free_control.md. Content: course/lectures/week04/model_free_control_content.md
+# (shared, frozen at this render; slide IDs as there). Session 4.2 (P00–P11) is built from
+# model_free_control_practice_claude.yaml and appended after C17 (scripts/append_slides_claude.py).
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week04/model_free_control_claude.yaml
+# Equations are native PowerPoint equations generated from the LaTeX below (scripts/omml_claude.py), Accent 5,
+# superscript policy marks (q^π). The old deck's equations use the old notation (R_t, μ, Q^{π_t}, m), so they are
+# regenerated in course notation rather than copied and hand-edited; LaTeX sources are in each slide's notes.
+# Old Model-Free Control PPTX numbering ("P") is presentation order (61 slides). P14's cartoon is copied as the
+# original picture. The GPI cycle (P8/P13 purpose) and the 2×2 grids are drawn natively.
+# Time budget: decisions/topic_decisions.yaml lecture_plan[control_targets].teaching_minutes (58); targets 57.5 (D5).
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week04/model_free_control_claude.pptx
+  preview: output/lectures/week04/model_free_control_claude_preview.png
+  session_id: control_targets
+  qa_minutes: 0                # questions are inside each slide's estimate (content convention)
+  title: Model-free control (sessions 4.1–4.2)
+  author: Barış Akgün
+  term: Fall 2026
+
+old: &old sources/current_course/5 - Model Free Control.pptx
+
+slides:
+  - id: C00
+    kind: course_title
+    title: COMP438/538 Reinforcement Learning
+    topic: Model-Free Control
+    minutes: 0.5
+    sources: ['old Model-Free Control PPTX 1 (title), Introduction title format']
+    notes: |
+      One deck for both sessions. Today: learning to improve behaviour from experience. No extra agenda catalogue.
+
+  - id: C01
+    kind: math
+    title: What changes when we want better behaviour?
+    body_box: [0.244, 1.1, 12.85, 3.0]
+    size: 26
+    body:
+      - 'With a model: evaluate a policy, then improve it.'
+      - 'Last week: evaluate a **fixed** policy from experience.'
+      - 'Today: use experience to **improve the policy too**.'
+    after_box: [0.244, 4.6, 12.85]
+    after:
+      - text: '**Question:** Which half of generalized policy iteration did we hold fixed last week?'
+    minutes: 2
+    sources: ['old Model-Free Control PPTX 7 (prediction/control contrast; algorithm list replaced)']
+    notes: |
+      Answer: policy improvement; the acting policy stayed fixed while we learned its values. MC, TD, n-step and
+      forward λ gave ways to form prediction targets. Today's additional questions are which actions receive data
+      and whose future behaviour a control target represents. Do not repeat λ formulas, trace mathematics or the
+      policy-improvement proof. The average-reward contrast introduced no control algorithm.
+
+  - id: C02
+    kind: math
+    title: How could we learn to act without the model?
+    drawing:
+      - grid: {x: 9.4, y: 1.2, cell: 1.6, cols: 2, rows: 2, fills: {'2,2': goal}, labels: {'2,2': '(2,2) goal'}, size: 16}
+      - {label: '**Model hidden. The agent now chooses its actions.**', box: [8.6, 4.5, 4.6, 0.8], size: 18}
+    body_box: [0.244, 1.3, 8.0, 4.5]
+    size: 26
+    body:
+      - text: '1. What should the agent learn so it can choose better actions?'
+      - text: ' '
+      - text: '2. How do its choices affect the data it will see?'
+    minutes: 3
+    sources: ['old Model-Free Control PPTX 4–5 (motivation, moved to notes), accepted bellman 2×2 grid']
+    notes: |
+      Allow about two minutes for suggestions, one to organize them. Expected answers: estimate outcomes/returns
+      for actions; try alternatives; exploit good estimates; improve as evidence arrives. Learning a dynamics model
+      is another valid route, revisited later; this deck learns action values directly. A simulator may supply
+      experience without the learner using a transition model. No "online = RL, offline = planning" distinction.
+      Return to students' exploration suggestions in C06–C08.
+
+  - id: C03
+    kind: math
+    title: Why learn action values?
+    body_box: [0.244, 1.0, 12.85, 4.4]
+    size: 24
+    eq_size: 24
+    body:
+      - text: 'With state values, greedy improvement needs the model:'
+      - eq: '\pi''(s)=\arg\max_{a\in\mathcal{A}(s)}\left[\mathcal{R}(s,a)+\gamma\sum_{s''\in\mathcal{S}^{+}}\mathcal{T}(s,a,s'')v^{\pi}(s'')\right]'
+      - text: 'With learned action values, choose directly from the table:'
+      - eq: '\pi''(s)=\arg\max_{a\in\mathcal{A}(s)}Q(s,a)'
+    after_box: [0.244, 5.3, 12.85]
+    after:
+      - text: '**$q^{\pi}(s,a)$: take action $a$ now, then follow $\pi$.**'
+      - text: '**$Q(s,a)$: our estimate. We need evidence about actions, not just states.**'
+    minutes: 3
+    sources: ['old Model-Free Control PPTX 10 (lookahead/argmax; regenerated in course notation, claim that MC/TD only estimate V removed), book §5.2 opening PDF 118, Silver L5 PDF 8']
+    notes: |
+      Recall the meaning before reading the equations. The state-value MC/TD versions taught last week do not give
+      an action comparison without a model; their sampling ideas can be used to estimate Q instead. Q does not
+      replace exploration or supply values for untried actions by magic. A finite noisy table is not the true
+      q^π. Terminal state value in the first equation is zero. Source: book §5.2 opening, PDF118; Silver PDF8.
+
+  - id: C04
+    kind: math
+    title: Evaluation and improvement interleave
+    drawing:
+      - {box: [0.6, 1.2, 3.6, 1.2], text: 'Collect experience with $\pi$'}
+      - {box: [4.85, 1.2, 3.6, 1.2], text: 'Update $Q$ from returns'}
+      - {box: [9.1, 1.2, 3.6, 1.2], text: 'Change $\pi$ using $Q$', tint: true}
+      - {line: [4.2, 1.8, 4.85, 1.8], arrow: true}
+      - {line: [8.45, 1.8, 9.1, 1.8], arrow: true}
+      - {line: [10.9, 2.4, 10.9, 2.85]}
+      - {line: [10.9, 2.85, 2.4, 2.85]}
+      - {line: [2.4, 2.85, 2.4, 2.4], arrow: true}
+      - {label: 'collect more experience', box: [4.6, 2.9, 4.1, 0.4], size: 16}
+    body_box: [0.244, 3.6, 12.85, 2.3]
+    size: 24
+    body:
+      - 'Evaluation changes the estimates.'
+      - 'Improvement changes the policy being evaluated.'
+      - 'We need not finish evaluation before changing the policy.'
+    after_box: [0.244, 5.9, 12.85]
+    after:
+      - text: '**One noisy update is not a guarantee of improvement.**'
+    minutes: 2
+    sources: ['old Model-Free Control PPTX 8 and 13 (GPI purpose; cycle redrawn natively, proof/coverage claim removed), book §§5.3–5.4 printed 97–103 / PDF 119–125']
+    notes: |
+      The improvement theorem concerns true values under the evaluated policy. It motivates the direction of
+      improvement; it is not a guarantee for each sample update. Policy and estimates form moving targets for each
+      other. An episode's return reflects the policy that generated that episode; averaging returns from changing
+      policies is not exact evaluation of the newest policy. Keep this qualification short; no theorem or
+      convergence proof. Source: book §§5.3–5.4, especially printed p. 103 / PDF125.
+
+  - id: C05
+    kind: math
+    title: Trace one Monte Carlo control cycle
+    drawing:
+      - grid: {x: 10.6, y: 1.0, cell: 1.2, cols: 2, rows: 2, fills: {'2,2': goal}, labels: {'2,2': 'goal'}, arrows: {'1,1': right, '1,2': right}, size: 13}
+    body_box: [0.244, 1.0, 10.1, 1.3]
+    size: 22
+    body:
+      - text: '**New Q table, initially zero.** Hold the collecting policy fixed during this episode:'
+      - text: '(1,1) → (1,1) → (1,2) → goal, taking **right** each time; $\gamma=0.5$.'
+    table_box: [0.244, 2.45, 10.1]
+    table:
+      size: 20
+      row_h: 0.5
+      widths: [1.2, 3.6, 1.8, 2.6]
+      header: ['Time', 'State-action pair', 'Reward', 'Supplied return']
+      rows:
+        - ['0', '((1,1), right)', '−0.04', '0.19']
+        - ['1', '((1,1), right)', '−0.04', '0.46']
+        - ['2', '((1,2), right)', '+1', '1']
+    after_box: [0.244, 4.65, 12.85, 0.5]
+    after:
+      - text: '**First-visit averaging: which returns enter the table?**'
+    blocks:
+      - box: [0.244, 5.35, 12.85, 1.4]
+        items:
+          - text: '$Q((1,1),\text{right})=0.19$;  $Q((1,2),\text{right})=1$.'
+          - text: 'The repeated first pair is skipped; unvisited entries remain zero.'
+    reveal: ['yaml:blocks.0']
+    minutes: 3
+    sources: ['old Model-Free Control PPTX 13 and 17 (MC control cycle; new editable table), book §5.4 algorithm PDF 123, mc_td MT04–MT05 episode']
+    notes: |
+      One minute setup, one for responses, one for interpretation. Click: answer. These are the first included
+      samples for the two pairs, so each sample average equals its first return. First visit means first
+      state-action-pair visit in this episode, not first visit ever. No constant-α rule is mixed into this example.
+      A collecting policy may try other actions even though this particular trajectory contains only right; this
+      is the familiar episode used for mechanics, not evidence of broad exploration. After the episode we can
+      change the policy to favour larger Q. This does not prove right is best, and is not a conversion of the old
+      V table into Q. Sources: old P13/P17; book §5.4 algorithm, PDF123.
+
+  - id: C06
+    kind: math
+    title: Would pure greediness find the better action?
+    drawing:
+      - grid: {x: 10.6, y: 1.0, cell: 1.2, cols: 2, rows: 2, fills: {'2,2': goal}, labels: {'2,2': 'goal'}, arrows: {'2,1': right}, size: 13}
+      - {outline: [11.75, 2.15, 1.3, 1.3]}
+    body_box: [0.244, 1.0, 10.1, 0.5]
+    size: 22
+    body:
+      - text: '**Separate hypothetical snapshot at (2,1)**'
+    table_box: [0.244, 1.6, 10.1]
+    table:
+      size: 20
+      row_h: 0.5
+      widths: [2.6, 1.6, 1.6, 1.6, 1.6]
+      header: ['Action', 'up', 'right', 'down', 'left']
+      rows:
+        - ['Current $Q$', '0', '0.12', '0', '0']
+        - ['Tried here?', 'no', 'yes', 'no', 'no']
+    after_box: [0.244, 3.3, 10.1, 0.6]
+    after:
+      - text: '**A greedy choice is right. What would make the learner try up?**'
+    blocks:
+      - box: [0.244, 4.1, 12.85, 2.6]
+        size: 20
+        items:
+          - text: '*Known-model reference from Week 2, not supplied to the learner* ($\pi$ = always-right thereafter):'
+          - text: '$q^{\pi}((2,1),\text{right})\approx0.116$,   $q^{\pi}((2,1),\text{up})\approx0.800$'
+          - text: '**An untried action''s initial estimate is not evidence that it is poor.**'
+    reveal: ['yaml:blocks.0']
+    minutes: 3
+    sources: ['old Model-Free Control PPTX 13 (would this work) and 18, accepted bellman B14 reference values, review R01']
+    notes: |
+      Click: known-model reference. This is a new illustrative snapshot, not the result of C05, which never
+      visited (2,1). Values compare different first actions under the same continuation. Greed can prevent
+      collecting useful evidence; this is not a proof the learner must remain stuck forever. Noisy sampled updates
+      can lower the current winner and cause a switch. With negative living rewards, zero initialization can
+      itself encourage untried actions. Do not turn that observation into the Week 9 optimism lesson. The up/right
+      tie at (1,1) is why the diagnostic example uses (2,1). Sources: old P13/P18; accepted Bellman B14 reference.
+
+  - id: C07
+    kind: math
+    title: Exploration and exploitation
+    pictures:
+      - {deck: *old, slide: 14, shape: Picture 2, box: [0.3, 1.1, 6.4]}
+    body_box: [7.0, 1.1, 6.1, 5.6]
+    size: 22
+    body:
+      - text: '**Exploit:** choose what current estimates say is good.'
+      - text: '**Explore:** obtain evidence that could change those estimates.'
+      - text: ' '
+      - text: 'Ways to obtain action coverage:'
+      - 'Start episodes at different state-action pairs, when the system allows it.'
+      - 'Keep a chance of trying other actions while acting.'
+    minutes: 2
+    sources: ['old Model-Free Control PPTX 14 (cartoon copied unchanged), book §§5.3–5.4']
+    notes: |
+      The cartoon contrasts a familiar restaurant with an untried one; exploratory choices can cost reward now.
+      Exploring starts is an assumption used in MC control development, not a capability every robot has.
+      Epsilon-greedy will implement the second option. Nonzero action probabilities at a visited state do not
+      promise every state will be reached in a finite run. Spend about one minute on the trade-off, one on
+      coverage. Attribution: the old slide carries no credit; the cartoon appears to come from UC Berkeley CS188
+      material. Add a credit line if wanted (not added on the slide, since the old deck has none).
+
+  - id: C08
+    kind: math
+    title: Epsilon-greedy action selection
+    body_box: [0.244, 1.0, 12.85, 4.0]
+    size: 24
+    eq_size: 24
+    body:
+      - 'With probability **1 − ε**, choose a maximizing action; break ties uniformly at random.'
+      - 'With probability **ε**, choose uniformly from **all** available actions.'
+      - text: 'For a unique maximizing action:'
+      - text: '    The greedy action:  $\pi(a\mid s)=1-\epsilon+\epsilon/|\mathcal{A}(s)|$'
+      - text: '    Every other action:  $\pi(a\mid s)=\epsilon/|\mathcal{A}(s)|$'
+    after_box: [0.244, 5.05, 12.85, 0.6]
+    after:
+      - text: '**Question:** Four actions, ε = 0.1, one maximum: what are the probabilities?'
+    blocks:
+      - box: [0.244, 5.8, 12.85, 0.6]
+        items:
+          - text: '**0.925 for the maximizing action; 0.025 for each other action.**'
+    reveal: ['yaml:blocks.0']
+    minutes: 3
+    sources: ['old Model-Free Control PPTX 15 (equation regenerated: m → |𝒜(s)|, random branch over all actions), book §5.4 PDF 122']
+    notes: |
+      Spend a minute on the two branches, a minute calculating, a minute on ties. Click: answer. With multiple
+      maxima, divide the greedy-branch mass uniformly among them and still add the random-branch probability to
+      every action. With a zero table and four actions, each has probability 0.25. This differs from a fixed tie
+      order in exact DP to avoid systematically favouring one action when ties reflect no data. Epsilon-soft means
+      each action receives at least ε divided by the number of actions; epsilon-greedy places the remaining mass
+      on maximizers. No new counter or decay formula. Sources: book §5.4 PDF122; old P15.
+
+  - id: C09
+    kind: math
+    title: On-policy Monte Carlo control
+    body_box: [0.244, 1.0, 12.85, 3.6]
+    size: 22
+    body:
+      - text: '1. Initialize $Q$ and an epsilon-greedy policy, $\epsilon=0.1$.'
+      - text: '2. Generate a complete episode with this policy held fixed.'
+      - text: '3. For each pair''s first visit, add its return to that pair''s samples and set $Q$ to their average.'
+      - text: '4. Make the next episode''s policy epsilon-greedy with respect to the updated $Q$.'
+      - text: '5. Repeat.'
+    after_box: [0.244, 4.9, 12.85]
+    after:
+      - text: '**Exact-value guide:** epsilon-greedy improvement using true $q^{\pi}$ is no worse than the epsilon-soft policy $\pi$ being evaluated.'
+      - text: '**Sampled updates can be noisy; they do not inherit a per-update guarantee.**'
+    minutes: 2
+    sources: ['old Model-Free Control PPTX 16–18 (loop rewritten as editable text; result in words, no proof), book PDF 123–125, review R12/R16/R20']
+    notes: |
+      Connect the steps to C05 and C08, rather than tracing another episode. C05 and this loop use the same
+      first-visit sample-mean estimator. No separate MC-control implementation requirement. Exact improvement is
+      within the epsilon-soft policy class; fixed exploration retains exploratory cost. Do not assert this sampled,
+      changing-policy loop converges merely because the exact result exists. Sources: old P16–18; book
+      PDF123–125; review R12/R16/R20.
+
+  - id: C10
+    kind: math
+    title: Why wait for the episode to end?
+    drawing:
+      - grid: {x: 10.2, y: 1.0, cell: 1.4, cols: 2, rows: 2, fills: {'2,2': goal}, labels: {'2,2': 'goal'}, arrows: {'1,1': left, '1,2': left, '2,1': left}, size: 14}
+    body_box: [0.244, 1.0, 9.6, 2.4]
+    size: 24
+    body:
+      - text: '**Counterexample: deterministic always-left, ε = 0.**'
+      - text: 'Starting at (1,1), the agent stays in the left column and never reaches the goal.'
+    after_box: [0.244, 4.2, 12.85]
+    after:
+      - text: '**MC needs a completed return. TD can update during the episode.**'
+      - text: 'With fixed $\epsilon>0$, this grid terminates with probability 1 — but MC still waits for completion.'
+    minutes: 2
+    sources: ['old Model-Free Control PPTX 19 (question; windy gridworld P25 replaced by the familiar grid, D2), book Example 6.5 PDF 152, review R02/R19']
+    notes: |
+      Intended left bumps the wall; perpendicular slips only change vertical position in the left column. This is
+      not the epsilon-greedy MC policy on C09. Positive fixed exploration repairs this specific nontermination
+      case; it does not make the episode-end update immediate. TD can learn during long episodes, which is the
+      general motivation. Do not claim SARSA escapes every bad initialization or policy. No windy-grid setup or
+      plot is required. Source: old P19/P25's teaching purpose; book Example 6.5 PDF152; D2 and R19.
+
+  - id: C11
+    kind: math
+    title: 'SARSA: a sampled action-value target'
+    body_box: [0.244, 1.0, 12.85, 5.9]
+    size: 22
+    eq_size: 22
+    body:
+      - text: 'For a fixed $\pi$, recall the action-value Bellman expectation equation:'
+      - eq: 'q^{\pi}(s,a)=\mathbb{E}_{\pi}[R_{t+1}+\gamma q^{\pi}(S_{t+1},A_{t+1})\mid S_t=s,A_t=a]'
+      - text: 'Observe the next transition, choose the next action using $\pi$, and use current estimates:'
+      - eq: 'U_t=R_{t+1}+\gamma Q(S_{t+1},A_{t+1}),\qquad Q(S_t,A_t)\leftarrow Q(S_t,A_t)+\alpha[U_t-Q(S_t,A_t)]'
+      - text: '**S–A–R–S–A:** $(S_t,A_t,R_{t+1},S_{t+1},A_{t+1})$'
+      - text: '**Terminal next state:** $U_t=R_{t+1}$; no next action is needed.'
+    minutes: 6
+    sources: ['old Model-Free Control PPTX 21 and 23 (update regenerated: R_t → R_{t+1}, U_t; Expected SARSA and convergence schedule removed), book §6.4 eq. 6.7 PDF 151, Sutton TD slides PDF 34–35']
+    notes: |
+      Two minutes recall the meaning, two derive the sample/estimate replacement, two discuss what must be
+      available. The successor action is an actual choice from the behaviour policy, not an argmax substituted
+      after sampling. In control, π is epsilon-greedy in the evolving Q table; evaluation and improvement
+      interleave. For a fixed table the sample target has a conditional expectation determined by that table and
+      policy; it need not equal the true value when Q is inaccurate. "Sampled Bellman target" is not a claim that
+      the bootstrap is unbiased for the true q^π. This is on-policy because the continuation follows the acting
+      policy. Sources: book §6.4 eq. 6.7, PDF151; Sutton slides PDF34–35.
+
+  - id: C12
+    kind: math
+    title: Trace the SARSA loop
+    body_box: [0.244, 1.0, 12.85, 4.6]
+    size: 21
+    body:
+      - text: 'Initialize $Q$ for nonterminal pairs. For each episode:'
+      - text: '1. Observe $S_0$; choose $A_0$ epsilon-greedily from $Q$.'
+      - text: '2. Execute $A_t$; observe $R_{t+1}$ and $S_{t+1}$.'
+      - text: '3. If terminal: use $U_t=R_{t+1}$. Otherwise **choose** $A_{t+1}$ epsilon-greedily and use $U_t=R_{t+1}+\gamma Q(S_{t+1},A_{t+1})$.'
+      - text: '4. Update $Q(S_t,A_t)\leftarrow Q(S_t,A_t)+\alpha[U_t-Q(S_t,A_t)]$.'
+      - text: '5. If terminal, end the episode. Otherwise advance one step and **execute the already-selected** $A_{t+1}$.'
+    after_box: [0.244, 5.8, 12.85]
+    after:
+      - text: '**Question:** Where are exploration and improvement happening?'
+    minutes: 3
+    sources: ['old Model-Free Control PPTX 23 (loop structure) and 24 (book box raster replaced by editable text), book algorithm printed 130 / PDF 152, review R14']
+    notes: |
+      Exploration occurs in the epsilon-greedy action choice; as Q changes, future epsilon-greedy choices change.
+      The action selected in step 3 is retained; do not draw another action before execution. On a self-transition
+      the table may change before that action is executed; preserve the algorithm's ordering. Terminal
+      initialization can be represented by zero continuation, but an implementation need not invent an action at
+      the terminal. Convergence qualifications are kept to P07. Source: book algorithm, printed130/PDF152; R14.
+
+  - id: C13
+    kind: math
+    title: 'Q-learning: sampled Q-value iteration'
+    body_box: [0.244, 1.0, 12.85, 5.0]
+    size: 22
+    eq_size: 22
+    body:
+      - text: 'With a model:'
+      - eq: 'Q_{k+1}(s,a)\leftarrow\mathcal{R}(s,a)+\gamma\sum_{s''\in\mathcal{S}^{+}}\mathcal{T}(s,a,s'')\max_{a''\in\mathcal{A}(s'')}Q_k(s'',a'')'
+      - text: 'With one sampled transition:'
+      - eq: 'U_t=R_{t+1}+\gamma\max_{a\in\mathcal{A}(S_{t+1})}Q(S_{t+1},a),\qquad Q(S_t,A_t)\leftarrow Q(S_t,A_t)+\alpha[U_t-Q(S_t,A_t)]'
+    after_box: [0.244, 5.6, 12.85]
+    after:
+      - text: '**Act exploratorily; compute a greedy continuation in the target.**'
+    minutes: 3
+    sources: ['old Model-Free Control PPTX 40–41 (equations regenerated in course notation), bellman B24a (recalled, not replayed), Abbeel L2 PDF 5–7, book eq. 6.8 PDF 153']
+    notes: |
+      The first line is a recalled nonterminal lookahead; the contribution of a terminal successor is defined as
+      zero, without taking a maximum over an empty action set. The sampled rule is also shown for a nonterminal
+      successor; C13a gives the terminal branch. k counts DP sweeps, t counts environment steps. The observed next
+      state is still random; taking a maximum over actions does not remove transition uncertainty or erase the
+      observed reward. This is the Bellman optimality target, unlike SARSA's sampled behaviour continuation.
+      Sources: old P40–41; Abbeel PDF5–7; book eq.6.8 PDF153.
+
+  - id: C13a
+    kind: math
+    title: Q-learning still needs an acting policy
+    body_box: [0.244, 1.0, 12.85, 4.6]
+    size: 21
+    body:
+      - text: 'Initialize $Q$. For each episode:'
+      - text: '1. Observe the current nonterminal state $S_t$.'
+      - text: '2. Choose and execute $A_t$ **epsilon-greedily** from $Q$.'
+      - text: '3. Observe $R_{t+1}$, $S_{t+1}$.'
+      - text: '4. If terminal, $U_t=R_{t+1}$. Otherwise, $U_t=R_{t+1}+\gamma\max_a Q(S_{t+1},a)$.'
+      - text: '5. Update $Q(S_t,A_t)\leftarrow Q(S_t,A_t)+\alpha[U_t-Q(S_t,A_t)]$.'
+      - text: '6. If terminal, end the episode; otherwise advance and choose the next **behaviour** action.'
+    after_box: [0.244, 5.8, 12.85]
+    after:
+      - text: '**The action used in the maximum need not be the action executed next.**'
+    minutes: 3
+    sources: ['old Model-Free Control PPTX 42 (book box raster replaced by editable text) and 43 (properties, qualified), book §6.5 PDF 153']
+    notes: |
+      Have students point to data collection and target computation. Q-learning aims at q^*, while the behaviour
+      policy determines which pairs receive updates and how efficiently learning progresses. Finite-tabular
+      convergence requires continued coverage and suitable step sizes; it is not true for arbitrary finite
+      datasets or every constant-step run. The behaviour need not become greedy merely to estimate optimal action
+      values under the relevant conditions. Source: book §6.5, PDF153; old P43 qualified.
+
+  - id: C14
+    kind: math
+    title: Behaviour and target policies
+    body_box: [0.244, 1.0, 12.85, 0.9]
+    size: 22
+    body:
+      - text: '**Behaviour $b$ generates actions in the data. Target $\pi$ describes the continuation being learned about.**'
+    table_box: [0.244, 2.0, 12.85]
+    table:
+      size: 20
+      row_h: 0.6
+      align_left: true
+      widths: [2.6, 3.6, 6.65]
+      header: ['Method', 'Behaviour', 'Continuation in the target']
+      rows:
+        - ['SARSA', 'epsilon-greedy', 'the same acting policy: sampled next action']
+        - ['Q-learning', 'epsilon-greedy here', 'greedy continuation: maximum next-action value']
+    after_box: [0.244, 4.2, 12.85]
+    after:
+      - text: '**Why no importance ratio in this one-step Q-learning target?**'
+      - text: 'We condition on the action already taken and compute the successor maximum.'
+    minutes: 2
+    sources: ['old Model-Free Control PPTX 6 and 32 (definitions; μ → b) and 40 (no-IS remark, reason corrected), book §§5.5 and 6.5, review R04']
+    notes: |
+      One minute for the table, one for the explanation. Given (S_t, A_t), the transition sample comes from the
+      same environment dynamics regardless of how the behaviour selected that pair. There is no successor
+      behaviour-action sample being substituted for a different target-action average: we compute the maximum.
+      This is a one-step statement, not a rule that all off-policy learning needs no correction. Ratios are
+      studied in Week 8. Off-policy need not mean optimal target in general, and it need not mean fixed data.
+      Sources: old P6/P32/P40, book §§5.5/6.5; R04.
+
+  - id: C15
+    kind: math
+    title: 'Your turn: one transition, two targets'
+    drawing:
+      - grid: {x: 10.8, y: 1.0, cell: 1.1, cols: 2, rows: 2, fills: {'2,2': goal}, labels: {'2,2': 'goal'}, size: 12}
+    body_box: [0.244, 1.0, 10.3, 0.5]
+    size: 21
+    body:
+      - text: '$\gamma=0.5$,  $\alpha=0.5$,  $Q((1,1),\text{right})=0.1$.'
+    table_box: [0.244, 1.6, 10.3]
+    table:
+      size: 19
+      row_h: 0.48
+      widths: [3.3, 1.75, 1.75, 1.75, 1.75]
+      header: ['Action at (1,2)', 'right', 'up', 'down', 'left']
+      rows:
+        - ['$Q$', '0.8', '0.2', '0.1', '0']
+    after_box: [0.244, 2.75, 12.85, 4.2]
+    after:
+      - text: 'Observed transition: **(1,1), right, −0.04, (1,2)**. The next epsilon-greedy action is **up**.'
+      - text: '1. Calculate each target and the updated entry for SARSA and Q-learning.'
+      - text: '2. Which next action does each target use?'
+      - text: '3. When can the two targets agree?'
+      - text: '**Separate terminal case — reset the exercise:** (1,2), right, +1, goal. What is each target?'
+    minutes: 7
+    sources: ['old Model-Free Control PPTX 21 and 40 (target forms), accepted exercise (D5), review R14']
+    notes: |
+      Two minutes to identify the entries, five for students to compute and explain. Both methods start from the
+      same snapshot; never apply the second method to the first method's updated entry. The right action at (1,1)
+      can reach (1,2) by a perpendicular slip, so the observed transition is valid. The terminal case is an
+      independent transition, not the next step after selecting up. Keep the answer hidden until C15a.
+      Source: accepted exercise; R14.
+
+  - id: C15a
+    kind: math
+    title: Compare the updates
+    table_box: [0.244, 1.1, 12.85]
+    table:
+      size: 19
+      row_h: 0.62
+      align_left: true
+      widths: [3.0, 4.9, 4.95]
+      header: ['', 'SARSA', 'Q-learning']
+      rows:
+        - ['Continuation', '$Q((1,2),\text{up})=0.2$', '$\max Q((1,2),\cdot)=0.8$']
+        - ['$U_t$', '−0.04 + 0.5 × 0.2 = **0.06**', '−0.04 + 0.5 × 0.8 = **0.36**']
+        - ['Updated $Q((1,1),\text{right})$', '0.1 + 0.5(0.06 − 0.1) = **0.08**', '0.1 + 0.5(0.36 − 0.1) = **0.23**']
+    after_box: [0.244, 4.0, 12.85]
+    after:
+      - text: '**Same snapshot, same observed reward and next state; different continuation.**'
+      - text: 'Separate goal transition: **both targets are 1**, with zero continuation.'
+    minutes: 3
+    sources: ['native target/update forms (old PPTX 21/40 purpose), numbers checked in scripts/check_control_claude.py']
+    notes: |
+      Ask for the reasoning, not just the arithmetic. On this nonterminal example, the targets agree if the
+      sampled next action has the maximum Q value, including a tie. In general γ = 0 also removes the continuation
+      difference. A coinciding target does not make whole learning trajectories identical: action ordering and
+      later estimates still matter, especially on self-transitions. The terminal target is 1, not the previous
+      table's goal estimate or a bootstrapped extra reward.
+
+  - id: C16
+    kind: math
+    title: What is each update trying to learn?
+    table_box: [0.244, 1.1, 12.85]
+    table:
+      size: 17
+      row_h: 0.62
+      align_left: true
+      widths: [2.0, 3.9, 2.9, 4.05]
+      header: ['Method', 'Update target', 'Continuation represented', 'DP connection']
+      rows:
+        - ['MC control', '$G_t$', 'episode''s collecting policy', 'evaluation/improvement idea; complete return']
+        - ['SARSA', '$R_{t+1}+\gamma Q(S_{t+1},A_{t+1})$', 'behaviour policy', 'sampled action-value evaluation plus improvement']
+        - ['Q-learning', '$R_{t+1}+\gamma\max_a Q(S_{t+1},a)$', 'greedy continuation', 'sampled optimality backup']
+    after_box: [0.244, 4.2, 12.85]
+    after:
+      - text: '**SARSA estimates action values for the policy it follows. Q-learning aims at optimal action values while exploring.**'
+    minutes: 3.5
+    sources: ['old Model-Free Control PPTX 50–51 (comparison purpose; Silver images replaced by one native table), book §§5.4/6.4/6.5, review R15–R16']
+    notes: |
+      Two minutes read the contrasts, 1.5 minutes interpret. All rows use the common update form, but targets are
+      not the only difference: MC waits for the episode and uses its declared visit/averaging convention. With
+      control, policies and estimates change together. The DP column is a conceptual connection, not an
+      equivalence of update schedules or an extra algorithm. MC's full-return target has no one-step DP
+      counterpart. Terminal continuation is zero in the TD rows.
+
+      Reference numbers (notes only): for the accepted grid and fixed epsilon-greedy policy around up/up/right
+      with ε = 0.1, q^π at the greedy pairs is 0.341369, 0.849121, 0.849121 in state order (1,1), (2,1), (1,2);
+      q^* at those same pairs is 0.361818, 0.852727, 0.852727. These are model-computed reference values, not a
+      learning experiment. The values 0.331793/0.810622/0.810622 instead average over the first action and are
+      v^π, so do not label them Q. The two reference policies have the same greedy actions; finite learning need
+      not produce identical behaviour. No guarantee for constant α follows. Sources: book §§5.4/6.4/6.5; R15–R16.
+
+  - id: C17
+    kind: math
+    title: From target differences to behaviour
+    body_box: [0.244, 1.1, 12.85, 3.2]
+    size: 26
+    body:
+      - '$Q$ lets us compare actions without a transition model.'
+      - 'Exploration determines which estimates receive evidence.'
+      - 'SARSA and Q-learning use different future-action assumptions.'
+    after_box: [0.244, 4.6, 12.85]
+    after:
+      - text: '**Next question: can the better greedy path earn worse rewards while exploring?**'
+    minutes: 1.5
+    sources: ['old Model-Free Control PPTX 20 and 45 (recap function; text replaced)']
+    notes: |
+      Ask one student to distinguish the next-action assumptions, then leave the question for 4.2. This is the
+      session boundary. Do not start the cliff setup in this allocation or move unfinished slides into 4.2's
+      budget.

@@ -16,7 +16,7 @@ Category weights total 100%; the accepted project milestone split totals its 35%
 
 | Exam | Window | Coverage |
 | --- | --- | --- |
-| midterm_1 | [6] | Weeks 1–5, before deep RL. Accepted taught/mastery scope governs questions; optional extensions are not silently examinable. |
+| midterm_1 | [6] | Sessions 1.1–3.2, Fall 2026 only (instructor, 2026-11-02; the exam date stayed fixed while the class runs one week behind). Accepted taught/mastery scope governs questions; optional extensions are not silently examinable. This semester, control_targets, control_practice, linear and instability are not in midterm 1; their exam placement is decided before midterm 2. |
 | midterm_2 | [10] | Weeks 6–8 plus 9.1, including SAC; bandits in 9.2 are excluded. Interpret up to bandits as before bandits, following explicit session list. |
 
 **Third midterm:** Midterm 3 is frozen in calendar Week 13, covering taught material through logical 12.2 and excluding the LLM bridge. Exact date remains pending; avoid the assumed December 31 loss and January instructor absence.
