@@ -195,7 +195,8 @@ with C15–C17).
     - one animation block per slide, all targets present;
     - equation fallbacks refreshed; the later edits changed no equation.
   - Slide targets: 63.5 minutes for 4.1 and 60.5 + 5 for 4.2 (D10); planning allocations stay 58 and 53 + 5.
-  - Not exercised by the AIs: click order and live slideshow playback.
+  - Click order: not played back by the AIs; the instructor confirmed it (2026-11-05). The instructor also decided
+    that ChatGPT need not recheck the 16:21 edits and the R34 notes fix.
 
 ## Fall 2026 delivery note (instructor, 2026-11-02; this semester only, not a design change)
 
