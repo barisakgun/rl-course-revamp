@@ -1,0 +1,75 @@
+# Week 4 deck `model_free_control`: review fixes R27–R29: corrected P01y and P05w,
+# Claude's renderer input. First draft: renderer input for these inserted slides only (2026-11-03). Not maintained:
+# the PPTX is the source. Do not rebuild over the deck or treat this file as its current content.
+# Status: decisions/lectures/model_free_control.md.
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week04/model_free_control_r27_claude.yaml
+# Then:   replace P01y and P05w in the deck (delete the old slides; append --only P01y --after P01x;
+#         --only P05w --after P05r). Copied from model_free_control_round2_claude.yaml with the R27–R29 wording.
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week04/model_free_control_r27_claude.pptx
+  preview: output/lectures/week04/model_free_control_r27_claude_preview.png
+  session_id: control_practice
+  qa_minutes: 0
+  title: Model-free control (R27–R29 fixes)
+  author: Barış Akgün
+  term: Fall 2026
+
+old: &old sources/current_course/5 - Model Free Control.pptx
+
+slides:
+  - id: P01y
+    kind: math
+    title: When do these methods converge? (tabular)
+    body_box: [0.244, 1.0, 12.85, 4.4]
+    size: 21
+    eq_size: 21
+    body:
+      - text: 'Results only, no proofs. Standard sufficient conditions: **every state–action pair keeps being updated**, and the step sizes used for each pair''s own updates shrink, but not too fast: $\sum\alpha=\infty$, $\sum\alpha^{2}<\infty$ (Week 3). With noisy targets, constant $\alpha$ can leave persistent estimate fluctuations; exact convergence is not generally guaranteed.'
+      - '**MC control and SARSA:** converge to $q^{*}$ and $\pi^{*}$ if exploration also fades slowly: greedy in the limit while every pair keeps receiving data. With fixed ε, their on-policy targets include continuing exploration costs; $q^{*}$ is not generally the target.'
+      - '**Q-learning:** converges to $q^{*}$ without the behaviour becoming greedy (off-policy).'
+    after_box: [0.244, 5.3, 12.85]
+    after:
+      - text: '**These are tabular guarantees. Q-learning already bootstraps and learns off-policy; add function approximation and convergence can fail: the deadly triad (Week 5).**'
+    minutes: 3
+    sources: ['book §2.5 eq. 2.7 printed 33 / PDF 55, §6.4 printed 129 / PDF 151, §6.5 printed 131 / PDF 153; Silver L5 PDF 15–16 and 22; CS234 L4 PDF 31 and 37–38; Abbeel L2 PDF 9–10; deck decision D10']
+    notes: |
+      Collects the conditions students met on C08, C09 and in Week 3 (MT07). About one minute on the common
+      conditions, one on the methods, one on the bridge to Week 5. The step-size conditions are the Robbins–Monro
+      conditions (book eq. 2.7, §2.5), applied to the step sizes each state-action pair receives for its own updates:
+      1/n with n counting that pair's own updates (the sample average) satisfies them; a single 1/t over environment
+      steps need not, since a rarely updated pair can get finite total weight (review R27). With noisy targets a
+      constant α leaves fluctuations; with deterministic targets it can still converge (R28). "Greedy in the limit
+      while every pair keeps receiving data" is called GLIE (Silver, CS234); the name is optional. With fixed ε, do
+      not claim convergence to, or near, the best ε-soft policy for the sampled methods (R28). Statements: GLIE MC control
+      converges to q* (Silver L5 p. 16); SARSA converges to an optimal policy and q* under GLIE and the step-size
+      conditions (book §6.4); Q-learning converges to q* when all pairs keep being updated and the step-size
+      conditions hold (book §6.5). Do not claim convergence for Monte Carlo with exploring starts (an open question,
+      book §5.3) or for any method with function approximation. Bridge: the deadly triad is bootstrapping +
+      off-policy learning + function approximation; tabular Q-learning has the first two and still converges.
+      No proofs, no schedule formula beyond the conditions.
+
+  - id: P05w
+    kind: math
+    title: What if ε decays, or moves can slip?
+    body_box: [0.244, 1.0, 12.85, 4.6]
+    size: 22
+    body:
+      - '**Decaying ε:** exploration costs less over time, and SARSA''s preferred path moves toward the edge. Under the convergence conditions both approach an optimal greedy policy; expected episode return approaches −13 as exploration vanishes, though occasional poor exploratory episodes can persist.'
+      - '**Slippery moves** (like our grid''s 0.8 / 0.1 / 0.1): falling becomes a risk of the environment, not only of exploration. $q^{*}$ itself changes, so even the optimal greedy path may move away from the edge, depending on the slip probability and the cost of a fall.'
+    after_box: [0.244, 5.3, 12.85]
+    after:
+      - text: '**Discuss:** in each case, which method''s answer changes, and why?'
+    minutes: 3
+    sources: ['book Example 6.6 (last sentence on decreasing ε), review R17 (slip wording), deck decision D10']
+    notes: |
+      Verbal discussion, no numbers (D10). About 1.5 minutes per case. Decaying ε: as exploration fades, the cost of
+      walking along the edge under SARSA's own exploratory policy shrinks, so SARSA's values and its preferred path
+      move toward the optimal edge path; with GLIE-style decay and the other convergence conditions both approach an
+      optimal greedy policy (book Example 6.6, final sentence). The expected episode return approaches −13 as
+      exploration vanishes, but individual exploratory episodes, including falls, can still occur (review R29). Slippery moves: now even a greedy agent can fall,
+      so the optimal values include that risk; both methods learn values that account for slips, and SARSA's also
+      include exploration. Whether the optimal path leaves the edge depends on the slip probability and the fall
+      cost; say "can change", not "will change" (R17). This links back to the 2×2 grid's slip model.

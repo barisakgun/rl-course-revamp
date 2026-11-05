@@ -87,7 +87,7 @@ Teaching 1450.5 + additional administration 19 = 1469.5 of 1,527 usable minutes;
 
 **Worked activity:** Shared MC/TD trajectory; five-minute average-reward objective contrast.
 
-**Pacing:** Average reward uses four previously unallocated minutes and one minute from taxonomy recap. It does not make average-reward algorithms a prerequisite. Instructor 2026-10-21 removed the embedded psychology connection from this session (no minutes of its own); the psychology_connections group keeps its 7.2 placement. Confidence: medium.
+**Pacing:** Average reward uses four previously unallocated minutes and one minute from taxonomy recap. It does not make average-reward algorithms a prerequisite. Instructor 2026-10-21 removed the embedded psychology connection from this session (no minutes of its own); the psychology_connections group keeps its 7.2 placement. For the next offering (instructor 2026-11-03), state the convergence behaviour of MC/TD prediction (coverage, step-size conditions, constant-α fluctuation) as groundwork for the Week 4 conditions and the deadly triad. Fall 2026 deck unchanged. Confidence: medium.
 
 | Exclusive teaching segment | Minutes |
 | --- | --- |
@@ -116,13 +116,13 @@ Teaching 1450.5 + additional administration 19 = 1469.5 of 1,527 usable minutes;
 
 ### 4.2 — Control failure modes and project formulation
 
-**Topic groups:** Sarsa, Q-learning and related concepts; Experimental design and evaluation; On-policy and off-policy learning, Online versus offline data access and related concepts.
+**Topic groups:** Sarsa, Q-learning and related concepts; Experimental design and evaluation; On-policy and off-policy learning, Online versus offline data access and related concepts; Expected Sarsa.
 
 **Prerequisite sessions:** 4.1.
 
 **Worked activity:** Explore a cliff-style target difference; choose a project baseline and evaluation metric (15 minutes).
 
-**Pacing:** 5 administrative minutes for proposal expectations, within the session allocation. Confidence: medium.
+**Pacing:** 5 administrative minutes for proposal expectations, within the session allocation. Instructor 2026-11-03 (model_free_control D10, D11) adds an Expected SARSA recap (replacing the retrieval slide), a tabular convergence slide, a regret-intuition slide and one verbal decaying-ε/action-uncertainty slide. Deck slide targets are 60.5 teaching + 5 administrative minutes, accepted above the 63-minute delivery allowance; the planning allocation is unchanged. Confidence: medium.
 
 ### 5.1 — Linear approximation and semi-gradients
 

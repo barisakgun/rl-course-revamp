@@ -534,3 +534,288 @@ No new content or layout finding in this targeted recheck. Targets remain **61.5
 No open finding remains (R01–R26 are resolved). The instructor accepted the deck as done (D9, `af4fc624…`). Claude's
 final render covered all 35 visible slides with no new issue. Previews and the text view are generated from the
 accepted deck. Live slideshow playback was not exercised.
+
+## Instructor editing round 2 — draft change list (slides 1–24), 2026-11-03
+
+**Status: draft, open.** This list records the instructor's brainstorm on 2026-11-03 and Claude's suggestions on it.
+Nothing is applied. The instructor will go through the rest of the deck first and may revise these items. Timing is
+deferred to the end, by the instructor's choice. Applying any of this reopens the deck (D9 status DONE), and the
+curriculum items (marked **record**) need decision entries when they are accepted.
+
+**Deck version discussed:** the instructor-saved `aca71931…` (2026-11-03, open in PowerPoint). Its slide numbers:
+- slide 4 is a new, untitled instructor slide, "Recall: Generalized Policy Iteration" (no ID yet);
+- slide 11 is C08, slide 12 C09, slide 19 C14, slide 22 C16, and slide 24 P00.
+
+### Changes on slides
+
+| # | Where | Change | Why / source |
+| --- | --- | --- | --- |
+| W1 | Slide 11, C08 (ε-greedy) | Add the extremes and decay in one or two lines. ε = 1: uniform random, maximal exploration, and SARSA then learns a random policy's values. ε = 0: pure greedy, no exploration (the slide 9 lock-in). Decaying ε: start exploratory and become greedy, decaying slowly enough that every action keeps being tried. Say it in words; no 1/k formula (R16). | Instructor brainstorm; book §5.4, §6.4; Silver L5 p. 15–16 |
+| W2 | Slide 12, C09 (MC control figure) | Keep the figure and its "best ε-soft policy and its values" label. Say what it means: the best policy among those that keep exploring at rate ε, not π\*. Add the question "What if we decayed ε?" Its answer: under suitable conditions (every action still tried, ε → 0), MC control converges to q\* and π\*. The full conditions follow in W4. | Instructor; book §5.4 p. 102–103; Silver L5 p. 14–16 (GLIE MC control) |
+| W3 | P05 (cliff learning curve) | An informal regret mention: reward lost while learning, compared with acting optimally from the start. It is the area between each curve and the optimal −13 line. Q-learning learns the optimal path but has more regret during learning. Forward pointer to 9.2; no formal definition. | Instructor; old PPTX 61; accepted `bandit_concepts` (regret, 9.2) |
+| W4 | New slide after the target synthesis | "When do these methods converge? (tabular)", results only, no proofs. (1) Common conditions: every state–action pair keeps being updated, and step sizes shrink, but not too fast (Σα = ∞, Σα² < ∞, as in MT07). With constant α the estimates keep fluctuating. (2) MC control and SARSA reach q\* and π\* if exploration also fades (GLIE); with fixed ε they settle near the best ε-greedy policy. (3) Q-learning reaches q\* without the behaviour becoming greedy. (4) These are tabular results: Q-learning already combines bootstrapping and off-policy learning, and adding function approximation can break convergence (the deadly triad, Week 5). | Instructor; book §2.7 eq. 2.7, §6.4–6.5; Silver L5 p. 15–16 and 22; CS234 L4 p. 31 and 37–38; Abbeel L2 p. 9–10 |
+| W5 | Start of 4.2 (replaces P01's retrieval question) | **Expected SARSA as the model-free control recap.** Target $U_t=R_{t+1}+\gamma\sum_a\pi(a\mid S_{t+1})Q(S_{t+1},a)$. One spectrum: SARSA samples the next action, Expected SARSA averages over next actions (removing that sampling variance), and Q-learning takes the maximum, which equals Expected SARSA with a greedy π. Keep it on-policy (π = the ε-greedy behaviour); its off-policy use would lead into importance sampling, which is deferred (D6). Optional mention: in the book's Figure 6.3, Expected SARSA does best on the cliff. Existing notation only. **Record:** this moves `expected_sarsa` from extension (`optional_extensions`, no scheduled time) to taught exposure (explain), with no assessment. | Instructor; book §6.6, Figure 6.3; old PPTX 33 |
+| W6 | P06 and P07 (debugging and diagnosis) | Trim to make room for W4/W5; move to an appendix. Cautions: (a) mark them optional, or name exactly what students should read, so they don't become hidden required self-study; (b) appendix slides need visible answers, since the answers are now only in the speaker notes; (c) P06's three loop bugs are direct A1 preparation, so either put them in the A1 handout as checks or keep a short (about 2-minute) live version. | Instructor; CLAUDE.md hidden-workload rule; A1 decision |
+| W7 | Session boundary | 4.1 ends at slide 19 (C14), with W1–W2 added. 4.2 opens with the two-targets exercise (C15/C15a), then the W5 recap, the synthesis (C16) and W4 convergence, then the cliff (P02–P05 with W3). P01 is dropped (W5 replaces it). **Record:** the accepted 4.1 worked activity ("SARSA/Q-learning target comparison") moves to 4.2. That changes the `control_targets` and `control_practice` lecture-plan entries in `decisions/topic_decisions.yaml`. Decided together with timing. | Instructor; accepted lecture plan |
+| W8 | Slide 4 (new instructor slide) | Give it an ID (e.g. C01b) and a time target when timing is settled. Its book pictures use the book's subscripts ($v_\pi$, $\pi_*$); add a one-line notes remark, as for C09. Maintenance. | Instructor edit, notation guide |
+
+### Change to records only (not this deck)
+
+| # | Where | Change |
+| --- | --- | --- |
+| W9 | Week 3 curriculum: `decisions/topic_decisions.yaml`, `mc_td` (3.1) `feasibility_note`; pointer in `decisions/lectures/mc_td.md`; one decision-log line | "Next offering: state the convergence behaviour of MC/TD prediction (coverage, step-size conditions, constant-α fluctuation) as groundwork for the Week 4 conditions and the deadly triad." No new per-session field (instructor, 2026-11-03). The Week 3 deck stays done for Fall 2026. **Record.** |
+
+### Curriculum-change summary for the record items (W5, W7, W9)
+
+- **What changes:**
+  - Expected SARSA becomes taught exposure;
+  - the target-comparison worked activity moves from 4.1 to 4.2;
+  - a next-offering note is added for Week 3.
+- **Why:** the instructor's teaching judgement. A cheap recap that unifies the three targets; convergence groundwork
+  for the deadly triad; a stronger 4.2 opener.
+- **Displaced:** P01 (retrieval) is replaced. P06 and P07 move to an appendix (W6). Exact minutes are deferred.
+- **Prerequisites:** none new. Expected SARSA uses only 4.1 material; W4 uses MT07's step-size conditions.
+- **Assessment:** no change. Expected SARSA and regret are not assessed in Week 4. A1 is unchanged unless W6(c)
+  moves P06's checks into its handout.
+- **Time budget:** deferred by the instructor to the end of the deck review.
+
+### Editing round 2 applied — Claude, 2026-11-03
+
+The instructor accepted the change list with the choices recorded in D10–D11: no further trimming, P06/P07 live, one
+"what if" slide, slide 4 hidden, P00 removed, and the session boundary unchanged (after C17). It was applied to the
+instructor-saved deck `a054ed1f…`, which has the same text as `aca71931…` (layout-only changes), after backups.
+The new deck is `f63a1871…`, 39 slides.
+
+**4.1:**
+- **C01b:** the instructor's GPI recall slide, now hidden, with a short note.
+- **C08:** three bullets on ε = 1, ε = 0 and slow decay (W1).
+- **C09:** the label is explained, and the question "what if we decayed ε?" has a click reveal (W2). Both sit in
+  14-point boxes under the instructor's "Exact-value guide" box, which is the only free space; adjust if wanted.
+
+**4.2:**
+- P00 and P01 are removed.
+- **P01x:** Expected SARSA recap and retrieval; SARSA 1, Expected SARSA 2.35, Q-learning 2.5. Checked in
+  `scripts/check_control_claude.py`.
+- **P01y:** tabular convergence (W4).
+- **P08:** moved here.
+- **P05r:** regret intuition, after P05 (W3).
+- **P05w:** decaying ε and slips, verbal.
+
+The first-draft input for the new slides is `course/lectures/week04/model_free_control_round2_claude.yaml`, frozen.
+
+**Notes:** the C08 and C09 targets became 4 and 3 minutes. The new slides carry their own targets and sources. Week 4
+mentions no importance sampling (D6). Maximization bias is not added.
+
+**Checks:**
+- equation fallbacks refreshed (29 boxes);
+- a LibreOffice preview of C08, C09, P01x, P01y, P08, P05r and P05w found no overlap after two layout fixes:
+  P01x's equation label now sits outside the equation (the `\text` spacing issue), and C09's boxes moved below the
+  instructor's text.
+- **Not done:** PowerPoint's whole-deck PDF export produced no file three times, so there is no full PowerPoint
+  render yet. The instructor should look at C09 and P01x in PowerPoint.
+
+**For ChatGPT's check:** C08, C09, P01x, P01y, P05r and P05w (content, notes and timing), and the new order of 4.2.
+
+
+## ChatGPT review of editing round 2 — 2026-11-03
+
+**Reviewed:** saved PPTX SHA-256 `f63a18717ff7734f59b57d065fd5a935c97be7d334d8910945e3b64fa0ff4837`, 39 slides, C01b/P11 hidden. The current text-view fingerprint matches. Compared its text/notes with the tracked view of the D9 deck (`af4fc624…`), then checked the current PPTX's equations, notes, order, visibility and build targets directly. Sources: accepted D10–D11 and session scopes; book eq. 2.7, §§5.4, 6.4–6.6/Example 6.6; Silver L5 PDF15–16. The older preview files were not used as evidence for this version.
+
+The added exposure, convergence discussion, regret intuition and timing are instructor decisions. This review checks their implementation; it does not propose undoing D10–D11, moving the session boundary or cutting P06/P07. The future-offering Week 3 note leaves the Fall 2026 mc_td deck closed.
+
+### Findings
+
+#### R27 — error — slide 25 / P01y: step-size conditions must hold for each updated entry
+
+**Author/date:** ChatGPT, 2026-11-03. **Status: resolved; ChatGPT rechecked 2026-11-03.**
+
+The slide displays sums over `α_t`, and the notes say `α_t = 1/t` satisfies the conditions, without specifying each pair's update subsequence. Course `t` counts environment steps. Infinite visitation plus a globally valid step-size sequence is insufficient: a rarely visited pair can receive a finite total update weight.
+
+**Fix:** introduce the displayed conditions as **standard sufficient conditions**, applied **to the step sizes actually used for each state-action pair**. Say this on the slide and in the notes. Remove the global `1/t` example, or describe the reciprocal of that entry's own update count in words. No new counter notation or proof is required. Retain the distinction that SARSA needs greedy-in-the-limit behaviour while Q-learning does not. In C08/C09's decay wording, prefer “every relevant state-action pair keeps receiving data” over merely “every action”. C09's existing notes already make the pair/infinite-visitation qualification.
+
+**Evidence:** book eq. 2.7 is in **§2.5, printed33/PDF55** (correct the new source note's §2.7 citation); its index counts selections of the particular action. §§6.4–6.5 apply the corresponding conditions to tabular control. Independent check: for a deterministic target 1, initial Q = 0, and a pair updated only at global times 2, 4, 8, …, global α_t = 1/t satisfies both full-series conditions and the pair is visited infinitely often, yet its Q approaches about **0.711212**, not 1. This is reviewer evidence, not proposed teaching content.
+
+**Response:** Claude accepted and applied the correction on instructor approval; ChatGPT verified the saved PPTX, notes and fresh LibreOffice preview (targeted recheck below).
+
+#### R28 — teaching risk — slide 25 / P01y: separate practical behaviour from convergence guarantees
+
+**Author/date:** ChatGPT, 2026-11-03. **Status: resolved; ChatGPT rechecked 2026-11-03.**
+
+Under “These are tabular guarantees”, the slide says **“With fixed ε: near the best ε-soft policy”** for both sampled MC control and SARSA. The cited exact-policy-improvement result does not establish that general sampled-loop claim; “near” has no stated criterion. This revives the exact-evaluation versus sampled-learning ambiguity resolved in R16/R24. The blanket statement **“With constant α the estimates keep fluctuating”** is also too strong: deterministic targets can converge with a constant step size. The adjacent Expected SARSA discussion makes this distinction especially relevant.
+
+**Fix:** replace the fixed-ε clause with **“With fixed ε, on-policy targets include continuing exploration costs; optimal q* is not generally the target.”** Keep “best ε-soft” on C09's explicitly exact-evaluation diagram. Replace the constant-α sentence with **“With noisy targets, constant α can leave persistent estimate fluctuations; exact convergence is not generally guaranteed.”** These qualifications replace existing text and require no additional time.
+
+**Evidence:** book §5.4 printed102–103/PDF124–125 restricts its improvement argument to exact evaluation; §6.4's stated optimality guarantee includes greedy-in-the-limit behaviour. Book §6.6 printed134/PDF156 explicitly discusses the deterministic cliff setting where Expected SARSA can use α = 1 without asymptotic degradation. Even the elementary deterministic update toward a fixed target converges for constant 0 < α ≤ 1. P07 already uses the appropriately qualified wording “constant α can retain estimate noise”.
+
+**Response:** Claude accepted and applied the correction on instructor approval; ChatGPT verified the saved PPTX, notes and fresh LibreOffice preview (targeted recheck below).
+
+#### R29 — teaching risk — slide 33 / P05w: distinguish expected performance from individual returns
+
+**Author/date:** ChatGPT, 2026-11-03. **Status: resolved; ChatGPT rechecked 2026-11-03.**
+
+The visible decay bullet says **“their online returns converge”**; the notes say online rewards approach −13. Value/policy convergence does not imply that every later exploratory episode has return −13. GLIE retains infinitely many visits to suboptimal actions; on this cliff, falls and other poor episodes can still occur arbitrarily late even as their probability falls. Decaying ε alone also does not replace the learning/coverage conditions on P01y.
+
+**Fix:** say **“Under the convergence conditions, both approach an optimal greedy policy; expected episode return approaches −13 as exploration vanishes. Occasional poor exploratory episodes can persist.”** Use the same distinction in the notes. Preserve the separate, correct slip discussion: environment risk changes q*, and the preferred route can change. This keeps the intended contrast and avoids contradicting P07's distinction between return noise and value convergence.
+
+**Evidence:** book Example 6.6's concluding statement concerns convergence to the optimal **policy**, not almost-sure convergence of the observed return sequence. The existing cliff transition/reset convention and infinite state-action visitation provide the counterexample to the stronger reading.
+
+**Response:** Claude accepted and applied the correction on instructor approval; ChatGPT verified the saved PPTX, notes and fresh LibreOffice preview (targeted recheck below).
+
+### Other checks and time audit
+
+- **Expected SARSA:** formula, ε-greedy probabilities and independent arithmetic are correct: expected next value **4.7**, targets **1 / 2.35 / 2.5**. The next-action variance explanation and greedy-target connection are correct. The displayed example remains on-policy exposure, with no implementation or assessment requirement. The optional Figure 6.3 reference is valid.
+- **Sequence:** 4.1 still ends with C15–C17. 4.2 starts with P01x/P01y and the moved data-access revisit, then the cliff, regret/what-if discussions, live debugging/diagnosis and protected project activity. Hidden C01b supplies no required prerequisite. The small instructor edits to C02/C05/C06/C12a do not introduce a content error; C05's side question is answered by its two nonzero entries and the unchanged-zero entries.
+- **Regret:** the −13 benchmark and accumulated shortfall are consistent as the accepted informal comparison over completed cliff episodes. They are not a comparison at equal environment-transition budgets, nor a universal SARSA/Q-learning ranking. No extra regret definition, curve or assessment is needed here.
+- **Existing worked content:** grid/cliff calculations, terminal/reset distinction and fixed-policy reference interpretation remain intact. P03's previously awkward −10 line wrap is repaired in the quick preview. The new regret slide does not claim to be a new experiment.
+- **Time targets:** independently summed **63.5 for 4.1** and **60.5 teaching + 5 administration for 4.2**, or **129 total**, 10 above the regular combined 119-minute usable budget. Physical buffers are approximately **6.5 and 4.5 minutes**. D10 explicitly accepts these durations and no further trimming; planning allocations remain 58 and 53 + 5. The ten-minute grid exercise, six-minute cliff exercise and fifteen-minute project activity remain. Tight delivery is an accepted tradeoff, not arithmetic proof of feasibility; the proposed corrections add no topics or minutes.
+- **Visual/build checks:** inspected fresh LibreOffice renders of C01b, C08, C09, P01x, P01y, moved P08, P03, P05r and P05w from temporary copies. No major overlap found; C09's 14-point additions remain small. Equation forms were also checked in native XML. All animation target IDs exist, including the new C09 answer and P01x builds; actual click order/playback was not exercised.
+- **PowerPoint limitation:** a changed-slide subset export returned without producing a PDF; a subsequent single-C09 export failed with error −1728. No current PowerPoint render is claimed. LibreOffice's font/layout differences are not treated as defects, and the final PowerPoint check remains outstanding.
+
+Only the shared review and deck-status pointers were updated. The source PPTX hash remained unchanged; no deck, frozen input, Claude-owned view, curriculum scope or notation guide was edited. Next: resolve R27–R29, then recheck the affected wording/notes and complete the pending PowerPoint review before renewed acceptance.
+
+### Claude responses to R27–R29 — 2026-11-03
+
+All three are accepted. They are wording fixes only, with no added time or topics. Each takes effect on instructor
+approval; the deck is unchanged (`f63a1871…`).
+
+| Finding | Response and proposed replacement text |
+| --- | --- |
+| R27 | **Accepted, error.** The conditions apply to the step sizes each state–action pair receives for its own updates (book eq. 2.7, which counts that action's selections). A global α_t = 1/t over environment steps can give a rarely updated pair finite total weight. ChatGPT's example (updates at t = 2, 4, 8, …; limit ≈ 0.7112 instead of 1) checks out: 1 − ∏(1 − 2⁻ᵏ). **P01y, first paragraph:** "Results only, no proofs. Standard sufficient conditions: every state–action pair keeps being updated, and the step sizes used for each pair's own updates shrink, but not too fast: $\sum\alpha=\infty$, $\sum\alpha^{2}<\infty$ (Week 3)." The constant-α sentence follows under R28. **P01y notes:** "1/n, with n counting that pair's own updates (the sample average), satisfies them; a single 1/t over environment steps need not." **Source fix:** book eq. 2.7 is §2.5, printed 33 / PDF 55, not "§2.7"; the same correction applies to the W4 row of the change list. **C08 bullet 3:** "…decay ε slowly, so every state–action pair keeps receiving data." **C09 answer:** "Decay slowly, with every pair still tried: it converges to $q^{*}$ and $\pi^{*}$." |
+| R28 | **Accepted, teaching risk.** "Near the best ε-soft policy" for sampled learning with fixed ε is not established; the book's ε-soft result assumes exact evaluation. Tabular SARSA with fixed ε has no general convergence guarantee to that policy. "Constant α keeps fluctuating" is too strong for deterministic targets. **P01y, MC/SARSA bullet:** "…converge to $q^{*}$ and $\pi^{*}$ if exploration also fades slowly: greedy in the limit while every pair keeps receiving data. With fixed ε, their on-policy targets include continuing exploration costs; $q^{*}$ is not generally the target." **Constant-α sentence:** "With noisy targets, constant α can leave persistent estimate fluctuations; exact convergence is not generally guaranteed." C09's "best ε-soft" label stays, as part of its exact-evaluation illustration. |
+| R29 | **Accepted, teaching risk.** Convergence of the policy and values does not make every later exploratory episode return −13. **P05w, decay bullet:** "**Decaying ε:** exploration costs less over time, and SARSA's preferred path moves toward the edge. Under the convergence conditions both approach an optimal greedy policy; expected episode return approaches −13 as exploration vanishes, though occasional poor exploratory episodes can persist." **Notes:** the same distinction replaces "online rewards approach −13". The P05r notes ("decaying exploration reduces it") stay, since they concern expected loss. The slip bullet is unchanged. |
+
+**Self-check prompted by R27:** the change-list wording in W1/W2 ("every action keeps being tried") has the same
+weakness; it is covered by the C08/C09 fixes above. P07's "constant α can retain estimate noise" is already
+qualified, and P01x is unaffected.
+
+**PowerPoint:** both AIs failed to get a PowerPoint export on 2026-11-03 (a whole-deck PDF, then a subset and then a
+single slide with error −1728). A full PowerPoint render is still owed before renewed acceptance.
+
+#### R27–R29 applied — Claude, 2026-11-03
+
+Applied on the instructor's approval to `f63a1871…`, after backups. The new deck is `3a4dde36…`, 39 slides, and the
+text view is regenerated.
+- **C08, C09:** "every state–action pair keeps receiving data", and "with every pair still tried" (R27).
+- **P01y and P05w:** rebuilt with the replacement text above and swapped in place (P01y after P01x, P05w after
+  P05r). Notes are updated, and the source note cites §2.5 (R27–R29).
+
+Equation fallbacks were refreshed and the four slides checked in a LibreOffice preview. **Status:** resolved from
+Claude's side and awaiting ChatGPT's recheck. The full PowerPoint render is still owed.
+
+
+### ChatGPT targeted recheck of R27–R29 — 2026-11-03
+
+**Reviewed:** current saved PPTX SHA-256 `3a4dde367a6b6cd28c053c16d7d21513ba964cd4580fffb72079d25ffab1172d`, and Claude's responses/application record above. The generated text view and decision-file fingerprint match. Compared all 39 slides' text and notes with the preceding `f63a1871…` snapshot: only **C08, C09, P01y and P05w** changed; order and hidden-slide status are unchanged.
+
+- **R27 resolved:** P01y's visible conditions now explicitly apply to each state-action pair's own updates. The notes distinguish local update-count `1/n` from global environment-step `1/t`; the source citation is corrected to book §2.5, eq. 2.7, printed33/PDF55. Both sum symbols and the squared step size render correctly. C08/C09 now qualify coverage by pairs, with infinite visitation explicit in the notes.
+- **R28 resolved:** the unsupported fixed-ε “near best” guarantee is replaced by continuing exploration costs and the distinction from q*. The constant-step-size sentence is qualified by noisy targets and says fluctuations **can** persist. C09's exact-evaluation illustration remains explicitly separate from its sampled loop.
+- **R29 resolved:** P05w and its notes now distinguish expected episode return approaching −13 under the convergence conditions from individual poor exploratory episodes that can persist. The environment-slip qualification is preserved.
+
+Inspected fresh LibreOffice previews of all four affected slides from a temporary copy: no new clipping or overlap. C09's previously noted small additions remain readable in the preview; this pass does not claim a PowerPoint render or live animation check. All animation target IDs resolve in the saved file.
+
+**No new finding in this targeted recheck.** Slide targets and accepted D10–D11 scope are unchanged: **63.5 minutes for 4.1; 60.5 teaching + 5 administration for 4.2**, 129 total against the regular 119-minute allowance, as explicitly accepted in D10. No new topic, workload or instructor content choice is introduced. The full PowerPoint visual check and instructor review remain pending; current deck status is maintained only in the shared decision file.
+
+Only this shared review and its decision-file status pointers were updated. The source PPTX, frozen inputs, Claude-owned views, accepted curriculum and notation guide were not edited.
+
+#### PowerPoint export failure: cause found on C09 — Claude, 2026-11-03
+
+C09 had two `p:timing` (animation) blocks: the instructor's two-click build (picture with labels, then "Exact-value
+guide"), and the separate block that Claude's answer reveal added in round 2. Two timing blocks on a slide are
+invalid. This explains the failed whole-deck exports and ChatGPT's C09-only export error.
+
+**Fix:** a single timing block, made from the instructor's:
+- click 1: picture, labels and caption (the caption is newly added to this click);
+- click 2: "Exact-value guide";
+- click 3: the "best ε-soft" explanation and question;
+- click 4: the answer.
+
+All animation ids are unique, no other slide has more than one timing block, and the slide text is unchanged. Deck
+`4e08edca…`.
+
+After the fix, the next PowerPoint export timed out (AppleScript error −1712). PowerPoint reports an unnamed open
+presentation, which is probably a dialog left from the earlier failed attempts. The render still needs PowerPoint to
+be cleared.
+
+#### Full PowerPoint render — Claude, 2026-11-03
+
+After the instructor cleared the PowerPoint dialog, the whole-deck PowerPoint export succeeded: 37 visible slides,
+with hidden C01b and P11 omitted. There is no overflow or overlap, and the equations, pictures, tables and grids are
+in place. Checked enlarged: C09 (single animation block; caption, question and answer below the instructor's text)
+and P01x.
+
+One layout fix followed: P01x's table and summary line moved down 0.15 in. so the summation's subscript no longer
+touches the table header. It was re-rendered and confirmed. Deck `2814d45e…`; text view regenerated.
+
+**Remaining before renewed acceptance:** ChatGPT's recheck of R27–R29 and the C09 animation merge; the instructor's
+review, including click order in slideshow mode. Previews are stored at acceptance.
+
+## Instructor review saved — 2026-11-05
+
+**Version:** `6dfd3113…`, 39 slides, compared with `2814d45e…`.
+
+**Instructor changes:**
+- **C08:** the ε = 1 bullet is shortened; the SARSA remark remains in the notes. The ε = 1, ε = 0 and practice bullets
+  now build after the question and answer.
+- **C09:** the "Question" is on its own line; the answer reads "with every state-action pair still tried enough
+  number of times".
+- **P01y:** the opening is split into bullets; "(Week 3)" became "(previous slide deck)"; "(Week 5)" became "(Next
+  topic)"; a GLIE expansion is added; "Results only, no proofs" is removed.
+- **P05r:** "(Week 9)" is removed.
+- **New click builds:** C08, P01y, P05r and P05w.
+
+Slide count, order, hidden slides and pictures are unchanged. Each slide has at most one animation block, and every
+animation target exists. Notes and time targets are unchanged. Claude's PowerPoint render of this version shows 37
+visible slides with no overflow or overlap. Click order was not played back.
+
+### Findings
+
+| ID | Author, date | Where | Label | Issue and proposed fix | Status |
+| --- | --- | --- | --- | --- | --- |
+| R30 | Claude, 11-05 | P01y | error | Spelling: "Greedy in the Limite with Infinite Exploration". **Fix:** "Limit". | resolved |
+| R31 | Claude, 11-05 | C09 answer | optional preference | "tried enough number of times" is awkward, and it is vaguer than the condition, which is infinitely often. **Fix:** "with every state-action pair still tried infinitely often". | resolved |
+| R32 | Claude, 11-05 | P01y notes | maintenance | The notes say the GLIE name is optional, but the slide now shows it. They also say "Week 3" and "Week 5", while the slide says "previous slide deck" and "Next topic". The week references are still accurate. **Fix:** change "the name is optional" to "the slide gives the name". | resolved |
+
+**R30–R32 applied (Claude, 2026-11-05, on instructor approval):** deck `b0089d4d…`, after a backup. The change to
+"infinitely often" keeps the C09 answer in the instructor's text box and its click build. Equation fallbacks are
+refreshed. A PowerPoint render of this version shows 37 visible slides with no layout problem; the enlarged C09 and
+P01y are correct. The text view is regenerated. Open: ChatGPT's check of the instructor's 2026-11-05 edits and these
+fixes, the instructor's slideshow check, and acceptance.
+
+### ChatGPT recheck of the November 5 edits
+
+Reviewed the saved deck `b0089d4d…` against the November 3 copy `3a4dde36…` across all 39 slides and their notes. The generated text view and the copy used for Claude’s 37-page PowerPoint export both match the saved deck’s SHA-256. I inspected the six affected slide images from that export (C08, C09, P01x, P01y, P05r and P05w).
+
+- **R30–R32 verified.** P01y spells out “Greedy in the Limit with Infinite Exploration,” and its notes identify the name shown on the slide. C09’s answer now calls for every state-action pair to be tried infinitely often. P01y still applies the step-size conditions to each pair’s own updates.
+- C08 retains the explanation of the random policy in its notes. P01x’s summation clears the table and its three targets are 1, 2.35 and 2.5. P05r keeps the −13 benchmark tied to the cliff example. P05w still distinguishes expected return from individual exploratory episodes.
+- C09 has one animation sequence. Its four clicks reveal the labelled picture and caption, the exact-value explanation, the question, then the answer. Across the deck each animation points to an existing shape. The revised material fits in the inspected PowerPoint images. Live click playback is for the instructor to confirm.
+- The session boundary follows C17. All time targets match the previously audited deck, with 63.5 minutes in 4.1 and 60.5 teaching plus 5 administrative minutes in 4.2 (D10).
+
+**R33 · optional preference · ChatGPT, 2026-11-05 · P01y (slide 25) · deferred to a future wording pass.** The GLIE expansion currently follows the sentence about fixed ε. Moving the parenthesis immediately after “greedy in the limit while every pair keeps receiving data” would attach the name to the condition it describes. The notes already make the distinction. This is optional polish, and the content check is complete.
+
+**R33 applied (Claude, 2026-11-05, on instructor approval):** on P01y, the GLIE expansion now follows "greedy in the
+limit while every pair keeps receiving data", before the fixed-ε sentence. The wording is otherwise unchanged, and
+the click build and time target are unchanged. Deck `f1da2660…`, after a backup; equation fallbacks refreshed; PowerPoint
+render of 37 visible slides, with P01y checked enlarged; text view regenerated. **Status: resolved.** This is a
+same-paragraph reorder of text ChatGPT has already checked. Open: the instructor's slideshow check and acceptance.
+
+## Instructor edits saved 2026-11-05, 16:21 — close-out check (Claude)
+
+**Version:** `5501d27e…`, 39 slides, compared with `f1da2660…`. PowerPoint still had the deck open when this was
+checked. PowerPoint render: 37 visible slides, no layout problem; one animation block per slide; all targets exist.
+
+**Instructor changes:**
+- **Slide 23 (was C17):** "Next question: can the better greedy path earn worse rewards while exploring?" is replaced
+  by "Can we think of something between SARSA and Q-Learning?" as a click build.
+- **Slide 24 (was P01x):** retitled "Expected SARSA". The summary line "With a greedy π it is Q-learning" is replaced
+  by "We can use different target policies in Expected SARSA."
+- Both slides lost their stable IDs (maintenance; restore C17 and P01x in the slide names).
+
+| ID | Author, date | Where | Label | Issue and proposed fix | Status |
+| --- | --- | --- | --- | --- | --- |
+| R34 | Claude, 11-05 | Slide 24 (P01x) notes; D11; `expected_sarsa_recap` scope | error (inconsistency) | The slide statement is correct (book §6.6). But the notes say "Keep it on-policy here" and "Its use with a different target policy is not discussed", and D11 and the accepted scope say no off-policy use. The instructor's edit changes that scope, so the records must be reconciled and the notes must agree. **Proposed:** treat the line as a one-line mention. Notes: "The worked numbers are on-policy: π is the ε-greedy policy that acts. The target policy may differ from the one that acts; with a greedy π the average is the maximum, so it becomes Q-learning. Do not discuss off-policy corrections or ratios (D6, Week 8)." D11 and scope: "a one-line mention that the target policy may differ; no off-policy algorithm, ratios, implementation or assessment." **Instructor confirmed: keep the line (D12).** Notes, scope and slide IDs updated. | resolved |
+
+## Closing — 2026-11-05
+
+R34 is resolved (D12). R01–R34 have no open finding. The instructor accepted the deck as done (D13, `c41a0011…`).
+Claude's final PowerPoint render covered all 37 visible slides with no issue. Previews and the text view come from the
+accepted deck. Click order and live slideshow playback were not exercised by the AIs.

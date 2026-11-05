@@ -179,6 +179,10 @@ groups:
   - assignment
   - exam
   accepted_scope_ref: double_dqn_core
+- id: expected_sarsa_recap
+  assessment_expectation:
+  - none
+  accepted_scope_ref: expected_sarsa_recap
 videos:
 - id: search_background
   accepted_video_ref: search_background

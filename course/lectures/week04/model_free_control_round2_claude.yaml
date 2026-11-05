@@ -1,0 +1,142 @@
+# Week 4 deck `model_free_control`: editing-round-2 additions P01x, P01y, P05r, P05w (deck decisions D10–D11),
+# Claude's renderer input. First draft: renderer input for these inserted slides only (2026-11-03). Not maintained:
+# the PPTX is the source. Do not rebuild over the deck or treat this file as its current content.
+# Status: decisions/lectures/model_free_control.md.
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week04/model_free_control_round2_claude.yaml
+# Then:   python3 scripts/append_slides_claude.py <deck> <candidate> --only P01x,P01y --after C17
+#         python3 scripts/append_slides_claude.py <deck> <candidate> --only P05r,P05w --after P05
+# Old Model-Free Control PPTX 44's learning curve (book Example 6.6) is copied as the original picture on P05r.
+# Numbers: scripts/check_control_claude.py (Expected SARSA retrieval).
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week04/model_free_control_round2_claude.pptx
+  preview: output/lectures/week04/model_free_control_round2_claude_preview.png
+  session_id: control_practice
+  qa_minutes: 0
+  title: Model-free control (editing round 2 additions)
+  author: Barış Akgün
+  term: Fall 2026
+
+old: &old sources/current_course/5 - Model Free Control.pptx
+
+slides:
+  - id: P01x
+    kind: math
+    title: 'Three targets: sample, average, maximum'
+    body_box: [0.244, 1.0, 12.85, 1.4]
+    size: 20
+    body:
+      - text: 'A nonterminal transition gives reward 0; $\gamma=0.5$. At the next state the action values are 5 (greedy), 2, 1 and 0, and the ε-greedy policy (ε = 0.1, four actions) chose the action with value 2.'
+      - text: '**Compute SARSA''s, Q-learning''s and an averaged target.**'
+    blocks:
+      - box: [0.244, 2.4, 12.85, 0.9]
+        eq_size: 22
+        items:
+          - text: 'Averaged target (Expected SARSA):'
+          - eq: 'U_t=R_{t+1}+\gamma\sum_{a}\pi(a\mid S_{t+1})Q(S_{t+1},a)'
+    table_box: [0.244, 3.55, 12.85]
+    table:
+      size: 18
+      row_h: 0.55
+      align_left: true
+      widths: [2.6, 6.75, 3.5]
+      header: ['Method', 'Next-action value used', 'Target']
+      rows:
+        - ['SARSA', 'the sampled next action: 2', '0 + 0.5 × 2 = **1**']
+        - ['Expected SARSA', 'the policy''s average: 0.925 × 5 + 0.025 × (2 + 1 + 0) = 4.7', '0 + 0.5 × 4.7 = **2.35**']
+        - ['Q-learning', 'the maximum: 5', '0 + 0.5 × 5 = **2.5**']
+    after_box: [0.244, 5.9, 12.85]
+    after:
+      - text: '**Expected SARSA averages over the next action instead of sampling it. With a greedy $\pi$ it is Q-learning.**'
+    reveal: ['yaml:table', 'yaml:after']
+    minutes: 2.5
+    sources: ['old Model-Free Control PPTX 21 and 33 (Expected SARSA target), book §6.6 printed 133–134 / PDF 155–156, deck decisions D10–D11, numbers in scripts/check_control_claude.py']
+    notes: |
+      Recap of 4.1 and retrieval (replaces the earlier P01). One minute for students to compute SARSA's and
+      Q-learning's targets, then click: table. SARSA samples the next action (2), Q-learning takes the maximum (5).
+      Expected SARSA, a third option, uses the policy's expected next value: with ε = 0.1 and four actions the greedy
+      action has probability 0.925 and each other 0.025, so 0.925 × 5 + 0.025 × 3 = 4.7. Second click: summary.
+      Keep it on-policy here: π is the ε-greedy policy that acts. It removes the variance that comes from sampling the
+      next action, at the cost of a sum over actions. With a greedy π the average is the maximum, so it becomes
+      Q-learning. Its use with a different target policy is not discussed (importance sampling stays in Week 8, D6).
+      Optional mention: in the book's cliff experiments (Figure 6.3), Expected SARSA does best. No implementation or
+      assessment (D11, exposure).
+
+  - id: P01y
+    kind: math
+    title: When do these methods converge? (tabular)
+    body_box: [0.244, 1.0, 12.85, 4.4]
+    size: 21
+    eq_size: 21
+    body:
+      - text: 'Results only, no proofs. Each needs **every state–action pair to keep being updated**, and step sizes that shrink, but not too fast: $\sum_t\alpha_t=\infty$, $\sum_t\alpha_t^{2}<\infty$ (Week 3). With constant $\alpha$ the estimates keep fluctuating.'
+      - '**MC control and SARSA:** converge to $q^{*}$ and $\pi^{*}$ if exploration also fades slowly: greedy in the limit while still trying every action. With fixed ε: near the best ε-soft policy.'
+      - '**Q-learning:** converges to $q^{*}$ without the behaviour becoming greedy (off-policy).'
+    after_box: [0.244, 5.3, 12.85]
+    after:
+      - text: '**These are tabular guarantees. Q-learning already bootstraps and learns off-policy; add function approximation and convergence can fail: the deadly triad (Week 5).**'
+    minutes: 3
+    sources: ['book §2.7 eq. 2.7, §6.4 printed 129 / PDF 151, §6.5 printed 131 / PDF 153; Silver L5 PDF 15–16 and 22; CS234 L4 PDF 31 and 37–38; Abbeel L2 PDF 9–10; deck decision D10']
+    notes: |
+      Collects the conditions students met on C08, C09 and in Week 3 (MT07). About one minute on the common
+      conditions, one on the methods, one on the bridge to Week 5. The step-size conditions are the Robbins–Monro
+      conditions (book eq. 2.7); α_t = 1/t satisfies them, a constant α does not. "Greedy in the limit while still
+      trying every action" is called GLIE (Silver, CS234); the name is optional. Statements: GLIE MC control
+      converges to q* (Silver L5 p. 16); SARSA converges to an optimal policy and q* under GLIE and the step-size
+      conditions (book §6.4); Q-learning converges to q* when all pairs keep being updated and the step-size
+      conditions hold (book §6.5). Do not claim convergence for Monte Carlo with exploring starts (an open question,
+      book §5.3) or for any method with function approximation. Bridge: the deadly triad is bootstrapping +
+      off-policy learning + function approximation; tabular Q-learning has the first two and still converges.
+      No proofs, no schedule formula beyond the conditions.
+
+  - id: P05r
+    kind: math
+    title: 'Regret: the price of learning'
+    pictures:
+      - {deck: *old, slide: 44, shape: Picture 5, box: [0.3, 1.0, 6.2]}
+    drawing:
+      - {label: 'Sutton & Barto, Example 6.6: reward during exploratory learning, ε = 0.1.', box: [0.3, 4.85, 6.2, 0.6], size: 14, center: false}
+    body_box: [6.85, 1.0, 6.25, 4.6]
+    size: 20
+    body:
+      - '**Regret:** the reward lost while learning, compared with acting optimally from the start.'
+      - 'Here the optimal path earns −13 per episode. Each episode''s shortfall is −13 minus the curve; regret adds these up.'
+      - 'Q-learning learns the optimal path but keeps paying for exploration: more regret than SARSA here.'
+    after_box: [6.85, 5.6, 6.25]
+    after:
+      - text: '**A formal treatment comes with bandits (Week 9).**'
+    minutes: 2.5
+    sources: ['old Model-Free Control PPTX 44 (learning curve) and 61 (regret idea), book Example 6.6, accepted bandit_concepts (regret, 9.2), deck decision D10']
+    notes: |
+      Informal intuition only (D10, W3). The curve shows each episode's reward while learning with ε = 0.1; the best
+      possible is −13 per episode (greedy edge path). The gap between −13 and the curve is that episode's loss, and
+      regret is their running sum, the area between the −13 level and the curve. Q-learning's curve sits near −50,
+      SARSA's near −25, so Q-learning accumulates more regret although its greedy policy is optimal. That is the same
+      measure question as P05: "learned the best policy" and "lost the least while learning" are different goals.
+      With fixed ε the per-episode loss does not go to zero, so regret keeps growing; decaying exploration (next
+      slide) reduces it. Formal regret (expected optimal reward minus expected reward, sums over time, bounds) comes
+      in 9.2. No formula or assessment here.
+
+  - id: P05w
+    kind: math
+    title: What if ε decays, or moves can slip?
+    body_box: [0.244, 1.0, 12.85, 4.6]
+    size: 22
+    body:
+      - '**Decaying ε:** exploration costs less over time. SARSA''s preferred path moves toward the edge; both methods approach the optimal path, and their online returns converge.'
+      - '**Slippery moves** (like our grid''s 0.8 / 0.1 / 0.1): falling becomes a risk of the environment, not only of exploration. $q^{*}$ itself changes, so even the optimal greedy path may move away from the edge, depending on the slip probability and the cost of a fall.'
+    after_box: [0.244, 5.3, 12.85]
+    after:
+      - text: '**Discuss:** in each case, which method''s answer changes, and why?'
+    minutes: 3
+    sources: ['book Example 6.6 (last sentence on decreasing ε), review R17 (slip wording), deck decision D10']
+    notes: |
+      Verbal discussion, no numbers (D10). About 1.5 minutes per case. Decaying ε: as exploration fades, the cost of
+      walking along the edge under SARSA's own exploratory policy shrinks, so SARSA's values and its preferred path
+      move toward the optimal edge path; with GLIE-style decay both converge to the optimal policy (book Example
+      6.6, final sentence) and their online rewards approach −13. Slippery moves: now even a greedy agent can fall,
+      so the optimal values include that risk; both methods learn values that account for slips, and SARSA's also
+      include exploration. Whether the optimal path leaves the edge depends on the slip probability and the fall
+      cost; say "can change", not "will change" (R17). This links back to the 2×2 grid's slip model.

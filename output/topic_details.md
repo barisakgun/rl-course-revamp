@@ -96,7 +96,6 @@ Sources: [accepted topic decisions](../decisions/topic_decisions.yaml), [assessm
 | [Bradley-Terry preference model](#bradley_terry) | Exposure (accepted) | recognize, explain | Preparation video / optional only |
 | [Direct preference optimization](#direct_preference_optimization) | Exposure (accepted) | recognize, explain | Preparation video / optional only |
 | [Asynchronous dynamic programming](#asynchronous_dynamic_programming) | Extension (accepted) | recognize | Preparation video / optional only |
-| [Expected Sarsa](#expected_sarsa) | Extension (accepted) | recognize | Preparation video / optional only |
 | [Boltzmann action selection](#softmax_exploration) | Extension (accepted) | recognize | Preparation video / optional only |
 | [Prioritized experience replay](#prioritized_replay) | Extension (accepted) | recognize | Preparation video / optional only |
 | [Dueling value networks](#dueling_networks) | Extension (accepted) | recognize | Preparation video / optional only |
@@ -122,6 +121,7 @@ Sources: [accepted topic decisions](../decisions/topic_decisions.yaml), [assessm
 | [Behavior cloning](#behavior_cloning) | Exposure (accepted) | explain | 12.1 |
 | [Maximization bias](#maximization_bias) | Core (accepted) | explain, analyze | 6.2 |
 | [Double DQN](#double_dqn) | Core (accepted) | explain, implement | 6.2 |
+| [Expected Sarsa](#expected_sarsa) | Exposure (accepted) | explain | 4.2 |
 
 ## Bounded teaching scopes
 
@@ -549,7 +549,6 @@ Follow the accepted LLM-background video decision in decisions/video_decisions.m
 **Accepted status:** foundational. 
 
 <a id="asynchronous_dynamic_programming"></a>
-<a id="expected_sarsa"></a>
 <a id="softmax_exploration"></a>
 <a id="prioritized_replay"></a>
 <a id="dueling_networks"></a>
@@ -565,11 +564,11 @@ Follow the accepted LLM-background video decision in decisions/video_decisions.m
 <a id="auxiliary_prediction"></a>
 <a id="offline_to_online"></a>
 
-### Asynchronous dynamic programming, Expected Sarsa and related concepts
+### Asynchronous dynamic programming, Boltzmann action selection and related concepts
 
 Group `optional_extensions`. **Extension (accepted); accepted mastery: recognize.**
 
-**Topics:** Asynchronous dynamic programming (`asynchronous_dynamic_programming`); Expected Sarsa (`expected_sarsa`); Boltzmann action selection (`softmax_exploration`); Prioritized experience replay (`prioritized_replay`); Dueling value networks (`dueling_networks`); Distributional value learning (`distributional_rl`); Rainbow (`rainbow`); Natural policy gradient (`natural_policy_gradient`); Trust-region policy optimization (`trust_region_policy_optimization`); Deep deterministic policy gradient (`ddpg`); Twin-delayed DDPG (`td3`); Random network distillation (`random_network_distillation`); Dreamer (`dreamer`); MuZero (`muzero`); Auxiliary prediction objectives (`auxiliary_prediction`); Offline-to-online learning (`offline_to_online`).
+**Topics:** Asynchronous dynamic programming (`asynchronous_dynamic_programming`); Boltzmann action selection (`softmax_exploration`); Prioritized experience replay (`prioritized_replay`); Dueling value networks (`dueling_networks`); Distributional value learning (`distributional_rl`); Rainbow (`rainbow`); Natural policy gradient (`natural_policy_gradient`); Trust-region policy optimization (`trust_region_policy_optimization`); Deep deterministic policy gradient (`ddpg`); Twin-delayed DDPG (`td3`); Random network distillation (`random_network_distillation`); Dreamer (`dreamer`); MuZero (`muzero`); Auxiliary prediction objectives (`auxiliary_prediction`); Offline-to-online learning (`offline_to_online`).
 
 Not required or assessed. No scheduled teaching time or assigned reading in this iteration. Optional interest pointers may be selected later; practice/research status remains to be reviewed individually if included.
 
@@ -702,5 +701,19 @@ Group `double_dqn_core`. **Core (accepted); accepted mastery: explain, implement
 Explain and implement only the Double DQN target-selection patch inside the supplied DQN learner. Reuse online/target networks and automated target/terminal checks; no separate benchmark study or performance-win requirement.
 
 **Delivery:** live. **Sessions:** 6.2. **Proposed assessment path:** assignment, exam.
+
+**Accepted status:** classical. 
+
+<a id="expected_sarsa"></a>
+
+### Expected Sarsa
+
+Group `expected_sarsa_recap`. **Exposure (accepted); accepted mastery: explain.**
+
+**Topics:** Expected Sarsa (`expected_sarsa`).
+
+One 4.2 recap slide (instructor 2026-11-03, model_free_control D11) placing the on-policy Expected SARSA target between SARSA's sampled next action and Q-learning's maximum, with one numerical retrieval and a one-line mention that the target policy may differ. No off-policy algorithm, ratios, implementation or assessment requirement.
+
+**Delivery:** live. **Sessions:** 4.2. **Proposed assessment path:** none.
 
 **Accepted status:** classical. 

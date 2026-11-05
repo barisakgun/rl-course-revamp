@@ -1,5 +1,23 @@
 # Decision Log
 
+## 2026-11-05 — Week 4 deck (`model_free_control`, sessions 4.1–4.2) accepted (done)
+
+- Authority: instructor ("If there are no issues, close week 4 and commit"; "Keep, fix notes"), recorded as [model_free_control D12–D13](lectures/model_free_control.md). Accepted deck: `course/lectures/week04/model_free_control_claude.pptx`, SHA-256 `c41a00117380c4c70b2638776227ae9d0a251c567c56c82a713be4e67608dda7`, 39 slides (C01b and P11 hidden); text view and previews are in sync. D13 supersedes D9.
+- Scope refinement (D12): the Expected SARSA recap keeps a one-line mention that the target policy may differ; `expected_sarsa_recap` still excludes any off-policy algorithm, ratios, implementation or assessment. Slide targets stay 63.5 and 60.5 + 5; planning allocations stay 58 and 53 + 5. No assessment or workload change.
+
+
+## 2026-11-03 — Week 4 deck (`model_free_control`): editing round 2; Expected SARSA as exposure; Week 3 next-offering note
+
+- Authority: instructor, after discussing the draft change list in the shared review. Recorded as [model_free_control D10–D11](lectures/model_free_control.md); the deck is reopened from D9.
+- Deck changes:
+  - 4.1: C08 gains the ε extremes and slow decay; C09 explains "best ε-soft policy" and asks what decaying ε would give; the instructor's GPI recall slide is kept hidden.
+  - 4.2: P00 is removed; an Expected SARSA recap replaces P01's retrieval; a tabular convergence slide is added, followed by P08; a regret-intuition slide and one verbal decaying-ε/slip slide are added. P06 and P07 stay live. Maximization bias stays in 6.2.
+- Curriculum: `expected_sarsa` moves from `optional_extensions` (extension) to the new exposure group `expected_sarsa_recap` (explain, no assessment) in `control_practice`. The analysis group list is updated and the audits pass.
+- Timing: slide targets 63.5 (4.1) and 60.5 + 5 (4.2). 4.2 is accepted above the 63-minute delivery allowance (instructor: no further trimming). Planning allocations stay 58 and 53 + 5.
+- Next offering: a Week 3 note on MC/TD convergence behaviour is added to the `mc_td` session in `topic_decisions.yaml`, pointed to from `decisions/lectures/mc_td.md`. The Fall 2026 Week 3 deck is unchanged.
+- No new assessment requirement; A1 is unchanged.
+
+
 ## 2026-11-02 — Week 4 deck (`model_free_control`, sessions 4.1–4.2) accepted (done)
 
 - Authority: instructor, after ChatGPT's recheck left no open issue ([model_free_control D9](lectures/model_free_control.md)). Accepted deck: `course/lectures/week04/model_free_control_claude.pptx`, SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`, 36 slides (P11 hidden); text view and previews are in sync. Slide targets are 61.5 minutes for 4.1 (within the delivery allowance) and 53 + 5 for 4.2; planning allocations are unchanged. The Fall 2026 delivery note stays in force. No scope, assessment or workload change.

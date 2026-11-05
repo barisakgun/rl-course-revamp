@@ -11,8 +11,21 @@ historical inputs:
 (Control failure modes and project formulation). Accepted teaching allocations, scope and mastery live in
 `decisions/topic_decisions.yaml`.
 
-**Status: DONE** (accepted by the instructor, 2026-11-02, D9). This is the deck's only current status record; other
+**Status: DONE** (accepted by the instructor, 2026-11-05, D13). This is the deck's only current status record; other
 files point here. A later substantive change reopens the status.
+- **Deck:** `course/lectures/week04/model_free_control_claude.pptx`, SHA-256
+  `c41a00117380c4c70b2638776227ae9d0a251c567c56c82a713be4e67608dda7`, 39 slides (C01b and P11 hidden).
+  - 4.1 = C00–C17, with C01a, C01b (hidden), C12a, C13a and C15a; slide targets 63.5 minutes.
+  - 4.2 = P01x, P01y, P08, P02–P05, P05r, P05w, P06, P07, P09, P09a, P10 and P11 (hidden); slide targets 60.5 teaching +
+    5 administrative minutes.
+- **Views:** text view `output/lectures/week04/model_free_control_claude.md` and previews
+  `output/lectures/week04/model_free_control_claude_preview.{png,pdf}` (37 visible slides; hidden slides omitted), all
+  from this deck.
+- **First-render and addition inputs, all frozen:** the shared content file, and `model_free_control_claude.yaml`,
+  `model_free_control_practice_claude.yaml`, `model_free_control_variants_claude.yaml`,
+  `model_free_control_round2_claude.yaml` and `model_free_control_r27_claude.yaml`.
+- **Review:** R01–R34 are resolved in the [shared review](../../analysis/lecture_suggestions/model_free_control_review.md).
+- **History below this line:** the status bullets recorded at D9.
 - **Deck:** `course/lectures/week04/model_free_control_claude.pptx`, SHA-256
   `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`, 36 slides (P11 hidden). It is the
   instructor's saved edits (`15d45f04…`, then `cb46e392…`) plus Claude's changes:
@@ -37,7 +50,7 @@ files point here. A later substantive change reopens the status.
   - `model_free_control_practice_claude.yaml` (4.2, appended after C17).
 
   Render notes are in the [shared review](../../analysis/lecture_suggestions/model_free_control_review.md).
-- **Review:** ChatGPT's targeted recheck on 2026-11-02 closes R24–R26 and confirms C11's notes reminder in this saved version. No outstanding finding from that pass. The instructor's editing round continues; the final complete check and acceptance are still pending.
+- **Review:** ChatGPT's targeted recheck on 2026-11-02 closes R24–R26 and confirms C11's notes reminder in this saved version. Claude's final render found no new issue; the instructor accepted the deck under D9. Live slideshow playback was not exercised.
 
 ## Accepted (instructor, 2026-10-27, after the mutual cross-review)
 
@@ -125,6 +138,65 @@ The instructor answered the five items in the shared review's "Status after this
     minutes. The planning allocations in `decisions/topic_decisions.yaml` stay 58 and 53 + 5.
   - Not exercised: click order and live slideshow playback (instructor, in slideshow mode).
 
+## Accepted (instructor, 2026-11-03, editing round 2)
+
+The instructor accepted the draft change list in the shared review ("Instructor editing round 2"), with these
+choices: no further trimming; P06 and P07 stay live; the two "what if" discussions share one slide; the
+instructor's GPI recall slide is hidden but kept; P00 is removed; and the session boundary stays after C17 (4.1 ends
+with C15–C17).
+
+- **D10. Deck changes.**
+  - **4.1:**
+    - The instructor's slide 4, "Recall: Generalized Policy Iteration", becomes C01b, hidden, kept for possible future
+      use.
+    - C08 adds the ε extremes and slow decay (W1).
+    - C09 keeps its figure and "best ε-soft policy" label, explains the label, and asks "What if we decayed ε?", with
+      the answer that, under suitable conditions, it converges to q\* and π\* (W2).
+  - **4.2:**
+    - P00 (section opener) is removed.
+    - New P01x, "Three targets: sample, average, maximum", replaces P01's retrieval (D11).
+    - New P01y, "When do these methods converge? (tabular)" (W4).
+    - P08 moves here, after the convergence slide.
+    - The cliff sequence follows (P02–P05).
+    - New P05r, "Regret: the price of learning" (W3, informal, forward pointer to 9.2).
+    - New P05w, "What if ε decays, or moves can slip?", verbal (decaying-ε and action-uncertainty discussions on one
+      slide).
+    - Then P06, P07, P09, P09a, P10, and P11 (hidden).
+  - **Not added:** maximization bias stays in 6.2. It is a different failure from P08's unsupported values.
+  - **Timing (instructor: no further trimming):**
+    - 4.1 slide targets 63.5 minutes;
+    - 4.2 60.5 teaching + 5 administrative = 65.5 minutes, accepted above the 63-minute delivery allowance (physical
+      buffer about 4.5 minutes);
+    - planning allocations unchanged at 58 and 53 + 5.
+- **D11. Expected SARSA becomes taught exposure** (curriculum change; was an extension with no scheduled time).
+  - **Delivery:** one 4.2 recap slide places the on-policy Expected SARSA target between SARSA's sampled next action
+    and Q-learning's maximum, with one numerical retrieval.
+  - **Scope:** no implementation, off-policy use or assessment.
+  - **Records:** `decisions/topic_decisions.yaml` has the new group `expected_sarsa_recap`, removed from
+    `optional_extensions`, mapped to `control_practice`. The analysis group list is updated to match, and the audits
+    pass.
+- **Next offering, Week 3:** a note on MC/TD convergence behaviour is in `topic_decisions.yaml` (`mc_td`) and points
+  from `decisions/lectures/mc_td.md`. It is not a Week 4 change.
+
+## Accepted (instructor, 2026-11-05, close-out)
+
+- **D12. Expected SARSA target-policy mention** (refines D11; resolves R34). The instructor retitled P01x "Expected
+  SARSA" and replaced "With a greedy π it is Q-learning" with "We can use different target policies in Expected
+  SARSA." The line stays as a one-line mention. The notes keep the worked numbers on-policy, say that a greedy π gives
+  Q-learning, and exclude off-policy corrections and ratios (D6, Week 8). `expected_sarsa_recap` scope is updated: no
+  off-policy algorithm, ratios, implementation or assessment. The closing question on C17 is now "Can we think of
+  something between SARSA and Q-Learning?".
+- **D13. Deck accepted as done** (instructor: "If there are no issues, close week 4 and commit"; then "Keep, fix
+  notes", 2026-11-05).
+  - Accepted deck: SHA-256 `c41a00117380c4c70b2638776227ae9d0a251c567c56c82a713be4e67608dda7`, 39 slides, C01b and P11 hidden. D9's acceptance is superseded.
+  - Checks before acceptance:
+    - ChatGPT's content and notes checks through R33 (its last check predates only the 16:21 edits and R34);
+    - Claude's PowerPoint render of all 37 visible slides of this deck;
+    - one animation block per slide, all targets present;
+    - equation fallbacks refreshed; the later edits changed no equation.
+  - Slide targets: 63.5 minutes for 4.1 and 60.5 + 5 for 4.2 (D10); planning allocations stay 58 and 53 + 5.
+  - Not exercised by the AIs: click order and live slideshow playback.
+
 ## Fall 2026 delivery note (instructor, 2026-11-02; this semester only, not a design change)
 
 - There is no live class on 3 November (instructor unavailable, as already listed in `decisions/schedule_decisions.yaml`).
@@ -140,6 +212,7 @@ The instructor answered the five items in the shared review's "Status after this
 
 | # | Item | Where discussed |
 | --- | --- | --- |
+| — | R27–R29 resolved: saved slide text, notes and fresh LibreOffice previews rechecked by ChatGPT, 2026-11-03. No new content choice; D10–D11 scope and timing remain accepted. | [Shared review](../../analysis/lecture_suggestions/model_free_control_review.md#chatgpt-targeted-recheck-of-r27r29--2026-11-03) |
 | — | R24–R26 resolved: C09/C12a corrections, C11 notes reminder and matching review-view fingerprint rechecked by ChatGPT, 2026-11-02. No new scope or timing choice. | [Shared review](../../analysis/lecture_suggestions/model_free_control_review.md#chatgpt-content-and-error-check--2026-11-02) |
 | — | O1 resolved 2026-11-02: P09a's at-home note is a Fall 2026 delivery note only (see above). The design and the 15 protected minutes are unchanged. | Fall 2026 delivery note |
 | — | O2 resolved by D8 (2026-11-02): C01a has 2 minutes and a short note. | D8 |

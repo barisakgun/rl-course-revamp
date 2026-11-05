@@ -8,7 +8,7 @@ Curriculum freeze retained with accepted bounded Double DQN/IQL implementation r
 
 **Phase 3 handoff: passed. Phase 4 technical review: passed with the pacing and workload qualifications below. Formal freeze: accepted.** No unresolved high-impact addition/removal remains.
 
-35 required topic groups and 16 accepted Core groups reviewed; 112 normalized topic dispositions including optional extensions. 0 required groups still have proposed roles; 0 have proposed status metadata. All group masteries and required video scopes are accepted. These counts describe metadata acceptance, not missing teaching content.
+36 required topic groups and 16 accepted Core groups reviewed; 112 normalized topic dispositions including optional extensions. 0 required groups still have proposed roles; 0 have proposed status metadata. All group masteries and required video scopes are accepted. These counts describe metadata acceptance, not missing teaching content.
 
 ## Time and workload
 

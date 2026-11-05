@@ -2,7 +2,7 @@
 
 # Text view: model_free_control_claude.pptx
 
-SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
+SHA-256 `c41a00117380c4c70b2638776227ae9d0a251c567c56c82a713be4e67608dda7`
 
 ## 1. C00 — COMP438/538 Reinforcement Learning
 
@@ -48,7 +48,27 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 2 min. Sources: old Model-Free Control PPTX 5 (instructor-added, deck decision D8).
 
-## 4. C02 — How could we learn to act without the model?
+## 4. C01b — Recall: Generalized Policy Iteration (hidden)
+
+*Image `Picture 3`*
+
+*Image `Picture 4`*
+
+- Repeat:
+  - Any policy evaluation approach (calculate values)
+  - Any policy improvement approach (update to a better policy e.g. greedily)
+- Until no change in policy
+
+- We have done this with a model.
+- How can we do it without one?
+
+**Notes:**
+
+> Hidden (instructor, 2026-11-03, D10): visual GPI recall kept for possible future use; C04 carries GPI live. Its book pictures use the book's subscripts (v_π, π_*); course notation is superscript.
+>
+> Target: 0 min (hidden). Sources: old Model-Free Control PPTX 8 (instructor-added).
+
+## 5. C02 — How could we learn to act without the model?
 
 - (1,1)
 
@@ -63,6 +83,10 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 - 1. What should the agent learn so it can choose better actions?
 - 2. How do its choices affect the data it will see?
 
+- Today’s idea:
+- Estimate Q-Values instead of values
+- Try different actions
+
 **Notes:**
 
 > Allow about two minutes for suggestions, one to organize them. Expected answers: estimate outcomes/returns
@@ -73,7 +97,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3 min. Sources: old Model-Free Control PPTX 4–5 (motivation, moved to notes), accepted bellman 2×2 grid.
 
-## 5. C03 — Why learn action values?
+## 6. C03 — Why learn action values?
 
 - With state values, greedy improvement needs the model:
 - $𝜋′(𝑠)=argmax𝑎∈𝒜(𝑠)[ℛ(𝑠,𝑎)+𝛾𝑠′∈𝒮+𝒯(𝑠,𝑎,𝑠′)𝑣𝜋(𝑠′)]$
@@ -94,7 +118,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3 min. Sources: old Model-Free Control PPTX 10 (lookahead/argmax; regenerated in course notation, claim that MC/TD only estimate V removed), book §5.2 opening PDF 118, Silver L5 PDF 8.
 
-## 6. C04 — Evaluation and improvement interleave
+## 7. C04 — Evaluation and improvement interleave
 
 - Collect experience with π
 
@@ -122,7 +146,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 2 min. Sources: old Model-Free Control PPTX 8 and 13 (GPI purpose; cycle redrawn natively, proof/coverage claim removed), book §§5.3–5.4 printed 97–103 / PDF 119–125.
 
-## 7. C05 — Trace one Monte Carlo control cycle
+## 8. C05 — Trace one Monte Carlo control cycle
 
 - (1,1)
 
@@ -145,6 +169,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 
 - $𝑄((1,1),right)=0.19$;  $𝑄((1,2),right)=1$.
 - The repeated first pair is skipped and unvisited entries remain zero.
+- Side Question: What does the table look-like?
 
 **Notes:**
 
@@ -160,7 +185,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3 min. Sources: old Model-Free Control PPTX 13 and 17 (MC control cycle; new editable table), book §5.4 algorithm PDF 123, mc_td MT04–MT05 episode.
 
-## 8. C06 — Would pure greediness find the better action?
+## 9. C06 — Would pure greediness find the better action?
 
 - (1,1)
 
@@ -179,7 +204,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 
 - The greedy choice is right. What would make the learner try up?
 
-- Known-model reference from Week 2, not supplied to the learner ($𝜋$ = always-right thereafter):
+- Known-model reference from Slide Deck 2, not supplied to the learner ($𝜋$ = always-right thereafter):
 - $𝑞𝜋((2,1),right)≈0.116$,   $𝑞𝜋((2,1),up)≈0.800$
 - An untried action's initial estimate is not evidence that it is poor.
 
@@ -196,7 +221,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3 min. Sources: old Model-Free Control PPTX 13 (would this work) and 18, accepted bellman B14 reference values, review R01.
 
-## 9. C07 — Exploration and exploitation
+## 10. C07 — Exploration and exploitation
 
 *Image `native:pic:14:Picture 2`*
 
@@ -217,11 +242,15 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 2 min. Sources: old Model-Free Control PPTX 14 (cartoon copied unchanged), book §§5.3–5.4.
 
-## 10. C08 — Epsilon-greedy action selection
+## 11. C08 — Epsilon-greedy action selection
 
 - 0.925 for the maximizing action; 0.025 for each other action.
 
 - Question: Four actions, ε = 0.1, one maximum: what are the probabilities?
+
+- ε = 1: uniform random actions: maximal exploration.
+- ε = 0: pure greedy: no exploration (the lock-in from slide 9).
+- In practice: start exploratory and decay ε slowly, so every state–action pair keeps receiving data.
 
 - With probability 1 − ε, choose a maximizing action; break ties uniformly at random.
 - With probability ε, choose uniformly from all available actions.
@@ -236,23 +265,28 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 > every action. With a zero table and four actions, each has probability 0.25. This differs from a fixed tie
 > order in exact DP to avoid systematically favouring one action when ties reflect no data. Epsilon-soft means
 > each action receives at least ε divided by the number of actions; epsilon-greedy places the remaining mass
-> on maximizers. No new counter or decay formula. Sources: book §5.4 PDF122; old P15.
+> on maximizers. No new counter or decay formula. Sources: book §5.4 PDF122; old P15. Extremes and decay (D10, W1): ε = 1 explores maximally but a SARSA learner then evaluates the random policy; ε = 0 is greedy and can lock in (C06). Decay must be slow enough that every state-action pair keeps receiving data; no schedule formula (review R16). The convergence slide in 4.2 states the conditions.
 >
 > Equation sources (LaTeX): \pi(a\mid s)=1-\epsilon+\epsilon/|\mathcal{A}(s)| | \pi(a\mid s)=\epsilon/|\mathcal{A}(s)|
 >
-> Target: 3 min. Sources: old Model-Free Control PPTX 15 (equation regenerated: m → |𝒜(s)|, random branch over all actions), book §5.4 PDF 122.
+> Target: 4 min. Sources: old Model-Free Control PPTX 15 (equation regenerated: m → |𝒜(s)|, random branch over all actions), book §5.4 PDF 122.
 
-## 11. C09 — On-policy First-Visit Monte Carlo control
+## 12. C09 — On-policy First-Visit Monte Carlo control
 
 *Image `Picture 4`*
 
-- Q=qπ
+- Q =qπ
 
 - best ε-soft
 - policy and
 - its values
 
 - Exact-evaluation illustration with ε fixed, not a trace of the sampled loop.
+
+- Best ε-soft policy: the best among policies that keep exploring at rate ε, not π*.
+- Question: what if we decayed ε?
+
+- Decay slowly, with every state-action pair still tried infinitely often: it converges to q* and π*.
 
 - 1. Initialize $𝑄$ and an epsilon-greedy policy, $𝜀=0.1$.
 - 2. Generate a complete episode with this policy held fixed.
@@ -269,13 +303,13 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 > first-visit sample-mean estimator. No separate MC-control implementation requirement. Exact improvement is
 > within the epsilon-soft policy class; fixed exploration retains exploratory cost. Do not assert this sampled,
 > changing-policy loop converges merely because the exact result exists. Sources: old P16–18; book
-> PDF123–125; review R12/R16/R20. Picture (instructor-added; Silver L5 p. 14): Claude relabelled its end point "best ε-soft policy and its values" because ε stays fixed here; Silver's original q_*, π_* end point assumes ε decays to 0 (GLIE, his next slide). It illustrates exact evaluation and improvement, not the sampled loop. The upper label now reads Q = q^π in course notation (Silver and the book write q_π). Review R24.
+> PDF123–125; review R12/R16/R20. Picture (instructor-added; Silver L5 p. 14): Claude relabelled its end point "best ε-soft policy and its values" because ε stays fixed here; Silver's original q_*, π_* end point assumes ε decays to 0 (GLIE, his next slide). It illustrates exact evaluation and improvement, not the sampled loop. The upper label now reads Q = q^π in course notation (Silver and the book write q_π). Review R24. D10 (W2): explain the label first, then ask the question. Answer (click): with ε decaying slowly enough that every state-action pair is still tried infinitely often (GLIE), MC control converges to q* and π*. Silver L5 p. 15-16; the convergence slide in 4.2 collects the conditions.
 >
 > Equation sources (LaTeX): Q | \epsilon=0.1 | q^{\pi} | \pi
 >
-> Target: 2 min. Sources: old Model-Free Control PPTX 16–18 (loop rewritten as editable text; result in words, no proof), book PDF 123–125, review R12/R16/R20.
+> Target: 3 min. Sources: old Model-Free Control PPTX 16–18 (loop rewritten as editable text; result in words, no proof), book PDF 123–125, review R12/R16/R20.
 
-## 12. C10 — Why wait for the episode to end?
+## 13. C10 — Why wait for the episode to end?
 
 - (1,1)
 
@@ -303,7 +337,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 2 min. Sources: old Model-Free Control PPTX 19 (question; windy gridworld P25 replaced by the familiar grid, D2), book Example 6.5 PDF 152, review R02/R19.
 
-## 13. C11 — SARSA: a sampled action-value target
+## 14. C11 — SARSA: a sampled action-value target
 
 - For a fixed $𝜋$, recall the action-value Bellman expectation equation:
 - $𝑞𝜋(𝑠,𝑎)=𝔼𝜋[𝑅𝑡+1+𝛾𝑞𝜋(𝑆𝑡+1,𝐴𝑡+1)∣𝑆𝑡=𝑠,𝐴𝑡=𝑎]$
@@ -328,7 +362,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 6 min. Sources: old Model-Free Control PPTX 21 and 23 (update regenerated: R_t → R_{t+1}, U_t; Expected SARSA and convergence schedule removed), book §6.4 eq. 6.7 PDF 151, Sutton TD slides PDF 34–35.
 
-## 14. C12 — Trace the SARSA loop
+## 15. C12 — Trace the SARSA loop
 
 - Question: Where are exploration and improvement happening?
 
@@ -351,7 +385,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3 min. Sources: old Model-Free Control PPTX 23 (loop structure) and 24 (book box raster replaced by editable text), book algorithm printed 130 / PDF 152, review R14.
 
-## 15. C12a — Longer SARSA targets: credit further back
+## 16. C12a — Longer SARSA targets: credit further back
 
 *Image `native:pic:31:Picture 7`*
 
@@ -359,7 +393,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 
 - One-step SARSA increases only the last action's value; a 10-step target, or a λ-mixture of targets, also credits earlier actions.
 - Same idea as Week 3's n-step and λ-return prediction targets, with $𝑄$ in place of $𝑉$.
-- A connection only: no new algorithm today.
+- This is to make a connection. We are skipping the algorithms, but the book has them.
 
 **Notes:**
 
@@ -380,7 +414,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 2 min. Sources: old Model-Free Control PPTX 31 (comparison of Sarsa variants; picture only), book §7.2 Figure 7.4 printed 147 / PDF 169 and §12.7 Example 12.1, mc_td MT21 and MTL1–MTL3, deck decision D7.
 
-## 16. C13 — Q-learning: sampled Q-value iteration
+## 17. C13 — Q-learning: sampled Q-value iteration
 
 - Act exploratorily; compute a greedy continuation in the target.
 
@@ -402,7 +436,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3 min. Sources: old Model-Free Control PPTX 40–41 (equations regenerated in course notation), bellman B24a (recalled, not replayed), Abbeel L2 PDF 5–7, book eq. 6.8 PDF 153.
 
-## 17. C13a — Q-learning still needs an acting policy
+## 18. C13a — Q-learning still needs an acting policy
 
 - The action used in the maximum need not be the action executed next.
 
@@ -426,7 +460,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3 min. Sources: old Model-Free Control PPTX 42 (book box raster replaced by editable text) and 43 (properties, qualified), book §6.5 PDF 153.
 
-## 18. C14 — Behaviour and target policies
+## 19. C14 — Behaviour and target policies
 
 | Method | Behaviour | Continuation in the target |
 | --- | --- | --- |
@@ -447,7 +481,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 2 min. Sources: old Model-Free Control PPTX 6 and 32 (definitions; μ → b) and 40 (no-IS remark, reason corrected), book §§5.5 and 6.5, review R04.
 
-## 19. C15 — Your turn: one transition, two targets
+## 20. C15 — Your turn: one transition, two targets
 
 - (1,1)
 
@@ -481,7 +515,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 7 min. Sources: old Model-Free Control PPTX 21 and 40 (target forms), accepted exercise (D5), review R14.
 
-## 20. C15a — Compare the updates
+## 21. C15a — Compare the updates
 
 |  | SARSA | Q-learning |
 | --- | --- | --- |
@@ -502,7 +536,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3 min. Sources: native target/update forms (old PPTX 21/40 purpose), numbers checked in scripts/check_control_claude.py.
 
-## 21. C16 — What is each update trying to learn?
+## 22. C16 — What is each update trying to learn?
 
 | Method | Update target | Continuation represented | DP connection |
 | --- | --- | --- | --- |
@@ -529,13 +563,12 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3.5 min. Sources: old Model-Free Control PPTX 50–51 (comparison purpose; Silver images replaced by one native table), book §§5.4/6.4/6.5, review R15–R16.
 
-## 22. C17 — From target differences to behaviour
-
-- Next question: can the better greedy path earn worse rewards while exploring?
+## 23. C17 — From target differences to behaviour
 
 - $𝑄$ lets us compare actions without a transition model.
 - Exploration determines which estimates receive evidence.
 - SARSA and Q-learning use different future-action assumptions.
+- Can we think of something between SARSA and Q-Learning?
 
 **Notes:**
 
@@ -547,36 +580,95 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 1.5 min. Sources: old Model-Free Control PPTX 20 and 45 (recap function; text replaced).
 
-## 23. P00 — When exploration has a cost
+## 24. P01x — Expected SARSA
 
-- Control targets, behaviour and evidence
+| Method | Next-action value used | Target |
+| --- | --- | --- |
+| SARSA | the sampled next action: 2 | 0 + 0.5 × 2 = 1 |
+| Expected SARSA | the policy's average: 0.925 × 5 + 0.025 × (2 + 1 + 0) = 4.7 | 0 + 0.5 × 4.7 = 2.35 |
+| Q-learning | the maximum: 5 | 0 + 0.5 × 5 = 2.5 |
+
+- Expected SARSA averages over the next action instead of sampling it.
+- We can use different target policies in Expected SARSA.
+
+- A nonterminal transition gives reward 0; $𝛾=0.5$. At the next state the action values are 5 (greedy), 2, 1 and 0, and the ε-greedy policy (ε = 0.1, four actions) chose the action with value 2.
+- Compute SARSA's, Q-learning's and an averaged target.
+
+- Averaged target (Expected SARSA):
+- $𝑈𝑡=𝑅𝑡+1+𝛾𝑎𝜋(𝑎∣𝑆𝑡+1)𝑄(𝑆𝑡+1,𝑎)$
 
 **Notes:**
 
-> Start session 4.2. Today: interpret a target difference, diagnose behaviour, and choose a meaningful project
-> comparison.
+> Recap of 4.1 and retrieval (replaces the earlier P01). One minute for students to compute SARSA's and
+> Q-learning's targets, then click: table. SARSA samples the next action (2), Q-learning takes the maximum (5).
+> Expected SARSA, a third option, uses the policy's expected next value: with ε = 0.1 and four actions the greedy
+> action has probability 0.925 and each other 0.025, so 0.925 × 5 + 0.025 × 3 = 4.7. Second click: summary.
+> The worked numbers are on-policy: π is the ε-greedy policy that acts. Expected SARSA removes the variance that comes from sampling the
+> next action, at the cost of a sum over actions. The target policy may differ from the one that acts; with a greedy π the average is the
+> maximum, so it becomes Q-learning. Do not discuss off-policy corrections or ratios (D6, Week 8).
+> Optional mention: in the book's cliff experiments (Figure 6.3), Expected SARSA does best. No implementation or
+> assessment (D11, exposure).
 >
-> Target: 0.5 min. Sources: new section opener (no second course title, as bellman B17).
+> Equation sources (LaTeX): \gamma=0.5 | U_t=R_{t+1}+\gamma\sum_{a}\pi(a\mid S_{t+1})Q(S_{t+1},a) | \pi
+>
+> Target: 2.5 min. Sources: old Model-Free Control PPTX 21 and 33 (Expected SARSA target), book §6.6 printed 133–134 / PDF 155–156, deck decisions D10–D11, numbers in scripts/check_control_claude.py.
 
-## 24. P01 — Which continuation does the target use?
+## 25. P01y — When do these methods converge? (tabular)
 
-- Which target is SARSA's, which is Q-learning's, and why?
-- Candidates: 1 and 2.5.
+- These are tabular guarantees. Q-learning already bootstraps and learns off-policy; add function approximation and convergence can fail: the deadly triad (Next topic).
 
-- A nonterminal transition gives reward 0. The chosen next action has $𝑄=2$; the largest next-action value is 5. Let $𝛾=0.5$.
+- Standard sufficient conditions:
+- every state–action pair keeps being updated
+- the step sizes used for each pair's own updates shrink, but not too fast: $𝛼=∞$, $𝛼2<∞$ (previous slide deck)
+- With noisy targets, constant $𝛼$ can leave persistent estimate fluctuations; exact convergence is not generally guaranteed.
+- MC control and SARSA: converge to $𝑞∗$ and $𝜋∗$ if exploration also fades slowly: greedy in the limit while every pair keeps receiving data (GLIE: Greedy in the Limit with Infinite Exploration). With fixed ε, their on-policy targets include continuing exploration costs; $𝑞∗$ is not generally the target.
+- Q-learning: converges to $𝑞∗$ without the behaviour becoming greedy (off-policy).
 
 **Notes:**
 
-> One minute pair responses, two for reasoning and connection. SARSA uses 1, from the sampled behaviour action;
-> Q-learning uses 2.5, from the maximum. Neither can choose which next state was sampled. On a terminal
-> transition both would use reward 0 alone. This abstract retrieval does not change the familiar grid's rewards
-> or pretend to be a new grid transition.
+> Collects the conditions students met on C08, C09 and in Week 3 (MT07). About one minute on the common
+> conditions, one on the methods, one on the bridge to Week 5. The step-size conditions are the Robbins–Monro
+> conditions (book eq. 2.7, §2.5), applied to the step sizes each state-action pair receives for its own updates:
+> 1/n with n counting that pair's own updates (the sample average) satisfies them; a single 1/t over environment
+> steps need not, since a rarely updated pair can get finite total weight (review R27). With noisy targets a
+> constant α leaves fluctuations; with deterministic targets it can still converge (R28). "Greedy in the limit
+> while every pair keeps receiving data" is called GLIE (Silver, CS234); the slide gives the name. With fixed ε, do
+> not claim convergence to, or near, the best ε-soft policy for the sampled methods (R28). Statements: GLIE MC control
+> converges to q* (Silver L5 p. 16); SARSA converges to an optimal policy and q* under GLIE and the step-size
+> conditions (book §6.4); Q-learning converges to q* when all pairs keep being updated and the step-size
+> conditions hold (book §6.5). Do not claim convergence for Monte Carlo with exploring starts (an open question,
+> book §5.3) or for any method with function approximation. Bridge: the deadly triad is bootstrapping +
+> off-policy learning + function approximation; tabular Q-learning has the first two and still converges.
+> No proofs, no schedule formula beyond the conditions.
 >
-> Equation sources (LaTeX): Q=2 | \gamma=0.5
+> Equation sources (LaTeX): \sum\alpha=\infty | \sum\alpha^{2}<\infty | \alpha | q^{*} | \pi^{*}
 >
-> Target: 3 min. Sources: C15 target distinction, fresh numbers.
+> Target: 3 min. Sources: book §2.5 eq. 2.7 printed 33 / PDF 55, §6.4 printed 129 / PDF 151, §6.5 printed 131 / PDF 153; Silver L5 PDF 15–16 and 22; CS234 L4 PDF 31 and 37–38; Abbeel L2 PDF 9–10; deck decision D10.
 
-## 25. P02 — Cliff walking: predict before seeing the result
+## 26. P08 — Learning from someone else's data
+
+| Question | Distinction |
+| --- | --- |
+| Are we using a transition model in the update? | Model-based / model-free |
+| Can we gather more interaction? | Online / fixed-data offline |
+| Does behaviour match the target policy? | On-policy / off-policy |
+
+- Q-learning can use transitions from another behaviour policy. This does not supply missing state-action experience.
+- Question: If an action never appears in the dataset, what evidence updates its tabular $𝑄$ entry?
+
+**Notes:**
+
+> Answer: none; its entry can retain an unsupported initial value, and a max can select it. Off-policy does not
+> imply an unlimited fixed dataset can support every target. We may collect fresh off-policy experience or use
+> old data; the axes are distinct. A dataset collected under the target policy can be on-policy despite being
+> fixed. Keep this a taxonomy/coverage revisit; detailed fixed-data failures and methods belong to Week 12, and
+> the approximation interaction to Week 5. Sources: accepted prediction revisit, old P32/P40.
+>
+> Equation sources (LaTeX): Q
+>
+> Target: 3 min. Sources: old Model-Free Control PPTX 6, 32 and 40 (policy distinction), mc_td MT03 table (recreated as editable text), accepted prediction-group revisit.
+
+## 27. P02 — Cliff walking: predict before seeing the result
 
 *Image `native:pic:44:Picture 3`*
 
@@ -600,7 +692,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3.5 min. Sources: old Model-Free Control PPTX 44 (task picture only; learning curve held back until P05), book Example 6.6 printed 132 / PDF 154.
 
-## 26. P03 — Work a target beside the cliff
+## 28. P03 — Work a target beside the cliff
 
 - S
 
@@ -616,7 +708,8 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 
 - Observe (1,1), right, −1, (2,1); the selected next action is down.
 - $𝛾=1$,  $𝛼=0.5$,  $𝑄((1,1),right)=−20$.
-- At (2,1): $𝑄(down)=−113$;  $max𝑎𝑄(𝑎)=𝑄(right)=−10$.
+- At (2,1):
+- $𝑄(down)=−113$;  $max𝑎𝑄(𝑎)=𝑄(right)=−10$.
 
 - SARSA: $𝑈𝑡=−1−113=−114$; updated $𝑄$ = −67.
 - Q-learning: $𝑈𝑡=−1−10=−11$; updated $𝑄$ = −15.5.
@@ -636,7 +729,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 4 min. Sources: old Model-Free Control PPTX 44 (task; grid redrawn natively so the worked cells can be labelled), review R06/R17, book eqs. 6.7–6.8 and Example 6.6, numbers in scripts/check_control_claude.py.
 
-## 27. P03a — A fall resets the state, not the episode
+## 29. P03a — A fall resets the state, not the episode
 
 - S
 
@@ -653,7 +746,8 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 - Now execute the selected down action: observe −100, next state start.
 - Q-learning's target:
 - $𝑈𝑡=−100+max𝑎𝑄(start,𝑎)$
-- SARSA's target: −100 plus $𝑄$ at the next action selected from start.
+- SARSA's target:
+- −100 plus $𝑄$ at the next action selected from start.
 
 **Notes:**
 
@@ -668,7 +762,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 2 min. Sources: P03 grid, old Model-Free Control PPTX 40 (target form, observed reward), book Example 6.6.
 
-## 28. P04 — Compare fixed policies around the routes
+## 30. P04 — Compare fixed policies around the routes
 
 *Image `native:pic:44:Picture 3`*
 
@@ -709,7 +803,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 4 min. Sources: old Model-Free Control PPTX 44 (task picture), D4 (numbers shown initially), book Example 6.6 and §5.4 epsilon-soft construction, scripts/check_control_claude.py.
 
-## 29. P05 — What did the learning curve measure?
+## 31. P05 — What did the learning curve measure?
 
 *Image `native:pic:44:Picture 5`*
 
@@ -741,7 +835,54 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 6 min. Sources: old Model-Free Control PPTX 44 (learning-curve picture), book Example 6.6, mc_td MTE1–MTE2 continuity.
 
-## 30. P06 — Debug one shared control loop
+## 32. P05r — Regret: the price of learning
+
+*Image `native:pic:44:Picture 5`*
+
+- Sutton & Barto, Example 6.6: reward during exploratory learning, ε = 0.1.
+
+- Regret: the reward lost while learning, compared with acting optimally from the start.
+- Here the optimal path earns −13 per episode. Each episode's shortfall is −13 minus the curve; regret adds these up.
+- Q-learning learns the optimal path but keeps paying for exploration: more regret than SARSA here.
+
+- A formal treatment comes with bandits.
+
+**Notes:**
+
+> Informal intuition only (D10, W3). The curve shows each episode's reward while learning with ε = 0.1; the best
+> possible is −13 per episode (greedy edge path). The gap between −13 and the curve is that episode's loss, and
+> regret is their running sum, the area between the −13 level and the curve. Q-learning's curve sits near −50,
+> SARSA's near −25, so Q-learning accumulates more regret although its greedy policy is optimal. That is the same
+> measure question as P05: "learned the best policy" and "lost the least while learning" are different goals.
+> With fixed ε the per-episode loss does not go to zero, so regret keeps growing; decaying exploration (next
+> slide) reduces it. Formal regret (expected optimal reward minus expected reward, sums over time, bounds) comes
+> in 9.2. No formula or assessment here.
+>
+> Target: 2.5 min. Sources: old Model-Free Control PPTX 44 (learning curve) and 61 (regret idea), book Example 6.6, accepted bandit_concepts (regret, 9.2), deck decision D10.
+
+## 33. P05w — What if ε decays, or moves can slip?
+
+- Discuss: in each case, which method's answer changes, and why?
+
+- Decaying ε: exploration costs less over time, and SARSA's preferred path moves toward the edge. Under the convergence conditions both approach an optimal greedy policy; expected episode return approaches −13 as exploration vanishes, though occasional poor exploratory episodes can persist.
+- Slippery moves (like our grid's 0.8 / 0.1 / 0.1): falling becomes a risk of the environment, not only of exploration. $𝑞∗$ itself changes, so even the optimal greedy path may move away from the edge, depending on the slip probability and the cost of a fall.
+
+**Notes:**
+
+> Verbal discussion, no numbers (D10). About 1.5 minutes per case. Decaying ε: as exploration fades, the cost of
+> walking along the edge under SARSA's own exploratory policy shrinks, so SARSA's values and its preferred path
+> move toward the optimal edge path; with GLIE-style decay and the other convergence conditions both approach an
+> optimal greedy policy (book Example 6.6, final sentence). The expected episode return approaches −13 as
+> exploration vanishes, but individual exploratory episodes, including falls, can still occur (review R29). Slippery moves: now even a greedy agent can fall,
+> so the optimal values include that risk; both methods learn values that account for slips, and SARSA's also
+> include exploration. Whether the optimal path leaves the edge depends on the slip probability and the fall
+> cost; say "can change", not "will change" (R17). This links back to the 2×2 grid's slip model.
+>
+> Equation sources (LaTeX): q^{*}
+>
+> Target: 3 min. Sources: book Example 6.6 (last sentence on decreasing ε), review R17 (slip wording), deck decision D10.
+
+## 34. P06 — Debug one shared control loop
 
 - For each bug, name the mismatch and repair it.
 
@@ -764,7 +905,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 5 min. Sources: editable loop text from C12/C13a with three deliberate bugs, review R11.
 
-## 31. P07 — Diagnose what is fluctuating
+## 35. P07 — Diagnose what is fluctuating
 
 | Observation | What would you check? |
 | --- | --- |
@@ -790,30 +931,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 5 min. Sources: old Model-Free Control PPTX 18 and 43 (caveats, qualified) and 53 (exploration question), review R21.
 
-## 32. P08 — Learning from someone else's data
-
-| Question | Distinction |
-| --- | --- |
-| Are we using a transition model in the update? | Model-based / model-free |
-| Can we gather more interaction? | Online / fixed-data offline |
-| Does behaviour match the target policy? | On-policy / off-policy |
-
-- Q-learning can use transitions from another behaviour policy. This does not supply missing state-action experience.
-- Question: If an action never appears in the dataset, what evidence updates its tabular $𝑄$ entry?
-
-**Notes:**
-
-> Answer: none; its entry can retain an unsupported initial value, and a max can select it. Off-policy does not
-> imply an unlimited fixed dataset can support every target. We may collect fresh off-policy experience or use
-> old data; the axes are distinct. A dataset collected under the target policy can be on-policy despite being
-> fixed. Keep this a taxonomy/coverage revisit; detailed fixed-data failures and methods belong to Week 12, and
-> the approximation interaction to Week 5. Sources: accepted prediction revisit, old P32/P40.
->
-> Equation sources (LaTeX): Q
->
-> Target: 3 min. Sources: old Model-Free Control PPTX 6, 32 and 40 (policy distinction), mc_td MT03 table (recreated as editable text), accepted prediction-group revisit.
-
-## 33. P09 — A meaningful project comparison
+## 36. P09 — A meaningful project comparison
 
 - Example question: Which learner incurs fewer falls during a fixed amount of cliff interaction?
 
@@ -844,7 +962,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 3 min. Sources: accepted control_practice worked activity and evaluation scope, D3, review R22.
 
-## 34. P09a — Choose your baseline, metric and budget
+## 37. P09a — Choose your baseline, metric and budget
 
 - Eight minutes, with your team or a partner: use a candidate project, or use cliff walking if needed.
 - 1. What question are you trying to answer? What does the agent control?
@@ -869,7 +987,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 12 min. Sources: accepted control_practice worked activity (15 minutes across P09/P09a), project evaluation scope.
 
-## 35. P10 — From tables to generalization
+## 38. P10 — From tables to generalization
 
 - Specify the policy represented by the target.
 - Distinguish learned values, acting behaviour and the performance measure.
@@ -885,7 +1003,7 @@ SHA-256 `af4fc62455721d19427252635d870ba29dcd6b049d91a582be6d15717eed78e6`
 >
 > Target: 2 min. Sources: old Model-Free Control PPTX 45 (recap purpose; text replaced).
 
-## 36. P11 — Course announcements (hidden)
+## 39. P11 — Course announcements (hidden)
 
 - A1 preparation: planning backups, MC/TD prediction, and a shared SARSA/Q-learning control loop.
 - Assignment and project questions

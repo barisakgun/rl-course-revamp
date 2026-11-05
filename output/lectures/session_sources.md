@@ -60,7 +60,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 - **Teaching:** 59 min (range 54–70); confidence medium
 - **Requires:** 2.2 `improvement`
 - **Worked activity:** Shared MC/TD trajectory; five-minute average-reward objective contrast.
-- **Pacing note:** Average reward uses four previously unallocated minutes and one minute from taxonomy recap. It does not make average-reward algorithms a prerequisite. Instructor 2026-10-21 removed the embedded psychology connection from this session (no minutes of its own); the psychology_connections group keeps its 7.2 placement.
+- **Pacing note:** Average reward uses four previously unallocated minutes and one minute from taxonomy recap. It does not make average-reward algorithms a prerequisite. Instructor 2026-10-21 removed the embedded psychology connection from this session (no minutes of its own); the psychology_connections group keeps its 7.2 placement. For the next offering (instructor 2026-11-03), state the convergence behaviour of MC/TD prediction (coverage, step-size conditions, constant-α fluctuation) as groundwork for the Week 4 conditions and the deadly triad. Fall 2026 deck unchanged.
 - **Segments:** MC/TD, data access and shared example (54 min); Average-reward objective (5 min)
 - **Prerequisite for:** A1 Planning and learning from sampled transitions (release week 4)
 
@@ -102,7 +102,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 - **Teaching:** 53 min (range 48–63); plus 5 min administration; confidence medium
 - **Requires:** 4.1 `control_targets`
 - **Worked activity:** Explore a cliff-style target difference; choose a project baseline and evaluation metric (15 minutes).
-- **Pacing note:** 5 administrative minutes for proposal expectations, within the session allocation.
+- **Pacing note:** 5 administrative minutes for proposal expectations, within the session allocation. Instructor 2026-11-03 (model_free_control D10, D11) adds an Expected SARSA recap (replacing the retrieval slide), a tabular convergence slide, a regret-intuition slide and one verbal decaying-ε/action-uncertainty slide. Deck slide targets are 60.5 teaching + 5 administrative minutes, accepted above the 63-minute delivery allowance; the planning allocation is unchanged.
 - **Prerequisite for:** A1 Planning and learning from sampled transitions (release week 4)
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |
@@ -110,6 +110,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 | control (`control`) | core · derive, implement, analyze · live | Contrast SARSA and Q-learning on a small exploratory-control example; implement a representative tabular control loop with target changes. | [sarsa](#topic-sarsa), [q_learning](#topic-q-learning), [exploration_exploitation](#topic-exploration-exploitation), [epsilon_greedy](#topic-epsilon-greedy) |
 | evaluation (`evaluation`) | core · analyze · live | Choose a baseline, separate training/evaluation, compare seeds and uncertainty, distinguish interaction/compute budgets, and interpret ablations; revisit reward validity late. | [experiment_design](#topic-experiment-design) |
 | prediction (`prediction`) | core · explain, derive, implement, analyze · live | MC and TD(0) updates on one shared trajectory; derive n-step target. Implement representative MC/TD prediction, not all return variants. Data-access taxonomy is brief and revisited. | [on_off_policy_learning](#topic-on-off-policy-learning), [online_offline_learning](#topic-online-offline-learning), [monte_carlo_prediction](#topic-monte-carlo-prediction), [sampling_bootstrapping](#topic-sampling-bootstrapping), [temporal_difference_learning](#topic-temporal-difference-learning), [bias_variance](#topic-bias-variance), [n_step_returns](#topic-n-step-returns) |
+| expected_sarsa_recap (`expected_sarsa_recap`) | exposure · explain · live | One 4.2 recap slide (instructor 2026-11-03, model_free_control D11) placing the on-policy Expected SARSA target between SARSA's sampled next action and Q-learning's maximum, with one numerical retrieval and a one-line mention that the target policy may differ. No off-policy algorithm, ratios, implementation or assessment requirement. | [expected_sarsa](#topic-expected-sarsa) |
 
 ### 5.1 Linear approximation and semi-gradients (`linear`)
 
@@ -1101,6 +1102,17 @@ Sessions: 4.1, 4.2.
 - **Sutton slides** (explicitly-covered):
   - [11-12-TD.pdf](../../sources/sutton/11-12-TD.pdf#page=34) pp. 34–39 — Presents on-policy Sarsa and off-policy Q-learning with gridworld examples.
   - [20-onpolicy-control.pdf](../../sources/sutton/20-onpolicy-control.pdf#page=4) pp. 4–10 — Develops approximate on-policy Sarsa with mountain-car examples.
+
+<a id="topic-expected-sarsa"></a>
+### Expected Sarsa (`expected_sarsa`)
+
+Sessions: 4.2.
+
+- **Sutton & Barto:** §6.6 Expected Sarsa (printed pp. 133–134, [PDF pp. 155–156](../../sources/RLbook2020.pdf#page=155))
+- **Current course (local)** (explicitly-covered):
+  - [5 - Model Free Control.pdf](../../sources/current_course/5%20-%20Model%20Free%20Control.pdf#page=29) p. 29 (deck: `5 - Model Free Control.pptx`) — Defines Expected Sarsa as a distinct TD target.
+- **Sutton slides** (explicitly-covered):
+  - [11-12-TD.pdf](../../sources/sutton/11-12-TD.pdf#page=40) pp. 40–47 — Develops Expected Sarsa and double learning to address maximization bias.
 
 <a id="topic-approximation-instability"></a>
 ### Off-policy divergence and the deadly triad (`approximation_instability`)

@@ -362,7 +362,7 @@ Topic IDs: `language_model_pretraining`, `supervised_fine_tuning`, `autoregressi
 
 Assessment path to review later: none.
 
-### Asynchronous dynamic programming / Expected Sarsa / Boltzmann action selection and related concepts
+### Asynchronous dynamic programming / Boltzmann action selection / Prioritized experience replay and related concepts
 
 Group: `optional_extensions`.
 
@@ -370,7 +370,7 @@ Group: `optional_extensions`.
 
 Accepted scope: Not required or assessed. No scheduled teaching time or assigned reading in this iteration. Optional interest pointers may be selected later; practice/research status remains to be reviewed individually if included.
 
-Topic IDs: `asynchronous_dynamic_programming`, `expected_sarsa`, `softmax_exploration`, `prioritized_replay`, `dueling_networks`, `distributional_rl`, `rainbow`, `natural_policy_gradient`, `trust_region_policy_optimization`, `ddpg`, `td3`, `random_network_distillation`, `dreamer`, `muzero`, `auxiliary_prediction`, `offline_to_online`.
+Topic IDs: `asynchronous_dynamic_programming`, `softmax_exploration`, `prioritized_replay`, `dueling_networks`, `distributional_rl`, `rainbow`, `natural_policy_gradient`, `trust_region_policy_optimization`, `ddpg`, `td3`, `random_network_distillation`, `dreamer`, `muzero`, `auxiliary_prediction`, `offline_to_online`.
 
 Assessment path to review later: none.
 
@@ -483,6 +483,18 @@ Accepted scope: Explain and implement only the Double DQN target-selection patch
 Topic IDs: `double_dqn`.
 
 Assessment path to review later: assignment, exam.
+
+### Expected Sarsa
+
+Group: `expected_sarsa_recap`.
+
+**exposure** (accepted); accepted mastery: explain; status: classical; delivery: live.
+
+Accepted scope: One 4.2 recap slide (instructor 2026-11-03, model_free_control D11) placing the on-policy Expected SARSA target between SARSA's sampled next action and Q-learning's maximum, with one numerical retrieval and a one-line mention that the target policy may differ. No off-policy algorithm, ratios, implementation or assessment requirement.
+
+Topic IDs: `expected_sarsa`.
+
+Assessment path to review later: none.
 
 ## Deliberately unresolved
 

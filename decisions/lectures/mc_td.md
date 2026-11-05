@@ -56,6 +56,13 @@ Answers given before step 1, to the early choices Claude listed for 3.1.
 **Instructor, 2026-10-27 (deck acceptance):**
 - D19. **Deck accepted as done** (instructor, 2026-10-27): sessions 3.1 and 3.2, SHA-256 `b4ca75d4317a629ca7941888759a70ca926aae93d2c96baadde10e46f1ef72ba`, 50 slides, after the instructor edit round with Claude's notes check (shared review, "Instructor edit round after D18"). It includes the instructor's optional slides 43–44 (no live time) and supersedes D11's 3.1-only acceptance; 3.1's only change since D11 is one MT12 notes sentence. ChatGPT did not check this last edit round before acceptance. O6 stays open and does not block the deck.
 
+## Next-offering note (instructor, 2026-11-03)
+
+- State the convergence behaviour of MC/TD prediction: coverage, step-size conditions and constant-α fluctuation.
+  This is groundwork for Week 4's control convergence conditions and the Week 5 deadly triad. The authoritative note
+  is on the `mc_td` session in `decisions/topic_decisions.yaml`. The Fall 2026 deck stays done (D19); this is not a
+  change to it.
+
 ## Open
 
 | # | Item | Where discussed |

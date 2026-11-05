@@ -206,3 +206,10 @@ v_eps = evaluate(eps_greedy(pol_opt, eps))
 q_eps = q_from_v(v_eps)
 print('R15: q^pi_eps at greedy pairs:', {s: round(q_eps[s, pol_opt[s]], 6) for s in CELLS},
       ' q* at same pairs:', {s: round(qstar[s, pol_opt[s]], 6) for s in CELLS})
+
+# Editing round 2 (D11): P01x Expected SARSA retrieval. Reward 0, gamma 0.5, next-action values 5 (greedy), 2, 1, 0,
+# epsilon-greedy with epsilon 0.1 over four actions; the sampled next action has value 2.
+vals, e2 = [5, 2, 1, 0], 0.1
+probs = [1 - e2 + e2 / 4] + [e2 / 4] * 3
+expected = sum(pr * v for pr, v in zip(probs, vals))
+print('P01x: SARSA', 0.5 * 2, ' Expected SARSA', round(0.5 * expected, 6), f'(mean {expected:.3f})', ' Q-learning', 0.5 * max(vals))

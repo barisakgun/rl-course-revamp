@@ -106,6 +106,20 @@ scope_decisions:
   role: exposure
   status:
   - classical
+- id: expected_sarsa_recap
+  topic_ids:
+  - expected_sarsa
+  scope: One 4.2 recap slide (instructor 2026-11-03, model_free_control D11) placing the on-policy Expected SARSA
+    target between SARSA's sampled next action and Q-learning's maximum, with one numerical retrieval and a one-line
+    mention that the target policy may differ. No off-policy algorithm, ratios, implementation or assessment
+    requirement.
+  delivery:
+  - live
+  mastery:
+  - explain
+  role: exposure
+  status:
+  - classical
 - id: approximation
   topic_ids:
   - linear_function_approximation
@@ -429,7 +443,6 @@ scope_decisions:
 - id: optional_extensions
   topic_ids:
   - asynchronous_dynamic_programming
-  - expected_sarsa
   - softmax_exploration
   - prioritized_replay
   - dueling_networks
@@ -722,7 +735,9 @@ lecture_plan:
   feasibility_note: Average reward uses four previously unallocated minutes and one minute from taxonomy recap.
     It does not make average-reward algorithms a prerequisite. Instructor 2026-10-21 removed the embedded
     psychology connection from this session (no minutes of its own); the psychology_connections group keeps its
-    7.2 placement.
+    7.2 placement. For the next offering (instructor 2026-11-03), state the convergence behaviour of MC/TD prediction
+    (coverage, step-size conditions, constant-α fluctuation) as groundwork for the Week 4 conditions and the
+    deadly triad. Fall 2026 deck unchanged.
   confidence: medium
   segments:
   - label: MC/TD, data access and shared example
@@ -788,11 +803,16 @@ lecture_plan:
   - control
   - evaluation
   - prediction
+  - expected_sarsa_recap
   requires:
   - control_targets
   worked_activity: Explore a cliff-style target difference; choose a project baseline and evaluation metric (15
     minutes).
-  feasibility_note: 5 administrative minutes for proposal expectations, within the session allocation.
+  feasibility_note: 5 administrative minutes for proposal expectations, within the session allocation. Instructor
+    2026-11-03 (model_free_control D10, D11) adds an Expected SARSA recap (replacing the retrieval slide), a tabular
+    convergence slide, a regret-intuition slide and one verbal decaying-ε/action-uncertainty slide. Deck slide targets
+    are 60.5 teaching + 5 administrative minutes, accepted above the 63-minute delivery allowance; the planning
+    allocation is unchanged.
   confidence: medium
 - id: linear
   week: 5
