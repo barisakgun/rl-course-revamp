@@ -17,15 +17,16 @@ Release each assignment immediately after all its prerequisites are taught and r
 
 | Exam | Calendar target | Coverage in logical teaching sequence |
 | --- | --- | --- |
-| midterm_1 | Week 6 | Sessions 1.1–3.2, Fall 2026 only (instructor, 2026-11-02; the exam date stayed fixed while the class runs one week behind). Accepted taught/mastery scope governs questions; optional extensions are not silently examinable. This semester, control_targets, control_practice, linear and instability are not in midterm 1; their exam placement is decided before midterm 2. |
+| midterm_1 | 2026-11-05; 100 minutes | Sessions 1.1–3.2, Fall 2026 only (instructor, 2026-11-02; the exam date stayed fixed while the class runs one week behind). Accepted taught/mastery scope governs questions; optional extensions are not silently examinable. This semester, control_targets, control_practice, linear and instability are not in midterm 1; their exam placement is decided before midterm 2. |
 | midterm_2 | Week 10 | Weeks 6–8 plus 9.1, including SAC; bandits in 9.2 are excluded. Interpret up to bandits as before bandits, following explicit session list. |
 | midterm_3 | Week 13 | Midterm 3 is frozen in calendar Week 13, covering taught material through logical 12.2 and excluding the LLM bridge. Exact date remains pending; avoid the assumed December 31 loss and January instructor absence. |
 
-Each exam is 15%, uses a separate slot and has an unbooked date/duration. No final exam. Coverage must have been taught with preparation time; homework submission or graded feedback is not an exam prerequisite. MT3 includes the bounded conceptual CQL question and excludes the LLM bridge.
+Each exam is 15% and uses a separate slot. Decided dates/durations appear above; other dates/durations remain pending. No final exam. Coverage must have been taught with preparation time; homework submission or graded feedback is not an exam prerequisite. MT3 includes the bounded conceptual CQL question and excludes the LLM bridge.
 
 ## Deadline pressure
 
-- Weeks 6–7: MT1 is Week 6; A1/A2 overlap, then A1 early Week 7 and project design later that week.
+- MT1: 2026-11-05; its placement is university-set and independent of logical teaching weeks.
+- Weeks 6–7: A1/A2 overlap, then A1 early Week 7 and project design later that week.
 - Weeks 8–9: A2/A3 overlap alongside dense policy teaching; A2 is due Week 9.
 - Weeks 10–11: MT2 is Week 10; progress is early Week 11 and A3 later that week. Separation within Week 11 needs actual dates.
 - Week 12: A4 opens after offline prerequisites; LLM video preparation may add workload near this period, depending on lecture mapping.

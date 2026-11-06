@@ -7,7 +7,7 @@
   - Timing: slide targets 60 minutes for each session (D10, D18); planning allocations in `decisions/topic_decisions.yaml` stay 59 and 58.
   - Views: text view `output/lectures/week03/mc_td_claude.md`; previews `output/lectures/week03/mc_td_claude_preview.{png,pdf}` (hidden slides omitted), from this deck.
   - Inputs and history: first-render inputs, all frozen: 3.1 [`mc_td_content.md`](../../course/lectures/week03/mc_td_content.md) and `mc_td_claude.yaml`; 3.2 [`mc_td_returns_content.md`](../../course/lectures/week03/mc_td_returns_content.md) and `mc_td_returns_claude.yaml`; D18 revision: the shared review's renderer handoff and `mc_td_lambda_claude.yaml`. Rendering and edit-round notes: [shared review](../../analysis/lecture_suggestions/mc_td_review.md). Suggestions: [historical Claude 3.1](../../analysis/lecture_suggestions/mc_td_claude.md), [Claude 3.2](../../analysis/lecture_suggestions/mc_td_returns_claude.md), [ChatGPT](../../analysis/lecture_suggestions/mc_td_chatgpt.md).
-  - Still open, nonblocking: O6 (Midterm 1 λ-return inclusion).
+  - O6 resolved by the November 2 midterm decision; see the Open table for its authoritative reference.
 
 ## Accepted (instructor, 2026-10-21)
 
@@ -67,7 +67,7 @@ Answers given before step 1, to the early choices Claude listed for 3.1.
 
 | # | Item | Where discussed |
 | --- | --- | --- |
-| O6 | Whether to explicitly include a formula-supplied λ-return calculation/interpretation in Midterm 1 (former Q5). No new requirement is accepted; not a render blocker. | Shared review, ChatGPT response to Q5 |
+| — | O6 resolved (instructor, 2026-11-02): one short written or true/false question at the 3.2 introductory forward-λ scope. No derivation or trace requirement. | `decisions/grading_decisions.md`, `midterm_1.return_mixtures`; November 2 decision log |
 | — | O5 and Q4/Q6/Q7 resolved by D18, 2026-10-27. | Shared review, accepted revision handoff |
 | — | O4 resolved under D15 (2026-10-22): both AIs agree on the sequence and D14 placement; targets sum to 60 minutes under D16. No open choice before 3.2 content preparation. | Shared review, ChatGPT response check and sequence finalization |
 | — | O1 resolved by D6, O2 by D7, O3 by D10 (2026-10-22); R08/R13 resolved by D12. | [Shared review](../../analysis/lecture_suggestions/mc_td_review.md) |

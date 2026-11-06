@@ -49,12 +49,18 @@ def build():
     exam_rows = []
     for e in grading['midterms']:
         assert set(e['coverage_sessions']) <= by_id.keys()
-        exam_rows.append([e['id'], 'Week '+', '.join(map(str,e['window_weeks'])), e['scope']])
+        when = str(e['date']) if e.get('date') else 'Week '+', '.join(map(str,e['window_weeks']))
+        if e.get('duration_minutes'):
+            when += f'; {e["duration_minutes"]} minutes'
+        exam_rows.append([e['id'], when, e['scope']])
     e3 = grading['third_midterm']['current_semester_alternative']
     assert set(e3['coverage_sessions']) <= by_id.keys()
     exam_rows.append(['midterm_3','Week '+str(e3['week']),grading['third_midterm']['clarification']])
     exams = table(['Exam','Calendar target','Coverage in logical teaching sequence'], exam_rows)
-    pressure = ('- Weeks 6–7: MT1 is Week 6; A1/A2 overlap, then A1 early Week 7 and project design later that week.\n'
+    mt1 = next(e for e in grading['midterms'] if e['id'] == 'midterm_1')
+    mt1_when = str(mt1['date']) if mt1.get('date') else 'Week '+', '.join(map(str,mt1['window_weeks']))
+    pressure = (f'- MT1: {mt1_when}; its placement is university-set and independent of logical teaching weeks.\n'
+                '- Weeks 6–7: A1/A2 overlap, then A1 early Week 7 and project design later that week.\n'
                 '- Weeks 8–9: A2/A3 overlap alongside dense policy teaching; A2 is due Week 9.\n'
                 '- Weeks 10–11: MT2 is Week 10; progress is early Week 11 and A3 later that week. Separation within Week 11 needs actual dates.\n'
                 '- Week 12: A4 opens after offline prerequisites; LLM video preparation may add workload near this period, depending on lecture mapping.\n'
@@ -62,7 +68,7 @@ def build():
                 '- Weeks 15–16: A4 then the project report. The report must remain one week before letter grades; dates and grading turnaround are unverified.')
     assessment = report('Assessment schedule', assignment_table, calendar_note, envelope,
                         '## Exams', exams,
-                        'Each exam is 15%, uses a separate slot and has an unbooked date/duration. No final exam. '
+                        'Each exam is 15% and uses a separate slot. Decided dates/durations appear above; other dates/durations remain pending. No final exam. '
                         'Coverage must have been taught with preparation time; homework submission or graded feedback is not an exam prerequisite. '
                         'MT3 includes the bounded conceptual CQL question and excludes the LLM bridge.',
                         '## Deadline pressure', pressure)
@@ -151,7 +157,7 @@ def build():
             ['Learning outcomes and Core depth','Supported with pacing qualifications','Existing curriculum outcome mapping and worked Core activities validated; see curriculum consistency audit.'],
             ['Assessment alignment','Supported with accepted limitation','Assignment audit covers all Core groups. Best-three permits missing implementation evidence; exams do not establish coding mastery.'],
             ['Assignment windows','Pending actual dates',calendar_note],
-            ['Exams','Coverage defined; timing pending','MT1 Week 6, MT2 Week 10, MT3 Week 13. Topic IDs checked; taught-before-exam and preparation intervals require calendar mapping.'],
+            ['Exams','See decided dates; other timing pending',f'MT1 {mt1_when}, MT2 Week 10, MT3 Week 13. Topic IDs checked; taught-before-exam and preparation intervals require calendar mapping.'],
             ['Projects','Sequence plausible; dates pending','Design after DQN; progress after policy teaching in logical sequence. Advanced tracks need early self-study and a simple baseline.'],
             ['Presentation','Week-level conflict removed','Week 14 follows MT3 Week 13; TA staffing, slots and TA/group grading details remain unresolved.'],
             ['Final report','Pending grade deadline','Week 16 target remains subject to one week before letter grades and feasible grading turnaround.'],

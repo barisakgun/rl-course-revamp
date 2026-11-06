@@ -1,8 +1,8 @@
 # Midterm exam guideline and workflow
 
-**Shared** by the instructor, Claude and ChatGPT. **Status: draft (Claude, 2026-11-02), not yet adopted.** Items marked
-**accepted** are explicit instructor decisions; everything else is a proposal until the instructor adopts this file or
-decides the item. Exam weights, windows and coverage records live in `decisions/grading_decisions.md`; this file
+**Shared** by the instructor, Claude and ChatGPT. **Adopted with corrections by the instructor, 2026-11-02**
+(initial draft by Claude; adoption corrections by ChatGPT). This is the accepted workflow; individual question
+choices and explicitly open format items still require instructor decisions. Exam weights, windows and coverage records live in `decisions/grading_decisions.md`; this file
 does not restate them.
 
 `AGENTS.md` / `CLAUDE.md` (file ownership, notation, evidence discipline), `docs/repository_contract.md` and the review
@@ -46,8 +46,8 @@ where each artifact lives.
   exam duration. Points roughly follow time and importance.
 - **Gradeable by at most one TA:** every part has a worked solution and a partial-credit rubric. Prefer answers that
   can be checked quickly (tables, short justifications) over long open essays.
-- **Equation sheet.** Exams are closed book with no aids, and come with a supplied equation sheet as in previous exams
-  (accepted for midterm 1, 2026-11-02). As there, equations are listed without names, semantics or context; they use
+- **Equation sheet.** Midterm 1 is closed book with no aids and comes with a supplied equation sheet as in previous exams
+  (accepted 2026-11-02); other midterms' allowed materials remain to be decided in the grading record. On a supplied sheet, equations are listed without names, semantics or context; they use
   notation-guide symbols and stay within the covered material. The sheet is drafted with the questions (step 1),
   reviewed with them and rendered as the exam's last page. Questions test understanding the sheet does not give away:
   choosing and applying the right equation, interpreting it, deriving from it.
@@ -80,6 +80,8 @@ The instructor decides whether to commit them afterwards.
    cut delta against the relevant previous midterms; a draft exam of complete questions with points, estimated
    student times, answers and the mastery each part assesses; a draft equation sheet. Unpolished wording is fine; correct answers are not
    optional.
+   Use shared accepted delivery decisions and the current deck, not frozen first-render content as a substitute
+   for the delivered deck. Observe AI file ownership; disclose any source-verification limitation.
 2. **One mutual cross-review** in the shared review file. Check: correctness of every answer (solve the other AI's
    questions independently before reading its solutions); coverage and weight against the accepted scope; untaught
    prerequisites; ambiguity and multiple valid answers; length; notation. Resolve straightforward corrections; present
@@ -90,6 +92,8 @@ The instructor decides whether to commit them afterwards.
    render directly from the decisions file and the chosen suggestions, and the content file is skipped.
 5. **Blind check (the AI that did not render).** Solve the question-only PDF without the solutions, then compare.
    Report disagreements, ambiguities and the solve-time estimate in the review. Correctness only; no polishing.
+   This is a fresh solve without that render's answers, not a claim that the reviewer has never seen the questions
+   during cross-review. Student-time estimates remain unpiloted unless an actual student pilot was performed.
 6. **Instructor review and edits**, iterated as needed. Claude regenerates the PDFs from each saved source and
    rechecks what an edit affects (point totals, cross-references, solutions).
 7. **Final.** On the instructor's acceptance, the decisions file records "final" with the source's SHA-256 and the
@@ -101,4 +105,4 @@ The instructor decides whether to commit them afterwards.
   `decisions/grading_decisions.md`).
 - E2: whether 538 students get a different or additional question in midterms 2 and 3 (midterm 1: the same exam,
   instructor 2026-11-02).
-- E3: adoption of this guideline as a whole.
+- E3 resolved: guideline adopted with corrections (instructor, 2026-11-02).

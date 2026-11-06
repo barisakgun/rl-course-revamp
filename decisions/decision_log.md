@@ -1,5 +1,9 @@
 # Decision Log
 
+## 2026-11-05 — Fall 2026 midterm bookings recorded
+
+- At the instructor’s request, recorded the university’s dates, booked times and rooms for COMP 438 and COMP 538 in the [grading decisions](grading_decisions.md). The bookings supersede the earlier Week 10 and Week 13 targets for midterms 2 and 3. The instructor deferred further planning until closer to each exam.
+
 ## 2026-11-05 — Week 4 deck (`model_free_control`, sessions 4.1–4.2) accepted (done)
 
 - Authority: instructor ("If there are no issues, close week 4 and commit"; "Keep, fix notes"), recorded as [model_free_control D12–D13](lectures/model_free_control.md). Accepted deck: `course/lectures/week04/model_free_control_claude.pptx`, SHA-256 `c41a00117380c4c70b2638776227ae9d0a251c567c56c82a713be4e67608dda7`, 39 slides (C01b and P11 hidden); text view and previews are in sync. D13 supersedes D9.
@@ -17,6 +21,23 @@
 - Next offering: a Week 3 note on MC/TD convergence behaviour is added to the `mc_td` session in `topic_decisions.yaml`, pointed to from `decisions/lectures/mc_td.md`. The Fall 2026 Week 3 deck is unchanged.
 - No new assessment requirement; A1 is unchanged.
 
+
+## 2026-11-02 — Midterm 1 question selection
+
+- Authority: instructor, recorded in the git-ignored `decisions/exams/midterm_1.md` X7–X8. Accepted the combined selection from both AI suggestions and the cross-review corrections. Question-specific changes, allocations and remaining grading choices are recorded only in the confidential exam decisions and shared review, in accordance with the repository contract.
+- No coverage, format, lecture-minute, mastery or assignment change.
+
+## 2026-11-02 — University-set midterm 1 placement confirmed
+
+- Authority: instructor clarification during the requested review of Claude's exam suggestion. The university schedules the exam and placed midterm 1 in calendar Week 5. Record Week 5 with the already decided November 5 date; retain the old Week 6 window only in the future-offering template.
+- Update the schedule renderers to prefer a decided date and show its duration, then regenerate only the assessment schedule/timeline. No assignment deadline, lecture allocation, coverage, question selection or later-exam decision changes.
+
+## 2026-11-02 — Exam workflow adopted; midterm 1 delivered scope confirmed
+
+- Authority: instructor replies during ChatGPT's independent exam preparation. Adopt `docs/exam_workflow.md` with documentation corrections; confirm the same midterm 1 for COMP 438 and COMP 538, and no additional teaching omissions or material shortening beyond recorded exclusions through 3.2. Public format and delivery confirmations live in `decisions/grading_decisions.md`.
+- Clarify the workflow's remaining later-exam format choices, current-source checks and fresh question-only solve; add exam authority references to the repository contract. Close the stale `mc_td` O6 pointer using the already accepted November 2 forward-λ decision, without changing its scope.
+- The decided November 5 date governs over the legacy Week 6 planning field. Generated calendar views still require synchronization before use; no assignment dates or later-exam coverage are changed here.
+- No ChatGPT candidate questions, point split or complete equation sheet are accepted. Existing per-exam choices remain in the confidential exam decision file. No curriculum, lecture-minute, notation, reading/video or assignment-workload change.
 
 ## 2026-11-02 — Week 4 deck (`model_free_control`, sessions 4.1–4.2) accepted (done)
 
@@ -39,6 +60,7 @@
 - Scope of these midterm 1 decisions (instructor, same day): Fall 2026 only. Midterm 1 topics may change in future offerings; the previous Weeks 1–5 session list is kept as a non-binding `future_template` in `grading_decisions.md`.
 - Midterm 1 exam choices (instructor, same day, recorded in the git-ignored `decisions/exams/midterm_1.md` X1–X6): the equation sheet includes the λ-return formula; COMP 438 and 538 take the same exam; the remaining points stay open for the instructor's review.
 - No lecture minutes, scope, mastery or assignment changes. A1 is not due before midterm 1, consistent with the accepted rule that exams never assume assignment submission or feedback. Draft exam guideline and workflow: `docs/exam_workflow.md` (not yet adopted).
+- Midterm 1 final (instructor, 2026-11-05): exam accepted with source SHA-256 `c8bf949d539ce6a84061fc69b54a176280cbd20424419daee5fad22fd6c324bd`; the status and the question-level record are in the git-ignored `decisions/exams/midterm_1.md`. Partial credit on one question stays open for grading (X6).
 
 ## 2026-11-02 — Week 4 deck (`model_free_control`): SARSA-variants figure; Week 8 ratio question
 
