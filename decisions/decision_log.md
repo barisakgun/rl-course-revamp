@@ -1,5 +1,39 @@
 # Decision Log
 
+## 2026-11-09 — Proposal grading documents ready for the pilot
+
+- After Claude's check of the applied revisions, the instructor confirms R16 as is: format violations may lower R16 (at most 4 points) and add no other penalty.
+- The guidelines' section 7 review questions are marked "release will be decided by the instructor"; the rest of the assessment output remains student-facing. ChatGPT applied the wording in the response-order introduction and item 7, regenerated the PDF and checked it.
+- Milestone timing is dynamic, so the grader scope context carries no fixed milestone dates. Layout cosmetics are low priority because the rubric is internal.
+- The section 7 wording is now applied; the rubric and AI guidelines are ready for the pilot. No proposal graded or sent; no teaching scope, live time or student workload change.
+
+## 2026-11-09 — Reviewed proposal-grading revisions applied for the pilot
+
+- Instructor authorizes applying the recorded revisions with ChatGPT's corrections and explicitly accepts the R01 4/4/4 split. R01a/b/c replace the former combined row, yielding 18 scored rows with the same 100-point total and category balance. R16's four-point citations-and-format text and guidance remain verbatim.
+- Technical correctness is explicit in partial-credit anchors; R12 assesses intended evaluation experiments. Calibration procedures now live only in the AI guidelines, with repeated independent runs per AI. The guidelines supply shared timeline/resource context, diagnostic format reporting and student-facing advisory assessments/review questions. No separate automatic format penalty is added.
+- Corrections preserve valid partial observability and hidden-state-dependent rewards, avoid adding alternative-method comparisons to R01, keep HPC access conditional, and distinguish rough equivalent-page estimates from actual pagination. All assessment output is prepared for students, but no grades are sent by this task.
+- Both pilot PDFs are regenerated under `output/projects/`; accepted student handouts are unchanged. Row consolidation, final rounding, cosmetic refinements and calibration outcomes remain deferred. No teaching scope, prerequisites, lecture allocation or student workload changes.
+
+## 2026-11-09 — R16 retained for the pilot; ChatGPT review of recorded revisions
+
+- Instructor explicitly keeps the current R16 rather than the review's citation-only revision, with reconsideration after the pilot. Retain its four points for citation traceability and format under the existing level guidance; no separate automatic format penalty is introduced. This supersedes the earlier same-day blanket no-format-deduction interpretation below.
+- ChatGPT reviewed the shared findings and recorded implementation cautions in `analysis/proposal_grading_review.md`: do not treat hidden-state-dependent reward as inherently erroneous; do not add unreleased alternative-method comparisons to R01; treat HPC access as conditional and equivalent-page calculations as rough diagnostics. The accepted all-output-to-students decision takes precedence over the review's conflicting instruction to retain instructor-only section 7.
+- This step reviews the requested revisions and resolves R16 in the records; it does not yet apply the remaining document revisions or accept the proposed R01 point split. No teaching-time or student-workload change.
+
+## 2026-11-09 — Proposal grading pilot: instructor responses to Claude's review
+
+- Instructor responded to Claude's review of the ChatGPT rubric and AI grading guidelines; findings, responses and requested revisions are in the [shared review](../analysis/proposal_grading_review.md), outcomes in `proposal_grading_pilot.instructor_decisions_2026_11_09` of the [project decisions](project_decisions.md).
+- Format violations are not deducted for now: AI graders highlight page overflows (with the font-size equivalent-length math) and other format violations in the feedback. This replaces a 10-points-per-page deduction the instructor first proposed the same day. R16's format part therefore does not deduct for now.
+- Technical errors enter the level scale and feedback; R01 to be broken down (split pending); R12 rephrased as intended evaluation experiments; calibration text moves to the guidelines only; multiple runs per AI; all output, including advisory labels, goes to students for now.
+- Scope context for graders: about 8 weeks remain after feedback, most teams will use AI help, and undergraduates who justify it may get HPC access. Row consolidation, rounding and cosmetics are deferred. No teaching scope, live time or student workload changes; grader workload is still unmeasured.
+
+## 2026-11-09 — Proposal rubric and AI grading guidelines prepared for calibration
+
+- Instructor authorizes the discussed 100-point, 16-criterion rubric and separate AI grading guidelines for a pilot on submitted proposals. Preserve the original category balance while making partial credit explicit; the pilot allocations remain subject to calibration. The proposal still contributes 5 percent of the course grade.
+- Scope reasonableness accounts for group size; RL centrality and expected work balance are separate advisory assessments. Neither changes the score, imposes a cap or adds a penalty. Rubric criteria unpack the released requirements without adding implementation, exhaustive-survey or novelty requirements.
+- Instructor plans independent assessments by two AIs and one human on a few projects. Preserve their initial judgments and compare evidence and criterion-level disagreements before cohort-wide use. No student grading or publication is authorized by this preparation step.
+- Editable sources remain under `course/projects/`; pilot PDFs remain under `output/projects/`. The accepted proposal and LLM-use handouts are unchanged. No teaching scope, prerequisites, live-time allocation or student workload is added; grader calibration effort has not yet been measured.
+
 ## 2026-11-05 — Fall 2026 midterm bookings recorded
 
 - At the instructor’s request, recorded the university’s dates, booked times and rooms for COMP 438 and COMP 538 in the [grading decisions](grading_decisions.md). The bookings supersede the earlier Week 10 and Week 13 targets for midterms 2 and 3. The instructor deferred further planning until closer to each exam.

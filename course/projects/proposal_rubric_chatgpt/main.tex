@@ -1,50 +1,117 @@
-% ChatGPT recommendation, 2026-10-22. Not an accepted grading decision.
-% Format adapted from sources/NonRL/COMP341_example_hw.tex.
+% Instructor-authorized grading pilot, 2026-11-09. Calibrate before cohort-wide use.
+% Authority: decisions/project_decisions.md. Student requirements remain unchanged.
 \documentclass{article}
 \usepackage[a4paper,margin=2.54cm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage{tabularx,array}
-\usepackage{enumitem}
+\usepackage{tabularx,array,enumitem,titlesec}
+\usepackage[hidelinks]{hyperref}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\setlist{leftmargin=*,itemsep=3pt,topsep=4pt}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\renewcommand{\arraystretch}{1.35}
+\renewcommand{\arraystretch}{1.15}
+\newcommand{\criterion}[4]{\textbf{#1} & \textbf{#2} & #3\par\textit{Partial-credit guidance:} #4\\[5pt]}
 \begin{document}
-\title{\textbf{Ko\c{c} University\\COMP438/538 Reinforcement Learning\\Proposal Rubric}}
-\date{}
-\maketitle
-\vspace{-2cm}
 \begin{center}
-\textit{Proposed rubric for instructor review}\\
-20 points, contributing 5\% of the overall course grade
+{\Large\bfseries Ko\c{c} University\\COMP438/538 Reinforcement Learning\\Proposal Grading Rubric\par}
+\vspace{4pt}
+\textit{Grading pilot -- November 9, 2026}\\
+100 points; proposal contributes 5\% of the overall course grade
 \end{center}
 
-\noindent
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.8cm}rL@{}}
-\textbf{Criterion} & \textbf{Points} & \textbf{What earns full credit}\\ \hline
-Problem, question and related work & 4 &
-A clear motivation and focused question. Relevant sources help define or motivate the problem. A high-level, incomplete literature discussion is sufficient.\\
-Tentative RL formulation & 6 &
-A coherent account of the agent, state/observation, actions, dynamics, reward, objective and horizon/termination, as relevant. Assumptions and important open choices are explicit.\\
-Tentative approach and baseline & 3 &
-A plausible approach and tentative baseline, with an explanation of what the comparison would reveal. Method choices may remain provisional.\\
-Evaluation and feasibility & 5 &
-Metrics and an intended comparison address the question. The plan considers evaluation conditions, environment/data access, compute and important risks. Estimates can be tentative.\\
-Clarity and presentation & 2 &
-Concise, specific and organized writing, identifiable citations and compliance with the main-content limit. Avoid repetition and unsupported claims.\\ \hline
-\textbf{Total} & \textbf{20} & \\
-\end{tabularx}
+\section*{Scoring at proposal-stage depth}
+Use the submitted proposal and the released requirements. No working implementation, results, exhaustive survey, novelty, or benchmark superiority is required. A coherent tentative choice can earn full credit. Accept equivalent formulations and information wherever it appears; headings and formal notation are not mandatory. Qualitative dynamics suffice.
 
-\section*{How to apply the rubric}
-\begin{itemize}[leftmargin=*,itemsep=5pt]
-\item Award full credit when the criterion is met at \textbf{proposal-stage depth}. Award partial credit for useful but unclear, incomplete or inconsistent reasoning. Award little or no credit for missing or unsupported content.
-\item Grade the quality of the planned study. A working implementation, experimental results, exhaustive related work, novelty and benchmark superiority are not proposal requirements.
-\item An explicit, reasonable uncertainty is different from omitting a required part. A baseline described as tentative can earn full credit.
-\item Treat writing problems under clarity unless they also prevent assessment of substantive reasoning. Avoid deducting twice for the same defect.
+For each criterion select one level below, then multiply its maximum by that fraction. Retain exact quarter-point scores; do not round individual rows. Explain deductions using a page/section or identifiable passage.
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}p{1.1cm}L@{}}
+\textbf{Level} & \textbf{Common anchor}\\\hline
+100\% & Meets the full-credit standard at proposal depth; reasonable open choices are explicit.\\
+75\% & Mostly sound; a minor gap, ambiguity or technical slip remains, but the intended plan is assessable.\\
+50\% & Meaningful relevant content, but a substantial gap, inconsistency or technical error undermines part of the plan.\\
+25\% & Only a fragment, label or generic assertion, or content dominated by technical errors; little usable reasoning.\\
+0\% & No assessable content, or fundamentally incorrect content with no creditable component.\\
+\end{tabularx}
+\end{center}
+Judge technical errors by their consequences for the plan, not by the length of the discussion. For example, a discrete-action method for continuous actions needs a stated adaptation. Reward depending on hidden state is not inherently an error: the environment may compute it, and partial observability is valid. Flag an actual contradiction in the claimed formulation or information available to the learner.
+
+An acknowledged uncertainty is not an automatic deduction. Explain any actual missing reasoning. Do not invent details to fill gaps. Unreadable or missing input files require review, not an automatic zero.
+
+\section*{Boundaries and deductions}
+\begin{itemize}
+\item R03/R06 concern the decision process; R13 concerns obtaining and preparing resources. R07 concerns the learning objective; R11 concerns judging success. R10 concerns which comparator and why; R12 concerns intended experiment design. R01c justifies the RL framing; R03 identifies interaction roles.
+\item Related-work relevance belongs in R02; citation traceability belongs in R16. Count a single defect once. For example, a missing baseline belongs in R10; score R12 on the evaluation reasoning actually provided, without repeating that deduction.
+\item If one issue has genuinely distinct consequences in two rows, explain each consequence. Do not apply a blanket cascading deduction. Score writing under R15 rather than repeatedly penalizing otherwise understandable technical content.
 \end{itemize}
 
-\section*{LLM disclosure}
-The LLM-use report is a required disclosure, not a separate source of bonus points. Permitted, disclosed AI assistance does not by itself reduce the score. Assess the students' reasoning and ownership of the submitted proposal.
+\section*{Disclosure}
+The separate LLM-use report (or non-use declaration) is required. Record its presence and any specific disclosure questions outside the score. Permitted disclosed assistance does not reduce marks. Do not infer misconduct from prose style or invent a numerical penalty; refer concrete concerns for instructor review under the syllabus.
 
-The syllabus governs nondisclosure and academic integrity. Do not infer an automatic numerical penalty from this draft. Additional penalties must be settled before release.
+\newpage
+\section*{Problem and formulation: 50 points}
+\noindent\begin{tabularx}{\linewidth}{@{}p{2.9cm}rL@{}}
+\textbf{ID / criterion} & \textbf{Max} & \textbf{Full credit and guidance}\\\hline
+\criterion{R01a Motivation / problem}{4}{Motivates a defined problem and describes the task in the team's own words.}{An application label without explaining the problem or its motivation is incomplete.}
+\criterion{R01b Focused question}{4}{States one focused question that the planned study could answer.}{A broad topic or a goal to apply an algorithm is not yet an assessable question.}
+\criterion{R01c RL rationale}{4}{Explains the decisions the agent makes and why RL is appropriate for the task.}{Saying only that RL will be used is insufficient. No explicit comparison against alternative learning methods is required; a justified one-step/bandit formulation is acceptable.}
+\criterion{R02 Related work}{8}{Relevant sources help motivate or define the problem. High-level and incomplete coverage is sufficient.}{A list of sources without connection to the question earns limited credit; do not deduct for a small source count or missing exhaustive coverage.}
+\criterion{R03 Agent / environment}{3}{Identifies the decision-maker, what it interacts with and the interaction boundary.}{Names alone may leave the roles unclear. Do not require a software architecture.}
+\criterion{R04 State / observation}{8}{Describes information available to the agent and a plausible state representation, acknowledging relevant information limits or assumptions.}{A variable list without enough meaning or availability information is incomplete; do not require a proof of the Markov property.}
+\criterion{R05 Actions}{5}{Defines available choices and what they mean in the task.}{Naming an action space without explaining its choices or controls is incomplete; exact discretization may remain tentative.}
+\criterion{R06 Dynamics}{4}{Explains qualitatively how actions and the environment change the situation, including relevant uncertainty.}{Naming a simulator alone is insufficient. Transition probabilities or a learned model are not required.}
+\criterion{R07 Reward / objective}{6}{Explains the feedback signal and intended return/objective coherently.}{A generic wish for success without reward meaning is weak; exact coefficients may remain open if the intended incentives are clear.}
+\criterion{R08 Horizon / initial conditions}{4}{Identifies episodic or continuing operation, relevant termination/horizon and starting conditions.}{Credit a coherent continuing-task description without artificial terminal states. Deduct only for relevant missing conditions or contradictions.}
+\end{tabularx}
 
-\noindent\textbf{Grade conversion:} proposal score divided by 20, multiplied by 5, gives the contribution in course percentage points.
+\newpage
+\begin{center}{\large\bfseries Proposal rubric -- approach, evaluation and communication}\end{center}
+\section*{Approach and baseline: 15 points}
+\noindent\begin{tabularx}{\linewidth}{@{}p{2.9cm}rL@{}}
+\textbf{ID / criterion} & \textbf{Max} & \textbf{Full credit and guidance}\\\hline
+\criterion{R09 Tentative approach}{8}{Proposes a plausible approach and explains its fit to the formulation and question.}{An algorithm name without a rationale is incomplete. Do not reward complexity or deduct because the choice may change.}
+\criterion{R10 Tentative baseline}{7}{Identifies a meaningful comparator and explains what it helps establish.}{A named comparator without justification is incomplete. A heuristic, random, non-RL or existing method can be appropriate; implementation is not required.}
+\end{tabularx}
+
+\section*{Evaluation and feasibility: 25 points}
+\noindent\begin{tabularx}{\linewidth}{@{}p{2.9cm}rL@{}}
+\textbf{ID / criterion} & \textbf{Max} & \textbf{Full credit and guidance}\\\hline
+\criterion{R11 Metrics}{8}{Defines meaningful measures of success and connects them to the question. Metrics may differ from training reward.}{``Compare performance'' without measures is weak. Return alone can suffice when justified; extra metrics are not automatically better.}
+\criterion{R12 Intended evaluation experiments}{7}{Describes planned experiments that address the question: methods or variants run, what is varied or held fixed, and relevant conditions, so outcomes are interpretable.}{Listing methods alone is incomplete. Judge the experiments actually described; do not repeat a missing-baseline deduction from R10. A finalized protocol, fixed seed count or statistical test is not required.}
+\criterion{R13 Environment / data setup}{5}{Identifies needed environment/data, how access will be obtained and the main setup or adaptation involved.}{Naming a resource without a credible access/setup route is incomplete. Existing resources are welcome; a working pipeline is not required.}
+\criterion{R14 Compute / risks / fallback}{5}{Addresses available compute, important practical risks and a plausible way to reduce scope if necessary.}{Credit relevant estimates and uncertainties. Unsupported feasibility claims or no response to a major dependency lower the level; detailed profiling is not required.}
+\end{tabularx}
+
+\section*{Communication: 10 points}
+\noindent\begin{tabularx}{\linewidth}{@{}p{2.9cm}rL@{}}
+\textbf{ID / criterion} & \textbf{Max} & \textbf{Full credit and guidance}\\\hline
+\criterion{R15 Clarity}{6}{Writing is concise, specific and organized enough to follow the planned study.}{Deduct for repetition, vagueness or organization that impedes understanding, not stylistic preference or minor language errors.}
+\criterion{R16 Citations / format}{4}{Citations are traceable and the report follows the released page, typography and identifying-information requirements.}{Use the common anchors for the severity of actual defects. Do not impose an unannounced fixed penalty, citation style or minimum reference count.}
+\end{tabularx}
+\noindent\textbf{Total: 100 points.} Course contribution = (proposal score / 100) $\times$ 5 percentage points. Keep any authorized administrative adjustment separate from the rubric total.
+
+\newpage
+\begin{center}{\large\bfseries Proposal rubric -- advisory assessments and review}\end{center}
+\noindent These assessments guide project feedback. \textbf{Neither changes the numerical score, adds a penalty or caps the grade.} Independently evidenced shortcomings may affect the appropriate scored row once.
+
+\section*{A. Scope reasonableness for the team}
+Record the team size, label, evidence, uncertainties and one concrete adjustment if needed. Judge the essential project within the remaining course timeline and available resources; distinguish optional extensions. Do not assume workload divides evenly across members. If team size is unknown, say so and make any judgment conditional.
+\begin{description}[style=nextline]
+\item[Too easy.] The planned investigation offers insufficient substantive work or learning for this team; little goes beyond a routine application or demonstration.
+\item[Reasonable.] The team has a meaningful, achievable RL investigation with plausible depth and a viable path to completion.
+\item[Too difficult / too time-consuming.] Essential work depends on unrealistic compute, infrastructure, theoretical progress, access or preparation within the available time.
+\item[Insufficient information.] Missing scope/resource information prevents a defensible judgment. State what is needed to resolve it.
+\end{description}
+A small grid world, small action/state space or a simple algorithm such as REINFORCE does not automatically mean ``too easy.'' A controlled investigation of reward hacking, safety, observability or algorithm behavior may provide sufficient depth in a small domain. Novelty and fashionable topics are neither required nor sufficient. A bounded reproduction plus an informative comparison can be reasonable.
+
+Conversely, promising to solve a broad research problem, train a very large model or establish substantial new theory may be too difficult. A narrow question using existing resources and a feasible fallback may make such a direction reasonable. Recommend added investigative depth for an easy project and reduced essential scope for a difficult one, rather than merely adding algorithms or compute.
+
+\section*{B. RL centrality and expected work balance}
+Report these two properties separately:
+\begin{itemize}
+\item \textbf{RL centrality: central / supporting / tangential / unclear.} Is understanding or improving RL behavior essential to the question? Could the main research contribution remain essentially unchanged if the RL component were replaced?
+\item \textbf{Expected effort balance: RL-dominant / mixed / predominantly other work / insufficient information.} Support the label with a short breakdown of planned work: RL formulation, learning, experimental design and analysis; infrastructure/environment engineering; data preparation or other research. Identify major reused resources.
+\end{itemize}
+Count formulation and RL-specific experimentation/analysis as RL work, even when using an existing library. Custom infrastructure may be valuable and necessary, but does not by itself establish RL depth. A simulator-heavy project can be centrally about RL while most effort lies in infrastructure. Classify tasks by purpose and avoid counting the same work twice.
+
+Use qualitative judgments by default. Give only rough effort ranges if the proposal supports them, label these as grader estimates, and state uncertainties. Do not infer exact percentages from prose length, code volume, algorithm complexity or team size. Recommend a way to protect sufficient substantive RL work when other tasks threaten to dominate.
+
 \end{document}

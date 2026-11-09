@@ -143,10 +143,9 @@ llm_use:
   ownership_boundary_authority: Instructor's proposal-guidelines request, 2026-10-22.
   operational_state: Instructor accepted the written-report LLM-use guidelines on October 22, 2026. The current wording is in
     course/projects/llm_use_written_reports_chatgpt/main.tex; the accepted PDF is in course/projects/handouts/.
-    Publication is not recorded. Detailed proposal-rubric
-    review is deferred until grading following a first pass with no significant issues.
+    Publication is not recorded. Proposal-rubric calibration is now in progress; see proposal_grading_pilot.
 proposal_guidelines_preparation:
-  state: guidelines-accepted; rubric-first-pass-reviewed
+  state: guidelines-accepted; rubric-in-calibration
   accepted_date: '2026-10-22'
   instruction_date: '2026-10-22'
   scope_source: milestones/proposal
@@ -161,10 +160,51 @@ proposal_guidelines_preparation:
     proposal: course/projects/handouts/proposal_guidelines_chatgpt.pdf
     llm_use: course/projects/handouts/llm_use_written_reports_chatgpt.pdf
   pending_recommendations: analysis/project_proposal_preparation_chatgpt.md
-  rubric_review: Instructor's first pass found no significant issues; revisit the existing rubric during grading.
-    This records review status, not a new penalty rule or a formal freeze of numeric weights.
+  rubric_review: Revised for the instructor's November 9 grading pilot; see proposal_grading_pilot.
   remaining_release_details:
   - Publication of the instructor-edited guidelines and companion instructions (not yet recorded)
+proposal_grading_pilot:
+  state: ready-for-pilot; calibration-pending
+  instruction_date: '2026-11-09'
+  rubric_source: course/projects/proposal_rubric_chatgpt/main.tex
+  ai_guidelines_source: course/projects/ai_proposal_grading_guidelines_chatgpt/main.tex
+  scoring: Use the rubric's 18 scored rows totaling 100 points, with explicit full-credit and partial-credit anchors.
+    Numeric weights are pilot allocations, not frozen cohort-wide grading policy. The proposal remains 5 percent
+    of the overall course grade. Do not add requirements beyond the released proposal handout.
+  advisory: Scope reasonableness accounts for group size. Assess RL centrality and expected RL versus infrastructure
+    or other work separately. These assessments remain outside the numerical score and cannot add deductions or grade caps.
+  calibration: Instructor will test a few proposals with two AIs and one human grader independently, then compare
+    criterion judgments, evidence and advisory labels before deciding revisions. No pilot submissions have been graded
+    as part of preparing these documents.
+  scope: Update the rubric and draft AI grading guidelines only. Preserve accepted student-facing guidelines.
+  review_source: analysis/proposal_grading_review.md
+  instructor_decisions_2026_11_09:
+    format_violations: Highlight page overflows and other format violations in the student feedback; grade content
+      past the limit normally. No separate automatic format penalty or 10-points-per-page deduction. The instructor's
+      later clarification retains current R16, including its format component, for the pilot; this supersedes the
+      earlier blanket no-format-deduction and citation-only interpretation. Any equivalent-length estimate is diagnostic,
+      not a penalty formula.
+    r16: Keep the current four-point citations-and-format criterion and its current scoring guidance through the pilot.
+      Reconsider a citation-only criterion and format handling after the pilot.
+    technical_correctness: Technical errors enter the level scale and the required feedback.
+    r01: Use R01a motivation/problem, R01b focused question and R01c RL rationale, four points each. This pilot split
+      is instructor-approved. R01c asks why RL is appropriate; it does not require explicit superiority comparisons
+      with other methods or exclude a justified one-step/bandit formulation.
+    r12: Rephrase R12 as the intended evaluation experiments rather than a comparison.
+    calibration_text: Calibration procedure lives only in the AI grading guidelines, not in the rubric.
+    ai_runs: Run each AI multiple times per pilot proposal.
+    student_feedback: Send all assessment output to students, including advisory labels, except the guidelines'
+      section 7 review questions, whose release the instructor decides; may change after the pilot.
+    scope_context: Feedback returns by the end of the week of 2026-11-09, leaving about 8 weeks for implementation,
+      presentation and report. Most if not all teams will use AI help. The instructor will try to obtain HPC access
+      for undergraduates who can justify it. Milestone timing is dynamic and may be adjusted during the semester;
+      the scope context gives no fixed milestone dates.
+    deferred: Row consolidation after the pilot; rounding. Layout cosmetics are low priority because the rubric is
+      internal.
+  revision_status: Recorded revisions and ChatGPT review corrections applied to both documents; PDFs regenerated
+    for the pilot. R16 retained verbatim, confirmed by the instructor to Claude on 2026-11-09, so format may lower R16
+    only. The guidelines now mark section 7 as "release will be decided by the instructor"; both documents are ready
+    for the pilot. Calibration results and cohort-wide freeze remain pending.
 regular_semester_template:
   presentation_window: Late Week 14 or early Week 15
   condition: Instructor available throughout; follows early-Week-14 midterm 3. This is a future-offering template,

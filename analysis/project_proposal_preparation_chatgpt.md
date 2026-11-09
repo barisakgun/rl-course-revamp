@@ -4,6 +4,8 @@ ChatGPT, 2026-10-22. Recommendations and draft-artifact review, not accepted gra
 
 ## Instructor review update
 
+November 9 update: the instructor requested a 100-point, more granular rubric and separate AI grading guidelines for a pilot with two AIs and one human. The current rubric TeX now supplies the pilot criteria and partial-credit anchors; `course/projects/ai_proposal_grading_guidelines_chatgpt/main.tex` supplies the draft workflow. Scope reasonableness and RL-work assessments are advisory only. This supersedes the earlier deferral to grading below; calibration and any cohort-wide freeze remain pending. No proposals were assessed during document preparation.
+
 The instructor has now accepted both guideline documents (2026-10-22). Their accepted PDFs have moved to `course/projects/handouts/`, with editable TeX sources retained in place. The rubric remains a first-pass grading reference, not part of this acceptance. Publication is not recorded. Historical review choices below do not reopen the accepted handout instructions.
 
 The instructor edited the two guideline TeX files and removed their visible draft labels. Those saved files now supply the current wording. The proposal emphasizes revisability/candidate approach, broadens success-metric examples and clarifies title placement, LearnHub-only submission and upload checking. The LLM instructions permit grouping members with similar use, request at most three examples, mention CLI logs, and condition the project-selection prompt on relevant AI use. Preserve these edits rather than restoring the initial draft.
