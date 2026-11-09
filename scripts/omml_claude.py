@@ -3,7 +3,7 @@
 
 Supports the subset used in lecture decks: letters/digits/operators, sub- and superscripts (x_t, x^{2}, x_a^b),
 \\sum with limits, \\frac, \\lim_{...}, \\mathcal{S}, \\mathbb{E}, \\text{...}, \\Pr, \\{ \\}, \\mid, \\doteq, \\ldots, \\cdots,
-Greek letters, primes, spacing commands. Unsupported commands raise ValueError, so a typo cannot silently produce
+Greek letters, primes, spacing commands, bold vectors \\mathbf{w}, accents \\hat{v}, \\nabla, \\top. Unsupported commands raise ValueError, so a typo cannot silently produce
 a wrong equation. The output is editable in PowerPoint's equation editor; the LaTeX source is kept in the slide
 notes by the builder.
 
@@ -29,6 +29,7 @@ SYMBOLS = {
     'cdots': '⋯', 'to': '→', 'times': '×', 'in': '∈', 'leq': '≤', 'geq': '≥', 'neq': '≠', 'approx': '≈',
     'cdot': '·', 'pm': '±', 'quad': ' ', 'qquad': '  ', ',': ' ', ';': ' ', ' ': ' ',
     '{': '{', '}': '}', 'lvert': '|', 'rvert': '|', 'prime': '′', 'leftarrow': '←', 'sum': '∑',
+    'nabla': '∇', 'top': '⊤', 'sim': '∼', 'rightarrow': '→',
 }
 UPRIGHT_CMDS = {'Pr': 'Pr', 'max': 'max', 'min': 'min', 'lim': 'lim', 'arg': 'arg', 'log': 'log', 'exp': 'exp'}
 CAL = {c: ch for c, ch in zip('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵')}
@@ -101,6 +102,11 @@ class Parser:
                 return ('t', ''.join(table[c] for c in letters), True)
             if v in ('text', 'mathrm', 'operatorname'):
                 return ('t', self.raw_group(), True)
+            if v == 'mathbf':                              # bold upright vector letters (notation guide)
+                letters = self.raw_group() if self.peek()[0] == '{' else self.take()[1]
+                return ('b', letters)
+            if v == 'hat':                                 # \hat{v}: combining circumflex accent over the group
+                return ('acc', '\u0302', self.group())
             if v in UPRIGHT_CMDS:
                 return ('t', UPRIGHT_CMDS[v], True)
             if v == 'sum':
@@ -170,12 +176,15 @@ def _rpr(size, color, italic=False):
     return r
 
 
-def _run(text, upright, size, color):
+def _run(text, upright, size, color, bold=False):
     r = etree.Element(M + 'r')
-    if upright:
-        mp = etree.SubElement(r, M + 'rPr'); etree.SubElement(mp, M + 'sty', {M + 'val': 'p'})
-    r.append(_rpr(size, color, italic=not upright))
-    t = etree.SubElement(r, M + 't'); t.text = text if upright else _italic(text)
+    if upright or bold:
+        mp = etree.SubElement(r, M + 'rPr'); etree.SubElement(mp, M + 'sty', {M + 'val': 'b' if bold else 'p'})
+    rp = _rpr(size, color, italic=not upright and not bold)
+    if bold:
+        rp.set('b', '1')
+    r.append(rp)
+    t = etree.SubElement(r, M + 't'); t.text = text if upright or bold else _italic(text)
     if text != text.strip():
         t.set('{http://www.w3.org/XML/1998/namespace}space', 'preserve')
     return r
@@ -188,6 +197,12 @@ def _emit(items, parent, size, color):
             parent.append(_run(it[1], it[2], size, color))
         elif kind == 'grp':
             _emit(it[1], parent, size, color)
+        elif kind == 'b':
+            parent.append(_run(it[1], False, size, color, bold=True))
+        elif kind == 'acc':
+            el = etree.SubElement(parent, M + 'acc')
+            pr = etree.SubElement(el, M + 'accPr'); etree.SubElement(pr, M + 'chr', {M + 'val': it[1]})
+            e = etree.SubElement(el, M + 'e'); _emit(it[2], e, size, color)
         elif kind == 'script' and it[1][0] == 't' and it[1][1] in ('max', 'min', 'lim') and it[2] and not it[3]:
             el = etree.SubElement(parent, M + 'limLow')       # \max_{...}: limit set below the operator
             e = etree.SubElement(el, M + 'e'); _emit([it[1]], e, size, color)

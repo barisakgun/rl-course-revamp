@@ -65,7 +65,7 @@ Separate representation insufficiency from unstable learning, then explain the r
 
 **Displacement and scope:** Keep the representation/instability and replay/target work. Replace the separate double-estimator use case with a small target-function patch and automated tests. Reuse both existing DQN networks; no extra benchmark sweep or framework. If the patch cannot be scaffolded/tested cheaply, omit it rather than create a separate case study.
 
-**Exam connection:** Midterm 1 may assess only already-taught linear/instability reasoning. Midterm 2 may assess DQN/replay/target reasoning; do not require completed A2 in midterm 1.
+**Exam connection:** Midterm 2 may assess DQN/replay/target reasoning. Exam coverage is decided before each midterm (decisions/grading_decisions.md).
 
 Evidence below motivates bounded reuse; source-course workload and full algorithm requirements are not copied.
 

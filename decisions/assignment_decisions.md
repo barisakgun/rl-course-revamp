@@ -114,8 +114,8 @@ assignments:
   starter: Small CPU-feasible environment, neural network/optimizer scaffolding, bounded replay store, fixed run
     configurations, divergence demonstration, reference traces and plotting. Adapt local HW1B ideas without requiring
     the entire Pacman framework or its unrelated questions; linked code has not been executed.
-  exam_bridge: Midterm 1 may assess only already-taught linear/instability reasoning. Midterm 2 may assess DQN/replay/target
-    reasoning; do not require completed A2 in midterm 1.
+  exam_bridge: Midterm 2 may assess DQN/replay/target reasoning. Exam coverage is decided before each midterm
+    (decisions/grading_decisions.md).
   grading_design: Mostly automated update/target tests and standard output files; at most one short diagnostic response
     using the existing experiment. Do not award points for Double DQN outperforming DQN in a small stochastic run.
   schedule:

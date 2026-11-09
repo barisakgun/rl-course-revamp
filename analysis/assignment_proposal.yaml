@@ -104,7 +104,8 @@ alignment:
   - deep_value
   assignments:
   - A2
-  other: Midterm 1 covers approximation; midterm 2 deep value.
+  other: Midterm 2 may cover deep value; exam coverage of approximation is decided before each midterm (Week 5 is
+    outside Fall 2026 midterm 1).
 - groups:
   - policy_estimators
   - policy_updates
@@ -139,6 +140,12 @@ alignment:
   assignments:
   - A2
   other: Midterm 2 conceptual diagnosis plus A2 target-patch implementation.
+- groups:
+  - return_mixtures
+  assignments: []
+  other: No assignment task on the forward lambda-return (instructor, 2026-11-08). Midterm 1 asks one short written or
+    true/false question at its 3.2 scope (decisions/grading_decisions.md); the 8.1 mixture-to-GAE connection adds
+    no separate lambda task.
 open_choices: []
 boundary: Phase 5 high-level design is complete. Rubric, example-report and concrete artifact work is deferred to
   the semester by instructor direction. Phase 6 integrates schedule and workload; no Phase 7 artifact construction

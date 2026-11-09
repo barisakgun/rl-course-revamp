@@ -93,7 +93,9 @@ def validate(spec):
         if pct(row[-1]) != proj['table']['check_sum']:
             errors.append('project milestone total differs from the assessment-table project weight')
     budget = time_budget(d)
-    timed = [s for s in spec['slides'] if not s.get('appendix')]
+    route = d.get('timed_alternates', {})            # {choice: option}: one alternative per instructor choice counts
+    timed = [s for s in spec['slides'] if not s.get('appendix')
+             and (not s.get('alt') or route.get(s['alt']['choice'], 'A') == s['alt']['option'])]
     for s in timed:
         if not isinstance(s.get('minutes'), (int, float)):
             errors.append(f"{s['id']}: no `minutes` estimate (needed for the {budget}-minute budget)")
@@ -172,6 +174,14 @@ def text_math(p, latex, size, color=INK, bold=False):
                     r.font._rPr.set('baseline', str(baseline))
             elif it[0] == 'grp':
                 emit(it[1], baseline, sz)
+            elif it[0] == 'b':                               # \mathbf: bold upright vector letters
+                r = _run(p, it[1], sz, color, True, 'Cambria Math')
+                r.font.italic = False
+                if baseline:
+                    r.font._rPr.set('baseline', str(baseline))
+            elif it[0] == 'acc':                             # \hat{v}: base letters, then the combining accent
+                emit(it[2], baseline, sz)
+                emit([('t', it[1], True)], baseline, sz)
             elif it[0] == 'script' and it[3] == [('t', '′', True)] and not it[2]:
                 emit([it[1], ('t', '′', True)], baseline, sz)   # text runs: keep x′ on the baseline
             elif it[0] == 'script':
@@ -349,6 +359,9 @@ def notes(slide, s):
     if srcs:
         s = dict(s, notes=(s.get('notes', '').rstrip() + '\n\nEquation sources (LaTeX): ' + ' | '.join(srcs) + '\n'))
     head = f"Target: {s.get('minutes', 0)} min{' (appendix)' if s.get('appendix') else ''}. Sources: {', '.join(map(str, s.get('sources', [])))}."
+    if s.get('alt'):
+        head += (f" Alternative: {s['alt']['choice']} Alt {s['alt']['option']}; only one alternative per choice"
+                 " counts toward the session's targets.")
     if s.get('instructor_voice'):
         head += f" Instructor voice (not syllabus policy): {'; '.join(s['instructor_voice'])}."
     slide.notes_slide.notes_text_frame.text = s.get('notes', '').strip() + '\n\n' + head

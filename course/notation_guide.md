@@ -1,6 +1,6 @@
 # Notation guide
 
-**Shared** by Claude and ChatGPT for all lecture, assignment and exam material. Status: draft started 2026-10-05; the instructor confirms changes and resolves open items when needed. Updated 2026-10-21 by the instructor: N(s), the visit count for Monte Carlo sample averages (deck decision `mc_td` D4). Updated 2026-10-11 by the instructor: Q_k(s, a) for Q-value iteration; policy and optimality marks are superscripts (v^π, q^π, v^\*, q^\*, π^\*, B^π), departing from the book's subscripts. Updated 2026-10-09 with instructor approval: V_k(s) for dynamic-programming sweeps. Updated 2026-10-08 by the instructor: 𝒯 and ℳ for the dynamics (O12); ℛ is the reward function, no longer the set of possible rewards. Updated 2026-10-07 during authorized 1.2 finalization: explicit-reward H_t added and O10 resolved by the instructor's earlier approval. The 2026-10-06 additions (O_t, O9 conversions and O11) remain.
+**Shared** by Claude and ChatGPT for all lecture, assignment and exam material. Status: draft started 2026-10-05; the instructor confirms changes and resolves open items when needed. Updated 2026-11-02 by the instructor: ∇, VE(**w**) and **x**(s, a) for Weeks 5–6, the Week 5 avoidance conventions, and the layout fallback for repeated symbols (deck decision `function_approximation` D6). Updated 2026-10-21 by the instructor: N(s), the visit count for Monte Carlo sample averages (deck decision `mc_td` D4). Updated 2026-10-11 by the instructor: Q_k(s, a) for Q-value iteration; policy and optimality marks are superscripts (v^π, q^π, v^\*, q^\*, π^\*, B^π), departing from the book's subscripts. Updated 2026-10-09 with instructor approval: V_k(s) for dynamic-programming sweeps. Updated 2026-10-08 by the instructor: 𝒯 and ℳ for the dynamics (O12); ℛ is the reward function, no longer the set of possible rewards. Updated 2026-10-07 during authorized 1.2 finalization: explicit-reward H_t added and O10 resolved by the instructor's earlier approval. The 2026-10-06 additions (O_t, O9 conversions and O11) remain.
 
 Base convention: Sutton & Barto, *Reinforcement Learning: An Introduction*, 2nd ed., "Summary of Notation". Later units add symbols the book does not use; they are listed separately so the base stays recognisable to students who read the book.
 
@@ -68,9 +68,18 @@ Base convention: Sutton & Barto, *Reinforcement Learning: An Introduction*, 2nd 
 | **w**, d | Value-function weight vector; its dimension |
 | v̂(s, **w**), q̂(s, a, **w**) | Approximate values |
 | **x**(s), **x**_t | Feature vector |
-| μ(s) | On-policy state distribution |
+| **x**(s, a) | State–action feature vector (linear q̂; e.g. Mountain Car tile features) (instructor approved 2026-11-02) |
+| ∇v̂(s, **w**), ∇q̂(s, a, **w**) | Gradient with respect to **w** (the book's notation) (instructor approved 2026-11-02) |
+| VE(**w**) | Value error: Σ_s μ(s)[v^π(s) − v̂(s, **w**)]². The book writes it with an overbar, which is optional on slides. Not J(**w**), which would clash with the policy objective J(**θ**) (instructor approved 2026-11-02) |
+| μ(s) | On-policy state distribution. Other state weightings (the behaviour's, uniform DP sweeps) are named in words, not with μ (2026-11-02) |
 | **w**⁻ | Target-network weights (DQN) |
 | 𝒟 | Replay buffer or fixed dataset |
+
+Week 5 conventions (instructor, 2026-11-02, deck decision `function_approximation` D6):
+- **Avoided on slides:** Π for the projection (label "best fit" or "closest representable"; Π is easily misread as π next to B^π); the book's A and b for the TD fixed point (they clash with the action and the behaviour policy; say "TD fixed point"); d as a feature name (d is the weight dimension).
+- **Words for physical quantities that clash with features:** Mountain Car "position" and "velocity", not x and ẋ; grid or landmark coordinates as "column" and "row", with landmark features written x₁(s) … x₄(s).
+- **Weight indices:** a one-weight example uses the plain scalar w (**w** = (w)), with no time index. Components w₁ … w_d (e.g. Baird's w₁ … w₈) are labelled "subscript = component" on first use. Avoid **w**_t on those slides.
+- **Layout fallback:** if the word-based form causes a layout problem, a repeated symbol (e.g. x for position, Π for the projection) may be used where the context makes the two meanings easy to tell apart. State the local meaning on the slide.
 
 ## Policy methods (Weeks 7–9)
 

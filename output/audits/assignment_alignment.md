@@ -14,12 +14,13 @@ The accepted design covers intended Core assessment paths with logged Double DQN
 | --- | --- | --- |
 | formulation | A1 | Project proposal/design and midterm 1. |
 | planning; prediction; control | A1 | Midterm 1 derivation/analysis; supplied PI and MC-control comparison do not require full implementations. |
-| approximation; deep_value | A2 | Midterm 1 covers approximation; midterm 2 deep value. |
+| approximation; deep_value | A2 | Midterm 2 may cover deep value; exam coverage of approximation is decided before each midterm (Week 5 is outside Fall 2026 midterm 1). |
 | policy_estimators; policy_updates | A3 | Midterm 2 covers derivations and conceptual variants; A3 implements REINFORCE/baseline and analyzes supplied PPO runs. No PPO/SAC implementation. |
 | bandit_concepts; model_concepts | No coding assignment required | Midterm 3: UCB choice/optimism and model-error/horizon diagnosis. No required implementation is frozen for these groups; optional project specialization. |
 | offline_concepts; offline_iql | A4 | A4 provides accepted bounded IQL implementation; midterm 3 covers conceptual offline reasoning/CQL before assignment completion. |
 | evaluation | A1, A2, A3, A4 | Project evaluations and appropriate midterm interpretation questions. |
 | maximization_bias_core; double_dqn_core | A2 | Midterm 2 conceptual diagnosis plus A2 target-patch implementation. |
+| return_mixtures | No coding assignment required | No assignment task on the forward lambda-return (instructor, 2026-11-08). Midterm 1 asks one short written or true/false question at its 3.2 scope (decisions/grading_decisions.md); the 8.1 mixture-to-GAE connection adds no separate lambda task. |
 
 The implementation-bearing groups (planning, prediction, control, approximation, deep value and policy estimators) have direct opportunities in A1–A3. Dropping one of these tasks leaves its corresponding per-student implementation evidence incomplete. This is an acknowledged consequence of accepted aggregation, not a claim that exam answers prove coding mastery.
 

@@ -27,6 +27,51 @@
 - Authority: instructor, recorded in the git-ignored `decisions/exams/midterm_1.md` X7–X8. Accepted the combined selection from both AI suggestions and the cross-review corrections. Question-specific changes, allocations and remaining grading choices are recorded only in the confidential exam decisions and shared review, in accordance with the repository contract.
 - No coverage, format, lecture-minute, mastery or assignment change.
 
+## 2026-11-08 — Readings ignored for Fall 2026
+
+- Authority: instructor ("We will ignore readings this semester … 'go over it from the start' for the next semester"). Recorded as a note in `decisions/reading_decisions.md`; its structured block is unchanged.
+- The stale `output/readings.md` is not regenerated or maintained this semester. Next semester, the reading work restarts from the beginning.
+- Assignments are to be reviewed soon. Known stale items, such as A1's Midterm 1 exam bridge, wait for that review.
+- No scope, lecture, assessment or workload change.
+
+## 2026-11-08 — Week 5 step-4 basis; forward λ-return stays out of assignments
+
+- Authority: instructor ("Claude's order"; "For the assignment, do not put forward lambda in").
+  - Recorded as [function_approximation D9](lectures/function_approximation.md). Claude's 5.1 sequence and the 5.2 time-check frame, with the accepted alternates, are the basis for ChatGPT's step-4 content. O4 is closed.
+- Assignment alignment (`analysis/assignment_proposal.yaml`):
+  - The Core group `return_mixtures` gets an alignment row with no assignment task. Its assessment path is Midterm 1's short forward-λ question (`grading_decisions.md`). The 8.1 GAE connection adds no separate λ task.
+  - The approximation row's stale "Midterm 1 covers approximation" is replaced by the per-midterm coverage rule.
+  - `scripts/assignment_report.py` passes again, and `output/assignments.md` and `output/audits/assignment_alignment.md` are regenerated.
+  - No assignment task, release, workload or grading change.
+- Not addressed here: `phase5_report.py` (readings view) and `phase6_report.py` (assessment schedule/timeline) were already stale at HEAD from the midterm-date decisions.
+
+## 2026-11-08 — Week 5 deck (`function_approximation`): remaining early choices; A2 exam bridge
+
+- Authority: instructor, recorded as [function_approximation D8](lectures/function_approximation.md).
+  - Out-of-scope old slides are removed: average reward, gradient TD, least squares. Old 57–58 and 62–74 are kept as pointers for Week 6 and the optional offline LSTD mention.
+  - Control with approximation stays in 5.1.
+  - 5.1 may use the delivery allowance (58.5 or 59.5).
+  - The grid alternate keeps its second update.
+  - Alternates are tagged Alt A/Alt B, with only one timed.
+  - Q-Pacman is removed.
+- `decisions/assignment_decisions.md`: A2's `exam_bridge` loses its stale Midterm 1 sentences, since Week 5 is outside Midterm 1. Generated assignment views are not regenerated: `scripts/assignment_report.py` currently fails on a separate check (Core group `return_mixtures` has no assignment alignment row).
+- The step-4 content basis stays open (O4). No change to scope, mastery, allocations or assessment.
+
+## 2026-11-02 — Week 5 deck (`function_approximation`): instructor choices after cross-review
+
+- Authority: instructor, recorded as [function_approximation D1–D4](lectures/function_approximation.md).
+  - One deck covers 5.1–5.2.
+  - Alternate worked examples are kept in the deck for later selection: 5.1 grid or landmark features; 5.2 complete two-state construction or fragment, each followed by a Baird picture.
+  - Mountain Car and scoped convergence statements are kept.
+- Geometry depth (13 versus 8 minutes) and notation stay open (O1, O2). No change to scope, mastery, allocations or assessment.
+- Same day, follow-up (D5, D6):
+  - Geometry pictures P1 (grid slice) and P2 (two-state line) are kept as alternates tied to the example selection. P3 (book Figure 11.3) is left out for now: a possible later appendix, with ChatGPT's DP-process and exposure-scope caveat.
+  - Claude's symbol proposals are accepted. ∇, VE(**w**) and **x**(s, a) are added to `course/notation_guide.md`, with Week 5 avoidance conventions and a layout fallback that allows repeated symbols when the context separates them. O2 is closed; geometry depth (O1) stays open.
+- Same day, second follow-up (D7): the AIs' agreed corrections are accepted for consolidation.
+  - R07 is changed: old slide 15's "may be called gradients" disclaimer stays.
+  - R03, C01 and C02's first bullet stay open for the instructor's review of the alternates.
+  - No change to scope, mastery, allocations or assessment.
+
 ## 2026-11-02 — University-set midterm 1 placement confirmed
 
 - Authority: instructor clarification during the requested review of Claude's exam suggestion. The university schedules the exam and placed midterm 1 in calendar Week 5. Record Week 5 with the already decided November 5 date; retain the old Week 6 window only in the future-offering template.

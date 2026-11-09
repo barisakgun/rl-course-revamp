@@ -1,0 +1,658 @@
+# Week 5 deck `function_approximation` (sessions 5.1–5.2), session 5.1 portion (F00–F18): Claude's renderer input.
+# First draft: renderer input for the first render of this deck only (2026-11-09). Not maintained: the PPTX is the
+# source from that render on. Do not rebuild over the deck or treat this file as its current content.
+# Status: decisions/lectures/function_approximation.md. Content: course/lectures/week05/function_approximation_content.md
+# (shared, frozen at this render; slide IDs as there). Session 5.2 (G00–G15, I02–I07) is built from
+# function_approximation_instability_claude.yaml and appended after F18 (scripts/append_slides_claude.py).
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week05/function_approximation_claude.yaml
+# Equations are native PowerPoint equations generated from the LaTeX below (scripts/omml_claude.py; \hat, \mathbf,
+# \nabla and \top added for this deck), Accent 5, superscript policy marks. The old deck's equations use old notation
+# (f(s), V̂^π, J(w), R_t), so they are regenerated in course notation rather than copied (as in Week 4).
+# Old Value Function Approximation PPTX numbering ("old P") is presentation order including hidden slides (75).
+# Pacman boards: the old P5/P18 boards are grouped vector/bitmap composites that cannot be copied as pictures, so they
+# are cropped from the old deck's PDF export into course/lectures/week05/assets/ (provenance in the notes).
+# Alternatives (D2): F12-A/F12a-A/F13-A (grid) and F12-B/F12a-B/F13-B (landmarks) are both rendered and visible.
+# Time budget: decisions/topic_decisions.yaml lecture_plan[linear].teaching_minutes (58). Timed route: Alt A (grid),
+# targets 58.5, accepted under the delivery allowance (D8); the landmark route sums to 59.5.
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week05/function_approximation_claude.pptx
+  preview: output/lectures/week05/function_approximation_claude_preview.png
+  session_id: linear
+  qa_minutes: 0
+  timed_alternates: {'5.1 example': A}
+  time_override:
+    accepted_minutes: 59.5
+    authority: 'function_approximation D8: 5.1 targets 58.5 (grid) / 59.5 (landmarks) under the 63-minute delivery allowance'
+  title: Function approximation (sessions 5.1–5.2)
+  author: Barış Akgün
+  term: Fall 2026
+
+slides:
+  - id: F00
+    kind: course_title
+    title: COMP438/538 Reinforcement Learning
+    topic: Function Approximation
+    minutes: 0.5
+    sources: ['old Value Function Approximation PPTX 1 (title), Introduction title format']
+    notes: |
+      F00. One deck across two meetings; this meeting is 5.1, Linear approximation and semi-gradients. Today we
+      replace independent table entries with shared weights.
+
+  - id: F01
+    kind: math
+    title: From tables to generalization
+    body_box: [0.244, 1.1, 12.85, 2.0]
+    size: 24
+    body:
+      - {eq: 'V(S_t)\leftarrow V(S_t)+\alpha[U_t-V(S_t)]'}
+    after_box: [0.244, 2.6, 12.85]
+    after:
+      - 'MC: the target $U_t$ is a return.'
+      - 'TD: the target bootstraps from another estimate.'
+      - 'A table update directly changes **one entry**.'
+      - text: '**Question:** Can experience improve predictions at other states?'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 3 (recap, reduced to the update form)', 'Week 4 P10']
+    notes: |
+      F01. Recall Week 4's final question (P10, From tables to generalization). Prediction still means estimating a
+      fixed policy's values; control adds policy improvement later. Answer: shared parameters can transfer an update
+      across states, for better or worse.
+
+  - id: F02
+    kind: math
+    title: Too many states, too little experience
+    pictures:
+      - {file: course/lectures/week05/assets/pacman_states_claude.png, box: [0.5, 1.05, 7.6]}
+    body_box: [8.4, 1.1, 4.7, 4.2]
+    size: 20
+    body:
+      - '**Storage is only half the problem.**'
+      - 'Large or continuous spaces make repeated visits scarce.'
+      - 'Similar situations may have related values.'
+      - 'A representation decides which similarities matter.'
+    after_box: [0.5, 4.4, 12.3]
+    after:
+      - text: '**Question:** Two Pacman positions differ by one square. What information could make their values similar, or very different?'
+    minutes: 3
+    sources: ['old Value Function Approximation PPTX 4–5 (scale argument; P5 Pacman boards cropped from the old PDF export)']
+    notes: |
+      F02. The three boards are old P5's (cropped from the old deck's PDF export because they are grouped composites).
+      Invite food/ghost distances and obstacles. Nearby positions separated by a wall or a dangerous ghost need not
+      have similar values. A table makes no direct cross-state parameter update; do not say it can never propagate
+      information through TD backups. No numerical state-count claims (old P4's are removed).
+
+  - id: F03
+    kind: math
+    title: What must the approximator handle?
+    body_box: [0.244, 1.1, 12.85, 1.0]
+    size: 24
+    body:
+      - text: '**What would you use to predict value from a description of a state?**'
+    blocks:
+      - box: [0.6, 2.2, 12.0, 3.2]
+        size: 22
+        items:
+          - 'A compact representation'
+          - 'Updates from experience'
+          - 'Generalization to similar states'
+          - 'Useful gradients for updating the weights'
+    reveal: ['yaml:blocks.0']
+    minutes: 3
+    sources: ['old Value Function Approximation PPTX 8–9 (approximator list and requirements, reduced)']
+    notes: |
+      F03. About one minute of brainstorming, then reveal the four requirements. Connect linear models and neural
+      networks to supervised regression. RL adds correlated experience, action-dependent data and potentially changing
+      targets. A differentiable model makes updates possible; it does not remove these problems. We begin with linear
+      models so we can inspect the mechanism.
+
+  - id: F04
+    kind: math
+    title: A value estimate is now a function
+    body_box: [0.244, 1.0, 12.85, 1.2]
+    size: 24
+    body:
+      - {eq: '\hat{v}(s,\mathbf{w})\approx v^{\pi}(s),\qquad\hat{q}(s,a,\mathbf{w})\approx q^{\pi}(s,a)'}
+    drawing:
+      - {box: [1.2, 3.4, 2.2, 1.4], text: '**shared weights 𝐰**'}
+      - {box: [5.55, 3.4, 2.2, 1.4], text: '**shared weights 𝐰**'}
+      - {box: [9.9, 3.4, 2.2, 1.4], text: '**shared weights 𝐰**', tint: true}
+      - {line: [2.3, 5.5, 2.3, 4.8], arrow: true}
+      - {line: [2.3, 3.4, 2.3, 2.7], arrow: true}
+      - {line: [6.15, 5.5, 6.15, 4.8], arrow: true}
+      - {line: [7.15, 5.5, 7.15, 4.8], arrow: true}
+      - {line: [6.65, 3.4, 6.65, 2.7], arrow: true}
+      - {line: [11.0, 5.5, 11.0, 4.8], arrow: true}
+      - {line: [10.3, 3.4, 10.3, 2.7], arrow: true}
+      - {line: [11.0, 3.4, 11.0, 2.7], arrow: true}
+      - {line: [11.7, 3.4, 11.7, 2.7], arrow: true}
+      - {label: 'state s', box: [1.3, 5.5, 2.0, 0.45], size: 18}
+      - {label: 'state s, action a', box: [5.15, 5.5, 3.0, 0.45], size: 18}
+      - {label: 'state s', box: [10.0, 5.5, 2.0, 0.45], size: 18}
+      - {label: 'v̂(s, 𝐰)', box: [1.3, 2.2, 2.0, 0.45], size: 18}
+      - {label: 'q̂(s, a, 𝐰)', box: [5.65, 2.2, 2.0, 0.45], size: 18}
+      - {label: 'one value per discrete action', box: [9.4, 2.2, 3.2, 0.45], size: 16}
+    after_box: [0.244, 6.1, 12.85, 0.9]
+    after:
+      - text: 'Many predictions typically share far fewer weights than a table has entries.'
+    size: 20
+    eq_size: 24
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 7 (input/output diagram, redrawn natively in course notation)', 'Silver L6 p. 7']
+    notes: |
+      F04. The diagram redraws old P7's three input/output panels in course notation (v̂, q̂, bold w). **w** is a
+      vector of adjustable numbers, not a policy. The hat distinguishes a prediction from the true value. Fix π while
+      developing prediction; there is no guarantee that all value functions fit this family. "Fewer weights" is a
+      useful motivation, not a defining mathematical requirement. A network can output one value per discrete action
+      (right panel; DQN in Week 6).
+
+  - id: F05
+    kind: math
+    title: Which prediction errors matter?
+    body_box: [0.244, 1.1, 12.85, 1.4]
+    size: 24
+    body:
+      - {eq: '\mathrm{VE}(\mathbf{w})=\sum_{s\in\mathcal{S}}\mu(s)[v^{\pi}(s)-\hat{v}(s,\mathbf{w})]^2'}
+    after_box: [0.244, 2.8, 12.85]
+    after:
+      - '$\mu(s)$: on-policy state weighting, summing to one.'
+      - 'Shared weights may force a compromise: errors at heavily weighted states count more.'
+      - text: '**Question:** Can a small average error hide a large error at a rarely visited state?'
+    minutes: 3
+    sources: ['old Value Function Approximation PPTX 13 (objective; J(w) replaced by VE(w), notation guide D6)', 'book §9.2 eq. 9.1 printed 199 / PDF 221']
+    notes: |
+      F05. Answer: yes. This is an evaluation objective, not a target we can directly observe. The distribution and
+      the representation are separate choices. For the grid later: episodes start at (1,1), and every actual
+      preterminal visit contributes; this gives the physical-visit weighting declared in G02. It differs from
+      first-visit sampling and from alternative discount-as-termination conventions. Do not derive occupancy weights
+      here.
+
+  - id: F06
+    kind: math
+    title: If an oracle gave us the value
+    body_box: [0.244, 1.1, 12.85, 2.6]
+    size: 24
+    body:
+      - {eq: '\nabla_{\mathbf{w}}\frac{1}{2}[v^{\pi}(s)-\hat{v}(s,\mathbf{w})]^2=-[v^{\pi}(s)-\hat{v}(s,\mathbf{w})]\nabla\hat{v}(s,\mathbf{w})'}
+      - {eq: '\mathbf{w}\leftarrow\mathbf{w}+\alpha[v^{\pi}(s)-\hat{v}(s,\mathbf{w})]\nabla\hat{v}(s,\mathbf{w})'}
+    after_box: [0.244, 3.9, 12.85]
+    after:
+      - '**Prediction error × sensitivity to the weights.**'
+      - 'Replace the inaccessible true value by a target from experience.'
+    minutes: 3
+    sources: ['old Value Function Approximation PPTX 11 and 13 (squared error and gradient, regenerated; the full-batch equivalence sentence is omitted, D7)', 'book eqs. 9.4–9.5']
+    notes: |
+      F06. ∇ means the gradient with respect to **w**, not with respect to the state. The negative loss gradient gives
+      the plus sign in the update. Sampling states with the chosen weights gives a stochastic-gradient route to the
+      weighted objective. The half absorbs the factor two; no new objective symbol is needed.
+
+  - id: F07
+    kind: math
+    title: Monte Carlo supplies a target
+    body_box: [0.244, 1.1, 12.85, 1.4]
+    size: 24
+    body:
+      - {eq: 'U_t=G_t,\qquad\mathbf{w}\leftarrow\mathbf{w}+\alpha[G_t-\hat{v}(S_t,\mathbf{w})]\nabla\hat{v}(S_t,\mathbf{w})'}
+    after_box: [0.244, 2.8, 12.85]
+    after:
+      - 'Fixed-policy trajectories supply noisy return labels.'
+      - 'Wait until the return is available; update the prediction toward it.'
+    minutes: 3
+    sources: ['old Value Function Approximation PPTX 14 (general SGD update, shortened)', 'book §9.3, gradient MC box printed 202 / PDF 224']
+    notes: |
+      F07. Every-visit gradient MC uses each visit's return, unlike the first-visit sample-average example in Week 3.
+      State this distinction once. For a fixed policy the conditional mean return is v^π(s); appropriate sampling and
+      step-size assumptions are needed for convergence. Linear models have a convex squared-error objective;
+      nonlinear models do not inherit a global-optimum guarantee. Do not claim that constant-step MC converges exactly
+      or that all nonlinear methods reach a local minimum.
+
+  - id: F08
+    kind: math
+    title: TD supplies a moving target
+    body_box: [0.244, 1.0, 12.85, 2.2]
+    size: 24
+    body:
+      - {eq: 'U_t=R_{t+1}+\gamma\hat{v}(S_{t+1},\mathbf{w}),\qquad\delta_t=U_t-\hat{v}(S_t,\mathbf{w})'}
+      - {eq: '\mathbf{w}\leftarrow\mathbf{w}+\alpha\delta_t\nabla\hat{v}(S_t,\mathbf{w})'}
+    after_box: [0.244, 3.3, 12.85, 2.6]
+    after:
+      - '**Semi-gradient:** differentiate the current prediction; treat the target as fixed in this update.'
+      - 'The target also depends on $\mathbf{w}$. This is **not, in general, a true gradient method** for the value-error objective.'
+    blocks:
+      - box: [0.244, 6.1, 12.85, 0.6]
+        size: 16
+        items:
+          - text: '*I might refer to these as gradient methods in class.*'
+    minutes: 3.5
+    sources: ['old Value Function Approximation PPTX 15 (disclaimer kept, D7; blanket linear-convergence sentence replaced)', 'book §9.3 printed 202–203 / PDF 224–225']
+    notes: |
+      F08 (with F08a: a 5-minute block). Bootstrap immediately instead of waiting for an episode. If you differentiate
+      the sampled half-squared TD error fully, the derivative also contains the next prediction's derivative; the
+      displayed rule deliberately omits that part. Do not turn this into a residual-gradient derivation. Terminal
+      continuation is zero. The formal name remains semi-gradient even with the instructor's shorthand.
+
+  - id: F08a
+    kind: math
+    title: 'Semi-gradient TD: the loop'
+    body_box: [0.244, 1.0, 12.85, 5.8]
+    size: 21
+    body:
+      - text: '1. Initialize $\mathbf{w}$; run the fixed policy $\pi$.'
+      - text: '2. At nonterminal $S_t$, take $A_t\sim\pi(\cdot\mid S_t)$; observe $R_{t+1}$, $S_{t+1}$.'
+      - text: '3. If terminal: $U_t=R_{t+1}$. Otherwise: $U_t=R_{t+1}+\gamma\hat{v}(S_{t+1},\mathbf{w})$.'
+      - text: '4. Compute $\delta_t=U_t-\hat{v}(S_t,\mathbf{w})$ and $\nabla\hat{v}(S_t,\mathbf{w})$ using the **same pre-update weights**.'
+      - text: '5. Update $\mathbf{w}\leftarrow\mathbf{w}+\alpha\delta_t\nabla\hat{v}(S_t,\mathbf{w})$. Continue, or restart after termination.'
+    minutes: 1.5
+    sources: ['old Value Function Approximation PPTX 16 (algorithm picture replaced by this loop in course notation)', 'book semi-gradient TD(0) box printed 203 / PDF 225']
+    notes: |
+      F08a, within F08's five-minute block. No terminal-state feature or gradient is needed. Ask which two
+      predictions use the old weights: both the current and the next. This becomes the invariant in the numerical
+      exercise.
+
+  - id: F09
+    kind: math
+    title: Linear in the weights
+    body_box: [0.244, 1.0, 12.85, 2.6]
+    size: 24
+    body:
+      - {eq: '\hat{v}(s,\mathbf{w})=\mathbf{w}^{\top}\mathbf{x}(s)=\sum_{i=1}^{d}w_i x_i(s)'}
+      - {eq: '\nabla\hat{v}(s,\mathbf{w})=\mathbf{x}(s),\qquad\mathbf{w}\leftarrow\mathbf{w}+\alpha\delta_t\mathbf{x}(S_t)'}
+    after_box: [0.244, 3.7, 12.85]
+    after:
+      - '**Linear in $\mathbf{w}$. Features may be nonlinear functions of the input.**'
+      - 'A constant feature can supply an intercept.'
+      - 'One-hot features recover the tabular update.'
+    minutes: 3
+    sources: ['old Value Function Approximation PPTX 20 (linear value function and update, f → x)', 'book §9.4 eqs. 9.8–9.9 printed 204–205 / PDF 226–227']
+    notes: |
+      F09. A distance, square, tile indicator or cosine feature can be nonlinear in the raw state description while the
+      value remains linear in the adjustable weights. One-hot features recover the tabular update. Each feature scales
+      a component's change; a zero feature leaves that component unchanged.
+
+  - id: F10
+    kind: math
+    title: Features decide what the learner can distinguish
+    pictures:
+      - {file: course/lectures/week05/assets/pacman_board_claude.png, box: [8.6, 1.1, 4.3]}
+    body_box: [0.244, 1.1, 8.1, 5.6]
+    size: 22
+    body:
+      - 'Example features $x_i(s)$:'
+      - {sub: ['a constant', 'distance to food', 'distance to a ghost', 'indicators for nearby danger']}
+      - '**Which distinctions have we thrown away?**'
+      - 'Identical feature vectors force identical predictions for every $\mathbf{w}$.'
+    minutes: 3
+    sources: ['old Value Function Approximation PPTX 18–19 (feature list and Pacman board, cropped from the old PDF export; f → x)']
+    notes: |
+      F10. A useful feature must be computable from the agent's available information. Distance alone may omit walls
+      or direction. Distinguish an omitted feature of a fully observed state from information unavailable in the
+      observation (Week 1). More weights cannot recover absent information without changing the inputs or state
+      representation.
+
+  - id: F11
+    kind: math
+    title: How much should states share?
+    drawing:
+      - grid: {x: 0.7, y: 1.3, cell: 0.75, cols: 4, rows: 4, coords: false, fills: {'2,3': pit}}
+      - grid: {x: 4.75, y: 1.3, cell: 0.75, cols: 4, rows: 4, coords: false, fills: {'1,3': pit, '2,3': pit, '1,4': pit, '2,4': pit}}
+      - {outline: [4.75, 1.3, 1.5, 1.5]}
+      - {outline: [6.25, 1.3, 1.5, 1.5]}
+      - {outline: [4.75, 2.8, 1.5, 1.5]}
+      - {outline: [6.25, 2.8, 1.5, 1.5]}
+      - {line: [8.8, 1.3, 11.8, 1.3]}
+      - {line: [8.8, 2.3, 11.8, 2.3]}
+      - {line: [8.8, 3.3, 11.8, 3.3]}
+      - {line: [8.8, 4.3, 11.8, 4.3]}
+      - {line: [8.8, 1.3, 8.8, 4.3]}
+      - {line: [9.8, 1.3, 9.8, 4.3]}
+      - {line: [10.8, 1.3, 10.8, 4.3]}
+      - {line: [11.8, 1.3, 11.8, 4.3]}
+      - {line: [9.2, 1.7, 12.2, 1.7]}
+      - {line: [9.2, 2.7, 12.2, 2.7]}
+      - {line: [9.2, 3.7, 12.2, 3.7]}
+      - {line: [9.2, 1.7, 9.2, 4.7]}
+      - {line: [10.2, 1.7, 10.2, 4.7]}
+      - {line: [11.2, 1.7, 11.2, 4.7]}
+      - {line: [12.2, 1.7, 12.2, 4.7]}
+      - {outline: [9.8, 2.3, 1.0, 1.0]}
+      - {outline: [10.2, 2.7, 1.0, 1.0]}
+      - {circle: [10.55, 2.95, 0.16], filled: true}
+      - {label: '**One-hot:** one weight per cell', box: [0.5, 4.45, 3.4, 0.5], size: 16}
+      - {label: '**Aggregation:** one value per group', box: [4.55, 4.45, 3.4, 0.5], size: 16}
+      - {label: '**Two offset tilings:** a state activates one tile in each', box: [8.6, 4.85, 4.0, 0.5], size: 16}
+    after_box: [0.244, 5.45, 12.85, 1.4]
+    size: 18
+    after:
+      - 'Overlapping tiles (coarse coding): nearby states share some active weights. RBFs: smooth local features. Fourier features: a fixed basis of oscillations.'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 21 (feature menu, reduced to one drawn comparison)', 'book §9.5 (tile coding)', 'Sutton slides 18-19 pp. 23–27']
+    notes: |
+      F11. Contrast one-hot with overlapping sharing. Left: one highlighted cell has its own weight. Middle: a group
+      (shaded) shares one value. Right: two offset tilings; the dot activates one tile in each (red outlines), so a
+      nearby state shares some, not all, active weights. More flexible features can improve representability but
+      change the update coupling too. RBF and Fourier are names and intuition only; no feature-engineering derivation
+      or homework requirement. The old "any known function" claim and the old reading instruction are removed.
+
+  - id: F12-A
+    kind: math
+    alt: {choice: '5.1 example', option: A}
+    title: 'Alt A · Grid: two weights for three states'
+    drawing:
+      - grid: {x: 10.3, y: 1.0, cell: 1.35, cols: 2, rows: 2, fills: {'2,2': goal}, labels: {'1,1': '(1,1) start', '2,1': '(2,1)', '1,2': '(1,2)', '2,2': 'goal'}, arrows: {'1,1': right, '2,1': right, '1,2': right}, size: 14}
+    body_box: [0.244, 1.0, 9.8, 2.6]
+    size: 20
+    eq_size: 22
+    body:
+      - 'Coordinates = (column, row). Policy: always right. $\gamma=0.5$, $\alpha=0.1$.'
+      - 'Goal entry: +1 total; other transitions: −0.04; terminal continuation: 0.'
+      - {eq: '\mathbf{x}(s)=(1,\ \text{steps}\ \text{to}\ \text{goal})^{\top},\qquad\mathbf{w}=(0.6,-0.2)^{\top}'}
+    table_box: [0.6, 4.0, 8.4]
+    table:
+      size: 20
+      row_h: 0.55
+      widths: [2.4, 2.6, 3.4]
+      header: ['State', 'Features', 'Initial prediction']
+      rows:
+        - ['(1,1)', '(1, 2)', '0.20']
+        - ['(2,1)', '(1, 1)', '0.40']
+        - ['(1,2)', '(1, 1)', '0.40']
+    minutes: 3
+    sources: ['accepted 2×2 grid (bellman B03; γ = 0.5)', 'old Value Function Approximation PPTX 20 (equation layout only)', 'check_function_approximation_claude.py §2']
+    notes: |
+      F12-A · Alt A, 5.1 example (D2). For reference values the full model is: intended direction 0.8, each
+      perpendicular slip 0.1; walls leave the state unchanged. Students need only the supplied samples to update. The
+      goal is not approximated. First identify the two aliased cells: (2,1) and (1,2) are distinct states with
+      identical features.
+
+  - id: F12a-A
+    kind: math
+    alt: {choice: '5.1 example', option: A}
+    title: 'Alt A · Two samples pull shared weights'
+    body_box: [0.244, 1.0, 12.85, 2.2]
+    size: 20
+    body:
+      - text: 'Compute the target, TD error, new weights and all three predictions. Use the current weights for both predictions in each target.'
+      - '**Sample A:** (1,2), right, +1, goal.'
+      - '**Sample B:** (2,1), right, −0.04, (2,1), starting with the weights obtained from A. *A separately supplied sample, not the next transition after termination.*'
+    tables:
+      - box: [0.244, 3.6, 12.85]
+        size: 18
+        row_h: 0.6
+        widths: [1.3, 3.4, 1.4, 3.0, 3.75]
+        header: ['Sample', '$U_t$', '$\delta_t$', 'New weights', 'Predictions at (1,1), (2,1), (1,2)']
+        rows:
+          - ['A', '1', '0.6', '(0.66, −0.14)', '(0.38, 0.52, 0.52)']
+          - ['B', '−0.04 + 0.5(0.52) = 0.22', '−0.30', '(0.63, −0.17)', '(0.29, 0.46, 0.46)']
+    reveal: ['yaml:tables.0']
+    minutes: 5
+    sources: ['constructed (check_function_approximation_claude.py §2)', 'old MT1 Spring 2025 Q4 (exercise format)']
+    notes: |
+      F12a-A · Alt A, 5.1 example. Protect about three minutes of student calculation and two of feedback before the
+      click that reveals the table. A changes both components by +0.06; B changes both by −0.03. The non-visited cells
+      move too, and the start cell moves by three times the component increment (its features are (1, 2)). Sample B
+      is possible because a right move meets the wall. Two samples are not evidence of convergence.
+
+  - id: F13-A
+    kind: math
+    alt: {choice: '5.1 example', option: A}
+    title: 'Alt A · Is the representation sufficient?'
+    table_box: [0.6, 1.1, 8.0]
+    table:
+      size: 20
+      row_h: 0.55
+      widths: [2.0, 3.4, 2.6]
+      header: ['State', 'True $v^{\pi}$, always right', 'Prediction after B']
+      rows:
+        - ['(1,1)', '0.05091', '0.29']
+        - ['(2,1)', '0.11636', '0.46']
+        - ['(1,2)', '0.83636', '0.46']
+    body_box: [0.244, 3.5, 12.85, 1.7]
+    size: 20
+    body:
+      - '**Questions:** Can any two weights fit this policy''s values exactly? What feature would let the two aliased cells differ? Does the answer necessarily stay the same if the policy changes?'
+    blocks:
+      - box: [0.244, 5.1, 12.85, 1.8]
+        size: 19
+        items:
+          - 'No exact fit for this policy: the last two values must be equal in our model. A constant, a top-row indicator and a right-column indicator distinguish the three nonterminal states.'
+          - '**Some value functions cannot be represented; whether this policy''s can depends on the policy.**'
+    reveal: ['yaml:blocks.0']
+    minutes: 6
+    sources: ['check_function_approximation_claude.py §§1, 3 (exact values)', 'book §9.5']
+    notes: |
+      F13-A · Alt A, 5.1 example. Reference values were solved from the known model; the learner does not receive them
+      as targets. Exact fractions: 14/275, 32/275, 46/55. For features (constant, top row, right column), exact
+      weights are (14/275, 216/275, 18/275). To answer the policy-dependence question, reveal only after discussion:
+      with up at (1,1) and (2,1), right at (1,2), the true values are (199/550, 469/550, 469/550), which the original
+      two features can fit, with weights (739/550, −270/550). This is a policy-specific symmetry, not a claim that two
+      features represent every value function. No second policy-evaluation exercise is required.
+
+  - id: F12-B
+    kind: math
+    alt: {choice: '5.1 example', option: B}
+    title: 'Alt B · Landmark features'
+    drawing:
+      - grid: {x: 8.9, y: 1.0, cell: 0.95, cols: 4, rows: 3, coords: false, fills: {'3,3': goal, '4,2': goal}, labels: {'3,3': 'L1 (3,3)', '4,2': 'L2 (4,2)', '2,1': '(2,1)', '2,2': '(2,2)', '2,3': '(2,3)'}, arrows: {'2,1': up, '2,2': up}, size: 12}
+    body_box: [0.244, 1.0, 8.4, 2.6]
+    size: 20
+    body:
+      - 'Separate robot example. Coordinates = (column, row). Landmarks at (3,3) and (4,2).'
+      - 'Four features: column; row; Manhattan distance to (3,3); Manhattan distance to (4,2).'
+    table_box: [0.6, 3.5, 6.0]
+    table:
+      size: 20
+      row_h: 0.55
+      widths: [2.2, 3.8]
+      header: ['State', '$\mathbf{x}(s)$']
+      rows:
+        - ['(2,1)', '(2, 1, 3, 3)']
+        - ['(2,2)', '(2, 2, 2, 2)']
+        - ['(2,3)', '(2, 3, 1, 3)']
+    after_box: [0.244, 5.9, 12.85, 1.0]
+    after:
+      - 'Four weights start at zero. $\alpha=0.2$, $\gamma=0.5$. Observe two **nonterminal** transitions: (2,1) → (2,2) → (2,3), each with reward −0.1.'
+    minutes: 3
+    sources: ['old MT1 Spring 2025 Q4, PDF 12–13 (feature construction; positions and landmarks redrawn)']
+    notes: |
+      F12-B · Alt B, 5.1 example (D2). A different task from the 2×2 grid; do not import its rewards. The diagram marks
+      the landmarks and the path. The four scalar features are x₁(s) through x₄(s), not a new symbol for distance. The
+      old exam's later +1 reward and exam labels are not carried over.
+
+  - id: F12a-B
+    kind: math
+    alt: {choice: '5.1 example', option: B}
+    title: 'Alt B · Compute two weight updates'
+    body_box: [0.244, 1.0, 12.85, 1.2]
+    size: 20
+    body:
+      - text: 'Compute $U_t$, $\delta_t$ and $\mathbf{w}$ after each sample. Before the second update, recompute **both** state predictions with the updated weights.'
+    tables:
+      - box: [0.244, 2.6, 12.85]
+        size: 18
+        row_h: 0.6
+        widths: [1.6, 2.2, 2.0, 1.4, 1.3, 4.35]
+        header: ['Sample', 'Current prediction', 'Next prediction', '$U_t$', '$\delta_t$', 'New weights']
+        rows:
+          - ['First', '0', '0', '−0.1', '−0.1', '(−0.04, −0.02, −0.06, −0.06)']
+          - ['Second', '−0.36', '−0.38', '−0.29', '0.07', '(−0.012, 0.008, −0.032, −0.032)']
+    reveal: ['yaml:tables.0']
+    minutes: 6
+    sources: ['old MT1 Spring 2025 Q4 (feature construction)', 'check_function_approximation_claude.py §7 (updates verified)']
+    notes: |
+      F12a-B · Alt B, 5.1 example. Four minutes of work and pair comparison, then two of feedback after the reveal.
+      First increment −0.02(2,1,3,3); second 0.014(2,2,2,2). A negative reward can accompany a positive TD error
+      because the target is less negative than the current prediction. No claim about convergence or feature
+      sufficiency follows from two updates.
+
+  - id: F13-B
+    kind: math
+    alt: {choice: '5.1 example', option: B}
+    title: 'Alt B · Missing information cannot be fitted'
+    body_box: [0.244, 1.0, 12.85, 2.6]
+    size: 21
+    body:
+      - 'Two fully observed states have **the same selected feature vector**.'
+      - 'From one, the next transition terminates with +1; from the other, with −1. Both appear equally often.'
+      - '**Questions:** Can the model fit both? What is the best common prediction? Would adding nonlinear layers with these same inputs solve it?'
+    blocks:
+      - box: [0.244, 4.0, 12.85, 2.6]
+        size: 20
+        items:
+          - 'The true values are +1 and −1. Any common prediction compromises; zero minimizes their equally weighted squared error, which is 1.'
+          - 'A nonlinear function of identical inputs still gives identical outputs. **Change the inputs to retain the distinguishing information.**'
+    reveal: ['yaml:blocks.0']
+    minutes: 6
+    sources: ['ChatGPT F11 diagnosis (step 1), content F13-B', 'Week 1 observation/state distinction']
+    notes: |
+      F13-B · Alt B, 5.1 example. Allow three minutes of discussion and three of feedback. If the distinguishing
+      information is observed but discarded, retain it as a feature. If it is absent from the observation, a different
+      state/history representation may be needed; no architecture can infer an unobservable distinction perfectly by
+      adding capacity alone. This is representation insufficiency, not evidence that TD diverges.
+
+  - id: F14
+    kind: math
+    title: Representation and learning rule are different questions
+    body_box: [0.244, 1.2, 12.85, 5.0]
+    size: 24
+    body:
+      - '**Can the model express the answer?** Examine features and true values.'
+      - '**Will this update find a useful answer?** Examine targets, data and update dynamics.'
+      - 'Good representation alone does not answer the second question.'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 24 position (its convergence claims are replaced; see G02, G11)']
+    notes: |
+      F14. Use whichever example was selected. Leave convergence and fixed-point details for G02; do not duplicate them
+      here. The two calculations showed how weights move, not their eventual behaviour.
+
+  - id: F15
+    kind: math
+    title: Action values use the same machinery
+    body_box: [0.244, 1.0, 12.85, 2.0]
+    size: 22
+    body:
+      - {eq: '\hat{q}(s,a,\mathbf{w})=\mathbf{w}^{\top}\mathbf{x}(s,a)'}
+      - {eq: '\mathbf{w}\leftarrow\mathbf{w}+\alpha[U_t-\hat{q}(S_t,A_t,\mathbf{w})]\nabla\hat{q}(S_t,A_t,\mathbf{w})'}
+    table_box: [0.6, 3.3, 12.1]
+    table:
+      size: 20
+      row_h: 0.6
+      align_left: true
+      widths: [4.0, 8.1]
+      header: ['Method', 'Nonterminal target $U_t$']
+      rows:
+        - ['Semi-gradient Sarsa', '$R_{t+1}+\gamma\hat{q}(S_{t+1},A_{t+1},\mathbf{w})$']
+        - ['Approximate Q-learning', '$R_{t+1}+\gamma\max_a\hat{q}(S_{t+1},a,\mathbf{w})$']
+    after_box: [0.244, 5.4, 12.85]
+    after:
+      - '**Terminal target:** $U_t=R_{t+1}$. In the linear case, the gradient is $\mathbf{x}(S_t,A_t)$.'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 25–29 and 31 (equations regenerated; P27''s zero-error expression fixed)', 'book §10.1']
+    notes: |
+      F15. The action is part of the prediction input (or selects an output). Recall Week 4's sampled-next-action
+      versus greedy target; the behaviour/target distinction survives replacing the table. Expected SARSA was exposed
+      there, but no extra approximate algorithm is added here. These equations are update rules, not tabular
+      convergence guarantees. Old P27 wrote the error as prediction minus itself; here it is target minus prediction.
+      Old P30 (Q-Pacman) is removed (D8).
+
+  - id: F15a
+    kind: math
+    title: 'Semi-gradient Sarsa: keep the sampled next action'
+    body_box: [0.244, 1.0, 12.85, 5.9]
+    size: 19
+    body:
+      - text: '1. Initialize $\mathbf{w}$. At an episode start $S_0$, choose $A_0$ ε-greedily from $\hat{q}(S_0,\cdot,\mathbf{w})$.'
+      - text: '2. Execute $A_t$; observe $R_{t+1}$, $S_{t+1}$.'
+      - text: '3. If terminal, set $U_t=R_{t+1}$.'
+      - text: '4. Otherwise choose $A_{t+1}$ ε-greedily using the current weights, and set $U_t=R_{t+1}+\gamma\hat{q}(S_{t+1},A_{t+1},\mathbf{w})$.'
+      - text: '5. Update $\mathbf{w}\leftarrow\mathbf{w}+\alpha[U_t-\hat{q}(S_t,A_t,\mathbf{w})]\nabla\hat{q}(S_t,A_t,\mathbf{w})$, all quantities on the right evaluated before the update.'
+      - text: '6. If nonterminal, **execute that same** $A_{t+1}$ **next**. If terminal, restart.'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 32 (semi-gradient Sarsa box, replaced by this loop in course notation)', 'book §10.1 box printed 244 / PDF 266']
+    notes: |
+      F15a. Greedy ties are broken uniformly; exploratory choice is uniform over available actions. Do not draw
+      another action after the update and pretend it was the one used in the Sarsa target. A changing policy makes this
+      control, so fixed-policy prediction results do not by themselves guarantee control convergence.
+
+  - id: F16
+    kind: math
+    title: 'Mountain Car: a compact representation for continuous states'
+    pictures:
+      - {deck: 'sources/current_course/6 - Value Function Approximation.pptx', slide: 33, shape: 'Picture 5', box: [0.3, 1.0, 6.5]}
+      - {deck: 'sources/current_course/6 - Value Function Approximation.pptx', slide: 34, shape: 'Picture 4', box: [8.6, 3.35, 3.7]}
+    body_box: [7.1, 0.95, 6.0, 2.4]
+    size: 18
+    body:
+      - 'State: **position and velocity**. Actions: push left, no push, push right.'
+      - 'Reward: −1 per transition until the goal; the underpowered car must build momentum.'
+      - '**Linear Sarsa + tile-coded features.**'
+    after_box: [0.3, 5.4, 6.5, 0.8]
+    after:
+      - text: 'Cost-to-go, $-\max_a\hat{q}(s,a,\mathbf{w})$, during learning (Sutton & Barto, Fig. 10.1).'
+    blocks:
+      - box: [7.1, 6.6, 6.0, 0.5]
+        size: 15
+        items:
+          - text: 'A different feature representation: radial basis functions (Kretchmar, 1995).'
+    reveal: [['native:pic:34:Picture 4', 'yaml:blocks.0']]
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 33 (problem illustration and cost-to-go figure), 34 (RBF figure, second build)', 'book Example 10.1 printed 244–246 / PDF 266–268']
+    notes: |
+      F16 (D4: kept, "an essential problem setting"). Explain the swing away from the goal before pointing to the value
+      surface. Physical axes are "position" and "velocity", to avoid a clash with the feature vector x (notation D6);
+      the inherited plots keep their original axes. The click shows the radial-basis-function surface (old P34, credited
+      there to Matt Kretchmar, 1995): another representation, not a controlled claim that one method performs better.
+      Problem setting and figures only; no extra algorithm or implementation requirement. Old P33's learning-curve
+      picture is not used.
+
+  - id: F17
+    kind: math
+    title: From fixed features to learned features
+    drawing:
+      - {box: [0.6, 1.5, 2.4, 1.1], text: 'state s'}
+      - {box: [3.9, 1.5, 3.0, 1.1], text: 'fixed features 𝐱(s)'}
+      - {box: [7.8, 1.5, 2.6, 1.1], text: 'linear value head', tint: true}
+      - {line: [3.0, 2.05, 3.9, 2.05], arrow: true}
+      - {line: [6.9, 2.05, 7.8, 2.05], arrow: true}
+      - {line: [10.4, 2.05, 11.1, 2.05], arrow: true}
+      - {label: 'v̂(s, 𝐰)', box: [11.1, 1.8, 1.9, 0.5], size: 20}
+      - {box: [0.6, 3.3, 2.4, 1.1], text: 'state s'}
+      - {box: [3.9, 3.3, 3.0, 1.1], text: 'learned features (network layers)', tint: true}
+      - {box: [7.8, 3.3, 2.6, 1.1], text: 'value head', tint: true}
+      - {line: [3.0, 3.85, 3.9, 3.85], arrow: true}
+      - {line: [6.9, 3.85, 7.8, 3.85], arrow: true}
+      - {line: [10.4, 3.85, 11.1, 3.85], arrow: true}
+      - {label: 'v̂(s, 𝐰)', box: [11.1, 3.6, 1.9, 0.5], size: 20}
+      - {label: 'shaded = trained', box: [9.6, 4.55, 3.0, 0.4], size: 14}
+    after_box: [0.244, 5.1, 12.85]
+    size: 21
+    after:
+      - 'Richer models can express more structure.'
+      - '**Shared updates and moving targets remain.**'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 8–9 (approximator menu, reduced to a diagram)', 'old P18 note (deep RL learns representations)', 'Abbeel L2 pp. 17–29', 'book §9.7']
+    notes: |
+      F17. A network's last layer can be linear while the complete function is nonlinear in all trainable weights.
+      Learning features may address an inadequate fixed basis, but not information absent from the inputs. Neural
+      value methods are motivated here; DQN mechanisms begin in Week 6.
+
+  - id: F18
+    kind: math
+    title: One update, many predictions
+    body_box: [0.244, 1.1, 12.85, 3.6]
+    size: 24
+    body:
+      - 'Choose what the model can distinguish.'
+      - 'Choose a target from experience.'
+      - 'Update shared weights.'
+      - 'Inspect both prediction quality and learning dynamics.'
+    after_box: [0.244, 4.9, 12.85]
+    after:
+      - text: '**Exit question:** If $v^{\pi}$ can be represented exactly, must semi-gradient TD learn it?'
+    minutes: 2
+    sources: ['new synthesis (old P60''s target catalogue not copied)']
+    notes: |
+      F18. Leave the answer as "not without further conditions"; session 5.2 supplies the counterexample. Mention only
+      what today's calculation established: one sample changes several predictions. No assertion that the two-update
+      example converged. End of 5.1.

@@ -1,0 +1,658 @@
+# Week 5 deck `function_approximation`, session 5.2 portion (G00–G15 with I02–I07): Claude's renderer input.
+# First draft: renderer input for the first render of this deck only (2026-11-09). Not maintained: the PPTX is the
+# source from that render on. Do not rebuild over the deck or treat this file as its current content.
+# The slides built from this file are appended after F18 of course/lectures/week05/function_approximation_claude.pptx.
+# Status: decisions/lectures/function_approximation.md. Content: course/lectures/week05/function_approximation_content.md
+# (shared, frozen at this render; slide IDs and order as there: G08 before G07 deliberately).
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week05/function_approximation_instability_claude.yaml
+# Then:   python3 scripts/append_slides_claude.py <deck> <candidate>
+# Alternatives (D3, D5): geometry G03-A (P1, grid) and G03-B (P2, two-state line); divergence Alt A (I02–I07) and Alt B
+# (G05, G06, G08, G07, G09). All are rendered and visible. Old P43's two-state picture, P44's Baird diagram and the
+# right (DP-sweep) panel of book Figure 11.2 (cropped from P44's picture), and P47's triad picture are copied.
+# The geometry charts are drawn natively from the values in scripts/check_function_approximation_claude.py §§4, 8.
+# Time budget: decisions/topic_decisions.yaml lecture_plan[instability].teaching_minutes (58). Timed route: full
+# geometry (O1 leaning), geometry Alt A, divergence Alt A = 58. Route-dependent minutes are given in each slide's notes.
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week05/function_approximation_instability_claude.pptx
+  preview: output/lectures/week05/function_approximation_instability_claude_preview.png
+  session_id: instability
+  qa_minutes: 0
+  timed_alternates: {geometry: A, '5.2 divergence': A}
+  title: Function approximation (session 5.2 portion)
+  author: Barış Akgün
+  term: Fall 2026
+
+slides:
+  - id: G00
+    kind: section
+    title: 5.2 — Approximation instability
+    subtitle: When sharing a value estimate changes the learning dynamics
+    minutes: 0.5
+    sources: ['section opener (as model_free_control P00 / bellman B17)']
+    notes: |
+      G00. Visible session boundary. Begin this slide at the second meeting, not as extra 5.1 material.
+
+  - id: G01
+    kind: math
+    title: Can a useful update become self-reinforcing?
+    body_box: [0.244, 1.1, 12.85, 1.4]
+    size: 24
+    body:
+      - {eq: '\mathbf{w}\leftarrow\mathbf{w}+\alpha[R_{t+1}+\gamma\hat{v}(S_{t+1},\mathbf{w})-\hat{v}(S_t,\mathbf{w})]\mathbf{x}(S_t)'}
+    after_box: [0.244, 2.9, 12.85]
+    after:
+      - 'Changing $\mathbf{w}$ changes the current prediction **and** future targets.'
+      - 'We need to distinguish a stable compromise from growing error.'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 41 (motivation, rewritten with the known update)']
+    notes: |
+      G01. Retrieve the three ingredients: shared features, the bootstrap target, and the data on which updates are
+      made. Terminal continuation remains zero. Recall Week 4's tabular convergence conditions (4.2); replacing the
+      table changes their applicability.
+
+  - id: G02
+    kind: math
+    title: What would "converged" mean?
+    drawing:
+      - grid: {x: 11.3, y: 0.95, cell: 0.85, cols: 2, rows: 2, fills: {'2,2': goal}, labels: {'2,2': 'goal'}, arrows: {'1,1': right, '2,1': right, '1,2': right}, size: 11}
+    body_box: [0.244, 0.95, 10.8, 1.6]
+    size: 18
+    body:
+      - text: '**Computed best fit and TD fixed point, not sampled learning curves.**'
+      - text: 'Grid: always right, $\gamma=0.5$, features (1, steps to goal); goal entry +1, otherwise −0.04. Episodes start at (1,1); every actual preterminal visit contributes.'
+    table_box: [0.244, 2.75, 12.85]
+    table:
+      size: 18
+      row_h: 0.5
+      widths: [2.2, 1.8, 2.4, 3.0, 3.45]
+      header: ['State', '$\mu(s)$', 'True $v^{\pi}$', 'Best fit for VE', 'TD fixed point']
+      rows:
+        - ['(1,1)', '9/82', '0.05091', '0.05091', '0.02099']
+        - ['(2,1)', '36/41', '0.11636', '0.12623', '0.13319']
+        - ['(1,2)', '1/82', '0.83636', '0.12623', '0.13319']
+      total: ['Weighted squared error', '', '', '0.00624', '0.00638']
+    after_box: [0.244, 5.9, 12.85]
+    after:
+      - text: '**Takeaway:** linear on-policy TD can settle at a stable point that is not the minimum of VE. A constant step size generally produces fluctuations rather than exact convergence.'
+    minutes: 5
+    sources: ['replaces old Value Function Approximation PPTX 24 (convergence claims)', 'book §§9.2–9.4, eqs. 9.1 and 9.12', 'check_function_approximation_claude.py §4']
+    notes: |
+      G02. Route minutes: full geometry 5, short 3 (O1). If 5.1 used the landmark example, introduce the grid from this
+      inset; do not assume students saw the alternate. The full transition/reward specification is in F12-A's notes
+      (0.8 intended move, 0.1 each perpendicular slip, walls keep the agent in place). True values and both limiting
+      fits are computed from that model, not inferred from two samples or a simulation. The rarely visited upper-left
+      cell (1,2) contributes little to this objective despite a large error. Every-visit and first-visit weighting
+      differ. Full route: ask students to locate the largest error and explain the compromise. Short route: state
+      those observations and keep the table's distinction. The standard linear-TD bounds need their distribution and
+      task assumptions; no theorem or numerical error bound is claimed for this episodic example.
+
+  - id: G03-A
+    kind: math
+    alt: {choice: geometry, option: A}
+    title: 'Alt A · Geometry: the grid''s shared predictions'
+    drawing:
+      - {line: [1.1, 6.55, 6.5, 6.55], arrow: true}
+      - {line: [1.1, 6.55, 1.1, 1.15], arrow: true}
+      - {label: 'predicted value at (2,1)', box: [2.6, 6.6, 3.6, 0.4], size: 15}
+      - {label: 'predicted value at (1,2)', box: [1.2, 0.95, 3.6, 0.4], size: 15, center: false}
+      - {label: '0', box: [0.75, 6.45, 0.3, 0.35], size: 13}
+      - {label: '0.9', box: [5.85, 6.6, 0.5, 0.35], size: 13}
+      - {label: '0.9', box: [0.55, 1.4, 0.5, 0.35], size: 13}
+      - {line: [1.1, 6.55, 6.1, 1.55]}
+      - {label: 'Same features → equal predictions', box: [3.1, 1.2, 2.5, 0.6], size: 14}
+      - {circle: [1.746, 1.904, 0.16], filled: true}
+      - {label: '**True values**', box: [1.9, 1.62, 1.8, 0.4], size: 14, center: false}
+      - {circle: [3.746, 3.904, 0.16]}
+      - {label: 'Equal-state best fit', box: [3.95, 3.72, 2.6, 0.4], size: 14, center: false}
+      - {circle: [1.801, 5.849, 0.14], filled: true}
+      - {label: 'On-policy-weighted best fit', box: [2.6, 6.0, 3.2, 0.4], size: 14, center: false}
+      - {line: [1.85, 5.9, 2.6, 6.2]}
+      - {circle: [1.84, 5.81, 0.14]}
+      - {label: '**TD fixed point**', box: [2.6, 5.15, 2.4, 0.4], size: 14, center: false}
+      - {line: [1.9, 5.75, 2.6, 5.35]}
+      - {circle: [1.789, 2.107, 0.14]}
+      - {label: 'Exact backup', box: [1.9, 2.12, 1.9, 0.4], size: 14, center: false}
+      - {line: [1.74, 5.7, 1.74, 2.2], arrow: true}
+      - {line: [1.86, 2.2, 1.86, 5.7], arrow: true}
+      - {label: 'weighted best fit of the backup', box: [1.95, 3.6, 1.9, 0.7], size: 13, center: false}
+    body_box: [7.1, 1.0, 6.0, 4.6]
+    size: 17
+    body:
+      - '**A coordinate view of a three-state model.** Features (1, steps to goal): (2,1) and (1,2) share a feature vector, so representable pairs lie on the diagonal.'
+      - 'Weights $\mu(2,1):\mu(1,2)=72:1$ pull the weighted fit close to $v^{\pi}(2,1)$; equal weights define a different objective.'
+      - '**The start-state coordinate is independent of this pair.** Its true and best-fit value is 0.05091; its TD value, and its backup at that fixed point, are 0.02099.'
+    footnote: 'Exact backup-and-fit picture of a fixed point; not the path of one sampled TD update.'
+    reveal: [['draw:7:line', 'draw:8:label'], ['draw:9:circle', 'draw:10:label'], ['draw:11:circle', 'draw:12:label', 'draw:13:circle', 'draw:14:label', 'draw:15:line'], ['draw:16:circle', 'draw:17:label', 'draw:18:line'], ['draw:19:circle', 'draw:20:label', 'draw:21:line', 'draw:22:line', 'draw:23:label']]
+    minutes: 6
+    sources: ['new editable chart from G02 (old Value Function Approximation PPTX 49–50 as conceptual inspiration only; their 3D figure is not used, D5)', 'book §11.4', 'check_function_approximation_claude.py §8']
+    notes: |
+      G03-A · Alt A, geometry (picture P1, D5). Route minutes: full 6, short 4. Five clicks: (1) diagonal; (2) true
+      values (0.11636, 0.83636); (3) equal-state best fit (0.47636, 0.47636) and on-policy-weighted best fit (0.12623,
+      0.12623); (4) TD fixed point (0.13319, 0.13319); (5) exact backup (0.12394, 0.79971), arrow up from the TD point
+      and arrow back to its weighted best fit. The weighted fit and the TD point are 0.007 apart, so their markers
+      nearly coincide; the labels carry the distinction. Each pair value is w₁ + w₂; the start prediction is w₁ + 2w₂,
+      so it can vary independently. Do not call this a slice with the start fixed at its true value, or say the start
+      is always fitted exactly. The on-policy pair weights have ratio 72:1, which gives the near-horizontal compromise.
+      At the TD fixed point a full exact backup gives (0.02098701, 0.12393766, 0.79970909) in the three-state order;
+      fitting that backup using μ returns the same TD predictions. Only this full-vector interpretation justifies the
+      return arrow. Full route: explain all five builds. Short route: show builds 1–4 and state the fixed-point
+      interpretation without the backup arrows. Neither route teaches that each incremental TD step projects a whole
+      value function.
+
+  - id: G03-B
+    kind: math
+    alt: {choice: geometry, option: B}
+    title: 'Alt B · Geometry: one weight, two predictions'
+    drawing:
+      - {line: [1.1, 6.6, 6.1, 6.6], arrow: true}
+      - {line: [1.1, 6.6, 1.1, 1.0], arrow: true}
+      - {label: 'v(L)', box: [3.0, 6.65, 1.5, 0.4], size: 15}
+      - {label: 'v(R)', box: [1.2, 0.85, 1.0, 0.4], size: 15, center: false}
+      - {label: '0', box: [0.75, 6.5, 0.3, 0.35], size: 13}
+      - {label: '10', box: [5.38, 6.65, 0.45, 0.35], size: 13}
+      - {label: '10', box: [0.6, 1.92, 0.45, 0.35], size: 13}
+      - {line: [1.1, 6.6, 3.8, 1.2]}
+      - {label: 'Representable: (w, 2w)', box: [1.45, 1.05, 2.3, 0.4], size: 14, center: false}
+      - {circle: [5.15, 2.1, 0.16], filled: true}
+      - {label: '**True values (9, 10)**', box: [5.3, 1.9, 1.75, 0.7], size: 14, center: false}
+      - {circle: [3.71, 1.38, 0.14]}
+      - {label: 'Equal weights: (5.8, 11.6)', box: [3.9, 1.15, 2.7, 0.4], size: 14, center: false}
+      - {circle: [3.399, 2.003, 0.12]}
+      - {label: 'Weights (0.1, 0.9): (5.11, 10.22)', box: [3.95, 2.95, 3.0, 0.4], size: 14, center: false}
+      - {line: [3.44, 2.06, 3.95, 3.0]}
+      - {circle: [3.35, 2.1, 0.12], filled: true}
+      - {label: '**On-policy μ = (0, 1): best fit and TD fixed point (5, 10)**', box: [1.2, 2.55, 1.3, 1.25], size: 12, center: false}
+      - {line: [3.3, 2.15, 2.5, 2.9]}
+      - {line: [3.5, 1.96, 5.05, 1.96], arrow: true}
+      - {line: [5.05, 2.24, 3.45, 2.24], arrow: true}
+      - {label: 'exact backup, then fit', box: [3.95, 2.32, 2.0, 0.35], size: 12, center: false}
+    body_box: [7.1, 1.0, 6.0, 4.9]
+    size: 17
+    body:
+      - '**A separate two-state reward variant, for this picture only.** $\pi$ goes to R from either state; $\gamma=0.9$.'
+      - 'L → R reward 0; R → R reward **+1**. Predictions $\hat{v}(L,w)=w$, $\hat{v}(R,w)=2w$.'
+      - 'True values: (9, 10). Each weighting is a **different objective**.'
+      - '**Rewards return to zero** for the divergence examples.'
+    footnote: 'Exact backup-and-fit picture, not one sampled TD update.'
+    reveal: [['draw:7:line', 'draw:8:label'], ['draw:9:circle', 'draw:10:label'], ['draw:11:circle', 'draw:12:label'], ['draw:13:circle', 'draw:14:label', 'draw:15:line'], ['draw:16:circle', 'draw:17:label', 'draw:18:line'], ['draw:19:line', 'draw:20:line', 'draw:21:label']]
+    minutes: 6
+    sources: ['new editable line diagram (D5 picture P2)', 'book §11.4 (best-fit/fixed-point distinction)', 'check_function_approximation_claude.py §8']
+    notes: |
+      G03-B · Alt B, geometry (picture P2, D5). Route minutes: full 6, short 4. Define the two states here even if the
+      complete divergence example follows later. The three weighting choices are different objectives; do not use
+      their different best fits as evidence that TD misses the best fit of the same objective. Here on-policy visits
+      ultimately occur only at R, L has zero weight, and the TD fixed point also minimizes that on-policy objective.
+      G02, separately, gives the same-objective example where TD and the best fit differ. The true values satisfy
+      10 = 1 + 0.9(10) and 9 = 0.9(10). Equal weights: minimize (9 − w)² + (10 − 2w)², w = 5.8. Weights (0.1, 0.9):
+      w = 189/37 ≈ 5.108. Builds: line; true values; equal-weight fit; (0.1, 0.9) fit; on-policy fit and TD fixed point;
+      full route only: arrow from (5, 10) to its exact backup (9, 10) and back to its on-policy best fit (5, 10). Short
+      route: omit the arrows, keep the weighting labels. Reset rewards to zero before either divergence construction;
+      the +1 reward is not used to establish divergence.
+
+  - id: G04
+    kind: math
+    title: A tabular guarantee does not transfer automatically
+    body_box: [0.244, 1.2, 12.85, 5.0]
+    size: 24
+    body:
+      - 'A Bellman backup and a best fit are different operations.'
+      - 'The fit depends on both the function family and the state weighting.'
+      - '**The tabular guarantee does not automatically survive fitting with a different state weighting.**'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 41 (motivation)', 'book §11.4 (no contraction proof)', 'CS234 L4 p. 60', 'CS285 L8 pp. 30–36']
+    notes: |
+      G04. Route minutes: full 2, short 1. Week 2's discounted exact backup contracts differences between tables. The
+      picture adds fitting in a particular weighted error measure; it does not prove the same statement for every
+      approximate or sample-based update. Linear on-policy TD has stability results under appropriate conditions.
+      Next: a concrete way different state frequencies and shared bootstrapped predictions can cause growth. No
+      projection operator symbol, norm proof or gradient-TD algorithm.
+
+  - id: I02
+    kind: math
+    alt: {choice: '5.2 divergence', option: A}
+    title: 'Alt A · A single update raises its own target'
+    pictures:
+      - {deck: 'sources/current_course/6 - Value Function Approximation.pptx', slide: 43, shape: 'Picture 4', box: [3.9, 1.0, 5.5]}
+    body_box: [0.244, 2.7, 12.85, 1.2]
+    size: 20
+    body:
+      - text: '**Mechanism fragment, not yet a complete process.** $\hat{v}(L,w)=w$, $\hat{v}(R,w)=2w$; $R_{t+1}=0$, $\gamma=0.9$, $\alpha=0.1$, $w=10$. Supply L → R.'
+    after_box: [0.244, 4.1, 12.85]
+    after:
+      - {eq: 'U_t=18,\quad\delta_t=8,\quad w\leftarrow10+0.1(8)(1)=10.8'}
+      - text: 'Predictions move (10, 20) → (10.8, 21.6). **The update raises the target state''s prediction too.**'
+    minutes: 3
+    sources: ['old Value Function Approximation PPTX 43 (two-state picture; γ changed to 0.9, threshold claim deleted)', 'book §11.2 printed 260 / PDF 282']
+    notes: |
+      I02 · Alt A, 5.2 divergence (D3). The picture's states are L (value w) and R (value 2w). Ask what happens when R
+      is updated: an isolated transition cannot answer. The next slide completes the task and specifies exactly which
+      updates are made. If G03-B was used, explicitly announce the switch to all rewards zero.
+
+  - id: I03
+    kind: math
+    alt: {choice: '5.2 divergence', option: A}
+    title: 'Alt A · Complete the task and the update experiment'
+    body_box: [0.244, 1.0, 12.85, 4.2]
+    size: 19
+    body:
+      - 'Two states L, R; two actions "go L", "go R". Each action deterministically reaches its named state from either state.'
+      - 'Continuing task; **all rewards 0**, $\gamma=0.9$. Thus $v^{\pi}(L)=v^{\pi}(R)=0$, exactly representable by $w=0$.'
+      - 'Target $\pi$ always chooses "go R". Behaviour $b$ chooses each action with probability 1/2 at either state. Its stationary state frequencies are (1/2, 1/2); the target''s are (0, 1).'
+    drawing:
+      - {box: [0.6, 5.0, 12.1, 1.7], text: '**Rule of this experiment:** retain target-action transitions and balance the two source states. Each update uses one L → R and one R → R. Compute both contributions using the **same saved w**, average them, then apply α = 0.1 once.', tint: true, size: 18}
+    minutes: 5
+    sources: ['ChatGPT complete two-state construction (step 1, I03; review R03, C01)', 'old Value Function Approximation PPTX 43 (extended)', 'check_function_approximation_claude.py §7']
+    notes: |
+      I03 · Alt A, 5.2 divergence. C01 remains for instructor review (O3). This is an explicitly constructed
+      mean-update experiment, not a generic prescription for off-policy learning. The symmetric behaviour can supply
+      both retained transitions; its other transitions are deliberately not used under this experiment's rule. Do not
+      say all off-policy algorithms discard non-target actions. No importance ratio, correction derivation or new
+      off-policy algorithm; broader correction mechanisms belong to the later off-policy unit (Week 8). Distinguish
+      the behaviour's state frequencies from the target continuation used in both labels.
+
+  - id: I04
+    kind: math
+    alt: {choice: '5.2 divergence', option: A}
+    title: 'Alt A · Work out the balanced update'
+    body_box: [0.244, 1.0, 12.85, 1.0]
+    size: 20
+    body:
+      - text: '$w=10$. Fill in both target-action transitions, average their **gradient-scaled errors**, and update once.'
+    tables:
+      - box: [0.244, 2.1, 12.85]
+        size: 18
+        row_h: 0.6
+        widths: [2.0, 2.0, 1.9, 1.4, 1.5, 1.5, 2.55]
+        header: ['Transition', 'Current prediction', 'Next prediction', 'Target', 'TD error', 'Gradient', 'Error × gradient']
+        rows:
+          - ['L → R', '10', '20', '?', '?', '?', '?']
+          - ['R → R', '20', '20', '?', '?', '?', '?']
+      - box: [0.244, 2.1, 12.85]
+        size: 18
+        row_h: 0.6
+        widths: [2.0, 2.0, 1.9, 1.4, 1.5, 1.5, 2.55]
+        header: ['Transition', 'Current prediction', 'Next prediction', 'Target', 'TD error', 'Gradient', 'Error × gradient']
+        rows:
+          - ['L → R', '10', '20', '18', '8', '1', '8']
+          - ['R → R', '20', '20', '18', '−2', '2', '−4']
+    blocks:
+      - box: [0.244, 4.3, 12.85, 1.6]
+        size: 20
+        items:
+          - 'Mean contribution = (8 − 4)/2 = 2; **w = 10.2**. Repeating from the new saved weight gives **10.404**.'
+    reveal: [['yaml:tables.1', 'yaml:blocks.0']]
+    minutes: 8
+    sources: ['ChatGPT complete two-state construction (I04)', 'check_function_approximation_claude.py §7']
+    notes: |
+      I04 · Alt A, 5.2 divergence. Give about four minutes to work and pair-check, then feedback. Averaging raw TD
+      errors, or updating w between the rows, implements a different experiment. At general w the two contributions are
+      0.8w and −0.4w; their mean is 0.2w. Full-geometry route: reveal I05's recurrence during the remaining feedback
+      time; it has no additional minutes. Short route: leave the recurrence to the separately timed I05.
+
+  - id: I05
+    kind: math
+    alt: {choice: '5.2 divergence', option: A}
+    title: 'Alt A · A small growth factor compounds'
+    body_box: [0.244, 1.1, 12.85, 1.4]
+    size: 24
+    body:
+      - {eq: 'w\leftarrow w+\alpha(0.2w)=1.02w\qquad(\gamma=0.9,\ \alpha=0.1)'}
+    after_box: [0.244, 2.8, 12.85]
+    after:
+      - '10 → 10.2 → 10.404 → … . True values stay zero.'
+      - 'Both predictions grow in magnitude.'
+      - 'A smaller positive step size slows growth in this experiment; it does not change its direction.'
+    minutes: 0
+    sources: ['ChatGPT complete two-state construction (I05)', 'old Value Function Approximation PPTX 43 (threshold sentence omitted)']
+    notes: |
+      I05 · Alt A, 5.2 divergence. Route minutes: within I04's eight minutes in the full-geometry route (0 here); 4 in
+      the short-geometry route. Only the numeric γ = 0.9 case is shown live, with no discount threshold (D7, C02 second
+      bullet). This is an exact deterministic mean recurrence, not a claim that every stochastic sample path grows
+      monotonically. The Baird picture at G10 supplies the larger-scale visual; C02's first bullet (a growth chart)
+      remains for instructor review. Do not add an unaccepted extra time block for a second growth chart.
+
+  - id: I06
+    kind: math
+    alt: {choice: '5.2 divergence', option: A}
+    title: 'Alt A · Locate the three ingredients'
+    pictures:
+      - {deck: 'sources/current_course/6 - Value Function Approximation.pptx', slide: 47, shape: 'Picture 3', box: [8.9, 1.0, 4.0]}
+    body_box: [0.244, 1.0, 8.4, 3.8]
+    size: 19
+    body:
+      - '**Function approximation:** one weight couples L and R.'
+      - '**Bootstrapping:** predictions appear in the target.'
+      - '**Off-policy state weighting:** equal source-state updates differ from target-policy visits.'
+    after_box: [0.244, 5.0, 12.85]
+    after:
+      - text: '**Does the target represent the right continuation? Which states dominate the updates?**'
+    minutes: 4
+    sources: ['old Value Function Approximation PPTX 47 (triad picture)', 'book §11.3', 'Sutton slides 26 p. 4', 'Week 4 P08 callback']
+    notes: |
+      I06 · Alt A, 5.2 divergence. Includes the G09 callback (two off-policy questions). The experiment makes the
+      target continuation exact, yet the state-frequency mismatch remains. Recall Week 4 P08: learning from someone
+      else's data raises both questions; neither was solved generally by Week 4's Q-learning target. No correction
+      formula. The deadly triad names a mechanism allowing failure, not a statement that every such method diverges or
+      that any arbitrary pair of ingredients is safe.
+
+  - id: I07
+    kind: math
+    alt: {choice: '5.2 divergence', option: A}
+    title: 'Alt A · Change one component, keep the task'
+    body_box: [0.244, 1.0, 12.85, 1.0]
+    size: 20
+    body:
+      - text: 'Predict the direction of the update for each separate intervention. The true value is still zero and the model can represent it.'
+    tables:
+      - box: [0.244, 2.0, 12.85]
+        size: 17
+        row_h: 0.9
+        align_left: true
+        widths: [3.2, 3.6, 6.05]
+        header: ['Change', 'Update data / target', 'Reveal']
+        rows:
+          - ['Use target-policy stationary states', 'Only R → R; same bootstrap target', '']
+          - ['Remove bootstrapping', 'Same balanced source states; replace both targets by their known zero returns', '']
+      - box: [0.244, 2.0, 12.85]
+        size: 17
+        row_h: 0.9
+        align_left: true
+        widths: [3.2, 3.6, 6.05]
+        header: ['Change', 'Update data / target', 'Reveal']
+        rows:
+          - ['Use target-policy stationary states', 'Only R → R; same bootstrap target', 'Contribution = (0.9·2w − 2w)·2 = −0.4w; w ← 0.96w; 10 → 9.6 → 9.216']
+          - ['Remove bootstrapping', 'Same balanced source states; replace both targets by their known zero returns', 'Mean contribution = [(−w)·1 + (−2w)·2]/2 = −2.5w; w ← 0.75w; 10 → 7.5 → 5.625']
+    reveal: ['yaml:tables.1']
+    minutes: 8
+    sources: ['ChatGPT complete two-state construction (I07)', 'check_function_approximation_claude.py §7']
+    notes: |
+      I07 · Alt A, 5.2 divergence. Four minutes of discussion and calculation, four of feedback. Each row separately
+      changes one component of I03, not both at once. The first row is a stationary-distribution comparison; it is not
+      a coverage guarantee for arbitrary other features or tasks. Here reducing the shared weight also corrects L. The
+      second uses returns known to be zero because every reward is zero in the continuing discounted task; it does not
+      require waiting for an infinite trajectory and is not a generic off-policy Monte Carlo estimator. These
+      interventions explain this example; they are not a blanket convergence theorem.
+
+  - id: G05
+    kind: math
+    alt: {choice: '5.2 divergence', option: B}
+    title: 'Alt B · Repeating a transition fragment'
+    pictures:
+      - {deck: 'sources/current_course/6 - Value Function Approximation.pptx', slide: 43, shape: 'Picture 4', box: [0.6, 1.0, 4.6]}
+    body_box: [5.6, 1.0, 7.5, 2.3]
+    size: 19
+    body:
+      - text: '**Mechanism fragment: only the shown transition is updated.**'
+      - text: '$\hat{v}(L,w)=w$, $\hat{v}(R,w)=2w$. Reward 0, $\gamma=1$, $\alpha=0.1$, initial $w=10$. Repeatedly supply L → R.'
+      - text: '**Question:** Compute three updates.'
+    tables:
+      - box: [0.6, 3.5, 12.1]
+        size: 18
+        row_h: 0.55
+        widths: [1.6, 2.6, 2.4, 2.6, 2.9]
+        header: ['Update', 'w before', 'Target', 'TD error', 'w after']
+        rows:
+          - ['1', '10', '20', '10', '11']
+          - ['2', '11', '22', '11', '12.1']
+          - ['3', '12.1', '24.2', '12.1', '13.31']
+    reveal: ['yaml:tables.0']
+    minutes: 7
+    sources: ['old Value Function Approximation PPTX 43 (picture and its no-discount arithmetic; threshold sentence removed)', 'book §11.2']
+    notes: |
+      G05 · Alt B, 5.2 divergence (D3). The picture's states are L (value w) and R (value 2w). Four minutes of student
+      calculation, three of feedback. This keeps the original fragment's γ = 1 case; it is distinct from Alt A's
+      complete γ = 0.9 experiment. Do not mix their numbers. Only L-source updates are supplied; the fragment alone says
+      nothing about the complete target-policy continuation or later corrections. In particular, do not infer a Monte
+      Carlo return before specifying a completion. If geometry P2 was used, reset rewards to zero explicitly.
+
+  - id: G06
+    kind: math
+    alt: {choice: '5.2 divergence', option: B}
+    title: 'Alt B · Why does repeating it grow?'
+    body_box: [0.244, 1.2, 12.85, 5.0]
+    size: 24
+    body:
+      - 'Updating the prediction at L also raises the prediction at R.'
+      - 'Repeating only this transition gives **10 → 11 → 12.1 → 13.31 → …**'
+      - 'Each increase raises the next label.'
+      - text: '**What additional updates would a complete task supply?**'
+    minutes: 3
+    sources: ['old Value Function Approximation PPTX 43 (sharing explanation; unqualified off-policy conclusion replaced)', 'book §11.2 printed 260–261']
+    notes: |
+      G06 · Alt B, 5.2 divergence. Explain the repeated 10% increase in this numerical fragment, without a general
+      discount-factor multiplier or threshold discussion; D7's γ = 0.9 multiplier is displayed on Alt A's I05 only. The
+      fragment is a mechanism illustration, not by itself a complete MDP divergence proof (book §11.2 states this
+      limitation). Do not say "behaviour takes another action, therefore an off-policy algorithm ignores it" as a
+      general fact.
+
+  - id: G08
+    kind: math
+    alt: {choice: '5.2 divergence', option: B}
+    title: 'Alt B · The deadly triad'
+    pictures:
+      - {deck: 'sources/current_course/6 - Value Function Approximation.pptx', slide: 47, shape: 'Picture 3', box: [8.9, 1.0, 4.0]}
+    body_box: [0.244, 1.0, 8.4, 3.8]
+    size: 20
+    body:
+      - 'Function approximation · Bootstrapping · Off-policy learning'
+      - 'Shared predictions can affect their own targets, while the update distribution differs from the target policy''s visits.'
+    after_box: [0.244, 5.0, 12.85]
+    after:
+      - text: '**Question:** Which part would you change to investigate the growth mechanism?'
+    minutes: 4
+    sources: ['old Value Function Approximation PPTX 47 (triad picture; placed before G07 deliberately)', 'book §11.3']
+    notes: |
+      G08 · Alt B, 5.2 divergence. Identify the sharing and the bootstrap in G05; its selective updates motivate the
+      distribution question but do not specify a complete off-policy process. "Any two are safe" is not a theorem for
+      arbitrary nonlinear models or algorithms. G07 uses explicitly different completions, and G10 supplies a complete
+      counterexample. No universal prediction/control convergence table.
+
+  - id: G07
+    kind: math
+    alt: {choice: '5.2 divergence', option: B}
+    title: 'Alt B · Three separate constructions'
+    body_box: [0.244, 0.95, 12.85, 0.6]
+    size: 19
+    body:
+      - text: '**Separate illustrative constructions, not one unchanged-task experiment.**'
+    tables:
+      - box: [0.244, 1.6, 12.85]
+        size: 15
+        row_h: 1.05
+        align_left: true
+        widths: [2.6, 5.4, 4.85]
+        header: ['Construction', 'Complete assumptions / supplied updates', 'Reveal']
+        rows:
+          - ['Add the terminal correction', 'Episodic L → R → terminal, all rewards 0, γ = 1; same features and α = 0.1; update both transitions in sequence each episode', '']
+          - ['Fit known zero returns', 'A zero-reward terminating continuation gives return 0 at L; only L is regressed on this known label', '']
+          - ['Use independent table entries', 'Only L → R updates; fixed V(R) = 20, V(L) initially 10; α = 0.1, γ = 1', '']
+      - box: [0.244, 1.6, 12.85]
+        size: 15
+        row_h: 1.05
+        align_left: true
+        widths: [2.6, 5.4, 4.85]
+        header: ['Construction', 'Complete assumptions / supplied updates', 'Reveal']
+        rows:
+          - ['Add the terminal correction', 'Episodic L → R → terminal, all rewards 0, γ = 1; same features and α = 0.1; update both transitions in sequence each episode', 'L step multiplies w by 1.1; R terminal step by 0.6. Episode: w ← 0.66w, 10 → 6.6 → 4.356']
+          - ['Fit known zero returns', 'A zero-reward terminating continuation gives return 0 at L; only L is regressed on this known label', 'w ← 0.9w, 10 → 9 → 8.1']
+          - ['Use independent table entries', 'Only L → R updates; fixed V(R) = 20, V(L) initially 10; α = 0.1, γ = 1', 'V(L) ← V(L) + 0.1[20 − V(L)]; 10 → 11 → 11.9 → … → 20']
+    after_box: [0.244, 6.0, 12.85, 0.9]
+    after:
+      - text: '**Question:** Which construction removes sharing, which removes the bootstrap label, and which adds a correction the fragment omitted?'
+    reveal: ['yaml:tables.1']
+    minutes: 7
+    sources: ['new comparison table replacing an implied controlled ablation of old Value Function Approximation PPTX 43 (review R03)', 'check_function_approximation_claude.py §5']
+    notes: |
+      G07 · Alt B, 5.2 divergence. R03 remains for instructor review of this presentation (O3). Three minutes to predict
+      and discuss, four of feedback. Answers: the independent table removes sharing; zero-return regression removes
+      bootstrapping; the completed episode supplies the R update. The first row changes the task completion as well
+      as the data relative to the fragment, so it is not a controlled one-component ablation. The second's zero return
+      is now justified, but it is not a generic off-policy Monte Carlo rule. The third is bounded but can remain wrong
+      because R is never corrected: missing coverage has not disappeared. The first row evaluates a proper episodic
+      process at γ = 1, avoiding an undefined nonterminating return assumption.
+
+  - id: G09
+    kind: math
+    alt: {choice: '5.2 divergence', option: B}
+    title: Two off-policy questions
+    body_box: [0.244, 1.3, 12.85, 4.5]
+    size: 24
+    body:
+      - '**Whose continuation is in the target?**'
+      - '**Whose state frequencies determine the updates?**'
+      - 'Matching one does not automatically fix the other.'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 41 (motivation)', 'Week 4 P08 callback', 'Sutton slides 26 p. 4']
+    notes: |
+      G09. Used in the Alt B divergence route (2 minutes); in Alt A its content is part of I06. Week 4 identified the
+      policy/data distinction and left general correction open. Approximation makes the state weighting matter
+      because states share parameters. Do not say "Q-learning needs no correction" as an established general result.
+      No importance-sampling ratio or gradient-TD machinery here.
+
+  - id: G10
+    kind: math
+    title: 'Baird: a complete counterexample'
+    pictures:
+      - {deck: 'sources/current_course/6 - Value Function Approximation.pptx', slide: 44, shape: 'Picture 6', box: [0.3, 2.25, 5.6]}
+      - {deck: 'sources/current_course/6 - Value Function Approximation.pptx', slide: 44, shape: 'Picture 4', box: [6.2, 2.2, 3.1], crop: [0.5, 0, 0, 0]}
+    body_box: [0.244, 0.95, 12.85, 1.2]
+    size: 19
+    body:
+      - text: '**Linear approximation + bootstrapping + different state weighting can diverge, even with exact expected updates.** All rewards zero; $\gamma=0.99$. Target action leads to the lower state. Uniform updates over all seven source states differ from target-policy visits. Zero values are exactly representable.'
+    after_box: [9.55, 2.3, 3.55, 3.6]
+    after:
+      - text: 'Right: synchronous expected semi-gradient DP sweeps; $\alpha=0.01$.'
+      - text: 'Weight subscripts are **components, not time steps**.'
+    blocks:
+      - box: [0.3, 5.9, 5.8, 0.8]
+        size: 16
+        items:
+          - text: '**The lower state''s prediction $w_7+2w_8$ grows too; this is not just redundant weights moving.**'
+    footnote: 'Sutton & Barto (2018), Figures 11.1 and 11.2 (right panel), via old slide 44.'
+    minutes: 3
+    sources: ['old Value Function Approximation PPTX 44 (seven-state diagram; Figure 11.2 picture cropped to its right, DP-sweep panel; the behaviour-probability picture is not used)', 'book Figures 11.1–11.2 printed 261–262 / PDF 283–284', 'check_function_approximation_claude.py §6']
+    notes: |
+      G10. Either route (3 minutes). Keep the original diagram's upper predictions 2w_i + w₈ (i = 1, …, 6) and lower
+      prediction w₇ + 2w₈. Initial components: all 1 except w₇ = 10. Each sweep averages the seven gradient-scaled
+      exact target errors, using the same pre-sweep vector. The right panel shows weight growth over repeated sweeps
+      (w₈ ≈ 335 after 1000 sweeps in the check script). Because w₈ grows strongly while w₇ stays comparatively small,
+      the lower predicted value grows away from its true value zero. There is no sampling noise or changing policy in
+      this demonstration. Do not introduce the behaviour-action probabilities, importance ratios, a full feature matrix
+      or another hand derivation; the sampled off-policy TD panel (which uses ratios) is excluded. Distinguish this
+      complete expected-update example from the fragment and from each route's two-state numbers.
+
+  - id: G11
+    kind: math
+    title: State convergence claims with their conditions
+    body_box: [0.244, 1.0, 12.85, 5.9]
+    size: 20
+    body:
+      - '**Linear gradient MC, fixed policy:** with appropriate sampling and step sizes, minimizes the weighted value-error objective; the best fit may still be wrong.'
+      - '**Linear on-policy semi-gradient TD, fixed policy:** under its conditions, approaches a TD fixed point; generally not the minimum of VE.'
+      - '**Off-policy linear TD:** can diverge, as just shown.'
+      - '**Nonlinear approximation / approximate control:** do not inherit the tabular guarantees merely by replacing a table with a function.'
+    minutes: 2
+    sources: ['replaces old Value Function Approximation PPTX 24, 46 and 56 (blanket tables)', 'book §§9.3–9.4, 11.2–11.3', 'D4 (scoped statements), D7 (R02)']
+    notes: |
+      G11 (D4: scoped convergence statements). Route minutes: Alt A 2, Alt B 4. Alt A: quick synthesis. Alt B: ask
+      students to explain the distinction between the first two rows. Suitable sampling, boundedness/regularity and
+      step sizes matter; singular features may leave weights nonunique even when predictions are determined. A
+      constant step size generally leaves noise. Do not promise global optimality for nonlinear MC, generic stability
+      for nonlinear on-policy TD, or convergence of changing-policy approximate Sarsa/Q-learning from a fixed-policy
+      theorem. The "any two" discussion in the linear setting is not an unconditional guarantee across arbitrary
+      algorithms. Week 4's 4.2 tabular convergence slide supplies the tabular row. In the Alt A full route, add G12's
+      short reassurance within these two minutes.
+
+  - id: G12
+    kind: math
+    title: Possible failure is not inevitable failure
+    body_box: [0.244, 1.2, 12.85, 5.0]
+    size: 24
+    body:
+      - 'Counterexamples reveal missing guarantees and failure mechanisms.'
+      - 'They do not say every approximate learner fails.'
+      - 'Inspect representations, targets, update data and actual value error.'
+    minutes: 0
+    sources: ['old Value Function Approximation PPTX 45 (heading only; its historical "no counterexample" and broad Q-learning claims are removed)']
+    notes: |
+      G12. Route minutes: within G11's notes in the Alt A full route (0 here); 1 in Alt A short; 2 in Alt B. Smaller
+      steps may reduce noise but cannot reverse the positive mean-growth direction in I05. More expressive features may
+      fix representation error but do not automatically fix unstable updates. No present-day practice or research-status
+      claim is needed to make this point.
+
+  - id: G13
+    kind: math
+    title: Diagnose three experiments
+    body_box: [0.244, 0.95, 12.85, 1.0]
+    size: 18
+    body:
+      - text: '**Constructed examples: reference values are known.** Match each case to sufficient representation, insufficient representation, or unstable learning. What evidence distinguishes them?'
+    table_box: [0.244, 2.0, 12.85]
+    table:
+      size: 14
+      row_h: 0.95
+      align_left: true
+      widths: [0.8, 4.6, 3.6, 3.85]
+      header: ['Case', 'Construction', 'Weight behaviour', 'Value error']
+      rows:
+        - ['1', 'Always-right grid, one-hot features; on-policy expected TD', 'Finite fixed-point weights equal (0.05091, 0.11636, 0.83636)', 'Computed fixed-point VE = **0**']
+        - ['2', 'Same grid, same data weighting and expected TD; features (1, steps to goal)', 'Finite fixed-point weights (0.24540, −0.11221)', 'Computed fixed-point VE = **0.00638**; best possible VE = **0.00624**']
+        - ['3', 'Separate complete two-state task: zero rewards, γ = 0.9, v̂ = (w, 2w), balanced target-action mean updates, α = 0.1', 'w = **10 → 10.2 → 10.404**', 'Equally weighted squared value error = **250 → 260.1 → 270.60804**']
+    blocks:
+      - box: [0.244, 5.95, 12.85, 1.0]
+        size: 17
+        items:
+          - text: '**1:** sufficient and stable here. **2:** a representation error floor, plus the small TD-versus-best-fit difference. **3:** unstable updates although $w=0$ represents the exact answer.'
+    reveal: ['yaml:blocks.0']
+    minutes: 6
+    sources: ['new table; independently computed examples, not empirical performance claims (review R08)', 'check_function_approximation_claude.py §§3, 4, 7']
+    notes: |
+      G13. Protected, 6 minutes in every route: two to inspect, two to discuss, two of feedback. Cases 1–2 are a
+      matched comparison: same grid and model, γ = 0.5, the on-policy every-visit weighting from G02, expected TD with
+      α = 0.1; only the features differ. Their entries are computed fixed points, not claims about a finite noisy run.
+      Case 3 is explicitly a different task. If Alt B was taught, briefly supply its full construction: two actions go
+      to their named states, π always goes R, behaviour chooses each with probability 1/2; balance retained L→R and
+      R→R samples and average their contributions using the same w. At general w these are 0.8w and −0.4w, giving
+      w ← 1.02w. This is enough to interpret the supplied data; no second worked derivation. Its error uses equal
+      state weights, not μ: [(w − 0)² + (2w − 0)²]/2 = 2.5w². Show value error next to weights, so that changing
+      parameter magnitudes alone is never the diagnosis. A plateau in a real finite run could also mean slow learning
+      or noise; the known reference and the analytic best fit distinguish this constructed case. Do not infer
+      instability from poor return alone.
+
+  - id: G14
+    kind: math
+    title: Toward deep value learning
+    body_box: [0.244, 1.2, 12.85, 5.0]
+    size: 24
+    body:
+      - 'We want richer value functions, reusable experience and more stable targets.'
+      - '**Next: DQN, and how the learning loop changes when a network estimates action values.**'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 57–58 as a future pointer only (D8); no batch-method or least-squares slide copied']
+    notes: |
+      G14. F17 already motivated learned features; do not repeat the neural-network introduction. Preview replay and a
+      separate target network as mechanisms to examine in 6.1, without equations or a claim that they eliminate all
+      deadly-triad failures. No new required reading or assignment promise.
+
+  - id: G15
+    kind: math
+    title: Separate three questions
+    body_box: [0.244, 1.2, 12.85, 3.4]
+    size: 24
+    body:
+      - '**Can it represent the answer?**'
+      - '**Which errors and data does it prioritize?**'
+      - '**Do the updates approach a useful answer?**'
+    after_box: [0.244, 4.8, 12.85]
+    after:
+      - text: '**Exit check:** The true values are representable, the rewards are zero, and the updates use exact expectations. Is divergence ruled out?'
+    minutes: 1.5
+    sources: ['new synthesis']
+    notes: |
+      G15. Route minutes: Alt A 1.5, Alt B 2. Answer: no. Baird and the complete two-state mean-update construction
+      show otherwise; if Alt B was taught, Baird is the primary full-process evidence. Projection was explanatory
+      exposure; the calculations to retain are semi-gradient updates and the selected divergence/intervention
+      activity. End of session 5.2; no out-of-scope appendix is added.

@@ -18,6 +18,20 @@ NSX = {'m': 'http://schemas.openxmlformats.org/officeDocument/2006/math',
 X = lambda el, path: etree._Element.xpath(el, path, namespaces=NSX)   # python-pptx's xpath lacks mc/m prefixes
 
 
+def mtext(el):
+    """Plain text of an equation; an accent's character follows its base (v̂ for \\hat{v})."""
+    out = []
+    for ch in el:
+        if ch.tag == f"{{{NSX['m']}}}t":
+            out.append(ch.text or '')
+        elif ch.tag == f"{{{NSX['m']}}}acc":
+            acc = X(ch, './m:accPr/m:chr/@m:val')
+            out.append(''.join(mtext(e) for e in X(ch, './m:e')) + (acc[0] if acc else '\u0302'))
+        else:
+            out.append(mtext(ch))
+    return ''.join(out)
+
+
 def main(deck, out):
     deck, out = Path(deck), Path(out)
     prs = Presentation(deck)
@@ -51,7 +65,7 @@ def main(deck, out):
                     if ch.tag == qn('a:r'):
                         bits.append(''.join(X(ch, './a:t/text()')))
                     elif ch.tag.endswith('}m'):
-                        bits.append('$' + ''.join(X(ch, './/m:t/text()')) + '$')
+                        bits.append('$' + mtext(ch) + '$')
                 line = ''.join(bits).replace('\u2060', '').strip()
                 if line:
                     lines.append('- ' + line)
@@ -64,7 +78,7 @@ def main(deck, out):
                         if ch.tag == qn('a:r'):
                             out.append(''.join(X(ch, './a:t/text()')))
                         elif ch.tag.endswith('}m'):
-                            out.append('$' + ''.join(X(ch, './/m:t/text()')) + '$')
+                            out.append('$' + mtext(ch) + '$')
                 return ''.join(out).strip()
             rows = [[cell(tc) for tc in X(tr, './a:tc')] for tr in X(gf, './/a:tbl/a:tr')]
             if rows:
