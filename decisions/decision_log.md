@@ -1,5 +1,40 @@
 # Decision Log
 
+## 2026-11-14 — A1 cross-review: grading boundary settled; draft revised
+
+- Authority: instructor ("Yes, allow ledge answers"), answering R1 of the [shared A1 review](../analysis/assignment_suggestions/a1_review.md). Recorded in `a1_design_choices.grading_boundary` of the [assignment decisions](assignment_decisions.md).
+- Scored correctness tests use the 4 × 3 grid only. The marked short answers may interpret the supplied runs on the separate control-experiment grid (`ledge` in Claude's draft).
+- Instructor, same day: the timed pilot is coordinated by the instructor with the TAs; exact testing conditions, experiment reporting and grading shares are revisited once a version of the homework exists. Both are in `a1_design_choices`.
+- ChatGPT's review (R1–R11) and Claude's responses are in the shared review; Claude's draft is revised to match. The revised test list, experiment reporting and grading shares remain suggestions. Who runs the timed pilot from the starter (R9) is open. No workload, lecture-minute, mastery or grade-weight change.
+
+## 2026-11-14 — A1 design choices: no n-step, constant-α MC, lowest-index ties, 2 × 2 debugging grid
+
+- Authority: instructor ("n-step: Let's leave this out"; "let's go with constant"; "Lowest-index ... let's keep that for now"; "We can utilize both but only grade on 4 x 3"). Recorded in `a1_design_choices` and the A1 prediction task of the [assignment decisions](assignment_decisions.md).
+- n-step is left out of A1; the task text no longer mentions supplied n-step checks. MC prediction uses a constant step size without visit counts; count-based step sizes may be added for MC and TD(0) if the pilot shows convergence suffers.
+- Action ties go to the lowest index, for now. The 4 × 3 lecture grid is graded; the 2 × 2 lecture grid is supplied for debugging and is not graded. The release date is revisited once the assignment is built.
+- Other details in Claude's draft (`analysis/assignment_suggestions/a1_claude.md`), including the experiment list, test list and grading shares, remain suggestions pending ChatGPT's review and instructor comments. No workload, lecture-minute, mastery or grade-weight change.
+
+## 2026-11-14 — A1 tasks: policy iteration, decay schedule and optimistic initialization added
+
+- Authority: instructor ("I agree with the decay idea"; "having the policy evaluation part being supplied and also adding the policy iteration as a question"; "Students should implement the kernels. Let's write the first A1 draft"). Recorded in the A1 tasks and `refinements.A1` of the [assignment decisions](assignment_decisions.md).
+- What changes: students implement policy iteration (improvement step and outer loop) on a supplied iterative policy evaluation, replacing the supplied policy-iteration comparator. The control loop uses a supplied ε and α decay schedule. A zero versus optimistic Q-initialization comparison is added as a small extra.
+- Unchanged: students still implement value iteration, the MC and TD(0) prediction kernels, and the shared SARSA/Q-learning control loop.
+- Why: policy iteration gives implementation practice on the improvement step; decay and initialization are small additions that connect to the Week 4 decaying-ε material and to the later optimism-in-the-face-of-uncertainty material.
+- Untaught content: optimistic initialization is not taught in class. The handout introduces it briefly; it creates no exam requirement, and the later material refers back to it.
+- Workload: Claude estimates 2 to 3 added hours (unpiloted) on the 9–13 hour A1 planning range, inside this semester's two-week window with the discretionary extra week. The hours in `analysis/assignment_proposal.yaml` are not updated here. Nothing is displaced. No lecture-minute, mastery, prerequisite or grade-weight change.
+- Draft: Claude's first A1 suggestion is `analysis/assignment_suggestions/a1_claude.md`; it is a suggestion, not an accepted design.
+- Consistency fix after ChatGPT's review (same day): the A1 `starter` field said "supplied PI comparator"; it now says supplied iterative policy evaluation, matching the task change above.
+
+## 2026-11-14 — Assignments: Gymnasium framework; Fall 2026 timing special cases
+
+- Authority: instructor ("I am leaning towards this framework"; "Yes, go with 2.5. We can log the 3 week departure as a special case for this semester"). Recorded in `implementation_framework` and `fall_2026_exceptions` of the [assignment decisions](assignment_decisions.md).
+- Framework: all assignments use the Gymnasium environment API. Inefficient GPU use is accepted for homework. Graded code is in `.py` modules; students are told how to convert notebooks.
+- Checking: an automated script, expected numbers for a subset of results (value table, Q-value table, policies) that students compare against, or both. For randomness, either a fixed seed with one required random library, or calls to student functions on known inputs and fixed transitions.
+- File ownership: each AI writes its own suggestion; the homework files are shared, as with the lecture decks.
+- Fall 2026 special case, A1: a two-week window, extended by one week at the instructor's discretion if students are having a hard time finishing. A2 is released about two weeks after A1 either way. This departs from the three-week rule for this semester only; `schedule_policy` (21 days) is unchanged as the standing rule.
+- Fall 2026, A4: the deadline may extend to the end of the finals period, about three additional weeks; exact date pending. A1's stale Midterm 1 exam bridge is left as is this semester.
+- Consequences: A1 student workload is compressed into two weeks and is unpiloted; the extension is the mitigation. No topic, mastery, prerequisite, lecture-minute or grade-weight change. Generated schedule views still show the standing targets and are not regenerated here; `scripts/phase6_report.py --check` already reported a stale `output/assessment_timeline.md` before this entry.
+
 ## 2026-11-09 — Proposal grading documents ready for the pilot
 
 - After Claude's check of the applied revisions, the instructor confirms R16 as is: format violations may lower R16 (at most 4 points) and add no other penalty.
@@ -60,6 +95,26 @@
 
 - Authority: instructor, recorded in the git-ignored `decisions/exams/midterm_1.md` X7–X8. Accepted the combined selection from both AI suggestions and the cross-review corrections. Question-specific changes, allocations and remaining grading choices are recorded only in the confidential exam decisions and shared review, in accordance with the repository contract.
 - No coverage, format, lecture-minute, mastery or assignment change.
+
+## 2026-11-12 — Week 5 deck (`function_approximation`): 5.2 divergence example settled by instructor edit
+
+- Authority: instructor's saved deck (`13e58d03…`), recorded as [function_approximation D14](lectures/function_approximation.md). 5.2 teaches the complete two-state construction; the fragment slides are hidden alternatives. I07's relation to the accepted worked activity is open (R17). No other change.
+
+## 2026-11-12 — Week 5 deck (`function_approximation`): convergence slides; grid geometry picture
+
+- Authority: instructor, recorded as [function_approximation D12–D13](lectures/function_approximation.md). Convergence comparison slides G12a/G12b were added after G12, so 5.2's timed route targets 62 minutes within the delivery allowance; the planning allocation is unchanged. The instructor's edit keeps the grid geometry picture and hides P2. A "consider for next semester" note records showing B^π, the projection and backup-and-fit steps in 5.2. No scope, mastery or assessment change.
+
+## 2026-11-12 — No hedging or disclaimers on slides (shared rule)
+
+- Authority: instructor, during Week 5 editing. Slide text states what is taught; caveats, conditions and disclaimers go in the speaker notes, and the instructor moves warnings onto slides when needed. Added to the shared lecture-content conventions in `AGENTS.md` (CLAUDE.md links to it), binding both AIs from now on. No curriculum change.
+
+## 2026-11-10 — Week 5 deck (`function_approximation`): round-1 fixes; μ^π in the notation guide
+
+- Authority: instructor replies to R10–R15, recorded as [function_approximation D11](lectures/function_approximation.md). F03 and F05 equation fixes applied. The notation guide defines μ^π(s) for the policy-dependent on-policy state distribution (μ(s) when π is fixed). F02 and F03 gain 1.5 minutes, so 5.1's grid route targets 60 minutes, within the delivery allowance; the planning allocation is unchanged. No scope, mastery or assessment change.
+
+## 2026-11-10 — Week 5 deck (`function_approximation`): 5.1 example settled by instructor edit
+
+- Authority: instructor's saved deck (`ddb48789…`), recorded as [function_approximation D10](lectures/function_approximation.md). 5.1 teaches the grid example; the landmark slides are kept as hidden alternatives at the end of the deck. No scope, mastery, allocation or assessment change.
 
 ## 2026-11-08 — Readings ignored for Fall 2026
 

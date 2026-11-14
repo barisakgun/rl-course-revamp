@@ -39,7 +39,8 @@ authorship: individual
 staffing_constraint: At most one TA, possibly none; minimize routine hand grading and repeated bespoke experiment
   setup.
 refinements:
-  A1: Remove the separately hand-graded predict-one-target task.
+  A1: Remove the separately hand-graded predict-one-target task. Students implement the MC and TD(0) prediction
+    kernels; policy evaluation for policy iteration is supplied (instructor, 2026-11-14).
   A3: Use an existing PPO implementation for clipping/behavior analysis; no PPO or SAC implementation requirement.
   A4: Scaffolded IQL implementation accepted; CQL conceptual assessment stays in midterm 3.
   rubric: Finalize rubrics when concrete assignments exist; prior numerical splits are not adopted.
@@ -66,14 +67,19 @@ assignments:
   purpose: Make the common backup structure and the difference between a model, sampled returns and control targets
     concrete.
   tasks:
-  - Implement one value-iteration solver on a small supplied MDP; compare supplied policy-iteration results rather
-    than implementing a second planning solver.
-  - Complete small MC-prediction and TD(0)-prediction update kernels on a shared trajectory. Use supplied checks
-    for n-step/terminal handling and a compact interpretation of the comparison; no separate hand-worked target
-    submission.
+  - Implement value iteration and policy iteration on a small supplied MDP. Iterative policy evaluation is
+    supplied; students write the improvement step and the outer loop, and compare the two solvers (instructor,
+    2026-11-14; replaces the supplied policy-iteration comparator).
+  - Complete small MC-prediction and TD(0)-prediction update kernels on shared supplied episodes, with supplied
+    checks for terminal and truncation handling and a compact interpretation of the comparison; no separate
+    hand-worked target submission. No n-step work (instructor, 2026-11-14).
   - Implement one shared epsilon-greedy tabular control loop with SARSA and Q-learning target choices; compare one
     deliberately chosen exploratory-control case.
-  starter: One small gridworld/MDP API, trajectory data, plotting and evaluation harness, supplied PI comparator,
+  - Use a supplied epsilon and step-size decay schedule in the control loop. Compare zero and optimistic Q
+    initialization as a small extra; the handout introduces it briefly and the later optimism-in-the-face-of-
+    uncertainty material refers back to it (instructor, 2026-11-14).
+  starter: One small gridworld/MDP API, trajectory data, plotting and evaluation harness, supplied iterative policy
+    evaluation,
     tests for terminal handling. Local HW1A is the conceptual reuse base; its starter code was not supplied in this
     repository and must be recovered or recreated before release.
   exam_bridge: 'Midterm 1: work through an unfamiliar backup or diagnose a changed target. Do not ask students to
@@ -225,6 +231,44 @@ schedule_policy:
     teaching/makeup dates at the post-Week-2 review; do not silently shorten the window.
   prior_january_target: A4 due Week 15; preserve spacing before the Week 16 project final report when assigning
     dates.
+implementation_framework:
+  decided: 2026-11-14
+  environment_api: Gymnasium for all assignments. Environments are CPU-sized; inefficient GPU use is accepted
+    for homework.
+  graded_code: Python modules (.py), not notebooks. Tell students how to convert a notebook to a module.
+  checking: An automated script, or expected numbers for a subset of results (value table, Q-value table,
+    policies) that students compare against, or both.
+  randomness: For results that depend on randomness, either fix the seed and require one random library, or
+    call student functions on known inputs and fixed transitions. The choice is made per task.
+  file_ownership: Each AI writes its own suggestion; the homework files themselves are shared, as with the
+    lecture decks.
+a1_design_choices:
+  decided: 2026-11-14
+  n_step: Left out of A1.
+  mc_variant: Constant step size, no state-visitation counts. If convergence suffers in the pilot, count-based
+    step sizes may be added, for TD(0) as well.
+  tie_rule: Lowest-index action among maximizers, for now.
+  layouts: The 4 x 3 lecture grid is graded. The 2 x 2 lecture grid is included for debugging and is not graded.
+  grading_boundary: Scored correctness tests use the 4 x 3 grid only. The marked short answers may interpret
+    the supplied runs on the separate control-experiment grid (instructor, after cross-review R1).
+  release_date: Revisited once the assignment is built.
+  pilot: The instructor coordinates the timed pilot with the TAs.
+  deferred_until_built: Exact testing conditions, experiment reporting and grading shares are revisited once a
+    version of the homework exists.
+  draft: analysis/assignment_suggestions/a1_claude.md holds Claude's draft; details there that are not listed
+    here are suggestions, not accepted.
+fall_2026_exceptions:
+  note: Special cases for Fall 2026 only. schedule_policy and the per-assignment schedule fields above keep the
+    standing three-week rule and are not edited.
+  decided: 2026-11-14
+  A1:
+    window: Two weeks from release. The instructor may extend it by one week if students are having a hard time
+      finishing.
+    A2_release: Not delayed by an A1 extension; A2 opens about two weeks after the A1 release, once its
+      prerequisites are taught.
+    exam_bridge: The Midterm 1 exam bridge is stale this semester and is left as is.
+  A4:
+    deadline: May extend to the end of the finals period, about three additional weeks. Exact date pending.
 deferred_to_semester:
 - Concrete rubric/penalty details
 - Example LLM-use report

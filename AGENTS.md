@@ -243,6 +243,7 @@ Analysis must not silently become accepted decision.
 - Claude follows the mirror rule: files Claude creates use the `_claude` suffix, and Claude ignores ChatGPT-created files (`_chatgpt`) on the same terms.
 - Exception for cross-review: when the instructor asks one AI to review the other's work, the reviewer may read the other AI's files for that review only. It must never edit, regenerate, rename or adopt them.
 - Shared syllabus, project configuration, accepted decisions and repository governance remain shared authority. If ownership or shared status is unclear and the file is needed, ask the instructor before using it.
+- Homework files follow the lecture-deck mechanism (instructor, 2026-11-14). Each AI writes its own suggestion under `analysis/assignment_suggestions/` (`<assignment>_claude.md`, `<assignment>_chatgpt.md`); the counterpart reads it only for a scoped cross-review and never edits it. Findings, responses and resolution status go in the single shared review `analysis/assignment_suggestions/<assignment>_review.md`. The homework files themselves under `course/assignments/<assignment>/` (handout, starter code, tests, solution, grading material) are shared: both AIs may read and edit them, without an authorship suffix. Accepted choices are recorded in `decisions/assignment_decisions.md`.
 - Leave Office lock files (`~$...`) and unrelated files alone. The `_chatgpt` and `_claude` suffixes distinguish authorship, not curriculum acceptance.
 
 ### Shared lecture-content conventions (Claude and ChatGPT)
@@ -257,6 +258,7 @@ Analysis must not silently become accepted decision.
 - Suggest new preliminary or detailed planning material only when the information does not already exist in the accepted plan, decisions, instructor sources or analysis.
 - Equations: reuse existing PowerPoint equations from the old decks where possible; use LaTeX where they are not enough.
 - Lecture content follows `decisions/topic_decisions.yaml` (session scope, mastery, exclusions, minutes, worked activity). A content need that conflicts with it is raised with the instructor, not silently resolved.
+- **No hedging or disclaimers on slides (instructor, 2026-11-12).** Slide text states what is taught, plainly. Every caveat, qualification, scope limit, condition of a result and "this is not…" disclaimer goes in the speaker notes, not on the slide: for example "not one sampled TD update" under a figure, or "mechanism fragment, not yet a complete process". This applies to content files, renderer input, rendered decks and AI edits to saved decks. Keep the important information in the notes, so the instructor can move a warning onto a slide if needed. Do not put such statements back on a slide the instructor has cleaned.
 
 Prefer structured Markdown and YAML that can be inspected and diffed.
 

@@ -23,15 +23,16 @@ Make the common backup structure and the difference between a model, sampled ret
 
 **Learning outcomes:** L02, L03, L04, L06, L07. **Last prerequisite:** 4.2.
 
-1. Implement one value-iteration solver on a small supplied MDP; compare supplied policy-iteration results rather than implementing a second planning solver.
-2. Complete small MC-prediction and TD(0)-prediction update kernels on a shared trajectory. Use supplied checks for n-step/terminal handling and a compact interpretation of the comparison; no separate hand-worked target submission.
+1. Implement value iteration and policy iteration on a small supplied MDP. Iterative policy evaluation is supplied; students write the improvement step and the outer loop, and compare the two solvers (instructor, 2026-11-14; replaces the supplied policy-iteration comparator).
+2. Complete small MC-prediction and TD(0)-prediction update kernels on shared supplied episodes, with supplied checks for terminal and truncation handling and a compact interpretation of the comparison; no separate hand-worked target submission. No n-step work (instructor, 2026-11-14).
 3. Implement one shared epsilon-greedy tabular control loop with SARSA and Q-learning target choices; compare one deliberately chosen exploratory-control case.
+4. Use a supplied epsilon and step-size decay schedule in the control loop. Compare zero and optimistic Q initialization as a small extra; the handout introduces it briefly and the later optimism-in-the-face-of- uncertainty material refers back to it (instructor, 2026-11-14).
 
 **Decision boundary:** High-level scope accepted; concrete task construction and pilot remain future work.
 
 **Grading design:** Use automatic update checks; no separate hand-worked target submission.
 
-**Starter code/support:** One small gridworld/MDP API, trajectory data, plotting and evaluation harness, supplied PI comparator, tests for terminal handling. Local HW1A is the conceptual reuse base; its starter code was not supplied in this repository and must be recovered or recreated before release.
+**Starter code/support:** One small gridworld/MDP API, trajectory data, plotting and evaluation harness, supplied iterative policy evaluation, tests for terminal handling. Local HW1A is the conceptual reuse base; its starter code was not supplied in this repository and must be recovered or recreated before release.
 
 **Staged release:** Full assignment released after all assessed prerequisites; 21 calendar days with original releases retained and one-week overlaps allowed.
 
