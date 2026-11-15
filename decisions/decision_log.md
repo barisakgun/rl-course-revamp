@@ -1,5 +1,9 @@
 # Decision Log
 
+## 2026-11-15 — Week 5 final review fixes approved
+
+- The instructor approved R26–R31 for Claude to apply to the saved Week 5 deck. [Deck decision D19](lectures/function_approximation.md)
+
 ## 2026-11-15 — A1 build: code-review fixes applied
 
 - ChatGPT's code review (B1–B8) and Claude's responses are in the [shared A1 review](../analysis/assignment_suggestions/a1_review.md). All findings are applied in the working tree.

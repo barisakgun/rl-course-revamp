@@ -9,20 +9,19 @@ historical inputs:
 **Scope:** sessions 5.1 `linear` (Linear approximation and semi-gradients) and 5.2 `instability` (Approximation
 instability). Accepted teaching allocations, scope and mastery live in `decisions/topic_decisions.yaml`.
 
-**Status: instructor editing round 2 done (2026-11-15): R16–R21 resolved and applied (D15–D16).** The next instructor pass or the final complete check follows. This is the deck's only
-current status record; other files point here. No open items remain.
+**Status (2026-11-15).** Both final reviews are complete. The instructor approved R26–R31 under D19. Claude will apply the six fixes to the saved deck and refresh the review views for a focused recheck. The slideshow check and instructor acceptance are pending.
 - **Deck:** `course/lectures/week05/function_approximation_claude.pptx`, SHA-256
-  `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`, 50 slides. It is the instructor's round-2 save
-  `13e58d03…` with I07 unhidden and G11 hidden (D15), the slide IDs of the hidden fragment slides restored, the D16
-  fixes and notes updates, and refreshed equation fallbacks.
+  `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`, 50 slides (40 visible). It is the instructor's round-2 save
+  `13e58d03…` plus D15–D16 and the final-check fixes R22–R24 (D18), with equation fallbacks refreshed.
   - Hidden: G00 (5.2 divider), G11 (D15).
   - Hidden alternatives: F12-B, F12a-B, F13-B (D10); G03-B (D13); G05, G06, G08, G07 (D14).
+- **Final previews:** `output/lectures/week05/function_approximation_claude_preview.{pdf,png}`, 40 visible
+  slides, from this deck. The text view matches the same deck.
 - **Sessions:**
   - **5.1** = slides 1–22 (F00–F18): 60 minutes.
-  - **5.2** = slides 23–42 (G01 to G15 with I02–I07, G09, G12a, G12b; G11 hidden): visible targets sum to 61.5
-    minutes, within the 63-minute delivery allowance.
+  - **5.2** = slides 23–42 (G01 to G15 with I02–I07, G09, G12a, G12b; G11 hidden): visible targets sum to 62.5
+    minutes, within the 63-minute delivery allowance (G12 1 minute, D18).
 - **The PPTX is the teaching source.** Text view: `output/lectures/week05/function_approximation_claude.md`.
-  No stored previews until the final check.
 - **First-render inputs, all frozen:**
   - the shared [content](../../course/lectures/week05/function_approximation_content.md) (ChatGPT, step 4);
   - `function_approximation_claude.yaml` (5.1);
@@ -247,6 +246,17 @@ The instructor answered the six items in the shared review's "Status after the m
   is not used. Under the accepted counting, projection itself stays at about 8 minutes (G03-A + G04), as in
   `topic_decisions.yaml`. 5.2 stays at 61.5 minutes.
 
+- **D18. Final-check fixes** (instructor, 2026-11-15: "Yes, apply all"; review R22–R24).
+  - **R22 (I02):** "All rewards 0" replaces "R = 0", which clashed with the state R.
+  - **R23 (G12):** 1 minute, so 5.2 = 62.5, within the delivery allowance; the planning allocation is unchanged.
+  - **R24:** stale notes cleaned (route, short-geometry and review-status wording) on G00, G02, G03-A, G04, I02–I05,
+    G07, G10 and G12b.
+  - **Fixed while rendering:** I02's new text run carried the language tag `ar-AE`, inherited from the instructor's
+    edit, which put the comma in right-to-left order. It is now `en-US`.
+  - No scope, mastery or assessment change.
+
+- **D19. Instructor approval of R26–R31 (2026-11-15).** The instructor approved all six fixes as written in the [final review](../../analysis/lecture_suggestions/function_approximation_review.md#final-review-by-chatgpt-2026-11-15) for Claude to apply to the Week 5 deck.
+
 ## Consider for next semester (instructor, 2026-11-12)
 
 Not part of the Fall 2026 deck. Revisit when this deck is prepared for the next offering.
@@ -299,3 +309,4 @@ Not part of the Fall 2026 deck. Revisit when this deck is prepared for the next 
 | O4 | Closed by D9 (2026-11-08): Claude's order is the step-4 basis. | — |
 | O5 | Closed by D11 (2026-11-10). | — |
 | O6 | Closed by D15–D16 (2026-11-15). | — |
+| O7 | Closed by D18 (2026-11-15). R25 (caveat lines on hidden alternatives) needs action only if one of them is unhidden. | — |

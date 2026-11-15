@@ -710,3 +710,82 @@ only; the deck was open in PowerPoint and the export timed out.
   and `output/lectures/session_sources.md` are regenerated for that note.
 
 **O3 closed (instructor, 2026-11-15).** C01 and C02 were closed as covered; R03 lapsed with D14. O1 was closed by D17 (full 13-minute geometry).
+
+## Final complete check (Claude) — 2026-11-15
+
+**Deck checked:** `course/lectures/week05/function_approximation_claude.pptx`, SHA-256 `c4918df9…`, 50 slides (40
+visible, 10 hidden). Backed up as `output/deck_backups/…c4918df9.final-check.pptx`. The text view is regenerated
+from this version. The deck was open in PowerPoint during the check, so it was read only.
+
+**What was checked:**
+- **Content and notes:** all 50 slides and their notes were read: mathematics, numbers, notation (guide and D6),
+  agreement between slide and notes, stale references, and the no-hedging rule on visible slides. Numbers agree
+  with `scripts/check_function_approximation_claude.py`.
+- **Fresh PowerPoint render of every slide**, including the hidden ones, rendered from a temporary all-visible copy:
+  no layout, equation, picture or crop problem found.
+  - Hidden status matches the decisions: G00, G11; the landmark alternatives (D10); G03-B (D13); G05/G06/G08/G07
+    (D14).
+- **Equations:** 35 equation boxes, all correctly structured. The fallbacks were refreshed after the last
+  equation edit, and the deck has not been saved since.
+- **Animations from the definitions:** 23 slides have click builds. Every target exists, and no slide has more than
+  one timing block. Live playback is for the instructor to check in slideshow mode.
+- **Timing (visible slides):** 5.1 = 60 minutes, 5.2 = 61.5 minutes, both within the 63-minute delivery allowance.
+  The planning allocations (58 + 58) are unchanged.
+- **Slide IDs:** all 50 are unique, with no unnamed slide.
+
+**Findings (Claude, 2026-11-15).** Status open.
+
+| ID | Type / slide | Issue | Proposed fix | Status |
+| --- | --- | --- | --- | --- |
+| R22 | **Notation clash** — I02 | The instructor's edit "R = 0" stands for the reward on a slide whose two states are L and **R** (v̂(R, w) = 2w). | "$R_{t+1}=0$" (as rendered first) or "all rewards 0". G10's "R = 0" has no state R, so it is optional to change there. | resolved — "All rewards 0" (D18) |
+| R23 | **Timing** — G12 | "Possible failure is not inevitable failure" is visible with three bullets but has a 0-minute target. It was folded into G11, which is now hidden. | Give G12 1 minute, which makes 5.2 = 62.5 (within the allowance), or say it in passing with G12a. | resolved — G12 1 minute; 5.2 = 62.5 (D18) |
+| R24 | **Maintenance (notes only)** | Stale notes after D14–D17 and the O3 closure: | Clean these notes; no slide change. | resolved — notes cleaned (D18) |
+| | | • G00: still says "Visible session boundary…" although it is hidden; | | |
+| | | • G02, G03-A, G04, I04 and I05: "short route" timing text, although D17 settled the full route; | | |
+| | | • I02: "If G03-B was used…"; | | |
+| | | • I03: "C01 remains for instructor review"; | | |
+| | | • I05: "C02's first bullet … remains for instructor review"; | | |
+| | | • G07 (hidden): "R03 remains…"; | | |
+| | | • G10: "Either route", and a sources line that still says the figure is cropped to the right panel; | | |
+| | | • G12b: the remark that the instructor may shorten G11. | | |
+| R25 | **Note (hidden slides)** | Hidden alternatives G03-B, G05 and G07 still carry first-render caveat lines ("…not one sampled TD update", "Mechanism fragment…", "…not one unchanged-task experiment"). This does not matter while they are hidden. | If one of them is ever unhidden, move those lines into its notes (no-hedging rule). | resolved — no action while hidden (noted in D18/O7) |
+
+**After the fixes:** store the final previews (`output/lectures/week05/function_approximation_claude_preview.{pdf,png}`,
+visible slides) and the text view from the fixed deck. Workflow step 7 also calls for ChatGPT's full content and
+notes review. Acceptance ("done", with the deck's SHA-256) is the instructor's decision.
+
+**Final-check fixes applied (Claude, 2026-11-15)** after the instructor said "Yes, apply all":
+- **Applied:** R22, R23 and R24, each after a backup. I02's new run had inherited the language tag `ar-AE`, which put
+  the comma right-to-left ("0 ,γ"); it is now `en-US` and renders as "All rewards 0, γ = 0.9, …".
+- **Other `ar-AE` runs:** 32 more runs from the instructor's PowerPoint edits carry the tag. They render correctly
+  in the export and were left alone. They matter only next to punctuation, or for spell-checking.
+- **Equations:** fallbacks refreshed (35 boxes).
+- **Check:** fresh PowerPoint export of all 40 visible slides; slide targets 5.1 = 60, 5.2 = 62.5.
+- **Final previews** stored from this deck (`…_preview.{pdf,png}`), and the text view is regenerated.
+- **Deck:** `2e02cbd3…`.
+- **Still pending for step 7/8:** ChatGPT's full content and notes review; the instructor's slideshow check of click
+  order; acceptance.
+
+## Final review by ChatGPT, 2026-11-15
+
+Reviewed saved deck `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748` against D10–D18 and the earlier decisions they retain. Slide numbers below are the PowerPoint numbers printed on the slides. Slides 38 and 39 are pages 36 and 37 of the visible-only PDF.
+
+**Two corrections matter before acceptance.** Both fit inside the existing convergence tables and their two-minute targets. The proposed wording retains the comparison requested in D12. Assumptions and counterexamples belong in the speaker notes.
+
+| ID | Type and slide | Finding and proposed correction | Status |
+| --- | --- | --- | --- |
+| R26 | Error · 38, G12a, nonlinear gradient MC | The check mark promises convergence to a local minimum of VE. The notes give decreasing step sizes and coverage, which are insufficient even for a deterministic return. For a single terminal transition paying 1, take v̂(s,w) = w³ and start at w = 0. Every gradient MC update is zero, although positive weights arbitrarily close to zero give lower VE = (1−w³)². This also conflicts with F07's speaker cue. Replace the checked cell with **“Stationary points of VE”** and omit the convergence tick for that cell. Explain in the notes what a zero gradient means and give the example. Sutton & Barto §9.3 uses the customary local-optimum shorthand. For a precise nonconvex SGD result under assumptions, see [Bottou, Curtis & Nocedal, §4.3](https://arxiv.org/abs/1606.04838). | Approved (D19), pending application by Claude |
+| R27 | Error · 39, G12b, linear MC control and Sarsa | The legend says the learner “stays near a good solution but keeps oscillating.” Both quality and persistent oscillation are stronger than the evidence. With one state, two actions that terminate with +1 and −1, identical action features and the deck's uniform tie-breaking, both actions always get the same prediction. The greedy tie policy earns 0 on average while the optimal policy earns 1. Scaling both rewards scales the gap. Use **“(✓) can oscillate as the policy changes”** and explain the role of feature quality in the notes. Also correct the notes' explanation of tabular policy improvement. A greedy improvement can change actions in several states simultaneously. The theorem compares candidate actions using the current policy's exact action values. See Sutton & Barto §§4.2 and 10.1 and [Zhang et al., ICML 2023](https://proceedings.mlr.press/v202/zhang23al.html) for the scope of a bounded-region result for projected linear Sarsa. | Approved (D19), pending application by Claude |
+
+**Smaller corrections for the same edit pass**
+
+| ID | Type and slide | Finding and proposed correction | Status |
+| --- | --- | --- | --- |
+| R28 | Teaching precision · 25, G02 | “The point where the semi-gradient TD algorithm converges” describes the outcome in this grid, but makes a fixed point sound attracting by definition. I05 supplies a counterexample in this deck. Under w ← 1.02w, zero is fixed and nearby nonzero weights move away. Suggested definition for the column is **“Predictions at the weights where the expected TD update is zero.”** Keep the grid's convergence conditions in the existing notes. | Approved (D19), pending application by Claude |
+| R29 | Presenter cue · 26, G03-A | The notes say “Five clicks.” The PPTX defines five chart builds and a sixth click revealing the final paragraph about the start-state coordinate. Preserve the instructor's animation and update the cue to **“Five chart builds, then click once for the start-state value.”** The notes also call the fit “near-horizontal.” The move from the true pair (0.11636, 0.83636) to the weighted fit (0.12623, 0.12623) is almost vertical on these axes. Say that the horizontal coordinate changes by only about 0.010 because the right-hand cell carries 72 times the weight. | Approved (D19), pending application by Claude |
+| R30 | Placement · 9, F08 | The italic instructor terminology aside remains on the slide. D7 asks to retain it and the later November 12 rule places such asides in speaker notes. Move the sentence verbatim into the notes and keep the definition of semi-gradient on the slide. | Approved (D19), pending application by Claude |
+| R31 | Notes precision · 3, F02 | The humanoid answer says a table “cannot even be indexed” for continuous states. An observed joint configuration can serve as a key. The practical problems are sparse repeat visits, independent entries and the impossibility of enumerating every configuration in a finite table. Suggested cue is **“We can store each configuration we visit. With continuous joint angles and velocities, exact repeats are rare, so most new configurations need a fresh estimate.”** | Approved (D19), pending application by Claude |
+
+**Verification.** Checked slide content and notes across the 50-slide deck, including the hidden alternatives. The saved PPTX matches the fingerprint in the text view. All 40 PDF page titles match the visible slide sequence and the stored contact sheet shows the same route. The 10 hidden slides match the decisions. The visible PowerPoint export shows legible equations and complete figures, including both panels of Baird's example. The earlier 14-point diagnostic table is now slide 40 and fits on the slide. All internal package links and animation shape references resolve. The sixth-click finding comes from PowerPoint's timing definitions. Live playback remains the instructor's check.
+
+Recomputed the grid occupancy and value errors (0.00623535 at the best fit and 0.00637684 at the TD fixed point), the two-state growth and intervention factors (1.02, 0.96, 0.75), and the diagnostic error sequence (250, 260.1, 270.60804). The visible targets sum to 60 and 62.5 minutes against the accepted 63-minute delivery allowance. The second meeting retains eight minutes for the intervention activity and six minutes for diagnosis. Findings above require wording or cue changes within the existing time. The instructor approved all six fixes on 2026-11-15 for Claude to apply. [Deck decision D19](../../decisions/lectures/function_approximation.md)

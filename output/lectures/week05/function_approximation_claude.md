@@ -2,7 +2,7 @@
 
 # Text view: function_approximation_claude.pptx
 
-SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
+SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 
 ## 1. F00 — COMP438/538 Reinforcement Learning
 
@@ -506,7 +506,6 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 **Notes:**
 
 > Hidden by the instructor (round 2): session 5.2 starts at G01.
-> G00. Visible session boundary. Begin this slide at the second meeting, not as extra 5.1 material.
 >
 > Target: 0.5 min. Sources: section opener (as model_free_control P00 / bellman B17).
 
@@ -555,13 +554,12 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 **Notes:**
 
-> G02. Route minutes: full geometry 5, short 3 (O1). 5.1 used the grid, so the inset recalls F12-A; if the landmark route is ever taught instead,
+> G02. Full 13-minute geometry (D17). 5.1 used the grid, so the inset recalls F12-A; if the landmark route is ever taught instead,
 > introduce the grid from this inset. The full transition/reward specification is in F12-A's notes
 > (0.8 intended move, 0.1 each perpendicular slip, walls keep the agent in place). True values and both limiting
 > fits are computed from that model, not inferred from two samples or a simulation. The rarely visited upper-left
 > cell (1,2) contributes little to this objective despite a large error. Every-visit and first-visit weighting
-> differ. Full route: ask students to locate the largest error and explain the compromise. Short route: state
-> those observations and keep the table's distinction. The standard linear-TD bounds need their distribution and
+> differ. Ask students to locate the largest error and explain the compromise. The standard linear-TD bounds need their distribution and
 > task assumptions; no theorem or numerical error bound is claimed for this episodic example.
 > The table shows computed limits, not sampled learning curves (moved from the slide, R21). The definitions on the slide hold for on-policy linear semi-gradient TD with suitably decreasing step sizes; a constant step size generally leaves the weights fluctuating around these values rather than converging exactly (moved from the slide, R21).
 >
@@ -603,7 +601,7 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 **Notes:**
 
-> G03-A (taught geometry picture P1; D5, D13). Route minutes: full 6, short 4. Five clicks: (1) diagonal; (2) true
+> G03-A (taught geometry picture P1; D5, D13). Five clicks: (1) diagonal; (2) true
 > values (0.11636, 0.83636); (3) equal-state best fit (0.47636, 0.47636) and on-policy-weighted best fit (0.12623,
 > 0.12623); (4) TD fixed point (0.13319, 0.13319); (5) exact backup (0.12394, 0.79971), arrow up from the TD point
 > and arrow back to its weighted best fit. The weighted fit and the TD point are 0.007 apart, so their markers
@@ -612,8 +610,7 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 > is always fitted exactly. The on-policy pair weights have ratio 72:1, which gives the near-horizontal compromise.
 > At the TD fixed point a full exact backup gives (0.02098701, 0.12393766, 0.79970909) in the three-state order;
 > fitting that backup using μ returns the same TD predictions. Only this full-vector interpretation justifies the
-> return arrow. Full route: explain all five builds. Short route: show builds 1–4 and state the fixed-point
-> interpretation without the backup arrows. Neither route teaches that each incremental TD step projects a whole
+> return arrow. Explain all five builds (D17). The picture does not teach that each incremental TD step projects a whole
 > value function.
 >
 > Equation sources (LaTeX): \mu(2,1):\mu(1,2)=72:1 | v^{\pi}(2,1)
@@ -628,7 +625,7 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 **Notes:**
 
-> G04. Route minutes: full 2, short 1. Week 2's discounted exact backup contracts differences between tables. The
+> G04. Week 2's discounted exact backup contracts differences between tables. The
 > picture adds fitting in a particular weighted error measure; it does not prove the same statement for every
 > approximate or sample-based update. Linear on-policy TD has stability results under appropriate conditions.
 > Next: a concrete way different state frequencies and shared bootstrapped predictions can cause growth. No
@@ -642,7 +639,7 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 - Part of an MDP
 - $𝑣̂(𝐿,𝑤)=𝑤$, $𝑣̂(𝑅,𝑤)=2𝑤$;
-- $𝑅=0$, $𝛾=0.9$, $𝛼=0.1$, $𝑤=10$.
+- All rewards 0, $𝛾=0.9$, $𝛼=0.1$, $𝑤=10$.
 
 - $𝑈𝑡=18, 𝛿𝑡=8, 𝑤←10+0.1(8)(1)=10.8$
 - Predictions move (10, 20) → (10.8, 21.6). The update raises the target state's prediction too.
@@ -651,7 +648,7 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 > I02. The picture's states are L (value w) and R (value 2w). Ask what happens when R
 > is updated: an isolated transition cannot answer. The next slide completes the task and specifies exactly which
-> updates are made. If G03-B was used, explicitly announce the switch to all rewards zero.
+> updates are made.
 >
 > Equation sources (LaTeX): \hat{v}(L,w)=w | \hat{v}(R,w)=2w | R_{t+1}=0 | \gamma=0.9 | \alpha=0.1 | w=10 | U_t=18,\quad\delta_t=8,\quad w\leftarrow10+0.1(8)(1)=10.8
 >
@@ -667,7 +664,7 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 **Notes:**
 
-> I03. C01 remains for instructor review (O3). This is an explicitly constructed
+> I03. This is an explicitly constructed
 > mean-update experiment, not a generic prescription for off-policy learning. The symmetric behaviour can supply
 > both retained transitions; its other transitions are deliberately not used under this experiment's rule. Do not
 > say all off-policy algorithms discard non-target actions. No importance ratio, correction derivation or new
@@ -699,8 +696,7 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 > I04. Give about four minutes to work and pair-check, then feedback. Averaging raw TD
 > errors, or updating w between the rows, implements a different experiment. At general w the two contributions are
-> 0.8w and −0.4w; their mean is 0.2w. Full-geometry route: reveal I05's recurrence during the remaining feedback
-> time; it has no additional minutes. Short route: leave the recurrence to the separately timed I05.
+> 0.8w and −0.4w; their mean is 0.2w. Reveal I05's recurrence during the remaining feedback time; I05 has no minutes of its own (D17).
 >
 > Equation sources (LaTeX): w=10
 >
@@ -716,11 +712,9 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 **Notes:**
 
-> I05. Route minutes: within I04's eight minutes in the full-geometry route (0 here); 4 in
-> the short-geometry route. Only the numeric γ = 0.9 case is shown live, with no discount threshold (D7, C02 second
+> I05. Within I04's eight minutes (D17). Only the numeric γ = 0.9 case is shown live, with no discount threshold (D7, C02 second
 > bullet). This is an exact deterministic mean recurrence, not a claim that every stochastic sample path grows
-> monotonically. The Baird picture at G10 supplies the larger-scale visual; C02's first bullet (a growth chart)
-> remains for instructor review. Do not add an unaccepted extra time block for a second growth chart.
+> monotonically. The Baird picture at G10 supplies the larger-scale growth visual (O3 closed).
 > The step-size statement is about this deterministic mean-update experiment (moved from the slide, R21).
 >
 > Equation sources (LaTeX): w\leftarrow w+\alpha(0.2w)=1.02w\qquad(\gamma=0.9,\ \alpha=0.1)
@@ -802,7 +796,7 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 **Notes:**
 
-> G10. Either route (3 minutes). Keep the original diagram's upper predictions 2w_i + w₈ (i = 1, …, 6) and lower
+> G10 (3 minutes). Keep the original diagram's upper predictions 2w_i + w₈ (i = 1, …, 6) and lower
 > prediction w₇ + 2w₈. Initial components: all 1 except w₇ = 10. Each sweep averages the seven gradient-scaled
 > exact target errors, using the same pre-sweep vector. The right panel shows weight growth over repeated sweeps
 > (w₈ ≈ 335 after 1000 sweeps in the check script). Because w₈ grows strongly while w₇ stays comparatively small,
@@ -813,7 +807,7 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 >
 > Equation sources (LaTeX): \gamma=0.99 | w_7+2w_8 | \alpha=0.01
 >
-> Target: 3 min. Sources: old Value Function Approximation PPTX 44 (seven-state diagram; Figure 11.2 picture cropped to its right, DP-sweep panel; the behaviour-probability picture is not used), book Figures 11.1–11.2 printed 261–262 / PDF 283–284, check_function_approximation_claude.py §6.
+> Target: 3 min. Sources: old Value Function Approximation PPTX 44 (seven-state diagram); book Figure 11.2, both panels (picture inserted by the instructor, round 2), book Figures 11.1–11.2 printed 261–262 / PDF 283–284, check_function_approximation_claude.py §6.
 
 ## 36. G11 — State convergence claims with their conditions (hidden)
 
@@ -844,12 +838,13 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 **Notes:**
 
-> G12. Target 0 here: say it in passing after G11 (hidden) / with G12a. Smaller
+> G12. Smaller
 > steps may reduce noise but cannot reverse the positive mean-growth direction in I05. More expressive features may
 > fix representation error but do not automatically fix unstable updates. No present-day practice or research-status
 > claim is needed to make this point.
 >
-> Target: 0 min. Sources: old Value Function Approximation PPTX 45 (heading only; its historical "no counterexample" and broad Q-learning claims are removed).
+> Target: 1 min. Sources: old Value Function Approximation PPTX 45 (heading only; its historical "no counterexample" and broad Q-learning claims are removed).
+> Timing: 1 minute (instructor, 2026-11-15, final check R23); 5.2 = 62.5.
 
 ## 38. G12a — Convergence: prediction
 
@@ -906,7 +901,6 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 > training are controlled; an agent can also fail without diverging (representation, G13). Gradient Q-learning
 > (old P56) is outside the course scope. DQN (Week 6) is nonlinear Q-learning: the bottom-right ✗ is why it
 > needs replay and a target network.
-> Overlap: G11's bullet statements cover the prediction column in words; the instructor may shorten G11.
 >
 > Target: 2 min. Sources: old Value Function Approximation PPTX 56 (control table; gradient Q-learning row dropped), Silver L6 p. 32, book §§10.1, 11.2; Week 4 convergence conditions (4.2).
 
@@ -1176,7 +1170,7 @@ SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 **Notes:**
 
 > Hidden alternative to the taught two-state construction (D14).
-> G07 · Alt B, 5.2 divergence. R03 remains for instructor review of this presentation (O3). Three minutes to predict
+> G07 · Alt B, 5.2 divergence. Three minutes to predict
 > and discuss, four of feedback. Answers: the independent table removes sharing; zero-return regression removes
 > bootstrapping; the completed episode supplies the R update. The first row changes the task completion as well
 > as the data relative to the fragment, so it is not a controlled one-component ablation. The second's zero return
