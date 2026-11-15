@@ -74,6 +74,7 @@ class VisitRecorder(gym.Wrapper):
         self.goal_entries = 0
         self.episodes_started = 0
         self.first_goal_episode = None   # 1-based episode number, or None
+        self.episode_outcomes = []       # "goal", "pit" or "time limit", one per finished episode
         self._state = None
 
     def reset(self, **kwargs):
@@ -96,6 +97,10 @@ class VisitRecorder(gym.Wrapper):
             self.goal_entries += 1
             if self.first_goal_episode is None:
                 self.first_goal_episode = self.episodes_started
+        if terminated or truncated:
+            self.episode_outcomes.append(
+                "goal" if terminated and obs in base.goal_states else
+                "pit" if terminated else "time limit")
         self._state = obs
         return obs, reward, terminated, truncated, info
 

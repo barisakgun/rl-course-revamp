@@ -35,7 +35,7 @@ CONFIG = dict(
                   # -1 on every transition (also on reaching the goal), -100 for a pit
                   dict(label="Q0 = 0, epsilon = 0, book-style rewards", q0=0.0, epsilon=0.0,
                        rewards=dict(step_reward=-1.0, goal_reward=-1.0, pit_reward=-100.0))],
-            coverage_at=[500, 2000], seed=0),
+            coverage_at=[500, 2000], last_episodes=20, seed=0),
     e4=dict(layout="ledge", q0=1.0, alpha=0.1, epsilon=0.1, n_episodes=1000, seeds=list(range(10))),
     e5=dict(epsilon_start=0.1, epsilon_rate=0.9995),
 )
@@ -81,7 +81,8 @@ def experiment_2():
                                        env.n_states, true_v, states)
             curves[label], final[label] = errors, np.asarray(V).tolist()
     plot_prediction_errors(curves, OUT / "e2_prediction_errors.png",
-                           "E2: MC and TD(0) on the same episodes")
+                           f"E2: MC and TD(0) on the same episodes\n(error over the {len(states)} "
+                           f"states visited at least {cfg['min_visits']} times)")
     for label, errors in curves.items():
         print(f"E2  {label:22s} error after 10 / 100 / {len(errors)} episodes: "
               f"{errors[9]:.3f} / {errors[99]:.3f} / {errors[-1]:.3f}")
@@ -100,20 +101,23 @@ def experiment_3():
         q0 = control.init_q(base.n_states, base.n_actions, run["q0"], base.terminal_states)
         Q, raw, lengths = control.train(env, cfg["method"], base.gamma, Constant(run["epsilon"]),
                                         Constant(cfg["alpha"]), q0, cfg["n_episodes"], cfg["seed"])
-        greedy = greedy_rollout(make_env(cfg["layout"], **rewards), Q, base.gamma)
+        last = env.episode_outcomes[-cfg["last_episodes"]:]
         result = dict(
             label=run["label"], q0=run["q0"], epsilon=run["epsilon"],
             rewards=dict(step=base.step_reward, goal=base.goal_reward, pit=base.pit_reward),
             transitions=int(env.total_transitions), goal_entries=int(env.goal_entries),
-            pit_entries=int(env.pit_entries), first_episode_reaching_goal=env.first_goal_episode,
+            pit_entries=int(env.pit_entries),
+            first_episode_reaching_goal=env.first_goal_episode,
             coverage={str(n): env.coverage(pairs, n) for n in cfg["coverage_at"]},
-            greedy_reaches_goal=greedy["reached_goal"],
-            greedy_moves=greedy["moves"] if greedy["reached_goal"] else None)
+            last_episodes=dict(count=len(last), goal=last.count("goal"), pit=last.count("pit"),
+                               time_limit=last.count("time limit"),
+                               mean_length=float(np.mean(lengths[-cfg["last_episodes"]:]))))
         runs.append(result)
         print(f"E3  {run['label']:40s} goal reached in {result['goal_entries']:3d} of "
-              f"{cfg['n_episodes']} episodes; coverage after {cfg['coverage_at'][0]} transitions: "
-              f"{result['coverage'][str(cfg['coverage_at'][0])]:.2f}; greedy path: "
-              f"{'%d moves' % greedy['moves'] if greedy['reached_goal'] else 'goal not reached by the cap'}")
+              f"{cfg['n_episodes']} episodes (first in episode {env.first_goal_episode}); "
+              f"coverage after {cfg['coverage_at'][0]} transitions: "
+              f"{result['coverage'][str(cfg['coverage_at'][0])]:.2f}; last {len(last)} episodes: "
+              f"{last.count('goal')} goal, mean length {result['last_episodes']['mean_length']:.1f}")
     return dict(config=cfg, reachable_pairs=len(pairs), runs=runs)
 
 

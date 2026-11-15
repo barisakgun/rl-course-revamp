@@ -60,5 +60,13 @@ class ScriptedSelector:
         return action
 
 
+def greedy_selector(q_row, epsilon, rng):
+    """A stand-in for ``select_action`` that is greedy in the row it is given."""
+    from rlhw import argmax_lowest
+    return argmax_lowest(q_row)
+
+
 def close(actual, expected, atol=1e-8):
-    return np.allclose(np.asarray(actual, dtype=float), np.asarray(expected, dtype=float), atol=atol)
+    """Same shape, and every entry within ``atol`` (absolute; no relative tolerance)."""
+    actual, expected = np.asarray(actual, dtype=float), np.asarray(expected, dtype=float)
+    return actual.shape == expected.shape and bool(np.allclose(actual, expected, rtol=0.0, atol=atol))

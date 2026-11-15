@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-11-15 — A1 build: code-review fixes applied
+
+- ChatGPT's code review (B1–B8) and Claude's responses are in the [shared A1 review](../analysis/assignment_suggestions/a1_review.md). All findings are applied in the working tree.
+- Behaviour that changed: the reference Q-learning loop selects its next action after its update (and the handout requires it); a new graded test checks that actions are selected from the current state's row; every scored case now uses the 4 × 3 grid, in line with `a1_design_choices.grading_boundary`; the grader isolates each part and lists missing submission items; the handout's definition of optimistic initialization is corrected.
+- The initialization experiment reports training outcomes instead of a frozen greedy rollout. Refreshed reference numbers are in `course/assignments/a1/README.md`.
+- ChatGPT's recheck confirmed the fixes and raised three further grader and test-case items (ungraded cases executed during grading, target successors that cannot occur on the grid, incomplete plot sets passing); these are applied too.
+- No accepted decision changes. Grading shares and testing conditions remain Claude's suggestions in that README; Part 3's provisional points were redistributed within its 35. No workload, lecture-minute, mastery or grade-weight change.
+
 ## 2026-11-15 — A1 control grid kept; explicit link to the book's cliff example
 
 - Authority: instructor ("We can try the addition. I agree with having an explicit link with the book"), after reviewing the build's reward settings. Recorded in `a1_design_choices.control_grid` of the [assignment decisions](assignment_decisions.md).

@@ -15,7 +15,7 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 @pytest.mark.parametrize("case", load_cases("part2", "returns"))
 def test_returns(case):
     G = prediction.returns(case["rewards"], case["gamma"])
-    assert len(G) == len(case["rewards"]) and close(G, case["expected"], atol=1e-10), (
+    assert close(G, case["expected"], atol=1e-10), (
         f"expected {np.round(case['expected'], 6)}, got {np.round(G, 6)}")
 
 

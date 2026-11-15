@@ -58,8 +58,11 @@ def train(env, method, gamma, epsilon_schedule, alpha_schedule, q_init, n_episod
       starting at 0. The action executed as transition ``k`` is selected with
       ``epsilon_schedule.value(k)``; the update for transition ``k`` uses
       ``alpha_schedule.value(k)``.
-    * SARSA selects the next action once, uses it in the target, and then
-      executes that same action as the next transition.
+    * SARSA selects the next action once, before its update, uses it in the
+      target, and then executes that same action as the next transition.
+    * Q-learning selects each action from the current table: the action for
+      transition ``k`` is selected after the update for transition ``k - 1``.
+      It selects no action once the episode has ended.
     * An episode ends when ``terminated`` or ``truncated`` is true. On
       termination the target is the reward alone. On truncation both methods
       still bootstrap from the final observation; SARSA selects a next action

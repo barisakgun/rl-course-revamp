@@ -20,7 +20,7 @@ def plot_prediction_errors(curves, path, title):
         ax.plot(range(1, len(errors) + 1), errors, label=label, linewidth=1.4)
     ax.set_xlabel("episodes processed")
     ax.set_ylabel("root-mean-square error against the true values")
-    ax.set_title(title)
+    ax.set_title(title, fontsize=10)
     ax.set_ylim(bottom=0)
     ax.legend(frameon=False)
     ax.spines[["top", "right"]].set_visible(False)

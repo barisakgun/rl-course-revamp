@@ -135,7 +135,9 @@ Requirements for `train` (also in its docstring):
 
 - **Schedules.** ε and α come from schedule objects with a `value(k)` method. The clock `k` counts environment transitions over all episodes, starting at 0. The action executed as transition `k` is selected with `epsilon_schedule.value(k)`. The update for transition `k` uses `alpha_schedule.value(k)`.
 - **Action selection.** Choose every action with `select_fn(Q[state], epsilon, rng)`. The tests pass their own `select_fn`.
-- **SARSA.** Select the next action once, use it in the target, then execute that same action.
+- **SARSA.** Select the next action once, before the update, use it in the target, then execute that same action.
+- **Q-learning.** Select each action from the current table: the action for transition `k` is selected after the update for transition `k − 1`. Select no action once the episode has ended.
+- **State rows.** Always select from the row of the state the agent is in: the start state after a reset, the next state afterwards.
 - **Termination.** The target is the reward alone.
 - **Time limit.** Both methods still bootstrap from the final observation. SARSA selects a next action for its target, with `epsilon_schedule.value(k + 1)`, even though it is never executed.
 - **Return value.** `(Q, episode_returns, episode_lengths)`, with undiscounted episode returns.
@@ -211,14 +213,14 @@ It takes well under a minute and writes `results/results.json` and the plots.
 | ID | Question | What is run |
 | --- | --- | --- |
 | E1 | Do the two planners agree, and how much work does each do? | Value iteration and policy iteration on `small` |
-| E2 | How do the MC and TD(0) errors evolve on the same data? | Both kernels on 300 supplied episodes, α = 0.05 and 0.2, γ = 0.9 |
+| E2 | How do the MC and TD(0) errors evolve on the same data? | Both kernels on 300 supplied episodes, α = 0.05 and 0.2, γ = 0.9. The error is the root-mean-square difference from the true values over the 7 states the episodes visit at least 10 times; the other two non-terminal states are never visited |
 | E3 | What does the initial table change? | Q-learning on `ledge` for 200 episodes, four runs: Q₀ = 0 with ε = 0; Q₀ = +1 with ε = 0; Q₀ = 0 with ε = 0.1; and Q₀ = 0 with ε = 0 under book-style rewards |
 | E4 | Which path does each method learn at constant ε? | SARSA and Q-learning on `ledge`, Q₀ = +1, ε = 0.1, α = 0.1, 1000 episodes, 10 seeds |
 | E5 | What does decaying ε change? | E4 again with ε = 0.1 × 0.9995^k |
 
-**Optimistic initialization.** E3 uses an idea that has not been covered in class. Starting every action value above the largest return the task can give is called *optimistic initialization*. In `ledge` the largest return is +1, so a table started at +1 is optimistic and a table started at 0 is not. Watch what each table does to exploration. The idea returns later in the course under the name *optimism in the face of uncertainty*.
+**Optimistic initialization.** E3 uses an idea that has not been covered in class. A table is *optimistic* when its initial values are at least as large as the true optimal action values, and larger than most of them. In `ledge`, no return exceeds +1, so a table started at +1 is optimistic: only a move straight into the goal is really worth +1. A table started at 0 is not: it underestimates every action on a path to the goal, although it still overestimates a move into a pit. Watch what each table does to exploration. E3 reports, for each run, how often the goal was reached, how much of the grid was tried early, and what the last 20 episodes looked like. The idea returns later in the course under the name *optimism in the face of uncertainty*.
 
-**Link to the book.** The cliff-walking example in the book (Example 6.6) and in the Week 4 lecture gives −1 on every step and −100 for the cliff, and learns from a table started at 0. The fourth E3 run puts rewards of that style on the `ledge` map: −1 on every transition, including the one that reaches the goal, and −100 for a pit. Compare it with the first run, which also starts at 0, and ask what "optimistic" means for each set of rewards. The `ledge` version differs from the book's in two more ways: a pit ends the episode, and γ = 0.95.
+**Link to the book.** The cliff-walking example in the book (Example 6.6) and in the Week 4 lecture gives −1 on every step and −100 for the cliff, and learns from a table started at 0. The fourth E3 run puts rewards of that style on the `ledge` map: −1 on every transition, including the one that reaches the goal, and −100 for a pit. Compare it with the first run, which also starts at 0: with only negative rewards, 0 is at least as large as every action value. The `ledge` version differs from the book's in two more ways: a pit ends the episode, and γ = 0.95.
 
 Answer the three questions in `answers.md`, in at most four sentences each. Each answer must refer to your own numbers and plots.
 

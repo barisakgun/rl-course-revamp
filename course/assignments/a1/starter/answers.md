@@ -14,10 +14,10 @@ Monte Carlo and TD(0) curves, and explain what in the two update targets causes 
 
 ## 2. Initialization (E3)
 
-Compare the four E3 runs in `results/results.json` (or the lines printed by
-`run_experiments.py`). What did the table started at +1 do that the tables started
-at 0 did not, and why? Why does a table started at 0 behave differently under the
-book-style rewards?
+Use the four E3 runs in `results/results.json` (or the lines printed by
+`run_experiments.py`). First compare the tables started at 0 and at +1 under the
+original rewards: what did the +1 table do that the 0 tables did not, and why?
+Then explain what changes for a table started at 0 under the book-style rewards.
 
 **Answer:**
 

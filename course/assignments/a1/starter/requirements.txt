@@ -1,4 +1,5 @@
-# Tested with Python 3.11 and exactly these versions.
+# Gymnasium is pinned to the tested version; the others accept a range.
+# Tested with: Python 3.11.6, gymnasium 1.4.0, numpy 1.26.4, matplotlib 3.9.2, pytest 7.4.4.
 gymnasium==1.4.0
 numpy>=1.26,<3
 matplotlib>=3.8

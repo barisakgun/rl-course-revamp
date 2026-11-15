@@ -8,7 +8,7 @@ import numpy as np
 import pytest
 
 import control
-from helpers import ScriptedSelector, close, load_cases, make_case_env
+from helpers import ScriptedSelector, close, greedy_selector, load_cases, make_case_env
 from rlhw import ExponentialDecay
 
 
@@ -97,13 +97,31 @@ def test_trace_q_values(case):
     Q, _, _, _, untouched = _run_trace(case)
     assert untouched, "train must work on a copy of q_init"
     expected = np.array(case["expected"]["Q"])
-    diff = np.argwhere(~np.isclose(np.asarray(Q, dtype=float), expected, atol=1e-8))
+    assert np.shape(Q) == expected.shape, f"Q has shape {np.shape(Q)}, expected {expected.shape}"
+    diff = np.argwhere(~np.isclose(np.asarray(Q, dtype=float), expected, rtol=0.0, atol=1e-8))
     assert len(diff) == 0, (
         f"{len(diff)} Q entries differ; first at (state, action) = {tuple(int(i) for i in diff[0])}: "
         f"expected {expected[tuple(diff[0])]:.6f}, got {np.asarray(Q)[tuple(diff[0])]:.6f}. "
         "Check, in this order: the target at termination (reward only) and at the time limit "
         "(still bootstraps); SARSA uses, in its target, the same next action it then executes; "
         "the step size is alpha_schedule.value(k) for transition k.")
+
+
+@pytest.mark.parametrize("case", load_cases("part3", "greedy_traces"))
+def test_trace_uses_the_row_of_the_current_state(case):
+    """A run whose actions depend on the table: the selector is greedy in the row it gets."""
+    env = make_case_env(case["env"])
+    Q, returns, lengths = control.train(
+        env, case["method"], case["gamma"], ExponentialDecay(**case["epsilon"]),
+        ExponentialDecay(**case["alpha"]), np.array(case["q_init"]), case["n_episodes"], 0,
+        select_fn=greedy_selector)
+    exp = case["expected"]
+    hint = ("Every action must be selected from Q[state] of the state the agent is in: the start "
+            "state after a reset, the next state afterwards. SARSA selects before its update; "
+            "Q-learning selects after its update.")
+    assert list(lengths) == exp["lengths"], f"episode lengths: expected {exp['lengths']}, got {list(lengths)}. {hint}"
+    assert close(returns, exp["returns"]), f"episode returns differ. {hint}"
+    assert close(Q, exp["Q"]), f"Q values differ. {hint}"
 
 
 def test_smoke_training_reaches_the_goal():
