@@ -9,16 +9,18 @@ historical inputs:
 **Scope:** sessions 5.1 `linear` (Linear approximation and semi-gradients) and 5.2 `instability` (Approximation
 instability). Accepted teaching allocations, scope and mastery live in `decisions/topic_decisions.yaml`.
 
-**Status: first render handed off for instructor editing (workflow step 5 → 6), 2026-11-09.** This is the deck's only
-current status record; other files point here. O1 and O3 below are open.
+**Status: instructor editing round 2 done (2026-11-15): R16–R21 resolved and applied (D15–D16).** The next instructor pass or the final complete check follows. This is the deck's only
+current status record; other files point here. No open items remain.
 - **Deck:** `course/lectures/week05/function_approximation_claude.pptx`, SHA-256
-  `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`, 48 slides, none hidden. All alternates are
-  visible and tagged Alt A / Alt B (D2, D3, D5, D8).
+  `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`, 50 slides. It is the instructor's round-2 save
+  `13e58d03…` with I07 unhidden and G11 hidden (D15), the slide IDs of the hidden fragment slides restored, the D16
+  fixes and notes updates, and refreshed equation fallbacks.
+  - Hidden: G00 (5.2 divider), G11 (D15).
+  - Hidden alternatives: F12-B, F12a-B, F13-B (D10); G03-B (D13); G05, G06, G08, G07 (D14).
 - **Sessions:**
-  - **5.1** = slides 1–25 (F00–F18). The timed Alt A (grid) route targets 58.5 minutes; the Alt B (landmark) route
-    targets 59.5 (D8).
-  - **5.2** = slides 26–48 (G00–G15 with I02–I07). The timed route (full geometry, geometry Alt A, divergence Alt A)
-    targets 58. Other routes' minutes are in each slide's notes, as in the content file's route table.
+  - **5.1** = slides 1–22 (F00–F18): 60 minutes.
+  - **5.2** = slides 23–42 (G01 to G15 with I02–I07, G09, G12a, G12b; G11 hidden): visible targets sum to 61.5
+    minutes, within the 63-minute delivery allowance.
 - **The PPTX is the teaching source.** Text view: `output/lectures/week05/function_approximation_claude.md`.
   No stored previews until the final check.
 - **First-render inputs, all frozen:**
@@ -167,11 +169,133 @@ The instructor answered the six items in the shared review's "Status after the m
     also use the Week 4 changes accepted on 2026-11-05, listed in the review's O4 section: Expected SARSA as
     exposure, the 4.2 tabular convergence slide, and P08 as a callback.
 
+## Accepted (instructor, 2026-11-10, first editing round)
+
+- **D10. 5.1 uses the grid example; the landmark slides stay as hidden alternatives** (instructor's saved edit: the
+  grid slides lost their "Alt A" tags, and the landmark slides were moved to the end and hidden, titled "The next 3
+  are alternatives to 14-16").
+  - D2's choice is settled for teaching. F12-B/F12a-B/F13-B remain in the deck, hidden and not counted.
+  - 5.1 targets stay 58.5 (D8).
+  - Geometry (O1) and the 5.2 divergence alternates (D3) are not affected.
+
+## Accepted (instructor, 2026-11-10, first editing round findings R10–R15)
+
+- **D11. Round-1 fixes** (instructor replies to the shared review's R10–R15).
+  - **R10 (F03):** "A compact representation: d ≪ |𝒮| (number of weights ≪ number of states)". Applied.
+  - **R11 (F05):** the expectation uses the random state, 𝔼_π[(v^π(S) − v̂(S, **w**))²]. Applied.
+  - **R12:** the on-policy state distribution depends on the policy, so the notation guide now defines μ^π(s), with
+    μ(s) acceptable when π is fixed and clear from context. F05 is applied with μ^π(s); Claude used the guide's
+    superscript policy mark in place of the slide's μ_π. Later slides keep μ(s) under the context rule.
+  - **R13 (F05):** "How to learn" asks how to learn **w** and guides students toward gradient descent. The notes
+    now say so; the slide text is unchanged.
+  - **R14 (F04):** the repeated equations stay.
+  - **R15:** add 1.5 minutes. F02 goes from 3 to 4 and F03 from 3 to 3.5, so 5.1's grid route targets 60 minutes.
+    This is fine for delivery under the 63-minute allowance; the planning estimate is unchanged at 58.
+  - No scope, mastery or assessment change.
+
+## Accepted (instructor, 2026-11-12, editing round 2)
+
+- **D12. Convergence comparison slides G12a (prediction) and G12b (control) after G12** (instructor request: MC
+  versus semi-gradient TD, tabular / linear / nonlinear, prediction and control, guided by old P55–56).
+  - **Rows:** gradient MC, semi-gradient TD on-policy and with another state weighting; MC control, semi-gradient
+    Sarsa, Q-learning. Gradient-TD and off-policy MC rows are left out.
+  - **Slide text** states the results only; conditions are in the notes.
+  - **Timing:** 2 minutes each, so 5.2's timed route targets 62, within the 63-minute delivery allowance. The planning
+    allocation is unchanged. G11 overlaps G12a and may be shortened by the instructor.
+  - Renderer input: `course/lectures/week05/function_approximation_convergence_claude.yaml` (first draft, not
+    maintained).
+- **D13. Geometry uses the grid picture P1; P2 (G03-B) stays as a hidden alternative** (instructor's saved edit:
+  G03-B moved to the end and hidden). This settles D5's picture choice for teaching. Geometry depth (O1, 13 versus 8
+  minutes) is not affected. The instructor also hid the 5.2 section divider G00.
+- **Shared rule (decision log, 2026-11-12):** no hedging or disclaimers on slides; caveats go in the speaker notes
+  (`AGENTS.md`).
+
+- **D14. 5.2 teaches the complete two-state construction (I02–I06); the fragment slides stay as hidden
+  alternatives** (instructor's saved edit, 2026-11-12: "Alt A" removed from I02–I07, and G05/G06/G08/G07 moved to the
+  end and hidden as alternatives to slides 28–32 (33)). This settles D3 for teaching; R03 (fragment variants) no
+  longer affects the taught route. The instructor also hid I07; its relation to the accepted worked activity is open
+  (review R17).
+
+- **D15. I07 is restored** (instructor, 2026-11-14: "Restore I07"; review R17). This keeps 5.2's accepted worked
+  activity, which includes "vary one part of the deadly triad". **G11 is hidden** (instructor, 2026-11-14: "Hide
+  G11"), because G12a's table covers its statements. 5.2's visible slide targets are 61.5 minutes, within the
+  delivery allowance; the planning allocation is unchanged. No scope, mastery or assessment change.
+
+- **D16. Round-2 findings resolved** (instructor, 2026-11-15: "The fixes you list are good").
+  - **R16 (G10):** the slide stays as the instructor edited it, with both panels of book Figure 11.2. The notes
+    explain the left panel without ratios: "the same update sampled along behaviour trajectories, reweighted to match
+    the target policy; the reweighting is Week 8; it diverges too, just noisily". Week 4 D6 is unchanged for Fall
+    2026. For the next offering, see the decision log (2026-11-15) on introducing importance-ratio corrections earlier.
+  - **R18:** G01 "affect" (twice).
+  - **R19:** G02 underline removed.
+  - **R20:** G02 "Best fit for VE: The predictions with the smallest VE the chosen features allow".
+  - **R21:** Claude's leftover first-render caveats moved from F12a-A, G02, I05 and G13 into their notes (G11 is
+    hidden and left as is).
+  - **Notes:**
+    - G01: answers to the new questions, and the equation line in the ∇ form;
+    - G02: when the definitions hold;
+    - I06: now leads into I07;
+    - G09: in the taught route;
+    - the I02–I07 and G03-A route tags;
+    - G00 hidden;
+    - G12, G13 and G15: hidden-route references removed;
+    - the hidden alternatives labelled.
+  - No scope, mastery or assessment change. 5.2 stays at 61.5 minutes.
+
+- **D17. Geometry depth: the full 13-minute version** (instructor, 2026-11-15; closes O1). G02 (5 minutes of
+  linear-TD limits), G03-A (6) and G04 (2) are taught as rendered, with all five G03-A builds. The 8-minute fallback
+  is not used. Under the accepted counting, projection itself stays at about 8 minutes (G03-A + G04), as in
+  `topic_decisions.yaml`. 5.2 stays at 61.5 minutes.
+
+## Consider for next semester (instructor, 2026-11-12)
+
+Not part of the Fall 2026 deck. Revisit when this deck is prepared for the next offering.
+
+- **Course planning (decision log, 2026-11-15): introduce importance-ratio corrections earlier**, before this deck, so
+  that off-policy convergence (G10's sampled panel, the convergence tables) can be discussed without a forward
+  reference.
+- **5.2: show the Bellman operator and the projection explicitly, with one or two backup-and-fit steps on the
+  geometry picture.** The instructor noticed that the machinery (B^π, projection) is left out, together with any
+  update steps on the geometry. Claude compared other courses (2026-11-12):
+  - **Sutton & Barto §11.4, Figure 11.3:** B^π, the μ-weighted projection Π, the Bellman error, PBE, VE and the TD
+    fixed point (PBE = 0). The arrows (backup, then project) are a "DP-like process", not sampled TD steps.
+  - **Sutton's CMPUT 366/609 slides (26-offpolicy, pp. 13–24):** about 12 slides covering:
+    - TD is not the gradient of any objective;
+    - the A-split example;
+    - the VE/BE/PBE/TDE objectives;
+    - gradient TD.
+  - **Silver L6:** no operator or projection; convergence tables plus one line that TD follows no gradient.
+  - **CS285 L8, pp. 30–35:** about 5 slides.
+    - B is a contraction in the max norm, and Π is the squared-error projection onto the representable set Ω.
+    - Fitted value iteration is V ← ΠBV, and "ΠB is not a contraction of any kind". The picture shows BV leaving Ω
+      and being projected back.
+    - The same argument covers fitted Q-iteration and online Q-learning, and leads to "target networks / replay
+      really help".
+    - It uses an unweighted norm and full fits, not semi-gradient steps.
+  - **CS234 L4, p. 60:** words only (a backup is a contraction; fitting can expand). B^π and contraction are defined
+    in its DP lecture.
+  - **CS224R and Abbeel:** none. CS224R presents the semi-gradient as stopping the gradient through the target.
+  - **Old course P48–52:** objectives, |𝒮| = 3 / dim(w) = 2 geometry and gradient TD, marked "not for exams".
+  - **No course draws sampled TD steps on the geometry;** where steps appear they are full backup-and-fit iterations.
+- **What it would look like here** (computed 2026-11-12, not in any deck file):
+  - **Grid picture P1, on-policy weighting:** from 0 the shared value goes 0.074 → 0.107 → 0.122 → … → 0.133 (the TD
+    fixed point). Each backup leaves the diagonal, e.g. to (0.064, 0.792), before the fit.
+  - **Two-state picture P2, with the divergence example's zero rewards:** with equal state weights, w goes 10 → 10.8
+    → 11.66 (×1.08 per step); with the target policy's weights, 10 → 9 → 8.1 (×0.9). This would tie the geometry to
+    the divergence example.
+- **Prerequisite:** students already know B^π and the one-line contraction argument (`bellman` deck).
+- **Costs:**
+  - about 2–4 more minutes in 5.2;
+  - Π on slides needs the notation guide's layout fallback, or a guide entry;
+  - PBE and gradient TD would go beyond the `projection` group's exposure scope, which would need a scope decision.
+
 ## Open
 
 | # | Item | Where discussed |
 | --- | --- | --- |
-| O1 | **Geometry depth** (instructor item 4). The instructor leans toward the 13-minute version (5 minutes of linear-TD limits plus 8 of projection, as in `topic_decisions.yaml`). It reverts to 8 minutes in total if time runs short. The pictures are settled by D5. | [Review: geometry options](../../analysis/lecture_suggestions/function_approximation_review.md#item-4-geometry-options-and-pictures) |
+| O1 | Closed by D17 (2026-11-15): full 13-minute geometry. | — |
 | O2 | Closed by D6 (2026-11-02). | — |
-| O3 | **R03, C01 and C02 (first bullet)**: left for the instructor's review of the D3 alternates. The other AI corrections are accepted (D7). | [Shared review](../../analysis/lecture_suggestions/function_approximation_review.md#instructor-replies-on-o3--2026-11-02) |
+| O3 | Closed (instructor, 2026-11-15): C01 is covered by I03's "Rule of this experiment" and its Week 8 notes pointer; C02 by G10's Baird growth panels. R03 lapsed with D14. | — |
 | O4 | Closed by D9 (2026-11-08): Claude's order is the step-4 basis. | — |
+| O5 | Closed by D11 (2026-11-10). | — |
+| O6 | Closed by D15–D16 (2026-11-15). | — |

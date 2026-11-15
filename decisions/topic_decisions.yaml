@@ -994,7 +994,9 @@ lecture_plan:
   worked_activity: Ratio support/variance example, surrogate/clipping signs, and entropy as an objective term.
   feasibility_note: Small-update motivation stays conceptual; no natural-gradient/TRPO proof. Instructor 2026-11-02
     (model_free_control D6) keeps importance sampling out of Week 4; within the likelihood-ratio segment, pose the
-    question why the one-step Q-learning target needs no importance ratio. No minute or scope change.
+    question why the one-step Q-learning target needs no importance ratio. No minute or scope change. Next offering
+    (instructor 2026-11-15, see the decision log) reconsiders introducing importance-ratio corrections earlier, before the
+    Week 5 approximation-instability material, so off-policy convergence issues can be discussed; not for Fall 2026.
   confidence: medium
   segments:
   - label: Likelihood ratios, support and variance

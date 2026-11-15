@@ -29,7 +29,7 @@ SYMBOLS = {
     'cdots': '⋯', 'to': '→', 'times': '×', 'in': '∈', 'leq': '≤', 'geq': '≥', 'neq': '≠', 'approx': '≈',
     'cdot': '·', 'pm': '±', 'quad': ' ', 'qquad': '  ', ',': ' ', ';': ' ', ' ': ' ',
     '{': '{', '}': '}', 'lvert': '|', 'rvert': '|', 'prime': '′', 'leftarrow': '←', 'sum': '∑',
-    'nabla': '∇', 'top': '⊤', 'sim': '∼', 'rightarrow': '→',
+    'nabla': '∇', 'top': '⊤', 'sim': '∼', 'rightarrow': '→', 'll': '≪', 'gg': '≫',
 }
 UPRIGHT_CMDS = {'Pr': 'Pr', 'max': 'max', 'min': 'min', 'lim': 'lim', 'arg': 'arg', 'log': 'log', 'exp': 'exp'}
 CAL = {c: ch for c, ch in zip('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵')}

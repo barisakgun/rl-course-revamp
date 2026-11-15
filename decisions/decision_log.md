@@ -109,6 +109,16 @@
 - Authority: instructor, recorded in the git-ignored `decisions/exams/midterm_1.md` X7–X8. Accepted the combined selection from both AI suggestions and the cross-review corrections. Question-specific changes, allocations and remaining grading choices are recorded only in the confidential exam decisions and shared review, in accordance with the repository contract.
 - No coverage, format, lecture-minute, mastery or assignment change.
 
+## 2026-11-15 — Week 5 deck (`function_approximation`): full 13-minute geometry
+
+- Authority: instructor, recorded as [function_approximation D17](lectures/function_approximation.md). The O1 geometry depth is the full 13-minute version (G02, G03-A, G04); projection itself stays at about 8 minutes, as in the accepted scope. No minute, scope or assessment change; 5.2 stays at 61.5 minutes.
+
+## 2026-11-15 — Next offering: reconsider introducing importance-ratio corrections earlier
+
+- Authority: instructor, while resolving the Week 5 deck's R16 (G10 shows the sampled off-policy TD panel of book Figure 11.2, which reweights samples by importance ratios). "We need to re-introduce importance-ratio corrections earlier (in the course planning and not for this semester), just to be able to talk about the convergence issues."
+- Next offering: reconsider placing importance-ratio corrections before the Week 5 approximation-instability material, rather than only in 8.2 `ratios`. The aim is to be able to discuss off-policy convergence (sampled off-policy TD, convergence tables) without a forward reference. Possible place: the Week 4 on-/off-policy discussion, which Fall 2026 deliberately kept free of IS (`model_free_control` D6).
+- Fall 2026 is unchanged: D6 stands, and G10 keeps the full figure with a notes explanation that defers the reweighting to Week 8 (`function_approximation` D16). A pointer is in `topic_decisions.yaml` (`ratios` feasibility note). No scope, minute, mastery or assessment change now; the time and displacement consequences are to be worked out when the next offering is planned.
+
 ## 2026-11-14 — Week 5 deck (`function_approximation`): I07 restored, G11 hidden
 
 - Authority: instructor ("Restore I07"), recorded as [function_approximation D15](lectures/function_approximation.md). This keeps 5.2's accepted worked activity ("vary one part of the deadly triad"). G11 is then hidden (instructor, "Hide G11"), since G12a covers it, so 5.2's slide targets are 61.5 minutes, within the delivery allowance. The planning allocation is unchanged.

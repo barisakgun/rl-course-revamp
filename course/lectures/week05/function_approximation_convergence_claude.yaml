@@ -1,0 +1,95 @@
+# Week 5 deck `function_approximation`, session 5.2 addition (G12a, G12b): Claude's renderer input.
+# First draft: renderer input for inserting these two slides only (2026-11-12, instructor request: "convergence
+# comparison slides ... MC vs semi-gradient TD for tabular, linear FA, non-linear FA for both prediction and control;
+# slides 55-56 from the older deck can guide you; add them after the possible failure slide"). Not maintained: the
+# PPTX is the source. Status: decisions/lectures/function_approximation.md.
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week05/function_approximation_convergence_claude.yaml
+# Then:   python3 scripts/append_slides_claude.py <deck> <candidate> --after G12
+# Slide text states the results; every condition and caveat is in the notes (AGENTS.md, no hedging on slides,
+# instructor 2026-11-12). Sources: old Value Function Approximation PPTX 46, 55–56 (gradient-TD rows dropped: not in
+# scope); Silver L6 pp. 30 and 32; book §§9.3–9.4, 10.1, 11.2–11.3.
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week05/function_approximation_convergence_claude.pptx
+  preview: output/lectures/week05/function_approximation_convergence_claude_preview.png
+  session_id: instability
+  qa_minutes: 0
+  title: Function approximation (session 5.2 convergence tables)
+  author: Barış Akgün
+  term: Fall 2026
+
+slides:
+  - id: G12a
+    kind: math
+    title: 'Convergence: prediction'
+    table_box: [0.244, 1.15, 12.85]
+    table:
+      size: 20
+      row_h: 0.95
+      widths: [4.3, 2.85, 2.85, 2.85]
+      align_left: true
+      header: ['Fixed policy $\pi$', 'Tabular', 'Linear', 'Nonlinear']
+      rows:
+        - ['Gradient MC', '✓  $v^{\pi}$', '✓  best fit (min VE)', '✓  local optimum of VE']
+        - ['Semi-gradient TD, on-policy', '✓  $v^{\pi}$', '✓  TD fixed point', '✗']
+        - ['Semi-gradient TD, other state weighting', '✓  $v^{\pi}$', '✗', '✗']
+    after_box: [0.244, 5.3, 12.85, 1.4]
+    size: 20
+    after:
+      - text: '✓ converges (to what is listed)     ✗ can diverge'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 46 and 55 (prediction tables; gradient-TD and off-policy MC rows dropped)', 'Silver L6 p. 30', 'book §§9.3–9.4 (gradient MC, TD fixed point), 11.2–11.3 (Baird, deadly triad)']
+    notes: |
+      G12a (instructor request, 2026-11-12). Read the table by rows, then point to the two ✗ in the linear and
+      nonlinear columns. Conditions behind each entry:
+      - Every ✓ assumes step sizes that decrease suitably (Robbins–Monro) and data that keep visiting the states that
+        matter; with a constant step size the estimates keep fluctuating near the listed limit.
+      - Gradient MC, linear: VE is quadratic in w, so the limit is the best fit for the chosen weighting, which can
+        still be far from v^π where the features cannot express it (5.1 grid). Nonlinear: only a local optimum.
+      - Semi-gradient TD, on-policy linear: the TD fixed point (G02); in continuing tasks its VE is within
+        1/(1 − γ) of the best fit (book eq. 9.14). On-policy nonlinear TD can also diverge (Tsitsiklis and Van Roy's
+        counterexample); there is no general guarantee.
+      - "Other state weighting" means updates distributed differently from the target policy's visits: the 5.2
+        two-state examples and Baird's DP sweeps (G10). Tabular stays ✓ because each state has its own entry. This
+        is the off-policy row of old P46/P55; their off-policy MC row needs importance-sampling corrections (Week 8),
+        so it is not shown. Gradient-TD methods (old P55) fix the linear off-policy case but are outside the course
+        scope; book §11.7 if a student asks.
+
+  - id: G12b
+    kind: math
+    title: 'Convergence: control'
+    table_box: [0.244, 1.15, 12.85]
+    table:
+      size: 20
+      row_h: 0.95
+      widths: [4.3, 2.85, 2.85, 2.85]
+      align_left: true
+      header: ['Policy improves while learning', 'Tabular', 'Linear', 'Nonlinear']
+      rows:
+        - ['MC control', '✓', '(✓)', '✗']
+        - ['Semi-gradient Sarsa', '✓', '(✓)', '✗']
+        - ['Q-learning', '✓', '✗', '✗']
+    after_box: [0.244, 5.2, 12.85, 1.6]
+    size: 20
+    after:
+      - text: '✓ converges     (✓) stays near a good solution but keeps oscillating     ✗ can diverge'
+      - 'With approximation, improving the policy no longer guarantees better values everywhere.'
+    minutes: 2
+    sources: ['old Value Function Approximation PPTX 56 (control table; gradient Q-learning row dropped)', 'Silver L6 p. 32', 'book §§10.1, 11.2; Week 4 convergence conditions (4.2)']
+    notes: |
+      G12b (instructor request, 2026-11-12). Tabular column: Week 4's results. MC control and Sarsa need GLIE
+      exploration (every pair tried infinitely often, ε decaying) and suitable step sizes; Q-learning needs every pair
+      updated infinitely often and suitable step sizes, whatever the behaviour policy.
+      (✓) for linear MC control and Sarsa: with on-policy ε-greedy behaviour the weights stay bounded but can chatter
+      around a near-optimal value function instead of settling (Silver L6 p. 32; old P56). Q-learning with linear
+      features is off-policy, bootstrapping and approximate, so all three triad elements are present; counterexamples
+      exist (book §11.2). Nonlinear: no general guarantee for any of them.
+      The second line is old P56's point: the tabular improvement argument changes the action in one state at a time while the
+      other values are exact; with shared weights an update changes many states' values and actions at once. In practice these methods often work when the representation
+      is good, behaviour and target policies are close (ε-greedy versus greedy), and the step sizes and network
+      training are controlled; an agent can also fail without diverging (representation, G13). Gradient Q-learning
+      (old P56) is outside the course scope. DQN (Week 6) is nonlinear Q-learning: the bottom-right ✗ is why it
+      needs replay and a target network.
+      Overlap: G11's bullet statements cover the prediction column in words; the instructor may shorten G11.

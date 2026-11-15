@@ -2,7 +2,7 @@
 
 # Text view: function_approximation_claude.pptx
 
-SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
+SHA-256 `c4918df97d02b2eec4a025449782a8eed92b553ab46e7691b96ebb7f6ff03c59`
 
 ## 1. F00 — COMP438/538 Reinforcement Learning
 
@@ -19,7 +19,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 ## 2. F01 — From tables to generalization
 
-- $𝑉(𝑆𝑡)←𝑉(𝑆𝑡)+𝛼[𝑈𝑡-𝑉(𝑆𝑡)]$
+- $𝑉(𝑆𝑡)←𝑉(𝑆𝑡)+𝛼[𝑈𝑡−𝑉(𝑆𝑡)]$
 
 - MC: the target $𝑈𝑡$ is a return.
 - TD: the target bootstraps from another estimate.
@@ -38,41 +38,61 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 ## 3. F02 — Too many states, too little experience
 
-*Image `yaml:pictures.0`*
+- Pacman State Space Size?
+- What about a humanoid robot?
+- Are the first and second pacman positions similar?
+- What about the second and the third? What information could make their values similar, or very different?
+
+*Diagram `Group 4`:*
+
+*Diagram `Group 11`:*
+
+*Diagram `Group 18`:*
 
 - Storage is only half the problem.
 - Large or continuous spaces make repeated visits scarce.
 - Similar situations may have related values.
 - A representation decides which similarities matter.
 
-- Question: Two Pacman positions differ by one square. What information could make their values similar, or very different?
+- Storage – Exploration – Generalization
 
 **Notes:**
 
-> F02. The three boards are old P5's (cropped from the old deck's PDF export because they are grouped composites).
-> Invite food/ghost distances and obstacles. Nearby positions separated by a wall or a dangerous ghost need not
-> have similar values. A table makes no direct cross-state parameter update; do not say it can never propagate
-> information through TD backups. No numerical state-count claims (old P4's are removed).
+> F02 (instructor-revised 2026-11-10: questions added, old P5 boards copied natively). Take the questions in order.
+> - Pacman state-space size: a state must record Pacman's position, each ghost's position (and scared timer), and which food dots and capsules remain. The food alone gives 2^n configurations for n remaining dots (60 dots: about 10^18), before positions are counted. These numbers are arithmetic illustrations, not a claim about this maze.
+> - Humanoid robot: joint angles and velocities are continuous and high-dimensional; exact repeats essentially never occur, so a table cannot even be indexed.
+> - Boards 1 and 2: different positions, but the same pattern that matters (a ghost right next to Pacman), so their values should be similar; a table treats them as unrelated.
+> - Boards 2 and 3: board 3 is nearly board 1 again (the old slide's "Or even this one!"), so it shares the danger pattern with board 2 as well. Information that could make values differ: walls between Pacman and a ghost, scared ghosts, remaining food.
+> "Storage – Exploration – Generalization" names the three costs of a table: memory, the visits needed to fill it, and no transfer between similar states. A table makes no direct cross-state parameter update; do not say it can never propagate information through TD backups.
 >
-> Target: 3 min. Sources: old Value Function Approximation PPTX 4–5 (scale argument; P5 Pacman boards cropped from the old PDF export).
+> Target: 4 min. Sources: old Value Function Approximation PPTX 4–5 (scale argument; P5 Pacman boards, copied natively by the instructor).
+> Timing: target raised from 3 to 4 minutes for the added questions (instructor, 2026-11-10, R15).
 
-## 4. F03 — What must the approximator handle?
+## 4. F03 — Learning with state descriptions (aka state features)
 
 - What would you use to predict value from a description of a state?
-
-- A compact representation
-- Updates from experience
-- Generalization to similar states
-- Useful gradients for updating the weights
+- Estimate the values with function approximation:
+- $𝑣̂(𝑠,𝐰)≈𝑣𝜋(𝑠),  𝑞̂(𝑠,𝑎,𝐰)≈𝑞𝜋(𝑠,𝑎)$
+- Ideal Requirements:
+- A compact representation: $𝑑≪|𝒮|$ (number of weights ≪ number of states)
+- Updates $𝐰$ from experience (like what we have seen)
+- Generalization to similar states (based on features)
+- Useful gradients for updating the weights (based on the model)
+- “Learn in a smaller space from experience. Generalize that experience to new, similar situations”
 
 **Notes:**
 
-> F03. About one minute of brainstorming, then reveal the four requirements. Connect linear models and neural
-> networks to supervised regression. RL adds correlated experience, action-dependent data and potentially changing
-> targets. A differentiable model makes updates possible; it does not remove these problems. We begin with linear
-> models so we can inspect the mechanism.
+> F03 (instructor-revised 2026-11-10, now titled "Learning with state descriptions (aka state features)"). About one minute of brainstorming on the opening question, then the approximation equations and the four ideal requirements (click).
+> - Compact representation: the number of weights d is much smaller than the number of states |𝒮| (slide: d ≪ |𝒮|).
+> - Updates from experience: the MC and TD targets of Weeks 3–4, now changing weights instead of table entries.
+> - Generalization based on features: F09–F11.
+> - Useful gradients based on the model: F06–F08.
+> RL adds correlated experience, action-dependent data and potentially changing targets; a differentiable model makes updates possible but does not remove these problems. The closing quote is old P4's summary. We begin with linear models so we can inspect the mechanism.
 >
-> Target: 3 min. Sources: old Value Function Approximation PPTX 8–9 (approximator list and requirements, reduced).
+> Equation sources (LaTeX): \hat{v}(s,\mathbf{w})\approx v^{\pi}(s),\qquad\hat{q}(s,a,\mathbf{w})\approx q^{\pi}(s,a) | d\ll|\mathcal{S}|
+>
+> Target: 3.5 min. Sources: old Value Function Approximation PPTX 8–9 (approximator list and requirements, reduced).
+> Timing: target raised from 3 to 3.5 minutes for the added content (instructor, 2026-11-10, R15).
 
 ## 5. F04 — A value estimate is now a function
 
@@ -95,16 +115,14 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 - one value per discrete action
 
 - Many predictions typically share far fewer weights than a table has entries.
+- Side Question: What are some potential models?
 
-- $𝑣̂(𝑠,w)≈𝑣𝜋(𝑠),  𝑞̂(𝑠,𝑎,w)≈𝑞𝜋(𝑠,𝑎)$
+- $𝑣̂(𝑠,𝐰)≈𝑣𝜋(𝑠),  𝑞̂(𝑠,𝑎,𝐰)≈𝑞𝜋(𝑠,𝑎)$
 
 **Notes:**
 
-> F04. The diagram redraws old P7's three input/output panels in course notation (v̂, q̂, bold w). **w** is a
-> vector of adjustable numbers, not a policy. The hat distinguishes a prediction from the true value. Fix π while
-> developing prediction; there is no guarantee that all value functions fit this family. "Fewer weights" is a
-> useful motivation, not a defining mathematical requirement. A network can output one value per discrete action
-> (right panel; DQN in Week 6).
+> F04. The equations repeat F03's; point to the diagram rather than re-deriving them. The diagram redraws old P7's three input/output panels in course notation (v̂, q̂, bold w). w is a vector of adjustable numbers, not a policy; the hat distinguishes a prediction from the true value. Fix π while developing prediction; there is no guarantee that all value functions fit this family. "Fewer weights" is a useful motivation, not a defining mathematical requirement. A network can output one value per discrete action (right panel; DQN in Week 6).
+> Side question (old P8's list): linear models of features, basis-function regression (Fourier, wavelets, RBFs), decision/regression trees and forests, neural networks, nearest-neighbour or kernel methods. Which suit RL depends on online updates and changing targets (F03); we use differentiable models, starting with linear ones.
 >
 > Equation sources (LaTeX): \hat{v}(s,\mathbf{w})\approx v^{\pi}(s),\qquad\hat{q}(s,a,\mathbf{w})\approx q^{\pi}(s,a)
 >
@@ -112,21 +130,19 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 ## 6. F05 — Which prediction errors matter?
 
-- $VE(w)=𝑠∈𝒮𝜇(𝑠)[𝑣𝜋(𝑠)-𝑣̂(𝑠,w)]2$
+- $VE(𝐰)=𝔼𝜋[(𝑣𝜋(𝑆)−𝑣̂(𝑆,𝐰))2]=𝑠∈𝒮𝜇𝜋(𝑠)[𝑣𝜋(𝑠)−𝑣̂(𝑠,𝐰)]2$
 
-- $𝜇(𝑠)$: on-policy state weighting, summing to one.
+- $𝜇𝜋(𝑠)$: on-policy state weighting (i.e., state distribution), summing to one.
 - Shared weights may force a compromise: errors at heavily weighted states count more.
 - Question: Can a small average error hide a large error at a rarely visited state?
+- How to learn
 
 **Notes:**
 
-> F05. Answer: yes. This is an evaluation objective, not a target we can directly observe. The distribution and
-> the representation are separate choices. For the grid later: episodes start at (1,1), and every actual
-> preterminal visit contributes; this gives the physical-visit weighting declared in G02. It differs from
-> first-visit sampling and from alternative discount-as-termination conventions. Do not derive occupancy weights
-> here.
+> F05 (equation revised by the instructor, 2026-11-10). VE is the expected squared prediction error over a random state S drawn from the on-policy distribution μ^π of the policy being evaluated; the sum writes the same expectation out state by state. μ^π depends on the policy (notation guide); with π fixed we may write μ(s) on later slides. Answer to the question: yes, a rarely visited state contributes little. This is an evaluation objective, not a target we can directly observe; the distribution and the representation are separate choices. For the grid later: episodes start at (1,1), and every actual preterminal visit contributes; this gives the physical-visit weighting declared in G02. It differs from first-visit sampling and from alternative discount-as-termination conventions. Do not derive occupancy weights here.
+> "How to learn": ask how we could learn the weights w. Guide students towards gradient descent on VE (basic ML background): F06 takes the gradient as if v^π were known, and F07–F08 replace v^π by targets from experience (instructor intent, R13).
 >
-> Equation sources (LaTeX): \mathrm{VE}(\mathbf{w})=\sum_{s\in\mathcal{S}}\mu(s)[v^{\pi}(s)-\hat{v}(s,\mathbf{w})]^2 | \mu(s)
+> Equation sources (LaTeX): \mathrm{VE}(\mathbf{w})=\mathbb{E}_{\pi}[(v^{\pi}(S)-\hat{v}(S,\mathbf{w}))^2]=\sum_{s\in\mathcal{S}}\mu^{\pi}(s)[v^{\pi}(s)-\hat{v}(s,\mathbf{w})]^2 | \mu^{\pi}(s)
 >
 > Target: 3 min. Sources: old Value Function Approximation PPTX 13 (objective; J(w) replaced by VE(w), notation guide D6), book §9.2 eq. 9.1 printed 199 / PDF 221.
 
@@ -135,8 +151,8 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 - Prediction error × sensitivity to the weights.
 - Replace the inaccessible true value by a target from experience.
 
-- $∇w12[𝑣𝜋(𝑠)-𝑣̂(𝑠,w)]2=-[𝑣𝜋(𝑠)-𝑣̂(𝑠,w)]∇𝑣̂(𝑠,w)$
-- $w←w+𝛼[𝑣𝜋(𝑠)-𝑣̂(𝑠,w)]∇𝑣̂(𝑠,w)$
+- $∇𝐰12[𝑣𝜋(𝑠)−𝑣̂(𝑠,𝐰)]2=−[𝑣𝜋(𝑠)−𝑣̂(𝑠,𝐰)]∇𝑣̂(𝑠,𝐰)$
+- $𝐰←𝐰+𝛼[𝑣𝜋(𝑠)−𝑣̂(𝑠,𝐰)]∇𝑣̂(𝑠,𝐰)$
 
 **Notes:**
 
@@ -153,7 +169,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 - Fixed-policy trajectories supply noisy return labels.
 - Wait until the return is available; update the prediction toward it.
 
-- $𝑈𝑡=𝐺𝑡,  w←w+𝛼[𝐺𝑡-𝑣̂(𝑆𝑡,w)]∇𝑣̂(𝑆𝑡,w)$
+- $𝑈𝑡=𝐺𝑡,  𝐰←𝐰+𝛼[𝐺𝑡−𝑣̂(𝑆𝑡,𝐰)]∇𝑣̂(𝑆𝑡,𝐰)$
 
 **Notes:**
 
@@ -171,11 +187,11 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 - I might refer to these as gradient methods in class.
 
-- $𝑈𝑡=𝑅𝑡+1+𝛾𝑣̂(𝑆𝑡+1,w),  𝛿𝑡=𝑈𝑡-𝑣̂(𝑆𝑡,w)$
-- $w←w+𝛼𝛿𝑡∇𝑣̂(𝑆𝑡,w)$
+- $𝑈𝑡=𝑅𝑡+1+𝛾𝑣̂(𝑆𝑡+1,𝐰),  𝛿𝑡=𝑈𝑡−𝑣̂(𝑆𝑡,𝐰)$
+- $𝐰←𝐰+𝛼𝛿𝑡∇𝑣̂(𝑆𝑡,𝐰)$
 
-- Semi-gradient: differentiate the current prediction; treat the target as fixed in this update.
-- The target also depends on $w$. This is not, in general, a true gradient method for the value-error objective.
+- Semi-gradient: differentiate the current prediction; treat the target as fixed in this update. (Bootstrapping)
+- The target also depends on $𝐰$. This is not, in general, a true gradient method for the value-error objective.
 
 **Notes:**
 
@@ -183,6 +199,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 > the sampled half-squared TD error fully, the derivative also contains the next prediction's derivative; the
 > displayed rule deliberately omits that part. Do not turn this into a residual-gradient derivation. Terminal
 > continuation is zero. The formal name remains semi-gradient even with the instructor's shorthand.
+> The slide's "(Bootstrapping)" marks where the semi-gradient comes from: the target uses the current estimate, and we do not differentiate through it.
 >
 > Equation sources (LaTeX): U_t=R_{t+1}+\gamma\hat{v}(S_{t+1},\mathbf{w}),\qquad\delta_t=U_t-\hat{v}(S_t,\mathbf{w}) | \mathbf{w}\leftarrow\mathbf{w}+\alpha\delta_t\nabla\hat{v}(S_t,\mathbf{w}) | \mathbf{w}
 >
@@ -190,11 +207,11 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 ## 10. F08a — Semi-gradient TD: the loop
 
-- 1. Initialize $w$; run the fixed policy $𝜋$.
+- 1. Initialize $𝐰$; run the fixed policy $𝜋$.
 - 2. At nonterminal $𝑆𝑡$, take $𝐴𝑡∼𝜋(·∣𝑆𝑡)$; observe $𝑅𝑡+1$, $𝑆𝑡+1$.
-- 3. If terminal: $𝑈𝑡=𝑅𝑡+1$. Otherwise: $𝑈𝑡=𝑅𝑡+1+𝛾𝑣̂(𝑆𝑡+1,w)$.
-- 4. Compute $𝛿𝑡=𝑈𝑡-𝑣̂(𝑆𝑡,w)$ and $∇𝑣̂(𝑆𝑡,w)$ using the same pre-update weights.
-- 5. Update $w←w+𝛼𝛿𝑡∇𝑣̂(𝑆𝑡,w)$. Continue, or restart after termination.
+- 3. If terminal: $𝑈𝑡=𝑅𝑡+1$. Otherwise: $𝑈𝑡=𝑅𝑡+1+𝛾𝑣̂(𝑆𝑡+1,𝐰)$.
+- 4. Compute $𝛿𝑡=𝑈𝑡−𝑣̂(𝑆𝑡,𝐰)$ and $∇𝑣̂(𝑆𝑡,𝐰)$ using the same pre-update weights.
+- 5. Update $𝐰←𝐰+𝛼𝛿𝑡∇𝑣̂(𝑆𝑡,𝐰)$. Continue, or restart after termination.
 
 **Notes:**
 
@@ -208,10 +225,11 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 ## 11. F09 — Linear in the weights
 
-- $𝑣̂(𝑠,w)=w⊤x(𝑠)=𝑖=1𝑑𝑤𝑖𝑥𝑖(𝑠)$
-- $∇𝑣̂(𝑠,w)=x(𝑠),  w←w+𝛼𝛿𝑡x(𝑆𝑡)$
+- $𝑣̂(𝑠,𝐰)=𝐰⊤𝐱(𝑠)=𝑖=1𝑑𝑤𝑖𝑥𝑖(𝑠)$
+- $∇𝑣̂(𝑠,𝐰)=𝐱(𝑠),  𝐰←𝐰+𝛼𝛿𝑡𝐱(𝑆𝑡)$
 
-- Linear in $w$. Features may be nonlinear functions of the input.
+- $𝐱(𝑠)$: Features
+- Linear in $𝐰$. Features may be nonlinear functions of the input.
 - A constant feature can supply an intercept.
 - One-hot features recover the tabular update.
 
@@ -220,6 +238,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 > F09. A distance, square, tile indicator or cosine feature can be nonlinear in the raw state description while the
 > value remains linear in the adjustable weights. One-hot features recover the tabular update. Each feature scales
 > a component's change; a zero feature leaves that component unchanged.
+> x(s) is the feature vector (notation guide); its components x_i(s) are the individual features.
 >
 > Equation sources (LaTeX): \hat{v}(s,\mathbf{w})=\mathbf{w}^{\top}\mathbf{x}(s)=\sum_{i=1}^{d}w_i x_i(s) | \nabla\hat{v}(s,\mathbf{w})=\mathbf{x}(s),\qquad\mathbf{w}\leftarrow\mathbf{w}+\alpha\delta_t\mathbf{x}(S_t) | \mathbf{w}
 >
@@ -235,7 +254,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 - distance to a ghost
 - indicators for nearby danger
 - Which distinctions have we thrown away?
-- Identical feature vectors force identical predictions for every $w$.
+- Identical feature vectors force identical predictions for every $𝐰$.
 
 **Notes:**
 
@@ -268,7 +287,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 >
 > Target: 2 min. Sources: old Value Function Approximation PPTX 21 (feature menu, reduced to one drawn comparison), book §9.5 (tile coding), Sutton slides 18-19 pp. 23–27.
 
-## 14. F12-A — Alt A · Grid: two weights for three states
+## 14. F12-A — Grid: two weights for three states
 
 - (1,1) start
 
@@ -286,24 +305,25 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 - Coordinates = (column, row). Policy: always right. $𝛾=0.5$, $𝛼=0.1$.
 - Goal entry: +1 total; other transitions: −0.04; terminal continuation: 0.
-- $x(𝑠)=(1, steps to goal)⊤,  w=(0.6,-0.2)⊤$
+- $𝐱(𝑠)=(1, steps to goal)⊤,  𝐰=(0.6,−0.2)⊤$
 
 **Notes:**
 
-> F12-A · Alt A, 5.1 example (D2). For reference values the full model is: intended direction 0.8, each
+> F12-A. For reference values the full model is: intended direction 0.8, each
 > perpendicular slip 0.1; walls leave the state unchanged. Students need only the supplied samples to update. The
 > goal is not approximated. First identify the two aliased cells: (2,1) and (1,2) are distinct states with
 > identical features.
+> 5.1 example: the grid is the taught route; the landmark alternatives are hidden at the end of the deck (instructor edit, 2026-11-10).
 >
 > Equation sources (LaTeX): \gamma=0.5 | \alpha=0.1 | \mathbf{x}(s)=(1,\ \text{steps}\ \text{to}\ \text{goal})^{\top},\qquad\mathbf{w}=(0.6,-0.2)^{\top}
 >
-> Target: 3 min. Sources: accepted 2×2 grid (bellman B03; γ = 0.5), old Value Function Approximation PPTX 20 (equation layout only), check_function_approximation_claude.py §2. Alternative: 5.1 example Alt A; only one alternative per choice counts toward the session's targets.
+> Target: 3 min. Sources: accepted 2×2 grid (bellman B03; γ = 0.5), old Value Function Approximation PPTX 20 (equation layout only), check_function_approximation_claude.py §2. Taught route for the 5.1 example (grid).
 
-## 15. F12a-A — Alt A · Two samples pull shared weights
+## 15. F12a-A — Two samples pull shared weights
 
 - Compute the target, TD error, new weights and all three predictions. Use the current weights for both predictions in each target.
 - Sample A: (1,2), right, +1, goal.
-- Sample B: (2,1), right, −0.04, (2,1), starting with the weights obtained from A. A separately supplied sample, not the next transition after termination.
+- Sample B: (2,1), right, −0.04, (2,1), starting with the weights obtained from A.
 
 | Sample | Ut | δt | New weights | Predictions at (1,1), (2,1), (1,2) |
 | --- | --- | --- | --- | --- |
@@ -312,14 +332,16 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 **Notes:**
 
-> F12a-A · Alt A, 5.1 example. Protect about three minutes of student calculation and two of feedback before the
+> F12a-A. Protect about three minutes of student calculation and two of feedback before the
 > click that reveals the table. A changes both components by +0.06; B changes both by −0.03. The non-visited cells
 > move too, and the start cell moves by three times the component increment (its features are (1, 2)). Sample B
 > is possible because a right move meets the wall. Two samples are not evidence of convergence.
+> 5.1 example: the grid is the taught route; the landmark alternatives are hidden at the end of the deck (instructor edit, 2026-11-10).
+> Sample B is a separately supplied sample, not the next transition after termination (moved from the slide, R21).
 >
-> Target: 5 min. Sources: constructed (check_function_approximation_claude.py §2), old MT1 Spring 2025 Q4 (exercise format). Alternative: 5.1 example Alt A; only one alternative per choice counts toward the session's targets.
+> Target: 5 min. Sources: constructed (check_function_approximation_claude.py §2), old MT1 Spring 2025 Q4 (exercise format). Taught route for the 5.1 example (grid).
 
-## 16. F13-A — Alt A · Is the representation sufficient?
+## 16. F13-A — Is the representation sufficient?
 
 - Questions: Can any two weights fit this policy's values exactly? What feature would let the two aliased cells differ? Does the answer necessarily stay the same if the policy changes?
 
@@ -334,87 +356,17 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 **Notes:**
 
-> F13-A · Alt A, 5.1 example. Reference values were solved from the known model; the learner does not receive them
+> F13-A. Reference values were solved from the known model; the learner does not receive them
 > as targets. Exact fractions: 14/275, 32/275, 46/55. For features (constant, top row, right column), exact
 > weights are (14/275, 216/275, 18/275). To answer the policy-dependence question, reveal only after discussion:
 > with up at (1,1) and (2,1), right at (1,2), the true values are (199/550, 469/550, 469/550), which the original
 > two features can fit, with weights (739/550, −270/550). This is a policy-specific symmetry, not a claim that two
 > features represent every value function. No second policy-evaluation exercise is required.
+> 5.1 example: the grid is the taught route; the landmark alternatives are hidden at the end of the deck (instructor edit, 2026-11-10).
 >
-> Target: 6 min. Sources: check_function_approximation_claude.py §§1, 3 (exact values), book §9.5. Alternative: 5.1 example Alt A; only one alternative per choice counts toward the session's targets.
+> Target: 6 min. Sources: check_function_approximation_claude.py §§1, 3 (exact values), book §9.5. Taught route for the 5.1 example (grid).
 
-## 17. F12-B — Alt B · Landmark features
-
-- (2,1)
-
-- (2,2)
-
-- (2,3)
-
-- L1 (3,3)
-
-- L2 (4,2)
-
-- Separate robot example. Coordinates = (column, row). Landmarks at (3,3) and (4,2).
-- Four features: column; row; Manhattan distance to (3,3); Manhattan distance to (4,2).
-
-| State | x(s) |
-| --- | --- |
-| (2,1) | (2, 1, 3, 3) |
-| (2,2) | (2, 2, 2, 2) |
-| (2,3) | (2, 3, 1, 3) |
-
-- Four weights start at zero. $𝛼=0.2$, $𝛾=0.5$. Observe two nonterminal transitions: (2,1) → (2,2) → (2,3), each with reward −0.1.
-
-**Notes:**
-
-> F12-B · Alt B, 5.1 example (D2). A different task from the 2×2 grid; do not import its rewards. The diagram marks
-> the landmarks and the path. The four scalar features are x₁(s) through x₄(s), not a new symbol for distance. The
-> old exam's later +1 reward and exam labels are not carried over.
->
-> Equation sources (LaTeX): \alpha=0.2 | \gamma=0.5
->
-> Target: 3 min. Sources: old MT1 Spring 2025 Q4, PDF 12–13 (feature construction; positions and landmarks redrawn). Alternative: 5.1 example Alt B; only one alternative per choice counts toward the session's targets.
-
-## 18. F12a-B — Alt B · Compute two weight updates
-
-| Sample | Current prediction | Next prediction | Ut | δt | New weights |
-| --- | --- | --- | --- | --- | --- |
-| First | 0 | 0 | −0.1 | −0.1 | (−0.04, −0.02, −0.06, −0.06) |
-| Second | −0.36 | −0.38 | −0.29 | 0.07 | (−0.012, 0.008, −0.032, −0.032) |
-
-- Compute $𝑈𝑡$, $𝛿𝑡$ and $w$ after each sample. Before the second update, recompute both state predictions with the updated weights.
-
-**Notes:**
-
-> F12a-B · Alt B, 5.1 example. Four minutes of work and pair comparison, then two of feedback after the reveal.
-> First increment −0.02(2,1,3,3); second 0.014(2,2,2,2). A negative reward can accompany a positive TD error
-> because the target is less negative than the current prediction. No claim about convergence or feature
-> sufficiency follows from two updates.
->
-> Equation sources (LaTeX): U_t | \delta_t | \mathbf{w}
->
-> Target: 6 min. Sources: old MT1 Spring 2025 Q4 (feature construction), check_function_approximation_claude.py §7 (updates verified). Alternative: 5.1 example Alt B; only one alternative per choice counts toward the session's targets.
-
-## 19. F13-B — Alt B · Missing information cannot be fitted
-
-- Two fully observed states have the same selected feature vector.
-- From one, the next transition terminates with +1; from the other, with −1. Both appear equally often.
-- Questions: Can the model fit both? What is the best common prediction? Would adding nonlinear layers with these same inputs solve it?
-
-- The true values are +1 and −1. Any common prediction compromises; zero minimizes their equally weighted squared error, which is 1.
-- A nonlinear function of identical inputs still gives identical outputs. Change the inputs to retain the distinguishing information.
-
-**Notes:**
-
-> F13-B · Alt B, 5.1 example. Allow three minutes of discussion and three of feedback. If the distinguishing
-> information is observed but discarded, retain it as a feature. If it is absent from the observation, a different
-> state/history representation may be needed; no architecture can infer an unobservable distinction perfectly by
-> adding capacity alone. This is representation insufficiency, not evidence that TD diverges.
->
-> Target: 6 min. Sources: ChatGPT F11 diagnosis (step 1), content F13-B, Week 1 observation/state distinction. Alternative: 5.1 example Alt B; only one alternative per choice counts toward the session's targets.
-
-## 20. F14 — Representation and learning rule are different questions
+## 17. F14 — Representation and learning rule are different questions
 
 - Can the model express the answer? Examine features and true values.
 - Will this update find a useful answer? Examine targets, data and update dynamics.
@@ -422,22 +374,22 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 **Notes:**
 
-> F14. Use whichever example was selected. Leave convergence and fixed-point details for G02; do not duplicate them
+> F14. Refer back to the grid example (F12-A–F13-A). Leave convergence and fixed-point details for G02; do not duplicate them
 > here. The two calculations showed how weights move, not their eventual behaviour.
 >
 > Target: 2 min. Sources: old Value Function Approximation PPTX 24 position (its convergence claims are replaced; see G02, G11).
 
-## 21. F15 — Action values use the same machinery
+## 18. F15 — Action values use the same machinery
 
 | Method | Nonterminal target Ut |
 | --- | --- |
 | Semi-gradient Sarsa | Rt+1+γq̂(St+1,At+1,w) |
 | Approximate Q-learning | Rt+1+γmaxaq̂(St+1,a,w) |
 
-- $𝑞̂(𝑠,𝑎,w)=w⊤x(𝑠,𝑎)$
-- $w←w+𝛼[𝑈𝑡-𝑞̂(𝑆𝑡,𝐴𝑡,w)]∇𝑞̂(𝑆𝑡,𝐴𝑡,w)$
+- $𝑞̂(𝑠,𝑎,𝐰)=𝐰⊤𝐱(𝑠,𝑎)$
+- $𝐰←𝐰+𝛼[𝑈𝑡−𝑞̂(𝑆𝑡,𝐴𝑡,𝐰)]∇𝑞̂(𝑆𝑡,𝐴𝑡,𝐰)$
 
-- Terminal target: $𝑈𝑡=𝑅𝑡+1$. In the linear case, the gradient is $x(𝑆𝑡,𝐴𝑡)$.
+- Terminal target: $𝑈𝑡=𝑅𝑡+1$. In the linear case, the gradient is the state-action features $𝐱(𝑆𝑡,𝐴𝑡)$.
 
 **Notes:**
 
@@ -451,13 +403,13 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 >
 > Target: 2 min. Sources: old Value Function Approximation PPTX 25–29 and 31 (equations regenerated; P27's zero-error expression fixed), book §10.1.
 
-## 22. F15a — Semi-gradient Sarsa: keep the sampled next action
+## 19. F15a — Semi-gradient Sarsa: keep the sampled next action
 
-- 1. Initialize $w$. At an episode start $𝑆0$, choose $𝐴0$ ε-greedily from $𝑞̂(𝑆0,·,w)$.
+- 1. Initialize $𝐰$. At an episode start $𝑆0$, choose $𝐴0$ ε-greedily from $𝑞̂(𝑆0,·,𝐰)$.
 - 2. Execute $𝐴𝑡$; observe $𝑅𝑡+1$, $𝑆𝑡+1$.
 - 3. If terminal, set $𝑈𝑡=𝑅𝑡+1$.
-- 4. Otherwise choose $𝐴𝑡+1$ ε-greedily using the current weights, and set $𝑈𝑡=𝑅𝑡+1+𝛾𝑞̂(𝑆𝑡+1,𝐴𝑡+1,w)$.
-- 5. Update $w←w+𝛼[𝑈𝑡-𝑞̂(𝑆𝑡,𝐴𝑡,w)]∇𝑞̂(𝑆𝑡,𝐴𝑡,w)$, all quantities on the right evaluated before the update.
+- 4. Otherwise choose $𝐴𝑡+1$ ε-greedily using the current weights, and set $𝑈𝑡=𝑅𝑡+1+𝛾𝑞̂(𝑆𝑡+1,𝐴𝑡+1,𝐰)$.
+- 5. Update $𝐰←𝐰+𝛼[𝑈𝑡−𝑞̂(𝑆𝑡,𝐴𝑡,𝐰)]∇𝑞̂(𝑆𝑡,𝐴𝑡,𝐰)$, all quantities on the right evaluated before the update.
 - 6. If nonterminal, execute that same $𝐴𝑡+1$ next. If terminal, restart.
 
 **Notes:**
@@ -470,7 +422,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 >
 > Target: 2 min. Sources: old Value Function Approximation PPTX 32 (semi-gradient Sarsa box, replaced by this loop in course notation), book §10.1 box printed 244 / PDF 266.
 
-## 23. F16 — Mountain Car: a compact representation for continuous states
+## 20. F16 — Mountain Car: a compact representation for continuous states
 
 *Image `native:pic:33:Picture 5`*
 
@@ -482,7 +434,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 - A different feature representation: radial basis functions (Kretchmar, 1995).
 
-- Cost-to-go, $-max𝑎𝑞̂(𝑠,𝑎,w)$, during learning (Sutton & Barto, Fig. 10.1).
+- Cost-to-go, $−max𝑎𝑞̂(𝑠,𝑎,𝐰)$, during learning (Sutton & Barto, Fig. 10.1).
 
 **Notes:**
 
@@ -497,7 +449,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 >
 > Target: 2 min. Sources: old Value Function Approximation PPTX 33 (problem illustration and cost-to-go figure), 34 (RBF figure, second build), book Example 10.1 printed 244–246 / PDF 266–268.
 
-## 24. F17 — From fixed features to learned features
+## 21. F17 — From fixed features to learned features
 
 - state s
 
@@ -528,14 +480,14 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 >
 > Target: 2 min. Sources: old Value Function Approximation PPTX 8–9 (approximator menu, reduced to a diagram), old P18 note (deep RL learns representations), Abbeel L2 pp. 17–29, book §9.7.
 
-## 25. F18 — One update, many predictions
+## 22. F18 — One update, many predictions
 
 - Choose what the model can distinguish.
 - Choose a target from experience.
 - Update shared weights.
 - Inspect both prediction quality and learning dynamics.
 
-- Exit question: If $𝑣𝜋$ can be represented exactly, must semi-gradient TD learn it?
+- Question: If $𝑣𝜋$ can be represented exactly, is semi-gradient TD guaranteed to learn it?
 
 **Notes:**
 
@@ -547,34 +499,37 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 >
 > Target: 2 min. Sources: new synthesis (old P60's target catalogue not copied).
 
-## 26. G00 — 5.2 — Approximation instability
+## 23. G00 — 5.2 — Approximation instability (hidden)
 
 - When sharing a value estimate changes the learning dynamics
 
 **Notes:**
 
+> Hidden by the instructor (round 2): session 5.2 starts at G01.
 > G00. Visible session boundary. Begin this slide at the second meeting, not as extra 5.1 material.
 >
 > Target: 0.5 min. Sources: section opener (as model_free_control P00 / bellman B17).
 
-## 27. G01 — Can a useful update become self-reinforcing?
+## 24. G01 — Convergence: Can a useful update become self-reinforcing?
 
-- $w←w+𝛼[𝑅𝑡+1+𝛾𝑣̂(𝑆𝑡+1,w)-𝑣̂(𝑆𝑡,w)]x(𝑆𝑡)$
+- $𝐰←𝐰+𝛼[𝑅𝑡+1+𝛾𝑣̂(𝑆𝑡+1,𝐰)−𝑣̂(𝑆𝑡,𝐰)]∇𝑣̂(𝑆𝑡,𝐰)$
 
-- Changing $w$ changes the current prediction and future targets.
-- We need to distinguish a stable compromise from growing error.
+- Using features might lead to issues with distinguishing between states. Would this affect stability?
+- Changing $𝐰$ changes the current prediction and future targets. Would this affect stability?
+- We need to distinguish a stable compromise from growing error. (Converge but to the wrong values vs diverge)
 
 **Notes:**
 
 > G01. Retrieve the three ingredients: shared features, the bootstrap target, and the data on which updates are
 > made. Terminal continuation remains zero. Recall Week 4's tabular convergence conditions (4.2); replacing the
 > table changes their applicability.
+> Answers to the slide questions (instructor-added, round 2): (1) Features that give two states the same vector do not by themselves make learning unstable; they force a compromise, and TD can converge stably to wrong values (5.1 grid, G02). (2) Because w also moves the targets, an update can raise its own next target; together with which states get updated this can make the weights grow without bound (I02–I07, G10). (3) Hence the distinction: converge to wrong values (representation) versus diverge (instability). The update is written with the general gradient; in the linear case it is x(S_t).
 >
-> Equation sources (LaTeX): \mathbf{w}\leftarrow\mathbf{w}+\alpha[R_{t+1}+\gamma\hat{v}(S_{t+1},\mathbf{w})-\hat{v}(S_t,\mathbf{w})]\mathbf{x}(S_t) | \mathbf{w}
+> Equation sources (LaTeX): \mathbf{w}\leftarrow\mathbf{w}+\alpha[R_{t+1}+\gamma\hat{v}(S_{t+1},\mathbf{w})-\hat{v}(S_t,\mathbf{w})]\nabla\hat{v}(S_t,\mathbf{w}) | \mathbf{w}
 >
 > Target: 2 min. Sources: old Value Function Approximation PPTX 41 (motivation, rewritten with the known update).
 
-## 28. G02 — What would "converged" mean?
+## 25. G02 — What would "converged" mean?
 
 - (1,1)
 
@@ -591,27 +546,30 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 | (1,2) | 1/82 | 0.83636 | 0.12623 | 0.13319 |
 | Weighted squared error |  |  | 0.00624 | 0.00638 |
 
-- Takeaway: linear on-policy TD can settle at a stable point that is not the minimum of VE. A constant step size generally produces fluctuations rather than exact convergence.
+- Best fit for VE: The predictions with the smallest VE the chosen features allow
+- TD fixed point: The point where the semi-gradient TD algorithm converges
+- Takeaway: linear on-policy TD can settle at a stable point that is not the minimum of VE.
 
-- Computed best fit and TD fixed point, not sampled learning curves.
-- Grid: always right, $𝛾=0.5$, features (1, steps to goal); goal entry +1, otherwise −0.04. Episodes start at (1,1); every actual preterminal visit contributes.
+- Grid: always right, $𝛾=0.5$, features (1, steps to goal); goal entry +1, otherwise −0.04.
+- Episodes start at (1,1) and every actual preterminal visit contributes.
 
 **Notes:**
 
-> G02. Route minutes: full geometry 5, short 3 (O1). If 5.1 used the landmark example, introduce the grid from this
-> inset; do not assume students saw the alternate. The full transition/reward specification is in F12-A's notes
+> G02. Route minutes: full geometry 5, short 3 (O1). 5.1 used the grid, so the inset recalls F12-A; if the landmark route is ever taught instead,
+> introduce the grid from this inset. The full transition/reward specification is in F12-A's notes
 > (0.8 intended move, 0.1 each perpendicular slip, walls keep the agent in place). True values and both limiting
 > fits are computed from that model, not inferred from two samples or a simulation. The rarely visited upper-left
 > cell (1,2) contributes little to this objective despite a large error. Every-visit and first-visit weighting
 > differ. Full route: ask students to locate the largest error and explain the compromise. Short route: state
 > those observations and keep the table's distinction. The standard linear-TD bounds need their distribution and
 > task assumptions; no theorem or numerical error bound is claimed for this episodic example.
+> The table shows computed limits, not sampled learning curves (moved from the slide, R21). The definitions on the slide hold for on-policy linear semi-gradient TD with suitably decreasing step sizes; a constant step size generally leaves the weights fluctuating around these values rather than converging exactly (moved from the slide, R21).
 >
 > Equation sources (LaTeX): \gamma=0.5
 >
 > Target: 5 min. Sources: replaces old Value Function Approximation PPTX 24 (convergence claims), book §§9.2–9.4, eqs. 9.1 and 9.12, check_function_approximation_claude.py §4.
 
-## 29. G03-A — Alt A · Geometry: the grid's shared predictions
+## 26. G03-A — Geometry: the grid's shared predictions
 
 - predicted value at (2,1)
 
@@ -637,7 +595,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 - weighted best fit of the backup
 
-- Exact backup-and-fit picture of a fixed point; not the path of one sampled TD update.
+- Exact backup-and-fit picture of a fixed point.
 
 - A coordinate view of a three-state model. Features (1, steps to goal): (2,1) and (1,2) share a feature vector, so representable pairs lie on the diagonal.
 - Weights $𝜇(2,1):𝜇(1,2)=72:1$ pull the weighted fit close to $𝑣𝜋(2,1)$; equal weights define a different objective.
@@ -645,7 +603,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 **Notes:**
 
-> G03-A · Alt A, geometry (picture P1, D5). Route minutes: full 6, short 4. Five clicks: (1) diagonal; (2) true
+> G03-A (taught geometry picture P1; D5, D13). Route minutes: full 6, short 4. Five clicks: (1) diagonal; (2) true
 > values (0.11636, 0.83636); (3) equal-state best fit (0.47636, 0.47636) and on-policy-weighted best fit (0.12623,
 > 0.12623); (4) TD fixed point (0.13319, 0.13319); (5) exact backup (0.12394, 0.79971), arrow up from the TD point
 > and arrow back to its weighted best fit. The weighted fit and the TD point are 0.007 apart, so their markers
@@ -660,9 +618,431 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 >
 > Equation sources (LaTeX): \mu(2,1):\mu(1,2)=72:1 | v^{\pi}(2,1)
 >
-> Target: 6 min. Sources: new editable chart from G02 (old Value Function Approximation PPTX 49–50 as conceptual inspiration only; their 3D figure is not used, D5), book §11.4, check_function_approximation_claude.py §8. Alternative: geometry Alt A; only one alternative per choice counts toward the session's targets.
+> Target: 6 min. Sources: new editable chart from G02 (old Value Function Approximation PPTX 49–50 as conceptual inspiration only; their 3D figure is not used, D5), book §11.4, check_function_approximation_claude.py §8. Taught geometry picture (D13).
 
-## 30. G03-B — Alt B · Geometry: one weight, two predictions
+## 27. G04 — A tabular guarantee does not transfer automatically
+
+- A Bellman backup and a best fit are different operations.
+- The fit depends on both the function family and the state weighting.
+- The tabular guarantee does not automatically survive fitting with a different state weighting.
+
+**Notes:**
+
+> G04. Route minutes: full 2, short 1. Week 2's discounted exact backup contracts differences between tables. The
+> picture adds fitting in a particular weighted error measure; it does not prove the same statement for every
+> approximate or sample-based update. Linear on-policy TD has stability results under appropriate conditions.
+> Next: a concrete way different state frequencies and shared bootstrapped predictions can cause growth. No
+> projection operator symbol, norm proof or gradient-TD algorithm.
+>
+> Target: 2 min. Sources: old Value Function Approximation PPTX 41 (motivation), book §11.4 (no contraction proof), CS234 L4 p. 60, CS285 L8 pp. 30–36.
+
+## 28. I02 — A single update raises its own target
+
+*Image `native:pic:43:Picture 4`*
+
+- Part of an MDP
+- $𝑣̂(𝐿,𝑤)=𝑤$, $𝑣̂(𝑅,𝑤)=2𝑤$;
+- $𝑅=0$, $𝛾=0.9$, $𝛼=0.1$, $𝑤=10$.
+
+- $𝑈𝑡=18, 𝛿𝑡=8, 𝑤←10+0.1(8)(1)=10.8$
+- Predictions move (10, 20) → (10.8, 21.6). The update raises the target state's prediction too.
+
+**Notes:**
+
+> I02. The picture's states are L (value w) and R (value 2w). Ask what happens when R
+> is updated: an isolated transition cannot answer. The next slide completes the task and specifies exactly which
+> updates are made. If G03-B was used, explicitly announce the switch to all rewards zero.
+>
+> Equation sources (LaTeX): \hat{v}(L,w)=w | \hat{v}(R,w)=2w | R_{t+1}=0 | \gamma=0.9 | \alpha=0.1 | w=10 | U_t=18,\quad\delta_t=8,\quad w\leftarrow10+0.1(8)(1)=10.8
+>
+> Target: 3 min. Sources: old Value Function Approximation PPTX 43 (two-state picture; γ changed to 0.9, threshold claim deleted), book §11.2 printed 260 / PDF 282. Taught route for the 5.2 divergence example (D14).
+
+## 29. I03 — Complete the task and the update experiment
+
+- Rule of this experiment: retain target-action transitions and balance the two source states. Each update uses one L → R and one R → R. Compute both contributions using the same saved w, average them, then apply α = 0.1 once.
+
+- Two states L, R; two actions "go L", "go R". Each action deterministically reaches its named state from either state.
+- Continuing task; all rewards 0, $𝛾=0.9$. Thus $𝑣𝜋(𝐿)=𝑣𝜋(𝑅)=0$, exactly representable by $𝑤=0$.
+- Target $𝜋$ always chooses "go R". Behaviour $𝑏$ chooses each action with probability 1/2 at either state. Its stationary state frequencies are (1/2, 1/2); the target's are (0, 1).
+
+**Notes:**
+
+> I03. C01 remains for instructor review (O3). This is an explicitly constructed
+> mean-update experiment, not a generic prescription for off-policy learning. The symmetric behaviour can supply
+> both retained transitions; its other transitions are deliberately not used under this experiment's rule. Do not
+> say all off-policy algorithms discard non-target actions. No importance ratio, correction derivation or new
+> off-policy algorithm; broader correction mechanisms belong to the later off-policy unit (Week 8). Distinguish
+> the behaviour's state frequencies from the target continuation used in both labels.
+>
+> Equation sources (LaTeX): \gamma=0.9 | v^{\pi}(L)=v^{\pi}(R)=0 | w=0 | \pi | b
+>
+> Target: 5 min. Sources: ChatGPT complete two-state construction (step 1, I03; review R03, C01), old Value Function Approximation PPTX 43 (extended), check_function_approximation_claude.py §7. Taught route for the 5.2 divergence example (D14).
+
+## 30. I04 — Work out the balanced update
+
+| Transition | Current prediction | Next prediction | Target | TD error | Gradient | Error × gradient |
+| --- | --- | --- | --- | --- | --- | --- |
+| L → R | 10 | 20 | ? | ? | ? | ? |
+| R → R | 20 | 20 | ? | ? | ? | ? |
+
+| Transition | Current prediction | Next prediction | Target | TD error | Gradient | Error × gradient |
+| --- | --- | --- | --- | --- | --- | --- |
+| L → R | 10 | 20 | 18 | 8 | 1 | 8 |
+| R → R | 20 | 20 | 18 | −2 | 2 | −4 |
+
+- Mean contribution = (8 − 4)/2 = 2; w = 10.2. Repeating from the new saved weight gives 10.404.
+
+- $𝑤=10$, $𝛾=0.9$, $𝛼=0.1$.
+- Fill in both target-action transitions, average their gradient-scaled errors, and update once.
+
+**Notes:**
+
+> I04. Give about four minutes to work and pair-check, then feedback. Averaging raw TD
+> errors, or updating w between the rows, implements a different experiment. At general w the two contributions are
+> 0.8w and −0.4w; their mean is 0.2w. Full-geometry route: reveal I05's recurrence during the remaining feedback
+> time; it has no additional minutes. Short route: leave the recurrence to the separately timed I05.
+>
+> Equation sources (LaTeX): w=10
+>
+> Target: 8 min. Sources: ChatGPT complete two-state construction (I04), check_function_approximation_claude.py §7. Taught route for the 5.2 divergence example (D14).
+
+## 31. I05 — A small growth factor compounds
+
+- 10 → 10.2 → 10.404 → … . True values stay zero.
+- Both predictions grow in magnitude.
+- A smaller positive step size slows the growth; it does not change its direction.
+
+- $𝑤←𝑤+𝛼(0.2𝑤)=1.02𝑤  (𝛾=0.9, 𝛼=0.1)$
+
+**Notes:**
+
+> I05. Route minutes: within I04's eight minutes in the full-geometry route (0 here); 4 in
+> the short-geometry route. Only the numeric γ = 0.9 case is shown live, with no discount threshold (D7, C02 second
+> bullet). This is an exact deterministic mean recurrence, not a claim that every stochastic sample path grows
+> monotonically. The Baird picture at G10 supplies the larger-scale visual; C02's first bullet (a growth chart)
+> remains for instructor review. Do not add an unaccepted extra time block for a second growth chart.
+> The step-size statement is about this deterministic mean-update experiment (moved from the slide, R21).
+>
+> Equation sources (LaTeX): w\leftarrow w+\alpha(0.2w)=1.02w\qquad(\gamma=0.9,\ \alpha=0.1)
+>
+> Target: 0 min. Sources: ChatGPT complete two-state construction (I05), old Value Function Approximation PPTX 43 (threshold sentence omitted). Taught route for the 5.2 divergence example (D14).
+
+## 32. I06 — Locate the three ingredients
+
+*Image `native:pic:47:Picture 3`*
+
+- Function approximation/Feature Based Representation: one weight couples L and R.
+- Bootstrapping: predictions appear in the target.
+- Off-policy state weighting: equal source-state updates differ from target-policy visits.
+
+- Question: Which part would you change to investigate the growth mechanism?
+
+- Deadly Triad
+
+**Notes:**
+
+> I06. The experiment makes the
+> target continuation exact, yet the state-frequency mismatch remains. Recall Week 4 P08: learning from someone
+> else's data raises both questions; neither was solved generally by Week 4's Q-learning target. No correction
+> formula. The deadly triad names a mechanism allowing failure, not a statement that every such method diverges or
+> that any arbitrary pair of ingredients is safe.
+> The question "Which part would you change to investigate the growth mechanism?" (instructor-added) leads into I07, which changes one component at a time; G09 then follows with the two off-policy questions.
+>
+> Target: 4 min. Sources: old Value Function Approximation PPTX 47 (triad picture), book §11.3, Sutton slides 26 p. 4, Week 4 P08 callback. Taught route for the 5.2 divergence example (D14).
+
+## 33. I07 — Change one component, keep the task
+
+- Predict the direction of the update for each separate intervention. The true value is still zero and the model can represent it.
+
+| Change | Update data / target | Reveal |
+| --- | --- | --- |
+| Use target-policy stationary states | Only R → R; same bootstrap target |  |
+| Remove bootstrapping | Same balanced source states; replace both targets by their known zero returns |  |
+
+| Change | Update data / target | Reveal |
+| --- | --- | --- |
+| Use target-policy stationary states | Only R → R; same bootstrap target | Contribution = (0.9·2w − 2w)·2 = −0.4w; w ← 0.96w; 10 → 9.6 → 9.216 |
+| Remove bootstrapping | Same balanced source states; replace both targets by their known zero returns | Mean contribution = [(−w)·1 + (−2w)·2]/2 = −2.5w; w ← 0.75w; 10 → 7.5 → 5.625 |
+
+**Notes:**
+
+> I07. Four minutes of discussion and calculation, four of feedback. Each row separately
+> changes one component of I03, not both at once. The first row is a stationary-distribution comparison; it is not
+> a coverage guarantee for arbitrary other features or tasks. Here reducing the shared weight also corrects L. The
+> second uses returns known to be zero because every reward is zero in the continuing discounted task; it does not
+> require waiting for an infinite trajectory and is not a generic off-policy Monte Carlo estimator. These
+> interventions explain this example; they are not a blanket convergence theorem.
+>
+> Target: 8 min. Sources: ChatGPT complete two-state construction (I07), check_function_approximation_claude.py §7. Taught route for the 5.2 divergence example (D14).
+
+## 34. G09 — Two off-policy questions
+
+- Whose continuation is in the target?
+- Whose state frequencies determine the updates?
+- Matching one does not automatically fix the other.
+
+**Notes:**
+
+> G09. In the taught route after I07 (2 minutes; instructor edit, round 2). Week 4 identified the
+> policy/data distinction and left general correction open. Approximation makes the state weighting matter
+> because states share parameters. Do not say "Q-learning needs no correction" as an established general result.
+> No importance-sampling ratio or gradient-TD machinery here.
+>
+> Target: 2 min. Sources: old Value Function Approximation PPTX 41 (motivation), Week 4 P08 callback, Sutton slides 26 p. 4. Taught route (instructor edit, round 2).
+
+## 35. G10 — Baird: a complete counterexample
+
+*Image `native:pic:44:Picture 6`*
+
+*Image `Picture 11`*
+
+- Linear approximation + bootstrapping + different state weighting can diverge, even with exact expected updates.
+- $R=0, 𝛾=0.99$.
+- Target policy follows the solid lines. Behavior policy is random switching to any other state including self.
+
+**Notes:**
+
+> G10. Either route (3 minutes). Keep the original diagram's upper predictions 2w_i + w₈ (i = 1, …, 6) and lower
+> prediction w₇ + 2w₈. Initial components: all 1 except w₇ = 10. Each sweep averages the seven gradient-scaled
+> exact target errors, using the same pre-sweep vector. The right panel shows weight growth over repeated sweeps
+> (w₈ ≈ 335 after 1000 sweeps in the check script). Because w₈ grows strongly while w₇ stays comparatively small,
+> the lower predicted value grows away from its true value zero. There is no sampling noise or changing policy in
+> this demonstration. Do not introduce importance ratios, a full feature matrix or another hand derivation.
+> The figure now shows both panels of book Figure 11.2 (instructor edit, round 2). Left, "Semi-gradient Off-policy TD": the same update sampled along behaviour trajectories, with each sample reweighted to match the target policy (the reweighting is importance sampling, Week 8); it diverges too, just noisily (steps on the horizontal axis). Right, "Semi-gradient DP": synchronous expected sweeps, no sampling and no reweighting; it still diverges (sweeps on the horizontal axis). Slide text: the behaviour policy picks the dashed action with probability 6/7 (to one of the six upper states) and the solid action with 1/7 (to the lower state), so the next state is uniform over all seven; the target policy always takes the solid action. Weight subscripts are components, not time steps; the lower state's prediction w₇ + 2w₈ grows too, so this is not just redundant weights moving. Distinguish this
+> complete expected-update example from the fragment and from each route's two-state numbers.
+>
+> Equation sources (LaTeX): \gamma=0.99 | w_7+2w_8 | \alpha=0.01
+>
+> Target: 3 min. Sources: old Value Function Approximation PPTX 44 (seven-state diagram; Figure 11.2 picture cropped to its right, DP-sweep panel; the behaviour-probability picture is not used), book Figures 11.1–11.2 printed 261–262 / PDF 283–284, check_function_approximation_claude.py §6.
+
+## 36. G11 — State convergence claims with their conditions (hidden)
+
+- Linear gradient MC, fixed policy: with appropriate sampling and step sizes, minimizes the weighted value-error objective; the best fit may still be wrong.
+- Linear on-policy semi-gradient TD, fixed policy: under its conditions, approaches a TD fixed point; generally not the minimum of VE.
+- Off-policy linear TD: can diverge, as just shown.
+- Nonlinear approximation / approximate control: do not inherit the tabular guarantees merely by replacing a table with a function.
+
+**Notes:**
+
+> Hidden by the instructor (2026-11-14): G12a covers these statements; kept as a backup.
+> G11 (D4: scoped convergence statements). Route minutes: Alt A 2, Alt B 4. Alt A: quick synthesis. Alt B: ask
+> students to explain the distinction between the first two rows. Suitable sampling, boundedness/regularity and
+> step sizes matter; singular features may leave weights nonunique even when predictions are determined. A
+> constant step size generally leaves noise. Do not promise global optimality for nonlinear MC, generic stability
+> for nonlinear on-policy TD, or convergence of changing-policy approximate Sarsa/Q-learning from a fixed-policy
+> theorem. The "any two" discussion in the linear setting is not an unconditional guarantee across arbitrary
+> algorithms. Week 4's 4.2 tabular convergence slide supplies the tabular row. In the Alt A full route, add G12's
+> short reassurance within these two minutes.
+>
+> Target: 2 min. Sources: replaces old Value Function Approximation PPTX 24, 46 and 56 (blanket tables), book §§9.3–9.4, 11.2–11.3, D4 (scoped statements), D7 (R02).
+
+## 37. G12 — Possible failure is not inevitable failure
+
+- Counterexamples reveal missing guarantees and failure mechanisms.
+- They do not say every approximate learner fails.
+- Inspect representations, targets, update data and actual value error.
+
+**Notes:**
+
+> G12. Target 0 here: say it in passing after G11 (hidden) / with G12a. Smaller
+> steps may reduce noise but cannot reverse the positive mean-growth direction in I05. More expressive features may
+> fix representation error but do not automatically fix unstable updates. No present-day practice or research-status
+> claim is needed to make this point.
+>
+> Target: 0 min. Sources: old Value Function Approximation PPTX 45 (heading only; its historical "no counterexample" and broad Q-learning claims are removed).
+
+## 38. G12a — Convergence: prediction
+
+| Fixed policy π | Tabular | Linear | Nonlinear |
+| --- | --- | --- | --- |
+| Gradient MC | ✓  vπ | ✓  best fit (min VE) | ✓  local optimum of VE |
+| Semi-gradient TD, on-policy | ✓  vπ | ✓  TD fixed point | ✗ |
+| Semi-gradient TD, other state weighting | ✓  vπ | ✗ | ✗ |
+
+- ✓ converges (to what is listed)     ✗ can diverge
+
+**Notes:**
+
+> G12a (instructor request, 2026-11-12). Read the table by rows, then point to the two ✗ in the linear and
+> nonlinear columns. Conditions behind each entry:
+> - Every ✓ assumes step sizes that decrease suitably (Robbins–Monro) and data that keep visiting the states that
+>   matter; with a constant step size the estimates keep fluctuating near the listed limit.
+> - Gradient MC, linear: VE is quadratic in w, so the limit is the best fit for the chosen weighting, which can
+>   still be far from v^π where the features cannot express it (5.1 grid). Nonlinear: only a local optimum.
+> - Semi-gradient TD, on-policy linear: the TD fixed point (G02); in continuing tasks its VE is within
+>   1/(1 − γ) of the best fit (book eq. 9.14). On-policy nonlinear TD can also diverge (Tsitsiklis and Van Roy's
+>   counterexample); there is no general guarantee.
+> - "Other state weighting" means updates distributed differently from the target policy's visits: the 5.2
+>   two-state examples and Baird's DP sweeps (G10). Tabular stays ✓ because each state has its own entry. This
+>   is the off-policy row of old P46/P55; their off-policy MC row needs importance-sampling corrections (Week 8),
+>   so it is not shown. Gradient-TD methods (old P55) fix the linear off-policy case but are outside the course
+>   scope; book §11.7 if a student asks.
+>
+> Target: 2 min. Sources: old Value Function Approximation PPTX 46 and 55 (prediction tables; gradient-TD and off-policy MC rows dropped), Silver L6 p. 30, book §§9.3–9.4 (gradient MC, TD fixed point), 11.2–11.3 (Baird, deadly triad).
+
+## 39. G12b — Convergence: control
+
+| Policy improves while learning | Tabular | Linear | Nonlinear |
+| --- | --- | --- | --- |
+| MC control | ✓ | (✓) | ✗ |
+| Semi-gradient Sarsa | ✓ | (✓) | ✗ |
+| Q-learning | ✓ | ✗ | ✗ |
+
+- ✓ converges     (✓) stays near a good solution but keeps oscillating     ✗ can diverge
+- With approximation, improving the policy no longer guarantees better values everywhere.
+
+**Notes:**
+
+> G12b (instructor request, 2026-11-12). Tabular column: Week 4's results. MC control and Sarsa need GLIE
+> exploration (every pair tried infinitely often, ε decaying) and suitable step sizes; Q-learning needs every pair
+> updated infinitely often and suitable step sizes, whatever the behaviour policy.
+> (✓) for linear MC control and Sarsa: with on-policy ε-greedy behaviour the weights stay bounded but can chatter
+> around a near-optimal value function instead of settling (Silver L6 p. 32; old P56). Q-learning with linear
+> features is off-policy, bootstrapping and approximate, so all three triad elements are present; counterexamples
+> exist (book §11.2). Nonlinear: no general guarantee for any of them.
+> The second line is old P56's point: the tabular improvement argument changes the action in one state at a time while the
+> other values are exact; with shared weights an update changes many states' values and actions at once. In practice these methods often work when the representation
+> is good, behaviour and target policies are close (ε-greedy versus greedy), and the step sizes and network
+> training are controlled; an agent can also fail without diverging (representation, G13). Gradient Q-learning
+> (old P56) is outside the course scope. DQN (Week 6) is nonlinear Q-learning: the bottom-right ✗ is why it
+> needs replay and a target network.
+> Overlap: G11's bullet statements cover the prediction column in words; the instructor may shorten G11.
+>
+> Target: 2 min. Sources: old Value Function Approximation PPTX 56 (control table; gradient Q-learning row dropped), Silver L6 p. 32, book §§10.1, 11.2; Week 4 convergence conditions (4.2).
+
+## 40. G13 — Diagnose three experiments
+
+- Match each case to sufficient representation, insufficient representation, or unstable learning. What evidence distinguishes them?
+
+| Case | Construction | Weight behaviour | Value error |
+| --- | --- | --- | --- |
+| 1 | Always-right grid, one-hot features; on-policy expected TD | Finite fixed-point weights equal (0.05091, 0.11636, 0.83636) | Computed fixed-point VE = 0 |
+| 2 | Same grid, same data weighting and expected TD; features (1, steps to goal) | Finite fixed-point weights (0.24540, −0.11221) | Computed fixed-point VE = 0.00638; best possible VE = 0.00624 |
+| 3 | Separate complete two-state task: zero rewards, γ = 0.9, v̂ = (w, 2w), balanced target-action mean updates, α = 0.1 | w = 10 → 10.2 → 10.404 | Equally weighted squared value error = 250 → 260.1 → 270.60804 |
+
+- 1: sufficient and stable here. 2: a representation error floor, plus the small TD-versus-best-fit difference. 3: unstable updates although $𝑤=0$ represents the exact answer.
+
+**Notes:**
+
+> G13. Protected, 6 minutes in every route: two to inspect, two to discuss, two of feedback. Cases 1–2 are a
+> matched comparison: same grid and model, γ = 0.5, the on-policy every-visit weighting from G02, expected TD with
+> α = 0.1; only the features differ. Their entries are computed fixed points, not claims about a finite noisy run.
+> Case 3 is explicitly a different task. Its error uses equal
+> state weights, not μ: [(w − 0)² + (2w − 0)²]/2 = 2.5w². Show value error next to weights, so that changing
+> parameter magnitudes alone is never the diagnosis. A plateau in a real finite run could also mean slow learning
+> or noise; the known reference and the analytic best fit distinguish this constructed case. Do not infer
+> instability from poor return alone.
+> All three cases are constructed examples with known reference values (moved from the slide, R21).
+>
+> Equation sources (LaTeX): w=0
+>
+> Target: 6 min. Sources: new table; independently computed examples, not empirical performance claims (review R08), check_function_approximation_claude.py §§3, 4, 7.
+
+## 41. G14 — Toward deep value learning
+
+- We want richer value functions, reusable experience and more stable targets.
+- Next: DQN, and how the learning loop changes when a network estimates action values.
+
+**Notes:**
+
+> G14. F17 already motivated learned features; do not repeat the neural-network introduction. Preview replay and a
+> separate target network as mechanisms to examine in 6.1, without equations or a claim that they eliminate all
+> deadly-triad failures. No new required reading or assignment promise.
+>
+> Target: 2 min. Sources: old Value Function Approximation PPTX 57–58 as a future pointer only (D8); no batch-method or least-squares slide copied.
+
+## 42. G15 — Separate three questions
+
+- Can it represent the answer?
+- Which errors and data does it prioritize?
+- Do the updates approach a useful answer?
+
+- Question: The true values are representable, the rewards are zero, and the updates use exact expectations. Is divergence ruled out?
+
+**Notes:**
+
+> G15. Answer: no. Baird and the complete two-state mean-update construction
+> show otherwise. Projection was explanatory
+> exposure; the calculations to retain are semi-gradient updates and the selected divergence/intervention
+> activity. End of session 5.2; no out-of-scope appendix is added.
+>
+> Target: 1.5 min. Sources: new synthesis.
+
+## 43. F12-B — Alt B · Landmark features: The next 3 are alternatives to 14-16 (hidden)
+
+- (2,1)
+
+- (2,2)
+
+- (2,3)
+
+- L1 (3,3)
+
+- L2 (4,2)
+
+- Separate robot example. Coordinates = (column, row). Landmarks at (3,3) and (4,2).
+- Four features: column; row; Manhattan distance to (3,3); Manhattan distance to (4,2).
+
+| State | x(s) |
+| --- | --- |
+| (2,1) | (2, 1, 3, 3) |
+| (2,2) | (2, 2, 2, 2) |
+| (2,3) | (2, 3, 1, 3) |
+
+- Four weights start at zero. $𝛼=0.2$, $𝛾=0.5$. Observe two nonterminal transitions: (2,1) → (2,2) → (2,3), each with reward −0.1.
+
+**Notes:**
+
+> Hidden alternative to slides 14–16 (5.1 example, landmark route; instructor edit, 2026-11-10). Not counted in the 5.1 targets; unhide and hide 14–16 to teach this route instead.
+> F12-B · Alt B, 5.1 example (D2). A different task from the 2×2 grid; do not import its rewards. The diagram marks
+> the landmarks and the path. The four scalar features are x₁(s) through x₄(s), not a new symbol for distance. The
+> old exam's later +1 reward and exam labels are not carried over.
+>
+> Equation sources (LaTeX): \alpha=0.2 | \gamma=0.5
+>
+> Target: 3 min. Sources: old MT1 Spring 2025 Q4, PDF 12–13 (feature construction; positions and landmarks redrawn). Hidden alternative; not counted.
+
+## 44. F12a-B — Alt B · Compute two weight updates (hidden)
+
+| Sample | Current prediction | Next prediction | Ut | δt | New weights |
+| --- | --- | --- | --- | --- | --- |
+| First | 0 | 0 | −0.1 | −0.1 | (−0.04, −0.02, −0.06, −0.06) |
+| Second | −0.36 | −0.38 | −0.29 | 0.07 | (−0.012, 0.008, −0.032, −0.032) |
+
+- Compute $𝑈𝑡$, $𝛿𝑡$ and $𝐰$ after each sample. Before the second update, recompute both state predictions with the updated weights.
+
+**Notes:**
+
+> Hidden alternative to slides 14–16 (5.1 example, landmark route; instructor edit, 2026-11-10). Not counted in the 5.1 targets; unhide and hide 14–16 to teach this route instead.
+> F12a-B · Alt B, 5.1 example. Four minutes of work and pair comparison, then two of feedback after the reveal.
+> First increment −0.02(2,1,3,3); second 0.014(2,2,2,2). A negative reward can accompany a positive TD error
+> because the target is less negative than the current prediction. No claim about convergence or feature
+> sufficiency follows from two updates.
+>
+> Equation sources (LaTeX): U_t | \delta_t | \mathbf{w}
+>
+> Target: 6 min. Sources: old MT1 Spring 2025 Q4 (feature construction), check_function_approximation_claude.py §7 (updates verified). Hidden alternative; not counted.
+
+## 45. F13-B — Alt B · Missing information cannot be fitted (hidden)
+
+- Two fully observed states have the same selected feature vector.
+- From one, the next transition terminates with +1; from the other, with −1. Both appear equally often.
+- Questions: Can the model fit both? What is the best common prediction? Would adding nonlinear layers with these same inputs solve it?
+
+- The true values are +1 and −1. Any common prediction compromises; zero minimizes their equally weighted squared error, which is 1.
+- A nonlinear function of identical inputs still gives identical outputs. Change the inputs to retain the distinguishing information.
+
+**Notes:**
+
+> Hidden alternative to slides 14–16 (5.1 example, landmark route; instructor edit, 2026-11-10). Not counted in the 5.1 targets; unhide and hide 14–16 to teach this route instead.
+> F13-B · Alt B, 5.1 example. Allow three minutes of discussion and three of feedback. If the distinguishing
+> information is observed but discarded, retain it as a feature. If it is absent from the observation, a different
+> state/history representation may be needed; no architecture can infer an unobservable distinction perfectly by
+> adding capacity alone. This is representation insufficiency, not evidence that TD diverges.
+>
+> Target: 6 min. Sources: ChatGPT F11 diagnosis (step 1), content F13-B, Week 1 observation/state distinction. Hidden alternative; not counted.
+
+## 46. G03-B — Alt B · Geometry: one weight, two predictions: Alternative to 26 (hidden)
 
 - v(L)
 
@@ -695,6 +1075,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 **Notes:**
 
+> Hidden alternative geometry picture (D13).
 > G03-B · Alt B, geometry (picture P2, D5). Route minutes: full 6, short 4. Define the two states here even if the
 > complete divergence example follows later. The three weighting choices are different objectives; do not use
 > their different best fits as evidence that TD misses the best fit of the same objective. Here on-policy visits
@@ -708,157 +1089,9 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 >
 > Equation sources (LaTeX): \pi | \gamma=0.9 | \hat{v}(L,w)=w | \hat{v}(R,w)=2w
 >
-> Target: 6 min. Sources: new editable line diagram (D5 picture P2), book §11.4 (best-fit/fixed-point distinction), check_function_approximation_claude.py §8. Alternative: geometry Alt B; only one alternative per choice counts toward the session's targets.
+> Target: 6 min. Sources: new editable line diagram (D5 picture P2), book §11.4 (best-fit/fixed-point distinction), check_function_approximation_claude.py §8. Hidden alternative; not counted.
 
-## 31. G04 — A tabular guarantee does not transfer automatically
-
-- A Bellman backup and a best fit are different operations.
-- The fit depends on both the function family and the state weighting.
-- The tabular guarantee does not automatically survive fitting with a different state weighting.
-
-**Notes:**
-
-> G04. Route minutes: full 2, short 1. Week 2's discounted exact backup contracts differences between tables. The
-> picture adds fitting in a particular weighted error measure; it does not prove the same statement for every
-> approximate or sample-based update. Linear on-policy TD has stability results under appropriate conditions.
-> Next: a concrete way different state frequencies and shared bootstrapped predictions can cause growth. No
-> projection operator symbol, norm proof or gradient-TD algorithm.
->
-> Target: 2 min. Sources: old Value Function Approximation PPTX 41 (motivation), book §11.4 (no contraction proof), CS234 L4 p. 60, CS285 L8 pp. 30–36.
-
-## 32. I02 — Alt A · A single update raises its own target
-
-*Image `native:pic:43:Picture 4`*
-
-- Mechanism fragment, not yet a complete process. $𝑣̂(𝐿,𝑤)=𝑤$, $𝑣̂(𝑅,𝑤)=2𝑤$; $𝑅𝑡+1=0$, $𝛾=0.9$, $𝛼=0.1$, $𝑤=10$. Supply L → R.
-
-- $𝑈𝑡=18, 𝛿𝑡=8, 𝑤←10+0.1(8)(1)=10.8$
-- Predictions move (10, 20) → (10.8, 21.6). The update raises the target state's prediction too.
-
-**Notes:**
-
-> I02 · Alt A, 5.2 divergence (D3). The picture's states are L (value w) and R (value 2w). Ask what happens when R
-> is updated: an isolated transition cannot answer. The next slide completes the task and specifies exactly which
-> updates are made. If G03-B was used, explicitly announce the switch to all rewards zero.
->
-> Equation sources (LaTeX): \hat{v}(L,w)=w | \hat{v}(R,w)=2w | R_{t+1}=0 | \gamma=0.9 | \alpha=0.1 | w=10 | U_t=18,\quad\delta_t=8,\quad w\leftarrow10+0.1(8)(1)=10.8
->
-> Target: 3 min. Sources: old Value Function Approximation PPTX 43 (two-state picture; γ changed to 0.9, threshold claim deleted), book §11.2 printed 260 / PDF 282. Alternative: 5.2 divergence Alt A; only one alternative per choice counts toward the session's targets.
-
-## 33. I03 — Alt A · Complete the task and the update experiment
-
-- Rule of this experiment: retain target-action transitions and balance the two source states. Each update uses one L → R and one R → R. Compute both contributions using the same saved w, average them, then apply α = 0.1 once.
-
-- Two states L, R; two actions "go L", "go R". Each action deterministically reaches its named state from either state.
-- Continuing task; all rewards 0, $𝛾=0.9$. Thus $𝑣𝜋(𝐿)=𝑣𝜋(𝑅)=0$, exactly representable by $𝑤=0$.
-- Target $𝜋$ always chooses "go R". Behaviour $𝑏$ chooses each action with probability 1/2 at either state. Its stationary state frequencies are (1/2, 1/2); the target's are (0, 1).
-
-**Notes:**
-
-> I03 · Alt A, 5.2 divergence. C01 remains for instructor review (O3). This is an explicitly constructed
-> mean-update experiment, not a generic prescription for off-policy learning. The symmetric behaviour can supply
-> both retained transitions; its other transitions are deliberately not used under this experiment's rule. Do not
-> say all off-policy algorithms discard non-target actions. No importance ratio, correction derivation or new
-> off-policy algorithm; broader correction mechanisms belong to the later off-policy unit (Week 8). Distinguish
-> the behaviour's state frequencies from the target continuation used in both labels.
->
-> Equation sources (LaTeX): \gamma=0.9 | v^{\pi}(L)=v^{\pi}(R)=0 | w=0 | \pi | b
->
-> Target: 5 min. Sources: ChatGPT complete two-state construction (step 1, I03; review R03, C01), old Value Function Approximation PPTX 43 (extended), check_function_approximation_claude.py §7. Alternative: 5.2 divergence Alt A; only one alternative per choice counts toward the session's targets.
-
-## 34. I04 — Alt A · Work out the balanced update
-
-| Transition | Current prediction | Next prediction | Target | TD error | Gradient | Error × gradient |
-| --- | --- | --- | --- | --- | --- | --- |
-| L → R | 10 | 20 | ? | ? | ? | ? |
-| R → R | 20 | 20 | ? | ? | ? | ? |
-
-| Transition | Current prediction | Next prediction | Target | TD error | Gradient | Error × gradient |
-| --- | --- | --- | --- | --- | --- | --- |
-| L → R | 10 | 20 | 18 | 8 | 1 | 8 |
-| R → R | 20 | 20 | 18 | −2 | 2 | −4 |
-
-- Mean contribution = (8 − 4)/2 = 2; w = 10.2. Repeating from the new saved weight gives 10.404.
-
-- $𝑤=10$. Fill in both target-action transitions, average their gradient-scaled errors, and update once.
-
-**Notes:**
-
-> I04 · Alt A, 5.2 divergence. Give about four minutes to work and pair-check, then feedback. Averaging raw TD
-> errors, or updating w between the rows, implements a different experiment. At general w the two contributions are
-> 0.8w and −0.4w; their mean is 0.2w. Full-geometry route: reveal I05's recurrence during the remaining feedback
-> time; it has no additional minutes. Short route: leave the recurrence to the separately timed I05.
->
-> Equation sources (LaTeX): w=10
->
-> Target: 8 min. Sources: ChatGPT complete two-state construction (I04), check_function_approximation_claude.py §7. Alternative: 5.2 divergence Alt A; only one alternative per choice counts toward the session's targets.
-
-## 35. I05 — Alt A · A small growth factor compounds
-
-- 10 → 10.2 → 10.404 → … . True values stay zero.
-- Both predictions grow in magnitude.
-- A smaller positive step size slows growth in this experiment; it does not change its direction.
-
-- $𝑤←𝑤+𝛼(0.2𝑤)=1.02𝑤  (𝛾=0.9, 𝛼=0.1)$
-
-**Notes:**
-
-> I05 · Alt A, 5.2 divergence. Route minutes: within I04's eight minutes in the full-geometry route (0 here); 4 in
-> the short-geometry route. Only the numeric γ = 0.9 case is shown live, with no discount threshold (D7, C02 second
-> bullet). This is an exact deterministic mean recurrence, not a claim that every stochastic sample path grows
-> monotonically. The Baird picture at G10 supplies the larger-scale visual; C02's first bullet (a growth chart)
-> remains for instructor review. Do not add an unaccepted extra time block for a second growth chart.
->
-> Equation sources (LaTeX): w\leftarrow w+\alpha(0.2w)=1.02w\qquad(\gamma=0.9,\ \alpha=0.1)
->
-> Target: 0 min. Sources: ChatGPT complete two-state construction (I05), old Value Function Approximation PPTX 43 (threshold sentence omitted). Alternative: 5.2 divergence Alt A; only one alternative per choice counts toward the session's targets.
-
-## 36. I06 — Alt A · Locate the three ingredients
-
-*Image `native:pic:47:Picture 3`*
-
-- Function approximation: one weight couples L and R.
-- Bootstrapping: predictions appear in the target.
-- Off-policy state weighting: equal source-state updates differ from target-policy visits.
-
-- Does the target represent the right continuation? Which states dominate the updates?
-
-**Notes:**
-
-> I06 · Alt A, 5.2 divergence. Includes the G09 callback (two off-policy questions). The experiment makes the
-> target continuation exact, yet the state-frequency mismatch remains. Recall Week 4 P08: learning from someone
-> else's data raises both questions; neither was solved generally by Week 4's Q-learning target. No correction
-> formula. The deadly triad names a mechanism allowing failure, not a statement that every such method diverges or
-> that any arbitrary pair of ingredients is safe.
->
-> Target: 4 min. Sources: old Value Function Approximation PPTX 47 (triad picture), book §11.3, Sutton slides 26 p. 4, Week 4 P08 callback. Alternative: 5.2 divergence Alt A; only one alternative per choice counts toward the session's targets.
-
-## 37. I07 — Alt A · Change one component, keep the task
-
-- Predict the direction of the update for each separate intervention. The true value is still zero and the model can represent it.
-
-| Change | Update data / target | Reveal |
-| --- | --- | --- |
-| Use target-policy stationary states | Only R → R; same bootstrap target |  |
-| Remove bootstrapping | Same balanced source states; replace both targets by their known zero returns |  |
-
-| Change | Update data / target | Reveal |
-| --- | --- | --- |
-| Use target-policy stationary states | Only R → R; same bootstrap target | Contribution = (0.9·2w − 2w)·2 = −0.4w; w ← 0.96w; 10 → 9.6 → 9.216 |
-| Remove bootstrapping | Same balanced source states; replace both targets by their known zero returns | Mean contribution = [(−w)·1 + (−2w)·2]/2 = −2.5w; w ← 0.75w; 10 → 7.5 → 5.625 |
-
-**Notes:**
-
-> I07 · Alt A, 5.2 divergence. Four minutes of discussion and calculation, four of feedback. Each row separately
-> changes one component of I03, not both at once. The first row is a stationary-distribution comparison; it is not
-> a coverage guarantee for arbitrary other features or tasks. Here reducing the shared weight also corrects L. The
-> second uses returns known to be zero because every reward is zero in the continuing discounted task; it does not
-> require waiting for an infinite trajectory and is not a generic off-policy Monte Carlo estimator. These
-> interventions explain this example; they are not a blanket convergence theorem.
->
-> Target: 8 min. Sources: ChatGPT complete two-state construction (I07), check_function_approximation_claude.py §7. Alternative: 5.2 divergence Alt A; only one alternative per choice counts toward the session's targets.
-
-## 38. G05 — Alt B · Repeating a transition fragment
+## 47. G05 — Alt B · Repeating a transition fragment: 28-32 (33) (hidden)
 
 *Image `native:pic:43:Picture 4`*
 
@@ -874,6 +1107,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 **Notes:**
 
+> Hidden alternative to the taught two-state construction (D14).
 > G05 · Alt B, 5.2 divergence (D3). The picture's states are L (value w) and R (value 2w). Four minutes of student
 > calculation, three of feedback. This keeps the original fragment's γ = 1 case; it is distinct from Alt A's
 > complete γ = 0.9 experiment. Do not mix their numbers. Only L-source updates are supplied; the fragment alone says
@@ -882,9 +1116,9 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 >
 > Equation sources (LaTeX): \hat{v}(L,w)=w | \hat{v}(R,w)=2w | \gamma=1 | \alpha=0.1 | w=10
 >
-> Target: 7 min. Sources: old Value Function Approximation PPTX 43 (picture and its no-discount arithmetic; threshold sentence removed), book §11.2. Alternative: 5.2 divergence Alt B; only one alternative per choice counts toward the session's targets.
+> Target: 7 min. Sources: old Value Function Approximation PPTX 43 (picture and its no-discount arithmetic; threshold sentence removed), book §11.2. Hidden alternative; not counted.
 
-## 39. G06 — Alt B · Why does repeating it grow?
+## 48. G06 — Alt B · Why does repeating it grow? (hidden)
 
 - Updating the prediction at L also raises the prediction at R.
 - Repeating only this transition gives 10 → 11 → 12.1 → 13.31 → …
@@ -893,15 +1127,16 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 **Notes:**
 
+> Hidden alternative to the taught two-state construction (D14).
 > G06 · Alt B, 5.2 divergence. Explain the repeated 10% increase in this numerical fragment, without a general
 > discount-factor multiplier or threshold discussion; D7's γ = 0.9 multiplier is displayed on Alt A's I05 only. The
 > fragment is a mechanism illustration, not by itself a complete MDP divergence proof (book §11.2 states this
 > limitation). Do not say "behaviour takes another action, therefore an off-policy algorithm ignores it" as a
 > general fact.
 >
-> Target: 3 min. Sources: old Value Function Approximation PPTX 43 (sharing explanation; unqualified off-policy conclusion replaced), book §11.2 printed 260–261. Alternative: 5.2 divergence Alt B; only one alternative per choice counts toward the session's targets.
+> Target: 3 min. Sources: old Value Function Approximation PPTX 43 (sharing explanation; unqualified off-policy conclusion replaced), book §11.2 printed 260–261. Hidden alternative; not counted.
 
-## 40. G08 — Alt B · The deadly triad
+## 49. G08 — Alt B · The deadly triad (hidden)
 
 *Image `native:pic:47:Picture 3`*
 
@@ -912,14 +1147,15 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 **Notes:**
 
+> Hidden alternative to the taught two-state construction (D14).
 > G08 · Alt B, 5.2 divergence. Identify the sharing and the bootstrap in G05; its selective updates motivate the
 > distribution question but do not specify a complete off-policy process. "Any two are safe" is not a theorem for
 > arbitrary nonlinear models or algorithms. G07 uses explicitly different completions, and G10 supplies a complete
 > counterexample. No universal prediction/control convergence table.
 >
-> Target: 4 min. Sources: old Value Function Approximation PPTX 47 (triad picture; placed before G07 deliberately), book §11.3. Alternative: 5.2 divergence Alt B; only one alternative per choice counts toward the session's targets.
+> Target: 4 min. Sources: old Value Function Approximation PPTX 47 (triad picture; placed before G07 deliberately), book §11.3. Hidden alternative; not counted.
 
-## 41. G07 — Alt B · Three separate constructions
+## 50. G07 — Alt B · Three separate constructions (hidden)
 
 - Separate illustrative constructions, not one unchanged-task experiment.
 
@@ -939,6 +1175,7 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 
 **Notes:**
 
+> Hidden alternative to the taught two-state construction (D14).
 > G07 · Alt B, 5.2 divergence. R03 remains for instructor review of this presentation (O3). Three minutes to predict
 > and discuss, four of feedback. Answers: the independent table removes sharing; zero-return regression removes
 > bootstrapping; the completed episode supplies the R update. The first row changes the task completion as well
@@ -947,145 +1184,5 @@ SHA-256 `8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`
 > because R is never corrected: missing coverage has not disappeared. The first row evaluates a proper episodic
 > process at γ = 1, avoiding an undefined nonterminating return assumption.
 >
-> Target: 7 min. Sources: new comparison table replacing an implied controlled ablation of old Value Function Approximation PPTX 43 (review R03), check_function_approximation_claude.py §5. Alternative: 5.2 divergence Alt B; only one alternative per choice counts toward the session's targets.
-
-## 42. G09 — Two off-policy questions
-
-- Whose continuation is in the target?
-- Whose state frequencies determine the updates?
-- Matching one does not automatically fix the other.
-
-**Notes:**
-
-> G09. Used in the Alt B divergence route (2 minutes); in Alt A its content is part of I06. Week 4 identified the
-> policy/data distinction and left general correction open. Approximation makes the state weighting matter
-> because states share parameters. Do not say "Q-learning needs no correction" as an established general result.
-> No importance-sampling ratio or gradient-TD machinery here.
->
-> Target: 2 min. Sources: old Value Function Approximation PPTX 41 (motivation), Week 4 P08 callback, Sutton slides 26 p. 4. Alternative: 5.2 divergence Alt B; only one alternative per choice counts toward the session's targets.
-
-## 43. G10 — Baird: a complete counterexample
-
-*Image `native:pic:44:Picture 6`*
-
-*Image `native:pic:44:Picture 4`*
-
-- Sutton & Barto (2018), Figures 11.1 and 11.2 (right panel), via old slide 44.
-
-- Linear approximation + bootstrapping + different state weighting can diverge, even with exact expected updates. All rewards zero; $𝛾=0.99$. Target action leads to the lower state. Uniform updates over all seven source states differ from target-policy visits. Zero values are exactly representable.
-
-- The lower state's prediction $𝑤7+2𝑤8$ grows too; this is not just redundant weights moving.
-
-- Right: synchronous expected semi-gradient DP sweeps; $𝛼=0.01$.
-- Weight subscripts are components, not time steps.
-
-**Notes:**
-
-> G10. Either route (3 minutes). Keep the original diagram's upper predictions 2w_i + w₈ (i = 1, …, 6) and lower
-> prediction w₇ + 2w₈. Initial components: all 1 except w₇ = 10. Each sweep averages the seven gradient-scaled
-> exact target errors, using the same pre-sweep vector. The right panel shows weight growth over repeated sweeps
-> (w₈ ≈ 335 after 1000 sweeps in the check script). Because w₈ grows strongly while w₇ stays comparatively small,
-> the lower predicted value grows away from its true value zero. There is no sampling noise or changing policy in
-> this demonstration. Do not introduce the behaviour-action probabilities, importance ratios, a full feature matrix
-> or another hand derivation; the sampled off-policy TD panel (which uses ratios) is excluded. Distinguish this
-> complete expected-update example from the fragment and from each route's two-state numbers.
->
-> Equation sources (LaTeX): \gamma=0.99 | w_7+2w_8 | \alpha=0.01
->
-> Target: 3 min. Sources: old Value Function Approximation PPTX 44 (seven-state diagram; Figure 11.2 picture cropped to its right, DP-sweep panel; the behaviour-probability picture is not used), book Figures 11.1–11.2 printed 261–262 / PDF 283–284, check_function_approximation_claude.py §6.
-
-## 44. G11 — State convergence claims with their conditions
-
-- Linear gradient MC, fixed policy: with appropriate sampling and step sizes, minimizes the weighted value-error objective; the best fit may still be wrong.
-- Linear on-policy semi-gradient TD, fixed policy: under its conditions, approaches a TD fixed point; generally not the minimum of VE.
-- Off-policy linear TD: can diverge, as just shown.
-- Nonlinear approximation / approximate control: do not inherit the tabular guarantees merely by replacing a table with a function.
-
-**Notes:**
-
-> G11 (D4: scoped convergence statements). Route minutes: Alt A 2, Alt B 4. Alt A: quick synthesis. Alt B: ask
-> students to explain the distinction between the first two rows. Suitable sampling, boundedness/regularity and
-> step sizes matter; singular features may leave weights nonunique even when predictions are determined. A
-> constant step size generally leaves noise. Do not promise global optimality for nonlinear MC, generic stability
-> for nonlinear on-policy TD, or convergence of changing-policy approximate Sarsa/Q-learning from a fixed-policy
-> theorem. The "any two" discussion in the linear setting is not an unconditional guarantee across arbitrary
-> algorithms. Week 4's 4.2 tabular convergence slide supplies the tabular row. In the Alt A full route, add G12's
-> short reassurance within these two minutes.
->
-> Target: 2 min. Sources: replaces old Value Function Approximation PPTX 24, 46 and 56 (blanket tables), book §§9.3–9.4, 11.2–11.3, D4 (scoped statements), D7 (R02).
-
-## 45. G12 — Possible failure is not inevitable failure
-
-- Counterexamples reveal missing guarantees and failure mechanisms.
-- They do not say every approximate learner fails.
-- Inspect representations, targets, update data and actual value error.
-
-**Notes:**
-
-> G12. Route minutes: within G11's notes in the Alt A full route (0 here); 1 in Alt A short; 2 in Alt B. Smaller
-> steps may reduce noise but cannot reverse the positive mean-growth direction in I05. More expressive features may
-> fix representation error but do not automatically fix unstable updates. No present-day practice or research-status
-> claim is needed to make this point.
->
-> Target: 0 min. Sources: old Value Function Approximation PPTX 45 (heading only; its historical "no counterexample" and broad Q-learning claims are removed).
-
-## 46. G13 — Diagnose three experiments
-
-- Constructed examples: reference values are known. Match each case to sufficient representation, insufficient representation, or unstable learning. What evidence distinguishes them?
-
-| Case | Construction | Weight behaviour | Value error |
-| --- | --- | --- | --- |
-| 1 | Always-right grid, one-hot features; on-policy expected TD | Finite fixed-point weights equal (0.05091, 0.11636, 0.83636) | Computed fixed-point VE = 0 |
-| 2 | Same grid, same data weighting and expected TD; features (1, steps to goal) | Finite fixed-point weights (0.24540, −0.11221) | Computed fixed-point VE = 0.00638; best possible VE = 0.00624 |
-| 3 | Separate complete two-state task: zero rewards, γ = 0.9, v̂ = (w, 2w), balanced target-action mean updates, α = 0.1 | w = 10 → 10.2 → 10.404 | Equally weighted squared value error = 250 → 260.1 → 270.60804 |
-
-- 1: sufficient and stable here. 2: a representation error floor, plus the small TD-versus-best-fit difference. 3: unstable updates although $𝑤=0$ represents the exact answer.
-
-**Notes:**
-
-> G13. Protected, 6 minutes in every route: two to inspect, two to discuss, two of feedback. Cases 1–2 are a
-> matched comparison: same grid and model, γ = 0.5, the on-policy every-visit weighting from G02, expected TD with
-> α = 0.1; only the features differ. Their entries are computed fixed points, not claims about a finite noisy run.
-> Case 3 is explicitly a different task. If Alt B was taught, briefly supply its full construction: two actions go
-> to their named states, π always goes R, behaviour chooses each with probability 1/2; balance retained L→R and
-> R→R samples and average their contributions using the same w. At general w these are 0.8w and −0.4w, giving
-> w ← 1.02w. This is enough to interpret the supplied data; no second worked derivation. Its error uses equal
-> state weights, not μ: [(w − 0)² + (2w − 0)²]/2 = 2.5w². Show value error next to weights, so that changing
-> parameter magnitudes alone is never the diagnosis. A plateau in a real finite run could also mean slow learning
-> or noise; the known reference and the analytic best fit distinguish this constructed case. Do not infer
-> instability from poor return alone.
->
-> Equation sources (LaTeX): w=0
->
-> Target: 6 min. Sources: new table; independently computed examples, not empirical performance claims (review R08), check_function_approximation_claude.py §§3, 4, 7.
-
-## 47. G14 — Toward deep value learning
-
-- We want richer value functions, reusable experience and more stable targets.
-- Next: DQN, and how the learning loop changes when a network estimates action values.
-
-**Notes:**
-
-> G14. F17 already motivated learned features; do not repeat the neural-network introduction. Preview replay and a
-> separate target network as mechanisms to examine in 6.1, without equations or a claim that they eliminate all
-> deadly-triad failures. No new required reading or assignment promise.
->
-> Target: 2 min. Sources: old Value Function Approximation PPTX 57–58 as a future pointer only (D8); no batch-method or least-squares slide copied.
-
-## 48. G15 — Separate three questions
-
-- Can it represent the answer?
-- Which errors and data does it prioritize?
-- Do the updates approach a useful answer?
-
-- Exit check: The true values are representable, the rewards are zero, and the updates use exact expectations. Is divergence ruled out?
-
-**Notes:**
-
-> G15. Route minutes: Alt A 1.5, Alt B 2. Answer: no. Baird and the complete two-state mean-update construction
-> show otherwise; if Alt B was taught, Baird is the primary full-process evidence. Projection was explanatory
-> exposure; the calculations to retain are semi-gradient updates and the selected divergence/intervention
-> activity. End of session 5.2; no out-of-scope appendix is added.
->
-> Target: 1.5 min. Sources: new synthesis.
+> Target: 7 min. Sources: new comparison table replacing an implied controlled ablation of old Value Function Approximation PPTX 43 (review R03), check_function_approximation_claude.py §5. Hidden alternative; not counted.
 

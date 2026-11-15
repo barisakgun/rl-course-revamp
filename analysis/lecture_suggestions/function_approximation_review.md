@@ -60,7 +60,7 @@ notation and scope choices do.
 | --- | --- | --- | --- | --- |
 | R01 | **Error** — G03–G04, E4 | “TD alternates a Bellman backup … with a projection back” describes an exact fitted/DP-like process, not the semi-gradient TD update students calculated. The TD fixed point can satisfy the projected equation without each TD step performing that projection. Also, weighted orthogonal projection is nonexpansive in its own weighted norm; “projection stretches what the backup shrank” needs the different metrics/distribution assumptions made clear. Otherwise the picture teaches the wrong algorithm and appears to prove stochastic TD stability by itself. | Say the picture explains the representable set and a possible fixed point, while TD approaches that point through incremental updates under appropriate assumptions. Avoid a norm/contraction proof: “The tabular guarantee does not automatically survive fitting with a different state weighting.” If retaining a technical explanation in notes, distinguish the tabular maximum norm, the projection's weighted norm, and conditions on the composed operator. Book §11.4, printed pp. 268–269 / PDF290–291, explicitly calls following the arrows a **DP-like process**. | Claude responded 2026-11-02; **resolved** — accepted by the instructor, 2026-11-02 ([D7](../../decisions/lectures/function_approximation.md)). |
 | R02 | **Error** — F07–F08, G08, G11, G15 | G08's “Any two are safe” is too broad and contradicts G11's on-policy nonlinear-TD divergence entry. The convergence-table footnote “converges = to the TD fixed point” would also be wrong for MC. “Sarsa linear chatters near a good solution” is not an unconditional guarantee for arbitrary control/features. F08's “not gradient descent on any objective” needs “in general”; special cases exist. | State the triad as a mechanism that **can** cause instability, and qualify each retained guarantee by method, fixed versus changing policy, approximation class and sampling/step-size assumptions. MC fits its specified value-error objective; on-policy linear TD has a TD fixed point, generally different. Prefer a few scoped statements to a universal checklist. Use “The semi-gradient update is not, in general, a true gradient method.” Keep the already correct reminder that the triad does not imply every run diverges. Sources: book §§9.3–9.4, §10.1 printed p. 244 / PDF266, §11.3; the existing nonlinear warning in G11 itself. | Claude responded 2026-11-02; **resolved** — accepted by the instructor, 2026-11-02 ([D7](../../decisions/lectures/function_approximation.md)). |
-| R03 | **Teaching risk** — G05–G07, especially the “change one component” activity | The fragment's arithmetic is correct and G10 correctly acknowledges it is incomplete. However, G07 introduces a zero-reward terminal exit only for the on-policy branch, and assumes a zero MC return before a complete target-policy continuation has been specified. Students cannot tell whether they changed just the update distribution or also the task. Saying behaviour took an action the target would not also does not, by itself, explain a generic off-policy learner discarding that sample. | Before comparing interventions, specify one common complete MDP, target/behaviour policies, termination/rewards and the retained update data, with omitted transitions explicitly identified as this experiment's data rule. Then either preserve the fragment as a mechanism illustration plus a separately qualified Baird demonstration, or use one complete small example for the whole calculation. ChatGPT's I03–I07 is one candidate, not an accepted replacement. If different completions are intended, label them as different illustrative constructions rather than a controlled one-component change. Do not introduce IS to repair the explanation. Book §11.2, printed pp. 260–261 / PDF282–283, explicitly identifies the fragment's limitation. | Claude responded 2026-11-02; **open** — left for the instructor's review of D3 alternate B. |
+| R03 | **Teaching risk** — G05–G07, especially the “change one component” activity | The fragment's arithmetic is correct and G10 correctly acknowledges it is incomplete. However, G07 introduces a zero-reward terminal exit only for the on-policy branch, and assumes a zero MC return before a complete target-policy continuation has been specified. Students cannot tell whether they changed just the update distribution or also the task. Saying behaviour took an action the target would not also does not, by itself, explain a generic off-policy learner discarding that sample. | Before comparing interventions, specify one common complete MDP, target/behaviour policies, termination/rewards and the retained update data, with omitted transitions explicitly identified as this experiment's data rule. Then either preserve the fragment as a mechanism illustration plus a separately qualified Baird demonstration, or use one complete small example for the whole calculation. ChatGPT's I03–I07 is one candidate, not an accepted replacement. If different completions are intended, label them as different illustrative constructions rather than a controlled one-component change. Do not introduce IS to repair the explanation. Book §11.2, printed pp. 260–261 / PDF282–283, explicitly identifies the fragment's limitation. | resolved — lapsed: fragment slides hidden as alternatives (D14) |
 | R04 | **Teaching risk** — F07, F18, G02–G03 | G02's numbers are correct for **all preterminal visits in episodes beginning at (1,1)**. They are not the fit obtained by simply carrying over first-visit MC from Week 3. For first-visit samples the normalized state weights are approximately `(0.49724, 0.44751, 0.05525)` and the shared prediction is about **0.19548**, versus **0.12623** under G02's all-visit weighting. “Both runs are stable”/F18's “this converged on the grid” also overstates what was shown: F12 has two updates; the checker computes exact fixed points and deterministic expected TD updates, not stochastic MC/TD learning curves. | State the state sampling/update convention once, including episode starts and whether every visit contributes. Label G02 as **computed best fit and TD fixed point**. State that stochastic convergence needs suitable conditions; a constant step size generally gives fluctuations rather than exact convergence. No additional simulation is necessary. Book §9.2, printed p. 199 / PDF221, distinguishes episodic occupancy and discount-as-termination conventions: the chosen physical-visit weighting is a valid declared objective, but should not be presented as the only possible discounted weighting. | Claude responded 2026-11-02; **resolved** — accepted by the instructor, 2026-11-02 ([D7](../../decisions/lectures/function_approximation.md)). |
 | R05 | **Error** — F05, central motivation | “With fewer weights than states we cannot be right everywhere” is categorical. F13 correctly supplies the counterexample: the improved policy's values are exactly representable using two weights for three states. The zero-valued divergence tasks make the same point. | Say “a restricted feature model cannot represent **every possible** value function; it may or may not represent the particular policy's values.” Preserve F13's policy-dependent sufficiency check. This also aligns the initial motivation with the separation of representation error and learning instability. | Claude responded 2026-11-02; **resolved** — accepted by the instructor, 2026-11-02 ([D7](../../decisions/lectures/function_approximation.md)). |
 | R06 | **Teaching risk** — E4, G02–G04; F11, F15–F16 | G03–G04 total eight minutes, but their setup also uses G02's five minutes of occupancy fractions, two parameter solutions, two error values and a continuing-task bound. This is a 13-minute cluster of abstract explanation before the divergence calculation. G02 can legitimately serve linear-TD understanding; the concern is actual cognitive/time load, not merely which topic ID receives its minutes. F11's many feature families and F15–F16's control box plus two unfamiliar Mountain Car representations are similarly dense. | Recommend one compact best-fit/TD comparison and one qualitative picture in **eight minutes total for G02–G04**, without the numerical bound or error-decimal catalogue. Keep details as optional instructor reference, with no reading assignment. Use the recovered five minutes for the complete-model explanation in R03 and calculation feedback, or leave them unallocated. In 5.1 keep one concrete feature-sharing picture and one brief control bridge; Mountain Car is optional in place of, not in addition to, that budget. Alternative: retain the 13-minute cluster only as an explicit, reviewable pacing choice while keeping projection at Exposure depth. | Claude responded 2026-11-02; **open** — part of O1 (geometry depth). |
@@ -136,7 +136,7 @@ gained a cross-review section (§7) that recomputes the disputed numbers; its ot
 | --- | --- | --- | --- |
 | R01 | **Agree.** G03's "TD alternates a Bellman backup with a projection" describes the DP-like process of book Figure 11.3, not the sampled semi-gradient step students computed. G04 also puts the failure in the wrong place. The μ-weighted projection is nonexpansive in its own norm; what is lost with another weighting is the guarantee that the backup contracts in that norm. | G03: the picture shows the representable plane, the best fit, and the TD fixed point, the point that backup-then-fit returns unchanged. TD reaches it through small sampled updates, under conditions. G04 uses ChatGPT's sentence: "The tabular guarantee does not automatically survive fitting with a different state weighting." Norm details go to the notes or are dropped. No time change. | **resolved** — accepted by the instructor, 2026-11-02 ([D7](../../decisions/lectures/function_approximation.md)). |
 | R02 | **Agree on all four points.** "Any two are safe" contradicts G11's on-policy nonlinear entry. The book says only that with two elements instability "can be avoided" (§11.3, printed p. 264), in a discussion about linear methods. The footnote "converges = TD fixed point" is wrong for the MC row. The Sarsa claim needs its conditions. F08 needs "in general". | G08: all three together can cause divergence even in linear prediction; with linear features, removing one avoids it; nonlinear on-policy TD carries its own warning. G11: scoped statements per method (MC: best fit of its objective; on-policy linear TD: the TD fixed point; linear Q-learning: may diverge) instead of a table with a footnote. Whether a table survives is C06's choice. F08: "not, in general, a true gradient method." | **resolved** — accepted by the instructor, 2026-11-02 ([D7](../../decisions/lectures/function_approximation.md)). |
-| R03 | **Agree.** G07's three changes are not a controlled one-component change. (i) adds a transition, so it changes the task. (ii) assumes a zero return for an unspecified continuation. ChatGPT's complete two-state construction (I03–I07) keeps the MDP, features, α and γ fixed and changes only the update distribution or the target. Its numbers are verified in §7. | Claude's recommendation, for the instructor's choice: make ChatGPT's I02–I07 the protected 5.2 worked activity. Keep the fragment only as I02's four-minute mechanism opener. Keep Baird as a three-minute picture of an established complete example (Claude G10, DP-sweep panel; E5). Drop Claude's tabular variant or keep it as a spoken check. C01 and C02 below raise two presentation points in the construction. | **open** — left for the instructor's review of D3 alternate B. |
+| R03 | **Agree.** G07's three changes are not a controlled one-component change. (i) adds a transition, so it changes the task. (ii) assumes a zero return for an unspecified continuation. ChatGPT's complete two-state construction (I03–I07) keeps the MDP, features, α and γ fixed and changes only the update distribution or the target. Its numbers are verified in §7. | Claude's recommendation, for the instructor's choice: make ChatGPT's I02–I07 the protected 5.2 worked activity. Keep the fragment only as I02's four-minute mechanism opener. Keep Baird as a three-minute picture of an established complete example (Claude G10, DP-sweep panel; E5). Drop Claude's tabular variant or keep it as a spoken check. C01 and C02 below raise two presentation points in the construction. | resolved — lapsed: fragment slides hidden as alternatives (D14) |
 | R04 | **Agree.** G02's numbers use every preterminal visit of episodes that start at (1,1). That is the book's on-policy distribution (eqs. 9.2–9.3) and matches its gradient-MC box, which updates at every step. Week 3, however, taught first-visit MC (MT07a). First-visit weighting gives (0.497, 0.448, 0.055) and a shared prediction of 0.1955 instead of 0.1262 (checked in §7). The checker also computes exact fixed points and expected updates, not learning runs. My suggestion's header also implied that the script checks the slide-time sums; it does not. Both AIs summed them by hand. | State the weighting once: every visit counts, as in the book's gradient-MC box. Label G02 "computed best fit and TD fixed point", not "both runs are stable". F18: "on-policy linear TD has a well-defined limit on the grid" instead of "this converged". Add a spoken sentence that with a constant step size the weights keep fluctuating near that limit. No simulation added. | **resolved** — accepted by the instructor, 2026-11-02 ([D7](../../decisions/lectures/function_approximation.md)). |
 | R05 | **Agree.** F05's sentence is categorical, and F13 itself gives the counterexample. | F05: "with fewer weights than states, some value functions cannot be represented; whether this policy's values can depends on the policy" (F13 returns to it). | **resolved** — accepted by the instructor, 2026-11-02 ([D7](../../decisions/lectures/function_approximation.md)). |
 | R06 | **Partly agree.** The 13-minute G02–G04 cluster is real cognitive load. I would compress it to 8 minutes only if the 5 minutes saved fund the complete construction's setup (R03), which needs them. I would keep one μ observation from G02: the rarely visited cell is fitted badly. That is the most concrete use of F05's weighting. The error decimals and the 9.14 bound move to the notes. In 5.1, F11 is already 2 minutes. Mountain Car (F16) is a preference: 2 minutes of evidence that linear control works on a continuous task. | Instructor pacing choice: compact 8 minutes (ChatGPT) or the 13-minute cluster (Claude). Mountain Car: include or omit; see C06. | **open** — part of O1 (geometry depth). |
@@ -175,7 +175,7 @@ All findings below are by **Claude, 2026-11-02**, status **open**.
 
 | ID | Type / affected material | Issue and consequence | Proposed correction | Response / status |
 | --- | --- | --- | --- | --- |
-| C01 | **Teaching risk** — I03 data rule | The learner keeps only "go right" samples and balances their origin states. Here that is exactly what an importance-weighted expected update does: the left action's ratio is 0, and the right action's constant ratio disappears in the renormalization. Without a stated reason, students will ask why data is thrown away. That is the question Week 4 deferred to Week 8 (`model_free_control` D6). | Present it as a rule of this experiment: "we update only on transitions the target policy would make, sampled from the states the behaviour visits." ChatGPT already labels it a data rule. Add one forward pointer: using the other samples is Week 8's topic. No ratio on the slide. | **open** — left for the instructor's review of D3 alternate A. Not new: Week 4 D6 already rules out a ratio on the slide. |
+| C01 | **Teaching risk** — I03 data rule | The learner keeps only "go right" samples and balances their origin states. Here that is exactly what an importance-weighted expected update does: the left action's ratio is 0, and the right action's constant ratio disappears in the renormalization. Without a stated reason, students will ask why data is thrown away. That is the question Week 4 deferred to Week 8 (`model_free_control` D6). | Present it as a rule of this experiment: "we update only on transitions the target policy would make, sampled from the states the behaviour visits." ChatGPT already labels it a data rule. Add one forward pointer: using the other samples is Week 8's topic. No ratio on the slide. | resolved — closed by instructor 2026-11-15: covered by I03's rule wording and Week 8 notes pointer |
 | C02 | **Teaching risk** — I04–I05 | Growth of ×1.02 per update (10 → 10.2 → 10.404) does not look like divergence. Students must take it on the multiplier argument; after 100 updates the weight is about 72 (§7). The fragment and the complete example also have different thresholds (γ > 0.5 versus γ > 5/6), which ChatGPT keeps apart correctly. | Show one picture of the recurrence over 100 updates, or Baird's DP panel (w₈ ≈ 335 after 1000 sweeps) as visual evidence after the hand calculation. Show neither threshold live; the slide shows only the multiplier at γ = 0.9. | **partly resolved** — second bullet accepted ([D7](../../decisions/lectures/function_approximation.md)): only the γ = 0.9 multiplier is shown live, with no threshold. First bullet (a visual of many updates or Baird's panel) **open** for the instructor's review. |
 | C03 | **Teaching risk** — I10–I11 time balance | The three-way diagnosis that A2 task 1 asks for (sufficient features, insufficient features, unstable updates) gets 4 minutes in I11. Nonlinear motivation gets 5 in I10. The diagnosis is Core at "analyze"; nonlinear approximation is motivation for 6.1. | Move about 2 minutes from I10 to I11, or use Claude's G13 (6 minutes) with R08's corrections in its place. | **resolved** — accepted 2026-11-02 ([D7](../../decisions/lectures/function_approximation.md)); applied in the time check (the nonlinear slide is dropped in alternate A; 6-minute diagnosis). |
 | C04 | **Maintenance** — ChatGPT notation statement | The suggestion says no guide change is needed, but its update spine uses ∇_**w**v̂, which is not in the guide. Claude's E7 lists the same item. | One shared notation item for the gradient: approve ∇ with respect to **w**, or write "derivative with respect to **w**" in words. Raise only the notation that survives consolidation. | **resolved** — D6 (∇ approved). |
@@ -478,3 +478,235 @@ Remaining minor points for the instructor's pass:
 
 **Not changed from the content:** no content deviations. The renderer made no scope, notation or timing choice
 beyond the route convention above.
+
+## First-render correctness check (ChatGPT) — 2026-11-09
+
+**Version examined:** `course/lectures/week05/function_approximation_claude.pptx`, SHA-256
+`8f359e7e20f753af406c9466cbb79bb90b202aeb82291271930f3388b37606aa`, 48 slides. The generated text view has the same
+fingerprint. This is the single correctness-focused pre-instructor pass in workflow step 5, not final acceptance.
+Current deck status remains in the [deck decisions](../../decisions/lectures/function_approximation.md).
+
+**Result:** no blocking mathematical, factual or rendering error found. No deck changes requested before the
+instructor's first review. The PPTX, frozen first-render inputs and generated text view were not changed.
+
+**Evidence checked:**
+- Read all slide text and speaker notes against D1–D9, the shared content and the notation guide. The 5.1/5.2 boundary
+  is at slide 26 (G00); both example alternatives and both geometry pictures remain visible. Expected SARSA is a
+  continuity note, not an added approximate algorithm. No excluded average-reward, gradient-TD or least-squares
+  block was restored.
+- Independently recomputed the grid's true values, weighted best fit and TD fixed point, their value errors, the
+  landmark updates, and the complete-example and fragment interventions. The grid geometry correctly treats the
+  start-state coordinate separately rather than claiming it is always exact. The two-state geometry explicitly
+  distinguishes its different weighting objectives and resets rewards before divergence.
+- Checked the Baird DP-sweep interpretation and independently reproduced the stated growth: after 1,000 mean sweeps,
+  w₇ ≈ 6.85003, w₈ ≈ 335.00121 and the lower-state prediction ≈ 676.85245. Its zero true value is representable;
+  the selected right-hand panel supports the claimed deterministic expected-update failure.
+- Exported a byte-identical temporary copy through Microsoft PowerPoint to a 48-page PDF. Inspected all pages in
+  contact sheets and enlarged the equations, algorithms, geometry charts, Baird panel and diagnostic table. No
+  clipped essential text, missing equation symbol or misleading figure crop was found. Temporary review material
+  stays outside the repository; this does not replace Claude's generated views or the final render check.
+- Inspected the PPTX animation definitions: every referenced shape exists, the geometry charts have their five/six
+  click groups, and exercise answer reveals target the expected tables/answer blocks. This verifies definitions,
+  **not live slideshow playback**; the instructor still checks click behavior while reviewing.
+- Confirmed 48 unique stable slide IDs, no hidden slides, and note targets of 58.5/59.5 minutes for the two 5.1
+  routes and 58 for 5.2 Alt A/full geometry. Other route timings remain as documented. The session-source index is
+  current. The source PPTX's fingerprint remained unchanged after inspection.
+
+**Minor presentation observation, already noted by Claude:** slide 46 (G13) has a dense 14-point table. It is readable
+in the enlarged export, but classroom readability is weaker than the surrounding slides. If it is too small on the
+teaching display, shorten the repeated setup wording or split the table across a continuation while retaining the
+same six-minute activity. This is a presentation preference for the instructor's pass, not a new content decision
+or a reason for another pre-review polishing round. The nearby points on slide 29 (G03-A) are accurately located;
+the leader labels and preceding numeric table distinguish them, so their proximity is not a numerical error.
+
+**Still open:** O1 (geometry depth) and O3 (R03/C01/C02's visual item) remain instructor choices. This check confirms
+that the caveats and alternative constructions are rendered; it does not resolve those choices or accept the deck.
+
+## Instructor editing round 1 — Claude content and error check (2026-11-10)
+
+**Saved instructor version reviewed:** `ddb48789…` (saved 2026-11-10 14:12), compared with the first render
+`8f359e7e…`. Backed up in `output/deck_backups/`. The text view is regenerated from this version.
+
+**Instructor changes:**
+- **5.1 example decided by edit:** the grid slides (14–16) are kept, with "Alt A" removed from their titles. The three
+  landmark slides are moved to the end as hidden slides 46–48. The title of slide 46 says "The next 3 are
+  alternatives to 14-16". Recorded as D10.
+- **F02:** four questions added: Pacman state-space size, a humanoid robot, and whether boards 1–2 and boards 2–3
+  are similar. Old P5's boards are now copied natively (groups), replacing the cropped image. Caption added:
+  "Storage – Exploration – Generalization".
+- **F03:** retitled "Learning with state descriptions (aka state features)". It now has the approximation
+  equations, "Ideal Requirements" (with "A compact representation: |w| ≪ |S|"), and old P4's closing quote.
+- **F04:** "Side Question: What are some potential models?"
+- **F05:** VE is written as an expectation and as a sum, with μ_π(s). A trailing line "How to learn".
+- **Smaller edits:**
+  - F08: "(Bootstrapping)";
+  - F09: "x(s): Features";
+  - F15: "the state-action features".
+- **Animations:** click animations on F01, F02 and F04–F10. Every animation target exists, and no slide has more than
+  one timing block.
+- **Unchanged:** no speaker notes were edited. Equations re-saved by PowerPoint now store the bold w as 𝐰 and the
+  minus as −; this is not a content change.
+
+**Findings (Claude, 2026-11-10).** Status open unless noted.
+
+| ID | Type / slide | Issue and consequence | Proposed fix | Status |
+| --- | --- | --- | --- | --- |
+| R10 | **Error / notation** — F03 | "A compact representation: \|w\| ≪ \|S\|" compares a weight vector with the number of states. \|w\| also reads as a norm. The guide's dimension symbol is d, and the state set is 𝒮. | "A compact representation: $d\ll\|\mathcal{S}\|$ (number of weights ≪ number of states)". | resolved — applied (D11) |
+| R11 | **Error** — F05 | $\mathbb{E}_\pi[(v^\pi(s)-\hat v(s,\mathbf w))^2]$ uses the value s inside the expectation, so it reads as the expectation of a constant. The sum form is correct. | $\mathbb{E}_\pi[(v^\pi(S)-\hat v(S,\mathbf w))^2]$ with $S\sim\mu$ said aloud, or keep only the sum. | resolved — applied (D11) |
+| R12 | **Notation** — F05 | μ_π(s): the guide defines μ(s) as the on-policy state distribution, and marks the policy with a superscript (v^π). Subscripts are kept for time, sweep and parameter indices (guide, 2026-10-11). | μ(s) as in the guide, or approve μ^π(s) as a guide addition. | resolved — notation guide μ^π(s); F05 applied with the superscript (D11) |
+| R13 | **Teaching risk** — F05 | "How to learn" sits alone below the question and reads like an unfinished line. | The notes now treat it as the lead-in to F06. Optionally reword it as "How do we learn **w** when $v^\pi$ is unknown?" | resolved — notes guide toward gradient descent; slide text unchanged (D11) |
+| R14 | **Optional preference** — F04 | F03 now shows the same two approximation equations, so F04's display repeats them. | Drop F04's equation line, or keep it as a deliberate recap; the notes say to point to the diagram. | resolved — kept by instructor (D11) |
+| R15 | **Timing** — F02–F04 | F02 now has four questions, F03 more content and F04 a side question, but the targets are still 3/3/2. A realistic estimate is 1–2 extra minutes, which would make 5.1 about 60 minutes. That is within the 63-minute delivery allowance; the planning estimate is unchanged. | Raise F02 to 4 (and F03 to 4 if the brainstorm stays), or keep the targets and treat the questions as quick. | resolved — F02 4, F03 3.5; 5.1 targets 60 (D11) |
+
+**Notes updates (Claude, prepared 2026-11-10; applied only once the deck is closed in PowerPoint):**
+- **F02:** answers for the four questions. The state-space size is given as arithmetic only: food alone gives 2^n
+  configurations. The board comparisons and the meaning of "Storage – Exploration – Generalization" are added.
+- **F03:** the new title, the brainstorm and reveal, a gloss for each requirement with pointers to later slides, and
+  the quote's source.
+- **F04:** the side-question answer (old P8's model list) and "equations repeat F03".
+- **F05:** the expectation/sum reading, and "How to learn" as the F06 lead-in.
+- **F08, F09:** a line on "(Bootstrapping)" and on "x(s): Features".
+- **Grid and landmark slides:**
+  - F12-A–F13-A are the taught route, and their timing tags are updated;
+  - 46–48 are hidden alternatives, not counted;
+  - the slide IDs F12-B, F12a-B and F13-B lost in the move are restored;
+  - F14's and G02's references to "whichever example" now say the grid.
+- **Equation-source lines** on F03 and F05 now match the edited slides.
+
+**Not checked this round:** a fresh PowerPoint render. PowerPoint had the deck open and timed out, so a LibreOffice
+preview was used. LibreOffice cannot play the new click animations; their definitions were checked instead.
+
+**Notes updates applied (Claude, 2026-11-10)** after the deck was closed:
+- **Deck:** `3cb8de52…`, the instructor's saved version `ddb48789…` plus the notes changes listed above and the
+  restored IDs F12-B, F12a-B and F13-B (backup in `output/deck_backups/`). Slide content is unchanged.
+- **Views:** the text view is regenerated.
+- **Check:** a PowerPoint export opens and exports all 45 visible slides.
+
+R10–R15 stay open for the instructor.
+
+**Instructor replies on R10–R15 (2026-11-10), recorded as D11 and applied by Claude:**
+- **F03:** "d ≪ |𝒮| (number of weights ≪ number of states)".
+- **F05:** the expectation uses S. The bullet reads μ^π(s), with the notation guide updated (superscript policy mark;
+  μ(s) when π is fixed).
+- **Notes:** F05 says "How to learn" leads to gradient descent.
+- **Timing:** F02 4 minutes, F03 3.5.
+
+Deck `b99cacc8…`, after a backup. Equation fallbacks are refreshed (37 boxes), and F02–F05 were checked in a fresh
+PowerPoint export of all 45 visible slides. The text view is regenerated.
+
+## Instructor requests during editing round 2 (2026-11-12)
+
+- **No hedging or disclaimers on slides.** The instructor found too much hedging on slides and important information
+  missing from the notes. Examples: slide 26's caption that the geometry figure is not a TD update, and slide 28's
+  "mechanism fragment, not yet a complete process". The instructor has edited both. This is now a shared rule in
+  `AGENTS.md` (Shared lecture-content conventions), which binds both AIs: slide text states what is taught, and
+  every caveat, condition and "this is not…" statement goes in the speaker notes. The instructor moves a warning
+  onto a slide if needed. **Both AIs: do not add such statements to slides, and do not put back ones the instructor
+  removed.**
+- **Convergence comparison slides** (instructor: MC versus semi-gradient TD, for tabular, linear and nonlinear
+  approximation, for prediction and control; guided by old P55–56; after the "possible failure" slide). Claude
+  prepared G12a (prediction) and G12b (control) in `course/lectures/week05/function_approximation_convergence_claude.yaml`.
+  - **Slide text:** results only, with ✓ / (✓) / ✗ and what each converges to. All conditions are in the notes.
+  - **Dropped rows:** gradient TD and gradient Q-learning (out of scope); off-policy MC (needs Week 8's
+    corrections). The "other state weighting" row covers 5.2's examples.
+  - **Timing:** 2 minutes each. 5.2's timed route goes from 58 to 62, within the 63-minute delivery allowance.
+    G11's bullets now overlap G12a, so the instructor may shorten G11.
+  - **Insertion:** after G12 once the deck is closed in PowerPoint; it was open when the slides were prepared.
+- **Projection and Bellman operations:** Claude's comparison of other courses was reported to the instructor in the
+  session only, at the instructor's request. No file change.
+
+**Applied (Claude, 2026-11-12), after the instructor closed the deck:**
+- **Insertion:** G12a/G12b inserted after G12 in the instructor's round-2 save `36af4cc8…` (backup taken). Deck is now
+  `8a6042b4…`, 50 slides. A fresh PowerPoint export of all 45 visible slides shows both tables laid out correctly.
+- **Slide ID:** the ID G03-B, lost when the instructor moved and hid the slide, is restored.
+- **Records:** decision file D12–D13. The projection/Bellman comparison is recorded under "Consider for next
+  semester" in the deck decision file.
+- **Not done:** Claude has not yet checked round 2's other edits; that waits until the instructor finishes the round.
+
+## Instructor editing round 2 — Claude content and error check (2026-11-12)
+
+**Saved instructor version reviewed:** `13e58d03…`, backed up in `output/deck_backups/`. Compared with `b99cacc8…`
+(end of round 1) and `8a6042b4…` (after the G12a/G12b insertion). The text view is regenerated. Preview: LibreOffice
+only; the deck was open in PowerPoint and the export timed out.
+
+**Instructor changes:**
+- **5.2 divergence decided by edit:**
+  - "Alt A" removed from the titles of I02–I07;
+  - the fragment slides (G05, G06, G08, G07) moved to the end as hidden slides 47–50. Slide 47's title says
+    "28-32 (33)", i.e. they are alternatives to slides 28–32 (and 33). Their slide IDs were lost in the move.
+  - Recorded as D14.
+- **I07 ("Change one component, keep the task") is hidden.** G09 ("Two off-policy questions") now sits in the
+  taught route after I06.
+- **I06:** "Function approximation/Feature Based Representation"; the two data questions are replaced by G08's
+  "Which part would you change to investigate the growth mechanism?", and a "Deadly Triad" label is added.
+- **G10:** the cropped right-hand panel is replaced by the full book Figure 11.2, including the left
+  "Semi-gradient Off-policy TD" panel.
+  - New text: "R = 0, γ = 0.99. Target policy follows the solid lines. Behavior policy is random switching to any
+    other state including self."
+  - The component-subscript and lower-state lines are removed from the slide; the notes already have them.
+- **G00 (5.2 divider) hidden.**
+- **G01:** retitled "Convergence: …". The update is now in the general ∇v̂ form, and two questions were added
+  ("Would this effect stability?") plus "(Converge but to the wrong values vs diverge)".
+- **G02:** definitions of "Best fit for VE" and "TD fixed point" added.
+- **G03-A:** caption shortened to "Exact backup-and-fit picture of a fixed point."
+- **I02:** "Part of an MDP" replaces the fragment disclaimer.
+- **I04:** γ and α are shown.
+- **F18 and G15:** "Exit question/check" became "Question".
+- **Unchanged:** no speaker notes were edited. Animations are valid: every target exists, and no slide has more than
+  one timing block.
+
+**Timing (taught route, visible slides):**
+- 5.1 = 60 minutes.
+- 5.2 = 55.5 minutes: I07's 8 minutes and G00's 0.5 are out, G09's 2 are in.
+- Restoring I07 would give 63.5, above the 63-minute delivery allowance, unless something shrinks. G11 (2 minutes)
+  overlaps G12a.
+
+**Findings (Claude, 2026-11-12).** Status open.
+
+| ID | Type / slide | Issue and consequence | Proposed fix | Status |
+| --- | --- | --- | --- | --- |
+| R16 | **Prerequisite (Week 4 D6)** — G10 | The left panel is sampled semi-gradient off-policy TD, which reweights each sample by an importance ratio (book eq. 11.2). Ratios come in Week 8. The notes still say this panel is excluded. | Either crop back to the right-hand DP-sweep panel, or keep both panels with a notes explanation that needs no ratio: "left: the same update sampled along behaviour trajectories, reweighted to match the target policy (the reweighting is Week 8); it diverges too, noisily". | resolved — slide kept; notes explain the left panel without ratios; next offering: IS earlier (D16, decision log 2026-11-15) |
+| R17 | **Accepted worked activity** — I07 hidden | 5.2's accepted worked activity is "work through a small divergent update example; **vary one part of the deadly triad**" (`topic_decisions.yaml`). With I07 hidden, the variation exists only as I06's question. | (a) Restore I07 and shorten or hide G11, which overlaps G12a: 61.5 minutes. (b) Keep I07 hidden and answer I06's question live with I07's results, which go in I06's notes: on-policy weighting ×0.96, Monte Carlo target ×0.75. Option (b) changes the activity's form, so record it as a decision. | resolved — I07 restored (D15, 2026-11-14); 5.2 targets 63.5, G11 overlap left to the instructor |
+| R18 | **Error (typo)** — G01 | "Would this effect stability?" (twice) should be "affect". | Fix both. | resolved — applied (D16) |
+| R19 | **Formatting** — G02 | "Episodes start at (1,1) and every actual preterminal visit contributes." is underlined. It looks accidental; nothing else on the slide is underlined. | Remove the underline, unless it is intended. | resolved — applied (D16) |
+| R20 | **Precision** — G02 | "Best fit for VE: The minimum VE that can be achieved…" defines a number, but the column lists predictions; the minimum VE is the bottom row. | "Best fit for VE: the predictions with the smallest VE the chosen features allow." | resolved — applied (D16) |
+| R21 | **Optional (new no-hedging rule)** | Caveat sentences from Claude's first render are still on slides, which the instructor may want to move to the notes: F12a-A's "A separately supplied sample, not the next transition after termination"; G02's "…not sampled learning curves" and its second takeaway sentence; I05's "in this experiment"; G11's "with appropriate sampling and step sizes", "under its conditions" and "generally"; G13's "Constructed examples: reference values are known". | The instructor decides. No AI edits slide text for this. | resolved — F12a-A, G02, I05, G13 caveats moved to notes (D16) |
+
+**Notes updates needed** (prepared, not applied; the deck is open and two depend on R16/R17):
+- **G01:** answers to the new questions:
+  - features that merge states give a stable but wrong compromise (5.1's grid);
+  - moving targets plus the update distribution can make it diverge (today);
+  - hence "converge to wrong values vs diverge".
+  - The equation-source line also needs updating to the ∇ form.
+- **G02:** the TD-fixed-point definition holds for on-policy linear TD under the usual step-size conditions.
+- **Route tags:** I02–I07, G09 and G11–G15: drop the "Alt A/Alt B route" wording now that D14 settles the route.
+  - G09: now in the route (2 minutes).
+  - I06: no longer "includes G09"; add the answer to its new question (depends on R17).
+  - G13 and G15: drop the "if Alt B was taught" sentences.
+- **G10:** rewrite the panel sentence (depends on R16). The behaviour description is correct: dashed 6/7 to one of
+  the six upper states, solid 1/7 to the lower state, so the next state is uniform over all seven.
+- **G00:** hidden; 5.2 starts at G01.
+- **Hidden fragment slides:** restore the IDs G05, G06, G08 and G07, and mark them as hidden alternatives.
+
+**R17 resolved (2026-11-14).** The instructor said "Restore I07".
+- **Deck:** I07 is unhidden, after a backup. The slide IDs G05, G06, G08 and G07 are restored on the hidden fragment
+  slides (slide names only). Deck is now `eaae14d2…`.
+- **Check:** a PowerPoint export of all 41 visible slides works.
+- **Timing:** 5.2's visible targets are 63.5 minutes.
+- **Still not applied:** the other prepared notes updates.
+
+**G11 hidden (2026-11-14).** The instructor said "Hide G11"; G12a covers its statements.
+- **Deck:** `0502a2bb…`, after a backup. A notes line records why G11 is hidden.
+- **Timing:** 5.2's visible targets are 61.5 minutes.
+
+**Round 2 resolved (Claude, 2026-11-15).** The instructor said "The fixes you list are good", and decided R16:
+"keep the slide as is and add the suggested speaker note".
+- **Applied:** R18–R21, the prepared notes updates and the G10 note, after a backup. Equation fallbacks are
+  refreshed (35 boxes).
+- **Check:** a PowerPoint export of all 40 visible slides works, and F12a-A, G01, G02, I05 and G13 were inspected.
+- **Deck:** `c4918df9…`. Text view regenerated.
+- **Next offering:** reconsider introducing importance-ratio corrections earlier (decision log, 2026-11-15;
+  pointer in `topic_decisions.yaml` at `ratios`). The generated `analysis/time_budget.md`, `output/lecture_plan.md`
+  and `output/lectures/session_sources.md` are regenerated for that note.
+
+**O3 closed (instructor, 2026-11-15).** C01 and C02 were closed as covered; R03 lapsed with D14. O1 was closed by D17 (full 13-minute geometry).
