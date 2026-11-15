@@ -4,7 +4,7 @@ Author: Claude, 2026-11-14. Status: suggestion for instructor review and ChatGPT
 
 Basis: A1 in `decisions/assignment_decisions.md` (tasks as amended 2026-11-14), `implementation_framework` and `fall_2026_exceptions` in the same file, sessions 2.1–4.2 in `decisions/topic_decisions.yaml`, and `course/notation_guide.md`.
 
-No assignment code has been implemented or run. Every numeric setting marked *pilot* is a starting value to be fixed when the reference solution exists.
+This draft predates the build. The build in `course/assignments/a1/` differs in the ways listed under "Build notes" in `a1_review.md`; where they differ, the build and the decision files govern. Every numeric setting marked *pilot* is a starting value to be fixed when the reference solution exists.
 
 ## 1. Summary
 

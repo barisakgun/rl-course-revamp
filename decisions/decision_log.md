@@ -1,5 +1,18 @@
 # Decision Log
 
+## 2026-11-15 — A1 control grid kept; explicit link to the book's cliff example
+
+- Authority: instructor ("We can try the addition. I agree with having an explicit link with the book"), after reviewing the build's reward settings. Recorded in `a1_design_choices.control_grid` of the [assignment decisions](assignment_decisions.md).
+- The control-experiment grid keeps goal +1, pit −1 (episode ends), step reward 0 and γ = 0.95, so a zero table is not optimistic there. The handout states how this differs from the book's cliff example, and the initialization experiment gains a fourth run with book-style rewards (−1 per transition, −100 for a pit) from a zero table.
+- Instructor, same day: accepts the build's experiment order (initialization first; control comparison and decay run from the optimistic table) and keeping `solution/`, `grading/` and `staff/` out of git for now. Grading shares and exact testing conditions are decided after the instructor sees the built assignment; Claude's suggestions stay explicit in `course/assignments/a1/README.md`. The clean-install check follows ChatGPT's code review.
+- Pilot: that run reaches the goal in 184 of 200 episodes with full coverage, against 0 of 200 for the zero table under the original rewards. The exact experiment reporting remains deferred. No workload, lecture-minute, mastery or grade-weight change beyond one more supplied run.
+
+## 2026-11-14 — A1 first build (shared homework files); pilot findings, not yet accepted
+
+- Authority: instructor ("start building"). Claude built `course/assignments/a1/`: handout, generated starter, reference solution, public and hidden tests, grading script and staff notes (`README.md` there lists rebuild steps, pilot results and what is not done).
+- Pilot findings for instructor review, not accepted decisions: with zero initialization, zero step reward and lowest-index ties the agent never reaches the goal on the control grid, so the build runs the initialization experiment first (E3) and starts the SARSA/Q-learning comparison (E4, E5) from the optimistic table. E2 uses γ = 0.9 and compares only states the data visit.
+- `solution/`, `grading/` and `staff/` are excluded from git, like exam material. Points and handout shares are provisional. No timed student pilot, clean-install check, or release date. No curriculum, lecture-minute or grade-weight change.
+
 ## 2026-11-14 — A1 cross-review: grading boundary settled; draft revised
 
 - Authority: instructor ("Yes, allow ledge answers"), answering R1 of the [shared A1 review](../analysis/assignment_suggestions/a1_review.md). Recorded in `a1_design_choices.grading_boundary` of the [assignment decisions](assignment_decisions.md).
@@ -95,6 +108,10 @@
 
 - Authority: instructor, recorded in the git-ignored `decisions/exams/midterm_1.md` X7–X8. Accepted the combined selection from both AI suggestions and the cross-review corrections. Question-specific changes, allocations and remaining grading choices are recorded only in the confidential exam decisions and shared review, in accordance with the repository contract.
 - No coverage, format, lecture-minute, mastery or assignment change.
+
+## 2026-11-14 — Week 5 deck (`function_approximation`): I07 restored, G11 hidden
+
+- Authority: instructor ("Restore I07"), recorded as [function_approximation D15](lectures/function_approximation.md). This keeps 5.2's accepted worked activity ("vary one part of the deadly triad"). G11 is then hidden (instructor, "Hide G11"), since G12a covers it, so 5.2's slide targets are 61.5 minutes, within the delivery allowance. The planning allocation is unchanged.
 
 ## 2026-11-12 — Week 5 deck (`function_approximation`): 5.2 divergence example settled by instructor edit
 

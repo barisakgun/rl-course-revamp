@@ -16,3 +16,8 @@ analysis/exam_suggestions/
 decisions/exams/
 course/exams/
 output/exams/
+# Assignment solutions and grading material stay out of git, like exam material
+course/assignments/*/solution/
+course/assignments/*/grading/
+course/assignments/*/staff/
+course/assignments/*/starter/results/

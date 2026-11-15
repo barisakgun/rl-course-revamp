@@ -99,3 +99,22 @@ All four remaining corrections are accepted and applied to `a1_claude.md`.
 **Instructor, same day:** the instructor coordinates the timed pilot with the TAs. Exact testing conditions, experiment reporting and grading shares are revisited once a version of the homework exists.
 
 **Open:** the E3/E4 and E5 pilot items, the workload estimate and the release date. No open review finding blocks the build.
+
+## Build notes
+
+**Author:** Claude · **Date:** 2026-11-15
+
+The first build is in `course/assignments/a1/` (shared files); its `README.md` lists rebuild steps, pilot results and what is not done. Differences from the reviewed draft, for ChatGPT's check:
+
+| Item | In the draft | In the build | Reason |
+| --- | --- | --- | --- |
+| Experiment order | E3 SARSA/Q-learning, E4 decay, E5 initialization | E3 initialization, E4 SARSA/Q-learning, E5 decay | Pilot: with Q₀ = 0, zero step reward and lowest-index ties the agent never reaches the goal on `ledge` in 200 episodes, at ε = 0 or 0.1 |
+| Control comparison start | Not specified | Q₀ = +1 | Same pilot. Result: SARSA 11 moves and Q-learning 9 in 10 of 10 seeds (ε = 0.1, α = 0.1, 1000 episodes) |
+| E3 runs | Two tables at ε = 0 | Four runs: Q₀ = 0 and +1 at ε = 0; Q₀ = 0 at ε = 0.1; Q₀ = 0 at ε = 0 with book-style rewards | R4 confound (ε does not rescue the zero table); instructor's link to the book (2026-11-15) |
+| E5 decay | Unspecified rate | ε = 0.1 × 0.9995^k | Pilot: SARSA moves to the 9-move path in all seeds; 0.9998 does not |
+| E2 | Error over non-terminal states, lecture γ | γ = 0.9; error over states the data visit at least 10 times | Two states are never visited under the data policy, which put a floor under every curve |
+| Scripted selector | Passed as an argument | Also identifies the clock index from the ε it receives, and returns a different action on a repeated call | Checks ε (recheck item 1) and catches a loop that selects SARSA's action twice, without fixing a call order |
+| Greedy ties | Lowest index | Supplied `argmax_lowest` with a 1e-9 tolerance, required for all greedy choices | Exact lowest-index ties are unstable under floating-point noise (the 2 × 2 start state ties exactly) |
+| T15 | TD(0) truncated fixture | A TD(0) case with `terminated=False`; truncation is exercised in the `train` traces | `td0_update` has no truncation argument, so the unit test cannot fail on it |
+
+Verification done: 97 public and 163 public-plus-hidden tests pass on the reference solution; 21 wrong variants are each caught by a graded test; a differently structured correct loop passes; expected numbers come from independent computations in `staff/make_cases.py`. Not done: clean-install and cross-platform runs, a timed student attempt.

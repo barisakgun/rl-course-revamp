@@ -251,6 +251,16 @@ a1_design_choices:
   layouts: The 4 x 3 lecture grid is graded. The 2 x 2 lecture grid is included for debugging and is not graded.
   grading_boundary: Scored correctness tests use the 4 x 3 grid only. The marked short answers may interpret
     the supplied runs on the separate control-experiment grid (instructor, after cross-review R1).
+  control_grid: The control-experiment grid keeps a positive exit reward with zero step reward (goal +1, pit -1
+    ending the episode, discount 0.95), so a zero table is not optimistic. The handout links it explicitly
+    to the book's cliff example, and the initialization experiment includes one run with book-style rewards
+    (instructor, 2026-11-15).
+  experiment_order: The initialization experiment runs first; the SARSA and Q-learning comparison and the
+    decay run start from the optimistic table (instructor, 2026-11-15, after the pilot).
+  repository: The solution, grading and staff folders stay out of git for now (instructor, 2026-11-15).
+  pending_instructor_review: Grading shares and exact testing conditions are decided after the instructor
+    sees the built assignment and its handout. Claude's suggestions are listed in
+    course/assignments/a1/README.md. The clean-install check follows the code review.
   release_date: Revisited once the assignment is built.
   pilot: The instructor coordinates the timed pilot with the TAs.
   deferred_until_built: Exact testing conditions, experiment reporting and grading shares are revisited once a
