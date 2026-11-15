@@ -2,7 +2,7 @@
 
 # Text view: function_approximation_claude.pptx
 
-SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
+SHA-256 `72837e0a8984d400f2a3738d5aaa0c967416ecb94bbdfba61aa204fdf1c834b3`
 
 ## 1. F00 — COMP438/538 Reinforcement Learning
 
@@ -60,7 +60,7 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 
 > F02 (instructor-revised 2026-11-10: questions added, old P5 boards copied natively). Take the questions in order.
 > - Pacman state-space size: a state must record Pacman's position, each ghost's position (and scared timer), and which food dots and capsules remain. The food alone gives 2^n configurations for n remaining dots (60 dots: about 10^18), before positions are counted. These numbers are arithmetic illustrations, not a claim about this maze.
-> - Humanoid robot: joint angles and velocities are continuous and high-dimensional; exact repeats essentially never occur, so a table cannot even be indexed.
+> - Humanoid robot: we can store each configuration we visit. With continuous joint angles and velocities, exact repeats are rare, so most new configurations need a fresh estimate; every entry is independent, and no finite table can enumerate all configurations (R31).
 > - Boards 1 and 2: different positions, but the same pattern that matters (a ghost right next to Pacman), so their values should be similar; a table treats them as unrelated.
 > - Boards 2 and 3: board 3 is nearly board 1 again (the old slide's "Or even this one!"), so it shares the danger pattern with board 2 as well. Information that could make values differ: walls between Pacman and a ghost, scared ghosts, remaining food.
 > "Storage – Exploration – Generalization" names the three costs of a table: memory, the visits needed to fill it, and no transfer between similar states. A table makes no direct cross-state parameter update; do not say it can never propagate information through TD backups.
@@ -185,8 +185,6 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 
 ## 9. F08 — TD supplies a moving target
 
-- I might refer to these as gradient methods in class.
-
 - $𝑈𝑡=𝑅𝑡+1+𝛾𝑣̂(𝑆𝑡+1,𝐰),  𝛿𝑡=𝑈𝑡−𝑣̂(𝑆𝑡,𝐰)$
 - $𝐰←𝐰+𝛼𝛿𝑡∇𝑣̂(𝑆𝑡,𝐰)$
 
@@ -200,6 +198,7 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 > displayed rule deliberately omits that part. Do not turn this into a residual-gradient derivation. Terminal
 > continuation is zero. The formal name remains semi-gradient even with the instructor's shorthand.
 > The slide's "(Bootstrapping)" marks where the semi-gradient comes from: the target uses the current estimate, and we do not differentiate through it.
+> Instructor aside (moved from the slide verbatim, R30): "I might refer to these as gradient methods in class."
 >
 > Equation sources (LaTeX): U_t=R_{t+1}+\gamma\hat{v}(S_{t+1},\mathbf{w}),\qquad\delta_t=U_t-\hat{v}(S_t,\mathbf{w}) | \mathbf{w}\leftarrow\mathbf{w}+\alpha\delta_t\nabla\hat{v}(S_t,\mathbf{w}) | \mathbf{w}
 >
@@ -546,7 +545,7 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 | Weighted squared error |  |  | 0.00624 | 0.00638 |
 
 - Best fit for VE: The predictions with the smallest VE the chosen features allow
-- TD fixed point: The point where the semi-gradient TD algorithm converges
+- TD fixed point: Predictions at the weights where the expected TD update is zero
 - Takeaway: linear on-policy TD can settle at a stable point that is not the minimum of VE.
 
 - Grid: always right, $𝛾=0.5$, features (1, steps to goal); goal entry +1, otherwise −0.04.
@@ -562,6 +561,7 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 > differ. Ask students to locate the largest error and explain the compromise. The standard linear-TD bounds need their distribution and
 > task assumptions; no theorem or numerical error bound is claimed for this episodic example.
 > The table shows computed limits, not sampled learning curves (moved from the slide, R21). The definitions on the slide hold for on-policy linear semi-gradient TD with suitably decreasing step sizes; a constant step size generally leaves the weights fluctuating around these values rather than converging exactly (moved from the slide, R21).
+> Definition (R28): a fixed point is where the expected update is zero; it need not attract. In this grid (on-policy, linear, suitable step sizes) TD converges to it; I05 shows a fixed point (w = 0) that the updates move away from.
 >
 > Equation sources (LaTeX): \gamma=0.5
 >
@@ -601,13 +601,13 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 
 **Notes:**
 
-> G03-A (taught geometry picture P1; D5, D13). Five clicks: (1) diagonal; (2) true
+> G03-A (taught geometry picture P1; D5, D13). Five chart builds, then click once for the start-state value: (1) diagonal; (2) true
 > values (0.11636, 0.83636); (3) equal-state best fit (0.47636, 0.47636) and on-policy-weighted best fit (0.12623,
 > 0.12623); (4) TD fixed point (0.13319, 0.13319); (5) exact backup (0.12394, 0.79971), arrow up from the TD point
 > and arrow back to its weighted best fit. The weighted fit and the TD point are 0.007 apart, so their markers
 > nearly coincide; the labels carry the distinction. Each pair value is w₁ + w₂; the start prediction is w₁ + 2w₂,
 > so it can vary independently. Do not call this a slice with the start fixed at its true value, or say the start
-> is always fitted exactly. The on-policy pair weights have ratio 72:1, which gives the near-horizontal compromise.
+> is always fitted exactly. The on-policy pair weights have ratio 72:1: the move from the true pair (0.11636, 0.83636) to the weighted fit (0.12623, 0.12623) is almost vertical, because the horizontal coordinate, (2,1), carries 72 times the weight and changes by only about 0.010.
 > At the TD fixed point a full exact backup gives (0.02098701, 0.12393766, 0.79970909) in the three-state order;
 > fitting that backup using μ returns the same TD predictions. Only this full-vector interpretation justifies the
 > return arrow. Explain all five builds (D17). The picture does not teach that each incremental TD step projects a whole
@@ -850,7 +850,7 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 
 | Fixed policy π | Tabular | Linear | Nonlinear |
 | --- | --- | --- | --- |
-| Gradient MC | ✓  vπ | ✓  best fit (min VE) | ✓  local optimum of VE |
+| Gradient MC | ✓  vπ | ✓  best fit (min VE) | Stationary points of VE |
 | Semi-gradient TD, on-policy | ✓  vπ | ✓  TD fixed point | ✗ |
 | Semi-gradient TD, other state weighting | ✓  vπ | ✗ | ✗ |
 
@@ -863,7 +863,7 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 > - Every ✓ assumes step sizes that decrease suitably (Robbins–Monro) and data that keep visiting the states that
 >   matter; with a constant step size the estimates keep fluctuating near the listed limit.
 > - Gradient MC, linear: VE is quadratic in w, so the limit is the best fit for the chosen weighting, which can
->   still be far from v^π where the features cannot express it (5.1 grid). Nonlinear: only a local optimum.
+>   still be far from v^π where the features cannot express it (5.1 grid). Nonlinear: no convergence tick (R26).
 > - Semi-gradient TD, on-policy linear: the TD fixed point (G02); in continuing tasks its VE is within
 >   1/(1 − γ) of the best fit (book eq. 9.14). On-policy nonlinear TD can also diverge (Tsitsiklis and Van Roy's
 >   counterexample); there is no general guarantee.
@@ -872,6 +872,7 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 >   is the off-policy row of old P46/P55; their off-policy MC row needs importance-sampling corrections (Week 8),
 >   so it is not shown. Gradient-TD methods (old P55) fix the linear off-policy case but are outside the course
 >   scope; book §11.7 if a student asks.
+> Gradient MC with a nonlinear model (R26): with suitable step sizes the updates settle where the expected gradient of VE is zero, a stationary point, which need not be a minimum. Example: one terminal transition paying 1, v̂(s, w) = w³, start at w = 0. Every update is zero (the gradient −2(1 − w³)·3w² vanishes at w = 0), yet small positive weights have lower VE = (1 − w³)². Book §9.3 says "local optimum" as shorthand; precise nonconvex SGD results need further assumptions (Bottou, Curtis and Nocedal 2018, §4.3).
 >
 > Target: 2 min. Sources: old Value Function Approximation PPTX 46 and 55 (prediction tables; gradient-TD and off-policy MC rows dropped), Silver L6 p. 30, book §§9.3–9.4 (gradient MC, TD fixed point), 11.2–11.3 (Baird, deadly triad).
 
@@ -883,7 +884,7 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 | Semi-gradient Sarsa | ✓ | (✓) | ✗ |
 | Q-learning | ✓ | ✗ | ✗ |
 
-- ✓ converges     (✓) stays near a good solution but keeps oscillating     ✗ can diverge
+- ✓ converges     (✓) can oscillate as the policy changes     ✗ can diverge
 - With approximation, improving the policy no longer guarantees better values everywhere.
 
 **Notes:**
@@ -891,12 +892,10 @@ SHA-256 `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`
 > G12b (instructor request, 2026-11-12). Tabular column: Week 4's results. MC control and Sarsa need GLIE
 > exploration (every pair tried infinitely often, ε decaying) and suitable step sizes; Q-learning needs every pair
 > updated infinitely often and suitable step sizes, whatever the behaviour policy.
-> (✓) for linear MC control and Sarsa: with on-policy ε-greedy behaviour the weights stay bounded but can chatter
-> around a near-optimal value function instead of settling (Silver L6 p. 32; old P56). Q-learning with linear
+> (✓) for linear MC control and Sarsa: with on-policy ε-greedy behaviour the weights can keep oscillating as the policy changes instead of settling (Silver L6 p. 32; old P56). How good the result is depends on the features: with one state, two terminating actions paying +1 and −1 and identical action features, both actions always get the same prediction, so the greedy policy (uniform tie-breaking) earns 0 on average while the optimal policy earns 1 (R27). Bounded-region results for projected linear Sarsa exist under extra conditions (Zhang et al., ICML 2023). Q-learning with linear
 > features is off-policy, bootstrapping and approximate, so all three triad elements are present; counterexamples
 > exist (book §11.2). Nonlinear: no general guarantee for any of them.
-> The second line is old P56's point: the tabular improvement argument changes the action in one state at a time while the
-> other values are exact; with shared weights an update changes many states' values and actions at once. In practice these methods often work when the representation
+> The second line is old P56's point: the tabular policy improvement theorem compares candidate actions using the current policy's exact action values; a greedy improvement may change actions in several states at once (book §4.2). With shared weights the action values are approximate and one update changes many states' estimates, so the comparison is no longer exact (book §10.1). In practice these methods often work when the representation
 > is good, behaviour and target policies are close (ε-greedy versus greedy), and the step sizes and network
 > training are controlled; an agent can also fail without diverging (representation, G13). Gradient Q-learning
 > (old P56) is outside the course scope. DQN (Week 6) is nonlinear Q-learning: the bottom-right ✗ is why it

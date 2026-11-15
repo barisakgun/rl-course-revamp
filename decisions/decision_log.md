@@ -1,5 +1,9 @@
 # Decision Log
 
+## 2026-11-15 — Week 5 deck (`function_approximation`) done
+
+- Authority: instructor ("I accept the deck"), recorded as [function_approximation D20](lectures/function_approximation.md). Accepted deck SHA-256 `72837e0a8984d400f2a3738d5aaa0c967416ecb94bbdfba61aa204fdf1c834b3`, 50 slides (40 visible). Slide targets: 5.1 = 60 and 5.2 = 62.5 minutes, within the delivery allowance; planning allocations unchanged. No scope, mastery or assessment change.
+
 ## 2026-11-15 — Week 5 final review fixes approved
 
 - The instructor approved R26–R31 for Claude to apply to the saved Week 5 deck. [Deck decision D19](lectures/function_approximation.md)

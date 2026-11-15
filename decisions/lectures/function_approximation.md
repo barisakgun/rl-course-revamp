@@ -9,10 +9,11 @@ historical inputs:
 **Scope:** sessions 5.1 `linear` (Linear approximation and semi-gradients) and 5.2 `instability` (Approximation
 instability). Accepted teaching allocations, scope and mastery live in `decisions/topic_decisions.yaml`.
 
-**Status (2026-11-15).** Both final reviews are complete. The instructor approved R26–R31 under D19. Claude will apply the six fixes to the saved deck and refresh the review views for a focused recheck. The slideshow check and instructor acceptance are pending.
+**Status: DONE** (accepted by the instructor, 2026-11-15, D20). This is the deck's only current status record; other files point here. A later substantive change reopens the status.
 - **Deck:** `course/lectures/week05/function_approximation_claude.pptx`, SHA-256
-  `2e02cbd3a7f5a95f3061b1f8fd859773024e36e3dfc1dc4c0f36f5eba8653748`, 50 slides (40 visible). It is the instructor's round-2 save
-  `13e58d03…` plus D15–D16 and the final-check fixes R22–R24 (D18), with equation fallbacks refreshed.
+  `72837e0a8984d400f2a3738d5aaa0c967416ecb94bbdfba61aa204fdf1c834b3`, 50 slides (40 visible). It is the instructor's round-2 save
+  `13e58d03…` plus D15–D16, the final-check fixes R22–R24 (D18) and ChatGPT's final-review fixes R26–R31 (D19),
+  with equation fallbacks current.
   - Hidden: G00 (5.2 divider), G11 (D15).
   - Hidden alternatives: F12-B, F12a-B, F13-B (D10); G03-B (D13); G05, G06, G08, G07 (D14).
 - **Final previews:** `output/lectures/week05/function_approximation_claude_preview.{pdf,png}`, 40 visible
@@ -256,6 +257,23 @@ The instructor answered the six items in the shared review's "Status after the m
   - No scope, mastery or assessment change.
 
 - **D19. Instructor approval of R26–R31 (2026-11-15).** The instructor approved all six fixes as written in the [final review](../../analysis/lecture_suggestions/function_approximation_review.md#final-review-by-chatgpt-2026-11-15) for Claude to apply to the Week 5 deck.
+
+## Accepted (instructor, 2026-11-15, deck acceptance)
+
+- **D20. Deck accepted as done** (instructor: "I accept the deck").
+  - **Accepted deck:** SHA-256 `72837e0a8984d400f2a3738d5aaa0c967416ecb94bbdfba61aa204fdf1c834b3`, 50 slides (40 visible).
+    - Hidden: G00 and G11.
+    - Hidden alternatives: F12-B, F12a-B, F13-B, G03-B, G05, G06, G08, G07.
+  - **Slide targets:** 5.1 = 60 minutes and 5.2 = 62.5 minutes, within the 63-minute delivery allowance. The planning
+    allocations in `decisions/topic_decisions.yaml` stay 58 + 58.
+  - **Checks before acceptance:**
+    - Claude's final complete check, including a PowerPoint render of all 50 slides, with fixes R22–R24 (D18);
+    - ChatGPT's final review, with fixes R26–R31 (D19), applied by Claude;
+    - a fresh PowerPoint export of the 40 visible slides.
+  - **Views:** final previews `output/lectures/week05/function_approximation_claude_preview.{pdf,png}` and the text
+    view, all from this deck.
+  - **Not exercised before acceptance:** ChatGPT's focused recheck of R26–R31 (the instructor accepted without
+    waiting for it); live slideshow playback (instructor, in slideshow mode).
 
 ## Consider for next semester (instructor, 2026-11-12)
 
