@@ -155,7 +155,7 @@ Local decks with no page-level evidence (added or not exported when the evidence
 - **Teaching:** 55 min (range 48–65); confidence medium
 - **Requires:** 6.1 `dqn_loop`
 - **Worked activity:** Bias/Double Q/Double DQN contrast (20 minutes), then replay/target ablation reasoning (15 minutes). Within the same example, map online selection versus target evaluation to the Double DQN patch (estimated 3–5 minutes inside the existing double-estimator segment).
-- **Pacing note:** Rainbow and extension catalog removed; protect the main DQN mechanism.
+- **Pacing note:** Protect the main DQN mechanism. Extensions (Rainbow and its components) get one 3-minute overview slide, exposure only and not assessed (instructor, 2026-11-18; decision log).
 - **Prerequisite for:** A2 Representation, instability and a small DQN (release week 6)
 
 | Topic group | Role · mastery · delivery | Accepted scope | Topics |

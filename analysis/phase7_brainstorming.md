@@ -177,3 +177,11 @@ This is a proposed consolidation workflow for the instructor to confirm after co
 ## Nice to have
 
 Moved to the shared `analysis/ideas_backlog.md` (instructor, 2026-10-06), so ideas that may be adopted in later course iterations are tracked beyond Phase 7. Add new materials or tooling ideas there.
+
+**[Claude 2026-11-18 — for the Week 7 deck]** Instructor (Week 6 editing round): Week 6's last exit question (D13)
+motivates learning a policy directly through continuous actions, where the max over actions becomes an optimization
+problem at every step. That is not the only motivation, so the Week 7 deck should state the others explicitly, e.g.
+stochastic policies (aliased states, games that need randomization), a policy that can be simpler than its value
+function, and smooth changes of the policy under small parameter changes. Check against the Week 7 sources when that
+deck's suggestions are written.
+

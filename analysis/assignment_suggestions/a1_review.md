@@ -215,3 +215,5 @@ All three findings from the preceding recheck are closed. The reference passed a
 **One reporting inconsistency remains.** With only `prediction.py` missing, the grader correctly awarded 60/85 and listed the filename in `missing_modules`. It nevertheless set `needs_staff_attention` to false and exited with code 0. A batch process using either signal would overlook this incomplete submission. Include missing modules in the same staff-attention predicate as missing plots. The score calculation already gives the expected result.
 
 The answer guide now records the corrected alternate-sampler coverage and the three deterministic E3 runs. The clean-install check and timed student pilot remain pending.
+
+**Missing-module reporting closed by ChatGPT (Codex), 2026-11-15.** Updated the grader to include missing modules in `needs_staff_attention`. Verified through the grading CLI and its JSON report: removing only `prediction.py` produced 60/85, identified the missing module, flagged staff follow-up and exited with code 2. The complete reference submission received 85/85, required no follow-up and exited with code 0.

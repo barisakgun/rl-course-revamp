@@ -1,0 +1,55 @@
+# Week 6 deck `deep_q_learning`, session 6.2: new slide D05a "From two tables to two networks" (instructor,
+# 2026-11-17, editing round 1; review K28). Claude's renderer input for this inserted slide only. Not maintained: the
+# PPTX is the source. Do not rebuild over the deck or treat this file as its current content.
+# Status: decisions/lectures/deep_q_learning.md.
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week06/deep_q_learning_d05a_claude.yaml
+# Then:   append --after D05.
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week06/deep_q_learning_d05a_claude.pptx
+  preview: output/lectures/week06/deep_q_learning_d05a_claude_preview.png
+  session_id: dqn_diagnosis
+  qa_minutes: 0
+  title: Deep Q-learning (D05a insert)
+  author: Barış Akgün
+  term: Fall 2026
+
+slides:
+  - id: D05a
+    kind: math
+    title: From two tables to two networks
+    table_box: [0.244, 1.05, 12.85]
+    table:
+      size: 18
+      row_h: 0.62
+      align_left: true
+      widths: [3.5, 4.6, 4.75]
+      header: ['', 'Double Q-learning (tables)', 'Double DQN (networks)']
+      rows:
+        - ['Two estimates', 'Q₁ and Q₂, both learned', 'online 𝐰 (learned), target 𝐰⁻ (a copy of 𝐰)']
+        - ['Updated at each step', 'one table, picked by a coin', 'the online network only']
+        - ['Selects the successor action', 'the table being updated', 'the online network']
+        - ['Evaluates that action', 'the other table', 'the target network']
+        - ['The second estimate changes by', 'its own updates', 'copying or averaging 𝐰']
+        - ['Acts with', 'Q₁ + Q₂ (ε-greedy)', 'the online network (ε-greedy)']
+    after_box: [0.244, 5.6, 12.85, 1.4]
+    size: 22
+    after:
+      - {text: '$Q_1$ ↔ online network, $Q_2$ ↔ target network. Double DQN reuses the target network DQN already has.'}
+    reveal: ['yaml:after']
+    minutes: 2
+    sources: ['book §6.7 eq. 6.10 printed 135–136 / PDF 157–158 (Double Q-learning)', 'van Hasselt, Guez & Silver 2016, section "Double DQN" (arXiv 1509.06461)', 'review K28 (instructor, 2026-11-17)']
+    notes: |
+      D05a. Bridges D05 (tables) to D06-B (networks). Read the rows top to bottom; the selection and evaluation rows
+      are the same idea as D05, the other rows are the differences. Reveal the mapping last.
+      Differences to say aloud: in Double Q-learning both tables learn, on different halves of the experience, and the
+      roles swap with the coin. In Double DQN only the online network learns; the target network is the delayed copy
+      DQN already uses, and it changes only by copying (or Polyak averaging), never by its own updates.
+      The second estimate is therefore not independent: van Hasselt et al. (2016) call the two networks "not fully
+      decoupled". Right after a hard copy the networks are identical, so the Double DQN target equals the DQN target
+      until they drift apart; the bias is reduced, not removed.
+      Cost: Double Q-learning stores a second table; Double DQN adds no network, only one extra forward pass of the
+      online network on the minibatch's successor states. Acting: the book's Double Q-learning can act ε-greedily on
+      Q₁ + Q₂; Double DQN acts as DQN does, ε-greedily on the online network.

@@ -15,6 +15,13 @@ Conventions: one entry per idea, with who proposed it and when, the motivation, 
 - **Possible mitigations:** use environments or variants that differ from the assignments; release the code only after the related assignment is due.
 - **Status:** idea.
 
+### Algorithms as both verbose steps and pseudocode
+- **Proposed:** instructor, 2026-11-17 (recorded by Claude, while editing the Week 6 deck).
+- **Motivation:** decks currently present an algorithm either as numbered prose steps (e.g. Week 6 V08) or as code-style pseudocode (e.g. the old decks' Q-learning and DQN boxes). Instructor's idea: put both on slides, and go over only one of them in class; the other stays for study.
+- **Needs:** probably an algorithmic-notation section (pseudocode conventions: assignment, loops, terminal handling, how code names map to course symbols such as q̂, **w**⁻ and 𝒟) next to `course/notation_guide.md`.
+- **Risk:** two versions of each algorithm can drift apart when one is edited; extra slides add study material.
+- **Status:** idea, for the next offering.
+
 ## Tooling
 
 ### LaTeX → native PowerPoint equation converter

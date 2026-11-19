@@ -801,8 +801,9 @@ def drawing(slide, items):
             b = box(slide, x, y, w, h, TINT if it.get('tint') else LIGHT, line=RGBColor(0xA6, 0xA6, 0xA6),
                     shape=MSO_SHAPE.ROUNDED_RECTANGLE)
             b.name = f'draw:{n}:block'
-            para_box(slide, x + 0.12, y + 0.08, w - 0.24, h - 0.16, it['text'], it.get('size', 18), INK,
-                     align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE, name=f'draw:{n}:block_text')
+            if it['text']:                                 # an empty block is a plain shape (a thin bar would give
+                para_box(slide, x + 0.12, y + 0.08, w - 0.24, h - 0.16, it['text'], it.get('size', 18), INK,  # its text
+                         align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE, name=f'draw:{n}:block_text')  # box h < 0)
         elif 'outline' in it:                               # unfilled red frame, e.g. to highlight part of a figure
             x, y, w, h = it['outline']
             o = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(h))

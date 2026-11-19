@@ -1,0 +1,618 @@
+# Week 6 deck `deep_q_learning`, session 6.2 portion (D00–D13, hidden appendix H01–H03): Claude's renderer input.
+# First draft: renderer input for the first render of this deck only (2026-11-16). Not maintained: the PPTX is the
+# source from that render on. Do not rebuild over the deck or treat this file as its current content.
+# The slides built from this file are appended after V14 of course/lectures/week06/deep_q_learning_claude.pptx.
+# Status: decisions/lectures/deep_q_learning.md. Content: course/lectures/week06/deep_q_learning_content.md (shared,
+# frozen at this render; slide IDs and order as there).
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week06/deep_q_learning_diagnosis_claude.yaml
+# Then:   python3 scripts/append_slides_claude.py <deck> <candidate>
+# Render convention as in deep_q_learning_claude.yaml (review K04).
+# Pictures: van Hasselt, Guez & Silver (2016) Fig. 3 top row, cropped from the paper's PDF p. 5 into
+# course/lectures/week06/assets/ddqn_fig3_top_row_claude.png (D5); old Model Free Control P47 (book Figure 6.5).
+# Alternatives: worked example (D2) D06-A/D07-A versus D06-B/D07-B, paired with the 6.1 route. Timed route A.
+# D04: the full figure is listed first so the reveal (first shape with that name) targets it, not the inset.
+# Ablation table cells from Mnih et al. (2015) Extended Data Table 3, read from the paper (review K03).
+# Time budget: decisions/topic_decisions.yaml lecture_plan[dqn_diagnosis].teaching_minutes (55). Targets sum to 55.
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week06/deep_q_learning_diagnosis_claude.pptx
+  preview: output/lectures/week06/deep_q_learning_diagnosis_claude_preview.png
+  session_id: dqn_diagnosis
+  qa_minutes: 0
+  timed_alternates: {'worked example': A}
+  title: Deep Q-learning (session 6.2 portion)
+  author: Barış Akgün
+  term: Fall 2026
+
+slides:
+  - id: D00
+    kind: section
+    title: 6.2 — Double estimators and experimental diagnosis
+    subtitle: Which number does the maximum report, and what does an ablation show?
+    minutes: 1
+    sources: ['section opener (as function_approximation G00)']
+    notes: |
+      D00. Visible session divider. Start with the figure on D01, then retrieve the loop from V08.
+
+  - id: D01
+    kind: math
+    title: What return does the trained agent achieve?
+    pictures:
+      - {file: course/lectures/week06/assets/ddqn_fig3_top_row_claude.png, box: [0.4, 1.0, 12.5]}
+    drawing:
+      - {outline: [0.38, 1.0, 3.1, 3.4]}
+    body_box: [0.244, 4.55, 12.85, 1.6]
+    size: 20
+    body:
+      - 'Curves: predicted value during training (orange: DQN; blue: Double DQN).'
+      - 'Horizontal lines: discounted return measured after training, same colours.'
+    blocks:
+      - box: [0.244, 6.05, 12.85, 0.8]
+        size: 22
+        items:
+          - {text: '**Question:** compare the **right end** of each curve with its own line.'}
+    footnote: 'van Hasselt, Guez & Silver (2016), Deep Reinforcement Learning with Double Q-learning, Figure 3 (top row).'
+    minutes: 4
+    sources: ['van Hasselt, Guez & Silver 2016, Fig. 3, PDF p. 5 (https://arxiv.org/abs/1509.06461)', 'deep_q_learning D5 (instructor may change this figure)', 'CS285 L8 pp. 15–16']
+    notes: |
+      D01 (D5; the instructor may replace this figure). Work through the outlined Alien panel; the other three panels
+      show the same pattern. Orange is DQN, blue is Double DQN. The horizontal lines average the discounted return
+      obtained from each visited state when the corresponding trained agent was run after learning; the paper notes
+      that without bias the lines would match the right end of the curves. The curves are medians over six seeds
+      with a 10–90% band. DQN's final predictions for Alien are well above its measured return. Ask which operation in
+      its target could favour optimistic errors. The coin calculation on D03 isolates one cause; this figure alone
+      does not show the cause. The content file asked for the Alien panel only; the whole top row is shown so the
+      paper's own legend (Zaxxon panel) is visible, with Alien outlined.
+
+  - id: D02
+    kind: math
+    title: Who chose the action inside the maximum?
+    body_box: [0.244, 1.1, 12.85, 2.4]
+    size: 24
+    body:
+      - {text: 'The ordinary nonterminal DQN target:'}
+      - {eq: 'U_j=r_j+\gamma\max_a\hat{q}(s''_j,a,\mathbf{w}^-)'}
+    blocks:
+      - box: [0.244, 3.6, 12.85, 1.4]
+        size: 22
+        items:
+          - 'Which operation selects the largest entry?'
+          - 'Which number evaluates that choice?'
+      - box: [0.244, 5.1, 12.85, 1.2]
+        size: 22
+        items:
+          - {text: 'The same row of target-network outputs does both jobs.'}
+    reveal: ['yaml:blocks.1']
+    minutes: 3
+    sources: ['V07–V08 (6.1 loop)', 'old Deep QL PPTX 16 (DQN target)']
+    notes: |
+      D02. Underline the max. The environment action was chosen by the behaviour policy; the action inside the max is
+      chosen by the target computation, from the same numbers that then report its value. On route A, recall the
+      target network's 6 and the return bound of 2 (V09-A); ask what evidence would establish bias across repeated
+      estimates rather than in one number.
+
+  - id: D03
+    kind: math
+    title: Two actions worth zero
+    body_box: [0.244, 1.05, 12.85, 1.4]
+    size: 22
+    body:
+      - {text: 'Both true action values are 0. Each estimate is independently +1 or −1, with equal probability. What is the maximum in each case?'}
+    tables:
+      - box: [2.5, 2.4, 8.3]
+        size: 20
+        row_h: 0.55
+        widths: [2.8, 2.8, 2.7]
+        header: ['First estimate', 'Second estimate', 'Maximum']
+        rows:
+          - ['−1', '−1', '']
+          - ['−1', '+1', '']
+          - ['+1', '−1', '']
+          - ['+1', '+1', '']
+      - box: [2.5, 2.4, 8.3]
+        size: 20
+        row_h: 0.55
+        widths: [2.8, 2.8, 2.7]
+        header: ['First estimate', 'Second estimate', 'Maximum']
+        rows:
+          - ['−1', '−1', '−1']
+          - ['−1', '+1', '+1']
+          - ['+1', '−1', '+1']
+          - ['+1', '+1', '+1']
+    blocks:
+      - box: [0.244, 5.3, 12.85, 0.8]
+        size: 22
+        items:
+          - {text: 'Each estimate averages 0. The maximum averages **+0.5**.'}
+      - box: [0.244, 6.1, 12.85, 0.8]
+        size: 22
+        items:
+          - {text: '**Question:** where does the excess enter the earlier state''s target?'}
+    reveal: [['yaml:tables.1', 'yaml:blocks.0']]
+    minutes: 5
+    sources: ['old Model Free Control PPTX 46 (rebuilt as a calculation)', 'book §6.7 printed 134 / PDF 156', 'check_deep_q_learning_claude.py §4']
+    notes: |
+      D03. Start of the protected 20-minute block (D03–D07). Students enumerate the four equiprobable cases; vote
+      before the reveal. Answer to the closing question: through the discounted bootstrap of the state that leads
+      here. In general E[max_a Q(a)] ≥ max_a E[Q(a)], with equality possible; here the independent fair signs make the
+      inequality strict. More actions give more excess in this model (3 actions: 0.75; 4: 0.875; standard normal
+      errors: 0.56 for 2 actions, 1.03 for 4, 1.82 for Atari's 18; check script §4). MFC 46's "are MC control methods
+      affected?": greedy selection over noisy estimates is, but an MC target contains no max, so the excess is not fed
+      back through targets.
+
+  - id: D04
+    kind: math
+    title: An optimistic estimate changes an earlier decision
+    pictures:
+      - {deck: 'sources/current_course/5 - Model Free Control.pptx', slide: 47, shape: 'Picture 3', box: [0.3, 1.2, 6.8]}
+      - {deck: 'sources/current_course/5 - Model Free Control.pptx', slide: 47, shape: 'Picture 3', box: [7.3, 1.1, 5.6], crop: [0.40, 0.03, 0.10, 0.69]}
+    body_box: [7.3, 3.0, 5.8, 3.6]
+    size: 20
+    body:
+      - 'At A: right ends with reward 0.'
+      - 'Left gives 0 and leads to B; every action in B ends with a reward of mean −0.1 (variance 1).'
+      - {text: '**Vote:** which action at A has the higher expected return? How often will $\epsilon$-greedy Q-learning go left early on?'}
+    footnote: 'Sutton & Barto (2018), Example 6.7 and Figure 6.5.'
+    reveal: ['native:pic:47:Picture 3']
+    minutes: 3
+    sources: ['old Model Free Control PPTX 47 (book Figure 6.5; inset shown first, full figure on click)', 'book §6.7 Example 6.7 printed 134–135 / PDF 156–157']
+    notes: |
+      D04. Right is optimal (expected return 0 against −0.1). A noisy maximum at B makes left look attractive at A
+      early in learning: the curve peaks above 90% left choices. With ε = 0.1 and two actions at A, the ε-greedy
+      version of the optimal greedy policy still goes left 5% of the time (the dashed line). Double Q-learning stays
+      much closer to it. The book's runs average 10,000 repetitions; the number of actions at B is not stated in the
+      book (our reproduction with 10 actions: Q-learning 93% left at episode 25, 12% at 300; Double Q-learning 24% and
+      7%; check script §6). The old slide's bottom equations are not reused (they are Week 5's F15).
+
+  - id: D05
+    kind: math
+    title: Two estimates, two jobs
+    body_box: [0.244, 1.05, 12.85, 3.0]
+    size: 22
+    body:
+      - 'Keep two tables, $Q_1$ and $Q_2$ (subscript = which table). A fair coin picks which one to update.'
+      - 'Updating $Q_1$: select the successor action with $Q_1$, read its value from $Q_2$. Swap roles for $Q_2$.'
+      - {eq: 'Q_2(s'',\arg\max_a Q_1(s'',a))'}
+    blocks:
+      - box: [0.244, 4.2, 12.85, 1.0]
+        size: 22
+        items:
+          - {text: '**Question:** on D03, the chosen action gets a fresh, independent fair sign. What is its expected evaluation?'}
+      - box: [0.244, 5.3, 12.85, 0.9]
+        size: 22
+        items:
+          - {text: 'Zero, whichever action the first estimate chose.'}
+    reveal: ['yaml:blocks.1']
+    minutes: 4
+    sources: ['old Model Free Control PPTX 48 (Double Q-learning box, logic only)', 'book §6.7 eq. 6.10 printed 135–136 / PDF 157–158', 'Sutton slides 11-12-TD pp. 45–47', 'check_deep_q_learning_claude.py §4']
+    notes: |
+      D05. Exposure level (double_estimators): no tabular implementation. The tabular algorithm can act ε-greedily on
+      Q₁ + Q₂. Its two tables share one behaviour trajectory and bootstrap from each other, so independence belongs to
+      the toy calculation, not to the algorithm. The double estimate is unbiased for the value of the selected action,
+      which can be below the best action's value: with true values (1, 0) and independent fair-sign noise, the
+      inferior action is selected a quarter of the time, so the double estimate averages 0.75 while the ordinary
+      maximum averages 1.25. Double learning doubles memory, not computation per step (book p. 135).
+
+  - id: D06-A
+    kind: math
+    alt: {choice: 'worked example', option: A}
+    title: 'Alt A · Reopen the original two-row batch'
+    body_box: [0.244, 1.0, 12.85, 2.7]
+    size: 20
+    body:
+      - {text: '**DQN**'}
+      - {eq: 'U_j=r_j+\gamma\max_a\hat{q}(s''_j,a,\mathbf{w}^-)'}
+      - {text: '**Double DQN**'}
+      - {eq: 'U_j=r_j+\gamma\hat{q}(s''_j,\arg\max_a\hat{q}(s''_j,a,\mathbf{w}),\mathbf{w}^-)'}
+      - {text: 'True termination: $U_j=r_j$ for both.'}
+    tables:
+      - box: [0.244, 3.95, 12.85]
+        size: 18
+        row_h: 0.55
+        widths: [2.6, 1.2, 2.6, 2.6, 1.6, 2.0]
+        header: ['Row (pre-update, pre-copy)', 'Reward', 'Online at successor (L, R)', 'Target at successor (L, R)', 'DQN', 'Double DQN']
+        rows:
+          - ['Older, nonterminal', '+1', '(4, 2)', '(2, 6)', '', '']
+          - ['Newest, terminal', '−1', '—', '—', '', '']
+      - box: [0.244, 3.95, 12.85]
+        size: 18
+        row_h: 0.55
+        widths: [2.6, 1.2, 2.6, 2.6, 1.6, 2.0]
+        header: ['Row (pre-update, pre-copy)', 'Reward', 'Online at successor (L, R)', 'Target at successor (L, R)', 'DQN', 'Double DQN']
+        rows:
+          - ['Older, nonterminal', '+1', '(4, 2)', '(2, 6)', '4', '2']
+          - ['Newest, terminal', '−1', '—', '—', '−1', '−1']
+    blocks:
+      - box: [0.244, 5.8, 12.85, 0.9]
+        size: 22
+        items:
+          - {text: '**Question:** which network selects the action, and which evaluates it?'}
+    reveal: ['yaml:tables.1']
+    minutes: 4
+    sources: ['old Deep QL PPTX 16–18 (equation pair, labels added)', 'ChatGPT proposal slide 14', 'van Hasselt et al. 2016', 'check_deep_q_learning_claude.py §9']
+    notes: |
+      D06-A · Alt A, worked example (pairs with V09–V11-A). Have students name selector and evaluator before any
+      arithmetic: online outputs (4, 2) select L; the target network evaluates L at 2: 1 + 0.5 × 2 = 2. DQN takes the
+      target network's maximum 6: 1 + 0.5 × 6 = 4. The terminal row gives −1 in both.
+      Double DQN reuses the delayed copy already present in DQN. Online and target estimates can remain correlated
+      (w⁻ is an old copy of w), so the bias is reduced, not removed. This slide deliberately uses V09-A's pre-update,
+      pre-copy snapshot so the two networks disagree; the post-copy agreement test is on D07-A.
+      Only one worked-example route counts toward the targets.
+
+  - id: D07-A
+    kind: math
+    alt: {choice: 'worked example', option: A}
+    title: 'Alt A · Write the patch and test the batch'
+    body_box: [0.244, 1.05, 12.85, 1.4]
+    size: 22
+    body:
+      - {text: '**Your turn:** rewrite the label step of the DQN loop (V08) for Double DQN. Then predict its labels on the two rows.'}
+    blocks:
+      - box: [0.244, 2.5, 12.85, 2.4]
+        size: 20
+        items:
+          - {text: '1. Start the labels as a copy of the rewards.'}
+          - {text: '2. On nonterminal rows: online argmax per row; read that column from the target outputs; add $\gamma$ times it.'}
+          - {text: '3. Detach the labels; the loss is unchanged.'}
+      - box: [0.244, 5.0, 12.85, 1.8]
+        size: 20
+        items:
+          - 'Before the update and copy: labels (2, −1).'
+          - 'Right after the V11-A copy: DQN and Double DQN both give 3.05 on the first row.'
+    reveal: ['yaml:blocks.0', 'yaml:blocks.1']
+    minutes: 4
+    sources: ['ChatGPT proposal slide 15', 'A2 task 4 (Double DQN switch)', 'review R04']
+    notes: |
+      D07-A · Alt A. End of the 20-minute block: four minutes for students to write the patch. The three checks are
+      disagreement (pre-copy row one), terminal (row two) and agreement (after the copy, online = target, so both
+      methods pick L and read 4.1: 1 + 0.5 × 4.1 = 3.05).
+      Ask why the targets agree after a copy. With positive discount on a nonterminal row they agree whenever the
+      online choice is among the target network's maximizing actions, including ties. Changing the selector leaves
+      data collection, the loss and the optimizer step untouched.
+      Only one worked-example route counts toward the targets.
+
+  - id: D06-B
+    kind: math
+    alt: {choice: 'worked example', option: B}
+    title: 'Alt B · Which network selects the successor action?'
+    body_box: [0.244, 1.0, 12.85, 2.7]
+    size: 20
+    body:
+      - {text: '**DQN**'}
+      - {eq: 'U_j=r_j+\gamma\max_a\hat{q}(s''_j,a,\mathbf{w}^-)'}
+      - {text: '**Double DQN**'}
+      - {eq: 'U_j=r_j+\gamma\hat{q}(s''_j,\arg\max_a\hat{q}(s''_j,a,\mathbf{w}),\mathbf{w}^-)'}
+      - {text: 'True termination: $U_j=r_j$ for both. $\gamma=0.9$; three actions.'}
+    tables:
+      - box: [0.244, 3.95, 12.85]
+        size: 18
+        row_h: 0.55
+        widths: [2.5, 3.0, 3.0, 1.6, 2.0]
+        header: ['Reward, termination', 'Online at successor', 'Target at successor', 'DQN', 'Double DQN']
+        rows:
+          - ['0, continuing', '(1.0, 2.0, 1.5)', '(1.2, 1.4, 1.8)', '', '']
+          - ['+1, continuing', '(0.5, 0.2, 0.1)', '(0.9, 0.3, 0.4)', '', '']
+          - ['−1, terminal', '(3, 1, 2)', '(2, 5, 1)', '', '']
+      - box: [0.244, 3.95, 12.85]
+        size: 18
+        row_h: 0.55
+        widths: [2.5, 3.0, 3.0, 1.6, 2.0]
+        header: ['Reward, termination', 'Online at successor', 'Target at successor', 'DQN', 'Double DQN']
+        rows:
+          - ['0, continuing', '(1.0, 2.0, 1.5)', '(1.2, 1.4, 1.8)', '1.62', '1.26']
+          - ['+1, continuing', '(0.5, 0.2, 0.1)', '(0.9, 0.3, 0.4)', '', '']
+          - ['−1, terminal', '(3, 1, 2)', '(2, 5, 1)', '', '']
+    reveal: ['yaml:tables.1']
+    minutes: 4
+    sources: ['Claude proposal B05–B07 (one table, revised by reviews R03–R04)', 'old Deep QL PPTX 16–18', 'check_deep_q_learning_claude.py §5']
+    notes: |
+      D06-B · Alt B, worked example (pairs with V09–V11-B). First read row one's two vectors as two separate estimates
+      at the same successor, then label them online and target. The online network favours action 2, the target
+      network action 3. DQN: 0.9 × 1.8 = 1.62. Double DQN: target output at action 2, 0.9 × 1.4 = 1.26. Reveal row one
+      only; the other rows are D07-B's test cases.
+      Double DQN reuses the delayed copy already present in DQN; online and target estimates can remain correlated, so
+      the bias is reduced, not removed.
+      Only one worked-example route counts toward the targets.
+
+  - id: D07-B
+    kind: math
+    alt: {choice: 'worked example', option: B}
+    title: 'Alt B · Write the patch and test the batch'
+    body_box: [0.244, 1.05, 12.85, 1.0]
+    size: 22
+    body:
+      - {text: '**Your turn:** rewrite the label step of the loop (V08) for Double DQN, then predict rows 2 and 3.'}
+    tables:
+      - box: [0.244, 2.0, 12.85]
+        size: 18
+        row_h: 0.55
+        widths: [2.5, 3.0, 3.0, 1.6, 2.0]
+        header: ['Reward, termination', 'Online at successor', 'Target at successor', 'DQN', 'Double DQN']
+        rows:
+          - ['0, continuing', '(1.0, 2.0, 1.5)', '(1.2, 1.4, 1.8)', '1.62', '1.26']
+          - ['+1, continuing', '(0.5, 0.2, 0.1)', '(0.9, 0.3, 0.4)', '1.81', '1.81']
+          - ['−1, terminal', '(3, 1, 2)', '(2, 5, 1)', '−1', '−1']
+    blocks:
+      - box: [0.244, 4.4, 12.85, 2.4]
+        size: 20
+        items:
+          - {text: '1. Start the labels as a copy of the rewards.'}
+          - {text: '2. On nonterminal rows: online argmax per row; read that column from the target outputs; add $\gamma$ times it.'}
+          - {text: '3. Detach the labels; the loss is unchanged.'}
+    reveal: ['yaml:tables.0', 'yaml:blocks.0']
+    minutes: 4
+    sources: ['Claude proposal B07', 'A2 task 4 (Double DQN switch)', 'check_deep_q_learning_claude.py §5']
+    notes: |
+      D07-B · Alt B. End of the 20-minute block: four minutes for students to write the patch and predict rows 2–3.
+      Row 2: both networks select action 1, so both labels are 1 + 0.9 × 0.9 = 1.81 (agreement). Row 3 is terminal: −1
+      for both. Check (1.26, 1.81, −1). With positive discount on a nonterminal row the targets agree whenever the
+      online choice is among the target network's maximizing actions, including ties. The Double DQN label is never
+      larger than DQN's, which takes the largest target output.
+      Only one worked-example route counts toward the targets.
+
+  - id: D08
+    kind: math
+    title: Design four learners
+    table_box: [1.6, 1.15, 10.1]
+    table:
+      size: 20
+      row_h: 0.7
+      widths: [3.0, 3.6, 3.5]
+      header: ['', 'Target network on', 'Target network off']
+      rows:
+        - ['Replay on', 'Full DQN', 'Replay only']
+        - ['Replay off', 'Target only', 'Neither']
+    body_box: [0.244, 3.4, 12.85, 2.0]
+    size: 20
+    body:
+      - 'Replay off: train on the latest contiguous minibatch.'
+      - 'Target off: bootstrap from the current online weights (detached).'
+    blocks:
+      - box: [0.244, 5.1, 12.85, 0.8]
+        size: 22
+        items:
+          - {text: '**Question:** which two cells isolate the target network when replay is on?'}
+      - box: [0.244, 5.9, 12.85, 0.9]
+        size: 22
+        items:
+          - {text: 'Full DQN and replay only.'}
+    reveal: ['yaml:blocks.1']
+    minutes: 4
+    sources: ['ChatGPT proposal slide 16', 'Mnih et al. 2015 Extended Data Table 3 (design)', 'review R06']
+    notes: |
+      D08. Start of the protected 15-minute block (D08–D10). This is a proposed classroom comparison. Hold everything
+      else fixed: interactions, batch size, optimizer steps, architecture, exploration, evaluation schedule and tuning
+      effort. The replay contrast changes several things at once: sample ages, grouping and reuse. Comparing full DQN
+      with "neither" answers a different question (the joint effect). D09 reports the historical study under its own
+      protocol, which is not this one.
+
+  - id: D09
+    kind: math
+    title: Does the same component help more in both games?
+    body_box: [0.244, 0.95, 12.85, 0.6]
+    size: 20
+    body:
+      - {text: '**Highest average evaluation episode score** (5 games, 10 million training frames per agent)'}
+    table_box: [0.244, 1.6, 12.85]
+    table:
+      size: 19
+      row_h: 0.55
+      widths: [2.9, 2.5, 2.5, 2.5, 2.4]
+      header: ['Game', 'Replay + target', 'Replay only', 'Target only', 'Neither']
+      rows:
+        - ['Breakout', '316.8', '240.7', '10.2', '3.2']
+        - ['Enduro', '1006.3', '831.4', '141.9', '29.1']
+        - ['River Raid', '7446.6', '4102.8', '2867.7', '1453.0']
+        - ['Seaquest', '2894.4', '822.6', '1003.0', '275.8']
+        - ['Space Invaders', '1088.9', '826.3', '373.2', '302.0']
+    drawing:
+      - {outline: [0.2, 2.13, 12.95, 0.6]}
+      - {outline: [0.2, 3.78, 12.95, 0.6]}
+    blocks:
+      - box: [0.244, 5.0, 12.85, 0.8]
+        size: 20
+        items:
+          - {text: '**Question:** holding the other switch fixed, which component gains more in Breakout? In Seaquest?'}
+      - box: [0.244, 5.75, 12.85, 1.1]
+        size: 20
+        items:
+          - 'Breakout: replay +306.6, target +76.1. Seaquest: replay +1891.4, target +2071.8. The ranking reverses.'
+    footnote: 'Mnih et al. (2015), Human-level control through deep reinforcement learning, Extended Data Table 3.'
+    reveal: ['yaml:blocks.1']
+    minutes: 6
+    sources: ['Mnih et al. 2015, Extended Data Table 3, PDF p. 12 (cells read from the paper, review K03)', 'CS234 L4 p. 76, Silver L6 p. 41 (local rounded copies)', 'check_deep_q_learning_claude.py §7']
+    notes: |
+      D09. Work through Breakout and Seaquest (outlined); keep the other three games visible. Compare one switch while
+      holding the other fixed: with targets on, adding replay gains 306.6 (Breakout) and 1891.4 (Seaquest); with
+      replay on, adding the target network gains 76.1 and 2071.8. Compare within each game: game scores use different
+      scales. The table has one number per cell: no per-seed spread and no learning curves.
+      From the paper's caption (review K03): these agents trained for 10 million frames, not the 50 million of the
+      main results, and their evaluation episodes were not truncated at 5 minutes, so Enduro scores are higher than in
+      the paper's main table. Do not compare D09's numbers with V01's results.
+
+  - id: D10
+    kind: math
+    title: What claim can this table support?
+    body_box: [0.244, 1.05, 12.85, 1.4]
+    size: 22
+    body:
+      - {text: '"Replay matters more than fixed targets." **Supported, unsupported, or needs a narrower claim?**'}
+    blocks:
+      - box: [0.244, 2.4, 12.85, 1.6]
+        size: 20
+        items:
+          - '**How the table was made:** three learning rates per cell; evaluation every 250,000 training frames for 135,000 frames; the highest average episode score is reported.'
+      - box: [0.244, 4.1, 12.85, 0.7]
+        size: 22
+        items:
+          - {text: '**Question:** what is missing, and what should a replication show?'}
+      - box: [0.244, 4.8, 12.85, 2.0]
+        size: 20
+        items:
+          - 'Separate evaluation episodes at matched checkpoints; individual seeds and their spread.'
+          - 'Interaction and optimizer budgets; comparable tuning effort.'
+          - 'One observation that separates two explanations.'
+    reveal: ['yaml:blocks.0', 'yaml:blocks.2']
+    minutes: 5
+    sources: ['Mnih et al. 2015, Extended Data Table 3 caption', 'Week 3 MTE1–MTE2 (narrower claims, budgets, fresh runs)', 'CS285 L8 p. 20 (seeds)', 'review R06, C07']
+    notes: |
+      D10. End of the 15-minute block. Verdict: a narrower claim (five games, one architecture, one budget, and the
+      ranking reverses in Seaquest). Reporting the best checkpoint after trying three learning rates is a maximum over
+      noisy estimates: D03's lesson again, so the reported scores are optimistic. CS285's advice: results are very
+      inconsistent between runs; run several seeds.
+      Observations that separate explanations: track the label of a fixed probe transition across copies to test for
+      a moving target; measure row ages and sample counts to test for reuse. A collapse in return has several possible
+      causes (step size, exploration, a bug); a symptom suggests a check, it does not prove a cause.
+
+  - id: D11
+    kind: math
+    title: Is the learner improving?
+    tables:
+      - box: [0.244, 1.1, 12.85]
+        size: 19
+        row_h: 0.6
+        widths: [7.0, 5.85]
+        header: ['Question', 'Measurement']
+        rows:
+          - ['How does the greedy policy perform on fresh episodes?', '']
+          - ['What is the learner earning as it explores?', '']
+          - ['How do its predictions change on the same states?', '']
+          - ['How well does it fit today''s labels?', '']
+      - box: [0.244, 1.1, 12.85]
+        size: 19
+        row_h: 0.6
+        widths: [7.0, 5.85]
+        header: ['Question', 'Measurement']
+        rows:
+          - ['How does the greedy policy perform on fresh episodes?', 'Evaluation return']
+          - ['What is the learner earning as it explores?', 'Training return']
+          - ['How do its predictions change on the same states?', 'Mean max predicted value on a fixed probe set']
+          - ['How well does it fit today''s labels?', 'Minibatch TD loss']
+    blocks:
+      - box: [0.244, 4.5, 12.85, 0.8]
+        size: 22
+        items:
+          - {text: '**Question:** how would you test for overestimation directly?'}
+      - box: [0.244, 5.3, 12.85, 1.5]
+        size: 20
+        items:
+          - 'Compare predictions with discounted returns actually obtained from the same states, by the same policy, with the same reward and discount (as on D01).'
+    reveal: ['yaml:tables.1', 'yaml:blocks.1']
+    minutes: 6
+    sources: ['Mnih et al. 2013, Fig. 2 (average predicted Q on a fixed set of states, https://arxiv.org/abs/1312.5602)', 'van Hasselt et al. 2016, Fig. 3', 'Week 5 G13', 'CS285 L8 pp. 15–16, 19']
+    notes: |
+      D11. Students choose a measurement for each question before the reveal. The 2013 preprint's probe set was
+      collected by a random policy before training, and the average of the maximum predicted Q on it rises much more
+      smoothly than episode reward: a drift and smoothness diagnostic, not a calibration check. Raw game score and a
+      clipped discounted return have different units, so they cannot be compared directly. The TD loss is measured
+      against labels that move and a changing data mix, so it need not fall while the agent improves; a low loss can
+      accompany poor control. Rising predictions with flat evaluation return suggest overestimation or instability
+      (Week 5 G13's weights-versus-error diagnosis, now for a network).
+
+  - id: D12
+    kind: math
+    title: Choose a check for the suspected bug
+    tables:
+      - box: [0.244, 1.1, 12.85]
+        size: 19
+        row_h: 0.65
+        widths: [6.2, 6.65]
+        header: ['Suspected bug', 'Check']
+        rows:
+          - ['A terminal label varies with the successor''s outputs', '']
+          - ['Gradient flows through the bootstrap', '']
+          - ['The copy happens too early, or never', '']
+          - ['Only recent data reach the minibatch', '']
+      - box: [0.244, 1.1, 12.85]
+        size: 19
+        row_h: 0.65
+        widths: [6.2, 6.65]
+        header: ['Suspected bug', 'Check']
+        rows:
+          - ['A terminal label varies with the successor''s outputs', 'Fixed terminal-row test with supplied outputs']
+          - ['Gradient flows through the bootstrap', 'Inspect the label''s gradient path']
+          - ['The copy happens too early, or never', 'Compare target weights across an ordinary step and a scheduled copy']
+          - ['Only recent data reach the minibatch', 'Inspect sampled indices over repeated draws']
+    reveal: ['yaml:tables.1']
+    minutes: 3
+    sources: ['review R05 (four checks)', 'A2 tasks 2 and 4 (hooks)', 'CS285 L8 p. 19 (test on easy tasks first)']
+    notes: |
+      D12. Students predict the check before the reveal. A correct numerical label can still carry a gradient path, so
+      a fixed-output test alone does not catch the second bug. These are the four places A2's hooks can go wrong:
+      terminal mask, detached target, copy schedule, uniform sampling. CS285: test on an easy, reliable task first.
+
+  - id: D13
+    kind: math
+    title: From choosing an action to learning a policy
+    body_box: [0.244, 1.1, 12.85, 2.4]
+    size: 22
+    body:
+      - 'What batch distinguishes DQN from Double DQN?'
+      - 'How would you select an action when the network can no longer list the choices?'
+    blocks:
+      - box: [0.244, 3.5, 12.85, 2.2]
+        size: 20
+        items:
+          - 'A nonterminal row where the online choice has a strictly smaller target value than the target maximum, plus a terminal row as a control.'
+          - 'Week 7: parameterize the policy directly.'
+    reveal: ['yaml:blocks.0']
+    minutes: 3
+    sources: ['old Deep QL PPTX 22–23 (summary; continuous actions)', 'deep_q_learning D7 (extension pointer in the notes)']
+    notes: |
+      D13. Exit questions. The first rehearses A2's check: with positive discount, the two targets differ only on such a
+      row. The second leads to Week 7: a max over a continuous action set is itself an optimization problem.
+      A2 release instructions are given asynchronously (Fall 2026 timing).
+      Pointer (D7): the hidden appendix links fitted and asynchronous Q-learning, prioritized replay, dueling networks,
+      multi-step and distributional targets, noisy networks, and their combination in Rainbow. End of 6.2.
+
+  - id: H01
+    kind: math
+    appendix: true
+    hidden: true
+    title: 'Appendix · Fitting Q from a batch, and parallel actors'
+    body_box: [0.244, 1.1, 12.85, 5.6]
+    size: 20
+    body:
+      - 'Neural fitted Q-iteration: recompute bootstrap labels on a stored transition set and fit a neural regressor to them. [Riedmiller 2005](https://www.machine-learning-lab.com/_media/publications/rieecml05.pdf)'
+      - 'Tree-based fitted Q-iteration: fit successive regression targets on stored transitions with tree-based approximators. [Ernst, Geurts & Wehenkel 2005](https://www.jmlr.org/papers/v6/ernst05a.html)'
+      - 'Asynchronous one-step and n-step Q-learning: parallel actor-learners update shared parameters from their own trajectories. [Mnih et al. 2016](https://arxiv.org/abs/1602.01783)'
+    minutes: 0
+    sources: ['old Deep QL PPTX 6–8 (parallel Q-learning, fitted Q-iteration)', 'deep_q_learning D7']
+    notes: |
+      H01. Hidden appendix (D7): methods the course does not cover. No live time, no assigned reading, no assessment.
+      Links as given in the shared content; not opened by Claude at render.
+
+  - id: H02
+    kind: math
+    appendix: true
+    hidden: true
+    title: 'Appendix · Changing replay, outputs and targets'
+    body_box: [0.244, 1.1, 12.85, 5.6]
+    size: 20
+    body:
+      - 'Prioritized replay: sample transitions with different probabilities, often by TD-error magnitude. [Schaul et al. 2016](https://arxiv.org/abs/1511.05952)'
+      - 'Dueling networks: combine a state-value stream and an action-advantage stream into action values. [Wang et al. 2016](https://arxiv.org/abs/1511.06581)'
+      - 'Multi-step deep Q-learning: accumulate several rewards before bootstrapping; part of Rainbow. [Hessel et al. 2018](https://arxiv.org/abs/1710.02298)'
+    minutes: 0
+    sources: ['old Deep QL PPTX 19–21 and 23 (prioritized replay, dueling, what is left)', 'deep_q_learning D7']
+    notes: |
+      H02. Hidden appendix (D7). Prioritized replay corrects its sampling bias with importance weights, which the
+      course introduces in Week 8. Links as given in the shared content; not opened by Claude at render.
+
+  - id: H03
+    kind: math
+    appendix: true
+    hidden: true
+    title: 'Appendix · Distributions, exploration and combinations'
+    body_box: [0.244, 1.1, 12.85, 5.6]
+    size: 20
+    body:
+      - 'C51: approximate the distribution of discounted returns on a fixed categorical support. [Bellemare, Dabney & Munos 2017](https://arxiv.org/abs/1707.06887)'
+      - 'Noisy networks: learn the scale of parameter noise used for exploration. [Fortunato et al. 2018](https://arxiv.org/abs/1706.10295)'
+      - 'Rainbow: combines Double DQN, prioritized replay, dueling networks, multi-step targets, distributional learning and noisy networks, with component ablations. [Hessel et al. 2018](https://arxiv.org/abs/1710.02298)'
+    minutes: 0
+    sources: ['old Deep QL PPTX 23 (Rainbow pointer)', 'deep_q_learning D7']
+    notes: |
+      H03. Hidden appendix (D7). Links as given in the shared content; not opened by Claude at render.

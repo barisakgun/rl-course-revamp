@@ -27,6 +27,7 @@ from pptx.oxml.ns import qn
 ROOT = Path(__file__).resolve().parent.parent
 R_NS = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships'
 RT_IMAGE = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/image'
+RT_HYPERLINK = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink'
 
 
 def sha(path):
@@ -60,6 +61,8 @@ def append(deck, cand, only=None, after=None):
             if rel.reltype == RT_IMAGE:
                 _, new = ns.part.get_or_add_image_part(io.BytesIO(rel.target_part.blob))
                 remap[rid] = new
+            elif rel.reltype == RT_HYPERLINK and rel.is_external:     # e.g. paper links in an appendix
+                remap[rid] = ns.part.relate_to(rel.target_ref, RT_HYPERLINK, is_external=True)
             elif rel.reltype.split('/')[-1] not in ('slideLayout', 'notesSlide'):
                 raise SystemExit(f'unsupported relationship {rel.reltype} on candidate slide {cs.slide_id}')
         for el in list(cs.shapes._spTree)[2:]:

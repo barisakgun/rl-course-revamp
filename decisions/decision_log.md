@@ -1,5 +1,22 @@
 # Decision Log
 
+## 2026-11-19 — Week 6 deck (`deep_q_learning`) done
+
+- Authority: instructor ("Accept the deck"), recorded as [deep_q_learning D18](lectures/deep_q_learning.md). Accepted deck SHA-256 `1ec0df827bae0d5c7c9ffb75291422d29bd7c1cd72a0b1586bd50a34da2d2b8b`, 46 slides (39 visible). Slide targets: 6.1 = 57 and 6.2 = 58 minutes, within the delivery allowance; planning allocations unchanged. No scope, mastery or assessment change beyond the 2026-11-18 entry.
+
+## 2026-11-18 — Week 6 deck (`deep_q_learning`): extensions overview slide in 6.2
+
+- Authority: instructor ("It conflicts with previous decisions but I think it is a good addition to direct the students. Also better for completeness. I can spare 3 minutes for that. I will not include that in the exam."), recorded as [deep_q_learning D17](lectures/deep_q_learning.md).
+- Changes the accepted `dqn_diagnosis` feasibility note in `decisions/topic_decisions.yaml` ("Rainbow and extension catalog removed") and deck decision D7 (uncovered methods only in a notes line and a hidden appendix): 6.2 ends with a 3-minute overview slide D13a (Double DQN, n-step, prioritized replay, dueling, noisy networks, C51, Rainbow). Exposure only; not assessed in the exam. The appendix H01–H03 stays in the deck for the PDF and is not taught.
+- Time: 6.2 slide targets 58 minutes (allocation 55; delivery allowance 63). Displaced: nothing in the protected blocks; D12 gains a row (3 → 4) and D13 loses one question (3 → 2). Teaching allocation in `topic_decisions.yaml` unchanged.
+- Prerequisites: none new (the slide names methods; prioritized replay's sampling correction is not named before Week 8).
+
+## 2026-11-16 — Week 6 deck (`deep_q_learning`): instructor choices after the cross-review
+
+- Authority: instructor, recorded as [deep_q_learning D1–D12](lectures/deep_q_learning.md). One deck; the worked example (two-row minibatch or corridor) and the replay motivation (pictures or mixing toy) go in as marked alternates; the Week 5 fragment demonstrates the target network; 6.2 opens with the Double DQN paper's figure; old slides 22 and 14 become a 1-minute slide; uncovered methods go to one notes line and a hidden appendix with paper links; the published Atari ablation table is used, with cells from Mnih et al. (2015); slide targets up to 63 minutes per session.
+- Notation approved for now and added to `course/notation_guide.md` (D9; O5 partly resolved: τ for the Polyak rate).
+- Next: ChatGPT checks the record and writes the first-render content. No scope, mastery, assessment or allocation change.
+
 ## 2026-11-15 — Week 5 deck (`function_approximation`) done
 
 - Authority: instructor ("I accept the deck"), recorded as [function_approximation D20](lectures/function_approximation.md). Accepted deck SHA-256 `72837e0a8984d400f2a3738d5aaa0c967416ecb94bbdfba61aa204fdf1c834b3`, 50 slides (40 visible). Slide targets: 5.1 = 60 and 5.2 = 62.5 minutes, within the delivery allowance; planning allocations unchanged. No scope, mastery or assessment change.
