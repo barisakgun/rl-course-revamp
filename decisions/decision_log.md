@@ -1,5 +1,20 @@
 # Decision Log
 
+## 2026-11-23 — Week 7 deck (`policy_gradients`): instructor choices after the cross-review
+
+- Authority: instructor's answers to Q1, Q3–Q8 (Q8 in part) and Q10, recorded as [policy_gradients D5–D12](lectures/policy_gradients.md); a second answer the same day added D13–D15 (2-minute Gaussian score, puck world kept with class time, one deck for 7.1–7.2 with a later merge of 8.1 possible). D16: pendulum in 7.1 and puck world in 7.2; slide targets estimated at 63 and 58 + 5 administrative minutes, allocations unchanged. D17: puck world is shown with its published discrete actions, then redesigned for a two-axis force.
+- D9 changes the `policy_history` scope in `decisions/topic_decisions.yaml` once more: the CEM steps may also appear on slides for later recognition. Evidence: old Policy Space Methods 17–20. Role, mastery and the 10 minutes are unchanged; no displacement, prerequisite or assessment consequence recorded. Dependent views regenerated.
+- D18 (after the first render): D03's wording changed; the explanation of dropping γ^t is kept in `analysis/ideas_backlog.md` for later offerings. No scope, time or assessment change.
+- D6 adds 2 minutes of motivation to 7.1's slide targets within the 63-minute delivery allowance; the 59-minute planning allocation is unchanged.
+
+## 2026-11-21 — Week 7 deck (`policy_gradients`): instructor choices before the cross-review
+
+- Authority: instructor's answers to Claude's initial suggestion (E6, E8, E12, paper checks), recorded as [policy_gradients D1–D4](lectures/policy_gradients.md).
+- D1: the estimator keeps the discount (γ^t); a slide note says most code drops it, with slides on why that is acceptable.
+- D2 changes the accepted `policy_history` scope in `decisions/topic_decisions.yaml` from "No mathematics or algorithms" to: the finite-difference formula may appear on slides for later recognition; no other mathematics or algorithms. Why: students should remember the methods exist when they revisit the slides. Mastery (recognize), role (exposure) and the 10-minute allocation are unchanged; nothing is displaced. (Corrected 2026-11-23 before commit: an earlier draft of this entry also listed the CEM steps, then still an open question; see D9, 2026-11-23.) Regenerated the dependent views (`analysis/phase3_plan.md`, `analysis/time_budget.md`, `output/lecture_plan.md`, `output/topic_details.md`, session source index); the regeneration also brought two views up to date with the 2026-11-18 `dqn_diagnosis` feasibility note.
+- D3: notation for Week 7 added to `course/notation_guide.md` (log; τ for an episode and μ(s, **θ**) for the Gaussian mean, each with a slide note on its other meaning; h, ĝ, α_**θ**/α_**w**, A^π(s, a), ℛ(a)).
+- D4: unverified paper facts stay marked; reminder to the instructor after the first render.
+
 ## 2026-11-19 — Week 6 deck (`deep_q_learning`) done
 
 - Authority: instructor ("Accept the deck"), recorded as [deep_q_learning D18](lectures/deep_q_learning.md). Accepted deck SHA-256 `1ec0df827bae0d5c7c9ffb75291422d29bd7c1cd72a0b1586bd50a34da2d2b8b`, 46 slides (39 visible). Slide targets: 6.1 = 57 and 6.2 = 58 minutes, within the delivery allowance; planning allocations unchanged. No scope, mastery or assessment change beyond the 2026-11-18 entry.

@@ -1,0 +1,525 @@
+# Week 7 deck `policy_gradients`, session 7.2 portion (B00–B10, ADM): Claude's renderer input.
+# First draft: renderer input for the first render of this deck only (2026-11-23). Not maintained: the PPTX is the
+# source from that render on. Do not rebuild over the deck or treat this file as its current content.
+# The slides built from this file are appended after D08 of course/lectures/week07/policy_gradients_claude.pptx.
+# Status: decisions/lectures/policy_gradients.md. Content: course/lectures/week07/policy_gradients_content.md (shared,
+# frozen at this render; slide IDs as there; B00 is the section divider for "show the session boundary at B01").
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week07/policy_gradients_baseline_claude.yaml
+# Then:   python3 scripts/append_slides_claude.py <deck> <candidate>
+# Time: accepted allocation 54 + 5 administrative; targets 58 (D16). ADM carries the 5 administrative minutes (target 0).
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week07/policy_gradients_baseline_claude.pptx
+  preview: output/lectures/week07/policy_gradients_baseline_claude_preview.png
+  session_id: baseline
+  qa_minutes: 0
+  time_override:
+    accepted_minutes: 58
+    authority: 'policy_gradients D14, D16: 7.2 targets 58 with puck world, under the 63-minute delivery allowance'
+  title: Policy gradients (session 7.2 portion)
+  author: Barış Akgün
+  term: Fall 2026
+
+old: &old sources/current_course/7 - Policy Space Methods.pptx
+
+fork: &fork
+  - {box: [0.35, 2.45, 1.15, 0.6], text: 'Start', size: 18}
+  - {box: [2.95, 1.35, 1.15, 0.6], text: 'Upper', size: 18}
+  - {box: [2.95, 3.6, 1.15, 0.6], text: 'Lower', size: 18}
+  - {line: [1.5, 2.6, 2.95, 1.75], arrow: true, color: 'C00000', weight: 2}
+  - {line: [1.5, 2.9, 2.95, 3.8], arrow: true, color: '2F5597', weight: 2}
+  - {line: [4.1, 1.55, 5.75, 1.2], arrow: true, color: 'C00000', weight: 2}
+  - {line: [4.1, 1.75, 5.75, 2.2], arrow: true, color: '2F5597', weight: 2}
+  - {line: [4.1, 3.8, 5.75, 3.4], arrow: true, color: 'C00000', weight: 2}
+  - {line: [4.1, 4.0, 5.75, 4.4], arrow: true, color: '2F5597', weight: 2}
+  - {circle: [5.88, 1.2, 0.2], filled: true}
+  - {circle: [5.88, 2.2, 0.2], filled: true}
+  - {circle: [5.88, 3.4, 0.2], filled: true}
+  - {circle: [5.88, 4.4, 0.2], filled: true}
+  - {label: 'right: 2', box: [1.2, 1.78, 1.2, 0.32], size: 16}
+  - {label: 'left: 2', box: [1.2, 3.5, 1.2, 0.32], size: 16}
+  - {label: 'right: 4', box: [4.3, 0.98, 1.2, 0.32], size: 16}
+  - {label: 'left: 2', box: [4.3, 2.12, 1.2, 0.32], size: 16}
+  - {label: 'right: 2', box: [4.3, 3.2, 1.2, 0.32], size: 16}
+  - {label: 'left: 0', box: [4.3, 4.32, 1.2, 0.32], size: 16}
+
+
+slides:
+  - id: B00
+    kind: section
+    title: 7.2 — Sampled gradients, baselines and critic motivation
+    subtitle: Which way does one episode move the policy?
+    minutes: 0
+    sources: ['section opener (as function_approximation G00)']
+    notes: |
+      B00. Session boundary. Open on B01's calculation.
+
+  - id: B01
+    kind: math
+    title: Which way does one episode move the policy?
+    drawing:
+      - *fork
+    tables:
+      - box: [6.5, 1.2, 6.6]
+        size: 18
+        row_h: 0.55
+        widths: [0.7, 1.3, 1.0, 1.1, 0.9, 1.9]
+        header: ['$t$', 'Action', '$G_t$', 'Score', '$\gamma^t$', 'Contribution']
+        rows:
+          - ['0', 'Right', '', '', '', '']
+          - ['1', 'Left', '', '', '', '']
+      - box: [6.5, 1.2, 6.6]
+        size: 18
+        row_h: 0.55
+        widths: [0.7, 1.3, 1.0, 1.1, 0.9, 1.9]
+        header: ['$t$', 'Action', '$G_t$', 'Score', '$\gamma^t$', 'Contribution']
+        rows:
+          - ['0', 'Right', '3', '', '', '']
+          - ['1', 'Left', '2', '', '', '']
+      - box: [6.5, 1.2, 6.6]
+        size: 18
+        row_h: 0.55
+        widths: [0.7, 1.3, 1.0, 1.1, 0.9, 1.9]
+        header: ['$t$', 'Action', '$G_t$', 'Score', '$\gamma^t$', 'Contribution']
+        rows:
+          - ['0', 'Right', '3', '+½', '1', '']
+          - ['1', 'Left', '2', '−½', '½', '']
+      - box: [6.5, 1.2, 6.6]
+        size: 18
+        row_h: 0.55
+        widths: [0.7, 1.3, 1.0, 1.1, 0.9, 1.9]
+        header: ['$t$', 'Action', '$G_t$', 'Score', '$\gamma^t$', 'Contribution']
+        rows:
+          - ['0', 'Right', '3', '+½', '1', '+1.5']
+          - ['1', 'Left', '2', '−½', '½', '−0.5']
+    body_box: [6.5, 3.1, 6.6, 1.2]
+    size: 20
+    eq_size: 22
+    body:
+      - {text: 'Start → **right** → upper → **left** → terminal'}
+      - {eq: '\theta=0,\quad\gamma=\frac{1}{2},\quad\alpha_{\boldsymbol{\theta}}=0.1'}
+    blocks:
+      - box: [0.4, 4.85, 12.6, 0.6]
+        size: 20
+        items:
+          - {text: '**Compute** both returns, both score-weighted terms, the update, and the change in the probability of right.'}
+      - box: [0.4, 5.55, 12.6, 0.6]
+        size: 22
+        items:
+          - {text: '$\hat{g}=1,\quad\theta\leftarrow0+0.1(1)=0.1$: right becomes more likely.'}
+      - box: [0.4, 6.1, 8.6, 0.6]
+        size: 20
+        items:
+          - {text: 'What would the full return for both actions give on this same episode?'}
+      - box: [9.2, 6.1, 3.9, 0.6]
+        size: 22
+        items:
+          - {text: '$3(+\frac{1}{2}-\frac{1}{2})=0$'}
+    reveal: ['yaml:tables.1', 'yaml:tables.2', 'yaml:tables.3', 'yaml:blocks.1', 'yaml:blocks.2', 'yaml:blocks.3']
+    minutes: 8
+    sources: ['constructed (check_policy_gradients_claude.py §9)', 'book §14.3 printed 357–358 / PDF 379–380', 'D08']
+    notes: |
+      B01. Protected eight minutes. Give students time to work before revealing the answer. Right becomes more likely (about
+      0.525). Full-return and reward-to-go estimators both average 0.5 here over fresh episodes. Using reward-to-go with the
+      outer discount omitted gives 0.5 on this episode; γ = 1 gives 1. D06's 0.5/0.75/1.0 were expectations. First psychology
+      cue: Thorndike's law of effect connects consequences with changes in the tendency to repeat an action. Here the two
+      sampled terms pull the same parameter in opposite directions.
+
+  - id: B02a
+    kind: math
+    title: How does the puck choose its thrust?
+    pictures:
+      - {deck: *old, slide: 43, shape: 'Picture 3', box: [0.5, 1.15, 5.6], crop: [0.008, 0.1, 0.548, 0.39]}
+    body_box: [6.6, 1.2, 6.5, 1.1]
+    size: 22
+    body:
+      - 'Target changes'
+      - 'Reward at each decision = −distance to target'
+    drawing:
+      - {box: [6.6, 2.6, 2.7, 1.2], text: 'Puck position, velocity, target displacement', size: 18}
+      - {line: [9.3, 3.2, 9.7, 3.2], arrow: true, weight: 2}
+      - {box: [9.7, 2.6, 1.6, 1.2], text: 'Four softmax probabilities', size: 18, tint: true}
+      - {line: [11.3, 3.2, 11.7, 3.2], arrow: true, weight: 2}
+      - {box: [11.7, 2.6, 1.45, 1.2], text: 'Sample one thrust command', size: 18}
+    blocks:
+      - box: [0.5, 5.2, 12.5, 0.6]
+        size: 22
+        items:
+          - {text: '**Question:** how would you change the output for freely adjustable horizontal and vertical force?'}
+      - box: [0.5, 5.9, 12.5, 0.6]
+        size: 22
+        items:
+          - {text: 'Output a mean force on each axis and sample a two-component force.'}
+    footnote: 'Baxter, Bartlett and Weaver (2001), Fig. 11, via Silver, lecture 7.'
+    reveal: ['yaml:blocks.1']
+    minutes: 2
+    sources: ['old P43 (illustration cropped; "continuous actions" text removed)', 'Baxter, Bartlett and Weaver 2001, §§5.2.1–5.2.2 and Fig. 11, pp. 368–371 (arXiv 1106.0666)', 'policy_gradients D14, D16, D17; review R07']
+    notes: |
+      B02a. This question redesigns the action interface. The published controller selected among four fixed thrust commands,
+      and could change its command every 0.1 simulated seconds. Its six inputs are two position coordinates, two velocity
+      components and two target-offset components. Training reset puck position, velocity and target location every 30
+      simulated seconds in a continuing task. The illustrated trajectory retained the puck position at resets. A full
+      simulator state includes the phase of that reset clock. For the redesign, two Gaussian means and chosen positive spreads
+      suffice for independent components. Connect to the pendulum, without deriving a multivariate score.
+
+  - id: B02b
+    kind: math
+    title: How much experience did improvement take?
+    pictures:
+      - {file: course/lectures/week07/assets/baxter2001_fig9_claude.png, box: [0.4, 1.05, 7.4]}
+    body_box: [8.1, 1.4, 5.0, 1.8]
+    size: 22
+    body:
+      - {text: '96 of 100 training runs in this mean; four other runs appear in Fig. 10.'}
+    blocks:
+      - box: [8.1, 3.2, 5.0, 1.0]
+        size: 22
+        items:
+          - {text: '**What does the horizontal axis count?**'}
+      - box: [8.1, 4.1, 5.0, 1.4]
+        size: 22
+        items:
+          - {text: '**How would we measure variability in a** *gradient* **estimate?**'}
+    footnote: 'Baxter, Bartlett and Weaver (2001), Fig. 9, p. 370.'
+    minutes: 2
+    sources: ['Baxter, Bartlett and Weaver 2001, Fig. 9, p. 370 (arXiv 1106.0666; crop of the paper page)', 'policy_gradients D14; review R08, C19']
+    notes: |
+      B02b. Average reward is plotted against simulated puck-world iterations. The curve improves substantially and extends
+      past 10^8 iterations. Training used CONJPOMDP with GPOMDP gradient estimates (one million simulated steps per estimate,
+      p. 369). The paper evaluated performance over one million simulated iterations and reported four poorer runs separately,
+      omitted "because they gave misleadingly large error bars" (p. 369). It does not specify the Fig. 9 bar formula. This
+      plot measures performance and the amount of experience used; high gradient variance is a possible contributor to
+      training difficulty. To measure gradient variance, freeze a policy, collect independent samples and examine the spread
+      of their gradients. Do this next on the fork.
+
+  - id: B03
+    kind: math
+    title: Better than what the policy usually gets?
+    table_box: [2.0, 1.2, 9.3]
+    table:
+      size: 22
+      row_h: 0.65
+      widths: [2.6, 2.2, 1.8, 2.7]
+      header: ['Upper action', 'Probability', 'Score', 'Reward × score']
+      rows:
+        - ['Right (reward 4)', '½', '+½', '2']
+        - ['Left (reward 2)', '½', '−½', '−1']
+    blocks:
+      - box: [0.6, 3.5, 12.1, 0.7]
+        size: 24
+        items:
+          - {text: '**Question:** after a left action earns 2, should left become more likely at this state?'}
+      - box: [0.6, 4.4, 12.1, 0.7]
+        size: 24
+        items:
+          - {text: 'Usual return here: ½(4) + ½(2) = **3**.'}
+      - box: [0.6, 5.2, 12.1, 1.3]
+        size: 24
+        items:
+          - 'Right: +1 above expectation'
+          - 'Left: −1 below expectation'
+    reveal: ['yaml:blocks.1', 'yaml:blocks.2']
+    minutes: 4
+    sources: ['D02b table', 'ChatGPT proposal']
+    notes: |
+      B03. The categorical action draw produces different sample gradients at exactly the same policy. Centering changes the
+      sign of the weight for the worse action. Ask whether altering both sample weights has also changed their mean gradient.
+      Let B04 establish the general result before B05 checks the spread.
+
+  - id: B04
+    kind: math
+    title: Why subtracting a state baseline works
+    body_box: [0.6, 1.15, 12.1, 1.0]
+    size: 24
+    eq_size: 25
+    body:
+      - {eq: '\mathbb{E}_{\pi}\left[b(s)\nabla\log\ \pi(A_t\mid s,\boldsymbol{\theta})\mid S_t=s\right]=b(s)\sum_a\pi(a\mid s,\boldsymbol{\theta})\nabla\log\ \pi(a\mid s,\boldsymbol{\theta})'}
+    blocks:
+      - box: [0.6, 2.4, 12.1, 1.1]
+        size: 24
+        eq_size: 25
+        items:
+          - {eq: '=b(s)\nabla\sum_a\pi(a\mid s,\boldsymbol{\theta})=0'}
+      - box: [0.6, 3.8, 12.1, 0.7]
+        size: 24
+        items:
+          - {text: '**Question:** which step needs the baseline to be independent of the action?'}
+      - box: [0.6, 4.7, 12.1, 1.5]
+        size: 24
+        eq_size: 28
+        items:
+          - {eq: '\hat{g}=\sum_{t=0}^{T-1}\gamma^t\left[G_t-b(S_t)\right]\nabla\log\ \pi(A_t\mid S_t,\boldsymbol{\theta})'}
+    reveal: ['yaml:blocks.0', 'yaml:blocks.2']
+    minutes: 7
+    sources: ['old P44 (baseline identity, conditional form)', 'book eq. 13.10 printed 329 / PDF 351', 'CS234 L6 p. 12']
+    notes: |
+      B04. Start at the state, average over its actions, then average over visited states. The outer time weight preserves the
+      cancellation. A random baseline fixed from prior data works by conditioning on that data. Ask what happens at the upper
+      state if we subtract the chosen action's own deterministic reward: every update becomes zero. In this unit b(s) is the
+      baseline; b(a | s) previously denoted behavior policy.
+
+  - id: B05
+    kind: math
+    title: Same expected update, different spread
+    tables:
+      - box: [0.5, 1.2, 12.3]
+        size: 20
+        row_h: 0.68
+        widths: [2.6, 1.4, 2.3, 2.8, 3.0]
+        header: ['Upper action', 'Score', '$G_t$ × score', '($G_t$ − 3) × score', '($G_t$ − 10) × score']
+        rows:
+          - ['Right, reward 4', '+½', '2', '', '']
+          - ['Left, reward 2', '−½', '−1', '', '']
+          - ['Mean', '', '', '', '']
+          - ['Variance', '', '', '', '']
+      - box: [0.5, 1.2, 12.3]
+        size: 20
+        row_h: 0.68
+        widths: [2.6, 1.4, 2.3, 2.8, 3.0]
+        header: ['Upper action', 'Score', '$G_t$ × score', '($G_t$ − 3) × score', '($G_t$ − 10) × score']
+        rows:
+          - ['Right, reward 4', '+½', '2', '0.5', '']
+          - ['Left, reward 2', '−½', '−1', '0.5', '']
+          - ['Mean', '', '', '', '']
+          - ['Variance', '', '', '', '']
+      - box: [0.5, 1.2, 12.3]
+        size: 20
+        row_h: 0.68
+        widths: [2.6, 1.4, 2.3, 2.8, 3.0]
+        header: ['Upper action', 'Score', '$G_t$ × score', '($G_t$ − 3) × score', '($G_t$ − 10) × score']
+        rows:
+          - ['Right, reward 4', '+½', '2', '0.5', '']
+          - ['Left, reward 2', '−½', '−1', '0.5', '']
+          - ['Mean', '', '0.5', '0.5', '']
+          - ['Variance', '', '2.25', '0', '']
+      - box: [0.5, 1.2, 12.3]
+        size: 20
+        row_h: 0.68
+        widths: [2.6, 1.4, 2.3, 2.8, 3.0]
+        header: ['Upper action', 'Score', '$G_t$ × score', '($G_t$ − 3) × score', '($G_t$ − 10) × score']
+        rows:
+          - ['Right, reward 4', '+½', '2', '0.5', '−3']
+          - ['Left, reward 2', '−½', '−1', '0.5', '4']
+          - ['Mean', '', '0.5', '0.5', '0.5']
+          - ['Variance', '', '2.25', '0', '12.25']
+    blocks:
+      - box: [0.5, 5.0, 12.3, 0.6]
+        size: 22
+        items:
+          - {text: 'Upper state, $\theta=0$. Fill in the baseline-3 column, then the means and variances.'}
+      - box: [0.5, 5.7, 12.3, 0.6]
+        size: 22
+        items:
+          - {text: '**Question:** does a larger baseline help?'}
+    reveal: ['yaml:tables.1', 'yaml:tables.2', 'yaml:blocks.1', 'yaml:tables.3']
+    minutes: 7
+    sources: ['constructed (recomputed in review, 2026-11-21)', 'D02b table']
+    notes: |
+      B05. All entries are local score contributions before the common outer time weight. Reveal the baseline-10 column after
+      asking whether a larger baseline helps. Compute the variance by weighting squared deviations from 0.5 equally. Zero
+      spread here concerns one component at one state, with deterministic final rewards and equal action probabilities. It
+      need not occur over complete episodes or make the exact state value the minimum-variance baseline in general.
+
+  - id: B06
+    kind: math
+    title: What would count as faster learning?
+    pictures:
+      - {file: course/lectures/week07/assets/sutton_barto_fig13_2_claude.png, box: [0.4, 1.0, 8.6]}
+    blocks:
+      - box: [9.2, 1.4, 3.9, 1.8]
+        size: 22
+        items:
+          - {text: '**At episode 400, what has been held equal across the curves?**'}
+      - box: [9.2, 3.2, 3.9, 2.2]
+        size: 22
+        items:
+          - {text: '**If our budget is environment interactions, what else should we count?**'}
+    footnote: 'Sutton and Barto, Fig. 13.2, p. 330.'
+    minutes: 4
+    sources: ['book Fig. 13.2 printed 330 / PDF 352 (crop)', 'policy_gradients D7; review R04']
+    notes: |
+      B06. The plot reports episode return averaged over 100 runs on the short corridor. It shows a learned value baseline can
+      accelerate learning in this example. The green baseline curve uses actor step size 2^-9 and value step size 2^-6. The
+      red plain REINFORCE curve uses 2^-13, its best setting among the powers of two compared for plain REINFORCE. The gray
+      horizontal line marks the optimal start value. Ask what these different step sizes allow us to conclude about the two
+      training procedures. Equal episode counts can entail different numbers of transitions. For A3, match environment
+      interactions, separate evaluation episodes from training, and examine seed-to-seed spread. The fixed-policy variance
+      measured in B05 and the training performance plotted here answer different questions.
+
+  - id: B07
+    kind: math
+    title: Advantage compares an action with the policy at that state
+    drawing:
+      - *fork
+    body_box: [6.4, 1.1, 6.7, 1.8]
+    size: 22
+    eq_size: 22
+    body:
+      - {eq: 'A^{\pi}(s,a)=q^{\pi}(s,a)-v^{\pi}(s)'}
+      - {eq: '\mathbb{E}_{\pi}[G_t-v^{\pi}(S_t)\mid S_t=s,A_t=a]=A^{\pi}(s,a)'}
+    blocks:
+      - box: [6.4, 3.0, 6.7, 1.0]
+        size: 22
+        eq_size: 22
+        items:
+          - {text: 'At $\theta=0$:  $v^{\pi}(\text{upper})=3,\quad v^{\pi}(\text{lower})=1$'}
+      - box: [0.4, 4.95, 12.6, 0.7]
+        size: 22
+        items:
+          - {text: '**Find** the start action values, the start value and the advantage of right.'}
+      - box: [0.4, 5.6, 12.6, 1.2]
+        size: 22
+        items:
+          - {text: '$q^{\pi}(\text{start},\text{right})=3.5,\quad q^{\pi}(\text{start},\text{left})=2.5,\quad v^{\pi}(\text{start})=3$'}
+          - {text: '$A^{\pi}(\text{start},\text{right})=+0.5$'}
+    reveal: ['yaml:blocks.0', 'yaml:blocks.2']
+    minutes: 6
+    sources: ['old P45 (advantage)', 'constructed (check_policy_gradients_claude.py §9)']
+    notes: |
+      B07. Start action values include the first reward 2 and half the expected final reward. The two exact advantages are
+      +0.5 and −0.5; their policy-weighted mean is zero. On B01's particular right–left episode the centered return at start
+      is 3 − 3 = 0. An action with positive advantage can produce this sample. Returning to D07a, the advantage can replace
+      the action value in the same discounted sum because the subtracted state value is a baseline.
+
+  - id: B08
+    kind: math
+    title: Learn the baseline and update the policy
+    drawing:
+      - {box: [0.5, 1.2, 5.9, 0.6], text: 'Value fit', size: 22}
+      - {box: [6.9, 1.2, 6.0, 0.6], text: 'Actor update', size: 22, tint: true}
+    blocks:
+      - box: [0.5, 2.0, 5.9, 2.8]
+        size: 22
+        eq_size: 24
+        items:
+          - {text: 'Freeze the current predictions for use in the actor weights.'}
+          - {text: 'Train $\hat{v}(s,\mathbf{w})$ by minimizing the mean of'}
+          - {eq: '\frac{1}{2}\left[G_t-\hat{v}(S_t,\mathbf{w})\right]^2'}
+      - box: [6.9, 2.0, 6.1, 2.8]
+        size: 22
+        eq_size: 22
+        items:
+          - {text: 'Use the frozen numbers in'}
+          - {eq: '\hat{A}_t=G_t-\hat{v}(S_t,\mathbf{w})'}
+          - {eq: '\boldsymbol{\theta}\leftarrow\boldsymbol{\theta}+\alpha_{\boldsymbol{\theta}}\sum_t\gamma^t\hat{A}_t\ \nabla_{\boldsymbol{\theta}}\log\ \pi(A_t\mid S_t,\boldsymbol{\theta})'}
+      - box: [0.5, 5.5, 12.4, 0.8]
+        size: 24
+        items:
+          - {text: '**Question:** which quantity gets a gradient from each loss?'}
+    minutes: 6
+    sources: ['old P46 (REINFORCE with baseline, two columns)', 'book box printed 330 / PDF 352', 'A3 starter; review R05']
+    notes: |
+      B08. For this update use baseline predictions from before this rollout was collected. Save those predictions, then fit
+      the baseline to the returns for future rollouts using its own step size α_w. The policy loss is the negative sum of
+      γ^t Â_t log π; stop gradients through Â_t. Differentiation of that loss changes the policy parameters. Separate value
+      regression changes w. Simply detaching a prediction fitted to the very same sampled actions does not remove statistical
+      dependence on those actions. The episode remains the sampling unit for averaging actor sums.
+
+  - id: B09
+    kind: math
+    title: Can the actor learn after one transition?
+    drawing:
+      - {box: [0.6, 1.2, 2.0, 0.8], text: 'Start', size: 20}
+      - {line: [2.6, 1.6, 5.2, 1.6], arrow: true, color: 'C00000', weight: 2}
+      - {label: 'right: 2', box: [3.2, 1.15, 1.4, 0.35], size: 18}
+      - {box: [5.2, 1.2, 2.0, 0.8], text: 'Upper', size: 20}
+      - {label: 'what was expected here', box: [0.2, 2.05, 2.8, 0.4], size: 18, red: true}
+      - {label: 'how the sampled action''s continuation is judged', box: [3.4, 2.05, 5.6, 0.4], size: 18, red: true}
+    body_box: [0.6, 2.8, 12.1, 1.0]
+    size: 24
+    eq_size: 28
+    body:
+      - {eq: '\delta_t=R_{t+1}+\gamma\hat{v}(S_{t+1},\mathbf{w})-\hat{v}(S_t,\mathbf{w})'}
+    blocks:
+      - box: [0.6, 3.8, 12.1, 1.3]
+        size: 24
+        eq_size: 26
+        items:
+          - {text: 'With the true state values:'}
+          - {eq: '\mathbb{E}_{\pi}[\delta_t\mid S_t=s,A_t=a]=A^{\pi}(s,a)'}
+      - box: [0.6, 5.5, 12.1, 0.8]
+        size: 24
+        items:
+          - {text: '**Question:** which prediction can depend on the action through the next state?'}
+    reveal: ['yaml:blocks.0']
+    minutes: 6
+    sources: ['old P48 (why bootstrap), P51 (conditional-mean identity)', 'book §13.5 printed 331 / PDF 353; §14.2', 'policy_gradients D12']
+    notes: |
+      B09. The expected reward plus discounted true successor value gives q^π(s, a) by the Bellman equation. Subtract the state
+      value to obtain the advantage. The actor can use γ^t δ_t ∇_θ log π(A_t | S_t, θ) immediately. Set terminal value to
+      zero. Second psychology cue: a prediction error measures how far the outcome departs from expectation; the same idea
+      appears in models of conditioning. Approximation errors in the successor estimate can be systematically different after
+      different actions.
+
+  - id: B10
+    kind: math
+    title: Can a critic reverse the update?
+    body_box: [0.6, 1.1, 12.1, 0.8]
+    size: 24
+    body:
+      - {text: 'Critic predictions: **start 3, upper 0, lower 3**'}
+    tables:
+      - box: [0.6, 2.0, 12.1]
+        size: 20
+        row_h: 0.65
+        widths: [3.0, 3.2, 5.4]
+        header: ['First action', 'True action value', 'One-step target using this critic']
+        rows:
+          - ['Right → upper', '3.5', '']
+          - ['Left → lower', '2.5', '']
+      - box: [0.6, 2.0, 12.1]
+        size: 20
+        row_h: 0.65
+        widths: [3.0, 3.2, 5.4]
+        header: ['First action', 'True action value', 'One-step target using this critic']
+        rows:
+          - ['Right → upper', '3.5', '2 + ½(0) = 2']
+          - ['Left → lower', '2.5', '2 + ½(3) = 3.5']
+    blocks:
+      - box: [0.6, 4.1, 7.0, 0.6]
+        size: 24
+        items:
+          - {text: '**Question:** which first action does this critic favor?'}
+      - box: [7.9, 4.1, 4.8, 0.6]
+        size: 24
+        items:
+          - {text: '**Left.**'}
+      - box: [0.6, 4.75, 12.1, 1.1]
+        size: 22
+        items:
+          - {text: '**Expected update to the shared preference at** $\theta=0$'}
+          - {text: 'True gradient **+0.5**; using this critic **−0.125**'}
+      - box: [0.6, 5.95, 12.1, 1.1]
+        size: 22
+        items:
+          - {text: '**Next (8.1):** after observing a transition, how should the critic learn and how should the actor use its judgment?'}
+    reveal: ['yaml:tables.1', 'yaml:blocks.1', 'yaml:blocks.2', 'yaml:blocks.3']
+    minutes: 6
+    sources: ['old P59 (bias, rebuilt with numbers)', 'constructed (check_policy_gradients_claude.py §9; review R01)']
+    notes: |
+      B10. Early predictions suffice for the error. The same current-state subtraction applies to both first actions. Exact
+      first-decision contribution: ½[(3.5−3)(+½)+(2.5−3)(−½)] = +0.25. With the critic: ½[(2−3)(+½)+(3.5−3)(−½)] = −0.375. At
+      the final decision the successor is terminal, so the error in the current branch value acts only as a state baseline.
+      The expected final contribution, including the outer ½ discount, is +0.25 for either critic. Totals are +0.5 and −0.125.
+      Keep the arithmetic supporting the second contribution in notes; students need only predict the changed ranking and
+      explain where the error enters. This example motivates 8.1's full update.
+
+  - id: ADM
+    kind: math
+    title: Project formulation and design checkpoint
+    body_box: [0.6, 1.3, 12.1, 4.5]
+    size: 24
+    body:
+      - {text: 'Bring:'}
+      - 'a runnable environment or data pipeline'
+      - 'a simple baseline'
+      - 'one planned comparison'
+      - 'an evaluation protocol'
+      - 'a compute budget with a fallback'
+    minutes: 0
+    sources: ['decisions/project_decisions.md, formulation/design']
+    notes: |
+      ADM. Five administrative minutes, separate from the 58 teaching minutes. Use the balance of the slot for checkpoint
+      questions.

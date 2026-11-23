@@ -1,0 +1,716 @@
+# Week 7 deck `policy_gradients`, session 7.1 portion (P00–D08): Claude's renderer input.
+# First draft: renderer input for the first render of this deck only (2026-11-23). Not maintained: the PPTX is the
+# source from that render on. Do not rebuild over the deck or treat this file as its current content.
+# Status: decisions/lectures/policy_gradients.md. Content: course/lectures/week07/policy_gradients_content.md (shared,
+# frozen at this render; slide IDs and order as there). Session 7.2 is built from policy_gradients_baseline_claude.yaml
+# and appended after D08 (scripts/append_slides_claude.py).
+#
+# Build:  python3 scripts/build_deck_claude.py course/lectures/week07/policy_gradients_claude.yaml
+# Render convention as in Weeks 5–6: title, displayed equations and tables, captions and the student question on the
+# slide; answers are click reveals; conditions and caveats in the notes (no-hedging rule).
+# Equations are native, from LaTeX in course notation; the old equations use π_θ(s, a), f, "E[V_0]" and similar.
+# Old slide numbers ("P") are PPTX positions of 7 - Policy Space Methods (68 slides).
+# Time: accepted allocation 59; targets 63 (D6, D13, D16) under the 63-minute delivery allowance.
+
+deck:
+  template: course/templates/lecture_template_claude.pptx
+  output: course/lectures/week07/policy_gradients_claude.pptx
+  preview: output/lectures/week07/policy_gradients_claude_preview.png
+  session_id: reinforce
+  qa_minutes: 0
+  time_override:
+    accepted_minutes: 63
+    authority: 'policy_gradients D6, D13, D16: 7.1 targets 63, under the 63-minute delivery allowance'
+  title: Policy gradients (sessions 7.1–7.2)
+  author: Barış Akgün
+  term: Fall 2026
+
+old: &old sources/current_course/7 - Policy Space Methods.pptx
+
+fork: &fork
+  - {box: [0.35, 2.45, 1.15, 0.6], text: 'Start', size: 18}
+  - {box: [2.95, 1.35, 1.15, 0.6], text: 'Upper', size: 18}
+  - {box: [2.95, 3.6, 1.15, 0.6], text: 'Lower', size: 18}
+  - {line: [1.5, 2.6, 2.95, 1.75], arrow: true, color: 'C00000', weight: 2}
+  - {line: [1.5, 2.9, 2.95, 3.8], arrow: true, color: '2F5597', weight: 2}
+  - {line: [4.1, 1.55, 5.75, 1.2], arrow: true, color: 'C00000', weight: 2}
+  - {line: [4.1, 1.75, 5.75, 2.2], arrow: true, color: '2F5597', weight: 2}
+  - {line: [4.1, 3.8, 5.75, 3.4], arrow: true, color: 'C00000', weight: 2}
+  - {line: [4.1, 4.0, 5.75, 4.4], arrow: true, color: '2F5597', weight: 2}
+  - {circle: [5.88, 1.2, 0.2], filled: true}
+  - {circle: [5.88, 2.2, 0.2], filled: true}
+  - {circle: [5.88, 3.4, 0.2], filled: true}
+  - {circle: [5.88, 4.4, 0.2], filled: true}
+  - {label: 'right: 2', box: [1.2, 1.78, 1.2, 0.32], size: 16}
+  - {label: 'left: 2', box: [1.2, 3.5, 1.2, 0.32], size: 16}
+  - {label: 'right: 4', box: [4.3, 0.98, 1.2, 0.32], size: 16}
+  - {label: 'left: 2', box: [4.3, 2.12, 1.2, 0.32], size: 16}
+  - {label: 'right: 2', box: [4.3, 3.2, 1.2, 0.32], size: 16}
+  - {label: 'left: 0', box: [4.3, 4.32, 1.2, 0.32], size: 16}
+
+
+slides:
+  - id: P00
+    kind: course_title
+    title: COMP438/538 Reinforcement Learning
+    topic: Policy Gradients
+    minutes: 0
+    sources: ['old P1 (title), Introduction title format']
+    notes: |
+      P00. Present the title while opening P01.
+
+  - id: P01
+    kind: math
+    title: Which torque keeps the pendulum upright?
+    figure:
+      deck: *old
+      slide: 41
+      exclude: ['Title 1', 'TextBox 21']
+      group: [1.6, 1.3, 2.6, 4.2]
+    drawing:
+      - {label: 'angle', box: [2.45, 1.0, 1.4, 0.4], size: 20, red: true}
+      - {label: 'torque', box: [3.9, 4.75, 1.4, 0.4], size: 20, red: true}
+    body_box: [6.2, 1.3, 6.8, 1.5]
+    size: 24
+    body:
+      - {text: 'We can run the pendulum and observe its motion. Which information should the controller use?'}
+    blocks:
+      - box: [6.2, 3.0, 6.8, 3.6]
+        size: 22
+        items:
+          - '**State:** angle and angular velocity'
+          - '**Action:** signed torque'
+          - '**Reward:** +1 for each transition ending within the upright range'
+          - '**Episode ends** on leaving that range'
+    reveal: ['yaml:blocks.0']
+    minutes: 2
+    sources: ['old P41 (pendulum drawing, symbols replaced by words)', 'Week 6 D13', 'policy_gradients D16']
+    notes: |
+      P01. Start near upright. At the same angle the pendulum can move toward upright or fall away; velocity
+      distinguishes those situations (is the angle alone Markov?). The physical dynamics are unknown to the learner.
+      Week 6's DQN compared one output per discrete action. With continuously variable torque, finding the greedy torque
+      would itself require an optimization. Introduce the alternative of directly producing an action distribution.
+
+  - id: P02
+    kind: math
+    title: Why represent the policy directly?
+    drawing:
+      - {box: [0.8, 1.35, 2.4, 0.9], text: 'State', size: 22}
+      - {line: [3.2, 1.8, 4.6, 1.8], arrow: true, weight: 2}
+      - {box: [4.6, 1.35, 3.4, 0.9], text: '$\pi(a\mid s,\boldsymbol{\theta})$', size: 24, tint: true}
+      - {line: [8.0, 1.8, 9.4, 1.8], arrow: true, weight: 2}
+      - {box: [9.4, 1.35, 2.4, 0.9], text: 'Action', size: 22}
+    body_box: [0.6, 2.8, 12.2, 4.0]
+    size: 24
+    body:
+      - 'Produce a continuous action directly'
+      - 'Learn how often to choose each action'
+      - 'Express a simple control rule, or prior knowledge about its form'
+      - 'Change probabilities smoothly as preferences change'
+    minutes: 2
+    sources: ['old P4–6 (purpose; the path is drawn natively, see review K44)', 'book §13.1 printed 322–324 / PDF 344–346', 'Week 6 D17 commitment, policy_gradients D6']
+    notes: |
+      P02. A corridor with an exit to the right can have a one-line rule even though values vary with distance. A small
+      change in either of two nearly tied Q estimates can flip the greedy action. In games such as rock–paper–scissors,
+      mixing actions can itself be the strategy. S01 gives the single-agent example. Avoid a blanket convergence claim.
+
+  - id: H01
+    kind: math
+    title: A controller can be scored by a trial
+    movies:
+      - {deck: *old, slide: 27, shape: 'AIBO WALK -- initial', box: [0.35, 1.0, 4.1, 2.8]}
+      - {deck: *old, slide: 27, shape: 'AIBO WALK -- finished', box: [4.65, 1.0, 4.1, 2.8]}
+    pictures:
+      - {deck: *old, slide: 28, shape: 'Picture 5', box: [9.6, 0.95, 2.6]}
+    drawing:
+      - {label: 'Initial gait', box: [0.35, 3.85, 4.1, 0.35], size: 16}
+      - {label: 'Trained gait', box: [4.65, 3.85, 4.1, 0.35], size: 16}
+      - {label: 'Gait parameters', box: [9.4, 4.3, 3.0, 0.35], size: 16}
+      - {label: 'Videos: Kohl and Stone, ICRA 2004', box: [0.35, 4.2, 8.4, 0.35], size: 14}
+      - {box: [0.5, 4.75, 3.3, 0.7], text: 'Choose gait parameters', size: 18}
+      - {line: [3.8, 5.1, 4.6, 5.1], arrow: true, weight: 2}
+      - {box: [4.6, 4.75, 3.0, 0.7], text: 'Walk the course', size: 18}
+      - {line: [7.6, 5.1, 8.4, 5.1], arrow: true, weight: 2}
+      - {box: [8.4, 4.75, 3.6, 0.7], text: 'Measure traversal time', size: 18}
+    body_box: [0.244, 5.7, 12.85, 0.5]
+    size: 22
+    body:
+      - {text: '**Question:** what observation would let us rank two parameter settings?'}
+    blocks:
+      - box: [0.244, 6.25, 12.85, 0.8]
+        size: 22
+        items:
+          - {text: 'Higher return = shorter traversal time. $J(\boldsymbol{\theta})$: the expected trial return.'}
+    reveal: ['yaml:blocks.0']
+    minutes: 3
+    sources: ['old P27 (both gait videos), P28 (gait-parameter picture, text as the three steps)', 'Kohl and Stone, ICRA 2004, as credited on old P27 (verify, D4)']
+    notes: |
+      H01. Take negative time as the return for a completed trial under a common protocol. A parameter vector specifies
+      the controller throughout that trial. A noisy trial supplies one estimate. Old P27 attributes the gait study to
+      Kohl and Stone (2004): VERIFY the original attribution and details (D4). Avoid numerical performance claims.
+
+  - id: H02
+    kind: math
+    title: Cross-entropy search over controllers
+    drawing:
+      - {box: [0.4, 1.2, 3.0, 3.0], text: ''}
+      - {box: [3.9, 1.2, 3.0, 3.0], text: ''}
+      - {line: [3.45, 2.7, 3.88, 2.7], arrow: true, weight: 2}
+      - {circle: [0.9, 1.7, 0.18]}
+      - {circle: [1.4, 3.6, 0.18]}
+      - {circle: [1.0, 2.9, 0.18]}
+      - {circle: [1.7, 2.4, 0.18]}
+      - {circle: [2.0, 3.2, 0.18]}
+      - {circle: [1.5, 1.8, 0.18]}
+      - {circle: [2.4, 2.6, 0.18]}
+      - {circle: [2.5, 1.7, 0.18], filled: true}
+      - {circle: [2.9, 2.1, 0.18], filled: true}
+      - {circle: [2.8, 1.6, 0.18], filled: true}
+      - {circle: [5.8, 1.7, 0.18]}
+      - {circle: [6.3, 2.1, 0.18]}
+      - {circle: [6.2, 1.6, 0.18]}
+      - {circle: [5.9, 2.2, 0.18]}
+      - {circle: [6.5, 1.8, 0.18]}
+      - {circle: [5.5, 1.9, 0.18]}
+      - {circle: [6.1, 1.9, 0.18]}
+      - {label: 'One dot = one controller; filled = top-scoring', box: [0.4, 4.3, 6.5, 0.4], size: 18}
+      - {label: 'Iteration 1', box: [0.4, 0.88, 3.0, 0.32], size: 16}
+      - {label: 'Iteration 2', box: [3.9, 0.88, 3.0, 0.32], size: 16}
+    body_box: [7.3, 1.1, 5.8, 4.2]
+    size: 22
+    body:
+      - {text: '1. Sample parameter vectors from a Gaussian'}
+      - {text: '2. Evaluate the sampled controllers'}
+      - {text: '3. Keep the top-scoring fraction'}
+      - {text: '4. Fit the next mean and spread to that fraction'}
+      - {text: 'Repeat.'}
+    blocks:
+      - box: [0.244, 5.4, 12.85, 0.6]
+        size: 22
+        items:
+          - {text: '**Question:** what moved between the two pictures?'}
+      - box: [0.244, 6.05, 12.85, 0.6]
+        size: 22
+        items:
+          - {text: 'The distribution over candidate controller parameters.'}
+    reveal: ['yaml:blocks.1']
+    minutes: 4
+    sources: ['old P17–20 (cross-entropy method; population drawing is new, review K44)', 'policy_gradients D9 (steps on the slide)']
+    notes: |
+      H02. It is the distribution over candidate controller parameters that moved. Later the Gaussian on S03 is a
+      distribution over torques for one controller in one state. P17–20 supply the historical example. VERIFY if
+      discussing Szita and Lőrincz's Tetris result or later evolution strategies (Salimans et al.) (D4); neither claim is
+      needed live.
+
+  - id: H03
+    kind: math
+    title: Which parameter change improves the gait?
+    body_box: [0.6, 1.2, 12.1, 1.6]
+    size: 24
+    eq_size: 30
+    body:
+      - {eq: '\frac{\partial J(\boldsymbol{\theta})}{\partial\theta_k}\approx\frac{J(\boldsymbol{\theta}+\epsilon\mathbf{u}_k)-J(\boldsymbol{\theta})}{\epsilon}'}
+    drawing:
+      - {box: [3.0, 3.15, 3.6, 0.7], text: 'One setting perturbed', size: 20, tint: true}
+      - {box: [7.2, 3.15, 3.6, 0.7], text: 'Reference setting', size: 20}
+    blocks:
+      - box: [0.6, 4.4, 12.1, 1.6]
+        size: 24
+        items:
+          - {text: '**Question:** which data did we use from each run? What else did we collect?'}
+      - box: [0.6, 5.4, 12.1, 1.2]
+        size: 22
+        items:
+          - {text: 'One number per run. Every run also contains its states, actions and the timing of rewards.'}
+    reveal: ['yaml:blocks.1']
+    minutes: 3
+    sources: ['old P24–25 (forward-difference equation, regenerated in course notation)', 'policy_gradients D2 (formula on the slide), D10 (symbols)']
+    notes: |
+      H03. u_k changes coordinate k only; ε is a small perturbation. For all coordinates, one reference setting plus one
+      perturbed setting per coordinate suffices, with repeated runs as needed at each setting. Matched random conditions
+      can reduce comparison noise. Here we compared whole-run returns. Actions, states and the timing of rewards will now
+      let us assign credit within a run. Recognition only.
+
+  - id: S01
+    kind: math
+    title: When always going right gets you stuck
+    pictures:
+      - {file: course/lectures/week07/assets/sutton_barto_ex13_1_corridor_claude.png, box: [0.5, 1.1, 5.2]}
+      - {file: course/lectures/week07/assets/sutton_barto_ex13_1_claude.png, box: [6.0, 1.05, 7.1]}
+    body_box: [0.4, 3.1, 5.5, 2.7]
+    size: 20
+    body:
+      - 'Start at the left end; each step costs 1'
+      - 'Middle state: right and left are reversed'
+      - 'All three states have the same policy features'
+      - '**Trace always-right. Now trace always-left.**'
+    blocks:
+      - box: [6.0, 4.95, 7.1, 1.0]
+        size: 22
+        items:
+          - {text: 'Best shared probability of right: about **0.59**.'}
+    footnote: 'Sutton and Barto, Example 13.1, p. 323.'
+    reveal: [['yaml:pictures.1', 'yaml:blocks.0']]
+    minutes: 3
+    sources: ['book Example 13.1 printed 323 / PDF 345 (both crops)', 'policy_gradients D5']
+    notes: |
+      S01. Always-right cycles between the first two cells. Always-left stays at the start. A stochastic memoryless policy
+      can produce the required right–left–right sequence. The graph shows expected start return (about −11.6 at the peak)
+      and motivates learning the probability. The book writes v with a subscript. Do not ask for a corridor calculation.
+
+  - id: S02
+    kind: math
+    title: Turn action preferences into probabilities
+    drawing:
+      - {box: [0.6, 1.5, 1.7, 0.8], text: 'State', size: 20}
+      - {line: [2.3, 1.9, 3.1, 1.9], arrow: true, weight: 2}
+      - {box: [3.1, 1.5, 3.4, 0.8], text: 'One preference per action', size: 18}
+      - {line: [6.5, 1.9, 7.3, 1.9], arrow: true, weight: 2}
+      - {box: [7.3, 1.5, 2.0, 0.8], text: 'Softmax', size: 20, tint: true}
+      - {line: [9.3, 1.9, 10.1, 1.9], arrow: true, weight: 2}
+      - {box: [10.1, 1.5, 2.6, 0.8], text: 'Probabilities', size: 20}
+    body_box: [0.6, 2.7, 12.1, 1.5]
+    size: 24
+    eq_size: 28
+    body:
+      - {eq: '\pi(a\mid s,\boldsymbol{\theta})=\frac{\exp\ h(s,a,\boldsymbol{\theta})}{\sum_{b\in\mathcal{A}(s)}\exp\ h(s,b,\boldsymbol{\theta})}'}
+    blocks:
+      - box: [0.6, 4.4, 12.1, 1.5]
+        size: 22
+        eq_size: 24
+        items:
+          - {text: 'For the upcoming fork: right preference $\theta$ and left preference 0 in every state.'}
+          - {eq: '\pi(\text{right}\mid s,\theta)=\frac{e^{\theta}}{1+e^{\theta}}'}
+      - box: [0.6, 6.05, 7.5, 0.6]
+        size: 22
+        items:
+          - {text: '**Question:** what does the agent do at $\theta=0$?'}
+      - box: [8.0, 6.05, 5.0, 0.6]
+        size: 22
+        items:
+          - {text: 'Right or left with equal probability.'}
+    reveal: ['yaml:blocks.2']
+    minutes: 3
+    sources: ['old P13–14 (discrete policy; "discreet" and f corrected), Deep PG P8 (output sketch)', 'book eq. 13.2']
+    notes: |
+      S02. At θ = 0 it samples right or left with equal probability. Increasing θ makes right more likely. A preference
+      specifies relative likelihood; its units differ from expected return. The shared preference is sufficient to favor
+      right at all three fork states.
+
+  - id: S03
+    kind: math
+    title: A distribution over pendulum torques
+    drawing:
+      - {line: [0.5, 5.6, 6.4, 5.6], arrow: true, weight: 1.5}
+      - {curve: [[0.6, 5.6], [0.74, 5.6], [0.88, 5.6], [1.02, 5.6], [1.16, 5.6], [1.3, 5.599], [1.44, 5.598], [1.58, 5.595], [1.72, 5.588], [1.86, 5.571], [2.0, 5.537], [2.14, 5.472], [2.28, 5.359], [2.42, 5.18], [2.56, 4.918], [2.7, 4.574], [2.84, 4.166], [2.98, 3.74], [3.12, 3.359], [3.26, 3.095], [3.4, 3.0], [3.54, 3.095], [3.68, 3.359], [3.82, 3.74], [3.96, 4.166], [4.1, 4.574], [4.24, 4.918], [4.38, 5.18], [4.52, 5.359], [4.66, 5.472], [4.8, 5.537], [4.94, 5.571], [5.08, 5.588], [5.22, 5.595], [5.36, 5.598], [5.5, 5.599], [5.64, 5.6], [5.78, 5.6], [5.92, 5.6], [6.06, 5.6], [6.2, 5.6]], color: 'C00000', weight: 2.5}
+      - {curve: [[0.6, 5.548], [0.74, 5.529], [0.88, 5.505], [1.02, 5.475], [1.16, 5.439], [1.3, 5.395], [1.44, 5.342], [1.58, 5.282], [1.72, 5.213], [1.86, 5.137], [2.0, 5.054], [2.14, 4.967], [2.28, 4.877], [2.42, 4.787], [2.56, 4.7], [2.7, 4.62], [2.84, 4.548], [2.98, 4.489], [3.12, 4.445], [3.26, 4.418], [3.4, 4.408], [3.54, 4.418], [3.68, 4.445], [3.82, 4.489], [3.96, 4.548], [4.1, 4.62], [4.24, 4.7], [4.38, 4.787], [4.52, 4.877], [4.66, 4.967], [4.8, 5.054], [4.94, 5.137], [5.08, 5.213], [5.22, 5.282], [5.36, 5.342], [5.5, 5.395], [5.64, 5.439], [5.78, 5.475], [5.92, 5.505], [6.06, 5.529], [6.2, 5.548]], color: '2F5597', weight: 2.5}
+      - {line: [3.4, 2.9, 3.4, 5.65], weight: 1}
+      - {label: 'mean', box: [2.7, 5.65, 1.4, 0.35], size: 16}
+      - {label: 'torque', box: [5.5, 5.65, 1.2, 0.35], size: 16}
+      - {label: 'small spread', box: [3.75, 3.1, 1.6, 0.35], size: 16}
+      - {label: 'large spread', box: [0.5, 4.35, 1.5, 0.35], size: 16}
+    body_box: [0.6, 1.05, 12.1, 1.5]
+    size: 24
+    eq_size: 26
+    body:
+      - {eq: '\pi(a\mid s,\boldsymbol{\theta})=\frac{1}{\sigma(s,\boldsymbol{\theta})\sqrt{2\pi}}\ \exp\left[-\frac{(a-\mu(s,\boldsymbol{\theta}))^2}{2\sigma(s,\boldsymbol{\theta})^2}\right]'}
+    figure:
+      deck: *old
+      slide: 41
+      exclude: ['Title 1', 'TextBox 21']
+      group: [7.6, 2.95, 1.3, 2.1]
+    blocks:
+      - box: [9.3, 3.0, 3.8, 1.8]
+        size: 20
+        items:
+          - {text: 'State: angle and angular velocity'}
+          - {text: 'Action: one sampled torque'}
+      - box: [7.0, 5.3, 6.1, 1.0]
+        size: 22
+        items:
+          - {text: '**Question:** which controller tries torques farther from its mean more often?'}
+    footnote: '$\mu(s,\boldsymbol{\theta})$ is the mean of the action distribution; Week 5 wrote $\mu^{\pi}(s)$ for the state distribution.'
+    minutes: 3
+    sources: ['old P15 (density equation, regenerated; densities drawn natively), P41 (pendulum)', 'book §13.7 printed 335–337 / PDF 357–359', 'policy_gradients D3, D16']
+    notes: |
+      S03. The wider density. Sample one torque at each decision. The mean depends on angle and angular velocity. A wider
+      density increases spread. The mean μ here differs from the policy-dependent state distribution μ^π(s) used in Week 5
+      (D3). Use an idealized real-valued commanded torque. D03 uses a fixed spread and linear mean.
+
+  - id: D01
+    kind: math
+    title: What changes when the policy changes?
+    drawing:
+      - *fork
+    body_box: [6.5, 1.1, 6.6, 2.4]
+    size: 22
+    eq_size: 24
+    body:
+      - {eq: 'J(\boldsymbol{\theta})=v^{\pi_{\boldsymbol{\theta}}}(s_0)=\mathbb{E}_{\pi_{\boldsymbol{\theta}}}[G_0]'}
+      - {eq: 'G_0=\sum_{t=0}^{T-1}\gamma^tR_{t+1}'}
+      - {eq: '\gamma=\frac{1}{2}'}
+    blocks:
+      - box: [0.4, 5.1, 12.6, 1.0]
+        size: 24
+        items:
+          - {text: '**Question:** if the policy chooses right more often, which observations in our training data change?'}
+    minutes: 3
+    sources: ['old P16 (episodic start value, 𝔼[V_0] → 𝔼[G_0]), P21–22 (ascent; why is the gradient harder?)', 'fork: ChatGPT proposal, check_policy_gradients_claude.py §9', 'policy_gradients D5']
+    notes: |
+      D01. Both action frequencies and visits to upper/lower change. The numbers printed on the branches stay fixed. Filled
+      dots are terminal. We need the derivative of expected return with respect to the policy parameters. First examine the
+      last decision in isolation.
+
+  - id: D02a
+    kind: math
+    title: One decision gives a gradient we can check
+    drawing:
+      - {box: [0.6, 1.75, 1.4, 0.7], text: 'Upper', size: 20}
+      - {line: [2.0, 2.0, 4.2, 1.5], arrow: true, color: 'C00000', weight: 2}
+      - {line: [2.0, 2.25, 4.2, 2.75], arrow: true, color: '2F5597', weight: 2}
+      - {circle: [4.35, 1.5, 0.2], filled: true}
+      - {circle: [4.35, 2.75, 0.2], filled: true}
+      - {label: 'right: 4', box: [2.4, 1.2, 1.2, 0.35], size: 18}
+      - {label: 'left: 2', box: [2.4, 2.65, 1.2, 0.35], size: 18}
+    body_box: [5.2, 1.2, 7.9, 2.2]
+    size: 22
+    eq_size: 24
+    body:
+      - {eq: 'J(\theta)=\sum_a\pi(a\mid\text{upper},\theta)\mathcal{R}(a)'}
+      - {eq: '\nabla\pi(a\mid s,\theta)=\pi(a\mid s,\theta)\nabla\log\ \pi(a\mid s,\theta)'}
+    blocks:
+      - box: [0.6, 4.0, 12.1, 1.1]
+        size: 24
+        eq_size: 28
+        items:
+          - {eq: '\nabla J(\theta)=\mathbb{E}_{\pi}\left[\mathcal{R}(A_0)\nabla\log\ \pi(A_0\mid\text{upper},\theta)\right]'}
+      - box: [0.6, 5.4, 12.1, 0.8]
+        size: 24
+        items:
+          - {text: 'The gradient of the log probability, $\nabla\log\ \pi(a\mid s,\theta)$, is the **score**.'}
+    reveal: [['yaml:blocks.0', 'yaml:blocks.1']]
+    minutes: 4
+    sources: ['old P33–34 (one-step derivation; "weakly depends on θ" line removed)', 'book printed 327–328', 'review C05']
+    notes: |
+      D02a. The first J on this slide starts at upper. Expand the two-action sum, differentiate the probabilities and use
+      the log derivative to turn the result into an expectation under the sampling policy. Positive movement along a nonzero
+      score increases the sampled action's log probability locally. The book also calls this the "eligibility vector."
+      Return to the original start-state objective on D04.
+
+  - id: D02b
+    kind: math
+    title: Check the score before trusting a sample
+    body_box: [0.6, 1.05, 12.1, 1.5]
+    size: 20
+    eq_size: 22
+    body:
+      - {eq: '\log\ \pi(\text{right})=\theta-\log(1+e^{\theta}),\qquad\log\ \pi(\text{left})=-\log(1+e^{\theta})'}
+    blocks:
+      - box: [0.6, 1.9, 12.1, 0.9]
+        size: 22
+        eq_size: 22
+        items:
+          - {eq: '\text{scores:}\ \ 1-\pi(\text{right})\ \ \text{and}\ \ -\pi(\text{right})'}
+      - box: [0.6, 5.2, 12.1, 0.6]
+        size: 22
+        items:
+          - {text: 'At $\theta=0$: fill in the last column, then average it.'}
+      - box: [0.6, 5.85, 12.1, 0.7]
+        size: 22
+        items:
+          - {text: 'Average = ½. Direct check: expected reward $2+2\pi(\text{right})$, derivative at 0: $2(\frac{1}{2})(\frac{1}{2})=\frac{1}{2}$.'}
+    tables:
+      - box: [2.0, 3.0, 9.3]
+        size: 22
+        row_h: 0.65
+        widths: [2.6, 2.2, 1.8, 2.7]
+        header: ['Upper action', 'Probability', 'Score', 'Reward × score']
+        rows:
+          - ['Right', '½', '+½', '']
+          - ['Left', '½', '−½', '']
+      - box: [2.0, 3.0, 9.3]
+        size: 22
+        row_h: 0.65
+        widths: [2.6, 2.2, 1.8, 2.7]
+        header: ['Upper action', 'Probability', 'Score', 'Reward × score']
+        rows:
+          - ['Right', '½', '+½', '**2**']
+          - ['Left', '½', '−½', '**−1**']
+    reveal: ['yaml:blocks.0', 'yaml:tables.1', 'yaml:blocks.2']
+    minutes: 3
+    sources: ['constructed (check_policy_gradients_claude.py §9; review C05)']
+    notes: |
+      D02b. Keep the binary policy from S02 in view. Average of the last column = ½. Direct check: expected reward is
+      2 + 2π(right), whose derivative at zero is 2(½)(½) = ½. A left sample favors left even though right is better; the
+      right contribution is larger on average. Use this same table again in B05.
+
+  - id: D03
+    kind: math
+    title: What does the torque score change?
+    drawing:
+      - {line: [0.5, 5.6, 6.4, 5.6], arrow: true, weight: 1.5}
+      - {curve: [[0.6, 5.6], [0.74, 5.6], [0.88, 5.6], [1.02, 5.6], [1.16, 5.6], [1.3, 5.599], [1.44, 5.598], [1.58, 5.595], [1.72, 5.588], [1.86, 5.571], [2.0, 5.537], [2.14, 5.472], [2.28, 5.359], [2.42, 5.18], [2.56, 4.918], [2.7, 4.574], [2.84, 4.166], [2.98, 3.74], [3.12, 3.359], [3.26, 3.095], [3.4, 3.0], [3.54, 3.095], [3.68, 3.359], [3.82, 3.74], [3.96, 4.166], [4.1, 4.574], [4.24, 4.918], [4.38, 5.18], [4.52, 5.359], [4.66, 5.472], [4.8, 5.537], [4.94, 5.571], [5.08, 5.588], [5.22, 5.595], [5.36, 5.598], [5.5, 5.599], [5.64, 5.6], [5.78, 5.6], [5.92, 5.6], [6.06, 5.6], [6.2, 5.6]], color: 'C00000', weight: 2.5}
+      - {line: [3.4, 2.9, 3.4, 5.65], weight: 1}
+      - {label: 'mean', box: [2.7, 5.65, 1.4, 0.35], size: 16}
+      - {circle: [4.6, 5.6, 0.2], filled: true}
+      - {label: 'sampled torque', box: [3.9, 5.75, 1.9, 0.35], size: 16}
+    body_box: [6.6, 1.3, 6.5, 1.6]
+    size: 22
+    eq_size: 24
+    body:
+      - {eq: '\mu(s,\boldsymbol{\theta})=\boldsymbol{\theta}^{\top}\mathbf{x}(s),\quad\sigma\ \text{fixed}'}
+    blocks:
+      - box: [6.6, 2.3, 6.5, 1.5]
+        size: 22
+        eq_size: 26
+        items:
+          - {eq: '\nabla\log\ \pi(a\mid s,\boldsymbol{\theta})=\frac{a-\mu(s,\boldsymbol{\theta})}{\sigma^2}\ \mathbf{x}(s)'}
+      - box: [6.6, 4.1, 6.5, 1.4]
+        size: 22
+        items:
+          - {text: 'A better-than-expected result gives this score positive weight. **Which way does the mean move at this state?**'}
+      - box: [6.6, 5.6, 6.5, 0.7]
+        size: 22
+        items:
+          - {text: 'Toward the sampled torque.'}
+    reveal: ['yaml:blocks.0', 'yaml:blocks.2']
+    minutes: 2
+    sources: ['old P37 (Gaussian score, mean parameters only)', 'policy_gradients D13']
+    notes: |
+      D03. Toward the sampled torque. Differentiating the quadratic log-density with respect to its mean gives (a − μ)/σ²;
+      differentiating the mean supplies the features. Hold σ fixed here. No pendulum arithmetic.
+
+  - id: D04a
+    kind: math
+    title: What is the probability of this episode?
+    drawing:
+      - *fork
+      - {outline: [0.3, 2.4, 1.25, 0.7]}
+      - {outline: [2.9, 1.3, 1.25, 0.7]}
+      - {label: 'One path: start → right → upper → left → terminal', box: [6.5, 2.4, 6.4, 0.5], size: 22, center: false}
+    body_box: [0.4, 4.6, 12.6, 1.1]
+    size: 22
+    eq_size: 24
+    body:
+      - {eq: '\Pr\{\tau\mid\boldsymbol{\theta}\}=\Pr\{S_0=s_0\}\prod_{t=0}^{T-1}\pi(a_t\mid s_t,\boldsymbol{\theta})\ \mathcal{M}(s_t,a_t,r_{t+1},s_{t+1})'}
+    blocks:
+      - box: [0.4, 5.75, 12.6, 0.5]
+        size: 22
+        items:
+          - {text: '**Question:** which factors change directly when we change the policy parameters?'}
+      - box: [0.4, 6.25, 12.6, 0.5]
+        size: 22
+        items:
+          - {text: 'Only the policy factors $\pi(a_t\mid s_t,\boldsymbol{\theta})$.'}
+    footnote: '$\tau$ is an episode (trajectory) here; Week 6 used $\tau$ for the Polyak averaging rate.'
+    reveal: ['yaml:blocks.1']
+    minutes: 4
+    sources: ['old P40 (board-derivation slot)', 'CS285 L5 pp. 5–6; CS224R L3 pp. 9–10', 'policy_gradients D3']
+    notes: |
+      D04a. τ is a realized episode; its entries are the lower-case values in this expression. Here τ means trajectory; in
+      Week 6 it denoted the Polyak update rate. The fixed start and environment dynamics do not depend on the parameters.
+      Their probabilities still influence which paths we observe. A finite, differentiable policy with fixed support
+      suffices for this board example.
+
+  - id: D04b
+    kind: math
+    title: Differentiate the path likelihood
+    body_box: [0.6, 1.2, 12.1, 1.0]
+    size: 24
+    body:
+      - {text: 'Expected return = sum over paths of probability × return.'}
+    blocks:
+      - box: [0.6, 2.1, 12.1, 1.5]
+        size: 24
+        eq_size: 28
+        items:
+          - {eq: '\nabla J(\boldsymbol{\theta})=\sum_{\tau}G_0(\tau)\ \Pr\{\tau\mid\boldsymbol{\theta}\}\ \nabla\log\ \Pr\{\tau\mid\boldsymbol{\theta}\}'}
+      - box: [0.6, 3.9, 12.1, 1.6]
+        size: 24
+        eq_size: 28
+        items:
+          - {eq: '=\mathbb{E}_{\pi_{\boldsymbol{\theta}}}\left[G_0\sum_{t=0}^{T-1}\nabla\log\ \pi(A_t\mid S_t,\boldsymbol{\theta})\right]'}
+    reveal: ['yaml:blocks.0', 'yaml:blocks.1']
+    minutes: 3
+    sources: ['old P40 (board derivation, now on slides)', 'CS285 L5 pp. 5–6; CS224R L3 pp. 9–10']
+    notes: |
+      D04b. G_0(τ) is the realized discounted return. Apply the one-decision identity to a whole path. The log of D04a's
+      product is a sum. The parameter-independent factors drop out of the derivative. Sampling episodes handles the
+      distribution of visited states.
+
+  - id: D05a
+    kind: math
+    title: Which reward can the second action influence?
+    drawing:
+      - {box: [1.2, 1.2, 1.6, 0.8], text: '$A_0$', size: 24, tint: true}
+      - {line: [2.8, 1.6, 4.2, 1.6], arrow: true, weight: 2}
+      - {box: [4.2, 1.2, 1.6, 0.8], text: '$R_1$', size: 24}
+      - {line: [5.8, 1.6, 7.2, 1.6], arrow: true, weight: 2}
+      - {box: [7.2, 1.2, 1.6, 0.8], text: '$A_1$', size: 24, tint: true}
+      - {line: [8.8, 1.6, 10.2, 1.6], arrow: true, weight: 2}
+      - {box: [10.2, 1.2, 1.6, 0.8], text: '$R_2$', size: 24}
+    body_box: [0.6, 2.5, 12.1, 2.2]
+    size: 24
+    eq_size: 28
+    body:
+      - {text: 'The last action''s full-return term:'}
+      - {eq: '(R_1+\gamma R_2)\ \nabla\log\ \pi(A_1\mid S_1,\boldsymbol{\theta})'}
+      - {text: '**Question:** which reward has already been received?'}
+    blocks:
+      - box: [0.6, 4.9, 12.1, 1.5]
+        size: 24
+        eq_size: 26
+        items:
+          - {text: '$R_1$. Its mean contribution at the upper branch, $\theta=0$:'}
+          - {eq: '2\left[\frac{1}{2}(+\frac{1}{2})+\frac{1}{2}(-\frac{1}{2})\right]=0'}
+    reveal: ['yaml:blocks.0']
+    minutes: 4
+    sources: ['CS285 L5 p. 18 (causality); CS224R L3 p. 14', 'policy_gradients D5 (fork)']
+    notes: |
+      D05a. Condition on the history immediately before A_1. The earlier reward is then fixed. The current action still
+      follows the policy, whose score averages to zero. This removes the earlier reward in expectation; individual
+      score-weighted samples change.
+
+  - id: D05b
+    kind: math
+    title: Assign each action its reward-to-go
+    drawing:
+      - {box: [0.8, 1.15, 5.0, 0.6], text: 'rewards before decision t', size: 18}
+      - {box: [5.9, 1.15, 6.4, 0.6], text: 'rewards that enter the reward-to-go', size: 18, tint: true}
+    body_box: [0.6, 2.0, 12.1, 2.6]
+    size: 24
+    eq_size: 26
+    body:
+      - {eq: 'G_t=\sum_{k=t}^{T-1}\gamma^{k-t}R_{k+1}'}
+      - {eq: '\nabla J(\boldsymbol{\theta})=\mathbb{E}_{\pi_{\boldsymbol{\theta}}}\left[\sum_{t=0}^{T-1}\gamma^tG_t\ \nabla\log\ \pi(A_t\mid S_t,\boldsymbol{\theta})\right]'}
+    blocks:
+      - box: [0.6, 4.9, 12.1, 0.6]
+        size: 24
+        items:
+          - {text: '**Question:** where did the outer factor come from?'}
+      - box: [0.6, 5.5, 12.1, 1.4]
+        size: 24
+        eq_size: 26
+        items:
+          - {eq: 'G_0=\sum_{k=0}^{t-1}\gamma^kR_{k+1}\ +\ \gamma^tG_t'}
+    reveal: ['yaml:blocks.1']
+    minutes: 4
+    sources: ['CS285 L5 p. 18', 'policy_gradients D1', 'review R03']
+    notes: |
+      D05b. The conditional zero-mean argument from D05a removes the prefix. The inner powers count time from the current
+      decision. The outer discount carries the remaining rewards back to the episode start.
+
+  - id: D06
+    kind: math
+    title: Two ways time enters the update
+    body_box: [0.6, 1.05, 12.1, 0.6]
+    size: 22
+    body:
+      - {text: '**Mean over the four fork episodes at** $\theta=0$'}
+    table_box: [0.8, 1.75, 11.7]
+    table:
+      size: 20
+      row_h: 0.62
+      widths: [8.0, 3.7]
+      header: ['Weight on the score', 'Mean contribution, summed over the episode']
+      rows:
+        - ['Start-state discounted objective, $\gamma^tG_t$, $\gamma$ = ½', '0.50']
+        - ['Give late decisions full weight, $G_t$, $\gamma$ = ½', '0.75']
+        - ['Undiscounted objective, $\gamma$ = 1', '1.00']
+    blocks:
+      - box: [0.6, 4.55, 12.1, 2.2]
+        size: 22
+        items:
+          - '**Most policy-gradient code drops the outer** $\gamma^t$**:** a deliberate approximation.'
+          - 'Keeping the discount inside the return shortens the credit horizon.'
+          - 'Dropping the outer discount gives later decisions full weight.'
+    minutes: 2
+    sources: ['check_policy_gradients_claude.py §9', 'Schulman et al., §2 and §4 (https://arxiv.org/abs/1506.02438)', 'Nota and Thomas (https://arxiv.org/abs/1906.07073)', 'policy_gradients D1, D8; review R09']
+    notes: |
+      D06. This deliberate approximation can be useful when late decisions matter. It generally changes the expected
+      direction and need not correspond to either exact objective. Nota and Thomas (v3, October 2026) also give a
+      counterexample in which the shortened update approaches a globally pessimal policy. These three numbers are means;
+      B01 works a single episode. At θ = 0 the discounted first-decision contribution averages ¼. The final decision
+      contributes ¼ with the outer discount or ½ without it. With γ = 1, the first contribution also becomes ½.
+      The first bullet puts the instructor's D1 note on the slide (the content file had it in the notes; review K45).
+
+  - id: D07a
+    kind: math
+    title: The policy-gradient theorem
+    body_box: [0.6, 1.4, 12.1, 1.0]
+    size: 24
+    eq_size: 28
+    body:
+      - {eq: '\mathbb{E}_{\pi}[G_t\mid S_t=s,A_t=a]=q^{\pi}(s,a)'}
+    blocks:
+      - box: [0.6, 2.9, 12.1, 1.8]
+        size: 24
+        eq_size: 28
+        items:
+          - {eq: '\nabla J(\boldsymbol{\theta})=\mathbb{E}_{\pi_{\boldsymbol{\theta}}}\left[\sum_{t=0}^{T-1}\gamma^t\ q^{\pi_{\boldsymbol{\theta}}}(S_t,A_t)\ \nabla\log\ \pi(A_t\mid S_t,\boldsymbol{\theta})\right]'}
+    footnote: 'Proof in Sutton and Barto §13.2, boxed argument on p. 325.'
+    reveal: ['yaml:blocks.0']
+    minutes: 3
+    sources: ['old P35 (start-state objective, expectation form)', 'book §13.2 printed 324–326, proof box printed 325 / PDF 347', 'policy_gradients D12; review R03']
+    notes: |
+      D07a. The score is fixed given state and action, so replacing the sampled weight by its conditional mean preserves the
+      expectation at each step. The time-summed form keeps the correct state weighting. The book's box treats the
+      undiscounted episodic case; Exercise 13.2 asks about discounting.
+
+  - id: D07b
+    kind: math
+    title: REINFORCE from one completed episode
+    drawing:
+      - {box: [0.6, 1.2, 12.1, 4.1], text: ''}
+    body_box: [0.95, 1.45, 11.5, 4.5]
+    size: 24
+    eq_size: 26
+    body:
+      - {text: '1. Collect one complete episode with policy parameters $\boldsymbol{\theta}$ fixed.'}
+      - {text: '2. Set $G_T=0$. Work backward: $G_t\leftarrow R_{t+1}+\gamma G_{t+1}$.'}
+      - {text: '3. Evaluate all scores at the collecting policy. Form'}
+      - {eq: '\hat{g}=\sum_{t=0}^{T-1}\gamma^tG_t\ \nabla\log\ \pi(A_t\mid S_t,\boldsymbol{\theta})'}
+      - {text: '4. Ascend once: $\boldsymbol{\theta}\leftarrow\boldsymbol{\theta}+\alpha_{\boldsymbol{\theta}}\hat{g}$. Collect fresh experience.'}
+    minutes: 4
+    sources: ['old P38–39 (REINFORCE; γ^t added, one update per episode)', 'book box printed 328 / PDF 350', 'Williams 1992 (verify, D4)', 'policy_gradients D12']
+    notes: |
+      D07b. A batch version averages episode sums before the update. Reward-to-go supplies the unknown action value in
+      expectation. If using gradient descent, minimize the negative weighted log-probability sum, treating the weights as
+      data. Distinguish this fixed-parameter episode update from the book's step-loop pseudocode. VERIFY the Williams (1992)
+      historical attribution and acronym expansion (D4); the expansion is omitted from the slide.
+
+  - id: D08
+    kind: math
+    title: Record the episode before updating
+    drawing:
+      - *fork
+    body_box: [6.4, 1.2, 6.7, 2.6]
+    size: 22
+    eq_size: 24
+    body:
+      - {eq: '\theta=0,\quad\gamma=\frac{1}{2},\quad\alpha_{\boldsymbol{\theta}}=0.1'}
+      - {text: 'Start → **right** → upper → **left** → terminal'}
+      - {text: 'Fill in: which rewards enter each return, and the sign of each score?'}
+    tables:
+      - box: [0.5, 5.0, 12.3]
+        size: 18
+        row_h: 0.5
+        widths: [0.6, 1.4, 1.4, 4.0, 2.0, 2.9]
+        header: ['$t$', 'Action', '$R_{t+1}$', 'Which rewards enter $G_t$?', 'Score sign', 'Weighted contribution']
+        rows:
+          - ['0', 'Right', '2', '', '', '']
+          - ['1', 'Left', '2', '', '', '']
+      - box: [0.5, 5.0, 12.3]
+        size: 18
+        row_h: 0.5
+        widths: [0.6, 1.4, 1.4, 4.0, 2.0, 2.9]
+        header: ['$t$', 'Action', '$R_{t+1}$', 'Which rewards enter $G_t$?', 'Score sign', 'Weighted contribution']
+        rows:
+          - ['0', 'Right', '2', 'First and second', '+', '']
+          - ['1', 'Left', '2', 'Second', '−', '']
+    reveal: ['yaml:tables.1']
+    minutes: 4
+    sources: ['constructed (check_policy_gradients_claude.py §9)', 'accepted worked activity: finish the sampled example in 7.2']
+    notes: |
+      D08. Students fill the reward membership and score signs. Reveal those two columns before the break. Keep the weighted
+      contributions for B01, which reuses the same tree and table. Filled dots are terminal.

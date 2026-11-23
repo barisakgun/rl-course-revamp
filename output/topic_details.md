@@ -600,7 +600,7 @@ Group `policy_history`. **Exposure (accepted); accepted mastery: recognize.**
 
 **Topics:** Direct policy search (`policy_search`); Cross-entropy optimization (`cross_entropy_method`); Finite-difference policy search (`finite_difference_policy_gradient`).
 
-Ten-minute historical overview of gradient-free search and finite differences. No mathematics or algorithms.
+Ten-minute historical overview of gradient-free search and finite differences. The finite-difference formula and the CEM steps may appear on slides so that students recognize the methods later (instructor, 2026-11-21 and 2026-11-23, policy_gradients D2 and D9); no other mathematics or algorithms.
 
 **Delivery:** live. **Sessions:** 7.1. **Proposed assessment path:** none.
 

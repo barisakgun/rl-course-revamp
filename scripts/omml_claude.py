@@ -2,8 +2,8 @@
 """Minimal LaTeX -> native PowerPoint equation (OMML) converter for Claude-built decks.
 
 Supports the subset used in lecture decks: letters/digits/operators, sub- and superscripts (x_t, x^{2}, x_a^b),
-\\sum with limits, \\frac, \\lim_{...}, \\mathcal{S}, \\mathbb{E}, \\text{...}, \\Pr, \\{ \\}, \\mid, \\doteq, \\ldots, \\cdots,
-Greek letters, primes, spacing commands, bold vectors \\mathbf{w}, accents \\hat{v}, \\nabla, \\top. Unsupported commands raise ValueError, so a typo cannot silently produce
+\\sum and \\prod with limits, \\frac, \\sqrt, tall \\left[ ... \\right], \\lim_{...}, \\mathcal{S}, \\mathbb{E}, \\text{...}, \\Pr, \\{ \\}, \\mid, \\doteq, \\ldots, \\cdots,
+Greek letters, primes, spacing commands, bold vectors \\mathbf{w} and \\boldsymbol{\\theta}, accents \\hat{v}, \\nabla, \\top. Unsupported commands raise ValueError, so a typo cannot silently produce
 a wrong equation. The output is editable in PowerPoint's equation editor; the LaTeX source is kept in the slide
 notes by the builder.
 
@@ -29,7 +29,7 @@ SYMBOLS = {
     'cdots': '⋯', 'to': '→', 'times': '×', 'in': '∈', 'leq': '≤', 'geq': '≥', 'neq': '≠', 'approx': '≈',
     'cdot': '·', 'pm': '±', 'quad': ' ', 'qquad': '  ', ',': ' ', ';': ' ', ' ': ' ',
     '{': '{', '}': '}', 'lvert': '|', 'rvert': '|', 'prime': '′', 'leftarrow': '←', 'sum': '∑',
-    'nabla': '∇', 'top': '⊤', 'sim': '∼', 'rightarrow': '→', 'll': '≪', 'gg': '≫',
+    'nabla': '∇', 'top': '⊤', 'sim': '∼', 'rightarrow': '→', 'll': '≪', 'gg': '≫', 'partial': '∂',
 }
 UPRIGHT_CMDS = {'Pr': 'Pr', 'max': 'max', 'min': 'min', 'lim': 'lim', 'arg': 'arg', 'log': 'log', 'exp': 'exp'}
 CAL = {c: ch for c, ch in zip('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵')}
@@ -109,12 +109,20 @@ class Parser:
                 return ('acc', '\u0302', self.group())
             if v in UPRIGHT_CMDS:
                 return ('t', UPRIGHT_CMDS[v], True)
-            if v == 'sum':
-                return ('sum',)
+            if v in ('sum', 'prod'):
+                return (v,)
+            if v == 'boldsymbol':                          # bold Greek vector, e.g. \\boldsymbol{\\theta}
+                name = self.raw_group().lstrip('\\')
+                return ('b', SYMBOLS.get(name, name))
+            if v == 'sqrt':
+                return ('rad', self.group())
+            if v == 'left':                                # growing delimiters: \\left[ ... \\right]
+                o = self.take()[1]; body = self.seq(('cmd', 'right')); self.take(); c = self.take()[1]
+                return ('d', o, c, body)
             if v == 'frac':
                 num = self.group(); den = self.group()
                 return ('frac', num, den)
-            if v in ('left', 'right', 'big', 'Big'):
+            if v in ('big', 'Big'):
                 return ('grp', [])
             if v in SYMBOLS:
                 return ('t', SYMBOLS[v], v not in ('gamma', 'pi', 'alpha', 'beta', 'delta', 'epsilon', 'lambda',
@@ -124,7 +132,7 @@ class Parser:
 
     def seq(self, end=None):
         out = []
-        while self.peek()[0] not in (None, end):
+        while self.peek()[0] is not None and self.peek()[0] != end and self.peek() != end:
             if self.peek()[0] == '}' and end is None:
                 raise ValueError('unbalanced }')
             base = self.atom()
@@ -135,9 +143,9 @@ class Parser:
                 k, _ = self.take()
                 if k == '_': sub = self.group()
                 else: sup = self.group()
-            if base[0] == 'sum':
+            if base[0] in ('sum', 'prod'):
                 body = self.seq(end)                       # \sum takes the rest of the expression
-                out.append(('nary', sub or [], sup or [], body)); break
+                out.append(('nary', sub or [], sup or [], body, '∏' if base[0] == 'prod' else '∑')); break
             out.append(('script', base, sub, sup) if (sub or sup) else base)
         return out
 
@@ -220,11 +228,21 @@ def _emit(items, parent, size, color):
             el = etree.SubElement(parent, M + 'f')
             n = etree.SubElement(el, M + 'num'); _emit(it[1], n, size, color)
             d = etree.SubElement(el, M + 'den'); _emit(it[2], d, size, color)
+        elif kind == 'rad':
+            el = etree.SubElement(parent, M + 'rad')
+            pr = etree.SubElement(el, M + 'radPr'); etree.SubElement(pr, M + 'degHide', {M + 'val': '1'})
+            etree.SubElement(el, M + 'deg')
+            e = etree.SubElement(el, M + 'e'); _emit(it[1], e, size, color)
+        elif kind == 'd':
+            el = etree.SubElement(parent, M + 'd')
+            pr = etree.SubElement(el, M + 'dPr')
+            etree.SubElement(pr, M + 'begChr', {M + 'val': it[1]}); etree.SubElement(pr, M + 'endChr', {M + 'val': it[2]})
+            e = etree.SubElement(el, M + 'e'); _emit(it[3], e, size, color)
         elif kind == 'nary':
-            _, sub, sup, body = it
+            _, sub, sup, body, op = it
             el = etree.SubElement(parent, M + 'nary')
             pr = etree.SubElement(el, M + 'naryPr')
-            etree.SubElement(pr, M + 'chr', {M + 'val': '∑'})
+            etree.SubElement(pr, M + 'chr', {M + 'val': op})
             if not sup:
                 etree.SubElement(pr, M + 'supHide', {M + 'val': '1'})
             s = etree.SubElement(el, M + 'sub'); _emit(sub, s, size, color)

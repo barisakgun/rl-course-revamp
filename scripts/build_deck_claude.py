@@ -191,7 +191,11 @@ def text_math(p, latex, size, color=INK, bold=False):
                 if it[3]:
                     emit(it[3], 30000, sz)
             elif it[0] == 'nary':
-                emit([('t', '∑', True)], baseline, sz); emit(it[3], baseline, sz)
+                emit([('t', it[4], True)], baseline, sz); emit(it[3], baseline, sz)
+            elif it[0] == 'rad':
+                emit([('t', '√', True)], baseline, sz); emit(it[1], baseline, sz)
+            elif it[0] == 'd':
+                emit([('t', it[1], True)], baseline, sz); emit(it[3], baseline, sz); emit([('t', it[2], True)], baseline, sz)
             elif it[0] == 'frac':
                 emit(it[1], baseline, sz); emit([('t', '/', True)], baseline, sz); emit(it[2], baseline, sz)
     emit(OMML.Parser(latex).seq())
@@ -792,10 +796,18 @@ def drawing(slide, items):
         elif 'line' in it:
             x1, y1, x2, y2 = it['line']
             ln = slide.shapes.add_connector(1, Inches(x1), Inches(y1), Inches(x2), Inches(y2))
-            ln.line.color.rgb = INK; ln.line.width = Pt(1.25)
+            ln.line.color.rgb = RGBColor.from_string(it.get('color', '262626')); ln.line.width = Pt(it.get('weight', 1.25))
             if it.get('arrow'):
                 l_ = ln.line._get_or_add_ln(); l_.append(l_.makeelement(qn('a:tailEnd'), {'type': 'triangle'}))
             ln.name = f'draw:{n}:line'
+        elif 'curve' in it:                                 # open polyline through [x, y] points (e.g. a density)
+            pts = [(Inches(a), Inches(b)) for a, b in it['curve']]
+            fb = slide.shapes.build_freeform(*pts[0])
+            fb.add_line_segments(pts[1:], close=False)
+            c = fb.convert_to_shape()
+            c.fill.background(); c.line.color.rgb = RGBColor.from_string(it.get('color', '262626'))
+            c.line.width = Pt(it.get('weight', 2)); c.shadow.inherit = False
+            c.name = f'draw:{n}:curve'
         elif 'box' in it and 'text' in it:                 # bordered text block (e.g. GPI diagram)
             x, y, w, h = it['box']
             b = box(slide, x, y, w, h, TINT if it.get('tint') else LIGHT, line=RGBColor(0xA6, 0xA6, 0xA6),
@@ -816,6 +828,18 @@ def drawing(slide, items):
                      name=f'draw:{n}:label')
         else:
             raise ValueError(f'drawing item {n}: unknown primitive {sorted(it)}')
+
+
+def movie(slide, mv, i):
+    """Embed a video copied from an old deck slide (by shape name), keeping its poster frame."""
+    src = Presentation(ROOT / mv['deck']).slides[mv['slide'] - 1]
+    sh = next(x for x in src.shapes if x.name == mv['shape'])
+    rid = sh._element.xpath('.//a:videoFile/@r:link')[0]
+    poster = src.part.related_part(sh._element.xpath('.//a:blip/@r:embed')[0]).blob
+    video = src.part.rels[rid].target_part
+    m = slide.shapes.add_movie(io.BytesIO(video.blob), *[Inches(v) for v in mv['box']],
+                               poster_frame_image=io.BytesIO(poster), mime_type=video.content_type)
+    m.name = f'native:movie:{i}'
 
 
 def terminal_variant(slide, fig):
@@ -865,7 +889,9 @@ def k_math(slide, s, img):
             p.crop_left, p.crop_top, p.crop_right, p.crop_bottom = l, t, r, b
             p.height = int(h)
     if s.get('drawing'):
-        drawing(slide, s['drawing'])
+        drawing(slide, [x for it in s['drawing'] for x in (it if isinstance(it, list) else [it])])  # lists: reused anchors
+    for i, mv in enumerate(s.get('movies', [])):           # embedded video of an old deck slide, with its poster picture
+        movie(slide, mv, i)
     bx = s.get('body_box', [MX, TOP, W - 2 * MX, BOTTOM - TOP])
     if s.get('body'):
         tb = textbox(slide, *bx[:3], bx[3] if len(bx) > 3 else BOTTOM - bx[1], name='yaml:body')
@@ -932,6 +958,14 @@ def add_reveals(slide, steps):
            + (f'<p:bldLst>{bld}</p:bldLst>' if bld else '') + '</p:timing>')
     el = etree.fromstring(xml)
     sld = slide._element
+    old = sld.find(P + 'timing')                           # a video added its own timing: keep one block, merge the video
+    if old is not None:
+        root = el.find(f'{P}tnLst/{P}par/{P}cTn/{P}childTnLst')
+        for v in old.iter(P + 'video'):
+            for c in v.iter(P + 'cTn'):
+                n[0] += 1; c.set('id', str(n[0]))
+            root.append(copy.deepcopy(v))
+        sld.remove(old)
     anchor = sld.find(P + 'clrMapOvr')
     (anchor if anchor is not None else sld.cSld).addnext(el)
 

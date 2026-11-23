@@ -162,7 +162,7 @@ Teaching 1450.5 + additional administration 19 = 1469.5 of 1,527 usable minutes;
 
 **Worked activity:** Bias/Double Q/Double DQN contrast (20 minutes), then replay/target ablation reasoning (15 minutes). Within the same example, map online selection versus target evaluation to the Double DQN patch (estimated 3–5 minutes inside the existing double-estimator segment).
 
-**Pacing:** Rainbow and extension catalog removed; protect the main DQN mechanism. Confidence: medium.
+**Pacing:** Protect the main DQN mechanism. Extensions (Rainbow and its components) get one 3-minute overview slide, exposure only and not assessed (instructor, 2026-11-18; decision log). Confidence: medium.
 
 ### 7.1 — Policy-search history and REINFORCE
 

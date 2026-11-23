@@ -392,7 +392,7 @@ Group: `policy_history`.
 
 **exposure** (accepted); accepted mastery: recognize; status: historically-important; delivery: live.
 
-Accepted scope: Ten-minute historical overview of gradient-free search and finite differences. No mathematics or algorithms.
+Accepted scope: Ten-minute historical overview of gradient-free search and finite differences. The finite-difference formula and the CEM steps may appear on slides so that students recognize the methods later (instructor, 2026-11-21 and 2026-11-23, policy_gradients D2 and D9); no other mathematics or algorithms.
 
 Topic IDs: `policy_search`, `cross_entropy_method`, `finite_difference_policy_gradient`.
 
